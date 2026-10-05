@@ -1,0 +1,14 @@
+# Standalone runner: torchrun ... scripts/train_loopwam.py --config THIS_FILE --output-dir RUN
+version: v1
+init_artifact: checkpoints/LoopWAM/wan21_compact_donors.pt
+vae_path: checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+dataset_dir: data/lerobot_v30/libero_10_no_noops_lerobot
+text_cache_dir: data/text_embeds_cache/libero
+epochs: 10
+global_batch: 128
+microbatch: 2
+workers: 4
+seed: 42
+checkpoint_blocks: false
+save_every: 100
+validation_samples: 8

@@ -1,0 +1,7 @@
+_target_: fastwam.models.wan22.loopwam.create_loopwam
+init_artifact: checkpoints/LoopWAM/wan21_compact_donors.pt
+vae_path: checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+version: v0
+loops: 4
+checkpoint_blocks: false
+exit_weight_scale: 1.0
