@@ -117,24 +117,30 @@ def _read_unique_prompts(dataset_dirs: list[str]) -> list[str]:
     total_task_rows = 0
 
     for ds_dir in dataset_dirs:
-        tasks_path = Path(ds_dir) / "meta" / "tasks.jsonl"
-        if not tasks_path.exists():
-            raise FileNotFoundError(f"Missing tasks file: {tasks_path}")
+        meta_dir = Path(ds_dir) / "meta"
+        jsonl_path = meta_dir / "tasks.jsonl"
+        parquet_path = meta_dir / "tasks.parquet"
+        if jsonl_path.exists():
+            with jsonl_path.open("r", encoding="utf-8") as f:
+                tasks = (json.loads(line)["task"] for line in f if line.strip())
+                task_names = list(tasks)
+        elif parquet_path.exists():
+            import pyarrow.parquet as pq
 
-        with tasks_path.open("r", encoding="utf-8") as f:
-            for line_idx, line in enumerate(f, start=1):
-                line = line.strip()
-                if not line:
-                    continue
-                record = json.loads(line)
-                if "task" not in record:
-                    raise KeyError(f"Missing `task` field at {tasks_path}:{line_idx}")
-                task = str(record["task"])
-                prompt = DEFAULT_PROMPT.format(task=task)
-                total_task_rows += 1
-                if prompt not in seen:
-                    seen.add(prompt)
-                    prompts.append(prompt)
+            table = pq.read_table(parquet_path)
+            task_column = "task" if "task" in table.column_names else "__index_level_0__"
+            if task_column not in table.column_names:
+                raise KeyError(f"Missing task text column in {parquet_path}: {table.column_names}")
+            task_names = table[task_column].to_pylist()
+        else:
+            raise FileNotFoundError(f"Missing tasks file: {jsonl_path} or {parquet_path}")
+
+        for task in task_names:
+            prompt = DEFAULT_PROMPT.format(task=str(task))
+            total_task_rows += 1
+            if prompt not in seen:
+                seen.add(prompt)
+                prompts.append(prompt)
 
     logger.info(
         "Loaded %d task rows from %d datasets, deduplicated to %d prompts.",
@@ -201,7 +207,7 @@ def main(cfg: DictConfig):
             raise ValueError("No `dataset_dirs` found under `cfg.data`.")
         prompts = _read_unique_prompts(dataset_dirs)
     if not prompts:
-        logger.warning("No prompts found from tasks.jsonl; nothing to do.")
+        logger.warning("No prompts found in dataset task metadata; nothing to do.")
         return
 
     if torch.cuda.is_available():
