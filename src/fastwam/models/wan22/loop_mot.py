@@ -10,6 +10,7 @@ import torch.nn.functional as F
 from torch.utils.checkpoint import checkpoint
 
 from .mot import MoT
+from .wan_video_dit import flash_attention
 
 
 def xsa_projection(attention_out: torch.Tensor, own_query_value: torch.Tensor,
@@ -22,6 +23,29 @@ def xsa_projection(attention_out: torch.Tensor, own_query_value: torch.Tensor,
     own = own_query_value.float().reshape(*shape[:-1], num_heads, -1)
     unit = F.normalize(own, dim=-1, eps=1e-12)
     return (out - (out * unit).sum(dim=-1, keepdim=True) * unit).reshape(shape).to(attention_out.dtype)
+
+
+def structured_mixed_attention(
+    q_video: torch.Tensor, k_video: torch.Tensor, v_video: torch.Tensor,
+    q_action: torch.Tensor, k_action: torch.Tensor, v_action: torch.Tensor,
+    observation_tokens: int, num_heads: int,
+) -> torch.Tensor:
+    """Exact canonical F/U/A attention using mask-free SDPA calls.
+
+    Callers must establish the canonical mask first: observed video reads only
+    observed video, future video reads all video, and actions read observed video
+    plus actions. Text cross-attention and XSA are outside this operation.
+    """
+    n = observation_tokens
+    if isinstance(n, bool) or not isinstance(n, int) or not 0 < n <= q_video.shape[1]:
+        raise ValueError("observation_tokens must be a positive video-prefix length.")
+    observed = flash_attention(q_video[:, :n], k_video[:, :n], v_video[:, :n], num_heads)
+    parts = [observed]
+    if q_video.shape[1] > n:
+        parts.append(flash_attention(q_video[:, n:], k_video, v_video, num_heads))
+    parts.append(flash_attention(q_action, torch.cat((k_video[:, :n], k_action), dim=1),
+                                torch.cat((v_video[:, :n], v_action), dim=1), num_heads))
+    return torch.cat(parts, dim=1)
 
 
 class LoopMoT(MoT):
@@ -60,6 +84,9 @@ class LoopMoT(MoT):
         self.checkpoint_blocks = bool(checkpoint_blocks)
         self.collect_diagnostics = bool(collect_diagnostics)
         self.last_diagnostics: dict[str, torch.Tensor] = {}
+        # Explicit runtime optimization; model weights and mask semantics do not change.
+        self.structured_attention = False
+        self.structured_attention_observation_tokens: Optional[int] = None
 
     @staticmethod
     def _validate_loops(loops: int) -> int:
@@ -97,17 +124,22 @@ class LoopMoT(MoT):
 
     def _joint_block(self, physical_index, video_tokens, action_tokens, video_freqs,
                      action_freqs, video_t_mod, action_t_mod, video_context,
-                     video_context_mask, action_context, action_context_mask, attention_mask):
+                     video_context_mask, action_context, action_context_mask, attention_mask,
+                     structured_observation_tokens=None):
         video_block = self.mixtures["video"].blocks[physical_index]
         action_block = self.mixtures["action"].blocks[physical_index]
         video_io = self._build_expert_attention_io(
             self.mixtures["video"], video_block, video_tokens, video_freqs, video_t_mod)
         action_io = self._build_expert_attention_io(
             self.mixtures["action"], action_block, action_tokens, action_freqs, action_t_mod)
-        mixed = self._mixed_attention(
-            torch.cat((video_io[0], action_io[0]), dim=1),
-            torch.cat((video_io[1], action_io[1]), dim=1),
-            torch.cat((video_io[2], action_io[2]), dim=1), attention_mask)
+        if structured_observation_tokens is None:
+            mixed = self._mixed_attention(
+                torch.cat((video_io[0], action_io[0]), dim=1),
+                torch.cat((video_io[1], action_io[1]), dim=1),
+                torch.cat((video_io[2], action_io[2]), dim=1), attention_mask)
+        else:
+            mixed = structured_mixed_attention(*video_io[:3], *action_io[:3],
+                observation_tokens=structured_observation_tokens, num_heads=self.num_heads)
         if self.version == "v2" and 3 <= physical_index < 9:
             mixed = xsa_projection(mixed, torch.cat((video_io[2], action_io[2]), dim=1), self.num_heads)
         n = video_tokens.shape[1]
@@ -120,6 +152,24 @@ class LoopMoT(MoT):
         if self.checkpoint_blocks and self.training and torch.is_grad_enabled():
             return checkpoint(fn, video_tokens, action_tokens, *conditioning, use_reentrant=False)
         return fn(video_tokens, action_tokens, *conditioning)
+
+    def _validate_structured_mask(self, attention_mask, video_tokens):
+        observed = self.structured_attention_observation_tokens
+        if (isinstance(observed, bool) or not isinstance(observed, int)
+                or not 0 < observed <= video_tokens):
+            raise ValueError("Set structured_attention_observation_tokens to the clean observation-prefix length.")
+        if attention_mask.ndim != 2 or attention_mask.dtype != torch.bool:
+            raise ValueError("Structured attention requires the canonical 2D boolean mask.")
+        expected = torch.zeros_like(attention_mask)
+        expected[:observed, :observed] = True
+        expected[observed:video_tokens, :video_tokens] = True
+        expected[video_tokens:, :observed] = True
+        expected[video_tokens:, video_tokens:] = True
+        # Validate once per forward, outside checkpoint recomputation. On CUDA
+        # this check stays on device rather than synchronizing with the host.
+        torch._assert_async((attention_mask == expected).all(),
+                            "Structured attention requires the canonical F/U/A mask.")
+        return observed
 
     def forward_joint_exits(
         self, video_tokens: torch.Tensor, action_tokens: torch.Tensor,
@@ -143,8 +193,11 @@ class LoopMoT(MoT):
             raise ValueError("Joint attention mask must match the combined token sequence.")
         if self.compile_training_layers:
             raise ValueError("LoopMoT layer compilation is not enabled; compile verified fixed-K callables explicitly.")
+        observed = (self._validate_structured_mask(attention_mask, video_tokens.shape[1])
+                    if self.structured_attention else None)
         conditioning = (video_freqs, action_freqs, video_t_mod, action_t_mod,
-                        video_context, video_context_mask, action_context, action_context_mask, attention_mask)
+                        video_context, video_context_mask, action_context, action_context_mask,
+                        attention_mask, observed)
         state = (video_tokens, action_tokens)
         for i in range(3):
             state = self._run_pair(i, *state, conditioning)

@@ -56,6 +56,7 @@ class MarkedDataset(torch.utils.data.Dataset):
     def __getitem__(self, index):
         sample = dict(self.data[max(index,0)])
         sample['sample_valid'] = index >= 0
+        sample['training_index'] = index
         if index < 0:
             sample['action_is_pad'] = torch.ones_like(sample['action_is_pad'],dtype=torch.bool)
             sample['image_is_pad'] = torch.ones_like(sample['image_is_pad'],dtype=torch.bool)
@@ -106,6 +107,10 @@ def main():
     p.add_argument('--workers',type=int,default=4)
     p.add_argument('--seed',type=int,default=42)
     p.add_argument('--checkpoint-blocks',action='store_true')
+    p.add_argument('--fused-optimizer',action='store_true')
+    p.add_argument('--bucket-views',action='store_true')
+    p.add_argument('--structured-attention',action='store_true')
+    p.add_argument('--latent-cache-dir',default=None)
     p.add_argument('--save-every',type=int,default=100)
     p.add_argument('--resume',default=None)
     p.add_argument('--validation-samples',type=int,default=8)
@@ -152,8 +157,10 @@ def main():
     count=sum(p.numel() for p in params)
     if count!=584536135:
         raise AssertionError(f'Unexpected policy parameter count {count}')
-    opt=torch.optim.AdamW(params,lr=1e-4,betas=(.9,.95),eps=1e-8,weight_decay=.01,foreach=False)
+    opt=torch.optim.AdamW(params,lr=1e-4,betas=(.9,.95),eps=1e-8,weight_decay=.01,foreach=False,fused=args.fused_optimizer)
     model.train()
+    model.mot.structured_attention=args.structured_attention
+    model.mot.structured_attention_observation_tokens=392
     if hasattr(model.mot, 'collect_diagnostics'): model.mot.collect_diagnostics=True
     resume_state=None
     if args.resume:
@@ -164,14 +171,21 @@ def main():
                       train_windows=len(train),planned_updates=total,version=args.version,
                       normalization_sha256=data_manifest['normalization_sha256'])
         if resume_state['contract']!=expected: raise ValueError('Resume training contract changed')
-    runner=DDP(model,device_ids=[local],broadcast_buffers=False,find_unused_parameters=False) if world>1 else model
+    runner=DDP(model,device_ids=None,broadcast_buffers=False,find_unused_parameters=False,gradient_as_bucket_view=args.bucket_views) if world>1 else model
     # Different independent noise streams after identical construction on all ranks.
     torch.manual_seed(args.seed+rank)
     from fastwam.models.wan22.loopwam_init import sha256_file
     asset_hashes=[None]
     if rank==0: asset_hashes[0]=dict(vae=sha256_file(args.vae_path), initialization=sha256_file(args.init_artifact))
     if world>1: dist.broadcast_object_list(asset_hashes,src=0)
-    manifest=dict(vars(args),world_size=world,gradient_accumulation=accum,policy_parameters=count,
+    if args.latent_cache_dir:
+        from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache, latent_cache_provenance
+        provenance=latent_cache_provenance(data_manifest,asset_hashes[0]['vae'])
+        if rank==0: LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance,create=True).close()
+        if world>1: dist.barrier()
+        model.training_latent_cache=LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance)
+
+    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,
         asset_sha256=asset_hashes[0],initialization_metadata=model.architecture_metadata,
         train_windows=len(train),val_windows=len(val),updates_per_epoch=updates_per_epoch,
         planned_updates=total,planned_windows=args.epochs*len(train),data=data_manifest,
@@ -179,7 +193,7 @@ def main():
         optimizer='AdamW replicated (DDP)',torch_version=torch.__version__,cuda=torch.version.cuda,
         gpu=torch.cuda.get_device_name(),git_revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         code_files_sha256={str(path): __import__('hashlib').sha256(path.read_bytes()).hexdigest() for path in
-            [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/datasets/loopwam_long.py')]},
+            [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/datasets/loopwam_long.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/datasets/loopwam_latent_cache.py')]},
         branch=subprocess.check_output(['git','branch','--show-current'],text=True).strip(),
         slurm_job_id=os.getenv('SLURM_JOB_ID'),setup_seconds=time.perf_counter()-setup_start)
     if rank==0:
@@ -187,7 +201,7 @@ def main():
         manifest_path.write_text(json.dumps(manifest,indent=2,default=str))
         print(json.dumps({'event':'ready', 'version':args.version,'parameters':count,'train_windows':len(train),
             'planned_updates':total,'global_batch':args.global_batch,'microbatch':args.microbatch,'world_size':world,
-            'accumulation':accum,'setup_seconds':manifest['setup_seconds']}),flush=True)
+            'accumulation':accum,'initialization_mode':manifest['initialization_mode'],'optimizer_state_entries_before_training':len(opt.state),'setup_seconds':manifest['setup_seconds']}),flush=True)
     if args.smoke:
         sample=next(iter(loader))
         with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
@@ -218,6 +232,7 @@ def main():
         sampler.epoch=epoch
         sampler.start_batch=start_micro if epoch==start_epoch else 0
         group_start=time.perf_counter(); group_logs={}; group_windows=0
+        group_finite=torch.ones((),device='cuda',dtype=torch.bool)
         for micro,sample in enumerate(loader,start=sampler.start_batch):
             group=micro//accum
             valid_global=min(args.global_batch,len(train)-group*args.global_batch)
@@ -226,7 +241,7 @@ def main():
             with context:
                 with torch.autocast('cuda',dtype=torch.bfloat16):
                     loss,logs=runner(sample)
-                if not torch.isfinite(loss): raise FloatingPointError('Nonfinite training loss')
+                group_finite &= torch.isfinite(loss.detach())
                 # Per-rank model loss is a microbatch mean, including dummy zero losses.
                 # DDP averages gradients across ranks; this yields the exact global mean.
                 (loss*(world*args.microbatch/valid_global)).backward()
@@ -234,6 +249,8 @@ def main():
             for key,value in logs.items():
                 group_logs[key]=group_logs.get(key,torch.zeros((),device=loss.device))+value*args.microbatch
             if not boundary: continue
+            if world>1: dist.all_reduce(group_finite,op=dist.ReduceOp.MIN)
+            if not bool(group_finite): raise FloatingPointError('Nonfinite accumulated training loss')
             missing=[name for name,p in model.named_parameters() if p.requires_grad and p.grad is None]
             if args.smoke and missing: raise AssertionError(f'Missing gradients: {missing}')
             grad=torch.nn.utils.clip_grad_norm_(params,1.0,error_if_nonfinite=True)
@@ -249,13 +266,15 @@ def main():
             if world>1:
                 dist.all_reduce(elapsed_t,op=dist.ReduceOp.MAX); dist.all_reduce(windows_t)
                 dist.all_reduce(memory,op=dist.ReduceOp.MAX)
-                for value in group_logs.values(): dist.all_reduce(value)
+                packed_logs=torch.stack(list(group_logs.values()))
+                dist.all_reduce(packed_logs)
+                group_logs=dict(zip(group_logs,packed_logs.unbind()))
             elapsed=float(elapsed_t); actual_windows=int(windows_t)
             if actual_windows!=valid_global: raise AssertionError('Global window accounting mismatch')
             update+=1; windows_seen+=actual_windows; timings.append(elapsed)
             record=dict(update=update,epoch=epoch+1,windows=actual_windows,windows_seen=windows_seen,
                 effective_passes=windows_seen/len(train),seconds=elapsed,lr=learning_rate,grad_norm=float(grad),
-                branch_grad_after_clip=branch_grad,peak_allocated_gb=float(memory[0]),peak_reserved_gb=float(memory[1]),
+                branch_grad_after_clip=branch_grad,latent_cache_rank_local=getattr(getattr(model,'training_latent_cache',None),'stats',None),peak_allocated_gb=float(memory[0]),peak_reserved_gb=float(memory[1]),
                 **{key:float(value)/valid_global for key,value in group_logs.items()})
             if rank==0:
                 print(json.dumps(record),flush=True); logfile.write(json.dumps(record)+'\n'); logfile.flush()
@@ -269,6 +288,10 @@ def main():
                     latest=record)
                 (out/'timing.json').write_text(json.dumps(summary,indent=2))
             epoch_done=micro+1==len(loader)
+            if epoch_done and args.latent_cache_dir and rank==0:
+                coverage=int(np.count_nonzero(np.memmap(Path(args.latent_cache_dir)/'valid.uint8',mode='r',dtype=np.uint8)==1))
+                if not args.resume and coverage!=len(train): raise AssertionError('Fresh full epoch did not populate every real latent cache entry')
+                logfile.write(json.dumps(dict(event='latent_cache_coverage',epoch=epoch+1,valid_windows=coverage,total_windows=len(train)))+'\n'); logfile.flush()
             if epoch_done and args.validation_samples>0 and rank==0:
                 validation=evaluate_open_loop(model,val,args.validation_samples,args.seed)
                 logfile.write(json.dumps(dict(event='validation',update=update,epoch=epoch+1,**validation))+'\n'); logfile.flush()
@@ -286,6 +309,7 @@ def main():
                     (out/'trainer_state.json').write_text(json.dumps(dict(epoch=epoch,micro=micro,update=update,windows_seen=windows_seen)))
                 if world>1: dist.barrier()
             group_start=time.perf_counter(); group_logs={}; group_windows=0
+            group_finite.fill_(True)
             if stop: break
         if stop: break
     if rank==0:

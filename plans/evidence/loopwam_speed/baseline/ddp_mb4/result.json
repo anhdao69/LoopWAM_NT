@@ -1,0 +1,83 @@
+{
+  "backend": "ddp",
+  "microbatch": 4,
+  "accumulation": 16,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": false,
+  "records": [
+    {
+      "update": 1,
+      "seconds": 9.251205444335938,
+      "allocated_gb": 31.370080947875977,
+      "reserved_gb": 34.69318389892578,
+      "loss": 2.201664924621582,
+      "grad_norm": 15.511744499206543,
+      "data_wait_seconds": 1.1137896071886644,
+      "vae_cuda_seconds": 3.076653015136719,
+      "forward_cuda_seconds": 4.917723785400391,
+      "backward_cuda_seconds": 3.1680062408447265,
+      "optimizer_cuda_seconds": 0.05469283182430081
+    },
+    {
+      "update": 2,
+      "seconds": 7.05163049697876,
+      "allocated_gb": 36.11643981933594,
+      "reserved_gb": 38.13041687011719,
+      "loss": 3.9420289993286133,
+      "grad_norm": 47.03181076049805,
+      "data_wait_seconds": 0.007897657109424472,
+      "vae_cuda_seconds": 2.6410675354003907,
+      "forward_cuda_seconds": 4.099472244262695,
+      "backward_cuda_seconds": 2.937811965942383,
+      "optimizer_cuda_seconds": 0.013962784159230069
+    },
+    {
+      "update": 3,
+      "seconds": 7.16418981552124,
+      "allocated_gb": 36.11643981933594,
+      "reserved_gb": 38.13041687011719,
+      "loss": 1.7998974323272705,
+      "grad_norm": 16.061767578125,
+      "data_wait_seconds": 0.007241105893626809,
+      "vae_cuda_seconds": 2.6432547760009766,
+      "forward_cuda_seconds": 4.176561981201172,
+      "backward_cuda_seconds": 2.9734212951660157,
+      "optimizer_cuda_seconds": 0.013299743621842936
+    },
+    {
+      "update": 4,
+      "seconds": 7.048064231872559,
+      "allocated_gb": 36.11643981933594,
+      "reserved_gb": 38.13041687011719,
+      "loss": 1.8831303119659424,
+      "grad_norm": 15.648066520690918,
+      "data_wait_seconds": 0.0048096467508003116,
+      "vae_cuda_seconds": 2.6411845703125,
+      "forward_cuda_seconds": 4.075807968139649,
+      "backward_cuda_seconds": 2.953185089111328,
+      "optimizer_cuda_seconds": 0.018159200914902612
+    },
+    {
+      "update": 5,
+      "seconds": 7.106986999511719,
+      "allocated_gb": 36.11643981933594,
+      "reserved_gb": 38.13041687011719,
+      "loss": 1.2943682670593262,
+      "grad_norm": 7.760683536529541,
+      "data_wait_seconds": 0.016173342242836952,
+      "vae_cuda_seconds": 2.6433846893310546,
+      "forward_cuda_seconds": 4.124806274414063,
+      "backward_cuda_seconds": 2.9671620025634766,
+      "optimizer_cuda_seconds": 0.013456383664393798
+    }
+  ],
+  "steady_seconds": 7.106413682301839,
+  "projected_10epochs_hours": 14.311527554635648,
+  "precision": {
+    "policy_dtype": "float32",
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ]
+  }
+}

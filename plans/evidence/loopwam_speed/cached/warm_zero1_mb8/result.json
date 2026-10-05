@@ -1,0 +1,173 @@
+{
+  "source_sha256": {
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/scripts/benchmark_loopwam.py": "674e47e6d3a6501e4105eb354e60f4edd907be75e8a6a8e44c0ee61b3ec5f2d2",
+    "src/fastwam/models/wan22/loop_mot.py": "78745fb4744dfc52bfeab01ea437bafbbcf0ad66c7c761ffd6c61de59256a6d5",
+    "src/fastwam/models/wan22/loopwam.py": "1bd739247d3f095eba559c651873e580ab45d4f195667b3211ba4764fcfdabe9",
+    "src/fastwam/models/wan22/loopwam_init.py": "28ea0ab0190c76759e2959e6339718df963f378501e3e96de48e2414bd034945",
+    "src/fastwam/models/wan22/fastwam.py": "08888ed2b011b9d712a07bc8513aea2f3a61de023b7af2b28292fca7d45cf00d",
+    "src/fastwam/training_backends.py": "e53a95318f255177d9b729be2822c7e6217fb54e2b03334f63a1dd2726b7f731"
+  },
+  "backend": "zero1",
+  "microbatch": 8,
+  "accumulation": 8,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": true,
+  "latent_cache_dir": "runs/loopwam_nt/latent_cache_v1",
+  "cache_stats": {
+    "hits": 640,
+    "misses": 0,
+    "dummy_encodes": 0,
+    "encoder_samples": 0,
+    "batches": 80,
+    "read_seconds": 1.0284184666816145,
+    "encode_seconds": 0.0,
+    "write_seconds": 0.0
+  },
+  "records": [
+    {
+      "update": 1,
+      "seconds": 6.960874080657959,
+      "allocated_gb": 53.97928237915039,
+      "reserved_gb": 58.6007194519043,
+      "loss": 2.149111270904541,
+      "grad_norm": 15.508136749267578,
+      "data_wait_seconds": 1.9665870518656448,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.1002550048828126,
+      "backward_cuda_seconds": 2.7734054260253904,
+      "optimizer_cuda_seconds": 0.13176498977001758
+    },
+    {
+      "update": 2,
+      "seconds": 3.73366641998291,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 4.343121528625488,
+      "grad_norm": 51.943241119384766,
+      "data_wait_seconds": 0.002580679953098297,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.1604424896240235,
+      "backward_cuda_seconds": 2.5493909606933594,
+      "optimizer_cuda_seconds": 0.023323679126333444
+    },
+    {
+      "update": 3,
+      "seconds": 3.855409622192383,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.685964584350586,
+      "grad_norm": 15.990532875061035,
+      "data_wait_seconds": 0.019107694854028523,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2640694427490233,
+      "backward_cuda_seconds": 2.5330460510253907,
+      "optimizer_cuda_seconds": 0.03783651253581047
+    },
+    {
+      "update": 4,
+      "seconds": 3.871159553527832,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.749147891998291,
+      "grad_norm": 16.02280616760254,
+      "data_wait_seconds": 0.01527863519731909,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2509763031005858,
+      "backward_cuda_seconds": 2.573255432128906,
+      "optimizer_cuda_seconds": 0.030335648313164713
+    },
+    {
+      "update": 5,
+      "seconds": 3.9263808727264404,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.2805954217910767,
+      "grad_norm": 6.886429786682129,
+      "data_wait_seconds": 0.017788706114515662,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2898605346679688,
+      "backward_cuda_seconds": 2.583585754394531,
+      "optimizer_cuda_seconds": 0.0344590725004673
+    },
+    {
+      "update": 6,
+      "seconds": 3.8924145698547363,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.6300299167633057,
+      "grad_norm": 15.56098461151123,
+      "data_wait_seconds": 0.003706205985508859,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.3232125091552733,
+      "backward_cuda_seconds": 2.5301593017578123,
+      "optimizer_cuda_seconds": 0.03422576007246971
+    },
+    {
+      "update": 7,
+      "seconds": 3.9308927059173584,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.3230278491973877,
+      "grad_norm": 10.419682502746582,
+      "data_wait_seconds": 0.04765325121115893,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.343300277709961,
+      "backward_cuda_seconds": 2.5102262268066404,
+      "optimizer_cuda_seconds": 0.02748966471850872
+    },
+    {
+      "update": 8,
+      "seconds": 3.9053831100463867,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.0037319660186768,
+      "grad_norm": 5.467434406280518,
+      "data_wait_seconds": 0.0392557259183377,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.3114838256835937,
+      "backward_cuda_seconds": 2.522707824707031,
+      "optimizer_cuda_seconds": 0.030663520187139512
+    },
+    {
+      "update": 9,
+      "seconds": 3.93599271774292,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 1.1907051801681519,
+      "grad_norm": 8.70667552947998,
+      "data_wait_seconds": 0.041565895080566406,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.3212174377441406,
+      "backward_cuda_seconds": 2.5438636474609373,
+      "optimizer_cuda_seconds": 0.02814096058905125
+    },
+    {
+      "update": 10,
+      "seconds": 3.891592025756836,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043,
+      "loss": 0.9977217316627502,
+      "grad_norm": 6.192946910858154,
+      "data_wait_seconds": 0.03548614529427141,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2828191833496094,
+      "backward_cuda_seconds": 2.542123992919922,
+      "optimizer_cuda_seconds": 0.0298718082010746
+    }
+  ],
+  "steady_seconds": 3.9011531472206116,
+  "projected_10epochs_hours": 7.85648897704151,
+  "precision": {
+    "policy_dtype": "float32",
+    "policy_parameters": 584536135,
+    "master_dtype": "float32",
+    "local_master_elements": 292268068,
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ],
+    "optimizer_state_initialized": true,
+    "compute_dtype": "bfloat16",
+    "communication_dtype": "float32"
+  }
+}

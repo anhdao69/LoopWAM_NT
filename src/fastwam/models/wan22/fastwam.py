@@ -282,6 +282,9 @@ class FastWAM(torch.nn.Module):
             frames.append(Image.fromarray(frame))
         return frames
 
+    def _encode_training_video(self, sample, input_video, tiled=False):
+        return self._encode_video_latents(input_video.to(device=self.device, dtype=self.torch_dtype, non_blocking=True), tiled=tiled)
+
     def build_inputs(self, sample, tiled: bool = False):
         video = sample["video"]
         proprio = sample.get("proprio", None)
@@ -336,8 +339,7 @@ class FastWAM(torch.nn.Module):
                     f"got {tuple(image_is_pad.shape)} vs expected ({batch_size}, {num_frames})"
                 )
         
-        input_video = video.to(device=self.device, dtype=self.torch_dtype, non_blocking=True)
-        input_latents = self._encode_video_latents(input_video, tiled=tiled)
+        input_latents = self._encode_training_video(sample, video, tiled=tiled)
         context = sample.get("context")
         context_mask = sample.get("context_mask")
         if context is None and context_mask is None:

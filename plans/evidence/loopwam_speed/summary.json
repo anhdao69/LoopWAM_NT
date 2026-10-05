@@ -1,0 +1,134 @@
+{
+  "selected": "DDP fusedAdamW, bucketviews, structuralattention, lazy BF16latentcache",
+  "global_batch": 128,
+  "microbatch_per_gpu": 8,
+  "world_size": 2,
+  "accumulation": 8,
+  "epochs": 10,
+  "updates": 7250,
+  "fresh_initialization": true,
+  "checkpoint_resume": null,
+  "first_epoch_seconds_per_update": 6.265377759933472,
+  "cached_seconds_per_update": 3.8112753033638,
+  "projected_ten_epoch_hours": 8.169713952889046,
+  "projection_note": "Includes one entirely cold cache population epoch, excludes setup/checkpoint/validation overhead; measurements are short-run projections, not completed training.",
+  "trials": [
+    {
+      "trial": "baseline/ddp_mb2",
+      "backend": "ddp",
+      "microbatch": 2,
+      "accumulation": 32,
+      "seconds": 9.492654800415039,
+      "allocated_gb": 24.77696990966797,
+      "reserved_gb": 26.06760025024414
+    },
+    {
+      "trial": "baseline/ddp_mb2_unfused",
+      "backend": "ddp",
+      "microbatch": 2,
+      "accumulation": 32,
+      "seconds": 9.682203610738119,
+      "allocated_gb": 24.776620864868164,
+      "reserved_gb": 26.06760025024414
+    },
+    {
+      "trial": "baseline/ddp_mb4",
+      "backend": "ddp",
+      "microbatch": 4,
+      "accumulation": 16,
+      "seconds": 7.106413682301839,
+      "allocated_gb": 36.11643981933594,
+      "reserved_gb": 38.13041687011719
+    },
+    {
+      "trial": "baseline/ddp_mb8",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.265943686167399,
+      "allocated_gb": 58.57685470581055,
+      "reserved_gb": 62.321067810058594
+    },
+    {
+      "trial": "baseline/zero1_mb8",
+      "backend": "zero1",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.311212062835693,
+      "allocated_gb": 55.35980987548828,
+      "reserved_gb": 62.63144302368164
+    },
+    {
+      "trial": "baseline/zero2_mb8",
+      "backend": "zero2",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.420852820078532,
+      "allocated_gb": 53.988826751708984,
+      "reserved_gb": 56.7216682434082
+    },
+    {
+      "trial": "cached/fill_ddp_mb8",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.265377759933472,
+      "allocated_gb": 59.2913818359375,
+      "reserved_gb": 60.637054443359375
+    },
+    {
+      "trial": "cached/warm_ddp_mb8",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 3.8112753033638,
+      "allocated_gb": 59.48317337036133,
+      "reserved_gb": 59.909339904785156
+    },
+    {
+      "trial": "cached/warm_zero1_mb8",
+      "backend": "zero1",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 3.9011531472206116,
+      "allocated_gb": 56.31072235107422,
+      "reserved_gb": 58.6007194519043
+    },
+    {
+      "trial": "cached/warm_zero2_mb8",
+      "backend": "zero2",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 4.073223352432251,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289
+    },
+    {
+      "trial": "structured/ddp_mb8",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.14860471089681,
+      "allocated_gb": 59.39020538330078,
+      "reserved_gb": 60.73142623901367
+    },
+    {
+      "trial": "structured/zero1_mb8",
+      "backend": "zero1",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.1645816167195635,
+      "allocated_gb": 56.18131637573242,
+      "reserved_gb": 60.8509635925293
+    },
+    {
+      "trial": "structured/zero2_mb8",
+      "backend": "zero2",
+      "microbatch": 8,
+      "accumulation": 8,
+      "seconds": 6.311547756195068,
+      "allocated_gb": 54.816986083984375,
+      "reserved_gb": 57.21869659423828
+    }
+  ]
+}

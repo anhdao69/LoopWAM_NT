@@ -1,5 +1,7 @@
 # LoopWAM_NT implementation and H100 run report
 
+**Historical run report:** the original v0 run was stopped at update161 for throughput benchmarking. The user requested a fresh optimized restart. See [the speed report](performance/LoopWAM_v0_speed_report.md) for the replacement run and current timing.
+
 ## Scope and status
 
 Implements the supplied LoopWAM-S v0/v1/v2 design in FastWAM, based on `7faa71108368fbb3b6885649f112af607427a2d4`. Existing environment edits are preserved. The compact policy has **584,536,135 trainable parameters**, excluding the frozen Wan2.1 VAE. Neither a robot teacher nor a robot-trained checkpoint is used.
@@ -17,9 +19,9 @@ Available LIBERO-Long data contains 388 demonstrations, not 500. Per-task determ
 
 Global 128 = 2 GPUs × microbatch 2 × 32 accumulation. Each epoch has 724 full updates and one 6-window tail update, with gradients normalized by the actual valid count. No tail windows are dropped or counted twice. Ten epochs = 7,250 optimizer updates and 926,780 real windows.
 
-## Production launch
+## Original production launch (stopped)
 
-The full v0 run is running in **Slurm step 4689.49**, on worker-2's two H100s, from source commit `ca8df93a59a527d2cdd660e1a437e53c84d86ac2` on `LoopWAM_NT`. It starts from the original canonical Wan initialization, not a smoke checkpoint. The first full global-128 update completed with finite losses and gradients.
+The original full v0 run ran in **Slurm step 4689.49**, on worker-2's two H100s, from source commit `ca8df93a59a527d2cdd660e1a437e53c84d86ac2` on `LoopWAM_NT`. It starts from the original canonical Wan initialization, not a smoke checkpoint. The first full global-128 update completed with finite losses and gradients.
 
 Output: `/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_long_bs128_20261005/`.
 
@@ -84,7 +86,7 @@ Standalone checkpoint reconstruction is available through `create_loopwam(checkp
 - Replicated DDP AdamW replaces the proposed ZeRO-1 starting point because measured memory fits comfortably. FP32 optimizer/master state is explicit; no activation checkpointing needed.
 - Use the actual 388-demo data and record the per-task split; no 500-demo result is implied.
 - Existing T5 caches lack embedded generation provenance. Both official Wan families and the local downloaded encoder share the verified same SHA256; cache files are individually hashed. See `LoopWAM_Data_Audit.md`.
-- Frozen VAE encoding remains online. Latent caching is a future throughput optimization requiring its own anchoring/cache checks.
+- This historical run used online frozen VAE encoding. The subsequent speed report covers the validated latent cache.
 - D12/D30 are initialization/equivalence controls, not trained baselines in this task. No scientific performance comparison is claimed.
 
 Local timing evidence is preserved in `plans/evidence/loopwam_nt/`. Full source/data manifests and training logs remain in the remote run directories. Final ten-epoch elapsed time and control quality remain pending because training is running.

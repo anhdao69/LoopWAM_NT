@@ -1,0 +1,173 @@
+{
+  "source_sha256": {
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/scripts/benchmark_loopwam.py": "674e47e6d3a6501e4105eb354e60f4edd907be75e8a6a8e44c0ee61b3ec5f2d2",
+    "src/fastwam/models/wan22/loop_mot.py": "78745fb4744dfc52bfeab01ea437bafbbcf0ad66c7c761ffd6c61de59256a6d5",
+    "src/fastwam/models/wan22/loopwam.py": "1bd739247d3f095eba559c651873e580ab45d4f195667b3211ba4764fcfdabe9",
+    "src/fastwam/models/wan22/loopwam_init.py": "28ea0ab0190c76759e2959e6339718df963f378501e3e96de48e2414bd034945",
+    "src/fastwam/models/wan22/fastwam.py": "08888ed2b011b9d712a07bc8513aea2f3a61de023b7af2b28292fca7d45cf00d",
+    "src/fastwam/training_backends.py": "e53a95318f255177d9b729be2822c7e6217fb54e2b03334f63a1dd2726b7f731"
+  },
+  "backend": "zero2",
+  "microbatch": 8,
+  "accumulation": 8,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": true,
+  "latent_cache_dir": "runs/loopwam_nt/latent_cache_v1",
+  "cache_stats": {
+    "hits": 640,
+    "misses": 0,
+    "dummy_encodes": 0,
+    "encoder_samples": 0,
+    "batches": 80,
+    "read_seconds": 0.7380978715373203,
+    "encode_seconds": 0.0,
+    "write_seconds": 0.0
+  },
+  "records": [
+    {
+      "update": 1,
+      "seconds": 7.352691650390625,
+      "allocated_gb": 52.56220245361328,
+      "reserved_gb": 57.49551773071289,
+      "loss": 2.149111270904541,
+      "grad_norm": 15.50748062133789,
+      "data_wait_seconds": 2.0240503208478913,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.1174662170410157,
+      "backward_cuda_seconds": 3.056726348876953,
+      "optimizer_cuda_seconds": 0.15507078258506954
+    },
+    {
+      "update": 2,
+      "seconds": 4.013011455535889,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 4.352658271789551,
+      "grad_norm": 52.0263786315918,
+      "data_wait_seconds": 0.0026238529244437814,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2842557525634766,
+      "backward_cuda_seconds": 2.696117156982422,
+      "optimizer_cuda_seconds": 0.030395871688146146
+    },
+    {
+      "update": 3,
+      "seconds": 4.050583362579346,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.6802284717559814,
+      "grad_norm": 15.915331840515137,
+      "data_wait_seconds": 0.03924253082368523,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2887191925048829,
+      "backward_cuda_seconds": 2.691618072509766,
+      "optimizer_cuda_seconds": 0.030313535679131746
+    },
+    {
+      "update": 4,
+      "seconds": 4.100522041320801,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.756054401397705,
+      "grad_norm": 16.12818717956543,
+      "data_wait_seconds": 0.01168396882712841,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2773832092285156,
+      "backward_cuda_seconds": 2.7828190002441406,
+      "optimizer_cuda_seconds": 0.02795711973309517
+    },
+    {
+      "update": 5,
+      "seconds": 4.094247341156006,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.277424931526184,
+      "grad_norm": 6.7296319007873535,
+      "data_wait_seconds": 0.026971273822709918,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2927228240966797,
+      "backward_cuda_seconds": 2.7469769897460936,
+      "optimizer_cuda_seconds": 0.026974272660911083
+    },
+    {
+      "update": 6,
+      "seconds": 4.083333492279053,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.6347100734710693,
+      "grad_norm": 15.649165153503418,
+      "data_wait_seconds": 0.011872175964526832,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2521947326660157,
+      "backward_cuda_seconds": 2.7907242736816404,
+      "optimizer_cuda_seconds": 0.0279863036647439
+    },
+    {
+      "update": 7,
+      "seconds": 4.069636344909668,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.3343331813812256,
+      "grad_norm": 10.518285751342773,
+      "data_wait_seconds": 0.03981499990914017,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2859685668945313,
+      "backward_cuda_seconds": 2.714916015625,
+      "optimizer_cuda_seconds": 0.02823222345113754
+    },
+    {
+      "update": 8,
+      "seconds": 4.125413417816162,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.0027880668640137,
+      "grad_norm": 5.378496170043945,
+      "data_wait_seconds": 0.02837515203282237,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.3542876892089843,
+      "backward_cuda_seconds": 2.716785125732422,
+      "optimizer_cuda_seconds": 0.02530217584967613
+    },
+    {
+      "update": 9,
+      "seconds": 4.027773857116699,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.1968061923980713,
+      "grad_norm": 8.816173553466797,
+      "data_wait_seconds": 0.010329701006412506,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.257352783203125,
+      "backward_cuda_seconds": 2.725931396484375,
+      "optimizer_cuda_seconds": 0.03348880019783974
+    },
+    {
+      "update": 10,
+      "seconds": 4.034276962280273,
+      "allocated_gb": 54.900306701660156,
+      "reserved_gb": 57.49551773071289,
+      "loss": 1.0083085298538208,
+      "grad_norm": 6.411218643188477,
+      "data_wait_seconds": 0.015683257137425244,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.2624219512939454,
+      "backward_cuda_seconds": 2.7277561645507813,
+      "optimizer_cuda_seconds": 0.026709023278206588
+    }
+  ],
+  "steady_seconds": 4.073223352432251,
+  "projected_10epochs_hours": 8.203019251426062,
+  "precision": {
+    "policy_dtype": "float32",
+    "policy_parameters": 584536135,
+    "master_dtype": "float32",
+    "local_master_elements": 292268068,
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ],
+    "optimizer_state_initialized": true,
+    "compute_dtype": "bfloat16",
+    "communication_dtype": "float32"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "backend": "ddp",
+  "microbatch": 2,
+  "accumulation": 32,
+  "global_batch": 128,
+  "fused": false,
+  "records": [
+    {
+      "update": 1,
+      "seconds": 11.649176597595215,
+      "allocated_gb": 20.03194808959961,
+      "reserved_gb": 20.902313232421875,
+      "loss": 2.140869379043579,
+      "grad_norm": 14.457171440124512,
+      "data_wait_seconds": 0.6376254727365449,
+      "forward_cuda_seconds": 6.346617614746093,
+      "backward_cuda_seconds": 4.603223014831543,
+      "optimizer_cuda_seconds": 0.06532243135641329
+    },
+    {
+      "update": 2,
+      "seconds": 9.77125072479248,
+      "allocated_gb": 24.76997947692871,
+      "reserved_gb": 26.065502166748047,
+      "loss": 5.022416114807129,
+      "grad_norm": 60.95293426513672,
+      "data_wait_seconds": 0.013791718054562807,
+      "forward_cuda_seconds": 5.012256149291992,
+      "backward_cuda_seconds": 4.719481231689453,
+      "optimizer_cuda_seconds": 0.035548961020074786
+    },
+    {
+      "update": 3,
+      "seconds": 9.356549263000488,
+      "allocated_gb": 24.776620864868164,
+      "reserved_gb": 26.06760025024414,
+      "loss": 1.670412302017212,
+      "grad_norm": 16.260770797729492,
+      "data_wait_seconds": 0.009562315186485648,
+      "forward_cuda_seconds": 5.167666549682617,
+      "backward_cuda_seconds": 4.146645423889161,
+      "optimizer_cuda_seconds": 0.03491452738060616
+    },
+    {
+      "update": 4,
+      "seconds": 9.758637428283691,
+      "allocated_gb": 24.776620864868164,
+      "reserved_gb": 26.06760025024414,
+      "loss": 1.9119563102722168,
+      "grad_norm": 17.52703857421875,
+      "data_wait_seconds": 0.010180585901252925,
+      "forward_cuda_seconds": 5.491960220336914,
+      "backward_cuda_seconds": 4.22797802734375,
+      "optimizer_cuda_seconds": 0.034113663698313756
+    },
+    {
+      "update": 5,
+      "seconds": 9.931424140930176,
+      "allocated_gb": 24.776620864868164,
+      "reserved_gb": 26.06760025024414,
+      "loss": 1.2117961645126343,
+      "grad_norm": 6.774439811706543,
+      "data_wait_seconds": 0.009003153420053422,
+      "forward_cuda_seconds": 5.63765641784668,
+      "backward_cuda_seconds": 4.25921834564209,
+      "optimizer_cuda_seconds": 0.03311155119002797
+    }
+  ],
+  "steady_seconds": 9.682203610738119,
+  "projected_10epochs_hours": 19.49888227162538,
+  "precision": {
+    "policy_dtype": "float32",
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ]
+  }
+}

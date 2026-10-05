@@ -57,8 +57,11 @@ class LoopWAM(FastWAM):
         if tiled:
             raise ValueError('Initial LoopWAM uses untiled per-clip VAE encoding')
         dtype = next(self.vae.parameters()).dtype
-        # Native encode clears its temporal feature cache for every call.
-        return self.vae.model.encode(video_tensor.to(device=self.device, dtype=dtype), self.vae.scale).to(self.torch_dtype)
+        latents = self.vae.model.encode(video_tensor.to(device=self.device, dtype=dtype), self.vae.scale)
+        # Frozen per-clip encoding is complete. Native encode resets at entry,
+        # but otherwise retains temporal feature tensors during policy backward.
+        self.vae.model.clear_cache()
+        return latents.to(self.torch_dtype)
 
     @torch.no_grad()
     def _encode_input_image_latents_tensor(self, input_image, tiled=False, **kwargs):
@@ -67,6 +70,14 @@ class LoopWAM(FastWAM):
         if input_image.ndim != 4 or input_image.shape[1] != 3:
             raise ValueError('Expected current images [B,3,H,W]')
         return self._encode_video_latents(input_image.unsqueeze(2), tiled=tiled)
+
+    def _encode_training_video(self, sample, input_video, tiled=False):
+        cache = getattr(self, "training_latent_cache", None)
+        if cache is None:
+            return self._encode_video_latents(input_video, tiled=tiled)
+        if tiled:
+            raise ValueError("Training latent cache requires untiled per-clip encoding")
+        return cache.encode_batch(sample["training_index"], input_video, self._encode_video_latents)
 
     def prepare_training_batch(self, sample, tiled=False, *, noise_video=None, noise_action=None,
                                timestep_video=None, timestep_action=None):
