@@ -10,3 +10,5 @@ Baseline: FP32 policy/AdamW states + BF16autocast, DDP, microbatch2, accumulatio
 - Profile data/VAE/forward/backward/optimizer; evaluate further changes only when supported by measurements.
 - Verify chosen changes and start from canonical Wan donor initialization with fresh optimizer/scheduler/data progress; never resume the previous checkpoint.
 - Compare fresh-run measured timing, persist benchmark evidence and report total/remaining projection.
+
+Completed: measured all backends, verified94GPUtests+distributedbackendchecks, selectedfusedDDPmb8/accum8+structuredattention+lazycache, and launchedfreshv0step4689.61. See speed report and evidence for results.
