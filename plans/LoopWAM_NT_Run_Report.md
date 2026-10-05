@@ -17,7 +17,22 @@ Available LIBERO-Long data contains 388 demonstrations, not 500. Per-task determ
 
 Global 128 = 2 GPUs × microbatch 2 × 32 accumulation. Each epoch has 724 full updates and one 6-window tail update, with gradients normalized by the actual valid count. No tail windows are dropped or counted twice. Ten epochs = 7,250 optimizer updates and 926,780 real windows.
 
+## Production launch
+
+The full v0 run is running in **Slurm step 4689.49**, on worker-2's two H100s, from source commit `ca8df93a59a527d2cdd660e1a437e53c84d86ac2` on `LoopWAM_NT`. It starts from the original canonical Wan initialization, not a smoke checkpoint. The first full global-128 update completed with finite losses and gradients.
+
+Output: `/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_long_bs128_20261005/`.
+
+```bash
+tail -f runs/loopwam_nt/v0_long_bs128_20261005/launcher.log
+cat runs/loopwam_nt/v0_long_bs128_20261005/timing.json
+```
+
+The job runs under `nohup srun` and continues after SSH disconnects while the interactive allocation remains alive. The user must keep allocation 4689 alive. SimpleMemVLN job 4659 remains running.
+
 ## Verification
+
+**48/48 tests passed on H100**, including the two BF16 CUDA equivalence cases. Two-GPU resumed and uninterrupted update 2 produced identical reported action/video losses, window counts, and learning rate. Full-size checkpoint reconstruction without donors and held-out 10-step inference also passed. Independent review of integration and recurrence found no remaining material issue after inference/provenance fixes.
 
 - Native 825-tensor source coverage, paired 6144-neuron FFN selection, native-source action resizing, donor selection, strict loading, parameter count and separate expert storage.
 - K1/dense and K4/expanded equivalence, summed shared gradients, all-exit/truncation equivalence, coda isolation, no future/action leakage, virtual cache separation.
@@ -71,3 +86,7 @@ Standalone checkpoint reconstruction is available through `create_loopwam(checkp
 - Existing T5 caches lack embedded generation provenance. Both official Wan families and the local downloaded encoder share the verified same SHA256; cache files are individually hashed. See `LoopWAM_Data_Audit.md`.
 - Frozen VAE encoding remains online. Latent caching is a future throughput optimization requiring its own anchoring/cache checks.
 - D12/D30 are initialization/equivalence controls, not trained baselines in this task. No scientific performance comparison is claimed.
+
+Local timing evidence is preserved in `plans/evidence/loopwam_nt/`. Full source/data manifests and training logs remain in the remote run directories. Final ten-epoch elapsed time and control quality remain pending because training is running.
+
+Production snapshot: update 8/7250, 1,024 windows, 9.741 seconds/update, projected 19.62 training hours. This snapshot is historical; read remote timing.json for current progress.

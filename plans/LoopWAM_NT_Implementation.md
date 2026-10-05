@@ -15,7 +15,7 @@ Spec: LoopWAM_S_Technical_Report.md. User explicitly requests implementation of 
 - [x] 2. LoopMoT schedule and intermediate exits; virtual cache prefill/action inference and core XSA. Files loop_mot.py and tests. Tests K1 dense/K4 unrolled, gradients, coda isolation, causality, cache equivalence, XSA zero values.
 - [x] 3. LoopWAM policy, loss reductions, builder/configs and strict checkpoint metadata. Files loopwam.py, runtime/config additions, tests. Tests padded losses, independent noise, scheduler sign, parameter count and reload.
 - [x] 4. LIBERO Long deterministic episode split, train-only normalization, budget and distributed runner. Validate timestamps, real shapes and VAE anchor; smoke v0/v1/v2 with finite gradients and optimizer updates.
-- [ ] 5. Independent integrated review, fix material findings, launch v0 ten-epoch runs in available allocations. Record measured timing and extrapolation distinctly; preserve logs and reproducible commands.
+- [x] 5. Independent integrated review, fix material findings, launch v0 ten-epoch runs in available allocations. Record measured timing and extrapolation distinctly; preserve logs and reproducible commands.
 
 ## Review focus
 - No clean/future video leakage into action predictions.
@@ -33,3 +33,6 @@ Independent review: initialization agent reviewed integration, trainer, data and
 Ruling: use replicated FP32 AdamW with DDP instead of initial proposed ZeRO-1 — measured fit25.9GB at microbatch2; preserves full precision/master state and avoids unnecessary sharding complexity. Cost is higher optimizer residency than ZeRO-1.
 Ruling: dataset actually388 episodes; stratified90/10 produces344/44 instead of assumed450/50 — use existing supplied data and report its size. Cost is reduced data exposure relative to hypothetical500-demo setup.
 Ruling: preserve online VAE encoding for this run to retain validated anchoring semantics. Cost is extra compute compared with a validated latent cache.
+
+Final acceptance: 48/48 tests passed on H100, including both BF16 CUDA cases (runs/loopwam_nt/continuous_smoke.log). Two-GPU resumed and uninterrupted update2 have identical reported action/video losses, learning rate, and windows seen. Full-size student reconstructs without donors and performs held-out10-step action inference.
+Production launch: source commit ca8df93a59a527d2cdd660e1a437e53c84d86ac2, branch LoopWAM_NT both hosts. Job4689 step4689.49 on worker-2; twoH100s, microbatch2, accumulation32, global128,10epochs. Output runs/loopwam_nt/v0_long_bs128_20261005. First production update verified finite; run continues independently of SSH.

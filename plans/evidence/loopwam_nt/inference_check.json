@@ -1,0 +1,10 @@
+{
+  "heldout_action_mse": 0.7487415373325348,
+  "samples": 2,
+  "indices": [
+    0,
+    11601
+  ],
+  "sampler_steps": 10,
+  "seed": 42
+}
