@@ -1,0 +1,51 @@
+{
+  "status": "running",
+  "completed_updates": 35,
+  "windows_seen": 4480,
+  "planned_updates": 21700,
+  "elapsed_training_seconds": 103.41526266094297,
+  "measured_mean_update_seconds": 2.8677569838131176,
+  "estimated_total_training_hours": 17.286201819095737,
+  "estimate_note": "Projection from measured updates; excludes setup/checkpoint overhead",
+  "latest": {
+    "update": 35,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 4480,
+    "effective_passes": 0.016131761926881347,
+    "seconds": 3.2527995109558105,
+    "lr": 3.225806451612903e-06,
+    "grad_norm": 2.9683992862701416,
+    "branch_grad_after_clip": {
+      "video": 0.6133130788803101,
+      "action": 0.7895428538322449,
+      "proprio": 0.02164323441684246
+    },
+    "latent_cache_rank_local": {
+      "hits": 320,
+      "misses": 800,
+      "dummy_encodes": 0,
+      "encoder_samples": 800,
+      "batches": 140,
+      "read_seconds": 0.5461567309685051,
+      "encode_seconds": 33.962419079151005,
+      "write_seconds": 1.4178406507708132
+    },
+    "peak_allocated_gb": 59.358375549316406,
+    "peak_reserved_gb": 63.187191009521484,
+    "exit4/video_raw": 0.3207038640975952,
+    "exit4/action_raw": 0.7750937938690186,
+    "exit4/video": 0.3109987676143646,
+    "exit4/action": 0.7872107028961182,
+    "loss_video": 0.3109987676143646,
+    "loss_action": 0.7872107028961182,
+    "loop/1/video_state_rms": 0.8123471140861511,
+    "loop/1/action_state_rms": 0.5920742750167847,
+    "loop/2/video_state_rms": 0.8439844250679016,
+    "loop/2/action_state_rms": 0.6736633777618408,
+    "loop/3/video_state_rms": 0.9031637907028198,
+    "loop/3/action_state_rms": 0.7992246747016907,
+    "loop/4/video_state_rms": 1.002691626548767,
+    "loop/4/action_state_rms": 0.949959933757782
+  }
+}

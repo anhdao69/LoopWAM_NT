@@ -1,0 +1,51 @@
+{
+  "train_windows": 277713,
+  "episodes": 1712,
+  "updates_per_epoch": 2170,
+  "suites": {
+    "libero_spatial": {
+      "episodes": 434,
+      "windows": 53229,
+      "tasks": 10,
+      "gripper_mean_abs_qpos": {
+        "0": 0.007148833632134721,
+        "1": 0.035281759957418286
+      },
+      "decoded_samples": 3,
+      "text_tasks_verified": 10
+    },
+    "libero_object": {
+      "episodes": 457,
+      "windows": 67309,
+      "tasks": 10,
+      "gripper_mean_abs_qpos": {
+        "0": 0.023966913426501073,
+        "1": 0.037124869893772276
+      },
+      "decoded_samples": 3,
+      "text_tasks_verified": 10
+    },
+    "libero_goal": {
+      "episodes": 433,
+      "windows": 52895,
+      "tasks": 10,
+      "gripper_mean_abs_qpos": {
+        "0": 0.01246414441578667,
+        "1": 0.036493139580880955
+      },
+      "decoded_samples": 3,
+      "text_tasks_verified": 10
+    },
+    "libero_10": {
+      "episodes": 388,
+      "windows": 104280,
+      "tasks": 10,
+      "gripper_mean_abs_qpos": {
+        "0": 0.01790506161290413,
+        "1": 0.03754210046770171
+      },
+      "decoded_samples": 3,
+      "text_tasks_verified": 10
+    }
+  }
+}

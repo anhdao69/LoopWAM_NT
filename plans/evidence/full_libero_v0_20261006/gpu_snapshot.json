@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-10-06 14:20:20 UTC",
+  "allocation": 4659,
+  "training_step": "4659.30",
+  "query": "nvidia-smi --query-gpu=index,memory.used,utilization.gpu --format=csv",
+  "gpus": [
+    {
+      "index": 0,
+      "memory_used_mib": 61893,
+      "utilization_percent": 100
+    },
+    {
+      "index": 1,
+      "memory_used_mib": 61913,
+      "utilization_percent": 100
+    },
+    {
+      "index": 2,
+      "memory_used_mib": 61917,
+      "utilization_percent": 100
+    },
+    {
+      "index": 3,
+      "memory_used_mib": 61913,
+      "utilization_percent": 100
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+  "checkpoint_step": 10,
+  "episodes": [
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 10.644999931100756,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 3,
+      "seed": 42,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_10/videos/2026_10_06-14_17_36--episode=task0_trial0--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 11.507155832834542,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 3,
+      "seed": 100042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "put both the cream cheese box and the butter in the basket",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_10/videos/2026_10_06-14_17_37--episode=task1_trial0--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_th.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 13.023213803768158,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 2,
+      "replans": 3,
+      "seed": 200042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_10/videos/2026_10_06-14_17_36--episode=task2_trial0--success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 9.825614526867867,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 3,
+      "replans": 3,
+      "seed": 300042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "task_id": 3,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_10/videos/2026_10_06-14_17_36--episode=task3_trial0--success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cab.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "loops": 4,
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "2": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "3": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_10",
+  "total_episodes": 4,
+  "version": "v0"
+}

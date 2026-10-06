@@ -1,0 +1,242 @@
+{
+  "benchmark_root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006",
+  "source_commit": "012cc8ff305ee067874009e0be705837301f9d4d",
+  "global_batch": 128,
+  "world_size": 4,
+  "workers_per_rank": 4,
+  "updates_per_trial": 7,
+  "steady_updates": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "seed": 42,
+  "trials": {
+    "cold_ddp_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/cold_ddp_mb8.log",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 3.2150819301605225,
+      "precision": {
+        "policy_dtype": "float32",
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ]
+      },
+      "cache_stats": {
+        "hits": 0,
+        "misses": 224,
+        "dummy_encodes": 0,
+        "encoder_samples": 224,
+        "batches": 28,
+        "read_seconds": 0.0,
+        "encode_seconds": 10.025148136541247,
+        "write_seconds": 0.39107254752889276
+      },
+      "steady_median_seconds": 3.210057497024536,
+      "steady_min_seconds": 3.197442054748535,
+      "steady_max_seconds": 3.237240791320801,
+      "peak_allocated_gb": 59.297916412353516,
+      "peak_reserved_gb": 60.980987548828125,
+      "samples_per_second": 39.81236023854895
+    },
+    "repeat_ddp_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/repeat_ddp_mb8.log",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 1.8807862281799317,
+      "precision": {
+        "policy_dtype": "float32",
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ]
+      },
+      "cache_stats": {
+        "hits": 224,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 28,
+        "read_seconds": 0.40184973273426294,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "steady_median_seconds": 1.8831984996795654,
+      "steady_min_seconds": 1.8625909090042114,
+      "steady_max_seconds": 1.8892619609832764,
+      "peak_allocated_gb": 59.48317337036133,
+      "peak_reserved_gb": 59.909339904785156,
+      "samples_per_second": 68.05664465326703
+    },
+    "repeat_zero1_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/repeat_zero1_mb8.log",
+      "backend": "zero1",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 1.9196038961410522,
+      "precision": {
+        "policy_dtype": "float32",
+        "policy_parameters": 584536135,
+        "master_dtype": "float32",
+        "local_master_elements": 146134034,
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ],
+        "optimizer_state_initialized": true,
+        "compute_dtype": "bfloat16",
+        "communication_dtype": "float32"
+      },
+      "cache_stats": {
+        "hits": 224,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 28,
+        "read_seconds": 0.1829807860776782,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "steady_median_seconds": 1.91502046585083,
+      "steady_min_seconds": 1.9065293073654175,
+      "steady_max_seconds": 1.9387843608856201,
+      "peak_allocated_gb": 54.56669616699219,
+      "peak_reserved_gb": 56.392417907714844,
+      "samples_per_second": 66.68042311089089
+    },
+    "warm_ddp_mb16": {
+      "exit_code": 1,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_ddp_mb16.log",
+      "oom": true
+    },
+    "warm_ddp_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_ddp_mb8.log",
+      "backend": "ddp",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 1.8824039220809936,
+      "precision": {
+        "policy_dtype": "float32",
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ]
+      },
+      "cache_stats": {
+        "hits": 224,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 28,
+        "read_seconds": 0.4327144157141447,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "steady_median_seconds": 1.8853068351745605,
+      "steady_min_seconds": 1.8669661283493042,
+      "steady_max_seconds": 1.893767237663269,
+      "peak_allocated_gb": 59.47780227661133,
+      "peak_reserved_gb": 59.89466094970703,
+      "samples_per_second": 67.99815836470223
+    },
+    "warm_zero1_mb16": {
+      "exit_code": 1,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_zero1_mb16.log",
+      "oom": true
+    },
+    "warm_zero1_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_zero1_mb8.log",
+      "backend": "zero1",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 1.9149489402770996,
+      "precision": {
+        "policy_dtype": "float32",
+        "policy_parameters": 584536135,
+        "master_dtype": "float32",
+        "local_master_elements": 146134034,
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ],
+        "optimizer_state_initialized": true,
+        "compute_dtype": "bfloat16",
+        "communication_dtype": "float32"
+      },
+      "cache_stats": {
+        "hits": 224,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 28,
+        "read_seconds": 0.15753624448552728,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "steady_median_seconds": 1.9129945039749146,
+      "steady_min_seconds": 1.9076473712921143,
+      "steady_max_seconds": 1.9277329444885254,
+      "peak_allocated_gb": 54.56669616699219,
+      "peak_reserved_gb": 56.375640869140625,
+      "samples_per_second": 66.84251329514716
+    },
+    "warm_zero2_mb16": {
+      "exit_code": 1,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_zero2_mb16.log",
+      "oom": true
+    },
+    "warm_zero2_mb8": {
+      "exit_code": 0,
+      "log": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_speed_20261006/warm_zero2_mb8.log",
+      "backend": "zero2",
+      "microbatch": 8,
+      "accumulation": 4,
+      "steady_seconds": 1.979696226119995,
+      "precision": {
+        "policy_dtype": "float32",
+        "policy_parameters": 584536135,
+        "master_dtype": "float32",
+        "local_master_elements": 146134034,
+        "optimizer_moment_dtypes": [
+          "torch.float32"
+        ],
+        "optimizer_state_initialized": true,
+        "compute_dtype": "bfloat16",
+        "communication_dtype": "float32"
+      },
+      "cache_stats": {
+        "hits": 224,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 28,
+        "read_seconds": 0.11216965923085809,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "steady_median_seconds": 1.9801745414733887,
+      "steady_min_seconds": 1.9596328735351562,
+      "steady_max_seconds": 2.0058515071868896,
+      "peak_allocated_gb": 52.583160400390625,
+      "peak_reserved_gb": 54.44835662841797,
+      "samples_per_second": 64.65638430339745
+    }
+  },
+  "all_repeats_done": true,
+  "recommended": "ddp microbatch8 accumulation4",
+  "caveat": "Real old Long subset shape benchmark; 10epoch projection embedded in original result is for Long only, not all4suites. Fresh all4suite data pipeline preflight required.",
+  "cache_fairness": {
+    "cache_metadata_sha256": "acb50fed5dbbaf3dd16fc00c9b33ed9f43659326cf25dfaee2b51d5a338ce65d",
+    "cache_total_size": 92678,
+    "valid_samples": 896,
+    "valid_indices_match_first_896_seed42_permutation": true,
+    "cache_payload_logical_bytes": 13950633984,
+    "cache_payload_allocated_bytes": 137576448
+  }
+}

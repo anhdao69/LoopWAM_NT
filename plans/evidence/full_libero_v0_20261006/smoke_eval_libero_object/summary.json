@@ -1,0 +1,111 @@
+{
+  "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+  "checkpoint_step": 10,
+  "episodes": [
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 9.914377829059958,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 3,
+      "seed": 42,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_object",
+      "task_description": "pick up the alphabet soup and place it in the basket",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_object/videos/2026_10_06-14_16_21--episode=task0_trial0--success=False--task=pick_up_the_alphabet_soup_and_place_it_in_the_bask.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 9.48642695741728,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 3,
+      "seed": 100042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_object",
+      "task_description": "pick up the cream cheese and place it in the basket",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_object/videos/2026_10_06-14_16_22--episode=task1_trial0--success=False--task=pick_up_the_cream_cheese_and_place_it_in_the_baske.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 10.001943910960108,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 2,
+      "replans": 3,
+      "seed": 200042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_object",
+      "task_description": "pick up the salad dressing and place it in the basket",
+      "task_id": 2,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_object/videos/2026_10_06-14_16_22--episode=task2_trial0--success=False--task=pick_up_the_salad_dressing_and_place_it_in_the_bas.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 9.465989041142166,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 3,
+      "replans": 3,
+      "seed": 300042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_object",
+      "task_description": "pick up the bbq sauce and place it in the basket",
+      "task_id": 3,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_object/videos/2026_10_06-14_16_22--episode=task3_trial0--success=False--task=pick_up_the_bbq_sauce_and_place_it_in_the_basket.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "loops": 4,
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "2": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "3": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_object",
+  "total_episodes": 4,
+  "version": "v0"
+}

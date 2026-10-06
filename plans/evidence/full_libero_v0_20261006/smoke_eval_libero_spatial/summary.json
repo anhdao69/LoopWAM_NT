@@ -1,0 +1,111 @@
+{
+  "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+  "checkpoint_step": 10,
+  "episodes": [
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 15.16344683431089,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 3,
+      "seed": 42,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_description": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_spatial/videos/2026_10_06-14_15_40--episode=task0_trial0--success=False--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 14.404460555873811,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 3,
+      "seed": 100042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_description": "pick up the black bowl next to the ramekin and place it on the plate",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_spatial/videos/2026_10_06-14_15_40--episode=task1_trial0--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 16.000959389843047,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 2,
+      "replans": 3,
+      "seed": 200042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_spatial/videos/2026_10_06-14_15_40--episode=task2_trial0--success=False--task=pick_up_the_black_bowl_from_table_center_and_place.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 15.820517017040402,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 3,
+      "replans": 3,
+      "seed": 300042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_description": "pick up the black bowl on the cookie box and place it on the plate",
+      "task_id": 3,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_spatial/videos/2026_10_06-14_15_40--episode=task3_trial0--success=False--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "loops": 4,
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "2": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "3": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_spatial",
+  "total_episodes": 4,
+  "version": "v0"
+}

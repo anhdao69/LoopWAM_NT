@@ -1,0 +1,111 @@
+{
+  "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+  "checkpoint_step": 10,
+  "episodes": [
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 12.240788277704269,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 3,
+      "seed": 42,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_goal",
+      "task_description": "open the middle drawer of the cabinet",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_goal/videos/2026_10_06-14_16_57--episode=task0_trial0--success=False--task=open_the_middle_drawer_of_the_cabinet.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 13.550649956334382,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 3,
+      "seed": 100042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_goal",
+      "task_description": "put the bowl on the stove",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_goal/videos/2026_10_06-14_16_57--episode=task1_trial0--success=False--task=put_the_bowl_on_the_stove.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 12.518878852017224,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 2,
+      "replans": 3,
+      "seed": 200042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_goal",
+      "task_description": "put the wine bottle on top of the cabinet",
+      "task_id": 2,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_goal/videos/2026_10_06-14_16_57--episode=task2_trial0--success=False--task=put_the_wine_bottle_on_top_of_the_cabinet.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "f7e4141421ad35bfea06897c909a4c5b9d4542135a70d2c3a1187ac9b82f4169",
+      "duration_seconds": 12.876878454349935,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 3,
+      "replans": 3,
+      "seed": 300042,
+      "steps": 30,
+      "success": false,
+      "suite": "libero_goal",
+      "task_description": "open the top drawer and put the bowl inside",
+      "task_id": 3,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/smoke_eval_libero_goal/videos/2026_10_06-14_16_57--episode=task3_trial0--success=False--task=open_the_top_drawer_and_put_the_bowl_inside.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "loops": 4,
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "2": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "3": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_goal",
+  "total_episodes": 4,
+  "version": "v0"
+}
