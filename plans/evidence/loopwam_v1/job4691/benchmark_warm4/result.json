@@ -1,0 +1,103 @@
+{
+  "source_sha256": {
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v1_ccf8a67/scripts/benchmark_loopwam.py": "5840623f68f37e775e5e44f2ce40bc3fb50defd221939fc2e0a1464f217ec21e",
+    "src/fastwam/models/wan22/loop_mot.py": "78745fb4744dfc52bfeab01ea437bafbbcf0ad66c7c761ffd6c61de59256a6d5",
+    "src/fastwam/models/wan22/loopwam.py": "1bd739247d3f095eba559c651873e580ab45d4f195667b3211ba4764fcfdabe9",
+    "src/fastwam/models/wan22/loopwam_init.py": "28ea0ab0190c76759e2959e6339718df963f378501e3e96de48e2414bd034945",
+    "src/fastwam/models/wan22/fastwam.py": "08888ed2b011b9d712a07bc8513aea2f3a61de023b7af2b28292fca7d45cf00d",
+    "src/fastwam/training_backends.py": "e53a95318f255177d9b729be2822c7e6217fb54e2b03334f63a1dd2726b7f731"
+  },
+  "version": "v1",
+  "backend": "ddp",
+  "microbatch": 4,
+  "accumulation": 16,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": true,
+  "latent_cache_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/benchmark_latents",
+  "cache_stats": {
+    "hits": 320,
+    "misses": 0,
+    "dummy_encodes": 0,
+    "encoder_samples": 0,
+    "batches": 80,
+    "read_seconds": 0.5912680048495531,
+    "encode_seconds": 0.0,
+    "write_seconds": 0.0
+  },
+  "records": [
+    {
+      "update": 1,
+      "seconds": 8.368250846862793,
+      "allocated_gb": 38.957130432128906,
+      "reserved_gb": 39.441139221191406,
+      "loss": 2.190389633178711,
+      "grad_norm": 11.167745590209961,
+      "data_wait_seconds": 1.0397467389702797,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 3.1740272521972654,
+      "backward_cuda_seconds": 4.0751389770507815,
+      "optimizer_cuda_seconds": 0.08267273286986165
+    },
+    {
+      "update": 2,
+      "seconds": 6.327013969421387,
+      "allocated_gb": 43.7252311706543,
+      "reserved_gb": 44.27507400512695,
+      "loss": 2.744846820831299,
+      "grad_norm": 27.163555145263672,
+      "data_wait_seconds": 0.00559062696993351,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.4162113494873045,
+      "backward_cuda_seconds": 3.8968262329101564,
+      "optimizer_cuda_seconds": 0.013099647773895412
+    },
+    {
+      "update": 3,
+      "seconds": 6.379866123199463,
+      "allocated_gb": 43.7252311706543,
+      "reserved_gb": 44.27507400512695,
+      "loss": 1.9801629781723022,
+      "grad_norm": 18.776611328125,
+      "data_wait_seconds": 0.004908334463834763,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.365455780029297,
+      "backward_cuda_seconds": 3.9976866302490235,
+      "optimizer_cuda_seconds": 0.014047295628581195
+    },
+    {
+      "update": 4,
+      "seconds": 6.35505485534668,
+      "allocated_gb": 43.7252311706543,
+      "reserved_gb": 44.27507400512695,
+      "loss": 1.5480905771255493,
+      "grad_norm": 9.031615257263184,
+      "data_wait_seconds": 0.004834156483411789,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.395624435424805,
+      "backward_cuda_seconds": 3.943187255859375,
+      "optimizer_cuda_seconds": 0.01451936025149189
+    },
+    {
+      "update": 5,
+      "seconds": 6.264510154724121,
+      "allocated_gb": 43.7252311706543,
+      "reserved_gb": 44.27507400512695,
+      "loss": 1.26800537109375,
+      "grad_norm": 6.752424716949463,
+      "data_wait_seconds": 0.005090383812785149,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 2.2957441711425783,
+      "backward_cuda_seconds": 3.949827896118164,
+      "optimizer_cuda_seconds": 0.018191455631749703
+    }
+  ],
+  "steady_seconds": 6.333143711090088,
+  "projected_10epochs_hours": 12.754247751500872,
+  "precision": {
+    "policy_dtype": "float32",
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ]
+  }
+}

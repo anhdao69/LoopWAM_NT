@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH --job-name=LoopWAM-v1
+#SBATCH --job-name=test_training
 #SBATCH --partition=main
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

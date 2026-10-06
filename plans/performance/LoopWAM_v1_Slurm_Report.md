@@ -38,3 +38,13 @@ Submission/job ID, selected microbatch and startup evidence will be appended aft
 The job is autonomous after submission. Actual runtime depends on the v1 benchmarks and scheduler start; ten-epoch completion and robot success are not claimed in advance.
 
 Pre-submission full CPU acceptance:98passed,7CUDA-only tests skipped,22.06seconds. The new rollout suite contributes9passing tests; GPU memory/training/inference are gated inside the batch job before production.
+
+## Submitted and verified
+
+Slurm **4691**, renamed at the user's request to **test_training**, is running on worker-1 with two H100s. v0step4689.61 and SimpleMemVLN4659 are separate and were not stopped. Source is pinned at ccf8a67dc5c479d06a7e0acd64da9da100603e15 in runs/loopwam_nt/source_v1_ccf8a67; explicit PYTHONPATH was verified to import that checkout. The submission template's default job name is now test_training.
+
+Measured cached v1 throughput:microbatch4=6.333s/update, microbatch8=4.752s/update; microbatch16 failed CUDA OOM and was excluded. Microbatch8 also passed cold-cache training, exact native VAE anchor checks and all intended gradient checks. Selected accumulation8 gives global128. Three-update smoke steady cold time=7.427s/update. Two independent GPU simulator smoke episodes completed and saved videos; these20-step/three-update checks are plumbing tests, not trained success-rate results.
+
+Full fresh production started successfully. At 2026-10-06T01:11:14.880550+00:00, update13 completed with finite video/action losses and gradient norms. Manifest says v1, resume=null, canonical Wan artifact with fresh optimizer, empty optimizer state before update1, epochs10, planned7250updates. Production output: runs/loopwam_nt/v1_bs128_job4691/train. Final100episode evaluation will use that directory's completed latest.pt and save under runs/loopwam_nt/v1_bs128_job4691/inference.
+
+Training projection **10.11hours** uses one cold epoch plus nine cached epochs; checkpoint/validation overhead and the subsequent100rollouts are additional. Final inference has not run yet because training is ongoing. Monitor Slurm job4691 and job_status.json stage; OOM exclusions are expected candidate failures, not production failures.

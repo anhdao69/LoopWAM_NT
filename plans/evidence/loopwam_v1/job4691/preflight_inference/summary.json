@@ -1,0 +1,60 @@
+{
+  "checkpoint_sha256": "3cfb44bbebf10ca1749ca883aeec7d28be5d4fbefb2d64723cbb92bdcc800cf1",
+  "checkpoint_step": 3,
+  "episodes": [
+    {
+      "checkpoint_sha256": "3cfb44bbebf10ca1749ca883aeec7d28be5d4fbefb2d64723cbb92bdcc800cf1",
+      "duration_seconds": 9.511034440249205,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 2,
+      "seed": 42,
+      "steps": 20,
+      "success": false,
+      "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/preflight_inference/videos/2026_10_06-01_08_48--episode=task0_trial0--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "3cfb44bbebf10ca1749ca883aeec7d28be5d4fbefb2d64723cbb92bdcc800cf1",
+      "duration_seconds": 9.566913422197104,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 2,
+      "seed": 100042,
+      "steps": 20,
+      "success": false,
+      "task_description": "put both the cream cheese box and the butter in the basket",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/preflight_inference/videos/2026_10_06-01_08_48--episode=task1_trial0--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_th.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_10",
+  "total_episodes": 2,
+  "version": "v1"
+}
