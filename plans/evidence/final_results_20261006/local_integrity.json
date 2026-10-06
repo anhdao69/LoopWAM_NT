@@ -9,5 +9,5 @@
   "shared_data_split_initialization_and_assets_match": true,
   "video_storage": "H100 server; excluded from Git at user request",
   "files": 468,
-  "archive_bytes": 64777899
+  "archive_bytes": 64777375
 }

@@ -34,7 +34,7 @@ def wilson(k,n=100,z=1.959963984540054):
 
 def csv_write(name,rows):
  with (OUT/name).open('w',newline='') as f:
-  w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+  w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 
 report={};epochs=[];episodes=[];summaries={};all_records={};validation={}
 for version,(tr,ev) in RUNS.items():
