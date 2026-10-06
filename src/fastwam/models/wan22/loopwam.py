@@ -193,17 +193,28 @@ class LoopWAM(FastWAM):
 
 def _validate_checkpoint_depth(payload):
     version = payload['version']
-    if version == 'dense_s12':
+    if version in {'dense_s12', 'dense_s30'}:
         for field in ('trained_max_loops', 'inference_loops'):
             value = payload.get(field)
             if isinstance(value, bool) or not isinstance(value, int) or value != 1:
-                raise ValueError(f'dense_s12 checkpoint requires {field}=1')
+                raise ValueError(f'{version} checkpoint requires {field}=1')
+
+    if version == 'dense_s30':
+        from .loopwam_init import target_configs
+        metadata = payload.get('architecture', {})
+        video_cfg, action_cfg = target_configs(30)
+        if (metadata.get('architecture_version') != 'Dense-S30-native-v1'
+                or metadata.get('donor_indices') != list(range(30))
+                or metadata.get('target_video_config') != video_cfg
+                or metadata.get('target_action_config') != action_cfg):
+            raise ValueError('dense_s30 checkpoint requires native 30-layer architecture and donor identity')
 
 
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
                    checkpoint_path=None):
-    from .loopwam_init import build_target_experts, load_wan21_vae, load_init_artifact, target_configs
+    from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
+                               target_configs, architecture_metadata_for_version)
     if vae_path is None:
         raise ValueError('Native Wan2.1 VAE path is required')
     if checkpoint_path is not None:
@@ -215,7 +226,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         _validate_checkpoint_depth(payload)
         loops = resolve_loop_count(version, loops)
         metadata = payload['architecture']
-        video_cfg, action_cfg = target_configs(12)
+        video_cfg, action_cfg = target_configs(30 if version == 'dense_s30' else 12)
         if metadata['target_video_config'] != video_cfg or metadata['target_action_config'] != action_cfg:
             raise ValueError('Checkpoint architecture is not the declared LoopWAM-S')
         from .wan_video_dit import WanVideoDiT
@@ -228,8 +239,9 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
         artifact = load_init_artifact(init_artifact)
-        video, action, proprio = build_target_experts(artifact, device=device, dtype=model_dtype)
-        metadata = artifact['metadata']
+        video, action, proprio = build_target_experts(artifact, device=device, dtype=model_dtype,
+                                                       dense30=version == 'dense_s30')
+        metadata = architecture_metadata_for_version(artifact['metadata'], version)
     vae = load_wan21_vae(vae_path, device=device, dtype=torch.bfloat16 if str(device).startswith('cuda') else torch.float32)
     video, action = video.to(device=device,dtype=model_dtype), action.to(device=device,dtype=model_dtype)
     mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks)

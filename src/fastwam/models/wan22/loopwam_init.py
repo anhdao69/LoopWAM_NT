@@ -6,6 +6,7 @@ through a native model preset. Only action input/output and proprio are random.
 from __future__ import annotations
 
 from collections.abc import Mapping
+from copy import deepcopy
 from contextlib import ExitStack
 from functools import lru_cache
 import hashlib
@@ -42,6 +43,25 @@ def target_configs(num_layers: int = 12) -> tuple[dict, dict]:
                  seperated_timestep=True, video_attention_mask_mode='first_frame_causal')
     action = dict(**common, hidden_dim=512, ffn_dim=2048, action_dim=7)
     return video, action
+
+
+def architecture_metadata_for_version(metadata: Mapping, version: str) -> dict:
+    """Describe a student without rewriting the canonical donor artifact manifest."""
+    from .loop_mot import resolve_loop_count
+    resolve_loop_count(version)
+    result = deepcopy(dict(metadata))
+    if version == 'dense_s30':
+        video_cfg, action_cfg = target_configs(30)
+        result.update(architecture_version='Dense-S30-native-v1',
+                      target_video_config=video_cfg, target_action_config=action_cfg,
+                      donor_indices=list(range(30)))
+    return result
+
+
+def expected_policy_parameter_count(version: str) -> int:
+    from .loop_mot import resolve_loop_count
+    resolve_loop_count(version)
+    return 1416114247 if version == 'dense_s30' else 584536135
 
 
 def validate_source_config(config: Mapping[str, Any]) -> None:

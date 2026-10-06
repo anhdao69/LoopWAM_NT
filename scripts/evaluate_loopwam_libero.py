@@ -48,12 +48,20 @@ def checkpoint_policy_spec(payload):
     """Use the checkpoint's declared architecture and full trained depth."""
     version = payload.get("version")
     if (payload.get("format_version") != "loopwam-s-v1"
-            or version not in {"dense_s12", "v0", "v1", "v2"}):
-        raise ValueError("Expected a supported Dense-S12 or LoopWAM student checkpoint")
+            or version not in {"dense_s30", "dense_s12", "v0", "v1", "v2"}):
+        raise ValueError("Expected a supported dense or LoopWAM student checkpoint")
     loops = payload.get("trained_max_loops")
-    expected_loops = 1 if version == "dense_s12" else 4
-    if loops != expected_loops or payload.get("inference_loops") != loops:
+    expected_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
+    if (type(loops) is not int or type(payload.get("inference_loops")) is not int
+            or loops != expected_loops or payload.get("inference_loops") != loops):
         raise ValueError("Checkpoint depth differs from its approved architecture")
+    if version == "dense_s30":
+        from fastwam.models.wan22.loopwam_init import target_configs
+        video, action = target_configs(30)
+        architecture = payload.get("architecture", {})
+        if (architecture.get("target_video_config") != video
+                or architecture.get("target_action_config") != action):
+            raise ValueError("Dense-S30 checkpoint requires both complete 30-layer target configs")
     return version, loops
 
 

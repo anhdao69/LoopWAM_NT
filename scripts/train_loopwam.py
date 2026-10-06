@@ -222,7 +222,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',help='Standalone LoopWAM YAML configuration')
     p.add_argument('--backend', choices=['ddp','zero1','zero2'], default='ddp')
-    p.add_argument('--version', choices=['dense_s12','v0','v1','v2'],default='v0')
+    p.add_argument('--version', choices=['dense_s12','dense_s30','v0','v1','v2'],default='v0')
     p.add_argument('--init-artifact',default='checkpoints/LoopWAM/wan21_compact_donors.pt')
     p.add_argument('--vae-path',default='checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth')
     p.add_argument('--dataset-dir',default='data/lerobot_v30/libero_10_no_noops_lerobot')
@@ -291,7 +291,8 @@ def main():
         model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume)
     params=model.policy_parameters()
     count=sum(p.numel() for p in params)
-    if count!=584536135:
+    expected_count = 1416114247 if args.version == 'dense_s30' else 584536135
+    if count!=expected_count:
         raise AssertionError(f'Unexpected policy parameter count {count}')
     model.train()
     model.mot.structured_attention=args.structured_attention
@@ -353,6 +354,7 @@ def main():
     if not is_zero: opt.zero_grad(set_to_none=True)
     torch.cuda.synchronize(); train_start=time.perf_counter(); update=0; windows_seen=0
     timings=[]; stop=False
+    checkpoint_seconds_total=0.; checkpoint_count=0
     start_epoch=0; start_micro=0
     if resume_state:
         start_epoch=resume_state['epoch']; start_micro=resume_state['next_micro']
@@ -425,6 +427,7 @@ def main():
                 measured=timings[1:] if len(timings)>1 else timings
                 summary=dict(status='running',completed_updates=update,windows_seen=windows_seen,
                     planned_updates=total,elapsed_training_seconds=time.perf_counter()-train_start,
+                    checkpoint_seconds_total=checkpoint_seconds_total,checkpoint_count=checkpoint_count,
                     measured_mean_update_seconds=float(np.mean(measured)),
                     estimated_total_training_hours=float(np.mean(measured))*total/3600,
                     estimate_note='Projection from measured updates; excludes setup/checkpoint overhead',
@@ -447,8 +450,11 @@ def main():
                 if world>1: dist.all_gather_object(rngs,rng)
                 else: rngs=[rng]
                 state=dict(epoch=epoch,next_micro=micro+1,update=update,windows_seen=windows_seen,rng=rngs,contract=contract)
+                checkpoint_start=time.perf_counter()
                 save_training_checkpoint(model,runner,opt,out,update,state,
                     backend=args.backend,rank=rank,world=world)
+                checkpoint_seconds_total+=time.perf_counter()-checkpoint_start
+                checkpoint_count+=1
             group_start=time.perf_counter(); group_logs={}; group_windows=0
             group_finite.fill_(True)
             if stop: break
@@ -456,6 +462,8 @@ def main():
     if rank==0:
         summary['status']='smoke_complete' if args.max_updates is not None else 'complete'
         summary['elapsed_training_seconds']=time.perf_counter()-train_start
+        summary['checkpoint_seconds_total']=checkpoint_seconds_total
+        summary['checkpoint_count']=checkpoint_count
         (out/'timing.json').write_text(json.dumps(summary,indent=2))
         logfile.close()
         print(json.dumps({'event':summary['status'],**summary}),flush=True)

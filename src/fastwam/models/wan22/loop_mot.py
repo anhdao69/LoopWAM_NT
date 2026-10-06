@@ -14,15 +14,15 @@ from .wan_video_dit import flash_attention
 
 
 def resolve_loop_count(version: str, loops: Optional[int] = None) -> int:
-    """Resolve architecture depth; Dense-S12 always executes its blocks once."""
-    if version not in {"v0", "v1", "v2", "dense_s12"}:
+    """Resolve architecture depth; Dense controls always execute their blocks once."""
+    if version not in {"v0", "v1", "v2", "dense_s12", "dense_s30"}:
         raise ValueError(f"Unsupported LoopMoT version: {version}")
     if loops is None:
-        loops = 1 if version == "dense_s12" else 4
+        loops = 1 if version in {"dense_s12", "dense_s30"} else 4
     if isinstance(loops, bool) or not isinstance(loops, int) or not 1 <= loops <= 4:
         raise ValueError("loops must be an integer in [1, 4].")
-    if version == "dense_s12" and loops != 1:
-        raise ValueError("dense_s12 requires exactly one pass (loops=1).")
+    if version in {"dense_s12", "dense_s30"} and loops != 1:
+        raise ValueError(f"{version} requires exactly one pass (loops=1).")
     return loops
 
 
@@ -62,7 +62,9 @@ def structured_mixed_attention(
 
 
 class LoopMoT(MoT):
-    """Twelve physical block pairs executing pre(3), core(6)*K, coda(3).
+    """Shared-depth models use pre(3), core(6)*K, coda(3).
+
+    Native-layer Dense-S30 uses 30 distinct pairs, grouped 3/24/3, once.
 
     ``num_layers`` remains the physical depth for serialization. Cache lists use
     ``virtual_schedule`` order: every repeated block has a distinct cache slot.
@@ -89,10 +91,12 @@ class LoopMoT(MoT):
         # Canonical token order is always video followed by action.
         super().__init__({name: mixtures[name] for name in ("video", "action")},
                          mot_checkpoint_mixed_attn=mot_checkpoint_mixed_attn)
-        if self.num_layers != 12:
-            raise ValueError("LoopMoT requires 12 physical blocks per expert (3/6/3).")
+        self.unique_depth = 30 if version == "dense_s30" else 12
+        self.core_depth = 24 if version == "dense_s30" else 6
+        if self.num_layers != self.unique_depth:
+            raise ValueError(f"{version} requires {self.unique_depth} physical blocks per expert.")
         self.version = version
-        self.trained_max_loops = 1 if version == "dense_s12" else 4
+        self.trained_max_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
         self.loops = loops
         self.checkpoint_blocks = bool(checkpoint_blocks)
         self.collect_diagnostics = bool(collect_diagnostics)
@@ -115,9 +119,11 @@ class LoopMoT(MoT):
     def virtual_schedule(self, loops: Optional[int] = None) -> tuple:
         """Return ((stage, [one-based loop,] block), physical index) entries."""
         k = self.loops if loops is None else self._validate_loops(loops)
-        return (tuple((("pre", j), j) for j in range(3))
-                + tuple((("core", r, j), 3 + j) for r in range(1, k + 1) for j in range(6))
-                + tuple((("coda", k, j), 9 + j) for j in range(3)))
+        return (tuple((("pre", j), j) for j in range(self.pre_depth))
+                + tuple((("core", r, j), self.pre_depth + j)
+                        for r in range(1, k + 1) for j in range(self.core_depth))
+                + tuple((("coda", k, j), self.pre_depth + self.core_depth + j)
+                        for j in range(self.post_depth)))
 
     @property
     def schedule(self) -> tuple[int, ...]:
@@ -193,7 +199,7 @@ class LoopMoT(MoT):
         self.last_diagnostics = {}
         k = self.loops if loops is None else self._validate_loops(loops)
         if exits is None:
-            exits = (k,) if self.version in {"v0", "dense_s12"} else tuple(range(1, k + 1))
+            exits = (k,) if self.version in {"v0", "dense_s12", "dense_s30"} else tuple(range(1, k + 1))
         exits = tuple(exits)
         if (not exits or len(set(exits)) != len(exits)
                 or any(isinstance(e, bool) or not isinstance(e, int) or not 1 <= e <= k for e in exits)):
@@ -209,11 +215,11 @@ class LoopMoT(MoT):
                         video_context, video_context_mask, action_context, action_context_mask,
                         attention_mask, observed)
         state = (video_tokens, action_tokens)
-        for i in range(3):
+        for i in range(self.pre_depth):
             state = self._run_pair(i, *state, conditioning)
         result = {}
         for r in range(1, max(exits) + 1):
-            for i in range(3, 9):
+            for i in range(self.pre_depth, self.pre_depth + self.core_depth):
                 state = self._run_pair(i, *state, conditioning)
             if self.collect_diagnostics:
                 # Outside checkpointed blocks, so backward recomputation cannot
@@ -222,7 +228,7 @@ class LoopMoT(MoT):
                     self.last_diagnostics[f"loop/{r}/{name}_state_rms"] = hidden.detach().float().square().mean().sqrt()
             if r in exits:
                 decoded = state
-                for i in range(9, 12):
+                for i in range(self.pre_depth + self.core_depth, self.unique_depth):
                     decoded = self._run_pair(i, *decoded, conditioning)
                 result[r] = decoded
         return result
