@@ -23,7 +23,7 @@
 - [x] Extend benchmark/trainer version handling and four-rank backend configuration. Benchmark warm steady state and test selected cold native-VAE path.
 - [x] Add sequential fail-closed orchestration, fresh-output guards, stage duration and runtime estimates, and independently tested complete-training/evaluation gates.
 - [x] Run CPU suite, native four-GPU model training smokes and checkpoint simulator smokes. Review integrated diff before production.
-- [ ] Pin and synchronize source, start a detached Slurm step in allocation4659, verify fresh dense production updates, save measured runtime report, and push locally to authorized private repository.
+- [x] Pin and synchronize source, start a detached Slurm step in allocation4659, verify fresh dense production updates, save measured runtime report, and push locally to authorized private repository.
 
 ## Review focus
 
@@ -47,3 +47,5 @@
 - Longer15-update finalist measurements selected Dense-S12 ZeRO1/microbatch32/workers8 (0.892858s/update), v2 DDP/microbatch8/workers4 (2.560990s/update pooled warm measurements). Native full-size smoke and simulator preflights follow before production.
 
 - Native preflight completed successfully in4659.16: dense and v2 each passed ten cold-cache and ten warm-cache full-size training updates, then four simulator episodes of100 policy steps with ten replans and videos. These smoke rollouts validate execution, not learned success. Source hashes were unchanged across preflight.
+
+- Production started fresh in4659.17 from pinned012cc8f. First15 updates verified finite;2.114s/update excluding first initialization update. Ready event confirms empty optimizer. Implementation and evidence pushed from local LoopWAM_NT; existing v0/v1 continue running.
