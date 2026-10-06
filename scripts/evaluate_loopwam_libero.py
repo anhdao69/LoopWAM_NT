@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Final Dense-S12 / LoopWAM LIBERO-Long rollouts, independently task-sharded by torchrun.
+"""Final Dense-S12 / LoopWAM LIBERO rollouts, independently task-sharded by torchrun.
 
 Example: torchrun --standalone --nproc_per_node=2 scripts/evaluate_loopwam_libero.py
   --checkpoint RUN/latest.pt --vae-path CHECKPOINTS/Wan2.1_VAE.pth --output-dir RUN/rollouts
@@ -25,6 +25,7 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+LIBERO_SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_10")
 
 
 def sha256_file(path):
@@ -56,11 +57,32 @@ def checkpoint_policy_spec(payload):
     return version, loops
 
 
-def validate_checkpoint(payload, data, stats_hash, *, smoke=False):
+def validate_checkpoint(payload, data, stats_hash, *, smoke=False, suite="libero_10"):
     """Incomplete checkpoints may only produce explicitly labelled smoke results."""
     version, _ = checkpoint_policy_spec(payload)
     state = payload.get("training_state") or {}
     contract = state.get("contract") or {}
+    if suite not in LIBERO_SUITES:
+        raise ValueError(f"Unsupported evaluation suite: {suite}")
+    full_libero = (data.get("dataset_scope") == "full_libero"
+                   or contract.get("dataset_scope") == "full_libero")
+    planned_updates = 7250
+    if full_libero:
+        if (data.get("dataset_scope") != "full_libero"
+                or contract.get("dataset_scope") != "full_libero"
+                or data.get("split") != "all_train" or contract.get("epochs") != 10):
+            raise ValueError("Full LIBERO training contract requires all_train and ten epochs")
+        for source in (data, contract):
+            suites = source.get("suites")
+            if (not isinstance(suites, list) or len(suites) != len(LIBERO_SUITES)
+                    or any(name not in suites for name in LIBERO_SUITES)):
+                raise ValueError("Full LIBERO suite coverage must include all four trained suites")
+        train_windows = data.get("train_windows")
+        if type(train_windows) is not int or train_windows < 1:
+            raise ValueError("Full LIBERO training contract requires positive train_windows")
+        planned_updates = math.ceil(train_windows / 128) * 10
+    elif suite != "libero_10":
+        raise ValueError("Legacy Long checkpoint does not cover the requested suite")
     if (data.get("normalization_source") != "training episodes only"
             or stats_hash != data.get("normalization_sha256")
             or stats_hash != contract.get("normalization_sha256")):
@@ -70,7 +92,7 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False):
     valid_batch = (type(world) is int and world > 0
                    and type(microbatch) is int and microbatch > 0
                    and 128 % (world * microbatch) == 0)
-    if (contract.get("version") != version or contract.get("planned_updates") != 7250
+    if (contract.get("version") != version or contract.get("planned_updates") != planned_updates
             or contract.get("global_batch") != 128 or not valid_batch
             or contract.get("train_windows") != data.get("train_windows")
             or contract.get("seed") != 42):
@@ -79,8 +101,8 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False):
         raise ValueError("Checkpoint step and training update disagree")
     if smoke:
         return contract
-    if payload.get("step") != 7250 or state.get("epoch") != 9:
-        raise ValueError("Final evaluation requires complete 7250-update, 10-epoch training")
+    if payload.get("step") != planned_updates or state.get("epoch") != 9:
+        raise ValueError(f"Final evaluation requires complete {planned_updates}-update, 10-epoch training")
     if state.get("windows_seen") != 10 * data["train_windows"]:
         raise ValueError("Final training windows_seen does not cover ten complete epochs")
     if state.get("next_micro") != math.ceil(data["train_windows"] / (world * microbatch)):
@@ -92,7 +114,7 @@ def shard_tasks(task_ids, rank, world):
     if world < 1 or not 0 <= rank < world or len(task_ids) != len(set(task_ids)):
         raise ValueError("Invalid rank/world or duplicate tasks")
     if not task_ids or any(task < 0 or task >= 10 for task in task_ids):
-        raise ValueError("LIBERO-Long task IDs must be in 0..9")
+        raise ValueError("LIBERO suite task IDs must be in 0..9")
     return list(task_ids[rank::world])
 
 
@@ -194,10 +216,10 @@ def initial_states(task):
     return torch.load(path, map_location="cpu", weights_only=False)
 
 
-def simulator_preflight(output, tasks, seed):
+def simulator_preflight(output, tasks, seed, suite_name="libero_10"):
     from libero.libero import benchmark
     from experiments.libero.libero_utils import get_libero_env, save_rollout_video
-    suite = benchmark.get_benchmark_dict()["libero_10"]()
+    suite = benchmark.get_benchmark_dict()[suite_name]()
     results = []
     output.mkdir(parents=True, exist_ok=True)
     for task_id in tasks:
@@ -208,17 +230,19 @@ def simulator_preflight(output, tasks, seed):
                 seed=seed, max_steps=2, wait_steps=1)
             result["video"] = save_rollout_video(output, frames, f"preflight_task{task_id}",
                                                    result["success"], description)
-            result["task_id"] = task_id
+            result.update(suite=suite_name, task_id=task_id)
             results.append(result)
         finally:
             env.close()
-    write_json(output / "simulator_preflight.json", {"mode": "simulator_preflight", "episodes": results})
+    write_json(output / "simulator_preflight.json", {
+        "mode": "simulator_preflight", "suite": suite_name, "episodes": results})
     print(json.dumps({"event": "simulator_preflight_complete", "output": str(output)}), flush=True)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint")
+    parser.add_argument("--suite", choices=LIBERO_SUITES, default="libero_10")
     parser.add_argument("--vae-path")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--data-dir", help="Training run data manifest/stats directory; defaults beside checkpoint")
@@ -244,7 +268,7 @@ def main():
     if args.simulator_preflight:
         if world != 1:
             parser.error("Run simulator preflight as a single CPU process")
-        simulator_preflight(output, tasks, args.seed)
+        simulator_preflight(output, tasks, args.seed, args.suite)
         return
     if not args.checkpoint or not args.vae_path:
         parser.error("--checkpoint and --vae-path are required for policy rollouts")
@@ -256,7 +280,7 @@ def main():
     stats_path = Path(args.stats) if args.stats else data_dir / "dataset_stats.json"
     stats_hash = sha256_file(stats_path)
     payload = torch.load(checkpoint, map_location="cpu", weights_only=False, mmap=True)
-    contract = validate_checkpoint(payload, data, stats_hash, smoke=args.smoke)
+    contract = validate_checkpoint(payload, data, stats_hash, smoke=args.smoke, suite=args.suite)
     version, loops = checkpoint_policy_spec(payload)
     checkpoint_step = payload["step"]
     del payload
@@ -283,12 +307,13 @@ def main():
                     versions[package] = importlib.metadata.version(package)
                 except importlib.metadata.PackageNotFoundError:
                     versions[package] = "unknown"
-            manifest = dict(mode="smoke" if args.smoke else "final_rollout", suite="libero_10",
+            manifest = dict(mode="smoke" if args.smoke else "final_rollout", suite=args.suite,
                 checkpoint=str(checkpoint), checkpoint_sha256=checkpoint_hash, checkpoint_step=checkpoint_step,
                 version=version, loops=loops, inference_steps=10, cfg=1.0, action_chunk=32,
                 protocol=dict(max_policy_steps=args.max_steps, settling_steps=args.wait_steps,
                               replan_steps=args.replan_steps, camera_resolution=256,
-                              model_camera_size=[224, 224], concatenation="horizontal"),
+                              model_camera_size=[224, 224], concatenation="horizontal",
+                              horizon_policy="700 policy steps and 30 settling steps for every suite"),
                 normalization_sha256=stats_hash, vae_sha256=vae_hash, training_contract=contract,
                 world_size=world, task_assignment={str(r): shard_tasks(tasks, r, world) for r in range(world)},
                 arguments=vars(args), package_versions=versions, cuda=torch.version.cuda,
@@ -309,7 +334,7 @@ def main():
             args.text_cache_dir or data["text_cache_dir"], data["text_cache_files"])
         model = create_loopwam(checkpoint_path=str(checkpoint), vae_path=args.vae_path,
             version=version, loops=loops, device=f"cuda:{local}", model_dtype=torch.float32).eval()
-        suite = benchmark.get_benchmark_dict()["libero_10"]()
+        suite = benchmark.get_benchmark_dict()[args.suite]()
         episodes = []
         video_dir = output / "videos"
         video_dir.mkdir(parents=True, exist_ok=True)
@@ -337,7 +362,7 @@ def main():
                     started = time.perf_counter()
                     result, frames = run_episode(env, states[episode], predict, seed=seed,
                         max_steps=args.max_steps, wait_steps=args.wait_steps, replan_steps=args.replan_steps)
-                    result.update(task_id=task_id, episode_index=episode, initial_state_index=episode,
+                    result.update(suite=args.suite, task_id=task_id, episode_index=episode, initial_state_index=episode,
                         task_description=description, rank=rank, checkpoint_sha256=checkpoint_hash,
                         duration_seconds=time.perf_counter() - started, mode="smoke" if args.smoke else "final_rollout")
                     result["video"] = save_rollout_video(video_dir, frames, f"task{task_id}_trial{episode}",
@@ -347,7 +372,7 @@ def main():
                     print(json.dumps(dict(event="episode_complete", **result)), flush=True)
             finally:
                 env.close()
-        write_json(output / f"rank{rank}.json", {"rank": rank, "checkpoint_sha256": checkpoint_hash,
+        write_json(output / f"rank{rank}.json", {"rank": rank, "suite": args.suite, "checkpoint_sha256": checkpoint_hash,
                                                    "episodes": episodes})
         if world > 1:
             dist.barrier()
@@ -357,13 +382,16 @@ def main():
                 worker_result = json.loads((output / f"rank{worker}.json").read_text())
                 if worker_result["checkpoint_sha256"] != checkpoint_hash:
                     raise ValueError("Workers evaluated different checkpoints")
+                if (worker_result.get("suite") != args.suite
+                        or any(row.get("suite") != args.suite for row in worker_result["episodes"])):
+                    raise ValueError("Workers evaluated different suites")
                 combined.extend(worker_result["episodes"])
             expected = {(task, episode) for task in tasks for episode in range(args.episodes_per_task)}
             actual = [(row["task_id"], row["episode_index"]) for row in combined]
             if len(actual) != len(expected) or set(actual) != expected:
                 raise ValueError("Worker results have missing or duplicate episodes")
             successes = sum(row["success"] for row in combined)
-            summary = dict(mode="smoke" if args.smoke else "final_rollout", suite="libero_10",
+            summary = dict(mode="smoke" if args.smoke else "final_rollout", suite=args.suite,
                 checkpoint_sha256=checkpoint_hash, version=version, loops=loops, checkpoint_step=checkpoint_step,
                 total_episodes=len(combined), successes=successes, success_rate=successes / len(combined),
                 per_task={str(task): dict(episodes=args.episodes_per_task,

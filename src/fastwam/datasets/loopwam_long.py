@@ -227,3 +227,153 @@ def build_long_datasets(dataset_dir, text_cache_dir, output_dir, seed=42):
     }
     _persist_json(output_dir / "data_manifest.json", manifest)
     return train, validation, manifest
+
+
+FULL_LIBERO_SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_10")
+
+
+def build_full_libero_datasets(dataset_root, text_cache_dir, output_dir, seed=42):
+    """Train on every available demonstration in all four local v3.0 suites.
+
+    Concatenation order is fixed by ``FULL_LIBERO_SUITES``. Its global indices
+    identify latent-cache entries; episode IDs in the manifest are qualified by
+    suite because the source datasets reuse their local episode numbers. The
+    seed is recorded for training reproducibility and does not select episodes.
+    No validation demonstrations are withheld in this all-training protocol.
+    """
+    from fastwam.datasets.lerobot3.lerobot_dataset import LeRobotDataset
+
+    root = Path(dataset_root).resolve()
+    output_dir = Path(output_dir)
+    coverage, suite_stats, content_files, metadata_files = {}, [], {}, {}
+    task_counts, train_episodes, info_hashes, episode_hashes = {}, [], {}, {}
+    tasks_to_suites = defaultdict(list)
+    fps = None
+    for suite in FULL_LIBERO_SUITES:
+        directory = root / f"{suite}_no_noops_lerobot"
+        info_bytes = (directory / "meta/info.json").read_bytes()
+        info = json.loads(info_bytes)
+        if info["codebase_version"] != "v3.0":
+            raise ValueError(f"Full LIBERO requires v3.0: {suite}")
+        paths = sorted((directory / "meta/episodes").glob("*/*.parquet"))
+        if not paths:
+            raise FileNotFoundError(f"No episode metadata in {directory}")
+        rows = pq.read_table([str(p) for p in paths],
+                             columns=["episode_index", "tasks", "length"]).to_pylist()
+        rows.sort(key=lambda row: int(row["episode_index"]))
+        ids = [int(row["episode_index"]) for row in rows]
+        if not ids or len(set(ids)) != len(ids) or any(row["length"] <= 0 for row in rows):
+            raise ValueError(f"Invalid or duplicate episode metadata: {suite}")
+        if len(rows) != info["total_episodes"] or sum(row["length"] for row in rows) != info["total_frames"]:
+            raise ValueError(f"Episode metadata does not match info.json: {suite}")
+        counts = {}
+        for row in rows:
+            if len(row["tasks"]) != 1 or not isinstance(row["tasks"][0], str) or not row["tasks"][0].strip():
+                raise ValueError(f"Exactly one nonempty task is required per episode: {suite}")
+            task = row["tasks"][0]
+            counts.setdefault(task, {"available": 0, "train": 0, "validation": 0})
+            counts[task]["available"] += 1
+            counts[task]["train"] += 1
+        for task, count in sorted(counts.items()):
+            task_counts[f"{suite}/{task}"] = count
+            tasks_to_suites[task].append(suite)
+        stats = compute_train_stats(directory, ids)
+        if stats["num_transition"] != info["total_frames"]:
+            raise ValueError(f"Training frame count does not match metadata: {suite}")
+        suite_stats.append(stats)
+        suite_fps = int(info["fps"])
+        if suite_fps <= 0 or (fps is not None and fps != suite_fps):
+            raise ValueError("All LIBERO suites must have the same positive fps")
+        fps = suite_fps
+        info_hashes[suite] = hashlib.sha256(info_bytes).hexdigest()
+        episode_hashes[suite] = hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest()
+        content_files.update({f"{directory.name}/{path}": value
+                              for path, value in dataset_content_manifest(directory).items()})
+        # Include task and video/episode indexing metadata used by the reader,
+        # as well as the historical info/episode-summary hashes below.
+        for path in sorted((directory / "meta").rglob("*")):
+            if path.is_file():
+                metadata_files[str(path.relative_to(root))] = {
+                    "bytes": path.stat().st_size,
+                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+        start = sum(item["train_windows"] for item in coverage.values())
+        coverage[suite] = {
+            "dataset_dir": str(directory), "codebase_version": "v3.0",
+            "available_episodes": len(ids), "available_windows": stats["num_transition"],
+            "train_episodes": ids, "validation_episodes": [],
+            "train_windows": stats["num_transition"], "validation_windows": 0,
+            "global_index_start": start, "global_index_stop": start + stats["num_transition"],
+            "task_counts": counts, "info_sha256": info_hashes[suite],
+            "episode_metadata_sha256": episode_hashes[suite],
+        }
+        train_episodes.extend(f"{suite}:{episode}" for episode in ids)
+
+    stats = {"num_episodes": sum(s["num_episodes"] for s in suite_stats),
+             "num_transition": sum(s["num_transition"] for s in suite_stats)}
+    for kind in ("action", "state"):
+        stats[kind] = {"default": {
+            "global_min": np.min([s[kind]["default"]["global_min"] for s in suite_stats], axis=0).tolist(),
+            "global_max": np.max([s[kind]["default"]["global_max"] for s in suite_stats], axis=0).tolist()}}
+
+    # Validate every task before persisting artifacts or opening video readers.
+    text_loader = LoopWAMLongDataset([], text_cache_dir, stats)
+    cache_files = {}
+    for task, suites in sorted(tasks_to_suites.items()):
+        prompt = DEFAULT_PROMPT.format(task=task)
+        digest = hashlib.sha256(prompt.encode()).hexdigest()
+        path = Path(text_cache_dir) / f"{digest}.t5_len128.wan22ti2v5b.pt"
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing text cache for {suites}: {task!r}: {path}")
+        context, mask = text_loader._text(prompt)
+        if not torch.isfinite(context).all():
+            raise ValueError(f"Nonfinite text cache for {suites}: {path}")
+        cache_files[path.name] = {"sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                                 "valid_tokens": int(mask.sum())}
+    delta_timestamps = {key: [t / fps for t in range(0, 33, 4)] for key in CAMERAS}
+    delta_timestamps.update({"action": [t / fps for t in range(32)],
+                             "observation.state": [t / fps for t in range(33)]})
+    datasets = []
+    for suite, details in coverage.items():
+        directory = Path(details["dataset_dir"])
+        reader = LeRobotDataset(str(directory), root=directory, episodes=details["train_episodes"],
+                                delta_timestamps=delta_timestamps, video_backend="pyav")
+        dataset = LoopWAMLongDataset(reader, text_cache_dir, stats)
+        dataset._text_cache = text_loader._text_cache
+        if len(dataset) != details["train_windows"]:
+            raise ValueError(f"Reader windows do not cover every training frame: {suite}")
+        datasets.append(dataset)
+    train = torch.utils.data.ConcatDataset(datasets)
+    validation = torch.utils.data.Subset(train, [])
+    output_dir.mkdir(parents=True, exist_ok=True)
+    stats_hash = _persist_json(output_dir / "dataset_stats.json", stats)
+    manifest = {
+        "dataset_scope": "full_libero", "split": "all_train",
+        "suites": list(FULL_LIBERO_SUITES), "coverage": coverage,
+        "dataset_dir": str(root), "codebase_version": "v3.0", "seed": seed,
+        "available_episodes": stats["num_episodes"], "available_windows": stats["num_transition"],
+        "content_files": content_files, "metadata_files": metadata_files,
+        "info_sha256": hashlib.sha256(json.dumps(info_hashes, sort_keys=True).encode()).hexdigest(),
+        "episode_metadata_sha256": hashlib.sha256(json.dumps(episode_hashes, sort_keys=True).encode()).hexdigest(),
+        "split_algorithm": "all available episodes; fixed suite order and ascending local episode IDs",
+        "task_counts": task_counts, "train_episodes": train_episodes, "validation_episodes": [],
+        "train_windows": len(train), "validation_windows": 0,
+        "normalization_sha256": stats_hash, "normalization_source": "training episodes only",
+        "normalization_scope": "global across all four LIBERO suites",
+        "normalization_path": str((output_dir / "dataset_stats.json").resolve()),
+        "text_cache_dir": str(Path(text_cache_dir).resolve()), "text_cache_files": cache_files,
+        "text_encoder_provenance": {
+            "expected_encoder": "models_t5_umt5-xxl-enc-bf16.pth",
+            "expected_encoder_sha256": "7cace0da2b446bbbbc57d031ab6cf163a3d59b366da94e5afe36745b746fd81d",
+            "source": "Identical official Wan2.1-T2V-1.3B and Wan2.2-TI2V-5B Hub LFS hashes, audited 2026-10-05",
+            "cache_payload_binds_encoder_hash": False,
+            "limitation": "Existing context/mask-only caches have no embedded encoder or tokenizer provenance",
+        },
+        "camera_order": list(CAMERAS), "fps": fps,
+        "video_offsets": list(range(0, 33, 4)), "action_offsets": list(range(32)),
+        "padding_policy": "all anchors, repeat last frame, zero padded delta pose, retain gripper",
+        "complete_500_demo_set": all(len(details["train_episodes"]) == 500 and
+            all(count["available"] == 50 for count in details["task_counts"].values())
+            for details in coverage.values()),
+    }
+    _persist_json(output_dir / "data_manifest.json", manifest)
+    return train, validation, manifest

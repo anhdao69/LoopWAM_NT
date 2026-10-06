@@ -24,7 +24,7 @@ from torch.utils.data._utils.collate import default_collate
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, Sampler
 
-from fastwam.datasets.loopwam_long import build_long_datasets
+from fastwam.datasets.loopwam_long import build_long_datasets, build_full_libero_datasets
 from fastwam.models.wan22.loopwam import create_loopwam
 
 
@@ -69,6 +69,16 @@ def lr_factor(step, total, warmup):
         return (step+1)/max(warmup,1)
     progress = min(1., (step-warmup)/max(total-warmup-1,1))
     return .01+.99*.5*(1+math.cos(math.pi*progress))
+
+
+def training_contract(args, world, train_windows, planned_updates, data_manifest):
+    contract = dict(world=world, microbatch=args.microbatch, global_batch=args.global_batch,
+                    seed=args.seed, train_windows=train_windows, planned_updates=planned_updates,
+                    version=args.version, normalization_sha256=data_manifest['normalization_sha256'])
+    if data_manifest.get('dataset_scope') == 'full_libero':
+        contract.update(dataset_scope='full_libero', epochs=args.epochs,
+                        suites=list(data_manifest['suites']))
+    return contract
 
 
 @torch.no_grad()
@@ -216,6 +226,8 @@ def main():
     p.add_argument('--init-artifact',default='checkpoints/LoopWAM/wan21_compact_donors.pt')
     p.add_argument('--vae-path',default='checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth')
     p.add_argument('--dataset-dir',default='data/lerobot_v30/libero_10_no_noops_lerobot')
+    p.add_argument('--dataset-scope',choices=['long_split','full_libero'],default='long_split',
+                   help='full_libero uses all four suite subdirectories and all demonstrations')
     p.add_argument('--text-cache-dir',default='data/text_embeds_cache/libero')
     p.add_argument('--output-dir',default=None)
     p.add_argument('--microbatch',type=int,default=1)
@@ -248,6 +260,8 @@ def main():
     if min(args.microbatch,args.global_batch,args.epochs,args.save_every)<=0: p.error('Batch, epochs, save interval must be positive')
     if args.max_updates is not None and args.max_updates<=0: p.error('--max-updates must be positive')
     if args.workers<0 or args.validation_samples<0: p.error('Worker and validation counts cannot be negative')
+    if args.dataset_scope == 'full_libero' and args.validation_samples != 0:
+        p.error('Full LIBERO uses every demonstration for training; set --validation-samples 0 and use simulator evaluation')
     rank=int(os.environ.get('RANK',0)); world=int(os.environ.get('WORLD_SIZE',1)); local=int(os.environ.get('LOCAL_RANK',0))
     torch.cuda.set_device(local)
     if world>1 or is_zero:
@@ -261,12 +275,13 @@ def main():
     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)
     torch.set_num_threads(4)
     setup_start=time.perf_counter()
+    build_datasets = build_full_libero_datasets if args.dataset_scope == 'full_libero' else build_long_datasets
     # Only rank0 persists deterministic split files; other ranks read the same output.
     if rank==0:
-        train,val,data_manifest=build_long_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
+        train,val,data_manifest=build_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
     if world>1: dist.barrier()
     if rank!=0:
-        train,val,data_manifest=build_long_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
+        train,val,data_manifest=build_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
     sampler=ExactDistributedBatches(len(train),args.microbatch,rank,world,args.seed)
     loader=DataLoader(MarkedDataset(train),batch_sampler=sampler,num_workers=args.workers,
         pin_memory=True,persistent_workers=args.workers>0, generator=torch.Generator().manual_seed(args.seed+rank))
@@ -292,9 +307,7 @@ def main():
         if 'optimizer' not in payload: raise ValueError('Checkpoint lacks a complete DDP optimizer state')
         opt.load_state_dict(payload['optimizer'])
         if not resume_state: raise ValueError('Checkpoint lacks resumable training state')
-        expected=dict(world=world,microbatch=args.microbatch,global_batch=args.global_batch,seed=args.seed,
-                      train_windows=len(train),planned_updates=total,version=args.version,
-                      normalization_sha256=data_manifest['normalization_sha256'])
+        expected=training_contract(args,world,len(train),total,data_manifest)
         if resume_state['contract']!=expected: raise ValueError('Resume training contract changed')
     # Different independent noise streams after identical construction on all ranks.
     torch.manual_seed(args.seed+rank)
@@ -351,9 +364,7 @@ def main():
         rng=resume_state['rng'][rank]
         torch.set_rng_state(rng['cpu']); torch.cuda.set_rng_state(rng['cuda'])
         random.setstate(rng['python']); np.random.set_state(rng['numpy'])
-    contract=dict(world=world,microbatch=args.microbatch,global_batch=args.global_batch,seed=args.seed,
-                  train_windows=len(train),planned_updates=total,version=args.version,
-                  normalization_sha256=data_manifest['normalization_sha256'])
+    contract=training_contract(args,world,len(train),total,data_manifest)
     logfile=(out/'metrics.jsonl').open('a') if rank==0 else None
     for epoch in range(start_epoch,args.epochs):
         sampler.epoch=epoch
