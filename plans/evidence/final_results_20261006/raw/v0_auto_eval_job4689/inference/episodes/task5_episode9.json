@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "d75adef4068d74827921ea35a6bd8d36b5e6ad8b0b84de8dc7ad9e9766486125",
+  "duration_seconds": 23.273945424938574,
+  "episode_index": 9,
+  "initial_state_index": 9,
+  "mode": "final_rollout",
+  "rank": 1,
+  "replans": 18,
+  "seed": 509042,
+  "steps": 179,
+  "success": true,
+  "task_description": "pick up the book and place it in the back compartment of the caddy",
+  "task_id": 5,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_auto_eval_job4689/inference/videos/2026_10_06-07_26_16--episode=task5_trial9--success=True--task=pick_up_the_book_and_place_it_in_the_back_compartm.mp4",
+  "wait_steps": 30
+}

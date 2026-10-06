@@ -1,0 +1,27 @@
+{
+  "slurm_job_id": "4691",
+  "source_revision": "ccf8a67dc5c479d06a7e0acd64da9da100603e15",
+  "started_unix": 1791248639.581449,
+  "stage": "complete",
+  "elapsed_seconds": 41279.57999134064,
+  "command": [
+    "torchrun",
+    "--standalone",
+    "--nproc_per_node=2",
+    "scripts/evaluate_loopwam_libero.py",
+    "--vae-path",
+    "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "--checkpoint",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/train/latest.pt",
+    "--stats",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/train/data/dataset_stats.json",
+    "--output-dir",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/inference",
+    "--episodes-per-task",
+    "10"
+  ],
+  "exit_code": 1,
+  "microbatch": 8,
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/train/latest.pt",
+  "inference_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/inference"
+}

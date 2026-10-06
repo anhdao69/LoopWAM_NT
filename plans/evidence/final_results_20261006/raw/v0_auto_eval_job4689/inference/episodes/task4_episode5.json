@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "d75adef4068d74827921ea35a6bd8d36b5e6ad8b0b84de8dc7ad9e9766486125",
+  "duration_seconds": 29.37151546298992,
+  "episode_index": 5,
+  "initial_state_index": 5,
+  "mode": "final_rollout",
+  "rank": 0,
+  "replans": 25,
+  "seed": 405042,
+  "steps": 246,
+  "success": true,
+  "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+  "task_id": 4,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_auto_eval_job4689/inference/videos/2026_10_06-07_26_16--episode=task4_trial5--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+  "wait_steps": 30
+}

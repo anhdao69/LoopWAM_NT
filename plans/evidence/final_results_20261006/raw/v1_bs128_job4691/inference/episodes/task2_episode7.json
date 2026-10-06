@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "5b893e89864af9f0fc5c8023ddb482bd6d60bb74e137be2ef82f6d7721cad272",
+  "duration_seconds": 57.487957118079066,
+  "episode_index": 7,
+  "initial_state_index": 7,
+  "mode": "final_rollout",
+  "rank": 0,
+  "replans": 23,
+  "seed": 207042,
+  "steps": 229,
+  "success": true,
+  "task_description": "turn on the stove and put the moka pot on it",
+  "task_id": 2,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/inference/videos/2026_10_06-11_32_32--episode=task2_trial7--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4",
+  "wait_steps": 30
+}

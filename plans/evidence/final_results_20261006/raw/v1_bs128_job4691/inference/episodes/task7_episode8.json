@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "5b893e89864af9f0fc5c8023ddb482bd6d60bb74e137be2ef82f6d7721cad272",
+  "duration_seconds": 108.63867609575391,
+  "episode_index": 8,
+  "initial_state_index": 8,
+  "mode": "final_rollout",
+  "rank": 1,
+  "replans": 70,
+  "seed": 708042,
+  "steps": 700,
+  "success": false,
+  "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+  "task_id": 7,
+  "terminal": false,
+  "timeout": true,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v1_bs128_job4691/inference/videos/2026_10_06-11_32_32--episode=task7_trial8--success=False--task=put_both_the_alphabet_soup_and_the_cream_cheese_bo.mp4",
+  "wait_steps": 30
+}

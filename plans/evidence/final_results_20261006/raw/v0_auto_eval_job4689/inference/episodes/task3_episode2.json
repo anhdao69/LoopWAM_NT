@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "d75adef4068d74827921ea35a6bd8d36b5e6ad8b0b84de8dc7ad9e9766486125",
+  "duration_seconds": 36.83788008801639,
+  "episode_index": 2,
+  "initial_state_index": 2,
+  "mode": "final_rollout",
+  "rank": 1,
+  "replans": 26,
+  "seed": 302042,
+  "steps": 251,
+  "success": true,
+  "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+  "task_id": 3,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_auto_eval_job4689/inference/videos/2026_10_06-07_26_16--episode=task3_trial2--success=True--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cab.mp4",
+  "wait_steps": 30
+}

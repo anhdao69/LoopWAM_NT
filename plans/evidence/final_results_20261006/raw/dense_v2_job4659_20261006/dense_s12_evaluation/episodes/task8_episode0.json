@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "99dd71164a8f1e973df7c183da51fa097857fa31867f62cdfd4f283bd3d01b59",
+  "duration_seconds": 84.82398665789515,
+  "episode_index": 0,
+  "initial_state_index": 0,
+  "mode": "final_rollout",
+  "rank": 0,
+  "replans": 42,
+  "seed": 800042,
+  "steps": 420,
+  "success": true,
+  "task_description": "put both moka pots on the stove",
+  "task_id": 8,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/dense_s12_evaluation/videos/2026_10_06-06_09_29--episode=task8_trial0--success=True--task=put_both_moka_pots_on_the_stove.mp4",
+  "wait_steps": 30
+}

@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "15781272e43b9ad9787f312680089b481dee512a718f79b01283cf828c4c0c82",
+  "duration_seconds": 105.21444776793942,
+  "episode_index": 7,
+  "initial_state_index": 7,
+  "mode": "final_rollout",
+  "rank": 1,
+  "replans": 70,
+  "seed": 907042,
+  "steps": 700,
+  "success": false,
+  "task_description": "put the yellow and white mug in the microwave and close it",
+  "task_id": 9,
+  "terminal": false,
+  "timeout": true,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/v2_evaluation/videos/2026_10_06-11_58_45--episode=task9_trial7--success=False--task=put_the_yellow_and_white_mug_in_the_microwave_and_.mp4",
+  "wait_steps": 30
+}

@@ -1,0 +1,31 @@
+{
+  "slurm_job_id": "4659",
+  "slurm_step_id": "17",
+  "started_unix": 1791257253.3629713,
+  "source_revision": "012cc8ff305ee067874009e0be705837301f9d4d",
+  "stage": "complete",
+  "elapsed_seconds": 33108.27788281441,
+  "stage_durations_seconds": {
+    "dense_s12_training": 9703.75843167305,
+    "dense_s12_evaluation": 2084.123803138733,
+    "v2_training": 18865.364817142487,
+    "v2_evaluation": 2454.885952234268
+  },
+  "command": [
+    "torchrun",
+    "--standalone",
+    "--nproc_per_node=4",
+    "scripts/evaluate_loopwam_libero.py",
+    "--checkpoint",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/v2_train/latest.pt",
+    "--vae-path",
+    "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "--stats",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/v2_train/data/dataset_stats.json",
+    "--output-dir",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/v2_evaluation",
+    "--episodes-per-task",
+    "10"
+  ],
+  "success_rate": 0.81
+}

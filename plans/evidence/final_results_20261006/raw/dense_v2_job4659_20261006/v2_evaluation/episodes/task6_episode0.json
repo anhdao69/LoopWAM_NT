@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "15781272e43b9ad9787f312680089b481dee512a718f79b01283cf828c4c0c82",
+  "duration_seconds": 31.012968356721103,
+  "episode_index": 0,
+  "initial_state_index": 0,
+  "mode": "final_rollout",
+  "rank": 2,
+  "replans": 22,
+  "seed": 600042,
+  "steps": 212,
+  "success": true,
+  "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+  "task_id": 6,
+  "terminal": true,
+  "timeout": false,
+  "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/v2_evaluation/videos/2026_10_06-11_58_45--episode=task6_trial0--success=True--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4",
+  "wait_steps": 30
+}

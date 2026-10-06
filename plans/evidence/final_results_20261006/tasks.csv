@@ -1,0 +1,11 @@
+task_id,task,v0,v1,dense_s12,v2
+0,put both the alphabet soup and the tomato sauce in the basket,9,8,6,7
+1,put both the cream cheese box and the butter in the basket,10,10,8,9
+2,turn on the stove and put the moka pot on it,10,9,9,8
+3,put the black bowl in the bottom drawer of the cabinet and close it,10,9,10,10
+4,put the white mug on the left plate and put the yellow and white mug on the right plate,9,7,7,7
+5,pick up the book and place it in the back compartment of the caddy,10,10,10,10
+6,put the white mug on the plate and put the chocolate pudding to the right of the plate,10,5,8,9
+7,put both the alphabet soup and the cream cheese box in the basket,10,6,8,8
+8,put both moka pots on the stove,8,9,8,6
+9,put the yellow and white mug in the microwave and close it,10,9,7,7
