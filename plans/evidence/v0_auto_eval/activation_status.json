@@ -1,0 +1,22 @@
+{
+  "job_id": "4689",
+  "training_step": "4689.61",
+  "allocation_identity": {
+    "JobId": "4689",
+    "UserId": "anhdh35(1025)",
+    "JobState": "RUNNING",
+    "StartTime": "2026-10-05T20:29:21"
+  },
+  "source_revision": "17ef2c6c6fad86d726b66b362a618b9e7b1b564c",
+  "source_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v0_auto_eval",
+  "train_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_scratch_fast_bs128_20261005",
+  "output_root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_auto_eval_job4689",
+  "pid": 321486,
+  "hostname": "login-0",
+  "started_unix": 1791259623.340091,
+  "stage": "waiting_for_training",
+  "updated_unix": 1791259623.3674324,
+  "elapsed_seconds": 0.027341365814208984,
+  "completed_updates": 4260,
+  "planned_updates": 7250
+}

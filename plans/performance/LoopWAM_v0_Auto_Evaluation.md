@@ -28,3 +28,9 @@ Focused cancellation tests cover successful ordering and refusal after incomplet
 Local watcher tests passed. Three related rollout tests could not run in the local shell because its Python environment lacks `pyarrow`; verification uses the existing server environment instead. Full server test results and live activation evidence are recorded below after verification.
 
 Server verification: **165 passed, 7 CUDA-only skips**, with three upstream robosuite deprecation warnings. Shell syntax and Python compilation checks passed. Read-only live preflight matched allocation4689/owner/start time and found only the interactive shell and training step. The existing v0 checkpoint at update4200 passed evaluator architecture and normalization/contract checks (v0, four loops, two training ranks, global128). Training is still running, so final evaluation and cancellation have not occurred.
+
+## Active watcher
+
+Activated on login-0 as detached PID **321486**, parent PID1, pinned source **17ef2c6c6fad86d726b66b362a618b9e7b1b564c**. Verified stage `waiting_for_training`, current v0 update4260/7250, and no evaluation directory or evaluation GPU step yet. Existing training step4689.61 remains running. Source is synced locally and pushed to `LoopWAM_NT`.
+
+The watcher is armed to execute the future evaluation and cancellation; neither has happened at activation. [Activation snapshot](../evidence/v0_auto_eval/activation_status.json).
