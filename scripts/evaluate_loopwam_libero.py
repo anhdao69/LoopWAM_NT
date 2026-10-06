@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Final LoopWAM v1 LIBERO-Long rollouts, independently task-sharded by torchrun.
+"""Final Dense-S12 / LoopWAM LIBERO-Long rollouts, independently task-sharded by torchrun.
 
 Example: torchrun --standalone --nproc_per_node=2 scripts/evaluate_loopwam_libero.py
   --checkpoint RUN/latest.pt --vae-path CHECKPOINTS/Wan2.1_VAE.pth --output-dir RUN/rollouts
@@ -43,31 +43,47 @@ def write_json(path, payload):
     temporary.replace(path)
 
 
+def checkpoint_policy_spec(payload):
+    """Use the checkpoint's declared architecture and full trained depth."""
+    version = payload.get("version")
+    if (payload.get("format_version") != "loopwam-s-v1"
+            or version not in {"dense_s12", "v0", "v1", "v2"}):
+        raise ValueError("Expected a supported Dense-S12 or LoopWAM student checkpoint")
+    loops = payload.get("trained_max_loops")
+    expected_loops = 1 if version == "dense_s12" else 4
+    if loops != expected_loops or payload.get("inference_loops") != loops:
+        raise ValueError("Checkpoint depth differs from its approved architecture")
+    return version, loops
+
+
 def validate_checkpoint(payload, data, stats_hash, *, smoke=False):
     """Incomplete checkpoints may only produce explicitly labelled smoke results."""
-    if payload.get("format_version") != "loopwam-s-v1" or payload.get("version") != "v1":
-        raise ValueError("Expected a trained LoopWAM v1 student checkpoint")
+    version, _ = checkpoint_policy_spec(payload)
     state = payload.get("training_state") or {}
     contract = state.get("contract") or {}
     if (data.get("normalization_source") != "training episodes only"
             or stats_hash != data.get("normalization_sha256")
             or stats_hash != contract.get("normalization_sha256")):
         raise ValueError("Training normalization provenance/hash mismatch")
-    if (contract.get("version") != "v1" or contract.get("planned_updates") != 7250
-            or contract.get("global_batch") != 128 or contract.get("world") != 2
+    world = contract.get("world")
+    microbatch = contract.get("microbatch")
+    valid_batch = (type(world) is int and world > 0
+                   and type(microbatch) is int and microbatch > 0
+                   and 128 % (world * microbatch) == 0)
+    if (contract.get("version") != version or contract.get("planned_updates") != 7250
+            or contract.get("global_batch") != 128 or not valid_batch
             or contract.get("train_windows") != data.get("train_windows")
-            or contract.get("seed") != 42 or payload.get("trained_max_loops") != 4):
-        raise ValueError("Checkpoint training contract differs from the approved v1 run")
+            or contract.get("seed") != 42):
+        raise ValueError("Checkpoint training contract differs from the approved run")
     if payload.get("step") != state.get("update"):
         raise ValueError("Checkpoint step and training update disagree")
     if smoke:
         return contract
     if payload.get("step") != 7250 or state.get("epoch") != 9:
-        raise ValueError("Final evaluation requires complete 7250-update, 10-epoch v1 training")
+        raise ValueError("Final evaluation requires complete 7250-update, 10-epoch training")
     if state.get("windows_seen") != 10 * data["train_windows"]:
         raise ValueError("Final training windows_seen does not cover ten complete epochs")
-    microbatch = contract.get("microbatch", 0)
-    if microbatch <= 0 or state.get("next_micro") != math.ceil(data["train_windows"] / (2 * microbatch)):
+    if state.get("next_micro") != math.ceil(data["train_windows"] / (world * microbatch)):
         raise ValueError("Final checkpoint does not complete the last epoch")
     return contract
 
@@ -241,6 +257,7 @@ def main():
     stats_hash = sha256_file(stats_path)
     payload = torch.load(checkpoint, map_location="cpu", weights_only=False, mmap=True)
     contract = validate_checkpoint(payload, data, stats_hash, smoke=args.smoke)
+    version, loops = checkpoint_policy_spec(payload)
     checkpoint_step = payload["step"]
     del payload
     train_manifest = json.loads((checkpoint.parent / "manifest.json").read_text())
@@ -268,7 +285,7 @@ def main():
                     versions[package] = "unknown"
             manifest = dict(mode="smoke" if args.smoke else "final_rollout", suite="libero_10",
                 checkpoint=str(checkpoint), checkpoint_sha256=checkpoint_hash, checkpoint_step=checkpoint_step,
-                version="v1", loops=4, inference_steps=10, cfg=1.0, action_chunk=32,
+                version=version, loops=loops, inference_steps=10, cfg=1.0, action_chunk=32,
                 protocol=dict(max_policy_steps=args.max_steps, settling_steps=args.wait_steps,
                               replan_steps=args.replan_steps, camera_resolution=256,
                               model_camera_size=[224, 224], concatenation="horizontal"),
@@ -291,7 +308,7 @@ def main():
         adapter = ObservationAdapter(json.loads(stats_path.read_text()),
             args.text_cache_dir or data["text_cache_dir"], data["text_cache_files"])
         model = create_loopwam(checkpoint_path=str(checkpoint), vae_path=args.vae_path,
-            version="v1", loops=4, device=f"cuda:{local}", model_dtype=torch.float32).eval()
+            version=version, loops=loops, device=f"cuda:{local}", model_dtype=torch.float32).eval()
         suite = benchmark.get_benchmark_dict()["libero_10"]()
         episodes = []
         video_dir = output / "videos"
@@ -347,7 +364,7 @@ def main():
                 raise ValueError("Worker results have missing or duplicate episodes")
             successes = sum(row["success"] for row in combined)
             summary = dict(mode="smoke" if args.smoke else "final_rollout", suite="libero_10",
-                checkpoint_sha256=checkpoint_hash, version="v1", checkpoint_step=checkpoint_step,
+                checkpoint_sha256=checkpoint_hash, version=version, loops=loops, checkpoint_step=checkpoint_step,
                 total_episodes=len(combined), successes=successes, success_rate=successes / len(combined),
                 per_task={str(task): dict(episodes=args.episodes_per_task,
                     successes=sum(row["success"] for row in combined if row["task_id"] == task),

@@ -7,12 +7,11 @@ import torch
 from torch import nn
 
 from .fastwam import FastWAM
-from .loop_mot import LoopMoT
+from .loop_mot import LoopMoT, resolve_loop_count
 
 
 def exit_weights(version: str, loops: int, scale: float = 1.0) -> dict[int, float]:
-    if version not in {'v0', 'v1', 'v2'} or not 1 <= loops <= 4:
-        raise ValueError('Expected version v0/v1/v2 and loops in 1..4')
+    loops = resolve_loop_count(version, loops)
     if not math.isfinite(scale) or scale <= 0:
         raise ValueError('Exit weight scale must be finite and positive')
     if version == 'v0' or loops == 1:
@@ -167,7 +166,7 @@ class LoopWAM(FastWAM):
     def save_checkpoint(self, path, optimizer=None, step=None, training_state=None):
         path = Path(path)
         payload = dict(format_version='loopwam-s-v1', architecture=self.architecture_metadata,
-            version=self.version, trained_max_loops=4, inference_loops=self.mot.loops,
+            version=self.version, trained_max_loops=self.mot.trained_max_loops, inference_loops=self.mot.loops,
             exit_weight_scale=self.exit_weight_scale, training_state=training_state, mot=self.mot.state_dict(),
             proprio_encoder=self.proprio_encoder.state_dict(), step=step)
         if optimizer is not None:
@@ -182,6 +181,7 @@ class LoopWAM(FastWAM):
             raise ValueError('Expected a LoopWAM student checkpoint')
         if payload['version'] != self.version:
             raise ValueError('Checkpoint version differs; use the stored version when constructing the model')
+        _validate_checkpoint_depth(payload)
         self.mot.load_state_dict(payload['mot'], strict=True)
         self.proprio_encoder.load_state_dict(payload['proprio_encoder'], strict=True)
         self.architecture_metadata = payload['architecture']
@@ -191,7 +191,16 @@ class LoopWAM(FastWAM):
         return payload
 
 
-def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=4, checkpoint_blocks=False,
+def _validate_checkpoint_depth(payload):
+    version = payload['version']
+    if version == 'dense_s12':
+        for field in ('trained_max_loops', 'inference_loops'):
+            value = payload.get(field)
+            if isinstance(value, bool) or not isinstance(value, int) or value != 1:
+                raise ValueError(f'dense_s12 checkpoint requires {field}=1')
+
+
+def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
                    checkpoint_path=None):
     from .loopwam_init import build_target_experts, load_wan21_vae, load_init_artifact, target_configs
@@ -203,6 +212,8 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=4, che
         if payload.get('format_version') != 'loopwam-s-v1':
             raise ValueError('Expected a LoopWAM student checkpoint')
         version = payload['version']
+        _validate_checkpoint_depth(payload)
+        loops = resolve_loop_count(version, loops)
         metadata = payload['architecture']
         video_cfg, action_cfg = target_configs(12)
         if metadata['target_video_config'] != video_cfg or metadata['target_action_config'] != action_cfg:
@@ -213,6 +224,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=4, che
         proprio = None
         exit_weight_scale = payload['exit_weight_scale']
     else:
+        loops = resolve_loop_count(version, loops)
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
         artifact = load_init_artifact(init_artifact)

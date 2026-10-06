@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import random
 import subprocess
+import shutil
 import time
 
 import numpy as np
@@ -91,10 +92,127 @@ def evaluate_open_loop(model, dataset, count, seed):
                 sampler_steps=10,seed=seed)
 
 
+def configure_training_backend(model, args, world):
+    """Create a fresh optimizer; ZeRO keeps model/master/moments in FP32."""
+    from fastwam.training_backends import initialize_deepspeed_backend, policy_parameters_fp32
+    parameters = policy_parameters_fp32(model)
+    if args.backend == 'ddp':
+        optimizer = torch.optim.AdamW(parameters, lr=1e-4, betas=(.9, .95), eps=1e-8,
+                                      weight_decay=.01, foreach=False, fused=args.fused_optimizer)
+        runner = DDP(model, device_ids=None, broadcast_buffers=False, find_unused_parameters=False,
+                     gradient_as_bucket_view=args.bucket_views) if world > 1 else model
+    else:
+        runner = initialize_deepspeed_backend(model, stage=int(args.backend[-1]),
+            microbatch=args.microbatch, global_batch=args.global_batch, world_size=world,
+            learning_rate=1e-4, fused=True)
+        optimizer = runner.optimizer
+        # DeepSpeed defaults this off for FP32 model weights. Enable its
+        # partition-aware check so finite-loss/nonfinite-gradient failures skip
+        # the update, then fail the runner before any checkpoint is published.
+        optimizer.check_grad_overflow = True
+    return runner, optimizer
+
+
+def backward_training_microbatch(runner, loss, *, is_zero, world, microbatch, valid_global):
+    weighted = loss * (world * microbatch / valid_global)
+    if is_zero:
+        runner.backward(weighted, scale_wrt_gas=False)
+    else:
+        weighted.backward()
+
+
+def _gradient_group(name):
+    prefix = name.split('.', 1)[0]
+    return {'video_expert': 'video', 'action_expert': 'action', 'proprio_encoder': 'proprio'}.get(prefix, prefix)
+
+
+def smoke_policy_gradients(model, *, is_zero):
+    """All ranks participate; call once before the first smoke optimizer step."""
+    if is_zero:
+        from deepspeed.utils import safe_get_full_grad
+    missing, finite, norms = [], [], {}
+    for name, parameter in model.named_parameters():
+        if not parameter.requires_grad:
+            continue
+        gradient = safe_get_full_grad(parameter) if is_zero else parameter.grad
+        if gradient is None:
+            missing.append(name)
+            continue
+        finite.append(torch.isfinite(gradient).all())
+        norms.setdefault(_gradient_group(name), []).append(gradient.detach().float().norm())
+    if missing:
+        raise AssertionError(f'Missing gradients: {missing}')
+    if not finite or not bool(torch.stack(finite).all()):
+        raise FloatingPointError('Nonfinite policy gradients at smoke boundary')
+    return {name: float(torch.linalg.vector_norm(torch.stack(values))) for name, values in norms.items()}
+
+
+def step_training_backend(runner, optimizer, parameters, model, learning_rate, *, is_zero,
+                          smoke_grad_norms=None):
+    """Apply one boundary update with the scheduled LR and global clipping."""
+    for group in optimizer.param_groups:
+        group['lr'] = learning_rate
+    if is_zero:
+        runner.step()
+        if optimizer.overflow:
+            raise FloatingPointError('DeepSpeed rejected nonfinite accumulated gradients')
+        grad = float(runner.get_global_grad_norm())
+        if not math.isfinite(grad) or grad < 0:
+            raise FloatingPointError('Nonfinite DeepSpeed global gradient norm')
+        # Full branch-gradient gathers are a smoke-only diagnostic.
+        coefficient = min(1., 1. / (grad + 1e-6))
+        branch_grad = None if smoke_grad_norms is None else {
+            name: value * coefficient for name, value in smoke_grad_norms.items()}
+    else:
+        grad = torch.nn.utils.clip_grad_norm_(parameters, 1.0, error_if_nonfinite=True)
+        norms = {}
+        for name, parameter in model.named_parameters():
+            if parameter.requires_grad and parameter.grad is not None:
+                norms.setdefault(_gradient_group(name), []).append(parameter.grad.detach().norm())
+        branch_grad = {name: float(torch.linalg.vector_norm(torch.stack(values)))
+                       for name, values in norms.items()}
+        optimizer.step()
+        optimizer.zero_grad(set_to_none=True)
+    return grad, branch_grad
+
+
+def save_training_checkpoint(model, runner, optimizer, output_dir, update, state, *,
+                             backend, rank, world):
+    """Publish portable evaluation weights plus native partitioned recovery state.
+
+    Native DeepSpeed checkpoints are collective. Keep the newest two completed
+    tags; the portable latest.pt contains the exact native directory/tag link,
+    but intentionally contains no misleading rank-local optimizer state.
+    """
+    output_dir = Path(output_dir)
+    state = {**state, 'backend': backend}
+    is_zero = backend != 'ddp'
+    if is_zero:
+        tag = f'step_{update:08d}'
+        native_dir = output_dir / 'deepspeed'
+        state['native_optimizer_checkpoint'] = {'directory': str(native_dir.resolve()), 'tag': tag}
+        runner.save_checkpoint(str(native_dir), tag=tag, client_state={'training_state': state},
+                               exclude_frozen_parameters=True)
+    if rank == 0:
+        model.save_checkpoint(output_dir / 'latest.pt', optimizer=None if is_zero else optimizer,
+                              step=update, training_state=state)
+        (output_dir / 'trainer_state.json').write_text(json.dumps({
+            **{key: state[key] for key in ('epoch', 'next_micro', 'update', 'windows_seen', 'backend')},
+            'micro': state['next_micro'] - 1}, indent=2))
+        if is_zero:
+            completed = sorted(path for path in native_dir.glob('step_*')
+                               if path.is_dir() and len(path.name) == 13 and path.name[5:].isdigit())
+            for old in completed[:-2]:
+                shutil.rmtree(old)
+    if world > 1:
+        dist.barrier()
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',help='Standalone LoopWAM YAML configuration')
-    p.add_argument('--version', choices=['v0','v1','v2'],default='v0')
+    p.add_argument('--backend', choices=['ddp','zero1','zero2'], default='ddp')
+    p.add_argument('--version', choices=['dense_s12','v0','v1','v2'],default='v0')
     p.add_argument('--init-artifact',default='checkpoints/LoopWAM/wan21_compact_donors.pt')
     p.add_argument('--vae-path',default='checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth')
     p.add_argument('--dataset-dir',default='data/lerobot_v30/libero_10_no_noops_lerobot')
@@ -124,12 +242,15 @@ def main():
         p.set_defaults(**config)
     args=p.parse_args()
     if not args.output_dir: p.error('--output-dir is required')
+    is_zero = args.backend != 'ddp'
+    if is_zero and args.resume: p.error('--resume is currently supported only for DDP; ZeRO runs must start fresh')
+    if is_zero: args.fused_optimizer = True
     if min(args.microbatch,args.global_batch,args.epochs,args.save_every)<=0: p.error('Batch, epochs, save interval must be positive')
     if args.max_updates is not None and args.max_updates<=0: p.error('--max-updates must be positive')
     if args.workers<0 or args.validation_samples<0: p.error('Worker and validation counts cannot be negative')
     rank=int(os.environ.get('RANK',0)); world=int(os.environ.get('WORLD_SIZE',1)); local=int(os.environ.get('LOCAL_RANK',0))
     torch.cuda.set_device(local)
-    if world>1:
+    if world>1 or is_zero:
         dist.init_process_group('nccl',device_id=torch.device('cuda',local))
     if args.global_batch % (world*args.microbatch):
         raise ValueError('Global batch must be divisible by world size times microbatch')
@@ -157,21 +278,24 @@ def main():
     count=sum(p.numel() for p in params)
     if count!=584536135:
         raise AssertionError(f'Unexpected policy parameter count {count}')
-    opt=torch.optim.AdamW(params,lr=1e-4,betas=(.9,.95),eps=1e-8,weight_decay=.01,foreach=False,fused=args.fused_optimizer)
     model.train()
     model.mot.structured_attention=args.structured_attention
     model.mot.structured_attention_observation_tokens=392
     if hasattr(model.mot, 'collect_diagnostics'): model.mot.collect_diagnostics=True
+    runner,opt=configure_training_backend(model,args,world)
     resume_state=None
     if args.resume:
-        payload=model.load_checkpoint(args.resume,optimizer=opt)
+        payload=model.load_checkpoint(args.resume)
         resume_state=payload.get('training_state')
+        if resume_state and resume_state.get('backend','ddp')!='ddp':
+            raise ValueError('Portable ZeRO weights cannot resume a DDP optimizer; native DeepSpeed checkpoints are stored separately')
+        if 'optimizer' not in payload: raise ValueError('Checkpoint lacks a complete DDP optimizer state')
+        opt.load_state_dict(payload['optimizer'])
         if not resume_state: raise ValueError('Checkpoint lacks resumable training state')
         expected=dict(world=world,microbatch=args.microbatch,global_batch=args.global_batch,seed=args.seed,
                       train_windows=len(train),planned_updates=total,version=args.version,
                       normalization_sha256=data_manifest['normalization_sha256'])
         if resume_state['contract']!=expected: raise ValueError('Resume training contract changed')
-    runner=DDP(model,device_ids=None,broadcast_buffers=False,find_unused_parameters=False,gradient_as_bucket_view=args.bucket_views) if world>1 else model
     # Different independent noise streams after identical construction on all ranks.
     torch.manual_seed(args.seed+rank)
     from fastwam.models.wan22.loopwam_init import sha256_file
@@ -185,15 +309,18 @@ def main():
         if world>1: dist.barrier()
         model.training_latent_cache=LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance)
 
-    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,
+    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,
         asset_sha256=asset_hashes[0],initialization_metadata=model.architecture_metadata,
         train_windows=len(train),val_windows=len(val),updates_per_epoch=updates_per_epoch,
         planned_updates=total,planned_windows=args.epochs*len(train),data=data_manifest,
         policy_dtype='float32',optimizer_state_dtype='float32',compute_dtype='bfloat16',
-        optimizer='AdamW replicated (DDP)',torch_version=torch.__version__,cuda=torch.version.cuda,
+        optimizer='AdamW replicated (DDP)' if not is_zero else f'AdamW partitioned ({args.backend})',
+        deepspeed_config=getattr(runner,'loopwam_backend_config',None),
+        gradient_overflow_check=True if is_zero else 'clip_grad_norm_error_if_nonfinite',
+        deepspeed_version=__import__('deepspeed').__version__ if is_zero else None,torch_version=torch.__version__,cuda=torch.version.cuda,
         gpu=torch.cuda.get_device_name(),git_revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         code_files_sha256={str(path): __import__('hashlib').sha256(path.read_bytes()).hexdigest() for path in
-            [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/datasets/loopwam_long.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/datasets/loopwam_latent_cache.py')]},
+            [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/datasets/loopwam_long.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/datasets/loopwam_latent_cache.py'),Path('src/fastwam/training_backends.py')]},
         branch=subprocess.check_output(['git','branch','--show-current'],text=True).strip(),
         slurm_job_id=os.getenv('SLURM_JOB_ID'),setup_seconds=time.perf_counter()-setup_start)
     if rank==0:
@@ -201,7 +328,7 @@ def main():
         manifest_path.write_text(json.dumps(manifest,indent=2,default=str))
         print(json.dumps({'event':'ready', 'version':args.version,'parameters':count,'train_windows':len(train),
             'planned_updates':total,'global_batch':args.global_batch,'microbatch':args.microbatch,'world_size':world,
-            'accumulation':accum,'initialization_mode':manifest['initialization_mode'],'optimizer_state_entries_before_training':len(opt.state),'setup_seconds':manifest['setup_seconds']}),flush=True)
+            'accumulation':accum,'initialization_mode':manifest['initialization_mode'],'backend':args.backend,'optimizer_state_entries_before_training':len(opt.optimizer.state if is_zero else opt.state),'setup_seconds':manifest['setup_seconds']}),flush=True)
     if args.smoke:
         sample=next(iter(loader))
         with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
@@ -210,7 +337,7 @@ def main():
         if tuple(clip.shape[1:])!=(16,3,28,56): raise AssertionError(f'VAE shape {clip.shape}')
         torch.testing.assert_close(clip[:,:,:1],anchor,rtol=0,atol=0)
         if rank==0: print(json.dumps({'event':'vae_anchor_pass','shape':list(clip.shape)}),flush=True)
-    opt.zero_grad(set_to_none=True)
+    if not is_zero: opt.zero_grad(set_to_none=True)
     torch.cuda.synchronize(); train_start=time.perf_counter(); update=0; windows_seen=0
     timings=[]; stop=False
     start_epoch=0; start_micro=0
@@ -237,28 +364,33 @@ def main():
             group=micro//accum
             valid_global=min(args.global_batch,len(train)-group*args.global_batch)
             boundary=(micro+1)%accum==0 or micro+1==len(loader)
-            context=runner.no_sync() if world>1 and not boundary else contextlib.nullcontext()
+            if is_zero: runner.set_gradient_accumulation_boundary(boundary)
+            context=runner.no_sync() if not is_zero and world>1 and not boundary else contextlib.nullcontext()
             with context:
                 with torch.autocast('cuda',dtype=torch.bfloat16):
                     loss,logs=runner(sample)
                 group_finite &= torch.isfinite(loss.detach())
                 # Per-rank model loss is a microbatch mean, including dummy zero losses.
                 # DDP averages gradients across ranks; this yields the exact global mean.
-                (loss*(world*args.microbatch/valid_global)).backward()
+                backward_training_microbatch(runner,loss,is_zero=is_zero,world=world,
+                    microbatch=args.microbatch,valid_global=valid_global)
             group_windows+=int(sample['sample_valid'].sum())
             for key,value in logs.items():
                 group_logs[key]=group_logs.get(key,torch.zeros((),device=loss.device))+value*args.microbatch
-            if not boundary: continue
+            if not boundary:
+                if is_zero: runner.step()
+                continue
             if world>1: dist.all_reduce(group_finite,op=dist.ReduceOp.MIN)
             if not bool(group_finite): raise FloatingPointError('Nonfinite accumulated training loss')
-            missing=[name for name,p in model.named_parameters() if p.requires_grad and p.grad is None]
-            if args.smoke and missing: raise AssertionError(f'Missing gradients: {missing}')
-            grad=torch.nn.utils.clip_grad_norm_(params,1.0,error_if_nonfinite=True)
-            branch_grad={name: torch.linalg.vector_norm(torch.stack([p.grad.detach().norm() for p in module.parameters() if p.grad is not None])).item()
-                         for name,module in [('video',model.video_expert),('action',model.action_expert),('proprio',model.proprio_encoder)]}
+            smoke_norms=smoke_policy_gradients(model,is_zero=is_zero) if args.smoke and update==0 else None
             learning_rate=1e-4*lr_factor(update,total,int(total*.05))
-            for group_opt in opt.param_groups: group_opt['lr']=learning_rate
-            opt.step(); opt.zero_grad(set_to_none=True)
+            grad,branch_grad=step_training_backend(runner,opt,params,model,learning_rate,
+                is_zero=is_zero,smoke_grad_norms=smoke_norms)
+            if is_zero and update==0:
+                from fastwam.training_backends import deepspeed_precision_report
+                precision=deepspeed_precision_report(runner)
+                if not precision['optimizer_state_initialized']: raise AssertionError('AdamW moments absent after first update')
+                if rank==0: print(json.dumps(dict(event='backend_precision',backend=args.backend,**precision)),flush=True)
             torch.cuda.synchronize()
             elapsed=time.perf_counter()-group_start
             elapsed_t=torch.tensor(elapsed,device='cuda'); windows_t=torch.tensor(group_windows,device='cuda')
@@ -303,11 +435,9 @@ def main():
                 rngs=[None]*world
                 if world>1: dist.all_gather_object(rngs,rng)
                 else: rngs=[rng]
-                if rank==0:
-                    state=dict(epoch=epoch,next_micro=micro+1,update=update,windows_seen=windows_seen,rng=rngs,contract=contract)
-                    model.save_checkpoint(out/'latest.pt',optimizer=opt,step=update,training_state=state)
-                    (out/'trainer_state.json').write_text(json.dumps(dict(epoch=epoch,micro=micro,update=update,windows_seen=windows_seen)))
-                if world>1: dist.barrier()
+                state=dict(epoch=epoch,next_micro=micro+1,update=update,windows_seen=windows_seen,rng=rngs,contract=contract)
+                save_training_checkpoint(model,runner,opt,out,update,state,
+                    backend=args.backend,rank=rank,world=world)
             group_start=time.perf_counter(); group_logs={}; group_windows=0
             group_finite.fill_(True)
             if stop: break
@@ -318,7 +448,7 @@ def main():
         (out/'timing.json').write_text(json.dumps(summary,indent=2))
         logfile.close()
         print(json.dumps({'event':summary['status'],**summary}),flush=True)
-    if world>1: dist.destroy_process_group()
+    if dist.is_initialized(): dist.destroy_process_group()
 
 
 if __name__=='__main__': main()

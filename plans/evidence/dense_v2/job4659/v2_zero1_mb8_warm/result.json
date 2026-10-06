@@ -1,0 +1,112 @@
+{
+  "source_sha256": {
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_dense_v2_work/scripts/benchmark_loopwam.py": "ff8c172c69854740aca2b79b60a8797d02310e977548a7d8b1701b920e73aa6c",
+    "src/fastwam/models/wan22/loop_mot.py": "78ff409cf0702a63e40df912fdfe2373f3a9d6e5f70523c38f85e80d38029dbe",
+    "src/fastwam/models/wan22/loopwam.py": "d1348db51aaa5b04b2fea7f88043ca9b9a893ba31527ce1795b8f4677a460c59",
+    "src/fastwam/models/wan22/loopwam_init.py": "28ea0ab0190c76759e2959e6339718df963f378501e3e96de48e2414bd034945",
+    "src/fastwam/models/wan22/fastwam.py": "08888ed2b011b9d712a07bc8513aea2f3a61de023b7af2b28292fca7d45cf00d",
+    "src/fastwam/training_backends.py": "e53a95318f255177d9b729be2822c7e6217fb54e2b03334f63a1dd2726b7f731"
+  },
+  "version": "v2",
+  "workers": 4,
+  "world_size": 4,
+  "loops": 4,
+  "backend": "zero1",
+  "microbatch": 8,
+  "accumulation": 4,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": true,
+  "latent_cache_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/benchmark_latents",
+  "cache_stats": {
+    "hits": 160,
+    "misses": 0,
+    "dummy_encodes": 0,
+    "encoder_samples": 0,
+    "batches": 20,
+    "read_seconds": 0.12759666424244642,
+    "encode_seconds": 0.0,
+    "write_seconds": 0.0
+  },
+  "records": [
+    {
+      "update": 1,
+      "seconds": 5.746054649353027,
+      "allocated_gb": 71.94534301757812,
+      "reserved_gb": 74.9459228515625,
+      "loss": 2.255855083465576,
+      "grad_norm": 8.472744941711426,
+      "data_wait_seconds": 1.8438647259026766,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.7451769866943359,
+      "backward_cuda_seconds": 2.070689392089844,
+      "optimizer_cuda_seconds": 0.08493542461725884
+    },
+    {
+      "update": 2,
+      "seconds": 2.5851500034332275,
+      "allocated_gb": 73.10809326171875,
+      "reserved_gb": 74.9459228515625,
+      "loss": 6.693482398986816,
+      "grad_norm": 59.65462875366211,
+      "data_wait_seconds": 0.0016783131286501884,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.8040589599609375,
+      "backward_cuda_seconds": 1.7385259094238281,
+      "optimizer_cuda_seconds": 0.038734785413835196
+    },
+    {
+      "update": 3,
+      "seconds": 2.5917842388153076,
+      "allocated_gb": 73.10809326171875,
+      "reserved_gb": 74.9459228515625,
+      "loss": 1.553027868270874,
+      "grad_norm": 7.966466903686523,
+      "data_wait_seconds": 0.0012965695932507515,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.8079075775146485,
+      "backward_cuda_seconds": 1.7460592651367188,
+      "optimizer_cuda_seconds": 0.035414689511060714
+    },
+    {
+      "update": 4,
+      "seconds": 2.5904431343078613,
+      "allocated_gb": 73.10809326171875,
+      "reserved_gb": 74.9459228515625,
+      "loss": 1.7833476066589355,
+      "grad_norm": 16.373184204101562,
+      "data_wait_seconds": 0.0013568243011832237,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.8085280303955078,
+      "backward_cuda_seconds": 1.7452460632324218,
+      "optimizer_cuda_seconds": 0.03441955383867026
+    },
+    {
+      "update": 5,
+      "seconds": 2.605459213256836,
+      "allocated_gb": 73.10809326171875,
+      "reserved_gb": 74.9459228515625,
+      "loss": 1.2382104396820068,
+      "grad_norm": 6.849433422088623,
+      "data_wait_seconds": 0.0013455310836434364,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.8098260192871094,
+      "backward_cuda_seconds": 1.7574344787597656,
+      "optimizer_cuda_seconds": 0.035953343600034715
+    }
+  ],
+  "steady_seconds": 2.595895528793335,
+  "projected_10epochs_hours": 5.227845162153244,
+  "precision": {
+    "policy_dtype": "float32",
+    "policy_parameters": 584536135,
+    "master_dtype": "float32",
+    "local_master_elements": 146134034,
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ],
+    "optimizer_state_initialized": true,
+    "compute_dtype": "bfloat16",
+    "communication_dtype": "float32"
+  }
+}

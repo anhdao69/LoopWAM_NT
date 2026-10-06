@@ -1,0 +1,112 @@
+{
+  "source_sha256": {
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_dense_v2_work/scripts/benchmark_loopwam.py": "ff8c172c69854740aca2b79b60a8797d02310e977548a7d8b1701b920e73aa6c",
+    "src/fastwam/models/wan22/loop_mot.py": "78ff409cf0702a63e40df912fdfe2373f3a9d6e5f70523c38f85e80d38029dbe",
+    "src/fastwam/models/wan22/loopwam.py": "d1348db51aaa5b04b2fea7f88043ca9b9a893ba31527ce1795b8f4677a460c59",
+    "src/fastwam/models/wan22/loopwam_init.py": "28ea0ab0190c76759e2959e6339718df963f378501e3e96de48e2414bd034945",
+    "src/fastwam/models/wan22/fastwam.py": "08888ed2b011b9d712a07bc8513aea2f3a61de023b7af2b28292fca7d45cf00d",
+    "src/fastwam/training_backends.py": "e53a95318f255177d9b729be2822c7e6217fb54e2b03334f63a1dd2726b7f731"
+  },
+  "version": "dense_s12",
+  "workers": 4,
+  "world_size": 4,
+  "loops": 1,
+  "backend": "zero2",
+  "microbatch": 8,
+  "accumulation": 4,
+  "global_batch": 128,
+  "fused": true,
+  "structured_attention": true,
+  "latent_cache_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/dense_v2_job4659_20261006/benchmark_latents",
+  "cache_stats": {
+    "hits": 160,
+    "misses": 0,
+    "dummy_encodes": 0,
+    "encoder_samples": 0,
+    "batches": 20,
+    "read_seconds": 0.12421454535797238,
+    "encode_seconds": 0.0,
+    "write_seconds": 0.0
+  },
+  "records": [
+    {
+      "update": 1,
+      "seconds": 4.866218566894531,
+      "allocated_gb": 24.168201446533203,
+      "reserved_gb": 27.237810134887695,
+      "loss": 2.1981921195983887,
+      "grad_norm": 9.755454063415527,
+      "data_wait_seconds": 2.19152833847329,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 1.4952959060668944,
+      "backward_cuda_seconds": 0.999520034790039,
+      "optimizer_cuda_seconds": 0.17915632043150254
+    },
+    {
+      "update": 2,
+      "seconds": 0.970501720905304,
+      "allocated_gb": 25.33841323852539,
+      "reserved_gb": 27.237810134887695,
+      "loss": 2.4708995819091797,
+      "grad_norm": 16.131986618041992,
+      "data_wait_seconds": 0.0015494232065975666,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.29433555221557617,
+      "backward_cuda_seconds": 0.6265617980957031,
+      "optimizer_cuda_seconds": 0.04766473504528403
+    },
+    {
+      "update": 3,
+      "seconds": 0.9674513339996338,
+      "allocated_gb": 25.33841323852539,
+      "reserved_gb": 27.237810134887695,
+      "loss": 1.521294116973877,
+      "grad_norm": 9.06291675567627,
+      "data_wait_seconds": 0.0012642070651054382,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.2826356430053711,
+      "backward_cuda_seconds": 0.6312303466796875,
+      "optimizer_cuda_seconds": 0.0516890252456069
+    },
+    {
+      "update": 4,
+      "seconds": 1.613966703414917,
+      "allocated_gb": 25.33841323852539,
+      "reserved_gb": 27.237810134887695,
+      "loss": 1.2778443098068237,
+      "grad_norm": 5.171623706817627,
+      "data_wait_seconds": 0.5897328141145408,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.281451171875,
+      "backward_cuda_seconds": 0.6975073547363281,
+      "optimizer_cuda_seconds": 0.044296926990151406
+    },
+    {
+      "update": 5,
+      "seconds": 1.7633005380630493,
+      "allocated_gb": 25.33841323852539,
+      "reserved_gb": 27.29652976989746,
+      "loss": 1.0835249423980713,
+      "grad_norm": 4.405494213104248,
+      "data_wait_seconds": 0.6536708544008434,
+      "vae_cuda_seconds": 0.0,
+      "forward_cuda_seconds": 0.27390524291992185,
+      "backward_cuda_seconds": 0.7857938690185546,
+      "optimizer_cuda_seconds": 0.04940188740566373
+    }
+  ],
+  "steady_seconds": 1.4482395251592,
+  "projected_10epochs_hours": 2.916593488167833,
+  "precision": {
+    "policy_dtype": "float32",
+    "policy_parameters": 584536135,
+    "master_dtype": "float32",
+    "local_master_elements": 146134034,
+    "optimizer_moment_dtypes": [
+      "torch.float32"
+    ],
+    "optimizer_state_initialized": true,
+    "compute_dtype": "bfloat16",
+    "communication_dtype": "float32"
+  }
+}

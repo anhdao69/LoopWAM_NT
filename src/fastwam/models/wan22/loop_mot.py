@@ -13,6 +13,19 @@ from .mot import MoT
 from .wan_video_dit import flash_attention
 
 
+def resolve_loop_count(version: str, loops: Optional[int] = None) -> int:
+    """Resolve architecture depth; Dense-S12 always executes its blocks once."""
+    if version not in {"v0", "v1", "v2", "dense_s12"}:
+        raise ValueError(f"Unsupported LoopMoT version: {version}")
+    if loops is None:
+        loops = 1 if version == "dense_s12" else 4
+    if isinstance(loops, bool) or not isinstance(loops, int) or not 1 <= loops <= 4:
+        raise ValueError("loops must be an integer in [1, 4].")
+    if version == "dense_s12" and loops != 1:
+        raise ValueError("dense_s12 requires exactly one pass (loops=1).")
+    return loops
+
+
 def xsa_projection(attention_out: torch.Tensor, own_query_value: torch.Tensor,
                    num_heads: int) -> torch.Tensor:
     """Remove each head's own-value direction, with FP32 arithmetic (eps=1e-12)."""
@@ -66,20 +79,20 @@ class LoopMoT(MoT):
         k = self.loops if loops is None else self._validate_loops(loops)
         return self.pre_depth + self.core_depth * k + self.post_depth
 
-    def __init__(self, mixtures: Dict[str, nn.Module], loops: int = 4,
+    def __init__(self, mixtures: Dict[str, nn.Module], loops: Optional[int] = None,
                  version: str = "v0", checkpoint_blocks: bool = False,
                  mot_checkpoint_mixed_attn: bool = False,
                  collect_diagnostics: bool = False):
         if set(mixtures) != {"video", "action"}:
             raise ValueError("LoopMoT requires exactly the video and action experts.")
-        if version not in {"v0", "v1", "v2"}:
-            raise ValueError(f"Unsupported LoopMoT version: {version}")
+        loops = resolve_loop_count(version, loops)
         # Canonical token order is always video followed by action.
         super().__init__({name: mixtures[name] for name in ("video", "action")},
                          mot_checkpoint_mixed_attn=mot_checkpoint_mixed_attn)
         if self.num_layers != 12:
             raise ValueError("LoopMoT requires 12 physical blocks per expert (3/6/3).")
         self.version = version
+        self.trained_max_loops = 1 if version == "dense_s12" else 4
         self.loops = loops
         self.checkpoint_blocks = bool(checkpoint_blocks)
         self.collect_diagnostics = bool(collect_diagnostics)
@@ -88,11 +101,8 @@ class LoopMoT(MoT):
         self.structured_attention = False
         self.structured_attention_observation_tokens: Optional[int] = None
 
-    @staticmethod
-    def _validate_loops(loops: int) -> int:
-        if isinstance(loops, bool) or not isinstance(loops, int) or not 1 <= loops <= 4:
-            raise ValueError("loops must be an integer in [1, 4].")
-        return loops
+    def _validate_loops(self, loops: int) -> int:
+        return resolve_loop_count(self.version, loops)
 
     @property
     def loops(self) -> int:
@@ -183,7 +193,7 @@ class LoopMoT(MoT):
         self.last_diagnostics = {}
         k = self.loops if loops is None else self._validate_loops(loops)
         if exits is None:
-            exits = (k,) if self.version == "v0" else tuple(range(1, k + 1))
+            exits = (k,) if self.version in {"v0", "dense_s12"} else tuple(range(1, k + 1))
         exits = tuple(exits)
         if (not exits or len(set(exits)) != len(exits)
                 or any(isinstance(e, bool) or not isinstance(e, int) or not 1 <= e <= k for e in exits)):

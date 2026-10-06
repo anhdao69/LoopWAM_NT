@@ -22,7 +22,7 @@ def contract_fixture():
     data = dict(train_windows=92700, normalization_sha256="stats", normalization_source="training episodes only")
     contract = dict(world=2, microbatch=8, global_batch=128, seed=42,
                     train_windows=92700, planned_updates=7250, version="v1", normalization_sha256="stats")
-    checkpoint = dict(format_version="loopwam-s-v1", version="v1", step=7250, trained_max_loops=4,
+    checkpoint = dict(format_version="loopwam-s-v1", version="v1", step=7250, trained_max_loops=4, inference_loops=4,
                       training_state=dict(update=7250, epoch=9, next_micro=5794, windows_seen=927000,
                                           contract=contract))
     return checkpoint, data
@@ -38,7 +38,7 @@ def test_rejects_partial_or_wrong_version_checkpoint_but_allows_explicit_smoke()
         m.validate_checkpoint(partial, data, "stats")
     m.validate_checkpoint(partial, data, "stats", smoke=True)
     checkpoint["version"] = "v0"
-    with pytest.raises(ValueError, match="v1"):
+    with pytest.raises(ValueError, match="contract"):
         m.validate_checkpoint(checkpoint, data, "stats", smoke=True)
 
 
@@ -165,3 +165,48 @@ def test_terminal_during_settling_never_calls_policy_or_counts_terminal_as_succe
     result, _ = m.run_episode(Environment(), None, predict, seed=0, frame_fn=lambda obs: None)
     assert result["terminal"] and not result["success"]
     assert result["wait_steps"] == 1 and result["steps"] == 0
+
+
+@pytest.mark.parametrize("version,loops", [("dense_s12", 1), ("v0", 4), ("v1", 4), ("v2", 4)])
+@pytest.mark.parametrize("world,next_micro", [(1, 11588), (2, 5794), (4, 2897)])
+def test_completed_models_use_checkpoint_version_and_training_world(version, loops, world, next_micro):
+    m = runner()
+    checkpoint, data = contract_fixture()
+    checkpoint.update(version=version, trained_max_loops=loops, inference_loops=loops)
+    checkpoint["training_state"]["contract"].update(version=version, world=world)
+    checkpoint["training_state"]["next_micro"] = next_micro
+    contract = m.validate_checkpoint(checkpoint, data, "stats")
+    assert contract["version"] == version and contract["world"] == world
+    assert m.checkpoint_policy_spec(checkpoint) == (version, loops)
+    checkpoint["training_state"]["next_micro"] -= 1
+    with pytest.raises(ValueError, match="last epoch"):
+        m.validate_checkpoint(checkpoint, data, "stats")
+
+
+@pytest.mark.parametrize("version,trained,inference", [
+    ("dense_s12", 4, 4), ("dense_s12", 1, 4), ("v2", 1, 1),
+    ("v2", 4, 1), ("unknown", 4, 4),
+])
+def test_rejects_incompatible_checkpoint_depth_even_in_smoke(version, trained, inference):
+    m = runner()
+    checkpoint, data = contract_fixture()
+    checkpoint.update(version=version, trained_max_loops=trained, inference_loops=inference)
+    checkpoint["training_state"]["contract"]["version"] = version
+    with pytest.raises(ValueError):
+        m.validate_checkpoint(checkpoint, data, "stats", smoke=True)
+
+
+@pytest.mark.parametrize("world,microbatch", [(0, 8), (-1, 8), (4, 0), (3, 8), (4, 64)])
+def test_rejects_invalid_training_parallelism_even_in_smoke(world, microbatch):
+    m = runner()
+    checkpoint, data = contract_fixture()
+    checkpoint["training_state"]["contract"].update(world=world, microbatch=microbatch)
+    with pytest.raises(ValueError, match="contract"):
+        m.validate_checkpoint(checkpoint, data, "stats", smoke=True)
+
+
+def test_four_rank_smoke_and_final_rollouts_cover_every_gpu_and_task():
+    m = runner()
+    assert [m.shard_tasks([0, 1, 2, 3], rank, 4) for rank in range(4)] == [[0], [1], [2], [3]]
+    assert [m.shard_tasks(list(range(10)), rank, 4) for rank in range(4)] == [
+        [0, 4, 8], [1, 5, 9], [2, 6], [3, 7]]

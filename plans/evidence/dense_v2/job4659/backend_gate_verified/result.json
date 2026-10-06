@@ -1,0 +1,28 @@
+{
+  "event": "four_rank_production_backend_pass",
+  "world_size": 4,
+  "real_group_sizes": [
+    128,
+    18,
+    128,
+    6
+  ],
+  "scalar_vs_fused": {
+    "steps": 7,
+    "max_parameter_absolute_error": 1.1920928955078125e-07
+  },
+  "maximum_errors": {
+    "zero1": {
+      "parameters": 1.4901161193847656e-08,
+      "exp_avg": 7.450580596923828e-09,
+      "exp_avg_sq": 1.862645149230957e-09
+    },
+    "zero2": {
+      "parameters": 1.4901161193847656e-08,
+      "exp_avg": 7.450580596923828e-09,
+      "exp_avg_sq": 1.862645149230957e-09
+    }
+  },
+  "portable_and_native_reload": true,
+  "cpu_metadata_preserved": true
+}

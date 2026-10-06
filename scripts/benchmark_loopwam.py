@@ -14,15 +14,17 @@ from fastwam.training_backends import initialize_deepspeed_backend, deepspeed_pr
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument('--version',choices=['v0','v1','v2'],default='v0')
+    p.add_argument('--version',choices=['dense_s12','v0','v1','v2'],default='v0')
     p.add_argument('--backend',choices=['ddp','zero1','zero2'],default='ddp')
     p.add_argument('--microbatch',type=int,required=True)
     p.add_argument('--output-dir',required=True)
     p.add_argument('--updates',type=int,default=5)
+    p.add_argument('--workers',type=int,default=4)
     p.add_argument('--unfused',action='store_true')
     p.add_argument('--structured-attention',action='store_true')
     p.add_argument('--latent-cache-dir',default=None)
     a=p.parse_args()
+    if a.workers < 0 or a.updates < 3: p.error('workers must be nonnegative and updates >=3')
     rank=int(os.environ['RANK']); local=int(os.environ['LOCAL_RANK']); world=int(os.environ['WORLD_SIZE'])
     torch.cuda.set_device(local); torch.set_num_threads(4)
     dist.init_process_group('nccl',device_id=torch.device('cuda',local))
@@ -33,7 +35,7 @@ def main():
     if rank==0: build_long_datasets('data/lerobot_v30/libero_10_no_noops_lerobot','data/text_embeds_cache/libero',str(out/'data'))
     dist.barrier()
     train,_,data_manifest=build_long_datasets('data/lerobot_v30/libero_10_no_noops_lerobot','data/text_embeds_cache/libero',str(out/'data'))
-    loader=DataLoader(MarkedDataset(train),batch_sampler=ExactDistributedBatches(len(train),a.microbatch,rank,world),num_workers=4,pin_memory=True,persistent_workers=True,generator=torch.Generator().manual_seed(42+rank))
+    loader=DataLoader(MarkedDataset(train),batch_sampler=ExactDistributedBatches(len(train),a.microbatch,rank,world),num_workers=a.workers,pin_memory=True,persistent_workers=a.workers>0,generator=torch.Generator().manual_seed(42+rank))
     torch.manual_seed(42)
     model=create_loopwam('checkpoints/LoopWAM/wan21_compact_donors.pt','checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',version=a.version,device=f'cuda:{local}')
     model.train(); model.mot.collect_diagnostics=True
@@ -62,7 +64,8 @@ def main():
         runner=DDP(model,device_ids=None,broadcast_buffers=False,gradient_as_bucket_view=True)
         opt.zero_grad(set_to_none=True)
     else:
-        runner=initialize_deepspeed_backend(model,stage=int(a.backend[-1]),microbatch=a.microbatch,fused=not a.unfused)
+        runner=initialize_deepspeed_backend(model,stage=int(a.backend[-1]),microbatch=a.microbatch,world_size=world,fused=not a.unfused)
+        runner.optimizer.check_grad_overflow=True
     torch.manual_seed(42+rank)
     it=iter(loader); records=[]
     for update in range(a.updates):
@@ -94,7 +97,10 @@ def main():
                     opt.step(); opt.zero_grad(set_to_none=True)
             else:
                 runner.step()
-                if boundary: grad=runner.get_global_grad_norm()
+                if boundary:
+                    grad=runner.get_global_grad_norm()
+                    if runner.optimizer.overflow:
+                        raise FloatingPointError('Nonfinite ZeRO gradient; benchmark rejected')
             stages['optimizer'].append((e2,event()))
         torch.cuda.synchronize()
         seconds=time.perf_counter()-start
@@ -108,7 +114,7 @@ def main():
     precision=deepspeed_precision_report(runner) if a.backend!='ddp' else {'policy_dtype':'float32','optimizer_moment_dtypes':sorted({str(v.dtype) for s in opt.state.values() for k,v in s.items() if k in ['exp_avg','exp_avg_sq']})}
     if rank==0:
         mean=sum(r['seconds'] for r in records[2:])/len(records[2:])
-        result=dict(source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/training_backends.py')]},version=a.version,backend=a.backend,microbatch=a.microbatch,accumulation=accum,global_batch=128,fused=not a.unfused,structured_attention=a.structured_attention,latent_cache_dir=a.latent_cache_dir,cache_stats=getattr(getattr(model,'training_latent_cache',None),'stats',None),records=records,steady_seconds=mean,projected_10epochs_hours=mean*7250/3600,precision=precision)
+        result=dict(source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/training_backends.py')]},version=a.version,workers=a.workers,world_size=world,loops=model.mot.loops,backend=a.backend,microbatch=a.microbatch,accumulation=accum,global_batch=128,fused=not a.unfused,structured_attention=a.structured_attention,latent_cache_dir=a.latent_cache_dir,cache_stats=getattr(getattr(model,'training_latent_cache',None),'stats',None),records=records,steady_seconds=mean,projected_10epochs_hours=mean*7250/3600,precision=precision)
         (out/'result.json').write_text(json.dumps(result,indent=2)); print(json.dumps(result),flush=True)
     dist.destroy_process_group()
 
