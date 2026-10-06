@@ -1,0 +1,9 @@
+{
+  "train_episodes": true,
+  "validation_episodes": true,
+  "train_windows": true,
+  "validation_windows": true,
+  "normalization_sha256": true,
+  "content_files": true,
+  "text_cache_files": true
+}

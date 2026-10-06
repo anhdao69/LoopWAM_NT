@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-10-06 15:00:53 UTC",
+  "slurm_step": "4719.5",
+  "gpus": [
+    {
+      "index": 0,
+      "memory_used_mib": 79469,
+      "utilization_percent": 100
+    },
+    {
+      "index": 1,
+      "memory_used_mib": 79715,
+      "utilization_percent": 100
+    }
+  ]
+}
