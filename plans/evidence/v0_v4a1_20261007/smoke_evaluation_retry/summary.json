@@ -1,0 +1,64 @@
+{
+  "action_loops": 1,
+  "checkpoint_sha256": "6f2ea7d6fd6b3c51c0c57b9d9421648752667a241a298a572e0ba5bc1176f489",
+  "checkpoint_step": 10,
+  "episodes": [
+    {
+      "checkpoint_sha256": "6f2ea7d6fd6b3c51c0c57b9d9421648752667a241a298a572e0ba5bc1176f489",
+      "duration_seconds": 18.130190016701818,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 0,
+      "replans": 10,
+      "seed": 42,
+      "steps": 100,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+      "task_id": 0,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/smoke_evaluation_retry/videos/2026_10_07-19_24_46--episode=task0_trial0--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4",
+      "wait_steps": 30
+    },
+    {
+      "checkpoint_sha256": "6f2ea7d6fd6b3c51c0c57b9d9421648752667a241a298a572e0ba5bc1176f489",
+      "duration_seconds": 18.784156791865826,
+      "episode_index": 0,
+      "initial_state_index": 0,
+      "mode": "smoke",
+      "rank": 1,
+      "replans": 10,
+      "seed": 100042,
+      "steps": 100,
+      "success": false,
+      "suite": "libero_10",
+      "task_description": "put both the cream cheese box and the butter in the basket",
+      "task_id": 1,
+      "terminal": false,
+      "timeout": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/smoke_evaluation_retry/videos/2026_10_07-19_24_46--episode=task1_trial0--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_th.mp4",
+      "wait_steps": 30
+    }
+  ],
+  "loops": 4,
+  "mode": "smoke",
+  "per_task": {
+    "0": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    },
+    "1": {
+      "episodes": 1,
+      "success_rate": 0.0,
+      "successes": 0
+    }
+  },
+  "success_rate": 0.0,
+  "successes": 0,
+  "suite": "libero_10",
+  "total_episodes": 2,
+  "version": "v0"
+}

@@ -1,0 +1,40 @@
+{
+  "slurm_job_id": "4728",
+  "slurm_step_id": "13",
+  "started_unix": 1791400455.6957154,
+  "source_revision": "1f9f06bc26f2eab0ddbcdebf500468f01d4c7c91",
+  "stage": "failed",
+  "elapsed_seconds": 418.12552881240845,
+  "stage_durations_seconds": {
+    "bench_final_ddp4": 49.10169005393982,
+    "bench_repeat_0": 87.31566405296326,
+    "bench_repeat_1": 92.13768172264099,
+    "cold_train": 99.59519052505493,
+    "warm_train": 70.9623339176178,
+    "smoke_evaluation": 18.84163236618042
+  },
+  "command": [
+    "torchrun",
+    "--standalone",
+    "--nproc_per_node=2",
+    "scripts/evaluate_loopwam_libero.py",
+    "--checkpoint",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/warm_train/latest.pt",
+    "--vae-path",
+    "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "--stats",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/warm_train/data/dataset_stats.json",
+    "--output-dir",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/smoke_evaluation",
+    "--suite",
+    "libero_10",
+    "--episodes-per-task",
+    "1",
+    "--smoke",
+    "--task-ids",
+    "0,1",
+    "--max-steps",
+    "100"
+  ],
+  "error": "RuntimeError('smoke_evaluation failed with exit 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/smoke_evaluation.log')"
+}

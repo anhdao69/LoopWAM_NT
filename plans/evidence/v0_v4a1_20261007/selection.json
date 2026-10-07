@@ -1,0 +1,15 @@
+{
+  "selected": {
+    "backend": "ddp",
+    "microbatch": 8,
+    "workers": 4,
+    "checkpoint_blocks": false
+  },
+  "pooled_seconds": {
+    "('ddp', 8)": 3.4025758764018184,
+    "('zero1', 8)": 3.4345690582109536,
+    "('zero2', 8)": 3.5532604694366454,
+    "('ddp', 4)": 4.168356609344483
+  },
+  "note": "Within 2 percent, retain baseline DDP microbatch8 to preserve RNG and optimizer layout."
+}

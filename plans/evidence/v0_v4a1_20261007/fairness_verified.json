@@ -1,0 +1,6 @@
+{
+  "baseline": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_scratch_fast_bs128_20261005",
+  "checks": "seed, budget, donor and VAE hashes, complete split, normalization, camera/window contract, source data hashes",
+  "video_loops": 4,
+  "action_loops": 1
+}
