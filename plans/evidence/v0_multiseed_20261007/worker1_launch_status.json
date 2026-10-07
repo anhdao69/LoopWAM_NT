@@ -1,0 +1,29 @@
+{
+  "slurm_job_id": "4728",
+  "slurm_step_id": "2",
+  "started_unix": 1791334020.9711053,
+  "source_revision": "b12085164218211c6b404a7ce2dd92a9dd7d36bf",
+  "stage": "evaluation_seed_42",
+  "elapsed_seconds": 11.613542556762695,
+  "stage_durations_seconds": {},
+  "command": [
+    "torchrun",
+    "--standalone",
+    "--nproc_per_node=2",
+    "scripts/evaluate_loopwam_libero.py",
+    "--checkpoint",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_scratch_fast_bs128_20261005/latest.pt",
+    "--vae-path",
+    "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "--stats",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_scratch_fast_bs128_20261005/data/dataset_stats.json",
+    "--output-dir",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_multiseed_job4728_worker1_20261007/seed_42",
+    "--suite",
+    "libero_10",
+    "--episodes-per-task",
+    "10",
+    "--seed",
+    "42"
+  ]
+}

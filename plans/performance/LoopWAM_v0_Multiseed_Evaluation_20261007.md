@@ -1,5 +1,15 @@
 # LoopWAM v0 evaluation across seeds — October 7, 2026
 
+The active queue was restarted at the user's request on **worker-1**, interactive
+allocation **4728**, step **4728.2**, with two H100s. Its fresh output root is
+`/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_multiseed_job4728_worker1_20261007`.
+All three seeds restart from episode zero with the same completed v0 checkpoint.
+The earlier worker-0 step **4719.8** was cancelled (signal 15) when allocation
+4719 ended; it saved two partial-run videos. Those outputs are retained and
+excluded from the new queue's results. The original launch record follows.
+The worker-1 queue began at approximately **00:47 UTC October 7**, with an
+estimated finish around **02:47–03:47 UTC** (10:47–11:47 PM New York time October 6).
+
 The user requested evaluation of the existing trained v0 checkpoint across
 several seeds. The queue runs evaluation seeds **42, 43 and 44**, sequentially,
 using both H100s in interactive allocation **4719**, step **4719.8**.
