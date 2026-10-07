@@ -1,0 +1,45 @@
+index, name, memory.used [MiB], utilization.gpu [%]
+0, NVIDIA H100 80GB HBM3, 0 MiB, 0 %
+1, NVIDIA H100 80GB HBM3, 0 MiB, 0 %
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v4a1_bench.sh: line 23: rg: command not found
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v0_v4a1_20261007/scripts/benchmark_loopwam.py", line 124, in <module>
+[rank0]:     if __name__=='__main__': main()
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v0_v4a1_20261007/scripts/benchmark_loopwam.py", line 59, in main
+[rank0]:     if rank==0: LoopWAMLatentCache(a.latent_cache_dir,len(train),provenance,create=True).close()
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v0_v4a1_20261007/src/fastwam/datasets/loopwam_latent_cache.py", line 62, in __init__
+[rank0]:     raise ValueError('Latent cache provenance, shape, size, or format mismatch.')
+[rank0]: ValueError: Latent cache provenance, shape, size, or format mismatch.
+[rank0]:[W1007 19:08:20.011408148 ProcessGroupNCCL.cpp:1479] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1007 19:08:21.275000 1918098 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1941619 closing signal SIGTERM
+E1007 19:08:21.591000 1918098 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 0 (pid: 1941618) of binary: /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_v0_v4a1_20261007/.venv/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/benchmark_loopwam.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-07_19:08:21
+  host      : worker-1.fpt-hpc-worker-svc.fpt-hpc.svc.cluster.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1941618)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: worker-1: task 0: Exited with exit code 1

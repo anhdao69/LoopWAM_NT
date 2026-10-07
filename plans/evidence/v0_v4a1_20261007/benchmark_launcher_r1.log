@@ -1,0 +1,9 @@
+index, name, memory.used [MiB], utilization.gpu [%]
+0, NVIDIA H100 80GB HBM3, 0 MiB, 0 %
+1, NVIDIA H100 80GB HBM3, 0 MiB, 0 %
+ddp_8 PASSED
+ddp_16 OOM rejected
+zero1_8 PASSED
+zero1_16 OOM rejected
+zero2_8 PASSED
+zero2_16 OOM rejected
