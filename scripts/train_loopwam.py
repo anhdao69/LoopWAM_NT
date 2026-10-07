@@ -78,6 +78,8 @@ def training_contract(args, world, train_windows, planned_updates, data_manifest
     if data_manifest.get('dataset_scope') == 'full_libero':
         contract.update(dataset_scope='full_libero', epochs=args.epochs,
                         suites=list(data_manifest['suites']))
+    if getattr(args, 'action_loops', None) is not None:
+        contract.update(video_loops=4, action_loops=args.action_loops, loop_alignment='late')
     return contract
 
 
@@ -221,6 +223,7 @@ def save_training_checkpoint(model, runner, optimizer, output_dir, update, state
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',help='Standalone LoopWAM YAML configuration')
+    p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions; video remains four')
     p.add_argument('--backend', choices=['ddp','zero1','zero2'], default='ddp')
     p.add_argument('--version', choices=['dense_s12','dense_s30','v0','v1','v2'],default='v0')
     p.add_argument('--init-artifact',default='checkpoints/LoopWAM/wan21_compact_donors.pt')
@@ -288,7 +291,7 @@ def main():
     updates_per_epoch=math.ceil(len(train)/args.global_batch)
     total=updates_per_epoch*args.epochs
     model=create_loopwam(args.init_artifact,args.vae_path,version=args.version,device=f'cuda:{local}',
-        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume)
+        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume,action_loops=args.action_loops)
     params=model.policy_parameters()
     count=sum(p.numel() for p in params)
     expected_count = 1416114247 if args.version == 'dense_s30' else 584536135
@@ -323,7 +326,7 @@ def main():
         if world>1: dist.barrier()
         model.training_latent_cache=LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance)
 
-    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,
+    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,video_loops=model.mot.loops,action_core_loops=model.mot.action_loops,loop_alignment="late",
         asset_sha256=asset_hashes[0],initialization_metadata=model.architecture_metadata,
         train_windows=len(train),val_windows=len(val),updates_per_epoch=updates_per_epoch,
         planned_updates=total,planned_windows=args.epochs*len(train),data=data_manifest,

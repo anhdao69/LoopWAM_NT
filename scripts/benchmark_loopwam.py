@@ -15,6 +15,7 @@ from fastwam.training_backends import initialize_deepspeed_backend, deepspeed_pr
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--version',choices=['dense_s12','dense_s30','v0','v1','v2'],default='v0')
+    p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions; video remains four')
     p.add_argument('--backend',choices=['ddp','zero1','zero2'],default='ddp')
     p.add_argument('--microbatch',type=int,required=True)
     p.add_argument('--output-dir',required=True)
@@ -38,7 +39,7 @@ def main():
     train,_,data_manifest=build_long_datasets('data/lerobot_v30/libero_10_no_noops_lerobot','data/text_embeds_cache/libero',str(out/'data'))
     loader=DataLoader(MarkedDataset(train),batch_sampler=ExactDistributedBatches(len(train),a.microbatch,rank,world),num_workers=a.workers,pin_memory=True,persistent_workers=a.workers>0,generator=torch.Generator().manual_seed(42+rank))
     torch.manual_seed(42)
-    model=create_loopwam('checkpoints/LoopWAM/wan21_compact_donors.pt','checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',version=a.version,device=f'cuda:{local}',checkpoint_blocks=a.checkpoint_blocks)
+    model=create_loopwam('checkpoints/LoopWAM/wan21_compact_donors.pt','checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',version=a.version,device=f'cuda:{local}',checkpoint_blocks=a.checkpoint_blocks,action_loops=a.action_loops)
     model.train(); model.mot.collect_diagnostics=True
     model.mot.structured_attention=a.structured_attention
     model.mot.structured_attention_observation_tokens=392
@@ -115,7 +116,7 @@ def main():
     precision=deepspeed_precision_report(runner) if a.backend!='ddp' else {'policy_dtype':'float32','optimizer_moment_dtypes':sorted({str(v.dtype) for s in opt.state.values() for k,v in s.items() if k in ['exp_avg','exp_avg_sq']})}
     if rank==0:
         mean=sum(r['seconds'] for r in records[2:])/len(records[2:])
-        result=dict(source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/training_backends.py')]},version=a.version,workers=a.workers,world_size=world,loops=model.mot.loops,backend=a.backend,microbatch=a.microbatch,accumulation=accum,global_batch=128,fused=not a.unfused,structured_attention=a.structured_attention,latent_cache_dir=a.latent_cache_dir,cache_stats=getattr(getattr(model,'training_latent_cache',None),'stats',None),records=records,steady_seconds=mean,projected_10epochs_hours=mean*7250/3600,precision=precision)
+        result=dict(source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),*Path('src/fastwam/models/wan22').glob('loop*.py'),Path('src/fastwam/models/wan22/fastwam.py'),Path('src/fastwam/training_backends.py')]},version=a.version,workers=a.workers,world_size=world,loops=model.mot.loops,action_loops=model.mot.action_loops,backend=a.backend,microbatch=a.microbatch,accumulation=accum,global_batch=128,fused=not a.unfused,structured_attention=a.structured_attention,latent_cache_dir=a.latent_cache_dir,cache_stats=getattr(getattr(model,'training_latent_cache',None),'stats',None),records=records,steady_seconds=mean,projected_10epochs_hours=mean*7250/3600,precision=precision)
         result.update(checkpoint_blocks=a.checkpoint_blocks,policy_parameters=sum(p.numel() for p in params),effective_depth=model.mot.effective_depth(),physical_depth=model.mot.num_layers)
         (out/'result.json').write_text(json.dumps(result,indent=2)); print(json.dumps(result),flush=True)
     dist.destroy_process_group()

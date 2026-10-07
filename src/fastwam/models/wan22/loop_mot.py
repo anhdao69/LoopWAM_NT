@@ -84,7 +84,7 @@ class LoopMoT(MoT):
     def __init__(self, mixtures: Dict[str, nn.Module], loops: Optional[int] = None,
                  version: str = "v0", checkpoint_blocks: bool = False,
                  mot_checkpoint_mixed_attn: bool = False,
-                 collect_diagnostics: bool = False):
+                 collect_diagnostics: bool = False, action_loops: Optional[int] = None):
         if set(mixtures) != {"video", "action"}:
             raise ValueError("LoopMoT requires exactly the video and action experts.")
         loops = resolve_loop_count(version, loops)
@@ -98,6 +98,7 @@ class LoopMoT(MoT):
         self.version = version
         self.trained_max_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
         self.loops = loops
+        self.action_loops = action_loops
         self.checkpoint_blocks = bool(checkpoint_blocks)
         self.collect_diagnostics = bool(collect_diagnostics)
         self.last_diagnostics: dict[str, torch.Tensor] = {}
@@ -115,6 +116,40 @@ class LoopMoT(MoT):
     @loops.setter
     def loops(self, value: int):
         self._loops = self._validate_loops(value)
+
+    @property
+    def action_loops(self) -> int:
+        return self.loops if self._action_loops is None else self._action_loops
+
+    @action_loops.setter
+    def action_loops(self, value):
+        if value is not None:
+            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= self.loops:
+                raise ValueError("action_loops must be an integer in [1, video loops]")
+            if value != self.loops and self.version != "v0":
+                raise ValueError("Asymmetric depth currently supports v0 only")
+        self._action_loops = value
+
+    def action_cache_slots(self) -> tuple[int, ...]:
+        """Late alignment: action repetition r reads video K_v-K_a+r."""
+        if self.action_loops > self.loops:
+            raise ValueError("Action depth exceeds video depth")
+        first = self.loops - self.action_loops + 1
+        return tuple(slot for slot, (key, _) in enumerate(self.virtual_schedule())
+                     if key[0] != "core" or key[1] >= first)
+
+    def _video_only_block(self, physical_index, tokens, freqs, t_mod, context, context_mask,
+                          attention_mask, observed=None):
+        expert = self.mixtures["video"]
+        block = expert.blocks[physical_index]
+        io = self._build_expert_attention_io(expert, block, tokens, freqs, t_mod)
+        if observed is None:
+            mixed = self._mixed_attention(*io[:3], attention_mask)
+        else:
+            q, k, v = io[:3]
+            mixed = torch.cat((flash_attention(q[:, :observed], k[:, :observed], v[:, :observed], self.num_heads),
+                               flash_attention(q[:, observed:], k, v, self.num_heads)), dim=1)
+        return self._post(block, io, mixed, context, context_mask)
 
     def virtual_schedule(self, loops: Optional[int] = None) -> tuple:
         """Return ((stage, [one-based loop,] block), physical index) entries."""
@@ -204,6 +239,13 @@ class LoopMoT(MoT):
         if (not exits or len(set(exits)) != len(exits)
                 or any(isinstance(e, bool) or not isinstance(e, int) or not 1 <= e <= k for e in exits)):
             raise ValueError("exits must be distinct integer loop indices within [1, loops].")
+        asymmetric = self.action_loops != self.loops
+        if asymmetric and (k != self.loops or exits != (k,)):
+            raise ValueError("Asymmetric v0 requires its configured final video exit")
+        if self.action_loops > k:
+            # Coupled callers may select a smaller runtime K; explicit asymmetric budgets may not.
+            if asymmetric:
+                raise ValueError("Action depth exceeds video depth")
         n = video_tokens.shape[1] + action_tokens.shape[1]
         if attention_mask.shape[-2:] != (n, n):
             raise ValueError("Joint attention mask must match the combined token sequence.")
@@ -220,7 +262,16 @@ class LoopMoT(MoT):
         result = {}
         for r in range(1, max(exits) + 1):
             for i in range(self.pre_depth, self.pre_depth + self.core_depth):
-                state = self._run_pair(i, *state, conditioning)
+                if asymmetric and r <= k - self.action_loops:
+                    video_args = (state[0], video_freqs, video_t_mod, video_context,
+                                  video_context_mask, attention_mask[:video_tokens.shape[1], :video_tokens.shape[1]], observed)
+                    fn = partial(self._video_only_block, i)
+                    updated = (checkpoint(fn, *video_args, use_reentrant=False)
+                               if self.checkpoint_blocks and self.training and torch.is_grad_enabled()
+                               else fn(*video_args))
+                    state = (updated, state[1])
+                else:
+                    state = self._run_pair(i, *state, conditioning)
             if self.collect_diagnostics:
                 # Outside checkpointed blocks, so backward recomputation cannot
                 # mutate diagnostics or retain a second autograd graph.
@@ -283,7 +334,8 @@ class LoopMoT(MoT):
             raise ValueError("Action attention mask must have action query rows and video/action key columns.")
         expert = self.mixtures["action"]
         x = action_tokens
-        for slot, (_, i) in enumerate(schedule):
+        for slot in self.action_cache_slots():
+            _, i = schedule[slot]
             block = expert.blocks[i]
             io = self._build_expert_attention_io(expert, block, x, action_freqs, action_t_mod)
             mixed = self._mixed_attention(io[0], torch.cat((video_cache_k[slot], io[1]), dim=1),
