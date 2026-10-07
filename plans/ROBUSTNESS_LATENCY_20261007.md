@@ -6,6 +6,21 @@ LIBERO-Pro is running in existing interactive allocation **4728**, worker-1, ste
 
 The allocation must remain active for the queue to proceed. Outputs are under `/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/`: `libero_pro_job4728_20261007` and `libero_plus_job4728_after_pro_20261007`. Videos remain on the server.
 
+## Completed native LIBERO results: FastWAM vs LoopWAM v0
+
+| Model / source | Spatial SR | Object SR | Goal SR | Long SR | Average SR | Mean query latency, H100 |
+|---|---:|---:|---:|---:|---:|---:|
+| Original FastWAM, published | 98.2% | 100.0% | 97.0% | 95.2% | 97.6% | 279.90 ms, measured here |
+| Full-four-suite LoopWAM v0, measured here | 99.0% (99/100) | 99.0% (99/100) | 94.0% (94/100) | 96.0% (96/100) | **97.0% (388/400)** | **260.26 ms**, measured here |
+
+FastWAM SR is from the original model's [official project results](https://yuantianyuan01.github.io/FastWAM/#results-on-simulation-and-real-world-tasks), checked October 7, 2026. It is an external published baseline; we have not run a matched four-suite FastWAM simulator evaluation in this experiment. The newer Optional-IDM checkpoint's first-frame scores in the upstream README belong to a different checkpoint and are not substituted for the original unconditional release measured for latency.
+
+LoopWAM differences relative to that published baseline are +0.8, −1.0, −3.0 and +0.8 percentage points for Spatial/Object/Goal/Long; average −0.6 percentage points. Episode counts, seeds and evaluation protocols differ, so these differences do not establish a statistically reliable ranking. Our native evaluation uses ten episodes per task, seed 42 with deterministic task/episode offsets, 30 settling steps, maximum 700 policy steps, terminal-aware success handling, four loops and ten diffusion steps. The shorter benchmark-specific horizons above apply to Pro/Plus, not to these completed native results.
+
+The final native pipeline is **complete**. Training took **12 h 6 m 20.85 s** on four H100s; the four final suite evaluation stages took **1 h 23 m 22.56 s** combined. Including smoke checks and orchestration, pipeline runtime was **13 h 34 m 55.53 s**. All 400 episode keys match the exact 40-task × ten-trial grid. All episode checkpoint hashes match the final update-21700 checkpoint, and all 400 videos exist and are nonempty on the server. Raw final summary and pipeline timing are synced under `plans/evidence/full_four_suite_20261007/`; videos stay on the server.
+
+The measured mean latency reduction is **7.01%**, or **1.075×** throughput per query. Both models were measured on one H100 using the protocol below, with 100 timed queries each. The FastWAM release checkpoint is `libero_uncond_2cam224.pt` (SHA-256 `1000437cfcf55c000094f79a2600634c502bcb5b492476b94bf8509883a49579`). Compilation was disabled for both models: these figures do not compare upstream's newest compiled deployment path. The measured latency comparison and external SR comparison have distinct provenance.
+
 ## Measured latency
 
 Two independent trials, each with five warmups and 50 synchronized measurements per model, on the same single H100. Batch 1, two 224×224 cameras, 32-action chunks, ten diffusion steps, cached text, FP32 weights with BF16 autocast. Timing includes image preprocessing, device transfers, online VAE encoding, visual prefill, action denoising and CPU output transfer; excludes simulator, video encoding, model loading and text encoding. No compilation or latent caching.

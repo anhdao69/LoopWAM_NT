@@ -1,0 +1,43 @@
+{
+  "slurm_job_id": "4659",
+  "slurm_step_id": "30",
+  "source_revision": "3627760ae1e56972692a86c7d8a1e5caee6f24f8",
+  "started_unix": 1791295969.979994,
+  "stage": "complete",
+  "elapsed_seconds": 48895.534969091415,
+  "stage_durations_seconds": {
+    "smoke_cold": 81.05914974212646,
+    "smoke_warm": 68.30743455886841,
+    "smoke_eval_libero_spatial": 49.40071964263916,
+    "smoke_eval_libero_object": 34.20577597618103,
+    "smoke_eval_libero_goal": 39.89454102516174,
+    "smoke_eval_libero_10": 38.72322463989258,
+    "training": 43580.848212480545,
+    "evaluation_libero_spatial": 1032.353473186493,
+    "evaluation_libero_object": 917.6094508171082,
+    "evaluation_libero_goal": 1126.2745714187622,
+    "evaluation_libero_10": 1926.3242659568787
+  },
+  "command": [
+    "torchrun",
+    "--standalone",
+    "--nproc_per_node=4",
+    "scripts/evaluate_loopwam_libero.py",
+    "--suite",
+    "libero_10",
+    "--checkpoint",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/train/latest.pt",
+    "--vae-path",
+    "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "--stats",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/train/data/dataset_stats.json",
+    "--output-dir",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/evaluation_libero_10",
+    "--episodes-per-task",
+    "10"
+  ],
+  "estimated_training_hours": 12.181666350217512,
+  "successes": 388,
+  "total_episodes": 400,
+  "success_rate": 0.97
+}
