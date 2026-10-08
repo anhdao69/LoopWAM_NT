@@ -170,3 +170,24 @@ reproduction and concurrency tests are in progress. Release validation now check
 accepted control summary hashes, model contracts, seed coverage and evaluation
 settings before the first training command. Slurm entrypoints require explicit
 verified worker and render-thread counts. Targeted lifecycle/release tests: 5 passed.
+
+## Accepted evaluator reproduction gate
+
+Pinned source: `d223427` (subsequent evidence-only commits do not change code).
+Full CPU regression: **384 passed, 9 skipped**.
+
+| Configuration | H100 worker | 100-episode time | Seed 42 SR |
+|---|---|---:|---:|
+| 4 model workers/GPU, 4 render threads | worker-0 | 1,002.791 s (16m 43s) | 81/100 |
+| 5 model workers/GPU, 3 render threads | worker-1 | 869.617 s (14m 30s) | 81/100 |
+
+Both configurations reproduced all 100 historical success outcomes, step counts
+and replan counts exactly. Their 100 action traces were bit-identical. The latter
+configuration was 13.3% faster in this trial and is selected for the campaign.
+This is one timing trial on each of two workers; host variability is not isolated.
+
+Raw summaries and the machine-readable gate are in
+`plans/evidence/kv_concat_20261008/evaluator_reproduction/`. Videos and action
+trace arrays remain on the server. Old episode-parallel controls remain rejected.
+GPU regression and new task-sequence control evaluations are running in steps
+4770.6 and 4771.6, followed by native training preflight. Production is not released.

@@ -1,0 +1,49 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/train/latest.pt",
+  "checkpoint_sha256": "32e143c0467faea2717195e2825eed91874c67f1efd54dada2a5be2adafece90",
+  "checkpoint_step": 7250,
+  "version": "v0",
+  "video_loops": 4,
+  "action_loops": 1,
+  "action_kv_mode": "aligned",
+  "arguments": {
+    "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/train/latest.pt",
+    "stats": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/train/data/dataset_stats.json",
+    "vae_path": "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_evaluator_diagnosis_20261008/pool4",
+    "workers_per_gpu": 3,
+    "suites": [
+      "libero_10"
+    ],
+    "seeds": [
+      42
+    ],
+    "tasks": [
+      3,
+      8
+    ],
+    "episodes_per_task": 3,
+    "max_steps": 700,
+    "smoke": false,
+    "trace_actions": true
+  },
+  "gpus": [
+    "0",
+    "1"
+  ],
+  "workers_per_gpu": 3,
+  "worker_count": 6,
+  "mode": "final_rollout",
+  "normalization_sha256": "78058a689c41382a2759541d5590cb3ada8c576e736285aaeebc344874366f1b",
+  "seed_formula": "base_seed + task_id*100000 + episode_index*1000 + replan_index",
+  "protocol": {
+    "max_policy_steps": 700,
+    "settling_steps": 30,
+    "replan_steps": 10,
+    "denoising_steps": 10,
+    "cfg": 1,
+    "action_chunk": 32
+  },
+  "source_script_sha256": "cbcf74526cdf4ec69984a7da124fc906f4f23f156881665d9009f5f7c74c2ff2",
+  "slurm_job_id": "4771"
+}

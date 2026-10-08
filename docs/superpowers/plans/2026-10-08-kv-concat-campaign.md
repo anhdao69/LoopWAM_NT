@@ -32,6 +32,6 @@ field against baseline, not only counts. No historical outputs overwritten.
 - Allocate Dense-S30 to the lighter full-loop pair and Dense-S12 to the heavier
   pair to balance total work with exactly four training runs per job.
 - Existing Long controls may evaluate while implementation proceeds; they do
-  not count as additional training runs and use pinned pre-change evaluator.
+  not count as additional training runs and use the pinned task-sequence evaluator after exact baseline reproduction.
 - Borderline expansion uses seed42,50states/task; retain 300-episode result and
   label any expanded analysis separately; no invented follow-up decision rule.

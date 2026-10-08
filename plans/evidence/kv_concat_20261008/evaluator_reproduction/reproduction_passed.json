@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "baseline_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/evaluation/summary.json",
+  "baseline_summary_sha256": "f325d874da0fc6b32039977c3bc626c531129cbd4168d6ccdb7229f817bd7f7f",
+  "all100_outcomes_steps_replans_identical": true,
+  "all100_action_traces_bit_identical": true,
+  "configurations": {
+    "full_w4_render4": {
+      "elapsed_seconds": 1002.7909366451204,
+      "successes": 81,
+      "total_episodes": 100,
+      "workers_per_gpu": 4,
+      "max_worker_gpu_gib": 3.707962989807129
+    },
+    "full_w5_render3": {
+      "elapsed_seconds": 869.6166945658624,
+      "successes": 81,
+      "total_episodes": 100,
+      "workers_per_gpu": 5,
+      "max_worker_gpu_gib": 3.707962989807129
+    }
+  },
+  "selected": {
+    "workers_per_gpu": 5,
+    "render_threads": 3
+  },
+  "limitation": "One timing trial per configuration on different H100 workers; host variability is not isolated."
+}
