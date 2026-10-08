@@ -96,3 +96,13 @@ original repeated-seed-42 plan. Implementation proceeds on `KV_concat` while
 `LoopWAM_NT` remains untouched.
 
 Launch evidence: [Full_LIBERO_Loop_Ablations_20261008_evidence.json](Full_LIBERO_Loop_Ablations_20261008_evidence.json).
+
+## Later evaluation correction (KV campaign)
+
+A full-horizon control on the unchanged4/1checkpoint exposed a lifecycle
+mismatch in the episode-parallel evaluator: seed42gave79/100versus81historically.
+The short100step concurrency probes above do not establish full-rollout
+equivalence. Campaign production is blocked while task-sequence scheduling
+is verified against the original evaluator. Historical probe timings remain
+measurements of the earlier implementation, not acceptance evidence for the
+corrected evaluator.
