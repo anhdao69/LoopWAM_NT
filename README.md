@@ -15,6 +15,8 @@ This repository contains the training and evaluation code for FastWAM on LIBERO 
 
 ## LoopWAM experiment results
 
+Final checkpoints: [Hugging Face — anhdao69/LoopWAM_NT](https://huggingface.co/anhdao69/LoopWAM_NT) (private), organized into `libero-long/` and `libero-all-suites/`. See the [release inventory](plans/performance/HuggingFace_Checkpoint_Release_20261008.md).
+
 [Consolidated report — October 8, 2026](plans/performance/LoopWAM_Consolidated_Results_20261008.md): model and loop-depth comparisons, full-suite and robustness results, loss curves, runtimes, latency, and audit evidence. The fresh 4/4 repeat is listed as ongoing at the report snapshot.
 
 ## What's New

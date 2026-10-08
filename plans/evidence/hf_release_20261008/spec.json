@@ -1,0 +1,68 @@
+[
+  {
+    "id": "v0_original",
+    "training_path": "v0_scratch_fast_bs128_20261005",
+    "evaluation_path": "v0_auto_eval_job4689/inference",
+    "repo_path": "libero-long/v0-video4-action4-original"
+  },
+  {
+    "id": "v1",
+    "training_path": "v1_bs128_job4691/train",
+    "evaluation_path": "v1_bs128_job4691/inference",
+    "repo_path": "libero-long/v1-video4-action4"
+  },
+  {
+    "id": "dense_s12",
+    "training_path": "dense_v2_job4659_20261006/dense_s12_train",
+    "evaluation_path": "dense_v2_job4659_20261006/dense_s12_evaluation",
+    "repo_path": "libero-long/dense-s12"
+  },
+  {
+    "id": "v2",
+    "training_path": "dense_v2_job4659_20261006/v2_train",
+    "evaluation_path": "dense_v2_job4659_20261006/v2_evaluation",
+    "repo_path": "libero-long/v2-video4-action4"
+  },
+  {
+    "id": "dense_s30",
+    "training_path": "dense_s30_job4719_20261006/dense_s30_train",
+    "evaluation_path": "dense_s30_job4719_20261006/dense_s30_evaluation",
+    "repo_path": "libero-long/dense-s30"
+  },
+  {
+    "id": "v0_full",
+    "training_path": "v0_full_libero_job4659_20261006/train",
+    "evaluation_path": "v0_full_libero_job4659_20261006",
+    "repo_path": "libero-all-suites/v0-video4-action4"
+  },
+  {
+    "id": "v0_4_1",
+    "training_path": "v0_v4a1_job4728_20261007/train",
+    "evaluation_path": "v0_v4a1_job4728_20261007/evaluation",
+    "repo_path": "libero-long/v0-video4-action1"
+  },
+  {
+    "id": "v0_4_2",
+    "training_path": "loop_grid_job4728_20261008/v4a2/train",
+    "evaluation_path": "loop_grid_job4728_20261008/v4a2/evaluation",
+    "repo_path": "libero-long/v0-video4-action2"
+  },
+  {
+    "id": "v0_2_2",
+    "training_path": "loop_grid_job4659_20261008/v2a2/train",
+    "evaluation_path": "loop_grid_job4659_20261008/v2a2/evaluation",
+    "repo_path": "libero-long/v0-video2-action2"
+  },
+  {
+    "id": "v0_1_4",
+    "training_path": "loop_grid_job4659_20261008/v1a4/train",
+    "evaluation_path": "loop_grid_job4659_20261008/v1a4/evaluation",
+    "repo_path": "libero-long/v0-video1-action4"
+  },
+  {
+    "id": "v0_4_4_repeat",
+    "training_path": "loop_v4a4_repeat_job4728_20261008/v4a4/train",
+    "evaluation_path": "loop_v4a4_repeat_job4728_20261008/v4a4/evaluation",
+    "repo_path": "libero-long/v0-video4-action4-repeat"
+  }
+]
