@@ -10,7 +10,7 @@ def model(v,a):
     return LoopMoT(dict(base.mixtures.items()),loops=v,action_loops=a)
 
 
-@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4)])
+@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4),(3,3)])
 @pytest.mark.parametrize('structured',[False,True])
 def test_grid_joint_cache_and_gradients(v,a,structured):
     joint=model(v,a);other=copy.deepcopy(joint);data=inputs()
@@ -34,7 +34,7 @@ def test_one_video_four_action_reuses_one_core_cache():
     assert m.action_cache_slots()==tuple(list(range(3))+list(range(3,9))*4+list(range(9,12)))
 
 
-@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4)])
+@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4),(3,3)])
 def test_grid_no_future_leak_and_checkpointed_gradients(v,a):
     m=model(v,a);data=inputs();baseline=m.forward_joint_core(**data)
     changed=dict(data,video_tokens=data['video_tokens'].clone());changed['video_tokens'][:,2:]+=40
@@ -46,7 +46,7 @@ def test_grid_no_future_leak_and_checkpointed_gradients(v,a):
         if p.grad is not None:torch.testing.assert_close(p.grad,q.grad,atol=5e-5,rtol=5e-4,msg=name)
 
 
-@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4)])
+@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4),(3,3)])
 def test_grid_checkpoint_evaluation_spec(v,a):
     from scripts.evaluate_loopwam_libero import checkpoint_policy_spec
     p=dict(format_version='loopwam-s-v1',version='v0',trained_max_loops=4,inference_loops=v,
@@ -54,7 +54,7 @@ def test_grid_checkpoint_evaluation_spec(v,a):
     assert checkpoint_policy_spec(p)==('v0',v)
 
 
-@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4)])
+@pytest.mark.parametrize('v,a',[(4,2),(2,2),(1,4),(3,3)])
 def test_grid_factory_preserves_pair(v,a,tmp_path,monkeypatch):
     from test_loopwam_dense_s30 import tiny_configs
     from fastwam.models.wan22 import loopwam_init
