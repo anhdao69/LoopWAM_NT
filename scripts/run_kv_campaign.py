@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gated two-H100 queue: Long KV experiment, two full loops, one full dense control."""
 from __future__ import annotations
-import argparse,json,math,os,subprocess,time
+import argparse,hashlib,json,math,os,subprocess,time
 from pathlib import Path
 from run_full_libero_v0_job import source_hashes,SUITES
 from evaluate_loopwam_pool import write,make_jobs,verify_results
@@ -31,9 +31,9 @@ def train_command(s,c,out,cache,max_updates=None):
  if c.get('checkpoint_blocks'):command+=['--checkpoint-blocks']
  return command
 
-def eval_command(s,train,out,workers,seed,smoke=False,episodes=10):
+def eval_command(s,train,out,workers,seed,smoke=False,episodes=10,render_threads=1):
  train=Path(train)
- command=['python','scripts/evaluate_loopwam_pool.py','--checkpoint',str(train/'latest.pt'),'--stats',str(train/'data/dataset_stats.json'),'--vae-path',VAE,'--output-dir',str(out),'--workers-per-gpu',str(workers),'--seeds',str(seed),'--suites',*(['libero_10'] if s['scope']=='long_split' else SUITES),'--episodes-per-task',str(1 if smoke else episodes)]
+ command=['python','scripts/evaluate_loopwam_pool.py','--checkpoint',str(train/'latest.pt'),'--stats',str(train/'data/dataset_stats.json'),'--vae-path',VAE,'--output-dir',str(out),'--workers-per-gpu',str(workers),'--render-threads',str(render_threads),'--seeds',str(seed),'--suites',*(['libero_10'] if s['scope']=='long_split' else SUITES),'--episodes-per-task',str(1 if smoke else episodes)]
  if smoke:command+=['--smoke','--tasks','0','1','--max-steps','100']
  return command
 
@@ -77,6 +77,25 @@ def verify_eval(path,s,seed,smoke=False,episodes=10):
  if any(summary.get(k)!=v for k,v in dict(version=s['version'],video_loops=s['video'],action_loops=s['action'],action_kv_mode=s['mode'],checkpoint_step=10 if smoke else updates(s)).items()):raise ValueError('Evaluation model contract mismatch')
  return summary
 
+def validate_release_inputs(release,prepared):
+ # Fail before allocating days of training to an incomplete analysis contract.
+ for label,seeds,action in [('baseline',(42,43,44),1),('repeat',(43,44),4)]:
+  key=f'control_{label}_summary';path=Path(release.get(key,''))
+  if not path.is_file():raise ValueError(f'Missing accepted control: {key}')
+  if hashlib.sha256(path.read_bytes()).hexdigest()!=release.get(f'control_{label}_sha256'):raise ValueError(f'Accepted control hash mismatch: {label}')
+  summary=read(path)
+  expected=dict(mode='final_rollout',version='v0',video_loops=4,action_loops=action,action_kv_mode='aligned',checkpoint_step=7250)
+  if any(summary.get(k)!=v for k,v in expected.items()):raise ValueError(f'Accepted control contract mismatch: {label}')
+  if label=='baseline' and summary.get('checkpoint_sha256')!='32e143c0467faea2717195e2825eed91874c67f1efd54dada2a5be2adafece90':raise ValueError('Baseline checkpoint mismatch')
+  rows=summary.get('episodes',[])
+  identities=[(r['base_seed'],r['suite'],r['task'],r['episode']) for r in rows]
+  grid={(seed,'libero_10',task,episode) for seed in seeds for task in range(10) for episode in range(10)}
+  if len(identities)!=len(grid) or set(identities)!=grid:raise ValueError(f'Accepted control coverage mismatch: {label}')
+  if label=='baseline' and sum(bool(r['success']) for r in rows if r['base_seed']==42)!=81:raise ValueError('Baseline seed42 reproduction failed')
+ evaluation=release.get('evaluation',{})
+ for config in prepared['configs'].values():
+  if any(config.get(k)!=evaluation.get(k) for k in ('workers_per_gpu','render_threads')):raise ValueError('Verified evaluation concurrency mismatch')
+
 class Campaign:
  def __init__(self,args):
   self.a=args;self.out=Path(args.output_root);self.peer=Path(args.peer_root);self.queue=QUEUES[args.queue]
@@ -115,7 +134,7 @@ class Campaign:
      if (result['global_batch']!=128 or result['world_size']!=2 or result['train_windows']!=windows(s) or result['precision'].get('policy_dtype')!='float32' or result['precision'].get('optimizer_moment_dtypes')!=['torch.float32'] or not math.isfinite(result['steady_seconds']) or any(not math.isfinite(r[k]) for r in result['records'] for k in ('loss','grad_norm'))):raise ValueError('Benchmark precision/finite gate failed')
      trials.append(result)
    selected=select_candidate(trials,s['mode']!='aligned')
-   c={k:selected[k] for k in ('backend','microbatch')};c.update(workers_per_gpu=8,steady_seconds=selected['steady_seconds'])
+   c={k:selected[k] for k in ('backend','microbatch')};c.update(workers_per_gpu=self.a.eval_workers,render_threads=self.a.eval_render_threads,steady_seconds=selected['steady_seconds'])
    write(self.out/f'{label}_benchmarks.json',dict(trials=trials,selected=c,selection_reason='Match baseline DDP8 when feasible' if s['mode']!='aligned' else 'Lowest measured steady update time'))
    # Fresh cold and warm native runs use the identical 1280-window prefix.
    phases=('cold','warm') if s['mode']!='aligned' else ('warm',)
@@ -129,7 +148,7 @@ class Campaign:
    if s['mode']!='aligned':
     self.run(label+'_diagnostics',['python','scripts/smoke_kv_diagnostics.py','--checkpoint',str(dest/'latest.pt'),'--output',str(self.out/f'{label}_diagnostics.json')])
    eval_out=self.out/f'{label}_smoke_eval'
-   self.run(eval_out.name,eval_command(s,dest,eval_out,c['workers_per_gpu'],42,True),oom_trial=False)
+   self.run(eval_out.name,eval_command(s,dest,eval_out,c['workers_per_gpu'],42,True,render_threads=c['render_threads']),oom_trial=False)
    summary=verify_eval(eval_out,s,42,True)
    c['eval_smoke_seconds']=summary['elapsed_seconds'];c['eval_peak_worker_gib']=summary['max_worker_gpu_gib']
    configs[label]=c;write(self.out/'configs_partial.json',configs)
@@ -146,6 +165,7 @@ class Campaign:
  def production(self):
   prepared=read(self.out/'prepared.json');release=read(self.out/'release.json')
   if prepared['source_hashes']!=self.hashes or prepared['source_revision']!=self.revision or release.get('source_revision')!=self.revision or release.get('queue')!=self.a.queue:raise ValueError('Source/release mismatch')
+  validate_release_inputs(release,prepared)
   for index,s in enumerate(self.queue):
    c=prepared['configs'][s['label']];run=self.out/s['label'];train=run/'train'
    if run.exists():raise ValueError('Refusing production resume/overwrite')
@@ -153,7 +173,7 @@ class Campaign:
    timing=verify_train(train,s)
    summaries=[]
    for seed in (42,43,44):
-    dest=run/f'eval_seed{seed}';self.run(f'eval_{s["label"]}_{seed}',eval_command(s,train,dest,c['workers_per_gpu'],seed))
+    dest=run/f'eval_seed{seed}';self.run(f'eval_{s["label"]}_{seed}',eval_command(s,train,dest,c['workers_per_gpu'],seed,render_threads=c['render_threads']))
     summary=verify_eval(dest,s,seed);summaries.append({k:v for k,v in summary.items() if k!='episodes'})
    write(run/'summary.json',dict(training=timing,evaluations=summaries))
    if index==0:
@@ -167,12 +187,12 @@ class Campaign:
     peer=self.wait_file(self.peer/'long_complete.json',18*3600)
     if peer['source_revision']!=self.revision:raise ValueError('Peer source mismatch')
     if self.a.queue=='concat':
-     self.run('long_analysis',['python','scripts/report_kv_campaign.py','--concat-root',str(self.out),'--mix-root',str(self.peer),'--output',str(self.out/'long_analysis')])
+     self.run('long_analysis',['python','scripts/report_kv_campaign.py','--concat-root',str(self.out),'--mix-root',str(self.peer),'--output',str(self.out/'long_analysis'),'--control-baseline',release['control_baseline_summary'],'--control-repeat',release['control_repeat_summary']])
      result=read(self.out/'long_analysis/evidence.json')
      if result['decision']=='inconclusive':
       for label,training in [('concat',train),('aligned',LONG_BASE)]:
        dest=self.out/f'expanded_{label}_seed42'
-       self.run(dest.name,eval_command(dict(s,mode='concat' if label=='concat' else 'aligned'),training,dest,c['workers_per_gpu'],42,episodes=50))
+       self.run(dest.name,eval_command(dict(s,mode='concat' if label=='concat' else 'aligned'),training,dest,c['workers_per_gpu'],42,episodes=50,render_threads=c['render_threads']))
        verify_eval(dest,dict(s,mode='concat' if label=='concat' else 'aligned'),42,episodes=50)
       self.run('expanded_analysis',['python','scripts/report_kv_followup.py','--concat-root',str(self.out),'--expanded'])
      write(self.out/'long_analysis_complete.json',dict(source_revision=self.revision))
@@ -186,7 +206,7 @@ class Campaign:
   self.status('complete')
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--queue',choices=QUEUES,required=True);p.add_argument('--output-root',required=True);p.add_argument('--peer-root',required=True);p.add_argument('--phase',choices=['prepare','run'],required=True);p.add_argument('--action-kv-mode',choices=['concat','mix'])
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--queue',choices=QUEUES,required=True);p.add_argument('--output-root',required=True);p.add_argument('--peer-root',required=True);p.add_argument('--phase',choices=['prepare','run'],required=True);p.add_argument('--action-kv-mode',choices=['concat','mix']);p.add_argument('--eval-workers',type=int,choices=range(1,9),default=4);p.add_argument('--eval-render-threads',type=int,choices=range(1,5),default=4)
  args=p.parse_args()
  if args.action_kv_mode is not None and args.action_kv_mode!=args.queue:p.error('action-kv-mode must match the first queue experiment')
  campaign=Campaign(args)

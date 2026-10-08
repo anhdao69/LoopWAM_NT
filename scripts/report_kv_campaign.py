@@ -61,11 +61,11 @@ def training_summary(path):
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--concat-root',required=True);p.add_argument('--mix-root',required=True);p.add_argument('--output',required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--concat-root',required=True);p.add_argument('--mix-root',required=True);p.add_argument('--output',required=True);p.add_argument('--control-baseline');p.add_argument('--control-repeat');a=p.parse_args()
  cr,mr,final=Path(a.concat_root),Path(a.mix_root),Path(a.output)
  if final.exists():raise ValueError('Refusing report overwrite')
  out=final.with_name(final.name+'.partial');out.mkdir(parents=True,exist_ok=False)
- baseline=read(mr.parent/'control_aligned_v4a1/summary.json')['episodes']
+ baseline=read(Path(a.control_baseline) if a.control_baseline else mr.parent/'control_aligned_v4a1/summary.json')['episodes']
  concat=new_rows(cr,'concat_long');mix=new_rows(mr,'mix_long')
  rows={'aligned':baseline,'concat':concat,'mix':mix};results={k:summarize(v) for k,v in rows.items()}
  if results['aligned']['seed_successes']['42']!=81:raise ValueError('Aligned seed42 did not reproduce historical baseline')
@@ -74,7 +74,7 @@ def main():
  latency={mode:{flavor:read(root/f'{mode}_long/latency_{flavor}.json') for flavor in ('eager','compiled') if (root/f'{mode}_long/latency_{flavor}.json').exists()} for mode,root in [('concat',cr),('mix',mr)]}
  for label in ('aligned41','original44'):
   latency[label]={flavor:read(cr.parent/f'latency_{label}_{flavor}.json') for flavor in ('eager','compiled') if (cr.parent/f'latency_{label}_{flavor}.json').exists()}
- repeat=read(cr.parent/'control_repeat_v4a4/summary.json');repeat_seeds={str(v['seed']):v['successes'] for v in repeat['rounds'].values()};repeat_seeds['42']=91
+ repeat=read(Path(a.control_repeat) if a.control_repeat else cr.parent/'control_repeat_v4a4/summary.json');repeat_seeds={str(seed):sum(bool(r['success']) for r in repeat['episodes'] if r['base_seed']==seed) for seed in (43,44)};repeat_seeds['42']=91
  evidence=dict(results=results,tests=tests,training=training,latency=latency,episodes=rows,repeat44=repeat_seeds,original44=dict(seed_successes={'42':96,'43':88,'44':91},pooled_sr=275/300,wilson95=wilson(275,300)),decision=decision(results['concat']['successes'],300),limitations=['One training seed42; training-seed variance not measured.','Wilson and two-proportion calculations treat episodes as independent; shared tasks/states create clustering.','Threshold rule is preregistered heuristic, not proof of mechanism.'])
  (out/'evidence.json').write_text(json.dumps(evidence,indent=2))
  import matplotlib;matplotlib.use('Agg')

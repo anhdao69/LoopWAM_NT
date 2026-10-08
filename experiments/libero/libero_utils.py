@@ -56,11 +56,12 @@ def get_libero_image(obs):
         "wrist_image": wrist_img
     }
 
-def save_rollout_video(rollout_dir, rollout_images, idx, success, task_description, log_file=None, fps=24):
+def save_rollout_video(rollout_dir, rollout_images, idx, success, task_description, log_file=None, fps=24, encoding_threads=None):
     """Saves an MP4 replay of an episode."""
     processed_task_description = task_description.lower().replace(" ", "_").replace("\n", "_").replace(".", "_")[:50]
     mp4_path = f"{rollout_dir}/{DATE_TIME}--episode={idx}--success={success}--task={processed_task_description}.mp4"
-    video_writer = imageio.get_writer(mp4_path, fps=fps)
+    writer_options = {} if encoding_threads is None else {'ffmpeg_params': ['-threads', str(encoding_threads)]}
+    video_writer = imageio.get_writer(mp4_path, fps=fps, **writer_options)
     for img in rollout_images:
         if isinstance(img, dict):
             image = []

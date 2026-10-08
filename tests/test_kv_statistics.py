@@ -49,7 +49,7 @@ def test_long_report_end_to_end_and_atomic_completion(tmp_path,monkeypatch):
   path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj))
  def rows(seed,wins):return [dict(base_seed=seed,suite='libero_10',task=t,episode=e,success=t*10+e<wins) for t in range(10) for e in range(10)]
  save(mr.parent/'control_aligned_v4a1/summary.json',dict(episodes=sum([rows(s,k) for s,k in zip((42,43,44),(81,82,83))],[])))
- save(cr.parent/'control_repeat_v4a4/summary.json',dict(rounds={'0':dict(seed=43,successes=87),'1':dict(seed=44,successes=91)}))
+ save(cr.parent/'control_repeat_v4a4/summary.json',dict(episodes=[dict(base_seed=seed,task=t,episode=e,suite='libero_10',success=(t*10+e<count)) for seed,count in [(43,87),(44,91)] for t in range(10) for e in range(10)]))
  for mode,root in [('concat',cr),('mix',mr)]:
   run=root/f'{mode}_long';train=run/'train'
   for seed in (42,43,44):save(run/f'eval_seed{seed}/summary.json',dict(mode='final_rollout',total_episodes=100,episodes=rows(seed,87)))

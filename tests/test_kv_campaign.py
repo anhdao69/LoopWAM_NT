@@ -35,3 +35,24 @@ def test_long_prefers_matching_ddp_layout_even_if_small_speed_difference():
     trials=[dict(backend='ddp',microbatch=8,steady_seconds=3.5),dict(backend='zero1',microbatch=16,steady_seconds=3.)]
     assert select_candidate(trials,True)['microbatch']==8
     assert select_candidate(trials,False)['backend']=='zero1'
+
+
+def test_release_requires_verified_controls_and_matching_concurrency(tmp_path):
+    import hashlib,json
+    from run_kv_campaign import validate_release_inputs
+    prepared={'configs':{'concat_long':{'workers_per_gpu':4,'render_threads':4}}}
+    release={'evaluation':{'workers_per_gpu':4,'render_threads':4}}
+    with pytest.raises(ValueError,match='control'):validate_release_inputs(release,prepared)
+    for label,seeds,loops in [('baseline',[42,43,44],1),('repeat',[43,44],4)]:
+        rows=[dict(base_seed=seed,suite='libero_10',task=t,episode=e,success=(t*10+e<81)) for seed in seeds for t in range(10) for e in range(10)]
+        payload=dict(mode='final_rollout',version='v0',video_loops=4,action_loops=loops,action_kv_mode='aligned',checkpoint_step=7250,checkpoint_sha256='32e143c0467faea2717195e2825eed91874c67f1efd54dada2a5be2adafece90' if label=='baseline' else 'a'*64,episodes=rows)
+        path=tmp_path/f'{label}.json';path.write_text(json.dumps(payload))
+        release[f'control_{label}_summary']=str(path)
+        release[f'control_{label}_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    validate_release_inputs(release,prepared)
+    bad=copy.deepcopy(release);bad['evaluation']['workers_per_gpu']=5
+    with pytest.raises(ValueError,match='concurrency'):validate_release_inputs(bad,prepared)
+    bad=copy.deepcopy(release);bad['control_baseline_sha256']='bad'
+    with pytest.raises(ValueError,match='hash'):validate_release_inputs(bad,prepared)
+    path.write_text('{}')
+    with pytest.raises(ValueError):validate_release_inputs(release,prepared)

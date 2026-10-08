@@ -23,6 +23,27 @@ def make_jobs(suites,seeds,tasks,episodes):
          for s in sorted(suites,key=lambda x:0 if x=='libero_10' else 1)
          for ri,seed in enumerate(seeds) for t in tasks for e in range(episodes)]
 
+def environment_key(job):
+ # A fresh environment per task and evaluation round, reused for its initial states.
+ return (job['suite'], job['task'], job['base_seed'], job['round'])
+
+
+def episode_groups(jobs):
+ """Never distribute the episodes of a task/round across simulators.
+
+ LIBERO reset/set_init_state does not reproduce the original evaluator's
+ trajectory when later episodes use fresh environments. Preserve its complete
+ sequential environment lifecycle; parallelize independent task sequences.
+ """
+ grouped={}
+ for job in jobs:grouped.setdefault(environment_key(job),[]).append(job)
+ groups=list(grouped.values())
+ for group in groups:
+  if [j['episode'] for j in group]!=list(range(len(group))):
+   raise ValueError('Each environment must execute contiguous initial states from zero')
+ return groups
+
+
 def verify_results(jobs,rows,checkpoint_hash,mode):
  expected={j['id']:j for j in jobs}
  if len(rows)!=len(expected) or {r['id'] for r in rows}!=set(expected):raise ValueError('Missing/duplicate episodes')
@@ -44,10 +65,10 @@ def verify_results(jobs,rows,checkpoint_hash,mode):
 def worker(index,gpu,args,jobs,results,checkpoint_hash,data,stats):
  # Spawn starts a fresh interpreter. CUDA is initialized only after restricting visibility.
  os.environ['CUDA_VISIBLE_DEVICES']=gpu
- os.environ['OMP_NUM_THREADS']='1';os.environ['LP_NUM_THREADS']='1';os.environ['MKL_NUM_THREADS']='1'
+ os.environ['OMP_NUM_THREADS']=str(args.torch_threads);os.environ['LP_NUM_THREADS']=str(args.render_threads);os.environ['MKL_NUM_THREADS']=str(args.torch_threads)
  try:
   import random,numpy as np,torch
-  torch.set_num_threads(1);torch.cuda.set_device(0)
+  torch.set_num_threads(args.torch_threads);torch.cuda.set_device(0)
   from scripts.evaluate_loopwam_libero import ObservationAdapter,initial_states,run_episode
   from fastwam.models.wan22.loopwam import create_loopwam
   from libero.libero import benchmark
@@ -55,13 +76,16 @@ def worker(index,gpu,args,jobs,results,checkpoint_hash,data,stats):
   model=create_loopwam(checkpoint_path=args.checkpoint,vae_path=args.vae_path,device='cuda:0',model_dtype=torch.float32).eval()
   adapter=ObservationAdapter(stats,data['text_cache_dir'],data['text_cache_files'])
   suites={s:benchmark.get_benchmark_dict()[s]() for s in args.suites}
-  out=Path(args.output_dir);env=None;current=None;count=0
+  out=Path(args.output_dir);env=None;current=None;count=0;pending=[]
   results.put(dict(event='ready',worker=index,gpu=gpu))
   try:
    while True:
-    job=jobs.get()
-    if job is None:break
-    key=(job['suite'],job['task'],job['base_seed'])
+    if not pending:
+     group=jobs.get()
+     if group is None:break
+     pending=list(reversed(group))
+    job=pending.pop()
+    key=environment_key(job)
     if key!=current:
      if env is not None:env.close()
      task=suites[job['suite']].get_task(job['task']);context,mask=adapter.text(task.language)
@@ -81,7 +105,7 @@ def worker(index,gpu,args,jobs,results,checkpoint_hash,data,stats):
     row.update(job,worker=index,checkpoint_sha256=checkpoint_hash,mode='smoke' if args.smoke else 'final_rollout',
          initial_state_index=job['episode'],task_id=job['task'],episode_index=job['episode'],task_description=description,
          duration_seconds=time.perf_counter()-started,peak_gpu_gib=torch.cuda.max_memory_allocated()/2**30)
-    row['video']=save_rollout_video(out/'videos',frames,job['id'],row['success'],description)
+    row['video']=save_rollout_video(out/'videos',frames,job['id'],row['success'],description,encoding_threads=args.video_threads)
     if args.trace_actions:
      dest=out/'traces'/f"{job['id']}.npz";dest.parent.mkdir(exist_ok=True)
      np.savez_compressed(dest,actions=np.stack(trace) if trace else np.empty((0,32,7)))
@@ -117,10 +141,11 @@ def run(args):
    worker_count=len(visible)*args.workers_per_gpu,mode='smoke' if args.smoke else 'final_rollout',
    normalization_sha256=sha256_file(stats_path),seed_formula='base_seed + task_id*100000 + episode_index*1000 + replan_index',
    protocol=dict(max_policy_steps=args.max_steps,settling_steps=30,replan_steps=10,denoising_steps=10,cfg=1,action_chunk=32),
+   environment_lifecycle='one environment per task and round; initial states sequential',
    source_script_sha256=sha256_file(__file__),slurm_job_id=os.getenv('SLURM_JOB_ID'))
  write(out/'manifest.json',manifest)
  ctx=mp.get_context('spawn');q=ctx.Queue();results=ctx.Queue();children=[];started=time.perf_counter();ready=set();rows=[];done=set();first_ready=None;all_ready=None
- for job in grid:q.put(job)
+ for group in episode_groups(grid):q.put(group)
  for _ in range(manifest['worker_count']):q.put(None)
  try:
   for i in range(manifest['worker_count']):
@@ -157,6 +182,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  p.add_argument('--checkpoint',required=True);p.add_argument('--stats',required=True);p.add_argument('--vae-path',required=True)
  p.add_argument('--output-dir',required=True);p.add_argument('--workers-per-gpu',type=int,default=1)
+ p.add_argument('--torch-threads',type=int,choices=range(1,5),default=1);p.add_argument('--render-threads',type=int,choices=range(1,5),default=1);p.add_argument('--video-threads',type=int,choices=range(1,5),default=1)
  p.add_argument('--suites',nargs='+',default=list(SUITES));p.add_argument('--seeds',nargs='+',type=int,default=[42,42,42])
  p.add_argument('--tasks',nargs='+',type=int,default=list(range(10)));p.add_argument('--episodes-per-task',type=int,default=10)
  p.add_argument('--max-steps',type=int,default=700);p.add_argument('--smoke',action='store_true');p.add_argument('--trace-actions',action='store_true')
