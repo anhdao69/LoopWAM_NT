@@ -124,22 +124,22 @@ class LoopMoT(MoT):
     @action_loops.setter
     def action_loops(self, value):
         if value is not None:
-            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= self.loops:
-                raise ValueError("action_loops must be an integer in [1, video loops]")
+            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= self.trained_max_loops:
+                raise ValueError("action_loops must be an integer within the architecture loop capacity")
             if value != self.loops and self.version != "v0":
                 raise ValueError("Asymmetric depth currently supports v0 only")
         self._action_loops = value
 
     def action_cache_slots(self) -> tuple[int, ...]:
-        """Late alignment: action repetition r reads video K_v-K_a+r."""
-        if self.action_loops > self.loops:
-            raise ValueError("Action depth exceeds video depth")
-        first = self.loops - self.action_loops + 1
-        return tuple(slot for slot, (key, _) in enumerate(self.virtual_schedule())
-                     if key[0] != "core" or key[1] >= first)
+        """Late alignment clamped at video loop one when action is deeper."""
+        slots = {key: slot for slot, (key, _) in enumerate(self.virtual_schedule())}
+        return (tuple(slots[("pre", j)] for j in range(self.pre_depth))
+                + tuple(slots[("core", max(1, self.loops-self.action_loops+r), j)]
+                        for r in range(1, self.action_loops+1) for j in range(self.core_depth))
+                + tuple(slots[("coda", self.loops, j)] for j in range(self.post_depth)))
 
     def _video_only_block(self, physical_index, tokens, freqs, t_mod, context, context_mask,
-                          attention_mask, observed=None):
+                          attention_mask, observed=None, return_cache=False):
         expert = self.mixtures["video"]
         block = expert.blocks[physical_index]
         io = self._build_expert_attention_io(expert, block, tokens, freqs, t_mod)
@@ -149,7 +149,39 @@ class LoopMoT(MoT):
             q, k, v = io[:3]
             mixed = torch.cat((flash_attention(q[:, :observed], k[:, :observed], v[:, :observed], self.num_heads),
                                flash_attention(q[:, observed:], k, v, self.num_heads)), dim=1)
-        return self._post(block, io, mixed, context, context_mask)
+        updated = self._post(block, io, mixed, context, context_mask)
+        return (updated, io[1], io[2]) if return_cache else updated
+
+    def _forward_action_deeper(self, video_tokens, action_tokens, video_freqs, action_freqs,
+                              video_t_mod, action_t_mod, video_context, video_context_mask,
+                              action_context, action_context_mask, attention_mask, observed):
+        """Differentiable video prefill, then deeper action execution with reused KV.
+
+        Every KV remains connected to the video graph. No future tokens are
+        exposed to actions; repeated use accumulates gradients into the same KV.
+        """
+        nv = video_tokens.shape[1]
+        nobs = observed if observed is not None else int(attention_mask[nv, :nv].sum().item())
+        if not 0 < nobs <= nv:
+            raise ValueError("Action conditioning needs a nonempty observed video prefix")
+        torch._assert_async(~attention_mask[:nv, nv:].any(), "Video cannot read actions")
+        expected = torch.arange(nv, device=attention_mask.device) < nobs
+        torch._assert_async((attention_mask[nv:, :nv] == expected).all(),
+                            "Actions must read only the contiguous observation prefix")
+        x = video_tokens
+        keys, values = [], []
+        for _, index in self.virtual_schedule():
+            fn = partial(self._video_only_block, index)
+            args = (x, video_freqs, video_t_mod, video_context, video_context_mask,
+                    attention_mask[:nv, :nv], observed, True)
+            x, key, value = (checkpoint(fn, *args, use_reentrant=False)
+                            if self.checkpoint_blocks and self.training and torch.is_grad_enabled()
+                            else fn(*args))
+            keys.append(key[:, :nobs]); values.append(value[:, :nobs])
+        mask = torch.cat((attention_mask[nv:, :nobs], attention_mask[nv:, nv:]), dim=1)
+        action = self.forward_action_with_video_cache_tensor(action_tokens, action_freqs, action_t_mod,
+                     action_context, action_context_mask, keys, values, mask)
+        return x, action
 
     def virtual_schedule(self, loops: Optional[int] = None) -> tuple:
         """Return ((stage, [one-based loop,] block), physical index) entries."""
@@ -242,10 +274,6 @@ class LoopMoT(MoT):
         asymmetric = self.action_loops != self.loops
         if asymmetric and (k != self.loops or exits != (k,)):
             raise ValueError("Asymmetric v0 requires its configured final video exit")
-        if self.action_loops > k:
-            # Coupled callers may select a smaller runtime K; explicit asymmetric budgets may not.
-            if asymmetric:
-                raise ValueError("Action depth exceeds video depth")
         n = video_tokens.shape[1] + action_tokens.shape[1]
         if attention_mask.shape[-2:] != (n, n):
             raise ValueError("Joint attention mask must match the combined token sequence.")
@@ -253,6 +281,10 @@ class LoopMoT(MoT):
             raise ValueError("LoopMoT layer compilation is not enabled; compile verified fixed-K callables explicitly.")
         observed = (self._validate_structured_mask(attention_mask, video_tokens.shape[1])
                     if self.structured_attention else None)
+        if asymmetric and self.action_loops > k:
+            return {k: self._forward_action_deeper(video_tokens, action_tokens, video_freqs, action_freqs,
+                video_t_mod, action_t_mod, video_context, video_context_mask, action_context,
+                action_context_mask, attention_mask, observed)}
         conditioning = (video_freqs, action_freqs, video_t_mod, action_t_mod,
                         video_context, video_context_mask, action_context, action_context_mask,
                         attention_mask, observed)

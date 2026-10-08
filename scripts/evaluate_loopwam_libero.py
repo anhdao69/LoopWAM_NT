@@ -50,10 +50,13 @@ def checkpoint_policy_spec(payload):
     if (payload.get("format_version") != "loopwam-s-v1"
             or version not in {"dense_s30", "dense_s12", "v0", "v1", "v2"}):
         raise ValueError("Expected a supported dense or LoopWAM student checkpoint")
-    loops = payload.get("trained_max_loops")
-    expected_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
-    if (type(loops) is not int or type(payload.get("inference_loops")) is not int
-            or loops != expected_loops or payload.get("inference_loops") != loops):
+    capacity = 1 if version in {"dense_s12", "dense_s30"} else 4
+    trained = payload.get("trained_max_loops")
+    loops = payload.get("inference_loops")
+    explicit = 'video_loops' in payload and 'action_loops' in payload
+    if (type(trained) is not int or trained != capacity or type(loops) is not int
+            or (not explicit and loops != capacity)
+            or (explicit and (payload['video_loops'] != loops or not 1 <= loops <= capacity))):
         raise ValueError("Checkpoint depth differs from its approved architecture")
     if version == "dense_s30":
         from fastwam.models.wan22.loopwam_init import target_configs
@@ -107,7 +110,8 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False, suite="libero
             or contract.get("train_windows") != data.get("train_windows")
             or contract.get("seed") != 42):
         raise ValueError("Checkpoint training contract differs from the approved run")
-    if payload.get("action_loops", payload.get("inference_loops")) != payload.get("inference_loops"):
+    if (payload.get("action_loops", payload.get("inference_loops")) != payload.get("inference_loops")
+            or (version == "v0" and payload.get("inference_loops") != 4)):
         if (contract.get("video_loops") != payload.get("video_loops")
                 or contract.get("action_loops") != payload.get("action_loops")
                 or contract.get("loop_alignment") != "late"):

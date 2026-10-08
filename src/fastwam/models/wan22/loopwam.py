@@ -198,7 +198,7 @@ def _validate_checkpoint_depth(payload):
     version = payload['version']
     if 'action_loops' in payload or 'video_loops' in payload:
         v, a = payload.get('video_loops'), payload.get('action_loops')
-        if (type(v) is not int or type(a) is not int or not 1 <= a <= v <= 4
+        if (type(v) is not int or type(a) is not int or not (1 <= a <= 4 and 1 <= v <= 4)
                 or v != payload.get('inference_loops') or payload.get('loop_alignment') != 'late'
                 or (a != v and version != 'v0')):
             raise ValueError(f'{version}: invalid checkpoint video/action loop contract')

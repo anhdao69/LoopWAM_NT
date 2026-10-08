@@ -15,7 +15,8 @@ from fastwam.training_backends import initialize_deepspeed_backend, deepspeed_pr
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--version',choices=['dense_s12','dense_s30','v0','v1','v2'],default='v0')
-    p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions; video remains four')
+    p.add_argument('--video-loops',type=int,default=None,help='Number of video core repetitions')
+    p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions')
     p.add_argument('--backend',choices=['ddp','zero1','zero2'],default='ddp')
     p.add_argument('--microbatch',type=int,required=True)
     p.add_argument('--output-dir',required=True)
@@ -39,7 +40,7 @@ def main():
     train,_,data_manifest=build_long_datasets('data/lerobot_v30/libero_10_no_noops_lerobot','data/text_embeds_cache/libero',str(out/'data'))
     loader=DataLoader(MarkedDataset(train),batch_sampler=ExactDistributedBatches(len(train),a.microbatch,rank,world),num_workers=a.workers,pin_memory=True,persistent_workers=a.workers>0,generator=torch.Generator().manual_seed(42+rank))
     torch.manual_seed(42)
-    model=create_loopwam('checkpoints/LoopWAM/wan21_compact_donors.pt','checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',version=a.version,device=f'cuda:{local}',checkpoint_blocks=a.checkpoint_blocks,action_loops=a.action_loops)
+    model=create_loopwam('checkpoints/LoopWAM/wan21_compact_donors.pt','checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',version=a.version,device=f'cuda:{local}',checkpoint_blocks=a.checkpoint_blocks,action_loops=a.action_loops,loops=a.video_loops)
     model.train(); model.mot.collect_diagnostics=True
     model.mot.structured_attention=a.structured_attention
     model.mot.structured_attention_observation_tokens=392
