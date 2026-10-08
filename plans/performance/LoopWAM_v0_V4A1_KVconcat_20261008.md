@@ -66,3 +66,78 @@ Implementation and verification are in progress. No concat/mix training results,
 latency measurements, or final success rates are claimed. Measured tests,
 throughput, fairness gates and launch estimates will be appended. The campaign
 will generate the final statistical report from complete episode records.
+
+## Implementation status (2026-10-08, pre-production)
+
+Branch `KV_concat` has been pushed. The immutable server candidate is commit
+`6fa606d`; base `LoopWAM_NT` remains `8d74c8df2eca4d165626830d90c2cc9bc56412b6`.
+No production training has been released at this snapshot.
+
+### Implemented
+
+- Differentiable observation-prefix caches from every video virtual layer;
+  ascending-loop concat and FP32 per-head KV mixing after RoPE.
+- Existing aligned execution paths retained; exact output/gradient comparisons
+  against the base source cover the old loop and dense architectures.
+- Mode-aware checkpoint/factory/evaluation guards; absent fields mean aligned.
+  Mix logits are strictly restored and have a separate zero-weight-decay group.
+- Fixed eight-window heldout concat diagnostics and per-head mix weights each
+  epoch; diagnostics restore RNG, model mode, and latent-cache attachment.
+- Eager/compiled latency instrumentation with video-prefill and action-denoising
+  breakdowns; two trials of50queries after5warmups.
+- Two continuous four-run queues, source/fairness/completion gates, automatic
+  seeds42/43/44 rollouts, Long completion barrier, optional500-state follow-up,
+  and automatic Long/full-suite reports. Checkpoints/videos stay on the server.
+
+### Verification evidence so far
+
+- Core numerical tests:45passed,2GPUskips.
+- Mode/checkpoint/optimizer integration:51passed,2GPUskips at that snapshot.
+- Whole CPU regression after metadata/fixture fixes:373passed,9skipped.
+- First whole GPU run:386passed,1statistics-fixture failure; compiled concat/mix
+  tests passed. The failure concerned Wilson interval boundary precision; its
+  corrected endpoint and expected interval were verified in targeted tests.
+  Final pinned CPU/GPU reruns are required before release.
+- Reporting/review tests:7passed remotely; local end-to-end report/plots plus
+  supplemental/identity/statistics tests:5passed.
+- Independent whole-branch review found no core attention/autograd defect. Its
+  two Important reporting gaps were fixed: expanded500 results now receive a
+  supplemental report, and the six full-suite models receive a final combined
+  report. Final report directories are published only after successful assembly.
+- A Dense-S30 fixture failure reproduced on the pre-change source: its fixture
+  omitted required architecture/donor metadata. The fixture was corrected;
+  production validation was not weakened. Legacy callers without a KV option
+  retain their original training-contract schema.
+
+### Measured controls (not new KV results)
+
+| Model | Evaluation seed | Long successes |
+|---|---|---|
+| Fresh4/4 repeat |43|87/100|
+| Fresh4/4 repeat |44|91/100|
+
+| Model | Eager total ms | Video-prefill ms | Action-denoising ms |
+|---|---:|---:|---:|
+| Existing aligned4/1 |118.428|18.569|85.613|
+| Original4/4 |237.776|18.370|205.187|
+
+Latency uses one H100, batch1, FP32 weights/BF16 compute,100timedqueries in two
+trials. Total includes observation preparation, online VAE and transfers.
+Stage values use CUDA events; total uses synchronized wall time.
+
+### Queue order
+
+| Job | GPU pair | Run1:Long | Run2:full | Run3:full | Run4:full |
+|---|---|---|---|---|---|
+|4770|worker-0,2H100|concat4/1|aligned4/1|aligned3/3|Dense-S12|
+|4771|worker-1,2H100|mix4/1|aligned1/4|aligned2/2|Dense-S30|
+
+Every run starts from canonical donors with a fresh optimizer, seed42, global
+batch128 and10epochs. Both Long runs and their three evaluations finish before
+full-suite work starts. Long prefers baseline DDP microbatch8/accumulation8 if
+it fits; full-suite layouts are selected by measured valid throughput.
+
+Native cold/warm smokes, sizing/throughput benchmarks, simulator smokes and
+fairness gates remain pending. The final finish-time estimate will be updated
+from those measurements. SSH became intermittent during preflight launch;
+no production release file has been written.

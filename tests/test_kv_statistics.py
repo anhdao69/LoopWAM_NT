@@ -39,3 +39,26 @@ def test_full_report_requires_all_seed_suite_episode_identities():
  rows=[dict(base_seed=s,suite=suite,task=t,episode=e,success=True) for s in (42,43,44) for suite in suites for t in range(10) for e in range(10)]
  assert summarize_full_rows(rows)['successes']==1200
  with pytest.raises(ValueError):summarize_full_rows(rows[:-1]+[rows[0]])
+
+
+def test_long_report_end_to_end_and_atomic_completion(tmp_path,monkeypatch):
+ import json,sys
+ from report_kv_campaign import main
+ cr=tmp_path/'job0/campaign';mr=tmp_path/'job1/campaign'
+ def save(path,obj):
+  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj))
+ def rows(seed,wins):return [dict(base_seed=seed,suite='libero_10',task=t,episode=e,success=t*10+e<wins) for t in range(10) for e in range(10)]
+ save(mr.parent/'control_aligned_v4a1/summary.json',dict(episodes=sum([rows(s,k) for s,k in zip((42,43,44),(81,82,83))],[])))
+ save(cr.parent/'control_repeat_v4a4/summary.json',dict(rounds={'0':dict(seed=43,successes=87),'1':dict(seed=44,successes=91)}))
+ for mode,root in [('concat',cr),('mix',mr)]:
+  run=root/f'{mode}_long';train=run/'train'
+  for seed in (42,43,44):save(run/f'eval_seed{seed}/summary.json',dict(mode='final_rollout',total_episodes=100,episodes=rows(seed,87)))
+  save(train/'timing.json',dict(elapsed_training_seconds=100,status='complete'))
+  records=[dict(update=i,epoch=(i-1)//725+1,loss_video=.1,loss_action=.2,grad_norm=.3) for i in range(1,7251)]
+  for epoch in range(1,11):records.append(dict(event='kv_diagnostics',epoch=epoch,attention_mass={str(j):[.2]*5 for j in range(6)},weights=[[[.25]*4]*2]*6))
+  (train/'metrics.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in records))
+ out=cr/'long_analysis';monkeypatch.setattr(sys,'argv',['report','--concat-root',str(cr),'--mix-root',str(mr),'--output',str(out)])
+ main();result=json.loads((out/'evidence.json').read_text())
+ assert result['decision']=='inconclusive' and (out/'concat_weights.png').exists()
+ assert not out.with_name(out.name+'.partial').exists()
+ assert '91.67%' in (out/'report.md').read_text()
