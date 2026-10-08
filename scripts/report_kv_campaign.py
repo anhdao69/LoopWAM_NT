@@ -62,7 +62,9 @@ def training_summary(path):
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--concat-root',required=True);p.add_argument('--mix-root',required=True);p.add_argument('--output',required=True);a=p.parse_args()
- cr,mr,out=Path(a.concat_root),Path(a.mix_root),Path(a.output);out.mkdir(parents=True,exist_ok=False)
+ cr,mr,final=Path(a.concat_root),Path(a.mix_root),Path(a.output)
+ if final.exists():raise ValueError('Refusing report overwrite')
+ out=final.with_name(final.name+'.partial');out.mkdir(parents=True,exist_ok=False)
  baseline=read(mr.parent/'control_aligned_v4a1/summary.json')['episodes']
  concat=new_rows(cr,'concat_long');mix=new_rows(mr,'mix_long')
  rows={'aligned':baseline,'concat':concat,'mix':mix};results={k:summarize(v) for k,v in rows.items()}
@@ -70,6 +72,8 @@ def main():
  tests={mode:{**{str(s):paired([r for r in rows[mode] if r['base_seed']==s],[r for r in baseline if r['base_seed']==s]) for s in (42,43,44)},'pooled':paired(rows[mode],baseline),'unpaired_vs_original44':two_proportion(results[mode]['successes'],300,275,300)} for mode in ('concat','mix')}
  training={mode:training_summary(root/f'{mode}_long/train') for mode,root in [('concat',cr),('mix',mr)]}
  latency={mode:{flavor:read(root/f'{mode}_long/latency_{flavor}.json') for flavor in ('eager','compiled') if (root/f'{mode}_long/latency_{flavor}.json').exists()} for mode,root in [('concat',cr),('mix',mr)]}
+ for label in ('aligned41','original44'):
+  latency[label]={flavor:read(cr.parent/f'latency_{label}_{flavor}.json') for flavor in ('eager','compiled') if (cr.parent/f'latency_{label}_{flavor}.json').exists()}
  repeat=read(cr.parent/'control_repeat_v4a4/summary.json');repeat_seeds={str(v['seed']):v['successes'] for v in repeat['rounds'].values()};repeat_seeds['42']=91
  evidence=dict(results=results,tests=tests,training=training,latency=latency,episodes=rows,repeat44=repeat_seeds,original44=dict(seed_successes={'42':96,'43':88,'44':91},pooled_sr=275/300,wilson95=wilson(275,300)),decision=decision(results['concat']['successes'],300),limitations=['One training seed42; training-seed variance not measured.','Wilson and two-proportion calculations treat episodes as independent; shared tasks/states create clustering.','Threshold rule is preregistered heuristic, not proof of mechanism.'])
  (out/'evidence.json').write_text(json.dumps(evidence,indent=2))
@@ -98,6 +102,14 @@ def main():
  for mode,t in training.items():lines += [f"### {mode}",'',f"Training: {t['timing']['elapsed_training_seconds']/3600:.2f} h; {t['training_gpu_hours']:.2f} GPU-hours.",'',f"First/last100 losses and per-epoch losses: `{json.dumps({k:t[k] for k in ('first100','last100','epochs')})}`",'',f'![{mode} diagnostics]({mode}_weights.png)','']
  lines+=['## Per-task success out of30','','| Task | Aligned | Concat | Mix |','|---|---|---|---|']
  for task in range(10):lines.append('| '+str(task)+' | '+' | '.join(str(results[m]['per_task'][str(task)]) for m in ('aligned','concat','mix'))+' |')
- lines+=['','## Latency','','Detailed eager/compiled totals and video-prefill/action-denoising breakdowns are in evidence.json.','',json.dumps(latency,indent=2),'','## Statistical limitations','',*['- '+x for x in evidence['limitations']]]
+ lines+=['','## Latency','','| Model | Mode | Total ms | Video prefill ms | Action denoising ms |','|---|---|---|---|---|']
+ for label,flavors in latency.items():
+  for flavor,value in flavors.items():
+   r=value['models']['loopwam_v0'];stage=r['stage_mean_ms']
+   lines.append(f"| {label} | {flavor} | {r['mean_ms']:.3f} | {stage['video_prefill']:.3f} | {stage['action_denoising']:.3f} |")
+ lines+=['','## Unpaired comparison against original4/4','']
+ for mode,t in tests.items():lines.append(f"- {mode}: {json.dumps(t['unpaired_vs_original44'])}")
+ lines+=['','## Statistical limitations','',*['- '+x for x in evidence['limitations']]]
  (out/'report.md').write_text('\n'.join(lines)+'\n')
+ out.rename(final)
 if __name__=='__main__':main()

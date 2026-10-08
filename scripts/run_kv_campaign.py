@@ -174,13 +174,22 @@ class Campaign:
        dest=self.out/f'expanded_{label}_seed42'
        self.run(dest.name,eval_command(dict(s,mode='concat' if label=='concat' else 'aligned'),training,dest,c['workers_per_gpu'],42,episodes=50))
        verify_eval(dest,dict(s,mode='concat' if label=='concat' else 'aligned'),42,episodes=50)
+      self.run('expanded_analysis',['python','scripts/report_kv_followup.py','--concat-root',str(self.out),'--expanded'])
      write(self.out/'long_analysis_complete.json',dict(source_revision=self.revision))
     else:self.wait_file(self.peer/'long_analysis_complete.json',18*3600)
+  write(self.out/'queue_complete.json',dict(source_revision=self.revision))
+  if self.a.queue=='concat':
+   self.status('waiting_for_full_suite_peer')
+   peer=self.wait_file(self.peer/'queue_complete.json',36*3600)
+   if peer['source_revision']!=self.revision:raise ValueError('Peer final source mismatch')
+   self.run('full_analysis',['python','scripts/report_kv_followup.py','--concat-root',str(self.out),'--mix-root',str(self.peer)])
   self.status('complete')
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--queue',choices=QUEUES,required=True);p.add_argument('--output-root',required=True);p.add_argument('--peer-root',required=True);p.add_argument('--phase',choices=['prepare','run'],required=True)
- args=p.parse_args();campaign=Campaign(args)
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--queue',choices=QUEUES,required=True);p.add_argument('--output-root',required=True);p.add_argument('--peer-root',required=True);p.add_argument('--phase',choices=['prepare','run'],required=True);p.add_argument('--action-kv-mode',choices=['concat','mix'])
+ args=p.parse_args()
+ if args.action_kv_mode is not None and args.action_kv_mode!=args.queue:p.error('action-kv-mode must match the first queue experiment')
+ campaign=Campaign(args)
  try:campaign.prepare() if args.phase=='prepare' else campaign.production()
  except BaseException as error:campaign.status('failed',error=repr(error));raise
 if __name__=='__main__':main()

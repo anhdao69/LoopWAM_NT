@@ -102,7 +102,7 @@ def main():
         torch.cuda.reset_peak_memory_stats()
         for trial in range(args.trials):
             trial_times=[]
-            for i in range(args.warmup+args.samples):
+            for i in range(1 if trial==0 else 0,args.warmup+args.samples):
                 for events in stages.values():events.clear()
                 torch.cuda.synchronize();started=time.perf_counter()
                 cpu_action=query(42+i)
