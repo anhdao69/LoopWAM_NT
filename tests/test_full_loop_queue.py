@@ -23,3 +23,33 @@ def test_select_only_valid_fastest_trials():
  assert m.select_training([valid,dict(valid,steady_seconds=2.,microbatch=16)])['microbatch']==16
  with pytest.raises(ValueError):m.select_training([dict(valid,global_batch=64)])
  with pytest.raises(ValueError):m.select_training([dict(valid,records=[dict(loss=float('nan'),grad_norm=1.)])])
+
+def test_failure_stops_before_evaluation_and_second_training(tmp_path,monkeypatch):
+ import json
+ from types import SimpleNamespace
+ m=module();q=m.Queue.__new__(m.Queue);q.out=tmp_path;q.a=SimpleNamespace(pairs=[[4,1],[1,4]]);q.state={'source_revision':'abc'}
+ (tmp_path/'release.json').write_text(json.dumps({'source_revision':'abc','approved_pairs':q.a.pairs}))
+ seen=[]
+ def fail(name,command):
+  seen.append(name);raise RuntimeError('failed training')
+ q.stage=fail
+ prepared={'configs':{'41':{'backend':'ddp','microbatch':8,'workers_per_gpu':2},'14':{'backend':'ddp','microbatch':16,'workers_per_gpu':2}}}
+ with pytest.raises(RuntimeError,match='failed training'):q.production(prepared)
+ assert seen==['train_41']
+
+def test_final_training_gate_rejects_incomplete_or_wrong_run(tmp_path):
+ import json
+ m=module()
+ manifest=dict(resume=None,initialization_mode='canonical_wan_artifact_fresh_optimizer',version='v0',loops=3,action_core_loops=3,epochs=10,global_batch=128,world_size=2,microbatch=16,gradient_accumulation=4,policy_parameters=584536135,train_windows=277713,val_windows=0,planned_updates=21700,planned_windows=2777130,dataset_scope='full_libero',max_updates=None,data=dict(available_episodes=1712,task_counts={str(i):1 for i in range(40)},split='all_train',suites=list(m.SUITES)))
+ timing=dict(status='complete',completed_updates=21700,windows_seen=2777130)
+ state=dict(update=21700,epoch=9,next_micro=8680)
+ records={'manifest':manifest,'timing':timing,'trainer_state':state}
+ for name,value in records.items():(tmp_path/(name+'.json')).write_text(json.dumps(value))
+ (tmp_path/'latest.pt').write_bytes(b'checkpoint')
+ with pytest.raises(ValueError,match='Epoch coverage'):m.verify_train(tmp_path,[3,3])
+ state['next_micro']=8679;(tmp_path/'trainer_state.json').write_text(json.dumps(state))
+ assert m.verify_train(tmp_path,[3,3])['status']=='complete'
+ for name,key,value in [('manifest','resume','old.pt'),('manifest','action_core_loops',4),('manifest','max_updates',21700),('timing','windows_seen',1)]:
+  original=records[name][key];records[name][key]=value;(tmp_path/(name+'.json')).write_text(json.dumps(records[name]))
+  with pytest.raises(ValueError):m.verify_train(tmp_path,[3,3])
+  records[name][key]=original;(tmp_path/(name+'.json')).write_text(json.dumps(records[name]))
