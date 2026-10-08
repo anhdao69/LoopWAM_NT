@@ -75,6 +75,8 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False, suite="libero
     version, _ = checkpoint_policy_spec(payload)
     state = payload.get("training_state") or {}
     contract = state.get("contract") or {}
+    if contract.get('action_kv_mode', 'aligned') != payload.get('action_kv_mode', 'aligned'):
+        raise ValueError('Training and checkpoint action KV mode contracts differ')
     if suite not in LIBERO_SUITES:
         raise ValueError(f"Unsupported evaluation suite: {suite}")
     full_libero = (data.get("dataset_scope") == "full_libero"
@@ -302,6 +304,7 @@ def main():
     contract = validate_checkpoint(payload, data, stats_hash, smoke=args.smoke, suite=args.suite)
     version, loops = checkpoint_policy_spec(payload)
     action_loops = payload.get("action_loops", loops)
+    action_kv_mode = payload.get("action_kv_mode", "aligned")
     checkpoint_step = payload["step"]
     del payload
     train_manifest = json.loads((checkpoint.parent / "manifest.json").read_text())
@@ -329,7 +332,7 @@ def main():
                     versions[package] = "unknown"
             manifest = dict(mode="smoke" if args.smoke else "final_rollout", suite=args.suite,
                 checkpoint=str(checkpoint), checkpoint_sha256=checkpoint_hash, checkpoint_step=checkpoint_step,
-                version=version, loops=loops, video_loops=loops, action_loops=action_loops, inference_steps=10, cfg=1.0, action_chunk=32,
+                version=version, loops=loops, video_loops=loops, action_loops=action_loops, action_kv_mode=action_kv_mode, inference_steps=10, cfg=1.0, action_chunk=32,
                 protocol=dict(max_policy_steps=args.max_steps, settling_steps=args.wait_steps,
                               replan_steps=args.replan_steps, camera_resolution=256,
                               model_camera_size=[224, 224], concatenation="horizontal",
@@ -412,7 +415,7 @@ def main():
                 raise ValueError("Worker results have missing or duplicate episodes")
             successes = sum(row["success"] for row in combined)
             summary = dict(mode="smoke" if args.smoke else "final_rollout", suite=args.suite,
-                checkpoint_sha256=checkpoint_hash, version=version, loops=loops, action_loops=action_loops, checkpoint_step=checkpoint_step,
+                checkpoint_sha256=checkpoint_hash, version=version, loops=loops, action_loops=action_loops, action_kv_mode=action_kv_mode, checkpoint_step=checkpoint_step,
                 total_episodes=len(combined), successes=successes, success_rate=successes / len(combined),
                 per_task={str(task): dict(episodes=args.episodes_per_task,
                     successes=sum(row["success"] for row in combined if row["task_id"] == task),

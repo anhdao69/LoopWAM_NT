@@ -103,7 +103,7 @@ def run(args):
  stats_path=Path(args.stats).resolve();data=json.loads((stats_path.parent/'data_manifest.json').read_text());stats=json.loads(stats_path.read_text())
  payload=torch.load(checkpoint,map_location='cpu',mmap=True,weights_only=False)
  for suite in args.suites:validate_checkpoint(payload,data,sha256_file(stats_path),smoke=args.smoke,suite=suite)
- version,loops=checkpoint_policy_spec(payload);action_loops=payload.get('action_loops',loops);step=payload['step'];del payload
+ version,loops=checkpoint_policy_spec(payload);action_loops=payload.get('action_loops',loops);step=payload['step'];action_kv_mode=payload.get('action_kv_mode','aligned');del payload
  m=json.loads((checkpoint.parent/'manifest.json').read_text())
  assert sha256_file(args.vae_path)==m['asset_sha256']['vae']
  if not args.smoke:assert json.loads((checkpoint.parent/'timing.json').read_text())['status']=='complete'
@@ -113,7 +113,7 @@ def run(args):
  if args.workers_per_gpu<1 or args.workers_per_gpu>8:raise ValueError('Use 1..8 workers per GPU')
  grid=make_jobs(args.suites,args.seeds,args.tasks,args.episodes_per_task)
  manifest=dict(checkpoint=str(checkpoint),checkpoint_sha256=checkpoint_hash,checkpoint_step=step,version=version,
-   video_loops=loops,action_loops=action_loops,arguments=vars(args),gpus=visible,workers_per_gpu=args.workers_per_gpu,
+   video_loops=loops,action_loops=action_loops,action_kv_mode=action_kv_mode,arguments=vars(args),gpus=visible,workers_per_gpu=args.workers_per_gpu,
    worker_count=len(visible)*args.workers_per_gpu,mode='smoke' if args.smoke else 'final_rollout',
    normalization_sha256=sha256_file(stats_path),seed_formula='base_seed + task_id*100000 + episode_index*1000 + replan_index',
    protocol=dict(max_policy_steps=args.max_steps,settling_steps=30,replan_steps=10,denoising_steps=10,cfg=1,action_chunk=32),
@@ -143,7 +143,7 @@ def run(args):
    p.join(timeout=30)
    if p.exitcode!=0:raise RuntimeError('Worker teardown failed')
   summary=verify_results(grid,rows,checkpoint_hash,manifest['mode'])
-  summary.update(checkpoint_step=step,version=version,video_loops=loops,action_loops=action_loops,
+  summary.update(checkpoint_step=step,version=version,video_loops=loops,action_loops=action_loops,action_kv_mode=action_kv_mode,
       elapsed_seconds=time.perf_counter()-started,model_startup_seconds=(all_ready or time.perf_counter())-started,
       episode_phase_seconds=time.perf_counter()-(first_ready or started),workers_per_gpu=args.workers_per_gpu,
       max_worker_gpu_gib=max(r['peak_gpu_gib'] for r in rows))

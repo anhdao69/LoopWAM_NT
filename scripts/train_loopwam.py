@@ -75,6 +75,8 @@ def training_contract(args, world, train_windows, planned_updates, data_manifest
     contract = dict(world=world, microbatch=args.microbatch, global_batch=args.global_batch,
                     seed=args.seed, train_windows=train_windows, planned_updates=planned_updates,
                     version=args.version, normalization_sha256=data_manifest['normalization_sha256'])
+    if hasattr(args, 'action_kv_mode'):
+        contract['action_kv_mode'] = args.action_kv_mode
     if data_manifest.get('dataset_scope') == 'full_libero':
         contract.update(dataset_scope='full_libero', epochs=args.epochs,
                         suites=list(data_manifest['suites']))
@@ -107,10 +109,10 @@ def evaluate_open_loop(model, dataset, count, seed):
 
 def configure_training_backend(model, args, world):
     """Create a fresh optimizer; ZeRO keeps model/master/moments in FP32."""
-    from fastwam.training_backends import initialize_deepspeed_backend, policy_parameters_fp32
+    from fastwam.training_backends import initialize_deepspeed_backend, policy_parameters_fp32, policy_optimizer_parameters
     parameters = policy_parameters_fp32(model)
     if args.backend == 'ddp':
-        optimizer = torch.optim.AdamW(parameters, lr=1e-4, betas=(.9, .95), eps=1e-8,
+        optimizer = torch.optim.AdamW(policy_optimizer_parameters(model), lr=1e-4, betas=(.9, .95), eps=1e-8,
                                       weight_decay=.01, foreach=False, fused=args.fused_optimizer)
         runner = DDP(model, device_ids=None, broadcast_buffers=False, find_unused_parameters=False,
                      gradient_as_bucket_view=args.bucket_views) if world > 1 else model
@@ -225,6 +227,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',help='Standalone LoopWAM YAML configuration')
     p.add_argument('--video-loops',type=int,default=None,help='Number of video core repetitions')
+    p.add_argument('--action-kv-mode', choices=['aligned','concat','mix'], default='aligned')
     p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions')
     p.add_argument('--backend', choices=['ddp','zero1','zero2'], default='ddp')
     p.add_argument('--version', choices=['dense_s12','dense_s30','v0','v1','v2'],default='v0')
@@ -293,10 +296,11 @@ def main():
     updates_per_epoch=math.ceil(len(train)/args.global_batch)
     total=updates_per_epoch*args.epochs
     model=create_loopwam(args.init_artifact,args.vae_path,version=args.version,device=f'cuda:{local}',
-        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume,action_loops=args.action_loops,loops=args.video_loops)
+        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume,action_loops=args.action_loops,loops=args.video_loops,action_kv_mode=args.action_kv_mode)
     params=model.policy_parameters()
     count=sum(p.numel() for p in params)
-    expected_count = 1416114247 if args.version == 'dense_s30' else 584536135
+    from fastwam.training_backends import expected_policy_parameters
+    expected_count = expected_policy_parameters(args.version, args.action_kv_mode, model.mot.loops)
     if count!=expected_count:
         raise AssertionError(f'Unexpected policy parameter count {count}')
     model.train()
@@ -314,7 +318,7 @@ def main():
         opt.load_state_dict(payload['optimizer'])
         if not resume_state: raise ValueError('Checkpoint lacks resumable training state')
         expected=training_contract(args,world,len(train),total,data_manifest)
-        if resume_state['contract']!=expected: raise ValueError('Resume training contract changed')
+        if {'action_kv_mode':'aligned', **resume_state['contract']}!=expected: raise ValueError('Resume training contract changed')
     # Different independent noise streams after identical construction on all ranks.
     torch.manual_seed(args.seed+rank)
     from fastwam.models.wan22.loopwam_init import sha256_file
@@ -447,6 +451,11 @@ def main():
                 validation=evaluate_open_loop(model,val,args.validation_samples,args.seed)
                 logfile.write(json.dumps(dict(event='validation',update=update,epoch=epoch+1,**validation))+'\n'); logfile.flush()
                 print(json.dumps(dict(event='validation',update=update,**validation)),flush=True)
+            if epoch_done and args.action_kv_mode != 'aligned' and rank==0:
+                from loopwam_kv_diagnostics import collect_kv_diagnostics
+                diagnostic=collect_kv_diagnostics(model,val,epoch+1,args.seed)
+                logfile.write(json.dumps(diagnostic)+'\n');logfile.flush()
+                print(json.dumps(diagnostic),flush=True)
             save_due=update%args.save_every==0 or epoch_done
             stop=args.max_updates is not None and update>=args.max_updates
             if save_due or stop:

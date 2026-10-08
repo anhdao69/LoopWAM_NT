@@ -12,7 +12,7 @@ episode inference. Gated queues, cross-job Long barrier, automatic analysis.
 
 ## Tasks
 - [x] 1: Core modes and tiny numerical/gradient/mask tests, including generic aligned equivalence.
-- [ ] 2: Strict checkpoint/contract/CLI propagation; mix no-decay group and exact parameter counts; legacy regression.
+- [x] 2: Strict checkpoint/contract/CLI propagation; mix no-decay group and exact parameter counts; legacy regression.
 - [ ] 3: Fixed heldout concat attention diagnostics and mix weights, RNG-neutral; latency breakdown and compiled inference.
 - [ ] 4: Four-run campaign with 42/43/44 evaluations, fairness/source gates, full-suite dense controls, and Long completion barrier.
 - [ ] 5: Statistical report generator (Wilson, exact paired McNemar, two-proportion test, losses, diagnostics/latency plots); pre-register decision rule.

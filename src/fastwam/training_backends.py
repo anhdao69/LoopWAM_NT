@@ -88,6 +88,26 @@ def policy_parameters_fp32(model):
     return parameters
 
 
+def expected_policy_parameters(version, action_kv_mode='aligned', video_loops=4):
+    from fastwam.models.wan22.loop_mot import validate_action_kv_mode
+    validate_action_kv_mode(action_kv_mode, version)
+    return (1416114247 if version == 'dense_s30' else 584536135) + (
+        6 * 12 * video_loops if action_kv_mode == 'mix' else 0)
+
+
+def policy_optimizer_parameters(model):
+    """Preserve legacy parameter order; only mix logits get a no-decay group."""
+    parameters = policy_parameters_fp32(model)
+    mot = getattr(model, 'mot', None)
+    if getattr(mot, 'action_kv_mode', 'aligned') != 'mix':
+        return parameters
+    logits = mot.action_kv_logits
+    if not any(p is logits for p in parameters):
+        raise ValueError('Mix logits missing from trainable parameters')
+    return [{'params': [p for p in parameters if p is not logits]},
+            {'params': [logits], 'weight_decay': 0.0}]
+
+
 def initialize_deepspeed_backend(model, *, stage: int, microbatch: int,
                                  global_batch: int = 128, world_size: int = 2,
                                  learning_rate: float = 1e-4, gradient_clipping: float = 1.0,
@@ -110,7 +130,7 @@ def initialize_deepspeed_backend(model, *, stage: int, microbatch: int,
         gradient_clipping=gradient_clipping, bucket_size=bucket_size, overlap_comm=overlap_comm)
     parameters = policy_parameters_fp32(model)
     dtypes_before = {id(value): value.dtype for value in model.parameters()}
-    optimizer = torch.optim.AdamW(parameters, lr=learning_rate, betas=(.9, .95),
+    optimizer = torch.optim.AdamW(policy_optimizer_parameters(model), lr=learning_rate, betas=(.9, .95),
         eps=1e-8, weight_decay=.01, fused=fused)
     engine, _, _, _ = deepspeed.initialize(model=model, model_parameters=parameters,
         optimizer=optimizer, config=config, dist_init_required=False)

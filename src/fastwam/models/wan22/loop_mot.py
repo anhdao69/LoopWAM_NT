@@ -14,7 +14,7 @@ from .wan_video_dit import flash_attention
 
 
 def validate_action_kv_mode(mode: str, version: str) -> str:
-    if mode not in {"aligned", "concat", "mix"}:
+    if not isinstance(mode, str) or mode not in {"aligned", "concat", "mix"}:
         raise ValueError("action_kv_mode must be aligned, concat, or mix")
     if mode != "aligned" and version != "v0":
         raise ValueError("All-loop action KV supports v0 only")

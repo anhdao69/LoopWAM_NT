@@ -7,7 +7,7 @@ import torch
 from torch import nn
 
 from .fastwam import FastWAM
-from .loop_mot import LoopMoT, resolve_loop_count
+from .loop_mot import LoopMoT, resolve_loop_count, validate_action_kv_mode
 
 
 def exit_weights(version: str, loops: int, scale: float = 1.0) -> dict[int, float]:
@@ -167,7 +167,7 @@ class LoopWAM(FastWAM):
         path = Path(path)
         payload = dict(format_version='loopwam-s-v1', architecture=self.architecture_metadata,
             version=self.version, video_loops=self.mot.loops, action_loops=self.mot.action_loops,
-            loop_alignment="late", trained_max_loops=self.mot.trained_max_loops, inference_loops=self.mot.loops,
+            action_kv_mode=self.mot.action_kv_mode, loop_alignment="late", trained_max_loops=self.mot.trained_max_loops, inference_loops=self.mot.loops,
             exit_weight_scale=self.exit_weight_scale, training_state=training_state, mot=self.mot.state_dict(),
             proprio_encoder=self.proprio_encoder.state_dict(), step=step)
         if optimizer is not None:
@@ -183,6 +183,8 @@ class LoopWAM(FastWAM):
         if payload['version'] != self.version:
             raise ValueError('Checkpoint version differs; use the stored version when constructing the model')
         _validate_checkpoint_depth(payload)
+        if payload.get('action_kv_mode', 'aligned') != self.mot.action_kv_mode:
+            raise ValueError('Checkpoint action KV mode differs from constructed model')
         if payload.get('action_loops', payload['inference_loops']) != self.mot.action_loops or payload.get('video_loops', payload['inference_loops']) != self.mot.loops:
             raise ValueError('Checkpoint video/action depth differs from constructed model')
         self.mot.load_state_dict(payload['mot'], strict=True)
@@ -196,6 +198,18 @@ class LoopWAM(FastWAM):
 
 def _validate_checkpoint_depth(payload):
     version = payload['version']
+    mode = validate_action_kv_mode(payload.get('action_kv_mode', 'aligned'), version)
+    logits = payload.get('mot', {}).get('action_kv_logits')
+    if mode == 'mix':
+        # Infer the actual head count from the saved expert RMSNorm, including tiny tests.
+        config = payload.get('architecture', {}).get('target_video_config', {})
+        heads = config.get('num_heads')
+        if (not isinstance(logits, torch.Tensor) or logits.ndim != 3
+                or logits.shape[0] != 6 or logits.shape[2] != payload.get('inference_loops')
+                or (heads is not None and logits.shape[1] != heads)):
+            raise ValueError('Invalid mix logit shape in checkpoint')
+    elif logits is not None:
+        raise ValueError('Non-mix checkpoint contains mix logits')
     if 'action_loops' in payload or 'video_loops' in payload:
         v, a = payload.get('video_loops'), payload.get('action_loops')
         if (type(v) is not int or type(a) is not int or not (1 <= a <= 4 and 1 <= v <= 4)
@@ -221,7 +235,7 @@ def _validate_checkpoint_depth(payload):
 
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
-                   checkpoint_path=None, action_loops=None):
+                   checkpoint_path=None, action_loops=None, action_kv_mode=None):
     from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
                                target_configs, architecture_metadata_for_version)
     if vae_path is None:
@@ -233,6 +247,12 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
             raise ValueError('Expected a LoopWAM student checkpoint')
         version = payload['version']
         _validate_checkpoint_depth(payload)
+        saved_mode = payload.get('action_kv_mode', 'aligned')
+        if action_kv_mode is not None and action_kv_mode != saved_mode:
+            raise ValueError('Checkpoint action KV mode differs from requested mode')
+        action_kv_mode = saved_mode
+        if saved_mode != 'aligned' and loops is not None and loops != payload['inference_loops']:
+            raise ValueError('Cannot override all-loop KV trained video depth')
         loops = resolve_loop_count(version, payload['inference_loops'] if loops is None else loops)
         saved_action_loops = payload.get('action_loops', payload['inference_loops'])
         if 'action_loops' in payload and saved_action_loops != payload['inference_loops']:
@@ -251,6 +271,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         proprio = None
         exit_weight_scale = payload['exit_weight_scale']
     else:
+        action_kv_mode = validate_action_kv_mode('aligned' if action_kv_mode is None else action_kv_mode, version)
         loops = resolve_loop_count(version, loops)
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
@@ -260,7 +281,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         metadata = architecture_metadata_for_version(artifact['metadata'], version)
     vae = load_wan21_vae(vae_path, device=device, dtype=torch.bfloat16 if str(device).startswith('cuda') else torch.float32)
     video, action = video.to(device=device,dtype=model_dtype), action.to(device=device,dtype=model_dtype)
-    mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks, action_loops=action_loops)
+    mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks, action_loops=action_loops, action_kv_mode=action_kv_mode)
     model = LoopWAM(video_expert=video, action_expert=action, mot=mot, vae=vae, text_dim=4096,
         proprio_dim=8, device=device, torch_dtype=model_dtype, version=version,
         exit_weight_scale=exit_weight_scale, architecture_metadata=metadata,
