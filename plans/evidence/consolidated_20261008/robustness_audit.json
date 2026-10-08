@@ -1,0 +1,90 @@
+{
+  "libero_pro_job4728_20261007/evaluation/manifest.json": {
+    "benchmark": "pro",
+    "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/train/latest.pt",
+    "checkpoint_sha256": "4ffe1b14f35484ea582189ba0f06c5a41ac199e1fa733b491719727105e5e5cc",
+    "checkpoint_step": 21700,
+    "diffusion_steps": 10,
+    "episodes_per_task": 10,
+    "horizons": {
+      "libero_10": 520,
+      "libero_goal": 300,
+      "libero_object": 280,
+      "libero_spatial": 220
+    },
+    "libero_module": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO-PRO/libero/libero",
+    "loops": 4,
+    "mode": "full",
+    "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+    "planned_episodes": 2000,
+    "replan_steps": 10,
+    "script_sha256": "c6b5aef7beab64ddb6fbc2b7608d271d4312000437f2632a76e8ccda2ab8fae8",
+    "settling_steps": 30,
+    "slurm_job_id": "4728",
+    "tasks": 200,
+    "text_manifest_sha256": "f7e9b16962ba9ce17caccbfb3b40db1935fac9bce8cc97b3aa539ad511f90c19",
+    "version": "v0",
+    "world_size": 2
+  },
+  "libero_plus_job4728_after_pro_20261007/pipeline_status.json": {
+    "slurm_job_id": "4728",
+    "slurm_step_id": "10",
+    "started_unix": 1791399399.348561,
+    "source_revision": "2b7d2c3606c26cccd2f67f6367b06b33c735c2bc",
+    "stage": "failed",
+    "elapsed_seconds": 147.06361937522888,
+    "stage_durations_seconds": {
+      "prepare_text": 87.16276454925537,
+      "preflight": 50.264732837677
+    },
+    "command": [
+      "torchrun",
+      "--standalone",
+      "--nproc_per_node=2",
+      "scripts/evaluate_loopwam_robustness.py",
+      "--benchmark",
+      "plus",
+      "--checkpoint",
+      "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/train/latest.pt",
+      "--text-cache",
+      "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/libero_plus_job4728_after_pro_20261007/text_cache",
+      "--output",
+      "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/libero_plus_job4728_after_pro_20261007/preflight",
+      "--preflight"
+    ],
+    "error": "RuntimeError('preflight failed with exit 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/libero_plus_job4728_after_pro_20261007/preflight.log')"
+  },
+  "libero_plus_job4728_after_pro_20261007/queue_status.json": {
+    "stage": "failed",
+    "updated_unix": 1791399546.9363065,
+    "allocation": "4728",
+    "gpus": 2,
+    "error": "RuntimeError('Plus launcher exit 1')"
+  },
+  "plus_errors": [
+    "wand.exceptions.MissingDelegateError: NoDecodeDelegateForThisImageFormat `PNG' @ error/blob.c/BlobToImage/363"
+  ],
+  "protocol_source_lines": [
+    "from scripts.evaluate_loopwam_libero import ObservationAdapter, validate_checkpoint, run_episode, sha256_file, write_json",
+    "SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')",
+    "HORIZONS = dict(zip(SUITES, (220, 280, 300, 520)))",
+    "            or contract.get('epochs') != 10):",
+    "        raise ValueError('Fresh output required; refusing to mix repeated episodes')",
+    "    episodes_per_task = 1 if a.benchmark == 'plus' else 10",
+    "            episodes_per_task=episodes_per_task, planned_episodes=len(tasks)*episodes_per_task,",
+    "            horizons=HORIZONS, settling_steps=30, replan_steps=10, diffusion_steps=10,",
+    "            count = 1 if a.preflight else episodes_per_task",
+    "            def predict(obs, seed):",
+    "                        context_mask=mask, action_horizon=32, num_inference_steps=10,",
+    "                        text_cfg_scale=1.0, seed=seed)['action']",
+    "            for episode in range(count):",
+    "                seed = 42 + task_specs(a.benchmark).index((base,name))*10000000 + index*1000 + episode*100",
+    "                random.seed(seed); np.random.seed(seed % (2**32)); torch.manual_seed(seed); env.seed(seed)",
+    "                row, frames = run_episode(env, states[episode], predict, seed=seed,",
+    "                    max_steps=20 if a.preflight else HORIZONS[base], wait_steps=30, replan_steps=10)",
+    "                video = save_rollout_video(videos, frames, f'{name}_{index}_{episode}', row['success'],",
+    "                    episode_index=episode, initial_state_index=episode, description=description,",
+    "                    planned=sum(1 if a.preflight else episodes_per_task for _ in assigned),",
+    "                print(json.dumps(dict(event='episode_complete', **row)), flush=True)"
+  ]
+}

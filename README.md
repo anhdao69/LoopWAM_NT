@@ -13,6 +13,10 @@ Official codebase for **Fast-WAM: Do World Action Models Need Test-time Future I
 
 This repository contains the training and evaluation code for FastWAM on LIBERO / RoboTwin.
 
+## LoopWAM experiment results
+
+[Consolidated report — October 8, 2026](plans/performance/LoopWAM_Consolidated_Results_20261008.md): model and loop-depth comparisons, full-suite and robustness results, loss curves, runtimes, latency, and audit evidence. The fresh 4/4 repeat is listed as ongoing at the report snapshot.
+
 ## What's New
 
 FastWAM is now faster, better suited to large-scale datasets, and more flexible
