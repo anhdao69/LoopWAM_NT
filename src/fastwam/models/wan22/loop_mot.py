@@ -13,6 +13,14 @@ from .mot import MoT
 from .wan_video_dit import flash_attention
 
 
+def validate_action_kv_mode(mode: str, version: str) -> str:
+    if mode not in {"aligned", "concat", "mix"}:
+        raise ValueError("action_kv_mode must be aligned, concat, or mix")
+    if mode != "aligned" and version != "v0":
+        raise ValueError("All-loop action KV supports v0 only")
+    return mode
+
+
 def resolve_loop_count(version: str, loops: Optional[int] = None) -> int:
     """Resolve architecture depth; Dense controls always execute their blocks once."""
     if version not in {"v0", "v1", "v2", "dense_s12", "dense_s30"}:
@@ -84,7 +92,8 @@ class LoopMoT(MoT):
     def __init__(self, mixtures: Dict[str, nn.Module], loops: Optional[int] = None,
                  version: str = "v0", checkpoint_blocks: bool = False,
                  mot_checkpoint_mixed_attn: bool = False,
-                 collect_diagnostics: bool = False, action_loops: Optional[int] = None):
+                 collect_diagnostics: bool = False, action_loops: Optional[int] = None,
+                 action_kv_mode: str = "aligned"):
         if set(mixtures) != {"video", "action"}:
             raise ValueError("LoopMoT requires exactly the video and action experts.")
         loops = resolve_loop_count(version, loops)
@@ -96,15 +105,22 @@ class LoopMoT(MoT):
         if self.num_layers != self.unique_depth:
             raise ValueError(f"{version} requires {self.unique_depth} physical blocks per expert.")
         self.version = version
+        self.action_kv_mode = validate_action_kv_mode(action_kv_mode, version)
         self.trained_max_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
         self.loops = loops
         self.action_loops = action_loops
+        if self.action_kv_mode == "mix":
+            self.action_kv_logits = nn.Parameter(torch.zeros(
+                self.core_depth, self.num_heads, loops, dtype=torch.float32,
+                device=next(self.mixtures["video"].parameters()).device))
         self.checkpoint_blocks = bool(checkpoint_blocks)
         self.collect_diagnostics = bool(collect_diagnostics)
         self.last_diagnostics: dict[str, torch.Tensor] = {}
         # Explicit runtime optimization; model weights and mask semantics do not change.
         self.structured_attention = False
         self.structured_attention_observation_tokens: Optional[int] = None
+        self.record_attention_mass = False
+        self.last_attention_mass = {}
 
     def _validate_loops(self, loops: int) -> int:
         return resolve_loop_count(self.version, loops)
@@ -137,6 +153,149 @@ class LoopMoT(MoT):
                 + tuple(slots[("core", max(1, self.loops-self.action_loops+r), j)]
                         for r in range(1, self.action_loops+1) for j in range(self.core_depth))
                 + tuple(slots[("coda", self.loops, j)] for j in range(self.post_depth)))
+
+    def action_cache_slot_sets(self) -> tuple[tuple[int, ...], ...]:
+        """One set per action block; core sets enumerate video loops in order."""
+        schedule = self.virtual_schedule()
+        lookup = {key: slot for slot, (key, _) in enumerate(schedule)}
+        result = []
+        for slot in self.action_cache_slots():
+            key, _ = schedule[slot]
+            if self.action_kv_mode != "aligned" and key[0] == "core":
+                result.append(tuple(lookup[("core", v, key[2])]
+                                    for v in range(1, self.loops + 1)))
+            else:
+                result.append((slot,))
+        return tuple(result)
+
+    def action_conditioning_kv(self, keys, values, slots, physical_index, mask):
+        """Combine already-RoPE'd observation keys. Never rotate cache entries again."""
+        core = self.pre_depth <= physical_index < self.pre_depth + self.core_depth
+        if len(slots) == 1 and not (core and self.action_kv_mode == "mix"):
+            return keys[slots[0]], values[slots[0]], mask
+        if not core or len(slots) != self.loops:
+            raise ValueError("All-loop conditioning requires one matching core slot per video loop")
+        nobs = keys[slots[0]].shape[1]
+        if self.action_kv_mode == "concat":
+            expanded = torch.cat([mask[:, :nobs]] * len(slots) + [mask[:, nobs:]], dim=1)
+            return (torch.cat([keys[s] for s in slots], dim=1),
+                    torch.cat([values[s] for s in slots], dim=1), expanded)
+        if self.action_kv_mode != "mix":
+            raise ValueError("Aligned action conditioning requires a single slot")
+        weights = self.action_kv_logits[physical_index - self.pre_depth].float().softmax(-1)
+        def fuse(cache):
+            tensors = torch.stack([cache[s] for s in slots])
+            k, b, n, width = tensors.shape
+            # FP32 weights and accumulation, including under BF16 autocast.
+            with torch.autocast(device_type=tensors.device.type, enabled=False):
+                heads = tensors.float().reshape(k, b, n, self.num_heads, width // self.num_heads)
+                fused = (heads * weights.transpose(0, 1)[:, None, None, :, None]).sum(0)
+            return fused.reshape(b, n, width).to(tensors.dtype)
+        return fuse(keys), fuse(values), mask
+
+    def _action_cached_block(self, index, slots, x, freqs, t_mod, context,
+                             context_mask, keys, values, mask):
+        block = self.mixtures["action"].blocks[index]
+        io = self._build_expert_attention_io(self.mixtures["action"], block, x, freqs, t_mod)
+        key, value, expanded = self.action_conditioning_kv(keys, values, slots, index, mask)
+        key = torch.cat((key, io[1]), dim=1)
+        value = torch.cat((value, io[2]), dim=1)
+        mixed = self._mixed_attention(io[0], key, value, expanded)
+        if self.record_attention_mass and self.pre_depth <= index < self.pre_depth + self.core_depth:
+            self._record_action_attention_mass(index, io[0], key, expanded, keys[0].shape[1], len(slots))
+        return self._post(block, io, mixed, context, context_mask)
+
+    def _record_action_attention_mass(self, index, query, key, mask, nobs, copies):
+        if torch.is_grad_enabled() or self.action_kv_mode != "concat":
+            raise ValueError("Attention-mass diagnostics require concat and disabled gradients")
+        b, n, width = query.shape
+        head_dim = width // self.num_heads
+        with torch.autocast(device_type=query.device.type, enabled=False):
+            q = query.float().reshape(b, n, self.num_heads, head_dim).transpose(1, 2)
+            k = key.float().reshape(b, -1, self.num_heads, head_dim).transpose(1, 2)
+            scores = (q @ k.transpose(-1, -2)) * (head_dim ** -.5)
+            probabilities = scores.masked_fill(~mask, float('-inf')).softmax(-1)
+            fractions = [probabilities[..., v*nobs:(v+1)*nobs].sum(-1).mean()
+                         for v in range(copies)]
+            fractions.append(probabilities[..., copies*nobs:].sum(-1).mean())
+        self.last_attention_mass.setdefault(index - self.pre_depth, []).append(torch.stack(fractions))
+
+    def _forward_action_slot_sets(self, action_tokens, action_freqs, action_t_mod,
+                                 action_context, action_context_mask, keys, values, mask,
+                                 slot_sets=None, checkpoint_action=False):
+        schedule = self.virtual_schedule()
+        if len(keys) != len(schedule) or len(values) != len(schedule):
+            raise ValueError("Video cache must contain every virtual layer")
+        if mask.ndim != 2 or mask.dtype != torch.bool or mask.shape != (action_tokens.shape[1], keys[0].shape[1] + action_tokens.shape[1]):
+            raise ValueError("Action mask must contain observation-prefix and action columns")
+        slot_sets = self.action_cache_slot_sets() if slot_sets is None else slot_sets
+        if len(slot_sets) != self.pre_depth + self.core_depth*self.action_loops + self.post_depth:
+            raise ValueError("Slot sets must cover every action block exactly once")
+        x = action_tokens
+        action_states = []
+        waiting_state = None
+        for number, slots in enumerate(slot_sets):
+            if not slots or any(s < 0 or s >= len(schedule) for s in slots):
+                raise ValueError("Invalid action cache slots")
+            index = schedule[slots[0]][1]
+            if any(schedule[s][1] != index for s in slots):
+                raise ValueError("Action KV may combine only the same physical video block")
+            fn = partial(self._action_cached_block, index, slots)
+            args = (x, action_freqs, action_t_mod, action_context, action_context_mask, keys, values, mask)
+            x = (checkpoint(fn, *args, use_reentrant=False)
+                 if checkpoint_action and self.training and torch.is_grad_enabled() else fn(*args))
+            if self.collect_diagnostics:
+                if number == self.pre_depth - 1:
+                    waiting_state = x.detach().float().square().mean().sqrt()
+                if index == self.pre_depth + self.core_depth - 1:
+                    action_states.append(x.detach().float().square().mean().sqrt())
+        if self.collect_diagnostics:
+            for r in range(1, self.loops + 1):
+                action_r = max(0, r - (self.loops - self.action_loops))
+                self.last_diagnostics[f"loop/{r}/action_state_rms"] = (
+                    waiting_state if action_r == 0 else action_states[action_r - 1])
+        return x
+
+    def forward_cached_training(self, video_tokens, action_tokens, video_freqs, action_freqs,
+                                video_t_mod, action_t_mod, video_context, video_context_mask,
+                                action_context, action_context_mask, attention_mask,
+                                observed=None, slot_sets=None, cache_observer=None):
+        """Differentiable full-video pass followed by mode-specific action KV access.
+
+        Aligned can explicitly use this path for equivalence tests. Its production
+        joint/asymmetric paths remain unchanged. Cache entries are prefix views,
+        never detached, so all selected loops receive direct action gradients.
+        """
+        nv = video_tokens.shape[1]
+        if attention_mask.ndim != 2 or attention_mask.dtype != torch.bool:
+            raise ValueError("Cached training requires a 2D boolean causal mask")
+        if self.structured_attention:
+            observed = self._validate_structured_mask(attention_mask, nv)
+        nobs = observed if observed is not None else int(attention_mask[nv, :nv].sum().item())
+        if not 0 < nobs <= nv:
+            raise ValueError("Action conditioning needs a nonempty observation prefix")
+        torch._assert_async(~attention_mask[:nv, nv:].any(), "Video cannot read actions")
+        torch._assert_async(~attention_mask[:nobs, nobs:nv].any(), "Observation tokens cannot read future video")
+        expected = torch.arange(nv, device=attention_mask.device) < nobs
+        torch._assert_async((attention_mask[nv:, :nv] == expected).all(), "Actions must read only the observation prefix")
+        self.last_diagnostics = {}
+        x = video_tokens
+        keys, values = [], []
+        for virtual, index in self.virtual_schedule():
+            fn = partial(self._video_only_block, index)
+            args = (x, video_freqs, video_t_mod, video_context, video_context_mask,
+                    attention_mask[:nv, :nv], observed, True)
+            x, key, value = (checkpoint(fn, *args, use_reentrant=False)
+                            if self.checkpoint_blocks and self.training and torch.is_grad_enabled() else fn(*args))
+            keys.append(key[:, :nobs]); values.append(value[:, :nobs])
+            if self.collect_diagnostics and virtual[0] == "core" and virtual[2] == self.core_depth - 1:
+                self.last_diagnostics[f"loop/{virtual[1]}/video_state_rms"] = x.detach().float().square().mean().sqrt()
+        if cache_observer is not None:
+            cache_observer(keys, values)
+        mask = torch.cat((attention_mask[nv:, :nobs], attention_mask[nv:, nv:]), dim=1)
+        action = self._forward_action_slot_sets(action_tokens, action_freqs, action_t_mod,
+            action_context, action_context_mask, keys, values, mask, slot_sets, self.checkpoint_blocks)
+        return x, action
 
     def _video_only_block(self, physical_index, tokens, freqs, t_mod, context, context_mask,
                           attention_mask, observed=None, return_cache=False):
@@ -281,6 +440,12 @@ class LoopMoT(MoT):
             raise ValueError("LoopMoT layer compilation is not enabled; compile verified fixed-K callables explicitly.")
         observed = (self._validate_structured_mask(attention_mask, video_tokens.shape[1])
                     if self.structured_attention else None)
+        if self.action_kv_mode != "aligned":
+            if k != self.loops or exits != (k,):
+                raise ValueError("All-loop action KV requires its configured final video exit")
+            return {k: self.forward_cached_training(video_tokens, action_tokens, video_freqs, action_freqs,
+                video_t_mod, action_t_mod, video_context, video_context_mask, action_context,
+                action_context_mask, attention_mask, observed)}
         if asymmetric and self.action_loops > k:
             return {k: self._forward_action_deeper(video_tokens, action_tokens, video_freqs, action_freqs,
                 video_t_mod, action_t_mod, video_context, video_context_mask, action_context,
@@ -357,6 +522,9 @@ class LoopMoT(MoT):
         video_cache_k: list[torch.Tensor], video_cache_v: list[torch.Tensor],
         action_attention_mask: torch.Tensor,
     ) -> torch.Tensor:
+        if self.action_kv_mode != "aligned":
+            return self._forward_action_slot_sets(action_tokens, action_freqs, action_t_mod,
+                action_context, action_context_mask, video_cache_k, video_cache_v, action_attention_mask)
         schedule = self.virtual_schedule()
         if len(video_cache_k) != len(schedule) or len(video_cache_v) != len(schedule):
             raise ValueError(f"Video cache must contain {len(schedule)} virtual layers for K={self.loops}.")

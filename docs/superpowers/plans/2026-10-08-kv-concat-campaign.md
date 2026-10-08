@@ -11,7 +11,7 @@ episode inference. Gated queues, cross-job Long barrier, automatic analysis.
 **Tech stack:** PyTorch2.7,CUDA,H100,LIBERO,Slurm,Python.
 
 ## Tasks
-- [ ] 1: Core modes and tiny numerical/gradient/mask tests, including generic aligned equivalence.
+- [x] 1: Core modes and tiny numerical/gradient/mask tests, including generic aligned equivalence.
 - [ ] 2: Strict checkpoint/contract/CLI propagation; mix no-decay group and exact parameter counts; legacy regression.
 - [ ] 3: Fixed heldout concat attention diagnostics and mix weights, RNG-neutral; latency breakdown and compiled inference.
 - [ ] 4: Four-run campaign with 42/43/44 evaluations, fairness/source gates, full-suite dense controls, and Long completion barrier.
