@@ -19,13 +19,18 @@ from fastwam.models.wan22.loopwam_init import sha256_file
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--loop-checkpoint', required=True)
-    p.add_argument('--fast-checkpoint', required=True)
+    p.add_argument('--fast-checkpoint')
+    p.add_argument('--action-kv-mode',choices=['aligned','concat','mix'],default=None)
+    p.add_argument('--compiled',action='store_true')
+    p.add_argument('--trials',type=int,default=1)
     p.add_argument('--output', required=True)
     p.add_argument('--samples', type=int, default=50)
     p.add_argument('--warmup', type=int, default=5)
     args = p.parse_args()
     if args.samples < 20 or args.warmup < 3:
         p.error('Require at least 20 measured queries and three warmups')
+    if args.trials<1:p.error('Require at least one trial')
+    if Path(args.output).exists():p.error('Refusing to overwrite latency evidence')
     torch.set_num_threads(4)
     torch.cuda.set_device(0)
     train = Path(args.loop_checkpoint).parent
@@ -51,7 +56,8 @@ def main():
         precision='FP32 weights, BF16 autocast compute', text='Cached embeddings with actual padding mask',
         timing='Synchronized wall time; includes observation preprocessing, transfers, online VAE, visual prefill and action denoising; excludes simulator, text encoder and model loading',
         models={})
-    for name, checkpoint in [('fastwam', args.fast_checkpoint), ('loopwam_v0', args.loop_checkpoint)]:
+    models=([('fastwam',args.fast_checkpoint)] if args.fast_checkpoint else [])+[('loopwam_v0',args.loop_checkpoint)]
+    for name, checkpoint in models:
         if name == 'fastwam':
             from fastwam.runtime import create_fastwam
             config = OmegaConf.to_container(OmegaConf.load('configs/model/fastwam.yaml'), resolve=False)
@@ -70,25 +76,44 @@ def main():
         else:
             model = create_loopwam(checkpoint_path=checkpoint,
                 vae_path='checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',
-                version='v0', loops=4, device='cuda:0', model_dtype=torch.float32).eval()
-        times = []
-        torch.cuda.reset_peak_memory_stats()
-        for i in range(args.warmup + args.samples):
-            torch.cuda.synchronize()
-            started = time.perf_counter()
+                version='v0', device='cuda:0', model_dtype=torch.float32,action_kv_mode=args.action_kv_mode).eval()
+        def query(seed):
             image, proprio = adapter.observation(obs)
             with torch.inference_mode(), torch.autocast('cuda', dtype=torch.bfloat16):
-                action = model.infer_action(prompt=None, input_image=image, proprio=proprio,
-                    context=context, context_mask=mask, action_horizon=32,
-                    num_inference_steps=10, text_cfg_scale=1.0, seed=42+i)['action']
-                cpu_action = action.detach().float().cpu()
-            torch.cuda.synchronize()
-            elapsed = 1000 * (time.perf_counter() - started)
-            if cpu_action.shape != (32, 7) or not torch.isfinite(cpu_action).all():
-                raise ValueError('Invalid predicted action')
-            if i >= args.warmup:
-                times.append(elapsed)
+                return model.infer_action(prompt=None,input_image=image,proprio=proprio,
+                    context=context,context_mask=mask,action_horizon=32,
+                    num_inference_steps=10,text_cfg_scale=1.0,seed=seed,
+                    compile_action_infer=args.compiled)['action'].detach().float().cpu()
+        # Construct compiled callables before wrapping their invocation boundaries.
+        query(42)
+        stages={'video_prefill':[], 'action_denoising':[]}
+        def timed(fn,key):
+            def call(*a,**kw):
+                begin=torch.cuda.Event(enable_timing=True);end=torch.cuda.Event(enable_timing=True)
+                begin.record();value=fn(*a,**kw);end.record();stages[key].append((begin,end));return value
+            return call
+        if args.compiled:
+            model._prefill_video_cache_compiled=timed(model._prefill_video_cache_compiled,'video_prefill')
+            model._denoise_action_with_video_cache_compiled=timed(model._denoise_action_with_video_cache_compiled,'action_denoising')
+        else:
+            model.mot.prefill_video_cache_tensor=timed(model.mot.prefill_video_cache_tensor,'video_prefill')
+            model._denoise_action_with_video_cache=timed(model._denoise_action_with_video_cache,'action_denoising')
+        times=[];breakdown=[];trials=[]
+        torch.cuda.reset_peak_memory_stats()
+        for trial in range(args.trials):
+            trial_times=[]
+            for i in range(args.warmup+args.samples):
+                for events in stages.values():events.clear()
+                torch.cuda.synchronize();started=time.perf_counter()
+                cpu_action=query(42+i)
+                torch.cuda.synchronize();elapsed=1000*(time.perf_counter()-started)
+                if cpu_action.shape!=(32,7) or not torch.isfinite(cpu_action).all():raise ValueError('Invalid predicted action')
+                if i>=args.warmup:
+                    times.append(elapsed);trial_times.append(elapsed)
+                    breakdown.append({key:sum(a.elapsed_time(b) for a,b in events) for key,events in stages.items()})
+            trials.append(dict(trial=trial,mean_ms=float(np.mean(trial_times)),samples_ms=trial_times))
         result['models'][name] = dict(checkpoint=checkpoint, checkpoint_sha256=sha256_file(checkpoint),
+            compiled=args.compiled,action_kv_mode=getattr(model.mot,'action_kv_mode','aligned'),trials=trials,stage_samples_ms=breakdown,stage_mean_ms={key:float(np.mean([b[key] for b in breakdown])) for key in stages},
             mean_ms=float(np.mean(times)), p50_ms=float(np.percentile(times, 50)),
             p95_ms=float(np.percentile(times, 95)), min_ms=min(times), max_ms=max(times),
             samples_ms=times, peak_allocated_gb=torch.cuda.max_memory_allocated()/1e9)

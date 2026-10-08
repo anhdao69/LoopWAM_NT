@@ -149,11 +149,13 @@ def test_non_v0_new_modes_fail(version,mode):
         LoopMoT(dict(base.mixtures.items()),version=version,action_kv_mode=mode)
 
 
-@pytest.mark.parametrize('version,video,action',[('v0',4,4),('v0',4,1),('v0',4,2),('v0',2,2),('v0',1,4),('v1',4,4),('v2',4,4),('dense_s12',1,1)])
+@pytest.mark.parametrize('version,video,action',[('v0',4,4),('v0',4,1),('v0',4,2),('v0',2,2),('v0',1,4),('v1',4,4),('v2',4,4),('dense_s12',1,1),('dense_s30',1,1)])
 def test_aligned_bit_identical_to_preregistered_base(version,video,action):
     source=subprocess.check_output(['git','show','8d74c8d:src/fastwam/models/wan22/loop_mot.py'],text=True,cwd=Path(__file__).resolve().parents[1])
     module=types.ModuleType('fastwam.models.wan22._kv_baseline');module.__package__='fastwam.models.wan22';exec(compile(source,'baseline_loop_mot.py','exec'),module.__dict__)
-    new=make_model(version,loops=video);new.action_loops=action
+    from test_loopwam_dense_s30 import dense_mot
+    new=dense_mot() if version=='dense_s30' else make_model(version,loops=video)
+    new.action_loops=action
     old=module.LoopMoT(copy.deepcopy(dict(new.mixtures.items())),loops=video,version=version,action_loops=action)
     y=new.forward_joint_core(**inputs());z=old.forward_joint_core(**inputs())
     for a,b in zip(y,z):assert torch.equal(a,b)
@@ -171,3 +173,13 @@ def test_gpu_fullgraph_compiled_cache_inference(mode):
         compiled=torch.compile(m.forward_action_with_video_cache_tensor,fullgraph=True,mode='reduce-overhead')
         actual=compiled(*args)
         torch.testing.assert_close(actual,expected,atol=3e-5,rtol=3e-5)
+
+
+def test_concat_attention_mass_is_probability_partition():
+    m=model('concat');m.record_attention_mass=True
+    with torch.no_grad():m.forward_joint_core(**inputs())
+    assert set(m.last_attention_mass)==set(range(6))
+    for values in m.last_attention_mass.values():
+        for mass in values:
+            assert mass.shape==(5,) and bool((mass>=0).all())
+            torch.testing.assert_close(mass.sum(),torch.tensor(1.0),atol=1e-6,rtol=1e-6)
