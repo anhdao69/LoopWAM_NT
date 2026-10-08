@@ -50,12 +50,12 @@ for n in order:
  models.append(dict(run=n,label=labels[n],successes=s['successes'],episodes=s['total_episodes'],sr=s['success_rate'],parameters=m['policy_parameters'],gpus=m['world_size'],training_seconds=t['elapsed_training_seconds'],evaluation_seconds=evtime(n),gpu_hours=t['elapsed_training_seconds']*m['world_size']/3600,backend=m.get('backend',old.get('v0' if n=='v0_original' else n,{}).get('backend')),microbatch=m['microbatch'],accumulation=m['gradient_accumulation'],checkpoint_sha256=s['checkpoint_sha256']))
 def csvwrite(name,rows):
  with (E/name).open('w',newline='') as f:
-  w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+  w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 csvwrite('models.csv',models)
 episodes=[]
 for n,r in d['evaluation'].items():
  for x in (r['summary'] or {}).get('episodes',[]):
-  episodes.append(dict(run=n,suite=x.get('suite'),category=x.get('category',''),task_id=x['task_id'],episode_index=x['episode_index'],seed=x.get('seed'),success=x['success'],steps=x.get('steps'),video=x['video'],checkpoint_sha256=x['checkpoint_sha256']))
+  episodes.append(dict(run=n,suite=x.get('suite',(r['summary'] or {}).get('suite')),category=x.get('category',''),task_id=x['task_id'],episode_index=x['episode_index'],seed=x.get('seed'),success=x['success'],steps=x.get('steps'),video=x['video'],checkpoint_sha256=x['checkpoint_sha256']))
 csvwrite('episodes.csv',episodes)
 csvwrite('losses.csv',[dict(run=n,**{k+'_'+part:v[part] for k,v in r['loss'].items() for part in ('first100','last100')}) for n,r in d['training'].items()])
 # Figures show complete runs only; GPU-hours make differing allocations visible.
