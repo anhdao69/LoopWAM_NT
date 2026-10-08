@@ -1,0 +1,18 @@
+F
+=================================== FAILURES ===================================
+________________________ test_preregistered_thresholds _________________________
+
+    def test_preregistered_thresholds():
+     assert decision(267,300)=='access hypothesis supported'
+     assert decision(252,300)=='action-depth hypothesis supported'
+     assert decision(253,300)==decision(266,300)=='inconclusive'
+     with pytest.raises(ValueError):decision(89,100)
+     assert wilson(0,100)[0]==0
+>    assert 0.83<wilson(90,100)[0]<.84
+E    assert 0.83 < 0.8256343384950865
+
+tests/test_kv_statistics.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_kv_statistics.py::test_preregistered_thresholds - assert 0....
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 0.79s

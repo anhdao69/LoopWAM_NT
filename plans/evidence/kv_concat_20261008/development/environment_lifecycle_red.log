@@ -1,0 +1,13 @@
+F
+=================================== FAILURES ===================================
+_________ test_episode_groups_preserve_original_environment_lifecycle __________
+
+    def test_episode_groups_preserve_original_environment_lifecycle():
+>    from evaluate_loopwam_pool import episode_groups,environment_key
+E    ImportError: cannot import name 'episode_groups' from 'evaluate_loopwam_pool' (/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/scripts/evaluate_loopwam_pool.py)
+
+tests/test_loopwam_pool.py:5: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_pool.py::test_episode_groups_preserve_original_environment_lifecycle
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 0.07s

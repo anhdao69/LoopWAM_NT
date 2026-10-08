@@ -1,0 +1,15 @@
+..F
+=================================== FAILURES ===================================
+_______________ test_expanded_report_preserves_original_decision _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-68/test_expanded_report_preserves0')
+
+    def test_expanded_report_preserves_original_decision(tmp_path):
+>    from report_kv_followup import expanded_report
+E    ModuleNotFoundError: No module named 'report_kv_followup'
+
+tests/test_kv_statistics.py:24: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_kv_statistics.py::test_expanded_report_preserves_original_decision
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 2 passed in 0.71s

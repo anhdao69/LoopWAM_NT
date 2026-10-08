@@ -1,0 +1,28 @@
+F
+=================================== FAILURES ===================================
+_____________ test_mode_checkpoint_roundtrip_and_mismatch[aligned] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-64/test_mode_checkpoint_roundtrip0')
+mode = 'aligned'
+
+    @pytest.mark.parametrize('mode',['aligned','concat','mix'])
+    def test_mode_checkpoint_roundtrip_and_mismatch(tmp_path,mode):
+        p=policy(mode)
+        if mode=='mix': p.mot.action_kv_logits.data.normal_()
+        path=tmp_path/'p.pt';p.save_checkpoint(path)
+        payload=torch.load(path,weights_only=False)
+>       assert payload['action_kv_mode']==mode
+E       KeyError: 'action_kv_mode'
+
+tests/test_loopwam_kv_contract.py:21: KeyError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_kv_contract.py::test_mode_checkpoint_roundtrip_and_mismatch[aligned]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 4.82s

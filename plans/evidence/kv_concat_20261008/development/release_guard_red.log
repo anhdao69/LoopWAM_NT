@@ -1,0 +1,15 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+_______ test_release_requires_verified_controls_and_matching_concurrency _______
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-71/test_release_requires_verified0')
+
+    def test_release_requires_verified_controls_and_matching_concurrency(tmp_path):
+        import hashlib,json
+>       from run_kv_campaign import validate_release_inputs
+E       ImportError: cannot import name 'validate_release_inputs' from 'run_kv_campaign' (/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/scripts/run_kv_campaign.py)
+
+tests/test_kv_campaign.py:42: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_kv_campaign.py::test_release_requires_verified_controls_and_matching_concurrency
+1 failed, 3 passed in 1.87s

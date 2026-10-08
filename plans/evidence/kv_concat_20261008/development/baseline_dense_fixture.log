@@ -1,0 +1,46 @@
+F
+=================================== FAILURES ===================================
+___________________ test_complete_dense30_and_partial_smoke ____________________
+
+    def test_complete_dense30_and_partial_smoke():
+        payload, data = checkpoint()
+>       assert checkpoint_policy_spec(payload)==('dense_s30',1)
+
+tests/test_dense_s30_eval.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/evaluate_loopwam_libero.py:69: in checkpoint_policy_spec
+    _validate_checkpoint_depth(payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+payload = {'format_version': 'loopwam-s-v1', 'version': 'dense_s30', 'step': 7250, 'trained_max_loops': 1, ...}
+
+    def _validate_checkpoint_depth(payload):
+        version = payload['version']
+        if 'action_loops' in payload or 'video_loops' in payload:
+            v, a = payload.get('video_loops'), payload.get('action_loops')
+            if (type(v) is not int or type(a) is not int or not (1 <= a <= 4 and 1 <= v <= 4)
+                    or v != payload.get('inference_loops') or payload.get('loop_alignment') != 'late'
+                    or (a != v and version != 'v0')):
+                raise ValueError(f'{version}: invalid checkpoint video/action loop contract')
+        if version in {'dense_s12', 'dense_s30'}:
+            for field in ('trained_max_loops', 'inference_loops'):
+                value = payload.get(field)
+                if isinstance(value, bool) or not isinstance(value, int) or value != 1:
+                    raise ValueError(f'{version} checkpoint requires {field}=1')
+    
+        if version == 'dense_s30':
+            from .loopwam_init import target_configs
+            metadata = payload.get('architecture', {})
+            video_cfg, action_cfg = target_configs(30)
+            if (metadata.get('architecture_version') != 'Dense-S30-native-v1'
+                    or metadata.get('donor_indices') != list(range(30))
+                    or metadata.get('target_video_config') != video_cfg
+                    or metadata.get('target_action_config') != action_cfg):
+>               raise ValueError('dense_s30 checkpoint requires native 30-layer architecture and donor identity')
+E               ValueError: dense_s30 checkpoint requires native 30-layer architecture and donor identity
+
+src/fastwam/models/wan22/loopwam.py:219: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_dense_s30_eval.py::test_complete_dense30_and_partial_smoke
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 4.67s

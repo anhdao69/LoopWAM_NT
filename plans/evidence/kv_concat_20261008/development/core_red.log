@@ -1,0 +1,31 @@
+F
+=================================== FAILURES ===================================
+_ test_generic_aligned_training_matches_original_joint_outputs_and_all_gradients[False-False] _
+
+structured = False, checkpoint = False
+
+    @pytest.mark.parametrize('structured',[False,True])
+    @pytest.mark.parametrize('checkpoint',[False,True])
+    def test_generic_aligned_training_matches_original_joint_outputs_and_all_gradients(structured,checkpoint):
+>       a=model(checkpoint=checkpoint);b=copy.deepcopy(a);d=inputs()
+
+tests/test_loopwam_kv_concat.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+mode = 'aligned', video = 4, action = 1, checkpoint = False
+
+    def model(mode='aligned', video=4, action=1, checkpoint=False):
+        base=make_model()
+>       return LoopMoT(dict(base.mixtures.items()), loops=video, action_loops=action,
+                       action_kv_mode=mode, checkpoint_blocks=checkpoint)
+E       TypeError: LoopMoT.__init__() got an unexpected keyword argument 'action_kv_mode'
+
+tests/test_loopwam_kv_concat.py:15: TypeError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_kv_concat.py::test_generic_aligned_training_matches_original_joint_outputs_and_all_gradients[False-False]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 2.60s

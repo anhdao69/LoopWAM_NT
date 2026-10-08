@@ -1,0 +1,93 @@
+F....................................................................... [ 18%]
+................ss....s..s....ss.s...................................... [ 37%]
+...............................................................F........ [ 56%]
+...................................................................ss... [ 75%]
+........................................................................ [ 94%]
+......................                                                   [100%]
+=================================== FAILURES ===================================
+___________________ test_complete_dense30_and_partial_smoke ____________________
+
+    def test_complete_dense30_and_partial_smoke():
+        payload, data = checkpoint()
+>       assert checkpoint_policy_spec(payload)==('dense_s30',1)
+
+tests/test_dense_s30_eval.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/evaluate_loopwam_libero.py:69: in checkpoint_policy_spec
+    _validate_checkpoint_depth(payload)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+payload = {'format_version': 'loopwam-s-v1', 'version': 'dense_s30', 'step': 7250, 'trained_max_loops': 1, ...}
+
+    def _validate_checkpoint_depth(payload):
+        version = payload['version']
+        mode = validate_action_kv_mode(payload.get('action_kv_mode', 'aligned'), version)
+        logits = payload.get('mot', {}).get('action_kv_logits')
+        if mode == 'mix':
+            # Infer the actual head count from the saved expert RMSNorm, including tiny tests.
+            config = payload.get('architecture', {}).get('target_video_config', {})
+            heads = config.get('num_heads')
+            if (not isinstance(logits, torch.Tensor) or logits.ndim != 3
+                    or logits.shape[0] != 6 or logits.shape[2] != payload.get('inference_loops')
+                    or (heads is not None and logits.shape[1] != heads)):
+                raise ValueError('Invalid mix logit shape in checkpoint')
+        elif logits is not None:
+            raise ValueError('Non-mix checkpoint contains mix logits')
+        if 'action_loops' in payload or 'video_loops' in payload:
+            v, a = payload.get('video_loops'), payload.get('action_loops')
+            if (type(v) is not int or type(a) is not int or not (1 <= a <= 4 and 1 <= v <= 4)
+                    or v != payload.get('inference_loops') or payload.get('loop_alignment') != 'late'
+                    or (a != v and version != 'v0')):
+                raise ValueError(f'{version}: invalid checkpoint video/action loop contract')
+        if version in {'dense_s12', 'dense_s30'}:
+            for field in ('trained_max_loops', 'inference_loops'):
+                value = payload.get(field)
+                if isinstance(value, bool) or not isinstance(value, int) or value != 1:
+                    raise ValueError(f'{version} checkpoint requires {field}=1')
+    
+        if version == 'dense_s30':
+            from .loopwam_init import target_configs
+            metadata = payload.get('architecture', {})
+            video_cfg, action_cfg = target_configs(30)
+            if (metadata.get('architecture_version') != 'Dense-S30-native-v1'
+                    or metadata.get('donor_indices') != list(range(30))
+                    or metadata.get('target_video_config') != video_cfg
+                    or metadata.get('target_action_config') != action_cfg):
+>               raise ValueError('dense_s30 checkpoint requires native 30-layer architecture and donor identity')
+E               ValueError: dense_s30 checkpoint requires native 30-layer architecture and donor identity
+
+src/fastwam/models/wan22/loopwam.py:233: ValueError
+__________________ test_legacy_checkpoint_contract_preserved ___________________
+
+    def test_legacy_checkpoint_contract_preserved():
+        args = SimpleNamespace(microbatch=8, global_batch=128, seed=42, version='v0', epochs=10)
+        contract = training_contract(args, 2, 92678, 7250, {'normalization_sha256': 'abc'})
+>       assert contract == dict(world=2, microbatch=8, global_batch=128, seed=42,
+                               version='v0', train_windows=92678, planned_updates=7250,
+                               normalization_sha256='abc')
+E       AssertionError: assert {'world': 2, ...eed': 42, ...} == {'world': 2, ...eed': 42, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'action_kv_mode': 'aligned'}
+E         Use -v to get more diff
+
+tests/test_loopwam_full_training.py:21: AssertionError
+=============================== warnings summary ===============================
+tests/test_loopwam_rollout.py::test_camera_rotation_order_and_current_eight_dimensional_proprio
+  /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/.venv/lib/python3.10/site-packages/robosuite/__init__.py:7: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+    ROBOSUITE_DEFAULT_LOGGER.warn("No private macro file found!")
+
+tests/test_loopwam_rollout.py::test_camera_rotation_order_and_current_eight_dimensional_proprio
+  /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/.venv/lib/python3.10/site-packages/robosuite/__init__.py:8: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+    ROBOSUITE_DEFAULT_LOGGER.warn("It is recommended to use a private macro file")
+
+tests/test_loopwam_rollout.py::test_camera_rotation_order_and_current_eight_dimensional_proprio
+  /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/.venv/lib/python3.10/site-packages/robosuite/__init__.py:9: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+    ROBOSUITE_DEFAULT_LOGGER.warn("To setup, run: python {}/scripts/setup_macros.py".format(robosuite.__path__[0]))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_dense_s30_eval.py::test_complete_dense30_and_partial_smoke
+FAILED tests/test_loopwam_full_training.py::test_legacy_checkpoint_contract_preserved
+2 failed, 371 passed, 9 skipped, 3 warnings in 61.20s (0:01:01)
