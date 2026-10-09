@@ -1,0 +1,57 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/loop_v4a4_repeat_job4728_20261008/v4a4/train/latest.pt",
+  "checkpoint_sha256": "8b5f58c3548ea583d3fa1e388065442b0df0e3227f3f3836470555b7a3dfb555",
+  "checkpoint_step": 7250,
+  "version": "v0",
+  "video_loops": 4,
+  "action_loops": 4,
+  "arguments": {
+    "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/loop_v4a4_repeat_job4728_20261008/v4a4/train/latest.pt",
+    "stats": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/loop_v4a4_repeat_job4728_20261008/v4a4/train/data/dataset_stats.json",
+    "vae_path": "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/control_repeat_v4a4",
+    "workers_per_gpu": 8,
+    "suites": [
+      "libero_10"
+    ],
+    "seeds": [
+      43,
+      44
+    ],
+    "tasks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "episodes_per_task": 10,
+    "max_steps": 700,
+    "smoke": false,
+    "trace_actions": false
+  },
+  "gpus": [
+    "0",
+    "1"
+  ],
+  "workers_per_gpu": 8,
+  "worker_count": 16,
+  "mode": "final_rollout",
+  "normalization_sha256": "78058a689c41382a2759541d5590cb3ada8c576e736285aaeebc344874366f1b",
+  "seed_formula": "base_seed + task_id*100000 + episode_index*1000 + replan_index",
+  "protocol": {
+    "max_policy_steps": 700,
+    "settling_steps": 30,
+    "replan_steps": 10,
+    "denoising_steps": 10,
+    "cfg": 1,
+    "action_chunk": 32
+  },
+  "source_script_sha256": "a74bc86dd1434293adbff2fe0d17b9f714b74f0a4384c119c3d3b175c87b7e95",
+  "slurm_job_id": "4770"
+}
