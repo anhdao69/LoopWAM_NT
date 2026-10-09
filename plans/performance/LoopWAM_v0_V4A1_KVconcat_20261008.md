@@ -191,3 +191,9 @@ Raw summaries and the machine-readable gate are in
 trace arrays remain on the server. Old episode-parallel controls remain rejected.
 GPU regression and new task-sequence control evaluations are running in steps
 4770.6 and 4771.6, followed by native training preflight. Production is not released.
+
+GPU regression on the same pin passed on both allocations: **393 passed** on
+worker-0 (62.17 s), **393 passed** on worker-1 (90.26 s), no skips or failures.
+Logs are archived under `plans/evidence/kv_concat_20261008/pinned_d223427/`.
+These include the GPU fullgraph concat/mix unit tests; native checkpoint
+compilation/latency checks remain separate pending gates.
