@@ -197,3 +197,31 @@ worker-0 (62.17 s), **393 passed** on worker-1 (90.26 s), no skips or failures.
 Logs are archived under `plans/evidence/kv_concat_20261008/pinned_d223427/`.
 These include the GPU fullgraph concat/mix unit tests; native checkpoint
 compilation/latency checks remain separate pending gates.
+
+## Accepted control evaluations
+
+The corrected task-sequence evaluator completed 200 new episodes for each control.
+Aligned 4/1: seed 43 **88/100**, seed 44 **84/100** (28m 03s combined). Together
+with the exactly reproduced seed-42 baseline **81/100**, this is **253/300
+(84.33%)**. The 4/4 fresh repeat scored **85/100** and **92/100** at seeds 43/44
+(27m 55s combined); its historical seed-42 score is 91/100, giving **268/300
+(89.33%)**. These replace the rejected episode-pool controls.
+
+| Task | Aligned 4/1, seeds 42/43/44 (out of 30) | Repeat 4/4, new seeds 43/44 (out of 20) |
+|---|---:|---:|
+| 0 | 20 | 17 |
+| 1 | 23 | 20 |
+| 2 | 25 | 19 |
+| 3 | 28 | 20 |
+| 4 | 22 | 13 |
+| 5 | 30 | 20 |
+| 6 | 24 | 14 |
+| 7 | 26 | 20 |
+| 8 | 29 | 15 |
+| 9 | 26 | 19 |
+
+Training sizing is in progress. Initial eight-update DDP8 benchmarks measured
+3.607 s/update (concat) and 3.632 s/update (mix), with finite losses/gradients.
+DDP16 exceeded H100 memory for both modes. This is a recorded sizing result;
+the required baseline DDP8/accumulation8 layout fits. Native cold/warm training,
+simulator smokes and fairness verification remain required before production.
