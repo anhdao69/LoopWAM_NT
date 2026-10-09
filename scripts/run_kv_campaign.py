@@ -46,6 +46,11 @@ def verify_fairness(candidate,baseline):
  if clean(candidate['data'])!=clean(baseline['data']):raise ValueError('Fairness mismatch: data/split/content/normalization/text assets')
  return dict(passed=True,compared_fields=list(fields),data_fields=sorted(clean(candidate['data'])),ignored_data_fields=['normalization_path'])
 
+def benchmark_candidates(s):
+ # Include a fitting baseline layout for every backend before testing larger batches.
+ batches=(8,) if s['version']=='dense_s30' else (8,16,32) if s['version']=='dense_s12' else (8,16)
+ return [(backend,microbatch) for backend in ('ddp','zero1','zero2') for microbatch in batches]
+
 def select_candidate(trials,match_baseline=False):
  if not trials:raise ValueError('No valid benchmark candidates')
  if match_baseline:
@@ -123,9 +128,7 @@ class Campaign:
   configs={}
   for s in self.queue:
    label=s['label'];trials=[]
-   candidates=[('ddp',8),('ddp',16),('zero1',16),('zero2',16)]
-   if s['version']=='dense_s30':candidates=[('ddp',8),('zero1',8),('zero2',8)]
-   if s['version']=='dense_s12':candidates=[('ddp',16),('ddp',32),('zero1',32),('zero2',32)]
+   candidates=benchmark_candidates(s)
    for backend,mb in candidates:
     dest=self.out/f'speed_{label}_{backend}_{mb}'
     c=TORCHRUN+['scripts/benchmark_loopwam.py','--version',s['version'],'--video-loops',str(s['video']),'--action-loops',str(s['action']),'--action-kv-mode',s['mode'],'--dataset-scope',s['scope'],'--backend',backend,'--microbatch',str(mb),'--workers','4' if s['scope']=='long_split' else '8','--updates','8','--structured-attention','--latent-cache-dir',str(cache_for(s)),'--output-dir',str(dest)]
@@ -133,6 +136,7 @@ class Campaign:
      result=read(dest/'result.json')
      if (result['global_batch']!=128 or result['world_size']!=2 or result['train_windows']!=windows(s) or result['precision'].get('policy_dtype')!='float32' or result['precision'].get('optimizer_moment_dtypes')!=['torch.float32'] or not math.isfinite(result['steady_seconds']) or any(not math.isfinite(r[k]) for r in result['records'] for k in ('loss','grad_norm'))):raise ValueError('Benchmark precision/finite gate failed')
      trials.append(result)
+   if {r['backend'] for r in trials}!={'ddp','zero1','zero2'}:raise ValueError('A valid measured run is required for every training backend')
    selected=select_candidate(trials,s['mode']!='aligned')
    c={k:selected[k] for k in ('backend','microbatch')};c.update(workers_per_gpu=self.a.eval_workers,render_threads=self.a.eval_render_threads,steady_seconds=selected['steady_seconds'])
    write(self.out/f'{label}_benchmarks.json',dict(trials=trials,selected=c,selection_reason='Match baseline DDP8 when feasible' if s['mode']!='aligned' else 'Lowest measured steady update time'))

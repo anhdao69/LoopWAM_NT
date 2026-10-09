@@ -56,3 +56,16 @@ def test_release_requires_verified_controls_and_matching_concurrency(tmp_path):
     with pytest.raises(ValueError,match='hash'):validate_release_inputs(bad,prepared)
     path.write_text('{}')
     with pytest.raises(ValueError):validate_release_inputs(release,prepared)
+
+
+def test_benchmarks_include_fitting_layout_for_each_backend():
+    from run_kv_campaign import benchmark_candidates
+    for queue in QUEUES.values():
+        for spec in queue:
+            candidates=benchmark_candidates(spec)
+            assert len(candidates)==len(set(candidates))
+            for backend in ('ddp','zero1','zero2'):
+                assert (backend,8) in candidates
+            if spec['version']=='dense_s12':
+                for backend in ('ddp','zero1','zero2'):
+                    assert (backend,16) in candidates and (backend,32) in candidates
