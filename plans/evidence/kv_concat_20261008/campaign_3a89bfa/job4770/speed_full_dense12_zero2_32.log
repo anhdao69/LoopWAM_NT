@@ -1,0 +1,147 @@
+Warning: The cache directory for DeepSpeed Triton autotune, /home/anhdh35/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/anhdh35/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Before initializing optimizer states
+MA 3.51 GB         Max_MA 4.6 GB         CA 5.83 GB         Max_CA 6 GB 
+CPU Virtual Memory:  used = 198.97 GB, percent = 9.9%
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+After initializing optimizer states
+MA 3.51 GB         Max_MA 4.6 GB         CA 6.92 GB         Max_CA 7 GB 
+CPU Virtual Memory:  used = 199.99 GB, percent = 9.9%
+After initializing ZeRO optimizer
+MA 3.51 GB         Max_MA 3.51 GB         CA 6.92 GB         Max_CA 7 GB 
+CPU Virtual Memory:  used = 199.72 GB, percent = 9.9%
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+{"update": 1, "seconds": 12.022197723388672, "allocated_gb": 81.16996002197266, "reserved_gb": 82.62149810791016, "loss": 2.1500396728515625, "grad_norm": 10.16781997680664, "data_wait_seconds": 8.306061608949676, "vae_cuda_seconds": 0.0, "forward_cuda_seconds": 2.3402676849365234, "backward_cuda_seconds": 1.171662841796875, "optimizer_cuda_seconds": 0.20315005177259446}
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/benchmark_loopwam.py", line 130, in <module>
+[rank1]:     if __name__=='__main__': main()
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/benchmark_loopwam.py", line 93, in main
+[rank1]:     with torch.autocast('cuda',dtype=torch.bfloat16): loss,logs=runner(sample)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank1]:     ret_val = func(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2316, in forward
+[rank1]:     loss = self.module(*inputs, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1857, in _call_impl
+[rank1]:     return inner()
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1805, in inner
+[rank1]:     result = forward_call(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/fastwam.py", line 1235, in forward
+[rank1]:     return self.training_loss(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 146, in training_loss
+[rank1]:     loss, logs = self.reduce_flow_losses(self.forward_exits(noisy), noisy)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 120, in forward_exits
+[rank1]:     return {k: (self.video_expert.post(v, video[1], video[6], video[7], video[8]),
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 120, in <dictcomp>
+[rank1]:     return {k: (self.video_expert.post(v, video[1], video[6], video[7], video[8]),
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/wan_video_dit.py", line 731, in post
+[rank1]:     return self.unpatchify(self.head(x_tokens, t), (f, h, w))
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/wan_video_dit.py", line 302, in forward
+[rank1]:     x = (self.head(self.norm(x) * (1 + scale.squeeze(2)) + shift.squeeze(2)))
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 1 has a total capacity of 79.19 GiB of which 112.75 MiB is free. Including non-PyTorch memory, this process has 79.06 GiB memory in use. Of the allocated memory 76.24 GiB is allocated by PyTorch, and 809.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/benchmark_loopwam.py", line 130, in <module>
+[rank0]:     if __name__=='__main__': main()
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/benchmark_loopwam.py", line 93, in main
+[rank0]:     with torch.autocast('cuda',dtype=torch.bfloat16): loss,logs=runner(sample)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 2316, in forward
+[rank0]:     loss = self.module(*inputs, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1857, in _call_impl
+[rank0]:     return inner()
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1805, in inner
+[rank0]:     result = forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/fastwam.py", line 1235, in forward
+[rank0]:     return self.training_loss(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 146, in training_loss
+[rank0]:     loss, logs = self.reduce_flow_losses(self.forward_exits(noisy), noisy)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 120, in forward_exits
+[rank0]:     return {k: (self.video_expert.post(v, video[1], video[6], video[7], video[8]),
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/loopwam.py", line 120, in <dictcomp>
+[rank0]:     return {k: (self.video_expert.post(v, video[1], video[6], video[7], video[8]),
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/wan_video_dit.py", line 731, in post
+[rank0]:     return self.unpatchify(self.head(x_tokens, t), (f, h, w))
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/src/fastwam/models/wan22/wan_video_dit.py", line 302, in forward
+[rank0]:     x = (self.head(self.norm(x) * (1 + scale.squeeze(2)) + shift.squeeze(2)))
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB. GPU 0 has a total capacity of 79.19 GiB of which 96.75 MiB is free. Including non-PyTorch memory, this process has 79.08 GiB memory in use. Of the allocated memory 76.23 GiB is allocated by PyTorch, and 835.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+W1009 01:09:15.542000 117976 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 117983 closing signal SIGTERM
+E1009 01:09:16.360000 117976 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 1 (pid: 117984) of binary: /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/.venv/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/benchmark_loopwam.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-09_01:09:15
+  host      : worker-0.fpt-hpc-worker-svc.fpt-hpc.svc.cluster.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 117984)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

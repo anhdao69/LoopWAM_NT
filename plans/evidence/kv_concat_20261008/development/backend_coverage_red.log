@@ -1,0 +1,12 @@
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+___________ test_benchmarks_include_fitting_layout_for_each_backend ____________
+
+    def test_benchmarks_include_fitting_layout_for_each_backend():
+>       from run_kv_campaign import benchmark_candidates
+E       ImportError: cannot import name 'benchmark_candidates' from 'run_kv_campaign' (/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_development_20261008/scripts/run_kv_campaign.py)
+
+tests/test_kv_campaign.py:62: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_kv_campaign.py::test_benchmarks_include_fitting_layout_for_each_backend
+1 failed, 4 passed in 1.62s

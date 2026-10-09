@@ -1,0 +1,282 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_warm/latest.pt",
+  "backend": "eager",
+  "mode": "concat",
+  "final_max_abs": 0.0,
+  "repeat_bit_identical": true,
+  "within_gate": true,
+  "boundaries": [
+    {
+      "function": "prefill_video_cache_tensor",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "prefill_video_cache_tensor",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    },
+    {
+      "function": "_denoise_action_with_video_cache",
+      "max_abs": 0.0,
+      "tensor_max_abs": [
+        0.0
+      ]
+    }
+  ]
+}

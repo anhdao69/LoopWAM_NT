@@ -1,0 +1,29 @@
+{
+  "queue": "mix",
+  "source_revision": "3a89bfac5cfccad66bfebbe00014f7f739a78adc",
+  "evaluation": {
+    "workers_per_gpu": 5,
+    "render_threads": 3
+  },
+  "native_compiled_verified": false,
+  "compiled_inference_status": "unsupported_native_BF16_numerical_gate_failed",
+  "compile_diagnostics": {
+    "inductor": {
+      "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_inductor.json",
+      "sha256": "e2463b486e2eec9b84d6d82f2b837ef959054f46168d0b5f1bcefb8d615f3054",
+      "final_max_abs": 0.01318359375
+    },
+    "eager": {
+      "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_eager.json",
+      "sha256": "b379a2c8bdd57135ffa8a685ac9cc1b397166a85149fe2f2cb6e29279e9c61dd",
+      "final_max_abs": 0.0
+    }
+  },
+  "control_baseline_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/control_aligned_v4a1_accepted/summary.json",
+  "control_baseline_sha256": "ea935a8c916b44ed0a850d4229a5de05bec612d3fcb1bc5588d71de2e92d7059",
+  "control_repeat_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/control_repeat_v4a4_grouped/summary.json",
+  "control_repeat_sha256": "3ffbd23ff74f27b812e80e2bd59ff0a19d00a1d53d49c55a5de6bf6992ae0cb8",
+  "audit_file": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_audit_3a89bfa.json",
+  "audit_sha256": "6f7d2492286c7a1f5bdd35041090f9b2df77105a0ad95003879ffd5c904ea634",
+  "released_unix": 1791508610.5334203
+}

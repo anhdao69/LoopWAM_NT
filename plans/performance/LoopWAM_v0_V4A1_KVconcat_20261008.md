@@ -1,5 +1,15 @@
 # LoopWAM v0 4/1: all-loop observation KV experiment
 
+> **Current status — October 9, 2026, 01:19 UTC:** production is running in
+> jobs **4770 / 4771**, two H100s each. Both concat and mix have finite fresh
+> training updates at global batch 128. All eight training/simulator/fairness
+> preflights passed. Native BF16 Inductor failed numerical equivalence and is
+> explicitly disabled; eager evaluation is verified against the baseline.
+> Forecast: **October 11, 2:15–9:15 p.m. EDT**, plus 2–3 hours if the expanded
+> Long comparison is triggered. Final new-model SR is pending. The dated
+> development entries below retain earlier states; the final preflight and
+> production-release sections supersede them.
+
 ## Pre-registration — October 8, 2026
 
 Base: `8d74c8df2eca4d165626830d90c2cc9bc56412b6`, fetched from the
@@ -225,3 +235,108 @@ Training sizing is in progress. Initial eight-update DDP8 benchmarks measured
 DDP16 exceeded H100 memory for both modes. This is a recorded sizing result;
 the required baseline DDP8/accumulation8 layout fits. Native cold/warm training,
 simulator smokes and fairness verification remain required before production.
+
+## Final preflight on immutable source `3a89bfa`
+
+The previous prepared pin was replaced to require at least one valid timing for
+**each** of DDP, ZeRO-1 and ZeRO-2 before selecting a backend. All eight models
+now have that coverage. Oversized microbatch OOMs are retained as sizing evidence;
+no training contract was reduced. CPU regression: **385 passed / 9 skipped**.
+GPU regression: **394 passed on each allocation**, including tiny-model compiled
+inference. Raw logs are under `pinned_3a89bfa/` in the evidence directory.
+
+| Job / order | Experiment | Data | DDP microbatch × accumulation × GPUs | Native seconds/update | Projected training hours |
+|---|---|---|---|---:|---:|
+| 4770 / 1 | v0 4/1 concat | Long 344/44 | 8 × 8 × 2 | 3.608 | 7.27 |
+| 4770 / 2 | v0 4/1 aligned | Full four suites | 8 × 8 × 2 | 3.379 | 20.37 |
+| 4770 / 3 | v0 3/3 aligned | Full four suites | 8 × 8 × 2 | 2.954 | 17.80 |
+| 4770 / 4 | Dense-S12 | Full four suites | 16 × 4 × 2 | 1.668 | 10.05 |
+| 4771 / 1 | v0 4/1 mix | Long 344/44 | 8 × 8 × 2 | 3.629 | 7.31 |
+| 4771 / 2 | v0 1/4 aligned | Full four suites | 16 × 4 × 2 | 1.869 | 11.26 |
+| 4771 / 3 | v0 2/2 aligned | Full four suites | 16 × 4 × 2 | 2.106 | 12.70 |
+| 4771 / 4 | Dense-S30 | Full four suites | 8 × 8 × 2 | 3.811 | 22.97 |
+
+All use global batch 128, seed 42, ten epochs and fresh initialization/optimizer.
+Long experiments retain baseline DDP8/accumulation8 exactly. Full runs use the
+fastest valid measured candidate. The ten-update native timings above are short
+projections, not completed training measurements. Dense-S12's short native timing
+is slower than its 1.367-second benchmark; the ETA uses the native figure.
+Training-only totals: **55.49 h (4770)** and **54.24 h (4771)**.
+
+All eight fresh warm-cache 10-update runs passed finite-loss/gradient, manifest,
+window/update-budget and baseline asset/data/init fairness checks. Both new KV
+modes also passed fresh cold-cache 10-update runs, held-out diagnostics with RNG
+and model state unchanged, and two simulator smoke episodes with videos. Each
+full-suite configuration passed eight smoke episodes (two tasks per suite,
+100-step smoke cap). These short untrained-policy rollouts test execution, not SR.
+Final evaluations retain the full benchmark protocol and seeds 42/43/44.
+
+### Native compilation limitation and explicit eager inference
+
+Native H100 BF16 Inductor inference **failed** the fixed `atol=rtol=0.002`
+comparison. This failure is preserved and is not counted as a passed gate:
+
+| Checkpoint | Maximum absolute final-action difference | Repeat compiled output |
+|---|---:|---|
+| concat, 10-update smoke | 0.02783203125 | Bit-identical |
+| mix, 10-update smoke | 0.01318359375 | Bit-identical |
+| existing aligned 4/1 baseline | 0.0152587890625 | Bit-identical |
+
+Boundary instrumentation compares video prefill caches and each denoising call
+on identical inputs. Inductor differences occur in both stages and also in the
+legacy aligned control. Fullgraph capture using `backend="eager"` matches every
+instrumented tensor and the final actions **exactly** for concat and mix. This
+isolates the discrepancy to the Inductor execution path; the precise generated
+kernel responsible has not been identified. Tiny FP32 compiled tests passing does
+not establish native BF16 numerical equivalence.
+
+As explicitly permitted by the specification's compiled-path fallback, this
+campaign uses **eager inference only**, including final simulator evaluation and
+reported latency. No tolerances, weights, precision settings, or training contract
+were changed. `native_compiled_verified=false` suppresses compiled latency runs.
+The release audit records `native_inductor_gate_passed=false` and scopes its pass
+to `eager_production_release`. Fullgraph capture itself works, but native Inductor
+is not verified for this comparison. Any later compiled timing must be labeled
+separately and must not be interpreted as matching the accepted eager SR.
+
+The first helper invocation failed because login-node `/tmp` is not shared with
+worker nodes. The helper was moved to shared storage and rerun; both launch logs
+are retained. This occurred before production release.
+
+## Production release and finish estimate
+
+The reviewed eager-only audit passed and both launch files were published at
+**2026-10-09 01:16:50 UTC (October 8, 9:16:50 p.m. EDT)**. Jobs **4770**
+(worker-0, concat queue) and **4771** (worker-1, mix queue) each hold two H100s,
+32 CPU cores and 256 GiB host memory, with a 120-hour time limit. Source is pinned
+to `3a89bfac5cfccad66bfebbe00014f7f739a78adc`; later documentation commits do not
+change running code. Audit SHA-256:
+`6f7d2492286c7a1f5bdd35041090f9b2df77105a0ad95003879ffd5c904ea634`.
+
+Both start fresh canonical donor training, not a smoke or trained checkpoint.
+Every training stage automatically runs three separate final evaluations at
+seeds 42/43/44 before advancing. The two Long experiments finish their evaluation
+and analysis before either queue starts its full-suite stages. An inconclusive
+concat result triggers the pre-registered expanded seed-42 500-episode evaluation
+for concat and aligned 4/1, preserving the original 300-episode decision.
+
+**Forecast from release:** approximately **65–72 hours** through all eight
+trainings and all scheduled evaluations, or **October 11, 2:15–9:15 p.m. EDT**
+(18:15 UTC October 11 to 01:15 UTC October 12). Add roughly **2–3 hours** if the
+expanded Long follow-up is triggered. Initial Long training plus three-seed
+results should be available in approximately **8–9 hours** (October 9,
+5:15–6:15 a.m. EDT), excluding the optional expanded follow-up.
+
+This forecast combines measured short native update times with conservative
+rollout/checkpoint overhead. Evaluation timing is extrapolated from the measured
+869.6 seconds per 100 Long episodes; full-suite task lengths and model depths
+vary. Shared-storage and cluster contention can shift the estimate. It is not
+a guaranteed completion time or a completed-run runtime measurement. Both jobs
+exit and release their allocations naturally when their pipelines finish; no
+external jobs are canceled. On a failed stage the pipeline stops instead of
+continuing with incomplete evidence.
+
+The automatic Long report and full-suite report will be written on the server
+under `campaign_3a89bfa/long_analysis` and `campaign_3a89bfa/full_analysis` in
+job 4770. Final model checkpoints and videos stay on the server. Final SR,
+statistical decisions and final-checkpoint KV latency remain pending training.

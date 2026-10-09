@@ -1,0 +1,23 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/verify_kv_native_inference.py", line 24, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/scripts/verify_kv_native_inference.py", line 21, in main
+    torch.testing.assert_close(compiled,eager,atol=2e-3,rtol=2e-3)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/.venv/lib/python3.10/site-packages/torch/testing/_comparison.py", line 1519, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 90 / 224 (40.2%)
+Greatest absolute difference: 0.02783203125 at index (27, 4) (up to 0.002 allowed)
+Greatest relative difference: 0.6707716584205627 at index (9, 5) (up to 0.002 allowed)
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/run_native_compile_with_provenance.py", line 16, in <module>
+    subprocess.run(command,check=True)
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/.venv/bin/python', 'scripts/verify_kv_native_inference.py', '--checkpoint', '/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_warm/latest.pt', '--output', '/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/native_compiled.json']' returned non-zero exit status 1.
+srun: error: worker-0: task 0: Exited with exit code 1

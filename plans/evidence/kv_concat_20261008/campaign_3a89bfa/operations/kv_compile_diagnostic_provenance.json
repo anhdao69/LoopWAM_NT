@@ -1,0 +1,51 @@
+{
+  "recorded_unix": 1791508626.4112122,
+  "source_revision": "3a89bfac5cfccad66bfebbe00014f7f739a78adc",
+  "description": "Post-execution provenance; checkpoint hashes independently revalidated by the release audit.",
+  "records": [
+    {
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnostic_concat_inductor.json",
+      "output_sha256": "95f6984e0a7f4400d9622ca84c792cb378573fb511eed32c7de918a79b8c8869",
+      "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_warm/latest.pt",
+      "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+      "script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/diagnose_kv_compile.py",
+      "script_sha256": "a18fd576702de5a737041723a94bb3c3e848b519258b270dc5e0e8bc03c0127d",
+      "invocation_script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnose_compile.sh",
+      "invocation_sha256": "d7515ce30187b6dbb9794aa7dd5d20f23ce5da8956afefd743b66e52870d730d",
+      "log_sha256": "0786054568461747eb3e2614724bd4746d7fbd9c2c62f76ca90f8abc16d2dd44"
+    },
+    {
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnostic_concat_eager.json",
+      "output_sha256": "201edd636d8778cb7dc4ed057582e9fccf726500d97023e2f564122c4948780d",
+      "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_warm/latest.pt",
+      "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+      "script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/diagnose_kv_compile.py",
+      "script_sha256": "a18fd576702de5a737041723a94bb3c3e848b519258b270dc5e0e8bc03c0127d",
+      "invocation_script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnose_compile.sh",
+      "invocation_sha256": "d7515ce30187b6dbb9794aa7dd5d20f23ce5da8956afefd743b66e52870d730d",
+      "log_sha256": "0786054568461747eb3e2614724bd4746d7fbd9c2c62f76ca90f8abc16d2dd44"
+    },
+    {
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_inductor.json",
+      "output_sha256": "e2463b486e2eec9b84d6d82f2b837ef959054f46168d0b5f1bcefb8d615f3054",
+      "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/campaign_3a89bfa/mix_long_smoke_warm/latest.pt",
+      "checkpoint_sha256": "600564e87455bee761f74770219c751e095bb8fa845e2828b4ff83a4d4306788",
+      "script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/diagnose_kv_compile.py",
+      "script_sha256": "a18fd576702de5a737041723a94bb3c3e848b519258b270dc5e0e8bc03c0127d",
+      "invocation_script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnose_compile.sh",
+      "invocation_sha256": "0374f14f1df180774bb3ae4f00a32a62a7fb79d17a2e0f13b7e8fd2088a60c72",
+      "log_sha256": "46ae0dfe6ae2eb36ae7a84fd23c28e49a75e0c5e7573dc2f21b77a4835c5eef0"
+    },
+    {
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_eager.json",
+      "output_sha256": "b379a2c8bdd57135ffa8a685ac9cc1b397166a85149fe2f2cb6e29279e9c61dd",
+      "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/campaign_3a89bfa/mix_long_smoke_warm/latest.pt",
+      "checkpoint_sha256": "600564e87455bee761f74770219c751e095bb8fa845e2828b4ff83a4d4306788",
+      "script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/diagnose_kv_compile.py",
+      "script_sha256": "a18fd576702de5a737041723a94bb3c3e848b519258b270dc5e0e8bc03c0127d",
+      "invocation_script": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnose_compile.sh",
+      "invocation_sha256": "0374f14f1df180774bb3ae4f00a32a62a7fb79d17a2e0f13b7e8fd2088a60c72",
+      "log_sha256": "46ae0dfe6ae2eb36ae7a84fd23c28e49a75e0c5e7573dc2f21b77a4835c5eef0"
+    }
+  ]
+}

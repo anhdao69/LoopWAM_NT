@@ -1,0 +1,56 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/full_33_smoke_warm/latest.pt",
+  "checkpoint_sha256": "a6449bd318a53cadc93c1b64be698cbbd7786bd0eed2a77ff62b0a8ff02de94e",
+  "checkpoint_step": 10,
+  "version": "v0",
+  "video_loops": 3,
+  "action_loops": 3,
+  "action_kv_mode": "aligned",
+  "arguments": {
+    "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/full_33_smoke_warm/latest.pt",
+    "stats": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/full_33_smoke_warm/data/dataset_stats.json",
+    "vae_path": "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/full_33_smoke_eval",
+    "workers_per_gpu": 5,
+    "torch_threads": 1,
+    "render_threads": 3,
+    "video_threads": 1,
+    "suites": [
+      "libero_spatial",
+      "libero_object",
+      "libero_goal",
+      "libero_10"
+    ],
+    "seeds": [
+      42
+    ],
+    "tasks": [
+      0,
+      1
+    ],
+    "episodes_per_task": 1,
+    "max_steps": 100,
+    "smoke": true,
+    "trace_actions": false
+  },
+  "gpus": [
+    "0",
+    "1"
+  ],
+  "workers_per_gpu": 5,
+  "worker_count": 10,
+  "mode": "smoke",
+  "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+  "seed_formula": "base_seed + task_id*100000 + episode_index*1000 + replan_index",
+  "protocol": {
+    "max_policy_steps": 100,
+    "settling_steps": 30,
+    "replan_steps": 10,
+    "denoising_steps": 10,
+    "cfg": 1,
+    "action_chunk": 32
+  },
+  "environment_lifecycle": "one environment per task and round; initial states sequential",
+  "source_script_sha256": "f303efbdd4b00e9f7f61cb2147b00e85c269ab50dacf7baa3bc6d147c437a3d2",
+  "slurm_job_id": "4770"
+}

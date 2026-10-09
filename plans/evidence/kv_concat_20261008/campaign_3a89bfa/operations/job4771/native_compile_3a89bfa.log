@@ -1,0 +1,2 @@
+python: can't open file '/tmp/run_native_compile_with_provenance.py': [Errno 2] No such file or directory
+srun: error: worker-1: task 0: Exited with exit code 2

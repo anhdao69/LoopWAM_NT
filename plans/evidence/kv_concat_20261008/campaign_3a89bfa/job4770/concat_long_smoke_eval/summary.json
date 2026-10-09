@@ -1,0 +1,84 @@
+{
+  "total_episodes": 2,
+  "successes": 0,
+  "success_rate": 0.0,
+  "rounds": {
+    "0": {
+      "seed": 42,
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "per_suite": {
+        "libero_10": {
+          "episodes": 2,
+          "successes": 0,
+          "success_rate": 0.0
+        }
+      }
+    }
+  },
+  "episodes": [
+    {
+      "success": false,
+      "terminal": false,
+      "steps": 100,
+      "wait_steps": 30,
+      "replans": 10,
+      "seed": 42,
+      "timeout": true,
+      "id": "r0_libero_10_t0_e0",
+      "round": 0,
+      "base_seed": 42,
+      "suite": "libero_10",
+      "task": 0,
+      "episode": 0,
+      "worker": 6,
+      "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+      "mode": "smoke",
+      "initial_state_index": 0,
+      "task_id": 0,
+      "episode_index": 0,
+      "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+      "duration_seconds": 19.01062910305336,
+      "peak_gpu_gib": 3.7280049324035645,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_eval/videos/2026_10_09-00_42_18--episode=r0_libero_10_t0_e0--success=False--task=put_both_the_alphabet_soup_and_the_tomato_sauce_in.mp4"
+    },
+    {
+      "success": false,
+      "terminal": false,
+      "steps": 100,
+      "wait_steps": 30,
+      "replans": 10,
+      "seed": 100042,
+      "timeout": true,
+      "id": "r0_libero_10_t1_e0",
+      "round": 0,
+      "base_seed": 42,
+      "suite": "libero_10",
+      "task": 1,
+      "episode": 0,
+      "worker": 3,
+      "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+      "mode": "smoke",
+      "initial_state_index": 0,
+      "task_id": 1,
+      "episode_index": 0,
+      "task_description": "put both the cream cheese box and the butter in the basket",
+      "duration_seconds": 19.351015895139426,
+      "peak_gpu_gib": 3.7280049324035645,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa/concat_long_smoke_eval/videos/2026_10_09-00_42_18--episode=r0_libero_10_t1_e0--success=False--task=put_both_the_cream_cheese_box_and_the_butter_in_th.mp4"
+    }
+  ],
+  "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+  "mode": "smoke",
+  "checkpoint_step": 10,
+  "version": "v0",
+  "video_loops": 4,
+  "action_loops": 1,
+  "action_kv_mode": "concat",
+  "elapsed_seconds": 37.04394571506418,
+  "model_startup_seconds": 11.691852436866611,
+  "episode_phase_seconds": 25.564703246112913,
+  "workers_per_gpu": 5,
+  "max_worker_gpu_gib": 3.7280049324035645
+}

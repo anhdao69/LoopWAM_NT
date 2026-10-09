@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "compared_fields": [
+    "asset_sha256",
+    "seed",
+    "epochs",
+    "global_batch",
+    "train_windows",
+    "planned_updates",
+    "planned_windows",
+    "policy_dtype",
+    "optimizer_state_dtype",
+    "compute_dtype",
+    "initialization_mode"
+  ],
+  "data_fields": [
+    "action_offsets",
+    "camera_order",
+    "codebase_version",
+    "complete_500_demo_set",
+    "content_files",
+    "dataset_dir",
+    "episode_metadata_sha256",
+    "fps",
+    "info_sha256",
+    "normalization_sha256",
+    "normalization_source",
+    "padding_policy",
+    "seed",
+    "split_algorithm",
+    "task_counts",
+    "text_cache_dir",
+    "text_cache_files",
+    "text_encoder_provenance",
+    "train_episodes",
+    "train_windows",
+    "validation_episodes",
+    "validation_windows",
+    "video_offsets"
+  ],
+  "ignored_data_fields": [
+    "normalization_path"
+  ]
+}

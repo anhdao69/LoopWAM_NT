@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "scope": "eager_production_release",
+  "native_inductor_gate_passed": false,
+  "compiled_inference_disabled": true,
+  "source_revision": "3a89bfac5cfccad66bfebbe00014f7f739a78adc",
+  "audited_unix": 1791508568.3407688,
+  "regressions": {
+    "cpu_3a89bfa": {
+      "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/plans/evidence/kv_concat_20261008/cpu_3a89bfa.log",
+      "sha256": "e2ca13775a553c151884c57da4888f62b67a7eb92373530499569b0e6cb223d6",
+      "passed": 385
+    },
+    "gpu_3a89bfa_4770": {
+      "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/plans/evidence/kv_concat_20261008/gpu_3a89bfa_4770.log",
+      "sha256": "28c79733236e251a8e40594360c9cc4f53c884ab62fab4cacf0cdb9a7d316f63",
+      "passed": 394
+    },
+    "gpu_3a89bfa_4771": {
+      "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/source_kv_3a89bfa/plans/evidence/kv_concat_20261008/gpu_3a89bfa_4771.log",
+      "sha256": "62a157cbfc312b75c8a3515824dec46be417b66acf07b6ce012a35b20710efb4",
+      "passed": 394
+    }
+  },
+  "reproduction": {
+    "passed": true,
+    "baseline_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_v4a1_job4728_20261007/evaluation/summary.json",
+    "baseline_summary_sha256": "f325d874da0fc6b32039977c3bc626c531129cbd4168d6ccdb7229f817bd7f7f",
+    "all100_outcomes_steps_replans_identical": true,
+    "all100_action_traces_bit_identical": true,
+    "configurations": {
+      "full_w4_render4": {
+        "elapsed_seconds": 1002.7909366451204,
+        "successes": 81,
+        "total_episodes": 100,
+        "workers_per_gpu": 4,
+        "max_worker_gpu_gib": 3.707962989807129
+      },
+      "full_w5_render3": {
+        "elapsed_seconds": 869.6166945658624,
+        "successes": 81,
+        "total_episodes": 100,
+        "workers_per_gpu": 5,
+        "max_worker_gpu_gib": 3.707962989807129
+      }
+    },
+    "selected": {
+      "workers_per_gpu": 5,
+      "render_threads": 3
+    },
+    "limitation": "One timing trial per configuration on different H100 workers; host variability is not isolated."
+  },
+  "queues": {
+    "concat": {
+      "job": 4770,
+      "root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/campaign_3a89bfa",
+      "release": {
+        "queue": "concat",
+        "source_revision": "3a89bfac5cfccad66bfebbe00014f7f739a78adc",
+        "evaluation": {
+          "workers_per_gpu": 5,
+          "render_threads": 3
+        },
+        "native_compiled_verified": false,
+        "compiled_inference_status": "unsupported_native_BF16_numerical_gate_failed",
+        "compile_diagnostics": {
+          "inductor": {
+            "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnostic_concat_inductor.json",
+            "sha256": "95f6984e0a7f4400d9622ca84c792cb378573fb511eed32c7de918a79b8c8869",
+            "final_max_abs": 0.02783203125
+          },
+          "eager": {
+            "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/diagnostic_concat_eager.json",
+            "sha256": "201edd636d8778cb7dc4ed057582e9fccf726500d97023e2f564122c4948780d",
+            "final_max_abs": 0.0
+          }
+        },
+        "control_baseline_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/control_aligned_v4a1_accepted/summary.json",
+        "control_baseline_sha256": "ea935a8c916b44ed0a850d4229a5de05bec612d3fcb1bc5588d71de2e92d7059",
+        "control_repeat_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/control_repeat_v4a4_grouped/summary.json",
+        "control_repeat_sha256": "3ffbd23ff74f27b812e80e2bd59ff0a19d00a1d53d49c55a5de6bf6992ae0cb8"
+      },
+      "stages": {
+        "concat_long": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 8,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 3.600989818572998,
+            "native_seconds": 3.60756876733568,
+            "training_hours": 7.265242656439911,
+            "eval_smoke_seconds": 37.04394571506418,
+            "eval_peak_worker_gib": 3.7280049324035645
+          },
+          "training_manifest_sha256": "4c5a2918d97e0ed8e9a03145a642415a8f8a1191cd36d6f4b2b8f1d6d8bcffdb",
+          "checkpoint_sha256": "f1562fba15eefcf0936e4b58a038f7f9cf861d3d43322650f9c44a592424ef62",
+          "smoke_episodes": 2
+        },
+        "full_41": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 8,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 3.3697210947672525,
+            "native_seconds": 3.3791481388939753,
+            "training_hours": 20.36875405944424,
+            "eval_smoke_seconds": 42.21312224515714,
+            "eval_peak_worker_gib": 3.707016944885254
+          },
+          "training_manifest_sha256": "d3b36ced107c52419682082f574c03d7500767a64c63debdab15bd4267ee2a29",
+          "checkpoint_sha256": "94e0d35e663c5842a78d0f9a33bced1f954c869638afffb9abe65300cf051edb",
+          "smoke_episodes": 8
+        },
+        "full_33": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 8,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 2.9429334799448648,
+            "native_seconds": 2.953583690855238,
+            "training_hours": 17.803546136544075,
+            "eval_smoke_seconds": 45.43158816616051,
+            "eval_peak_worker_gib": 3.6858835220336914
+          },
+          "training_manifest_sha256": "1543155e676cc860c27810646883ce6c104f29c10e8d5e1e8754c1a91e5e650b",
+          "checkpoint_sha256": "a6449bd318a53cadc93c1b64be698cbbd7786bd0eed2a77ff62b0a8ff02de94e",
+          "smoke_episodes": 8
+        },
+        "full_dense12": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 16,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 1.367004672686259,
+            "native_seconds": 1.6680241823196411,
+            "training_hours": 10.05447909898228,
+            "eval_smoke_seconds": 42.370998746016994,
+            "eval_peak_worker_gib": 3.6390085220336914
+          },
+          "training_manifest_sha256": "0d438e8d356e5bfbde20db41caeeb962e34405e5f211756e4383d15a948c796a",
+          "checkpoint_sha256": "9a6818f6ae4d7a429ec8d52f19b876aa5ed2b0520671bee7b21bd2c36a6f782c",
+          "smoke_episodes": 8
+        }
+      },
+      "training_hours": 55.49202195141051
+    },
+    "mix": {
+      "job": 4771,
+      "root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/campaign_3a89bfa",
+      "release": {
+        "queue": "mix",
+        "source_revision": "3a89bfac5cfccad66bfebbe00014f7f739a78adc",
+        "evaluation": {
+          "workers_per_gpu": 5,
+          "render_threads": 3
+        },
+        "native_compiled_verified": false,
+        "compiled_inference_status": "unsupported_native_BF16_numerical_gate_failed",
+        "compile_diagnostics": {
+          "inductor": {
+            "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_inductor.json",
+            "sha256": "e2463b486e2eec9b84d6d82f2b837ef959054f46168d0b5f1bcefb8d615f3054",
+            "final_max_abs": 0.01318359375
+          },
+          "eager": {
+            "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/diagnostic_mix_eager.json",
+            "sha256": "b379a2c8bdd57135ffa8a685ac9cc1b397166a85149fe2f2cb6e29279e9c61dd",
+            "final_max_abs": 0.0
+          }
+        },
+        "control_baseline_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4771/control_aligned_v4a1_accepted/summary.json",
+        "control_baseline_sha256": "ea935a8c916b44ed0a850d4229a5de05bec612d3fcb1bc5588d71de2e92d7059",
+        "control_repeat_summary": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/kv_campaign_job4770/control_repeat_v4a4_grouped/summary.json",
+        "control_repeat_sha256": "3ffbd23ff74f27b812e80e2bd59ff0a19d00a1d53d49c55a5de6bf6992ae0cb8"
+      },
+      "stages": {
+        "mix_long": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 8,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 3.6483210722605386,
+            "native_seconds": 3.6288276778327093,
+            "training_hours": 7.308055740079761,
+            "eval_smoke_seconds": 37.727977292612195,
+            "eval_peak_worker_gib": 3.7325901985168457
+          },
+          "training_manifest_sha256": "054ae7457edefbbf295cbb060b9404967acf29a459d8b3f80f7b6a5776033d84",
+          "checkpoint_sha256": "600564e87455bee761f74770219c751e095bb8fa845e2828b4ff83a4d4306788",
+          "smoke_episodes": 2
+        },
+        "full_14": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 16,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 1.789041797320048,
+            "native_seconds": 1.8688234355714586,
+            "training_hours": 11.264852375527958,
+            "eval_smoke_seconds": 47.32149897515774,
+            "eval_peak_worker_gib": 3.6390085220336914
+          },
+          "training_manifest_sha256": "7aba9d168e15722a1a03c8397e6a80bfda6737653ca6665e844d1478584e2cf2",
+          "checkpoint_sha256": "efeb3c515773f61980d56454a35f284bd54f04cc49c62b6a1dffc606fc0d2753",
+          "smoke_episodes": 8
+        },
+        "full_22": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 16,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 1.9928929607073467,
+            "native_seconds": 2.1064299477471247,
+            "training_hours": 12.697091629475723,
+            "eval_smoke_seconds": 44.11501021310687,
+            "eval_peak_worker_gib": 3.6613473892211914
+          },
+          "training_manifest_sha256": "f5e607cb6ec5e3671e6185fe1a0a3fa1bfc1fde9c74a5bcdbc0820f4f361ee14",
+          "checkpoint_sha256": "90dcaa09e2fea77762255621b0d2b70a63a3168b5cb7b34cacd0ea14dcbf66b2",
+          "smoke_episodes": 8
+        },
+        "full_dense30": {
+          "configuration": {
+            "backend": "ddp",
+            "microbatch": 8,
+            "workers_per_gpu": 5,
+            "render_threads": 3,
+            "steady_seconds": 3.744468092918396,
+            "native_seconds": 3.811181730694241,
+            "training_hours": 22.972956543351398,
+            "eval_smoke_seconds": 53.67230916954577,
+            "eval_peak_worker_gib": 8.410874366760254
+          },
+          "training_manifest_sha256": "abf3eb634ee1f259c8fcf91e39bbe2b7b6747fb6a702e668d907e573ac0dc2a1",
+          "checkpoint_sha256": "61d61ca451d9a6d0facab2cbb1038a53c5e94358e1c2b4a6c70b0b9cabfffe83",
+          "smoke_episodes": 8
+        }
+      },
+      "training_hours": 54.24295628843484
+    }
+  },
+  "free_disk_gib": 347.5751953125
+}

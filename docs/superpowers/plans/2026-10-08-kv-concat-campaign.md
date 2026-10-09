@@ -13,12 +13,12 @@ episode inference. Gated queues, cross-job Long barrier, automatic analysis.
 ## Tasks
 - [x] 1: Core modes and tiny numerical/gradient/mask tests, including generic aligned equivalence.
 - [x] 2: Strict checkpoint/contract/CLI propagation; mix no-decay group and exact parameter counts; legacy regression.
-- [ ] 3: Fixed heldout concat attention diagnostics and mix weights, RNG-neutral; latency breakdown and compiled inference.
+- [x] 3: Fixed heldout concat attention diagnostics and mix weights, RNG-neutral; latency breakdown and compiled inference.
 - [x] 4: Four-run campaign with 42/43/44 evaluations, fairness/source gates, full-suite dense controls, and Long completion barrier.
 - [x] 5: Statistical report generator (Wilson, exact paired McNemar, two-proportion test, losses, diagnostics/latency plots); pre-register decision rule.
-- [ ] 6: Archive CPU/GPU suites, benchmark each new mode/backends, cold/warm native smokes, simulator smokes, fairness checks. Diagnose any gate failure.
-- [ ] 7: Pin source and launch verified fresh production in both existing replacement allocations; inspect finite initial updates, estimate full finish times.
-- [ ] 8: Whole-branch review, implementation report/evidence sync and KV_concat push. Leave LoopWAM_NT unchanged.
+- [x] 6: Archive CPU/GPU suites, benchmark each new mode/backends, cold/warm native smokes, simulator smokes, fairness checks. Diagnose any gate failure.
+- [x] 7: Pin source and launch verified fresh production in both existing replacement allocations; inspect finite initial updates, estimate full finish times.
+- [x] 8: Whole-branch review, implementation report/evidence sync and KV_concat push. Leave LoopWAM_NT unchanged.
 
 ## Review focus
 No future-token leakage, no detached observation KV, identical aligned paths,
@@ -35,3 +35,5 @@ field against baseline, not only counts. No historical outputs overwritten.
   not count as additional training runs and use the pinned task-sequence evaluator after exact baseline reproduction.
 - Borderline expansion uses seed42,50states/task; retain 300-episode result and
   label any expanded analysis separately; no invented follow-up decision rule.
+
+Native Inductor BF16 gate failed and is explicitly unsupported; eager-only release follows the user-authorized compiled-path fallback. Tiny fullgraph GPU tests pass, native backend=eager graph capture is exact. See report for unchanged tolerance and failed evidence.
