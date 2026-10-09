@@ -1,0 +1,20 @@
+{
+  "submitted_unix": 1791580045.9069574,
+  "runner_sha256": "a4316882fa7675706b4f5afe6b9bc80e2bc3a72ea89ee35d7183c4d066f3b339",
+  "jobs": [
+    {
+      "queue": "concat",
+      "predecessor_job": 4770,
+      "job": 4795,
+      "dependency": "afterany:4770",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/training_only_job4795"
+    },
+    {
+      "queue": "mix",
+      "predecessor_job": 4771,
+      "job": 4796,
+      "dependency": "afterany:4771",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/training_only_job4796"
+    }
+  ]
+}

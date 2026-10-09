@@ -1,0 +1,9 @@
+{
+  "job": 4770,
+  "queue": "concat",
+  "pid": 1924986,
+  "start": "134891177",
+  "training_child": 1122026,
+  "armed_unix": 1791580066.1271772,
+  "controller_only_stopped": true
+}

@@ -1,5 +1,12 @@
 # LoopWAM v0 4/1: all-loop observation KV experiment
 
+> **Scheduling update — October 9, 21:08 UTC:** the user removed all remaining
+> inference/evaluation stages. Current full 4/1 and 1/4 training continues;
+> dependent jobs **4795 / 4796** train the remaining loop and Dense models only.
+> See the [training-only continuation report](LoopWAM_Training_Only_Continuation_20261009.md).
+> This supersedes future evaluation scheduling statements below; completed SR
+> and the pre-registered Long analysis are unchanged.
+
 > **Updated October 9, 2026, 14:16 UTC (10:16 a.m. EDT).** Concat and mix Long
 > training and all three evaluation seeds are complete. The expanded comparison
 > is also complete. Jobs 4770 and 4771 have advanced to full-suite aligned 4/1

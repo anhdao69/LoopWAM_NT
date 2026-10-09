@@ -1,5 +1,12 @@
 # LoopWAM — consolidated experimental results
 
+> **Scheduling update — October 9, 21:08 UTC:** the user removed all remaining
+> inference/evaluation stages. Current full 4/1 and 1/4 training continues;
+> dependent jobs **4795 / 4796** train the remaining loop and Dense models only.
+> See the [training-only continuation report](LoopWAM_Training_Only_Continuation_20261009.md).
+> This supersedes future evaluation scheduling statements below; completed SR
+> and the pre-registered Long analysis are unchanged.
+
 **Audit snapshot: 2026-10-08T12:52:59.169087+00:00 (October 8, 2026, approximately 08:53 EDT).**
 
 Sections 1 onward retain the October 8 audit snapshot. The October 9 update below adds the completed KV experiments and control evaluations. It supersedes pending-result statements in older launch reports while preserving those documents as historical records. Results come from server production manifests, timing files, all logged training updates, evaluation summaries and episode records; supporting evidence and reproducible analysis are linked below. The fresh 4/4 repeat remains in progress at this snapshot.

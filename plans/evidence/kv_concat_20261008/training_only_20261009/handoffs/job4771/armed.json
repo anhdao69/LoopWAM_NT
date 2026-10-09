@@ -1,0 +1,9 @@
+{
+  "job": 4771,
+  "queue": "mix",
+  "pid": 1513985,
+  "start": "1327058569",
+  "training_child": 2721888,
+  "armed_unix": 1791580065.44039,
+  "controller_only_stopped": true
+}
