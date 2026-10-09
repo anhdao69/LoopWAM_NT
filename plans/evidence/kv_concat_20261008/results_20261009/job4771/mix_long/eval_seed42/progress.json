@@ -1,0 +1,8 @@
+{
+  "ready": 10,
+  "workers": 10,
+  "episodes": 100,
+  "planned": 100,
+  "successes": 90,
+  "elapsed_seconds": 956.3523623291403
+}

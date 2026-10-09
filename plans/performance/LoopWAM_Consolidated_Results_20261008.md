@@ -2,7 +2,45 @@
 
 **Audit snapshot: 2026-10-08T12:52:59.169087+00:00 (October 8, 2026, approximately 08:53 EDT).**
 
-This is the current consolidated report. It supersedes pending-result statements in older launch reports while preserving those documents as historical records. Results come from server production manifests, timing files, all logged training updates, evaluation summaries and episode records; supporting evidence and reproducible analysis are linked below. The fresh 4/4 repeat remains in progress at this snapshot.
+Sections 1 onward retain the October 8 audit snapshot. The October 9 update below adds the completed KV experiments and control evaluations. It supersedes pending-result statements in older launch reports while preserving those documents as historical records. Results come from server production manifests, timing files, all logged training updates, evaluation summaries and episode records; supporting evidence and reproducible analysis are linked below. The fresh 4/4 repeat remains in progress at this snapshot.
+
+## October 9 update: all-loop KV experiments
+
+**Verified snapshot: 2026-10-09 14:16 UTC (10:16 a.m. EDT).** The Long concat/mix
+experiments and expanded comparison are complete. The matched training contract
+remains ten epochs, seed 42, global batch 128, the 344/44 split and fresh canonical
+initialization. Both new runs used two H100s and DDP 8 × accumulation 8.
+
+| Long model | Evaluation seeds 42/43/44 | Pooled success rate | Training time |
+|---|---|---:|---:|
+| Aligned 4/1 control | 81/88/84 | 253/300 = **84.33%** | Historical run |
+| Concat 4/1 | 83/86/86 | 255/300 = **85.00%** | 7h34m18s |
+| Mix 4/1 | 90/89/87 | 266/300 = **88.67%** | 7h18m22s |
+| Original 4/4 | 96/88/91 | 275/300 = **91.67%** | Historical run |
+| Fresh repeat 4/4 | 91/85/92 | 268/300 = **89.33%** | Historical run |
+
+Concat versus aligned pooled paired exact McNemar: p=0.9036. Mix versus aligned:
+p=0.1299. Neither establishes an improvement at 0.05. Concat's 85% triggers the
+pre-registered **inconclusive** outcome. The completed expanded seed 42 comparison
+is **404/500 (80.80%) concat versus 413/500 (82.60%) aligned**, paired p=0.4814.
+Do not pool that overlapping expanded grid with the original 300 episodes. No new
+expanded-result threshold was pre-registered; the original decision remains
+inconclusive. All experiments still use one training seed.
+
+Eager query latency: aligned 4/1 **118.428ms**, concat **139.843ms**, mix
+**129.967ms**, original 4/4 **237.776ms**. Native BF16 Inductor failed numerical
+equivalence and is disabled; there is no accepted compiled SR or latency result.
+These timings are a separate measurement from the earlier FastWAM versus
+four-suite v0 comparison below.
+
+Jobs 4770/4771 have moved to full-suite aligned 4/1 and 1/4 training; their new
+full-suite SR is pending. Subsequent stages are 3/3→Dense-S12 and 2/2→Dense-S30,
+respectively, each followed by evaluation seeds 42/43/44.
+
+See the [complete KV report](LoopWAM_v0_V4A1_KVconcat_20261008.md) for intervals,
+per-task results, losses, runtime, diagnostics, limitations and independently
+verified raw evidence. Historical pending statements below apply to the older
+October 8 snapshot and are superseded by this update.
 
 ## 1. Findings
 

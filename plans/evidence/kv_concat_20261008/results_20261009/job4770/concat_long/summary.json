@@ -1,0 +1,153 @@
+{
+  "training": {
+    "status": "complete",
+    "completed_updates": 7250,
+    "windows_seen": 926780,
+    "planned_updates": 7250,
+    "elapsed_training_seconds": 27258.21305021108,
+    "checkpoint_seconds_total": 98.40984348789789,
+    "checkpoint_count": 10,
+    "measured_mean_update_seconds": 3.7376492462794295,
+    "estimated_total_training_hours": 7.527210287646073,
+    "estimate_note": "Projection from measured updates; excludes setup/checkpoint overhead",
+    "latest": {
+      "update": 7250,
+      "epoch": 10,
+      "windows": 6,
+      "windows_seen": 926780,
+      "effective_passes": 10.0,
+      "seconds": 0.8128615617752075,
+      "lr": 1.0000000000000002e-06,
+      "grad_norm": 0.4529801905155182,
+      "branch_grad_after_clip": {
+        "video": 0.3884684443473816,
+        "action": 0.23184558749198914,
+        "proprio": 0.02304273098707199
+      },
+      "latent_cache_rank_local": {
+        "hits": 463420,
+        "misses": 0,
+        "dummy_encodes": 20,
+        "encoder_samples": 20,
+        "batches": 57930,
+        "read_seconds": 1537.3295891773887,
+        "encode_seconds": 0.9740421026945114,
+        "write_seconds": 0.0
+      },
+      "peak_allocated_gb": 60.09296417236328,
+      "peak_reserved_gb": 60.964210510253906,
+      "exit4/video_raw": 0.04362402359644572,
+      "exit4/action_raw": 0.026146019498507183,
+      "exit4/video": 0.05109126369158427,
+      "exit4/action": 0.017173873881498974,
+      "loss_video": 0.05109126369158427,
+      "loss_action": 0.017173873881498974,
+      "loop/1/video_state_rms": 2.6954692204793296,
+      "loop/2/video_state_rms": 2.8093770345052085,
+      "loop/3/video_state_rms": 2.989253044128418,
+      "loop/4/video_state_rms": 2.7547988891601562,
+      "loop/1/action_state_rms": 1.5263166427612305,
+      "loop/2/action_state_rms": 1.5263166427612305,
+      "loop/3/action_state_rms": 1.5263166427612305,
+      "loop/4/action_state_rms": 1.8486798604329426
+    }
+  },
+  "evaluations": [
+    {
+      "total_episodes": 100,
+      "successes": 83,
+      "success_rate": 0.83,
+      "rounds": {
+        "0": {
+          "seed": 42,
+          "episodes": 100,
+          "successes": 83,
+          "success_rate": 0.83,
+          "per_suite": {
+            "libero_10": {
+              "episodes": 100,
+              "successes": 83,
+              "success_rate": 0.83
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "c10ce1a2fdb04763d33a0d6d9630b7401a689e36bf4fc53bed8494584377b10a",
+      "mode": "final_rollout",
+      "checkpoint_step": 7250,
+      "version": "v0",
+      "video_loops": 4,
+      "action_loops": 1,
+      "action_kv_mode": "concat",
+      "elapsed_seconds": 1172.7763680270873,
+      "model_startup_seconds": 15.106019873172045,
+      "episode_phase_seconds": 1158.4193343848456,
+      "workers_per_gpu": 5,
+      "max_worker_gpu_gib": 3.7280964851379395
+    },
+    {
+      "total_episodes": 100,
+      "successes": 86,
+      "success_rate": 0.86,
+      "rounds": {
+        "0": {
+          "seed": 43,
+          "episodes": 100,
+          "successes": 86,
+          "success_rate": 0.86,
+          "per_suite": {
+            "libero_10": {
+              "episodes": 100,
+              "successes": 86,
+              "success_rate": 0.86
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "c10ce1a2fdb04763d33a0d6d9630b7401a689e36bf4fc53bed8494584377b10a",
+      "mode": "final_rollout",
+      "checkpoint_step": 7250,
+      "version": "v0",
+      "video_loops": 4,
+      "action_loops": 1,
+      "action_kv_mode": "concat",
+      "elapsed_seconds": 1068.4183601799887,
+      "model_startup_seconds": 14.762165666790679,
+      "episode_phase_seconds": 1054.3157182969153,
+      "workers_per_gpu": 5,
+      "max_worker_gpu_gib": 3.7280964851379395
+    },
+    {
+      "total_episodes": 100,
+      "successes": 86,
+      "success_rate": 0.86,
+      "rounds": {
+        "0": {
+          "seed": 44,
+          "episodes": 100,
+          "successes": 86,
+          "success_rate": 0.86,
+          "per_suite": {
+            "libero_10": {
+              "episodes": 100,
+              "successes": 86,
+              "success_rate": 0.86
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "c10ce1a2fdb04763d33a0d6d9630b7401a689e36bf4fc53bed8494584377b10a",
+      "mode": "final_rollout",
+      "checkpoint_step": 7250,
+      "version": "v0",
+      "video_loops": 4,
+      "action_loops": 1,
+      "action_kv_mode": "concat",
+      "elapsed_seconds": 1086.069096502848,
+      "model_startup_seconds": 14.784738391870633,
+      "episode_phase_seconds": 1071.858363328036,
+      "workers_per_gpu": 5,
+      "max_worker_gpu_gib": 3.7280964851379395
+    }
+  ]
+}

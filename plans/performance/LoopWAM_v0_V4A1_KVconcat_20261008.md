@@ -1,15 +1,206 @@
 # LoopWAM v0 4/1: all-loop observation KV experiment
 
-> **Current status — October 9, 2026, 01:19 UTC:** production is running in
-> jobs **4770 / 4771**, two H100s each. Both concat and mix have finite fresh
-> training updates at global batch 128. All eight training/simulator/fairness
-> preflights passed. Native BF16 Inductor failed numerical equivalence and is
-> explicitly disabled; eager evaluation is verified against the baseline.
-> Forecast: **October 11, 2:15–9:15 p.m. EDT**, plus 2–3 hours if the expanded
-> Long comparison is triggered. Final new-model SR is pending. The dated
-> development entries below retain earlier states; the final preflight and
-> production-release sections supersede them.
+> **Updated October 9, 2026, 14:16 UTC (10:16 a.m. EDT).** Concat and mix Long
+> training and all three evaluation seeds are complete. The expanded comparison
+> is also complete. Jobs 4770 and 4771 have advanced to full-suite aligned 4/1
+> and 1/4 training, respectively. Their SR is not yet available.
+> The completed-results section below supersedes the historical launch estimates
+> and pending-status entries retained later in this report.
 
+## Completed Long results — October 9 update
+
+Both new models were freshly initialized from the canonical Wan donor, with
+FP32 weights/optimizer moments and BF16 compute, seed 42, global batch 128,
+DDP microbatch 8 × accumulation 8 × two H100s. Each completed ten epochs,
+7,250 updates and 926,780 real training windows using the unchanged 344/44 split.
+All recorded training losses and gradients were finite; both final fairness checks passed.
+Running source remains `3a89bfac5cfccad66bfebbe00014f7f739a78adc`.
+
+### Three-seed success rates
+
+Each seed is a separate 100-episode execution: ten tasks × initial states 0–9.
+The protocol remains 700 policy steps, 30 settling steps, action chunk 32,
+replan every ten steps, ten denoising steps and CFG 1. Evaluation uses eager
+inference with five persistent workers per GPU and preserves sequential task
+environment lifecycle. There is no native compiled SR result.
+
+| Model | KV mode | Video/action depth | Calls/chunk | Parameters | Seed 42 | Seed 43 | Seed 44 | Pooled SR | Wilson 95% interval |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| v0 4/1 | aligned | 30/12 | 150 | 584,536,135 | 81% | 88% | 84% | **253/300 = 84.33%** | 79.79%–88.01% |
+| v0 4/1 | concat | 30/12 | 150 | 584,536,135 | 83% | 86% | 86% | **255/300 = 85.00%** | 80.52%–88.60% |
+| v0 4/1 | mix | 30/12 | 150 | 584,536,423 | 90% | 89% | 87% | **266/300 = 88.67%** | 84.58%–91.78% |
+| v0 4/4 original | aligned | 30/30 | 330 | 584,536,135 | 96% | 88% | 91% | 275/300 = 91.67% | 87.99%–94.29% |
+| v0 4/4 repeat | aligned | 30/30 | 330 | 584,536,135 | 91% | 85% | 92% | 268/300 = 89.33% | 85.33%–92.34% |
+
+Concat improves by only **0.67 percentage points** over aligned 4/1; its pooled
+paired exact McNemar p-value is **0.9036** (35 candidate-only versus 33 baseline-only
+successes). Mix is **4.33 points** higher; p = **0.1299** (38 versus 25). Neither
+comparison establishes an improvement at a conventional 0.05 threshold. Mix is
+numerically strongest among the 4/1 variants, but training-seed variance is unmeasured.
+
+### Expanded seed-42 comparison: completed
+
+Concat's 85% three-seed result lies strictly between the pre-registered 84% and
+89% cutoffs, so the original decision is **inconclusive**. This triggered 50
+initial states per task, 500 episodes per model, using evaluation seed 42.
+
+| Model | Successes | SR | Wilson 95% interval |
+|---|---:|---:|---:|
+| concat 4/1 | 404/500 | **80.80%** | 77.12%–84.01% |
+| aligned 4/1 | 413/500 | **82.60%** | 79.03%–85.67% |
+
+Concat is **1.8 percentage points lower** on this expanded grid. Paired exact
+McNemar: 60 concat-only versus 69 aligned-only successes, **p = 0.4814**.
+These results do not demonstrate a benefit from concatenating all video-loop KV.
+They also do not establish that the two policies are equivalent or prove that
+action depth is the cause. No new follow-up threshold was pre-registered, so
+the original **inconclusive** decision is retained.
+
+The expanded seed-42 grid overlaps the first ten initial states per task in the
+original evaluation. **Do not pool it with the 300-episode result as independent
+evidence.** Mix was not part of this pre-registered expanded comparison.
+
+### Measured training and evaluation runtime
+
+| Model | Training elapsed | Training GPU-hours (2 GPUs) | Mean update | Three-seed evaluation | Expanded 500 evaluation |
+|---|---:|---:|---:|---:|---:|
+| concat | 7h 34m 18s | 15.14 | 3.738 s | 0h 55m 27s | 1h 32m 42s |
+| mix | 7h 18m 22s | 14.61 | 3.610 s | 0h 48m 17s | Not scheduled |
+
+The aligned 500-episode control took **1h 33m 18s**. Training
+GPU-hours above are two GPUs multiplied by trainer elapsed time; they exclude
+preflight, evaluation and allocation waiting. Evaluation runtime is measured
+wall time from each evaluator summary, including worker startup and video output.
+Concat took approximately 17.8–19.5 minutes per 100 episodes; mix took 15.9–16.4
+minutes. These measured times supersede the earlier 14–15-minute control-based
+projection for these two trained policies.
+
+### Loss convergence
+
+Values below are unweighted means across the first and last 100 updates.
+
+| Model | Video first100 → last100 | Action first100 → last100 | Gradient norm first100 → last100 |
+|---|---:|---:|---:|
+| concat | 0.277464 → 0.063702 | 0.543765 → 0.019361 | 2.635090 → 0.142189 |
+| mix | 0.274825 → 0.063925 | 0.542318 → 0.018684 | 2.389038 → 0.136583 |
+
+| Epoch | Concat video | Concat action | Mix video | Mix action |
+|---:|---:|---:|---:|---:|
+| 1 | 0.153127 | 0.188400 | 0.152837 | 0.187631 |
+| 2 | 0.096066 | 0.090914 | 0.096726 | 0.090597 |
+| 3 | 0.084662 | 0.078618 | 0.085154 | 0.077603 |
+| 4 | 0.078575 | 0.066925 | 0.079070 | 0.065161 |
+| 5 | 0.074391 | 0.055322 | 0.074864 | 0.052895 |
+| 6 | 0.070789 | 0.044322 | 0.071224 | 0.042126 |
+| 7 | 0.068350 | 0.035008 | 0.068748 | 0.033339 |
+| 8 | 0.066051 | 0.027850 | 0.066341 | 0.026576 |
+| 9 | 0.064542 | 0.022767 | 0.064804 | 0.021931 |
+| 10 | 0.063704 | 0.020078 | 0.063942 | 0.019360 |
+
+### Per-task successes across seeds 42/43/44
+
+Each entry is out of 30. Task descriptions and individual episodes are retained
+in the raw summaries.
+
+| Task ID | Aligned 4/1 | Concat 4/1 | Mix 4/1 |
+|---:|---:|---:|---:|
+| 0 | 20 | 26 | 23 |
+| 1 | 23 | 29 | 30 |
+| 2 | 25 | 25 | 25 |
+| 3 | 28 | 27 | 30 |
+| 4 | 22 | 24 | 26 |
+| 5 | 30 | 30 | 30 |
+| 6 | 24 | 20 | 26 |
+| 7 | 26 | 26 | 25 |
+| 8 | 29 | 26 | 25 |
+| 9 | 26 | 22 | 26 |
+
+### Final-checkpoint latency
+
+One H100, batch one, FP32 weights/BF16 compute, ten denoising steps; two trials
+of 50 timed queries after five warm-up queries. These are eager policy-query
+latencies, not simulator episode times. Stage means do not sum to the total
+because the total also includes other inference work.
+
+| Model | Mean query ms | Video prefill ms | Action denoising ms |
+|---|---:|---:|---:|
+| aligned41 | 118.428 | 18.569 | 85.613 |
+| concat | 139.843 | 21.938 | 102.105 |
+| mix | 129.967 | 19.128 | 95.894 |
+| original44 | 237.776 | 18.370 | 205.187 |
+
+Native BF16 Inductor failed the unchanged numerical-equivalence gate for concat,
+mix and the legacy aligned control. Compiled inference and compiled latency
+were explicitly disabled for this campaign. Fullgraph capture with the eager
+backend was exact; this does not establish Inductor equivalence. The recorded
+numerical failures and the reviewed eager-only release audit remain in the
+preflight evidence. No compiled speedup is claimed.
+
+### Epoch diagnostics
+
+Concat diagnostics use the same eight held-out windows and explicit FP32
+attention probabilities. At epoch ten the mean probability mass is:
+
+| Core layer | Video loop 1 | Video loop 2 | Video loop 3 | Video loop 4 | Action keys |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 22.91% | 30.83% | 15.50% | 13.62% | 17.14% |
+| 2 | 22.61% | 20.14% | 13.80% | 13.92% | 29.53% |
+| 3 | 27.95% | 22.98% | 14.49% | 12.58% | 22.01% |
+| 4 | 21.21% | 21.14% | 16.27% | 12.73% | 28.64% |
+| 5 | 21.39% | 21.17% | 23.72% | 17.67% | 16.04% |
+| 6 | 21.08% | 18.45% | 15.77% | 13.53% | 31.17% |
+
+Mix final per-head weights range from **0.2394 to 0.2608** across
+all layers, heads and video loops. They remain near the uniform initialization
+of 0.25. These diagnostics show that the extra video-loop inputs participate;
+attention mass and mixing weights alone do not establish a causal performance mechanism.
+
+![Concat attention mass across epochs](../evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/concat_weights.png)
+
+![Mix weights averaged over heads across epochs](../evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/mix_weights.png)
+
+### Statistical interpretation and evidence
+
+Unpaired episode-level tests versus original 4/4 (275/300) give p = 0.0110 for
+concat and p = 0.2172 for mix. Those tests and the Wilson intervals treat episodes
+as independent; repeated tasks and states create clustering. All training uses
+one seed (42). The paired tests are unadjusted for multiple comparisons. These
+limitations prevent broad claims of superiority, equivalence, or mechanism.
+
+- [Three-seed report and per-seed paired tests](../evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/report.md)
+- [Three-seed machine-readable results](../evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/evidence.json)
+- [Expanded report](../evidence/kv_concat_20261008/results_20261009/job4770/expanded_analysis/report.md)
+- [Expanded machine-readable results](../evidence/kv_concat_20261008/results_20261009/job4770/expanded_analysis/evidence.json)
+- [Independent local verification](../evidence/kv_concat_20261008/results_20261009/verification.json)
+- [Current full-suite training snapshot](../evidence/kv_concat_20261008/results_20261009/current_training_snapshot.json)
+
+Local verification independently checked **14,500 training updates**, **1,600 new
+final evaluation records**, and the **300-episode aligned control**, including
+episode identity, summary-to-record consistency, checkpoint binding, fixed
+protocol, fresh training budgets, finite metrics, loss aggregates, Wilson
+intervals, paired exact McNemar, latency samples and the unchanged decision.
+Counts refer to executions; the 1,600 new records include the overlapping
+expanded seed-42 grid. Weights, videos and latent tensors remain on the server.
+
+### Full-suite campaign status at this snapshot
+
+| Job | Current stage | Update / 21,700 | Next stages after three-seed evaluation |
+|---|---|---:|---|
+| 4770 | Aligned 4/1 full-suite training | 1,385 / 21,700 | Aligned 3/3 → Dense-S12 |
+| 4771 | Aligned 1/4 full-suite training | 2,630 / 21,700 | Aligned 2/2 → Dense-S30 |
+
+Both full-suite trainings use all four suites and global batch 128. Each model
+will evaluate seeds 42/43/44 before its queue advances. No full-suite SR from
+any of these six new runs is reported yet. The immutable running source is
+unchanged by this documentation update.
+
+---
+
+## Historical specification and implementation record
+
+The following pre-registration and dated development entries are preserved.
+Earlier forecasts and pending statements describe their original checkpoints
+in the work; use the completed-results section above for current status.
 ## Pre-registration — October 8, 2026
 
 Base: `8d74c8df2eca4d165626830d90c2cc9bc56412b6`, fetched from the
