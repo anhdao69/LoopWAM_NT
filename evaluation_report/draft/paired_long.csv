@@ -1,0 +1,6 @@
+model,both_success,both_failure,light_only_success,model_only_success,paired_episodes
+LoopWAM full 4/4,1232,51,131,86,1500
+LoopWAM Long 4/4 original,1082,53,281,84,1500
+LoopWAM Long 4/4 repeat,1110,55,253,82,1500
+LoopWAM Long KV mix 4/1,1052,56,311,81,1500
+LoopWAM Long aligned 4/1,1041,68,322,69,1500

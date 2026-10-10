@@ -1,0 +1,28 @@
+model,suite,seed,successes,episodes,success_rate_percent
+Light-WAM Long,libero_10,42,452,500,90.4
+Light-WAM Long,libero_10,43,450,500,90.0
+Light-WAM Long,libero_10,44,461,500,92.2
+LoopWAM Long 4/4 original,libero_10,42,423,500,84.6
+LoopWAM Long 4/4 original,libero_10,43,387,500,77.4
+LoopWAM Long 4/4 original,libero_10,44,356,500,71.2
+LoopWAM Long 4/4 repeat,libero_10,42,414,500,82.8
+LoopWAM Long 4/4 repeat,libero_10,43,400,500,80.0
+LoopWAM Long 4/4 repeat,libero_10,44,378,500,75.6
+LoopWAM Long KV mix 4/1,libero_10,42,389,500,77.8
+LoopWAM Long KV mix 4/1,libero_10,43,388,500,77.6
+LoopWAM Long KV mix 4/1,libero_10,44,356,500,71.2
+LoopWAM Long aligned 4/1,libero_10,42,387,500,77.4
+LoopWAM Long aligned 4/1,libero_10,43,373,500,74.6
+LoopWAM Long aligned 4/1,libero_10,44,350,500,70.0
+LoopWAM full 4/4,libero_10,42,452,500,90.4
+LoopWAM full 4/4,libero_10,43,436,500,87.2
+LoopWAM full 4/4,libero_10,44,430,500,86.0
+LoopWAM full 4/4,libero_goal,42,485,500,97.0
+LoopWAM full 4/4,libero_goal,43,480,500,96.0
+LoopWAM full 4/4,libero_goal,44,477,500,95.4
+LoopWAM full 4/4,libero_object,42,494,500,98.8
+LoopWAM full 4/4,libero_object,43,495,500,99.0
+LoopWAM full 4/4,libero_object,44,492,500,98.4
+LoopWAM full 4/4,libero_spatial,42,480,500,96.0
+LoopWAM full 4/4,libero_spatial,43,488,500,97.6
+LoopWAM full 4/4,libero_spatial,44,486,500,97.2

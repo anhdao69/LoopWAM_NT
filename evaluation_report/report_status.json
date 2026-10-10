@@ -1,0 +1,25 @@
+{
+  "status": "waiting_for_all_evaluations",
+  "updated_at": "2026-10-10T03:24:43.765422+00:00",
+  "pid": 668272,
+  "queues": [
+    {
+      "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/campaign_status.json",
+      "status": "running",
+      "stage": "06_long_concat"
+    },
+    {
+      "path": "/storage/anhdh35/FastWAM-eval/evaluate_results/matched_lightwam/queue_status.json",
+      "status": "waiting_for_concat",
+      "stage": null
+    },
+    {
+      "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_v1a4/queue_status.json",
+      "status": "waiting_for_fastwam",
+      "stage": null
+    }
+  ],
+  "expected_episodes": 27000,
+  "final_report": "/storage/anhdh35/Light-WAM/evaluation_report/final/report.html",
+  "copied_report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/final/report.html"
+}

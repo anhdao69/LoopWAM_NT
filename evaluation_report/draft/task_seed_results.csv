@@ -1,0 +1,271 @@
+model,suite,task,seed,successes,episodes,success_rate_percent,task_description
+Light-WAM Long,libero_10,0,42,46,50,92.0,put both the alphabet soup and the tomato sauce in the basket
+Light-WAM Long,libero_10,0,43,45,50,90.0,put both the alphabet soup and the tomato sauce in the basket
+Light-WAM Long,libero_10,0,44,46,50,92.0,put both the alphabet soup and the tomato sauce in the basket
+Light-WAM Long,libero_10,1,42,49,50,98.0,put both the cream cheese box and the butter in the basket
+Light-WAM Long,libero_10,1,43,48,50,96.0,put both the cream cheese box and the butter in the basket
+Light-WAM Long,libero_10,1,44,47,50,94.0,put both the cream cheese box and the butter in the basket
+Light-WAM Long,libero_10,2,42,49,50,98.0,turn on the stove and put the moka pot on it
+Light-WAM Long,libero_10,2,43,48,50,96.0,turn on the stove and put the moka pot on it
+Light-WAM Long,libero_10,2,44,47,50,94.0,turn on the stove and put the moka pot on it
+Light-WAM Long,libero_10,3,42,46,50,92.0,put the black bowl in the bottom drawer of the cabinet and close it
+Light-WAM Long,libero_10,3,43,49,50,98.0,put the black bowl in the bottom drawer of the cabinet and close it
+Light-WAM Long,libero_10,3,44,50,50,100.0,put the black bowl in the bottom drawer of the cabinet and close it
+Light-WAM Long,libero_10,4,42,44,50,88.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+Light-WAM Long,libero_10,4,43,44,50,88.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+Light-WAM Long,libero_10,4,44,44,50,88.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+Light-WAM Long,libero_10,5,42,48,50,96.0,pick up the book and place it in the back compartment of the caddy
+Light-WAM Long,libero_10,5,43,50,50,100.0,pick up the book and place it in the back compartment of the caddy
+Light-WAM Long,libero_10,5,44,49,50,98.0,pick up the book and place it in the back compartment of the caddy
+Light-WAM Long,libero_10,6,42,41,50,82.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+Light-WAM Long,libero_10,6,43,41,50,82.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+Light-WAM Long,libero_10,6,44,41,50,82.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+Light-WAM Long,libero_10,7,42,49,50,98.0,put both the alphabet soup and the cream cheese box in the basket
+Light-WAM Long,libero_10,7,43,50,50,100.0,put both the alphabet soup and the cream cheese box in the basket
+Light-WAM Long,libero_10,7,44,49,50,98.0,put both the alphabet soup and the cream cheese box in the basket
+Light-WAM Long,libero_10,8,42,37,50,74.0,put both moka pots on the stove
+Light-WAM Long,libero_10,8,43,36,50,72.0,put both moka pots on the stove
+Light-WAM Long,libero_10,8,44,40,50,80.0,put both moka pots on the stove
+Light-WAM Long,libero_10,9,42,43,50,86.0,put the yellow and white mug in the microwave and close it
+Light-WAM Long,libero_10,9,43,39,50,78.0,put the yellow and white mug in the microwave and close it
+Light-WAM Long,libero_10,9,44,48,50,96.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 original,libero_10,0,42,45,50,90.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 original,libero_10,0,43,40,50,80.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 original,libero_10,0,44,29,50,58.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 original,libero_10,1,42,47,50,94.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 original,libero_10,1,43,50,50,100.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 original,libero_10,1,44,47,50,94.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 original,libero_10,2,42,48,50,96.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 original,libero_10,2,43,43,50,86.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 original,libero_10,2,44,44,50,88.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 original,libero_10,3,42,50,50,100.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 original,libero_10,3,43,46,50,92.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 original,libero_10,3,44,43,50,86.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 original,libero_10,4,42,35,50,70.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 original,libero_10,4,43,35,50,70.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 original,libero_10,4,44,25,50,50.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 original,libero_10,5,42,46,50,92.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 original,libero_10,5,43,45,50,90.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 original,libero_10,5,44,41,50,82.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 original,libero_10,6,42,34,50,68.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 original,libero_10,6,43,27,50,54.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 original,libero_10,6,44,25,50,50.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 original,libero_10,7,42,44,50,88.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 original,libero_10,7,43,41,50,82.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 original,libero_10,7,44,38,50,76.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 original,libero_10,8,42,29,50,58.0,put both moka pots on the stove
+LoopWAM Long 4/4 original,libero_10,8,43,15,50,30.0,put both moka pots on the stove
+LoopWAM Long 4/4 original,libero_10,8,44,15,50,30.0,put both moka pots on the stove
+LoopWAM Long 4/4 original,libero_10,9,42,45,50,90.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 original,libero_10,9,43,45,50,90.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 original,libero_10,9,44,49,50,98.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 repeat,libero_10,0,42,46,50,92.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 repeat,libero_10,0,43,42,50,84.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 repeat,libero_10,0,44,36,50,72.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long 4/4 repeat,libero_10,1,42,49,50,98.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 repeat,libero_10,1,43,49,50,98.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 repeat,libero_10,1,44,49,50,98.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long 4/4 repeat,libero_10,2,42,47,50,94.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 repeat,libero_10,2,43,45,50,90.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 repeat,libero_10,2,44,47,50,94.0,turn on the stove and put the moka pot on it
+LoopWAM Long 4/4 repeat,libero_10,3,42,49,50,98.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 repeat,libero_10,3,43,47,50,94.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 repeat,libero_10,3,44,47,50,94.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long 4/4 repeat,libero_10,4,42,36,50,72.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 repeat,libero_10,4,43,33,50,66.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 repeat,libero_10,4,44,32,50,64.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long 4/4 repeat,libero_10,5,42,45,50,90.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 repeat,libero_10,5,43,45,50,90.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 repeat,libero_10,5,44,39,50,78.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long 4/4 repeat,libero_10,6,42,32,50,64.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 repeat,libero_10,6,43,26,50,52.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 repeat,libero_10,6,44,22,50,44.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long 4/4 repeat,libero_10,7,42,46,50,92.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 repeat,libero_10,7,43,45,50,90.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 repeat,libero_10,7,44,43,50,86.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long 4/4 repeat,libero_10,8,42,30,50,60.0,put both moka pots on the stove
+LoopWAM Long 4/4 repeat,libero_10,8,43,19,50,38.0,put both moka pots on the stove
+LoopWAM Long 4/4 repeat,libero_10,8,44,14,50,28.0,put both moka pots on the stove
+LoopWAM Long 4/4 repeat,libero_10,9,42,34,50,68.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 repeat,libero_10,9,43,49,50,98.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long 4/4 repeat,libero_10,9,44,49,50,98.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long KV mix 4/1,libero_10,0,42,36,50,72.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long KV mix 4/1,libero_10,0,43,36,50,72.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long KV mix 4/1,libero_10,0,44,34,50,68.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long KV mix 4/1,libero_10,1,42,44,50,88.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long KV mix 4/1,libero_10,1,43,48,50,96.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long KV mix 4/1,libero_10,1,44,45,50,90.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long KV mix 4/1,libero_10,2,42,48,50,96.0,turn on the stove and put the moka pot on it
+LoopWAM Long KV mix 4/1,libero_10,2,43,48,50,96.0,turn on the stove and put the moka pot on it
+LoopWAM Long KV mix 4/1,libero_10,2,44,48,50,96.0,turn on the stove and put the moka pot on it
+LoopWAM Long KV mix 4/1,libero_10,3,42,49,50,98.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long KV mix 4/1,libero_10,3,43,50,50,100.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long KV mix 4/1,libero_10,3,44,50,50,100.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long KV mix 4/1,libero_10,4,42,40,50,80.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long KV mix 4/1,libero_10,4,43,39,50,78.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long KV mix 4/1,libero_10,4,44,37,50,74.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long KV mix 4/1,libero_10,5,42,50,50,100.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long KV mix 4/1,libero_10,5,43,49,50,98.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long KV mix 4/1,libero_10,5,44,44,50,88.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long KV mix 4/1,libero_10,6,42,31,50,62.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long KV mix 4/1,libero_10,6,43,31,50,62.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long KV mix 4/1,libero_10,6,44,20,50,40.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long KV mix 4/1,libero_10,7,42,38,50,76.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long KV mix 4/1,libero_10,7,43,33,50,66.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long KV mix 4/1,libero_10,7,44,30,50,60.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long KV mix 4/1,libero_10,8,42,20,50,40.0,put both moka pots on the stove
+LoopWAM Long KV mix 4/1,libero_10,8,43,13,50,26.0,put both moka pots on the stove
+LoopWAM Long KV mix 4/1,libero_10,8,44,10,50,20.0,put both moka pots on the stove
+LoopWAM Long KV mix 4/1,libero_10,9,42,33,50,66.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long KV mix 4/1,libero_10,9,43,41,50,82.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long KV mix 4/1,libero_10,9,44,38,50,76.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long aligned 4/1,libero_10,0,42,37,50,74.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long aligned 4/1,libero_10,0,43,33,50,66.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long aligned 4/1,libero_10,0,44,35,50,70.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM Long aligned 4/1,libero_10,1,42,46,50,92.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long aligned 4/1,libero_10,1,43,44,50,88.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long aligned 4/1,libero_10,1,44,36,50,72.0,put both the cream cheese box and the butter in the basket
+LoopWAM Long aligned 4/1,libero_10,2,42,48,50,96.0,turn on the stove and put the moka pot on it
+LoopWAM Long aligned 4/1,libero_10,2,43,45,50,90.0,turn on the stove and put the moka pot on it
+LoopWAM Long aligned 4/1,libero_10,2,44,47,50,94.0,turn on the stove and put the moka pot on it
+LoopWAM Long aligned 4/1,libero_10,3,42,48,50,96.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long aligned 4/1,libero_10,3,43,46,50,92.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long aligned 4/1,libero_10,3,44,44,50,88.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM Long aligned 4/1,libero_10,4,42,22,50,44.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long aligned 4/1,libero_10,4,43,37,50,74.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long aligned 4/1,libero_10,4,44,31,50,62.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM Long aligned 4/1,libero_10,5,42,47,50,94.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long aligned 4/1,libero_10,5,43,48,50,96.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long aligned 4/1,libero_10,5,44,46,50,92.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM Long aligned 4/1,libero_10,6,42,29,50,58.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long aligned 4/1,libero_10,6,43,24,50,48.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long aligned 4/1,libero_10,6,44,24,50,48.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM Long aligned 4/1,libero_10,7,42,42,50,84.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long aligned 4/1,libero_10,7,43,38,50,76.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long aligned 4/1,libero_10,7,44,29,50,58.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM Long aligned 4/1,libero_10,8,42,28,50,56.0,put both moka pots on the stove
+LoopWAM Long aligned 4/1,libero_10,8,43,21,50,42.0,put both moka pots on the stove
+LoopWAM Long aligned 4/1,libero_10,8,44,19,50,38.0,put both moka pots on the stove
+LoopWAM Long aligned 4/1,libero_10,9,42,40,50,80.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long aligned 4/1,libero_10,9,43,37,50,74.0,put the yellow and white mug in the microwave and close it
+LoopWAM Long aligned 4/1,libero_10,9,44,39,50,78.0,put the yellow and white mug in the microwave and close it
+LoopWAM full 4/4,libero_10,0,42,47,50,94.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM full 4/4,libero_10,0,43,46,50,92.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM full 4/4,libero_10,0,44,45,50,90.0,put both the alphabet soup and the tomato sauce in the basket
+LoopWAM full 4/4,libero_10,1,42,48,50,96.0,put both the cream cheese box and the butter in the basket
+LoopWAM full 4/4,libero_10,1,43,48,50,96.0,put both the cream cheese box and the butter in the basket
+LoopWAM full 4/4,libero_10,1,44,50,50,100.0,put both the cream cheese box and the butter in the basket
+LoopWAM full 4/4,libero_10,2,42,49,50,98.0,turn on the stove and put the moka pot on it
+LoopWAM full 4/4,libero_10,2,43,47,50,94.0,turn on the stove and put the moka pot on it
+LoopWAM full 4/4,libero_10,2,44,46,50,92.0,turn on the stove and put the moka pot on it
+LoopWAM full 4/4,libero_10,3,42,50,50,100.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM full 4/4,libero_10,3,43,48,50,96.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM full 4/4,libero_10,3,44,49,50,98.0,put the black bowl in the bottom drawer of the cabinet and close it
+LoopWAM full 4/4,libero_10,4,42,42,50,84.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM full 4/4,libero_10,4,43,43,50,86.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM full 4/4,libero_10,4,44,43,50,86.0,put the white mug on the left plate and put the yellow and white mug on the right plate
+LoopWAM full 4/4,libero_10,5,42,50,50,100.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM full 4/4,libero_10,5,43,48,50,96.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM full 4/4,libero_10,5,44,50,50,100.0,pick up the book and place it in the back compartment of the caddy
+LoopWAM full 4/4,libero_10,6,42,33,50,66.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM full 4/4,libero_10,6,43,31,50,62.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM full 4/4,libero_10,6,44,30,50,60.0,put the white mug on the plate and put the chocolate pudding to the right of the plate
+LoopWAM full 4/4,libero_10,7,42,49,50,98.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM full 4/4,libero_10,7,43,49,50,98.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM full 4/4,libero_10,7,44,49,50,98.0,put both the alphabet soup and the cream cheese box in the basket
+LoopWAM full 4/4,libero_10,8,42,39,50,78.0,put both moka pots on the stove
+LoopWAM full 4/4,libero_10,8,43,31,50,62.0,put both moka pots on the stove
+LoopWAM full 4/4,libero_10,8,44,20,50,40.0,put both moka pots on the stove
+LoopWAM full 4/4,libero_10,9,42,45,50,90.0,put the yellow and white mug in the microwave and close it
+LoopWAM full 4/4,libero_10,9,43,45,50,90.0,put the yellow and white mug in the microwave and close it
+LoopWAM full 4/4,libero_10,9,44,48,50,96.0,put the yellow and white mug in the microwave and close it
+LoopWAM full 4/4,libero_goal,0,42,49,50,98.0,open the middle drawer of the cabinet
+LoopWAM full 4/4,libero_goal,0,43,50,50,100.0,open the middle drawer of the cabinet
+LoopWAM full 4/4,libero_goal,0,44,47,50,94.0,open the middle drawer of the cabinet
+LoopWAM full 4/4,libero_goal,1,42,48,50,96.0,put the bowl on the stove
+LoopWAM full 4/4,libero_goal,1,43,49,50,98.0,put the bowl on the stove
+LoopWAM full 4/4,libero_goal,1,44,48,50,96.0,put the bowl on the stove
+LoopWAM full 4/4,libero_goal,2,42,48,50,96.0,put the wine bottle on top of the cabinet
+LoopWAM full 4/4,libero_goal,2,43,46,50,92.0,put the wine bottle on top of the cabinet
+LoopWAM full 4/4,libero_goal,2,44,49,50,98.0,put the wine bottle on top of the cabinet
+LoopWAM full 4/4,libero_goal,3,42,48,50,96.0,open the top drawer and put the bowl inside
+LoopWAM full 4/4,libero_goal,3,43,46,50,92.0,open the top drawer and put the bowl inside
+LoopWAM full 4/4,libero_goal,3,44,46,50,92.0,open the top drawer and put the bowl inside
+LoopWAM full 4/4,libero_goal,4,42,49,50,98.0,put the bowl on top of the cabinet
+LoopWAM full 4/4,libero_goal,4,43,49,50,98.0,put the bowl on top of the cabinet
+LoopWAM full 4/4,libero_goal,4,44,49,50,98.0,put the bowl on top of the cabinet
+LoopWAM full 4/4,libero_goal,5,42,50,50,100.0,push the plate to the front of the stove
+LoopWAM full 4/4,libero_goal,5,43,49,50,98.0,push the plate to the front of the stove
+LoopWAM full 4/4,libero_goal,5,44,49,50,98.0,push the plate to the front of the stove
+LoopWAM full 4/4,libero_goal,6,42,48,50,96.0,put the cream cheese in the bowl
+LoopWAM full 4/4,libero_goal,6,43,45,50,90.0,put the cream cheese in the bowl
+LoopWAM full 4/4,libero_goal,6,44,44,50,88.0,put the cream cheese in the bowl
+LoopWAM full 4/4,libero_goal,7,42,50,50,100.0,turn on the stove
+LoopWAM full 4/4,libero_goal,7,43,50,50,100.0,turn on the stove
+LoopWAM full 4/4,libero_goal,7,44,50,50,100.0,turn on the stove
+LoopWAM full 4/4,libero_goal,8,42,50,50,100.0,put the bowl on the plate
+LoopWAM full 4/4,libero_goal,8,43,49,50,98.0,put the bowl on the plate
+LoopWAM full 4/4,libero_goal,8,44,49,50,98.0,put the bowl on the plate
+LoopWAM full 4/4,libero_goal,9,42,45,50,90.0,put the wine bottle on the rack
+LoopWAM full 4/4,libero_goal,9,43,47,50,94.0,put the wine bottle on the rack
+LoopWAM full 4/4,libero_goal,9,44,46,50,92.0,put the wine bottle on the rack
+LoopWAM full 4/4,libero_object,0,42,50,50,100.0,pick up the alphabet soup and place it in the basket
+LoopWAM full 4/4,libero_object,0,43,50,50,100.0,pick up the alphabet soup and place it in the basket
+LoopWAM full 4/4,libero_object,0,44,47,50,94.0,pick up the alphabet soup and place it in the basket
+LoopWAM full 4/4,libero_object,1,42,49,50,98.0,pick up the cream cheese and place it in the basket
+LoopWAM full 4/4,libero_object,1,43,50,50,100.0,pick up the cream cheese and place it in the basket
+LoopWAM full 4/4,libero_object,1,44,49,50,98.0,pick up the cream cheese and place it in the basket
+LoopWAM full 4/4,libero_object,2,42,50,50,100.0,pick up the salad dressing and place it in the basket
+LoopWAM full 4/4,libero_object,2,43,50,50,100.0,pick up the salad dressing and place it in the basket
+LoopWAM full 4/4,libero_object,2,44,50,50,100.0,pick up the salad dressing and place it in the basket
+LoopWAM full 4/4,libero_object,3,42,48,50,96.0,pick up the bbq sauce and place it in the basket
+LoopWAM full 4/4,libero_object,3,43,49,50,98.0,pick up the bbq sauce and place it in the basket
+LoopWAM full 4/4,libero_object,3,44,49,50,98.0,pick up the bbq sauce and place it in the basket
+LoopWAM full 4/4,libero_object,4,42,50,50,100.0,pick up the ketchup and place it in the basket
+LoopWAM full 4/4,libero_object,4,43,49,50,98.0,pick up the ketchup and place it in the basket
+LoopWAM full 4/4,libero_object,4,44,48,50,96.0,pick up the ketchup and place it in the basket
+LoopWAM full 4/4,libero_object,5,42,50,50,100.0,pick up the tomato sauce and place it in the basket
+LoopWAM full 4/4,libero_object,5,43,49,50,98.0,pick up the tomato sauce and place it in the basket
+LoopWAM full 4/4,libero_object,5,44,49,50,98.0,pick up the tomato sauce and place it in the basket
+LoopWAM full 4/4,libero_object,6,42,49,50,98.0,pick up the butter and place it in the basket
+LoopWAM full 4/4,libero_object,6,43,49,50,98.0,pick up the butter and place it in the basket
+LoopWAM full 4/4,libero_object,6,44,50,50,100.0,pick up the butter and place it in the basket
+LoopWAM full 4/4,libero_object,7,42,50,50,100.0,pick up the milk and place it in the basket
+LoopWAM full 4/4,libero_object,7,43,50,50,100.0,pick up the milk and place it in the basket
+LoopWAM full 4/4,libero_object,7,44,50,50,100.0,pick up the milk and place it in the basket
+LoopWAM full 4/4,libero_object,8,42,50,50,100.0,pick up the chocolate pudding and place it in the basket
+LoopWAM full 4/4,libero_object,8,43,49,50,98.0,pick up the chocolate pudding and place it in the basket
+LoopWAM full 4/4,libero_object,8,44,50,50,100.0,pick up the chocolate pudding and place it in the basket
+LoopWAM full 4/4,libero_object,9,42,48,50,96.0,pick up the orange juice and place it in the basket
+LoopWAM full 4/4,libero_object,9,43,50,50,100.0,pick up the orange juice and place it in the basket
+LoopWAM full 4/4,libero_object,9,44,50,50,100.0,pick up the orange juice and place it in the basket
+LoopWAM full 4/4,libero_spatial,0,42,49,50,98.0,pick up the black bowl between the plate and the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,0,43,49,50,98.0,pick up the black bowl between the plate and the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,0,44,50,50,100.0,pick up the black bowl between the plate and the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,1,42,49,50,98.0,pick up the black bowl next to the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,1,43,50,50,100.0,pick up the black bowl next to the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,1,44,50,50,100.0,pick up the black bowl next to the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,2,42,49,50,98.0,pick up the black bowl from table center and place it on the plate
+LoopWAM full 4/4,libero_spatial,2,43,50,50,100.0,pick up the black bowl from table center and place it on the plate
+LoopWAM full 4/4,libero_spatial,2,44,49,50,98.0,pick up the black bowl from table center and place it on the plate
+LoopWAM full 4/4,libero_spatial,3,42,49,50,98.0,pick up the black bowl on the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,3,43,50,50,100.0,pick up the black bowl on the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,3,44,48,50,96.0,pick up the black bowl on the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,4,42,45,50,90.0,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+LoopWAM full 4/4,libero_spatial,4,43,46,50,92.0,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+LoopWAM full 4/4,libero_spatial,4,44,43,50,86.0,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
+LoopWAM full 4/4,libero_spatial,5,42,43,50,86.0,pick up the black bowl on the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,5,43,46,50,92.0,pick up the black bowl on the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,5,44,49,50,98.0,pick up the black bowl on the ramekin and place it on the plate
+LoopWAM full 4/4,libero_spatial,6,42,50,50,100.0,pick up the black bowl next to the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,6,43,50,50,100.0,pick up the black bowl next to the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,6,44,49,50,98.0,pick up the black bowl next to the cookie box and place it on the plate
+LoopWAM full 4/4,libero_spatial,7,42,47,50,94.0,pick up the black bowl on the stove and place it on the plate
+LoopWAM full 4/4,libero_spatial,7,43,49,50,98.0,pick up the black bowl on the stove and place it on the plate
+LoopWAM full 4/4,libero_spatial,7,44,49,50,98.0,pick up the black bowl on the stove and place it on the plate
+LoopWAM full 4/4,libero_spatial,8,42,49,50,98.0,pick up the black bowl next to the plate and place it on the plate
+LoopWAM full 4/4,libero_spatial,8,43,48,50,96.0,pick up the black bowl next to the plate and place it on the plate
+LoopWAM full 4/4,libero_spatial,8,44,49,50,98.0,pick up the black bowl next to the plate and place it on the plate
+LoopWAM full 4/4,libero_spatial,9,42,50,50,100.0,pick up the black bowl on the wooden cabinet and place it on the plate
+LoopWAM full 4/4,libero_spatial,9,43,50,50,100.0,pick up the black bowl on the wooden cabinet and place it on the plate
+LoopWAM full 4/4,libero_spatial,9,44,50,50,100.0,pick up the black bowl on the wooden cabinet and place it on the plate
