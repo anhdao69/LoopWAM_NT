@@ -109,7 +109,7 @@ class ChronoMemory(nn.Module):
         x = obs_tokens.detach().float().reshape(-1, obs_tokens.shape[-1])
         self.gamma.copy_(x.square().mean(0).sqrt() / self.cfg.clamp_c)
         g = torch.Generator(device='cpu').manual_seed(seed)
-        self.e.copy_((torch.randn(self.e.shape, generator=g) * x.std()).to(self.e))
+        self.e.copy_(torch.randn(self.e.shape, generator=g).to(self.e) * x.std().to(self.e))
 
     def tokens(self, s):
         return self.gamma * s + self.e
