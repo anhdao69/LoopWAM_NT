@@ -254,3 +254,54 @@ def read_latents(cache, indices, device):
         raise RuntimeError('Latent cache miss; run scripts/chronoloop_precompute_latents.py first')
     bits = np.ascontiguousarray(cache._latents[ids]).view(np.int16)
     return torch.from_numpy(bits).view(torch.bfloat16).to(device=device, non_blocking=True).float()
+
+
+def stage_latent_cache(src, dst, threads=8, chunk=256 << 20, timeout=3600):
+    """Copy the latent cache directory to node-local storage (e.g. /dev/shm) once per node.
+
+    Random 150 KB reads from Lustre are I/O bound (~5 s per 128 windows); a local copy makes
+    them memory-speed. Concurrent callers (several runs on one node) coordinate through an
+    exclusive lock file; others wait for READY. Files are copied with parallel positional I/O
+    and verified by size; the cache's own metadata check runs when it is opened.
+    """
+    import os, time
+    from concurrent.futures import ThreadPoolExecutor
+    src, dst = Path(src), Path(dst)
+    dst.mkdir(parents=True, exist_ok=True)
+    ready, lock = dst / 'READY', dst / '.lock'
+    names = ('metadata.json', 'valid.uint8', 'latents.uint16')
+    deadline = time.time() + timeout
+    while not ready.exists():
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            if time.time() > deadline:
+                raise TimeoutError(f'Timed out waiting for latent staging in {dst}')
+            time.sleep(5)
+            continue
+        try:
+            for name in names:
+                size = (src / name).stat().st_size
+                tmp = dst / f'{name}.tmp'
+                with open(src / name, 'rb') as fi, open(tmp, 'wb') as fo:
+                    fo.truncate(size)
+                    a, b = fi.fileno(), fo.fileno()
+
+                    def copy(offset):
+                        n = min(chunk, size - offset)
+                        while n > 0:
+                            data = os.pread(a, min(n, 64 << 20), offset)
+                            if not data:
+                                raise IOError('short read while staging latents')
+                            os.pwrite(b, data, offset)
+                            offset += len(data); n -= len(data)
+                    with ThreadPoolExecutor(threads) as pool:
+                        list(pool.map(copy, range(0, size, chunk)))
+                if tmp.stat().st_size != size:
+                    raise IOError(f'staged size mismatch for {name}')
+                tmp.replace(dst / name)
+            ready.write_text(str(time.time()))
+        finally:
+            os.close(fd)
+            lock.unlink(missing_ok=True)
+    return dst

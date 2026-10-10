@@ -33,7 +33,7 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 
 from fastwam.datasets.chronoloop_data import (FullLiberoWindows, StreamScheduler, load_schedule, read_latents,
-                                              write_schedule)
+                                              stage_latent_cache, write_schedule)
 from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache, latent_cache_provenance
 from fastwam.datasets.loopwam_long import FULL_LIBERO_SUITES, build_full_libero_datasets
 from fastwam.models.wan22.chronoloop import ChronoConfig, create_chronoloop
@@ -185,6 +185,8 @@ def main():
     p.add_argument('--save-epochs', default='8,9,10')
     p.add_argument('--save-updates', default='2000')
     p.add_argument('--checkpoint-every', type=int, default=500)
+    p.add_argument('--stage-latents', default='auto',
+                   help="node-local copy of the latent cache: 'auto' = /dev/shm/chronoloop_latents_<job>, 'none' = read Lustre")
     p.add_argument('--checkpoint-blocks', action=argparse.BooleanOptionalAction, default=True)
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=True,
                    help='torch.compile each transformer-block function (same math; ~1.8x faster)')
@@ -205,7 +207,8 @@ def main():
     torch.cuda.set_device(local)
     device = torch.device('cuda', local)
     if world > 1:
-        dist.init_process_group('nccl', device_id=device)
+        from datetime import timedelta
+        dist.init_process_group('nccl', device_id=device, timeout=timedelta(minutes=60))
     if args.streams % world:
         raise ValueError('streams must divide evenly across ranks (each rank owns whole streams)')
     wall_start = time.time()
@@ -228,7 +231,18 @@ def main():
     epoch_done_at = {int(k): v for k, v in schedule['summary']['epoch_complete_update'].items()}
     vae_sha = [sha256_file(args.vae_path) if rank == 0 else None]
     if world > 1: dist.broadcast_object_list(vae_sha, src=0)
-    cache = LoopWAMLatentCache(shared / 'latents', len(train), latent_cache_provenance(manifest, vae_sha[0]))
+    cache_dir = shared / 'latents'
+    if args.stage_latents != 'none':
+        staged = Path(args.stage_latents if args.stage_latents != 'auto'
+                      else f'/dev/shm/chronoloop_latents_{os.getenv("SLURM_JOB_ID", "local")}')
+        t_stage = time.time()
+        if local == 0:
+            stage_latent_cache(cache_dir, staged)
+        if world > 1: dist.barrier()
+        cache_dir = staged
+        if rank == 0:
+            print(json.dumps(dict(event='latents_staged', path=str(staged), seconds=round(time.time() - t_stage, 1))), flush=True)
+    cache = LoopWAMLatentCache(cache_dir, len(train), latent_cache_provenance(manifest, vae_sha[0]))
     if rank == 0 and int(np.count_nonzero(np.asarray(cache._valid) == 1)) != len(train):
         raise RuntimeError('Latent cache incomplete; run chronoloop_precompute_latents.py first')
 

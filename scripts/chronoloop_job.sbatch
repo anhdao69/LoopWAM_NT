@@ -48,6 +48,8 @@ EOF
   fi
 fi
 
+# Node-local latent copy made by the trainer (--stage-latents auto); removed when this job exits.
+trap 'rm -rf "/dev/shm/chronoloop_latents_${SLURM_JOB_ID}"' EXIT
 STATUS=0
 if [[ ! -f "$CHRONO_OUT/COMPLETE" ]]; then
   LIMIT=$(walltime_hours)

@@ -17,6 +17,10 @@ torchrun --standalone --nproc_per_node="$NPROC" scripts/train_chronoloop.py \
   $(python scripts/chronoloop_experiments.py "$RUN") --output-dir "$OUT" --time-limit-hours "$LIMIT" "$@" \
   >> "$OUT/interactive_${SLURM_JOB_ID}.log" 2>&1
 echo "[$(date -Is)] trainer exit $?" >> "$OUT/interactive_${SLURM_JOB_ID}.log"
+# Drop the shared node-local latent copy once no other trainer of this allocation still runs.
+if ! ps -u "$USER" -o args= | grep -v grep | grep -q "[s]cripts/train_chronoloop.py"; then
+  rm -rf "/dev/shm/chronoloop_latents_${SLURM_JOB_ID}"
+fi
 if [[ -f "$OUT/COMPLETE" ]]; then
   for attempt in 1 2 3; do
     python scripts/chronoloop_hf_upload.py --run-dir "$OUT" --folder "$(python scripts/chronoloop_experiments.py "$RUN" --field hf)" \
