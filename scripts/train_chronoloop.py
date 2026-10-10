@@ -186,6 +186,8 @@ def main():
     p.add_argument('--save-updates', default='2000')
     p.add_argument('--checkpoint-every', type=int, default=300)
     p.add_argument('--checkpoint-blocks', action=argparse.BooleanOptionalAction, default=True)
+    p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=True,
+                   help='torch.compile each transformer-block function (same math; ~1.8x faster)')
     p.add_argument('--max-updates', type=int, default=None, help='smoke/benchmark only')
     p.add_argument('--no-save', action='store_true', help='benchmark only')
     p.add_argument('--time-limit-hours', type=float, default=None,
@@ -237,6 +239,12 @@ def main():
                                        device=device, checkpoint_blocks=args.checkpoint_blocks,
                                        parent_sha256=parent_sha[0])
     model.train()
+    if args.compile:
+        torch._dynamo.config.cache_size_limit = 256
+        torch._dynamo.config.accumulated_cache_size_limit = 8192
+        for name in ('_joint_block', '_video_only_block', '_chrono_block'):
+            # Bound-method attributes: partial(self.<name>, i) picks up the compiled version.
+            setattr(model.mot, name, torch.compile(getattr(model.mot, name)))
     model.mot.structured_attention = True
     model.mot.structured_attention_observation_tokens = 392
     if cfg.memory_tokens and not resume:
@@ -467,6 +475,8 @@ def main():
             if update - last_save >= args.checkpoint_every or update == total:
                 save('resume'); last_save = update
         if args.max_updates is not None and update >= args.max_updates:
+            if not args.no_save and last_save != update:
+                save('resume'); last_save = update
             stop_reason = 'max_updates'
             break
         if args.time_limit_hours is not None:

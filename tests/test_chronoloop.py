@@ -230,3 +230,31 @@ def test_checkpoint_guard(tmp_path, cla):
     model, payload = create_chronoloop(CLA, VAE, checkpoint_path=path, device='cpu')
     for (n, a), (_, b) in zip(model.mot.memory.state_dict().items(), cla.mot.memory.state_dict().items()):
         assert torch.equal(a, b.cpu()), n
+
+
+def test_compile_matches_eager():
+    """The trainer compiles block functions. Against an FP32 eager reference, compiled BF16
+    gradients must be at least as accurate as eager BF16 ones (the two round differently)."""
+    torch._dynamo.config.cache_size_limit = 256
+    model = build(CLA, ckpt_blocks=True)
+    model.train()
+    with torch.no_grad():
+        model.memory.alpha_video.fill_(0.5); model.memory.alpha_action.fill_(0.5)
+    batches = [make_batch(2, 100 + k) for k in range(4)]
+
+    def run(amp):
+        model.zero_grad(set_to_none=True)
+        s, total = torch.zeros(2, 16, 1536, device='cuda'), 0.
+        for sample, noise in batches:
+            with torch.autocast('cuda', dtype=torch.bfloat16, enabled=amp):
+                loss, _, s = model.window_losses(sample, noise, s)
+            total = total + loss.sum()
+        total.backward()
+        return {n: p.grad.detach().float().clone() for n, p in model.named_parameters() if p.grad is not None}
+
+    ref, eager = run(False), run(True)
+    model.mot._chrono_block = torch.compile(model.mot._chrono_block)
+    comp = run(True)
+    den = sum(float(g.norm() ** 2) for g in ref.values())
+    err = lambda g: (sum(float((g[n] - ref[n]).norm() ** 2) for n in ref) / den) ** .5
+    assert err(comp) <= 1.25 * err(eager) + 1e-3, (err(comp), err(eager))
