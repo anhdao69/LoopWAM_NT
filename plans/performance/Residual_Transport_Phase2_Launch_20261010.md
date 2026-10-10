@@ -1,10 +1,12 @@
 # Residual Transport: next two runs, mixed GPU counts
 
-**Latest handoff:** RT-A2 is now standalone one-H100 batch job **4861**, resuming update **58**. Interactive allocation **4857 was canceled** at the user's request. The batch job has no dependencies and a48-hour limit; measured remaining training is approximately24 hours plus queue/upload time. The interactive launch details below are historical.
+Current documentation: [implementation report](Residual_Transport_Implementation.md) and [editable results tables](Residual_Transport_Results.md). Scheduling descriptions below are historical snapshots.
+
+**Latest handoff:** RT-A2 is now standalone one-H100 batch job **4861**, resuming update **58**. Interactive allocation **4857 was canceled** at the user's request. The batch job has no dependencies and a 48-hour limit; measured remaining training is approximately 24 hours plus queue/upload time. The interactive launch details below are historical.
 
 The user's latest request is two more training runs, one on two GPUs and one on the newly available single-GPU interactive allocation. This overrides the earlier uniform two-GPU requirement for RT-A2. The selected next two independent runs are RT-A2 and RT-B2a; their phase-2 evaluation wait is overridden for submission, without asserting Gate 1 has passed. RT+B2 still requires the final B2a checkpoint and is not submitted.
 
-## Configuration
+## Original interactive configuration (historical)
 
 | Run | GPUs | Microbatch/GPU | Accumulation | Global batch | Scope |
 |---|---:|---:|---:|---:|---|
@@ -33,7 +35,7 @@ Allocation 4857 is an idle, unlimited-time single-H100 job on worker-1 with 16 a
 Launch IDs and current state are recorded in phase2_submission_status.json. This report describes training setup, not evaluation results.
 
 
-## Verified launch
+## Original verified launch (historical)
 
 - RT-A2: RUNNING in Slurm step4857.4, one H100, more than20 production updates verified with finite losses/gradients.
 - RT-B2a: batch job4859, PENDING(Priority), exactly two H100s requested.

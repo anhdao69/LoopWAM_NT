@@ -1,0 +1,112 @@
+{
+  "captured_at_utc": "2026-10-10T20:30:56.678497+00:00",
+  "implementation_head": "adeba238cf0a7c0b111ddfa6ee76d7ae17d56b92",
+  "jobs": {
+    "RT-A": {
+      "job_id": "4847",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "previous_interactive": {
+        "job_id": "4843",
+        "launch": "interactive_step",
+        "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A",
+        "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+        "recovery_job_id": "4847"
+      },
+      "resume_update": 220,
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": [],
+      "state": "RUNNING",
+      "elapsed": "3:10:35",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "worker-1"
+    },
+    "RT-B4": {
+      "job_id": "4846",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": [],
+      "state": "RUNNING",
+      "elapsed": "3:40:21",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "worker-0"
+    },
+    "RT-T1ft": {
+      "job_id": "4849",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-T1ft",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": [],
+      "state": "PENDING",
+      "elapsed": "0:00",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "(Resources)"
+    },
+    "RT-Pa": {
+      "job_id": "4850",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-Pa",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": [],
+      "state": "PENDING",
+      "elapsed": "0:00",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "(Priority)"
+    },
+    "RT-TF": {
+      "job_id": "4851",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-TF",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": [],
+      "state": "PENDING",
+      "elapsed": "0:00",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "(Priority)"
+    },
+    "RT-A2": {
+      "job_id": "4861",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A2",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91",
+      "gpus": 1,
+      "submission_policy": "user_requested_independent_phase2_pair",
+      "dependencies": [],
+      "previous_interactive": {
+        "job_id": "4857",
+        "launch": "interactive_step",
+        "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A2",
+        "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91",
+        "gpus": 1,
+        "submission_policy": "user_requested_independent_phase2_pair",
+        "dependencies": []
+      },
+      "resume_update": 58,
+      "cancelled_interactive_allocation": "4857",
+      "time_limit_hours": 48,
+      "state": "RUNNING",
+      "elapsed": "7:25",
+      "time_limit": "2-00:00:00",
+      "node_or_reason": "worker-2"
+    },
+    "RT-B2a": {
+      "job_id": "4859",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B2a",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91",
+      "gpus": 2,
+      "submission_policy": "user_requested_independent_phase2_pair",
+      "dependencies": [],
+      "state": "PENDING",
+      "elapsed": "0:00",
+      "time_limit": "5-00:00:00",
+      "node_or_reason": "(Priority)"
+    }
+  }
+}

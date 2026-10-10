@@ -1,5 +1,7 @@
 # Residual Transport launch — 2026-10-10
 
+Current documentation: [implementation report](Residual_Transport_Implementation.md) and [editable results tables](Residual_Transport_Results.md). Scheduling descriptions below are historical snapshots.
+
 Two additional runs were subsequently launched with mixed GPU counts; see [the phase-2 launch report](Residual_Transport_Phase2_Launch_20261010.md). Total submitted/launched: seven.
 
 ## Phase 1: five independent batch jobs
