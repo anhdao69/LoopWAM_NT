@@ -51,3 +51,32 @@ The `storage_recovery_20261010` server directory records source checkpoint
 hashes, Slurm IDs, per-stage logs, manifests, timing, fairness checks, and final
 checkpoint hashes. The implementation runner uses the previously benchmarked
 DDP configurations and performs only training.
+
+## Resubmission status — 2026-10-10 04:01 UTC
+
+After the user cleared space, the two resume checkpoints were copied to
+`storage_recovery_20261010/input_checkpoints/` and verified byte-for-byte
+against their sources. Their DDP optimizer states and two per-rank RNG states
+were present. The staged SHA-256 values are recorded in
+`recovery_inputs.json`. `/mnt/data` had 12 TiB free at submission.
+
+| Slurm job | Queue | Initial stage | State at 04:01 UTC | GPUs |
+|---|---|---|---|---:|
+| 4823 | concat | Resume 4/1 at update 15,190; then 3/3 and Dense-S12 | RUNNING | 2 |
+| 4824 | mix | Resume 2/2 at update 4,340; then Dense-S30 | RUNNING | 2 |
+| 4825 | kv_mix | Fresh mix 4/1 | RUNNING | 2 |
+
+Each command requests the full 21,700-update budget with global batch 128 and
+has no `--max-updates` cap. The trainer's `--smoke` option performs gradient
+and initialization checks; it does not limit the training duration. Job logs
+and all outputs are rooted under `/mnt/data/.../loopwam_nt/`. Slurm stdout is
+explicitly directed to `recovery_operations_20261010/`; no training outputs
+are directed to `/home`. The stale controller job 4770 and obsolete dependent
+job 4795 were canceled after replacement jobs were submitted; their prior run
+directories and checkpoints remain preserved.
+
+Using the prior measured update rates, the two sequential queues each have an
+estimated 33–34 hours of training remaining. The fresh mix run is estimated at
+about 22 hours. If allocation and throughput remain steady, the longest queue
+should finish around October 11, 14:00 UTC (10:00 EDT). This estimate excludes
+queue delays and is not a measured completion time.
