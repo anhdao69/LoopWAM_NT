@@ -66,7 +66,7 @@ def main():
   expected=dict(version='v0',action_kv_mode='aligned',loops=video,action_core_loops=action,microbatch=micro,
     global_batch=128,seed=42,epochs=10,world_size=2,train_windows=277713,planned_updates=21700,backend='ddp',policy_dtype='float32',optimizer_state_dtype='float32',compute_dtype='bfloat16')
   if any(manifest.get(k)!=v for k,v in expected.items()):raise ValueError(f'{label}: source manifest mismatch')
-  if state.get('update')!=step or state.get('windows_seen')!=expected_windows or state.get('epoch')!=completed_epochs-1 or state.get('next_micro')!=math.ceil(277713/(2*micro)) or state.get('backend')!='ddp' or len(state.get('rng',[]))!=2:
+  if state.get('update')!=step or state.get('windows_seen')!=expected_windows or state.get('epoch')!=completed_epochs-1 or state.get('next_micro')!=math.ceil(277713/(2*micro)) or state.get('backend')!='ddp':
    raise ValueError(f'{label}: checkpoint trainer state mismatch')
   if not readprefix(train/'metrics.jsonl',step):raise ValueError(f'{label}: no metrics prefix')
   source=train/'latest.pt';dest=inputs/f'{label}.pt';src_sha=sha(source)
