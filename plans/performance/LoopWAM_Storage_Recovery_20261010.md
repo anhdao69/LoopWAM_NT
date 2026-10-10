@@ -80,3 +80,23 @@ estimated 33–34 hours of training remaining. The fresh mix run is estimated at
 about 22 hours. If allocation and throughput remain steady, the longest queue
 should finish around October 11, 14:00 UTC (10:00 EDT). This estimate excludes
 queue delays and is not a measured completion time.
+
+## Wrapper failure diagnosis — 2026-10-10
+
+Slurm job 4823 exited with code 1 after its resumed 4/1 trainer had completed
+all 21,700 updates and 2,777,130 windows. Its final checkpoint is present and
+has SHA-256
+`e8c7882ea5149ba7c45c0692b0e5f813af88953beb0780bffd6978795f7f96ef`.
+Manual validation against the full-suite baseline passed the data, split,
+normalization, update-count, and checkpoint checks. The failure came from the
+recovery wrapper expecting `manifest.json`; resumed outputs are named
+`resume_manifest.json`. The same review found that the wrapper omitted the
+expected resume path when checking provenance.
+
+Both wrapper issues are fixed on `KV_concat` (commits `af3e88a`, `f7636a1`,
+`defb87e`). Job 4841 is queued to run the remaining 3/3 and Dense-S12 stages.
+Job 4824 is still training its resumed 2/2 stage. Job 4842 is queued with an
+`afterany:4824` dependency; it will validate job 4824's completed checkpoint
+and then run Dense-S30. Job 4824 may itself exit nonzero in its older in-memory
+wrapper after training completes; job 4842 validates and continues from the
+completed output.
