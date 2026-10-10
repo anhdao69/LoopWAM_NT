@@ -13,6 +13,14 @@ NPROC=$(echo "$GPUS" | tr ',' '\n' | wc -l)
 export CUDA_VISIBLE_DEVICES="$GPUS"
 export TRITON_CACHE_DIR="/tmp/chrono_${SLURM_JOB_ID}_${RUN}_triton"
 echo "[$(date -Is)] interactive $RUN on GPUs $GPUS (job $SLURM_JOB_ID, ${LIMIT} h left) code=$CODE" >> "$OUT/interactive_${SLURM_JOB_ID}.log"
-exec torchrun --standalone --nproc_per_node="$NPROC" scripts/train_chronoloop.py \
+torchrun --standalone --nproc_per_node="$NPROC" scripts/train_chronoloop.py \
   $(python scripts/chronoloop_experiments.py "$RUN") --output-dir "$OUT" --time-limit-hours "$LIMIT" "$@" \
   >> "$OUT/interactive_${SLURM_JOB_ID}.log" 2>&1
+echo "[$(date -Is)] trainer exit $?" >> "$OUT/interactive_${SLURM_JOB_ID}.log"
+if [[ -f "$OUT/COMPLETE" ]]; then
+  for attempt in 1 2 3; do
+    python scripts/chronoloop_hf_upload.py --run-dir "$OUT" --folder "$(python scripts/chronoloop_experiments.py "$RUN" --field hf)" \
+      --require-all >> "$OUT/interactive_${SLURM_JOB_ID}.log" 2>&1 && break
+    sleep 300
+  done
+fi

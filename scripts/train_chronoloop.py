@@ -184,7 +184,7 @@ def main():
     p.add_argument('--warmup-fraction', type=float, default=0.03)
     p.add_argument('--save-epochs', default='8,9,10')
     p.add_argument('--save-updates', default='2000')
-    p.add_argument('--checkpoint-every', type=int, default=300)
+    p.add_argument('--checkpoint-every', type=int, default=500)
     p.add_argument('--checkpoint-blocks', action=argparse.BooleanOptionalAction, default=True)
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=True,
                    help='torch.compile each transformer-block function (same math; ~1.8x faster)')
