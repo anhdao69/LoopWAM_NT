@@ -1,0 +1,15 @@
+{
+  "job": 4800,
+  "interactive": 4798,
+  "submitted_unix": 1791596277.4719486,
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterany:4798",
+    "--nodelist=worker-3",
+    "--output=/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/mix_full_20261010/slurm-%j.log",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/mix_full_20261010/source/scripts/submit_full_mix.sbatch"
+  ],
+  "job_description": "JobId=4800 JobName=test_training UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Dependency Dependency=afterany:4798(unfulfilled) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=3-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T01:37:57 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T01:37:57 Scheduler=Main Partition=main AllocNode:Sid=login-0:1753455 ReqNodeList=worker-3 ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/mix_full_20261010/source/scripts/submit_full_mix.sbatch WorkDir=/home/anhdh35 StdErr=/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/mix_full_20261010/slurm-4800.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/mix_full_20261010/slurm-4800.log TresPerNode=gres/gpu:2 TresPerTask=cpu=30 \n",
+  "interactive_cancel_requested_unix": 1791596277.5253725
+}
