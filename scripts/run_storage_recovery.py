@@ -14,11 +14,11 @@ import time
 ROOT=Path('/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt')
 PLANS={
  'concat':[
-  dict(label='full_41_resume',version='v0',video=4,action=1,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_41_step15190.pt',source=ROOT/'kv_campaign_job4770/campaign_3a89bfa/full_41/train/latest.pt',source_step=15190,config_job=4770,config_label='full_41'),
+  dict(label='full_41_resume',version='v0',video=4,action=1,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_41_resume.pt',source=ROOT/'kv_campaign_job4770/campaign_3a89bfa/full_41/train/latest.pt',source_step=15190,config_job=4770,config_label='full_41'),
   dict(label='full_33',version='v0',video=3,action=3,mode='aligned',scope='full_libero',config_job=4770,config_label='full_33'),
   dict(label='full_dense12',version='dense_s12',video=1,action=1,mode='aligned',scope='full_libero',config_job=4770,config_label='full_dense12')],
  'mix':[
-  dict(label='full_22_resume',version='v0',video=2,action=2,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_22_step4340.pt',source=ROOT/'training_only_job4796/full_22/train/latest.pt',source_step=4340,config_job=4771,config_label='full_22'),
+  dict(label='full_22_resume',version='v0',video=2,action=2,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_22_resume.pt',source=ROOT/'training_only_job4796/full_22/train/latest.pt',source_step=4340,config_job=4771,config_label='full_22'),
   dict(label='full_dense30',version='dense_s30',video=1,action=1,mode='aligned',scope='full_libero',config_job=4771,config_label='full_dense30')],
  'kv_mix':[
   dict(label='full_mix',version='v0',video=4,action=1,mode='mix',scope='full_libero',fresh=True,config_job=None,config_label=None)]}
@@ -107,6 +107,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--plan',choices=PLANS,required=True);p.add_argument('--recovery-root',type=Path,required=True)
  a=p.parse_args();from run_kv_campaign import spec as make_spec,train_command,FULL_CACHE
  plan=PLANS[a.plan];base=ROOT/'v0_full_libero_job4659_20261006/train';baseline=read(base/'manifest.json')
+ recovery_inputs=read(a.recovery_root/'recovery_inputs.json')
  recovery=a.recovery_root/f'job{os.environ["SLURM_JOB_ID"]}_{a.plan}'
  recovery.mkdir(parents=True,exist_ok=False)
  # Validate immutable training source and cache before spending GPU time.
@@ -130,8 +131,8 @@ def main():
   out=recovery/item['label']/'train';out.parent.mkdir(parents=True,exist_ok=True)
   cmd=train_command(s,config,out,cache)
   if item.get('resume'):
-   ck=Path(item['resume']);meta=read(a.recovery_root/'checkpoints'/f'{item["label"]}.json')
-   if sha(ck)!=meta['sha256']:raise ValueError('Source recovery checkpoint changed')
+   ck=Path(item['resume']);meta=recovery_inputs['checkpoints'][item['label']]
+   if sha(ck)!=meta['staged_sha256']:raise ValueError('Source recovery checkpoint changed')
    if metrics_prefix(item['source'].parent/'metrics.jsonl',item['source_step'])['update']!=item['source_step']:
     raise ValueError('Original training log does not reach recovery checkpoint')
    cmd+=['--resume',str(ck)]
