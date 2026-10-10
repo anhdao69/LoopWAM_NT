@@ -127,6 +127,7 @@ def main():
  del valid
  for item in plan:
   s=make_spec(item['label'],item['version'],item['video'],item['action'],item['mode'],item['scope'])
+  s['resume']=str(item['resume']) if item.get('resume') else None
   config=item.get('config')
   if config is None:
    if item['config_job']:
