@@ -8,7 +8,9 @@ from pathlib import Path
 import subprocess
 from transport_experiments import EXPERIMENTS,eligible
 
-def planned_runs(evidence):
+def planned_runs(evidence, independent_phase1=False):
+    if independent_phase1:
+        return ["RT-A","RT-B4","RT-T1ft","RT-Pa","RT-TF"]
     return [name for name in EXPERIMENTS if eligible(name,evidence)]
 
 def retryable_state(state):
@@ -20,13 +22,15 @@ def main():
     p.add_argument("--output-root",required=True)
     p.add_argument("--gates")
     p.add_argument("--submit",action="store_true")
+    p.add_argument("--independent-phase1",action="store_true",
+        help="Explicit user override: queue all five phase-1 runs without evaluation waits or job dependencies")
     p.add_argument("--retry-failed",action="store_true")
     p.add_argument("--interactive-run",help="Run already owned by an interactive Slurm step")
     p.add_argument("--interactive-job",type=int)
     a=p.parse_args()
     source=Path(a.source).resolve(); out=Path(a.output_root).resolve(); out.mkdir(parents=True,exist_ok=True)
     evidence=json.loads(Path(a.gates).read_text()) if a.gates else {}
-    plans=planned_runs(evidence)
+    plans=planned_runs(evidence,a.independent_phase1)
     if not a.submit:
         print(json.dumps(dict(eligible=plans,gated=[r for r in EXPERIMENTS if r not in plans]),indent=2))
         return
@@ -62,6 +66,7 @@ def main():
                                    output=str(out/name),source=str(source))
             else:
                 env=os.environ.copy()
+                if a.independent_phase1: env.pop("SBATCH_DEPENDENCY",None)
                 env.update(RT_SOURCE=str(source),RT_RUN=name,RT_OUTPUT=str(out/name),
                     RT_MICROBATCH="8" if EXPERIMENTS[name]["scope"]=="pc" else "64",
                     RT_CHECKPOINT_BLOCKS="1" if EXPERIMENTS[name]["scope"]=="pc" else "0")
@@ -72,6 +77,9 @@ def main():
                 job=subprocess.check_output(command,env=env,text=True).strip().split(";")[0]
                 if not job.isdigit(): raise RuntimeError("Unexpected sbatch response")
                 records[name]=dict(job_id=job,launch="batch",output=str(out/name),source=str(source))
+            if a.independent_phase1:
+                records[name]["submission_policy"]="user_requested_independent_phase1"
+                records[name]["dependencies"]=[]
             if previous is not None: records[name]["previous_attempt"]=previous
             temp=ledger.with_suffix(".tmp"); temp.write_text(json.dumps(records,indent=2)); temp.replace(ledger)
             print(json.dumps({name:records[name]}),flush=True)

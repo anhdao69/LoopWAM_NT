@@ -1,0 +1,65 @@
+{
+  "captured_utc": "2026-10-10T16:47:07.413815+00:00",
+  "policy": "User explicitly requested five independent batch runs with no dependencies, overriding phase-1 evaluation waits.",
+  "submissions": {
+    "RT-A": {
+      "job_id": "4847",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "previous_interactive": {
+        "job_id": "4843",
+        "launch": "interactive_step",
+        "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A",
+        "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+        "recovery_job_id": "4847"
+      },
+      "resume_update": 220,
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": []
+    },
+    "RT-B4": {
+      "job_id": "4846",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": []
+    },
+    "RT-T1ft": {
+      "job_id": "4849",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-T1ft",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": []
+    },
+    "RT-Pa": {
+      "job_id": "4850",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-Pa",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": []
+    },
+    "RT-TF": {
+      "job_id": "4851",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-TF",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "submission_policy": "user_requested_independent_phase1",
+      "dependencies": []
+    }
+  },
+  "slurm_details": {
+    "RT-A": "JobId=4847 JobName=rt_RT-A UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:35:08 EligibleTime=2026-10-10T16:45:56 AccrueTime=2026-10-10T16:45:56 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:46:50 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2010392 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-A:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A_recovery_4847.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A_recovery_4847.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30",
+    "RT-B4": "JobId=4846 JobName=rt_RT-B4 UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Resources Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:35:08 EligibleTime=2026-10-10T16:35:08 AccrueTime=2026-10-10T16:35:08 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:46:50 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2010392 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-B4:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4_4846.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4_4846.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30",
+    "RT-T1ft": "JobId=4849 JobName=rt_RT-T1ft UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:45:58 EligibleTime=2026-10-10T16:45:58 AccrueTime=2026-10-10T16:45:58 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:46:50 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2011630 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-T1ft:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-T1ft_4849.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-T1ft_4849.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30",
+    "RT-Pa": "JobId=4850 JobName=rt_RT-Pa UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:45:58 EligibleTime=2026-10-10T16:45:58 AccrueTime=2026-10-10T16:45:58 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:46:50 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2011630 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-Pa:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-Pa_4850.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-Pa_4850.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30",
+    "RT-TF": "JobId=4851 JobName=rt_RT-TF UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:45:58 EligibleTime=2026-10-10T16:45:58 AccrueTime=2026-10-10T16:45:58 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:46:50 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2011630 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-TF:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-TF_4851.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-TF_4851.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30"
+  },
+  "rt_a_resume_update": 220,
+  "all_dependencies_empty": true,
+  "remaining_gated_recipes": 15,
+  "source_revision": "f669184242b56f24ff07fa2c987c799036723a0b"
+}

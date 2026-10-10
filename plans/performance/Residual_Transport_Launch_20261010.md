@@ -1,6 +1,28 @@
 # Residual Transport launch — 2026-10-10
 
-## Scope and decisions
+## Current status: five independent batch jobs
+
+The user's later instruction overrides the original phase-1 evaluation waits and round dependencies. All five phase-1 recipes are submitted independently, each requesting exactly two H100s. They can run concurrently whenever Slurm has resources; no inter-job dependency or evaluation hold is present.
+
+| Run | Batch job |
+|---|---|
+| RT-A | 4847 |
+| RT-B4 | 4846 |
+| RT-T1ft | 4849 |
+| RT-Pa | 4850 |
+| RT-TF | 4851 |
+
+RT-A checkpointed at update 220 and stopped its step 4843.16 cleanly. Job 4847 was promoted from backup to the primary RT-A batch job and resumes the same output. There is no sixth backup job. Interactive allocations 4843/4844 and unrelated job 4825 were left intact; the user will cancel the interactive allocations.
+
+The three additional recipes were already implemented and covered by native smoke evidence. Source remains pinned to f669184242b5. All runs keep full LIBERO, global batch 128, ten epochs, separate epoch 8/9/10 checkpoints, exact recovery and automatic public uploads. The other 15 recipes retain their original gates.
+
+Submission command:
+
+    python scripts/submit_transport.py --source runs/residual_transport/campaign_20261010/source_f669184242b5 --output-root runs/residual_transport/campaign_20261010 --independent-phase1 --submit
+
+See phase1_submission_status.json for queue/resource/dependency verification. Sections below describe the original launch and scientific gates; this status supersedes their scheduling statements.
+
+## Scope and decisions (original launch)
 
 All implementation, tests and training ran remotely in /mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT, branch residual_trans. The user explicitly retained evaluation gates: **only RT-A and RT-B4 are eligible now**. No simulator evaluation was run on H100. Other recipes are implemented and tested but await external evidence. R-FM remains deferred: the specification provides no target/endpoint definition, so it is not an executable recipe.
 
@@ -88,7 +110,7 @@ Public destination: https://huggingface.co/anhdao69/ResidualTrans . Uploaders ru
 Job IDs, source revision and status are recorded in plans/residual_transport_evidence/launch_status.json and the output root's submissions.json. Pending/running means training is unfinished. Epoch8/9/10 uploads are not claimed before their receipts exist.
 
 
-## Verified launch status
+## Initial verified launch status (historical)
 
 - Implementation snapshot: f669184242b5 (full revision in launch_status.json).
 - RT-A: RUNNING in step4843.16, original allocation4843 (two H100s). First20 production updates passed.

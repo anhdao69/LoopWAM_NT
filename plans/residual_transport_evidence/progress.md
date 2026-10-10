@@ -17,3 +17,7 @@ Launch: RT-A step4843.16 running; RT-B4 job4846 pending resources; RT-A recovery
 Source f669184242b5 pushed and pinned. First20 production updates finite and full training contract confirmed.
 HF public metadata uploaded and downloaded back with exact hash match; trained weights pending milestones.
 All currently eligible launches complete. External gates, actual four-device NCCL and undefined R-FM remain explicitly outstanding.
+
+User steering: submit exactly five independent phase-1 batch jobs; no dependencies and no evaluation waits.
+RT-A checkpointed/stopped at update220; backup4847 promoted to primary RT-A. No interactive allocation cancelled.
+Verified five jobs: A4847, B44846, T1ft4849, Pa4850, TF4851. Each requests2 H100; all dependencies null.
