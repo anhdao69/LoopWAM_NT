@@ -17,6 +17,9 @@ PLANS={
   dict(label='full_41_resume',version='v0',video=4,action=1,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_41_resume.pt',source=ROOT/'kv_campaign_job4770/campaign_3a89bfa/full_41/train/latest.pt',source_step=15190,config_job=4770,config_label='full_41'),
   dict(label='full_33',version='v0',video=3,action=3,mode='aligned',scope='full_libero',config_job=4770,config_label='full_33'),
   dict(label='full_dense12',version='dense_s12',video=1,action=1,mode='aligned',scope='full_libero',config_job=4770,config_label='full_dense12')],
+ 'concat_tail':[
+  dict(label='full_33',version='v0',video=3,action=3,mode='aligned',scope='full_libero',config_job=4770,config_label='full_33'),
+  dict(label='full_dense12',version='dense_s12',video=1,action=1,mode='aligned',scope='full_libero',config_job=4770,config_label='full_dense12')],
  'mix':[
   dict(label='full_22_resume',version='v0',video=2,action=2,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_22_resume.pt',source=ROOT/'training_only_job4796/full_22/train/latest.pt',source_step=4340,config_job=4771,config_label='full_22'),
   dict(label='full_dense30',version='dense_s30',video=1,action=1,mode='aligned',scope='full_libero',config_job=4771,config_label='full_dense30')],
@@ -65,7 +68,10 @@ def fairness(candidate,baseline):
 def validate_final(path,spec,config,first_update,baseline):
  import torch
  from fastwam.training_backends import expected_policy_parameters
- path=Path(path);m=read(path/'manifest.json');t=read(path/'timing.json');st=read(path/'trainer_state.json')
+ path=Path(path)
+ manifest_path=path/'manifest.json'
+ if not manifest_path.exists():manifest_path=path/'resume_manifest.json'
+ m=read(manifest_path);t=read(path/'timing.json');st=read(path/'trainer_state.json')
  total=21700;windows=277713;resume=spec.get('resume')
  expected=dict(version=spec['version'],action_kv_mode=spec['mode'],loops=spec['video'],action_core_loops=spec['action'],
   global_batch=128,epochs=10,seed=42,world_size=2,train_windows=windows,planned_updates=total,planned_windows=windows*10,
