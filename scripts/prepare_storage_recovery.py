@@ -57,10 +57,13 @@ def main():
  records={}
  for label,(train,step,video,action,micro) in SOURCES.items():
   manifest=read(train/'manifest.json');timing=read(train/'timing.json');state=read(train/'trainer_state.json')
+  completed_epochs=step//2170
+  expected_windows=completed_epochs*277713
+  if step%2170:raise ValueError(f'{label}: recovery checkpoint must be at an epoch boundary')
   expected=dict(version='v0',action_kv_mode='aligned',loops=video,action_core_loops=action,microbatch=micro,
     global_batch=128,seed=42,epochs=10,world_size=2,train_windows=277713,planned_updates=21700,backend='ddp',policy_dtype='float32',optimizer_state_dtype='float32',compute_dtype='bfloat16')
   if any(manifest.get(k)!=v for k,v in expected.items()):raise ValueError(f'{label}: source manifest mismatch')
-  if state.get('update')!=step or state.get('windows_seen')!=step*128 or state.get('backend')!='ddp' or len(state.get('rng',[]))!=2:
+  if state.get('update')!=step or state.get('windows_seen')!=expected_windows or state.get('epoch')!=completed_epochs-1 or state.get('next_micro')!=math.ceil(277713/(2*micro)) or state.get('backend')!='ddp' or len(state.get('rng',[]))!=2:
    raise ValueError(f'{label}: checkpoint trainer state mismatch')
   if not readprefix(train/'metrics.jsonl',step):raise ValueError(f'{label}: no metrics prefix')
   source=train/'latest.pt';dest=inputs/f'{label}.pt';src_sha=sha(source)
@@ -72,7 +75,7 @@ def main():
   if (payload.get('step')!=step or payload.get('version')!='v0' or payload.get('video_loops')!=video
    or payload.get('action_loops')!=action or payload.get('action_kv_mode','aligned')!='aligned'
    or saved.get('epoch')!=state['epoch'] or saved.get('next_micro')!=state['next_micro']
-   or saved.get('windows_seen')!=step*128 or len(saved.get('rng',[]))!=2 or not payload.get('optimizer',{}).get('state')):
+   or saved.get('windows_seen')!=expected_windows or saved.get('epoch')!=completed_epochs-1 or saved.get('next_micro')!=math.ceil(277713/(2*micro)) or len(saved.get('rng',[]))!=2 or not payload.get('optimizer',{}).get('state')):
    raise ValueError(f'{label}: checkpoint payload invalid')
   records[label]=dict(original_train=str(train),source_sha256=src_sha,staged_checkpoint=str(dest),staged_sha256=cp_sha,
    checkpoint_bytes=dest.stat().st_size,step=step,epoch=state['epoch'],next_micro=state['next_micro'],
