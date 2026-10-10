@@ -1,11 +1,11 @@
 # ChronoLoop: implementation, validation and launch (October 10, 2026)
 
 Branch `chrono` (git worktree `/lustre/fs1/home/an221229/code/LoopWAM_chrono`, based on `3eac53a`).
-Production code snapshot: `97d55b1` at `/groups/yshang/an221229/checkpoints/ChronoLoop/code/97d55b1cfc09`.
+Production code snapshot: `ec3aa35` at `/groups/yshang/an221229/checkpoints/ChronoLoop/code/ec3aa354f355`.
 Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
 
-**Status at writing (13:30 EDT): no ChronoLoop run has finished training, and no run has been evaluated.**
+**Status at writing (14:05 EDT): no ChronoLoop run has finished training, and no run has been evaluated.**
 CL-0 and CL-A are training in the interactive allocation (job 894901). The other five runs, and the
 continuations of CL-0 and CL-A, are queued as 4 x H100 Slurm jobs. Use `python scripts/chronoloop_status.py`
 for the live table (section 9).
@@ -111,7 +111,7 @@ Deviations, with the reason for each:
 7. **CL-FRAME details** not given by the plan: RoPE position −2, gated reading (so it is the exact parent
    at init, the same mechanism as CL-A), and the first query repeated when k < 3.
 8. **Run order.** The plan gates round 3 (CL-0@1, CL-A@1) on Gate 1. You asked for every run to be
-   submitted, so they are queued now. If Gate 1 fails, cancel them with `scancel 897640 897641`.
+   submitted, so they are queued now. If Gate 1 fails, cancel them with `scancel 897652 897653`.
 
 ## 4. Tests
 
@@ -160,10 +160,25 @@ Benchmark with `scripts/chronoloop_benchmark.sh`, steady state over updates 11�
 - **Decision:** 2 x 2 in the interactive allocation, with CL-0 on GPUs 0,1 and CL-A on GPUs 2,3, each with
   16 streams per rank in one micro-batch. Round 1 then advances together, as the plan recommends, and
   aggregate throughput is highest.
-- In production (first 80 updates), CL-0 runs at 2.55 s/update and CL-A at 3.0 s/update. Neither is
-  expected to finish all 23,862 updates before the allocation ends; CL-0 should come close.
+- **Production I/O finding.** The first production launch ran 25–40% slower than the benchmark: CL-0 at
+  3.0 s/update and CL-A at 3.2, with GPUs often idle at 120–200 W.
+  - Cause: the 42 GB latent cache had dropped out of page cache. 128 random 150 KB reads from Lustre took
+    5–7 s, which starved the prefetch thread. The benchmark had run while the freshly written cache was
+    still cached.
+  - Fix (commit `ec3aa35`): each job's node-local rank 0 copies the cache to `/dev/shm` with 8 parallel
+    readers, taking 118 s, under a lock shared by concurrent runs. The batch job removes the copy on exit.
+  - Both interactive runs were stopped right after their update-500 checkpoint and resumed with the fix.
+    Metrics past update 500 from the first launch are kept in `metrics_discarded_after_u500_restart1.jsonl`.
+  - The queued Slurm jobs (never started) were cancelled and resubmitted from the fixed snapshot.
+- **After the fix:** CL-0 runs at 2.17 s/update and CL-A at 2.65 s/update, matching the benchmark, with
+  GPUs at 600–680 W.
+- **Projection, from 14:00 EDT with the stop at 04:38:**
+  - CL-0 needs about 14.2 h including checkpoints, so it should finish around 04:15, then upload from the
+    interactive session.
+  - CL-A should reach about update 20,400 (86%, past the epoch-8 checkpoint at 19,091). About 3,400
+    updates remain, roughly 1.7 h on 4 x H100.
 - Both stop cleanly 15 minutes before the end of the allocation with a resumable checkpoint.
-  Continuations 897643 (CL-0) and 897644 (CL-A) are queued with `afterany:894901` and resume on
+  Continuations 897655 (CL-0) and 897656 (CL-A) are queued with `afterany:894901` and resume on
   4 x H100. Resuming at a different world size was tested.
 
 ## 6. Commands
@@ -197,16 +212,19 @@ Each Slurm job (`scripts/chronoloop_job.sbatch`) does the following:
 |---|---|---|---|---|
 | CL-0 | interactive, GPUs 0–1 | 894901 | until 04:38 EDT | `CL-0_no-memory_a4` |
 | CL-A | interactive, GPUs 2–3 | 894901 | until 04:38 EDT | `CL-A_mem16-learned-loopwrite_a4` |
-| CL-0 (continuation) | Slurm 4 x H100, afterany:894901 | 897643 | 6 h | same |
-| CL-A (continuation) | Slurm 4 x H100, afterany:894901 | 897644 | 6 h | same |
-| CL-REG | Slurm 4 x H100 | 897638 | 16 h | `CL-REG_mem16-reset-registers_a4` |
-| CL-W2 | Slurm 4 x H100 | 897639 | 16 h | `CL-W2_mem16-learned-external-updater_a4` |
-| CL-0@1 | Slurm 4 x H100 | 897640 | 16 h | `CL-0-at1_no-memory_a1` |
-| CL-A@1 | Slurm 4 x H100 | 897641 | 16 h | `CL-A-at1_mem16-learned-loopwrite_a1` |
-| CL-FRAME | Slurm 4 x H100 | 897642 | 16 h | `CL-FRAME_history-frame-k3_a4` |
+| CL-0 (continuation) | Slurm 4 x H100, afterany:894901 | 897655 | 6 h | same |
+| CL-A (continuation) | Slurm 4 x H100, afterany:894901 | 897656 | 6 h | same |
+| CL-REG | Slurm 4 x H100 | 897650 | 16 h | `CL-REG_mem16-reset-registers_a4` |
+| CL-W2 | Slurm 4 x H100 | 897651 | 16 h | `CL-W2_mem16-learned-external-updater_a4` |
+| CL-0@1 | Slurm 4 x H100 | 897652 | 16 h | `CL-0-at1_no-memory_a1` |
+| CL-A@1 | Slurm 4 x H100 | 897653 | 16 h | `CL-A-at1_mem16-learned-loopwrite_a1` |
+| CL-FRAME | Slurm 4 x H100 | 897654 | 16 h | `CL-FRAME_history-frame-k3_a4` |
 
 Projected 4-GPU training time is about 9 h for stateless runs and about 12 h for stateful ones (from the
 benchmark), plus queue wait, which is unknown.
+
+The first submissions, 897638–897644 from snapshot `97d55b1`, were cancelled while still pending and
+resubmitted from `ec3aa35`; see `runs/submissions.txt`.
 
 ## 8. Hugging Face
 
@@ -223,13 +241,13 @@ benchmark), plus queue wait, which is unknown.
 
 | Run | Flags (mem/src/write/K_a/hist) | Status | Update | GPUs | Slurm | Checkpoints | HF verified |
 |---|---|---|---|---|---|---|---|
-| CL-0 | 0/none/none/4/0 | running (interactive) | 81/23862 | 2 | 897643 pending (dependency) | - | - |
-| CL-A | 16/learned/loop/4/0 | running (interactive) | 80/23862 | 2 | 897644 pending (dependency) | - | - |
-| CL-REG | 16/reset/loop/4/0 | queued | - | 4 | 897638 pending | - | - |
-| CL-W2 | 16/learned/external/4/0 | queued | - | 4 | 897639 pending | - | - |
-| CL-0@1 | 0/none/none/1/0 | queued | - | 4 | 897640 pending | - | - |
-| CL-A@1 | 16/learned/loop/1/0 | queued | - | 4 | 897641 pending | - | - |
-| CL-FRAME | 0/none/none/4/3 | queued | - | 4 | 897642 pending | - | - |
+| CL-0 | 0/none/none/4/0 | running (interactive) | 618/23862 | 2 | 897655 pending (dependency) | - | - |
+| CL-A | 16/learned/loop/4/0 | running (interactive) | 598/23862 | 2 | 897656 pending (dependency) | - | - |
+| CL-REG | 16/reset/loop/4/0 | queued | - | 4 | 897650 pending | - | - |
+| CL-W2 | 16/learned/external/4/0 | queued | - | 4 | 897651 pending | - | - |
+| CL-0@1 | 0/none/none/1/0 | queued | - | 4 | 897652 pending | - | - |
+| CL-A@1 | 16/learned/loop/1/0 | queued | - | 4 | 897653 pending | - | - |
+| CL-FRAME | 0/none/none/4/3 | queued | - | 4 | 897654 pending | - | - |
 | CL-ORACLE | - | not submitted (conditional) | - | - | - | - | - |
 
 There are no evaluation results yet. Following your instruction, nothing is evaluated on the H100 server.
@@ -268,6 +286,6 @@ torchrun --standalone --nproc_per_node=4 scripts/evaluate_chronoloop_libero.py \
    separately; this is Gate 1.
 2. If Gate 1 passes, keep CL-0@1 and CL-A@1 (already queued) and measure latency for Q3 at batch 1.
    The ChronoLoop inference path still needs a CUDA-graph or compiled variant for a fair latency number.
-3. If Gate 1 fails, cancel 897640 and 897641 and build the oracle stage-label replay before running CL-ORACLE.
+3. If Gate 1 fails, cancel 897652 and 897653 and build the oracle stage-label replay before running CL-ORACLE.
 4. Check the gates in `metrics.jsonl`: `tanh_alpha_*_absmean_per_block` should move away from 0 within the
    first 1,000 updates (the run is flagged otherwise). Also watch `mem_saturated_frac`.
