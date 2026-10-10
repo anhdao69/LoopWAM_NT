@@ -1,0 +1,11 @@
+{
+  "world": 1,
+  "accumulation": 2,
+  "resumed_updates": 10,
+  "bit_exact": true,
+  "weights": true,
+  "optimizer": true,
+  "ema": true,
+  "losses": true,
+  "gradient_norms": true
+}

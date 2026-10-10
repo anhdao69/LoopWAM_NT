@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Full-LIBERO RT training: two GPUs, exact tail weights and resumable epochs."""
+"""Full-LIBERO RT training: explicit one/two GPU layout and exact recovery."""
 from __future__ import annotations
 import argparse
 import contextlib
@@ -109,6 +109,7 @@ def main():
     p.add_argument("--latent-dir",default=str(PARENT_RUN/"latents"))
     p.add_argument("--init-checkpoint")
     p.add_argument("--microbatch",type=int,default=8)
+    p.add_argument("--expected-gpus",type=int,choices=(1,2),default=2)
     p.add_argument("--workers",type=int,default=4)
     p.add_argument("--global-batch",type=int,default=128)
     p.add_argument("--epochs",type=int,default=10)
@@ -120,7 +121,7 @@ def main():
     a=p.parse_args()
     rank=int(os.getenv("RANK","0")); world=int(os.getenv("WORLD_SIZE","1"))
     local=int(os.getenv("LOCAL_RANK","0"))
-    if world!=2 and not a.smoke: p.error("Production runs require exactly two GPUs")
+    if world!=a.expected_gpus and not a.smoke: p.error("WORLD_SIZE must match --expected-gpus")
     if a.global_batch!=128 and not a.smoke: p.error("Production global batch must be 128")
     if a.epochs!=10 and not a.smoke: p.error("Production training must cover ten epochs")
     if a.global_batch%(world*a.microbatch): p.error("Invalid accumulation layout")

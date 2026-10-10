@@ -8,7 +8,9 @@ from pathlib import Path
 import subprocess
 from transport_experiments import EXPERIMENTS,eligible
 
-def planned_runs(evidence, independent_phase1=False):
+def planned_runs(evidence, independent_phase1=False, independent_phase2_pair=False):
+    if independent_phase2_pair:
+        return ["RT-A2","RT-B2a"]
     if independent_phase1:
         return ["RT-A","RT-B4","RT-T1ft","RT-Pa","RT-TF"]
     return [name for name in EXPERIMENTS if eligible(name,evidence)]
@@ -24,13 +26,20 @@ def main():
     p.add_argument("--submit",action="store_true")
     p.add_argument("--independent-phase1",action="store_true",
         help="Explicit user override: queue all five phase-1 runs without evaluation waits or job dependencies")
+    p.add_argument("--independent-phase2-pair",action="store_true",
+        help="Explicit user override: select RT-A2/RT-B2a without Gate 1 or dependencies")
+    p.add_argument("--gpus",type=int,choices=(1,2),default=2)
+    p.add_argument("--microbatch",type=int)
+    p.add_argument("--checkpoint-blocks",action=argparse.BooleanOptionalAction,default=None)
+    p.add_argument("--interactive-gpus",type=int,choices=(1,2),default=2)
     p.add_argument("--retry-failed",action="store_true")
     p.add_argument("--interactive-run",help="Run already owned by an interactive Slurm step")
     p.add_argument("--interactive-job",type=int)
     a=p.parse_args()
     source=Path(a.source).resolve(); out=Path(a.output_root).resolve(); out.mkdir(parents=True,exist_ok=True)
     evidence=json.loads(Path(a.gates).read_text()) if a.gates else {}
-    plans=planned_runs(evidence,a.independent_phase1)
+    if a.independent_phase1 and a.independent_phase2_pair: p.error("Choose one explicit override group")
+    plans=planned_runs(evidence,a.independent_phase1,a.independent_phase2_pair)
     if not a.submit:
         print(json.dumps(dict(eligible=plans,gated=[r for r in EXPERIMENTS if r not in plans]),indent=2))
         return
@@ -63,26 +72,33 @@ def main():
                 if not a.interactive_job: raise ValueError("Interactive allocation ID required")
                 subprocess.check_call(["scontrol","show","job",str(a.interactive_job)],stdout=subprocess.DEVNULL)
                 records[name]=dict(job_id=str(a.interactive_job),launch="interactive_step",
-                                   output=str(out/name),source=str(source))
+                                   output=str(out/name),source=str(source),gpus=a.interactive_gpus)
             else:
                 env=os.environ.copy()
-                if a.independent_phase1: env.pop("SBATCH_DEPENDENCY",None)
+                if a.independent_phase1 or a.independent_phase2_pair: env.pop("SBATCH_DEPENDENCY",None)
                 env.update(RT_SOURCE=str(source),RT_RUN=name,RT_OUTPUT=str(out/name),
-                    RT_MICROBATCH="8" if EXPERIMENTS[name]["scope"]=="pc" else "64",
-                    RT_CHECKPOINT_BLOCKS="1" if EXPERIMENTS[name]["scope"]=="pc" else "0")
+                    RT_WORLD_SIZE=str(a.gpus),
+                    RT_MICROBATCH=str(a.microbatch or (8 if EXPERIMENTS[name]["scope"]=="pc" else 64)),
+                    RT_CHECKPOINT_BLOCKS=str(int(a.checkpoint_blocks if a.checkpoint_blocks is not None else EXPERIMENTS[name]["scope"]=="pc")))
                 if EXPERIMENTS[name].get("init_run"):
                     env["RT_INIT_CHECKPOINT"]=str(out/EXPERIMENTS[name]["init_run"]/"epoch_10.pt")
                 command=["sbatch","--parsable","--job-name=rt_"+name,"--comment="+comment,
+                         f"--gres=gpu:nvidia_h100_80gb_hbm3:{a.gpus}",
+                         "--cpus-per-task="+str(15*a.gpus),"--mem="+str(128*a.gpus)+"G",
                          "--output="+str(out/(name+"_%j.slurm.log")),str(source/"scripts/submit_transport.sbatch")]
                 job=subprocess.check_output(command,env=env,text=True).strip().split(";")[0]
                 if not job.isdigit(): raise RuntimeError("Unexpected sbatch response")
-                records[name]=dict(job_id=job,launch="batch",output=str(out/name),source=str(source))
+                records[name]=dict(job_id=job,launch="batch",output=str(out/name),source=str(source),gpus=a.gpus)
             if a.independent_phase1:
                 records[name]["submission_policy"]="user_requested_independent_phase1"
+                records[name]["dependencies"]=[]
+            if a.independent_phase2_pair:
+                records[name]["submission_policy"]="user_requested_independent_phase2_pair"
                 records[name]["dependencies"]=[]
             if previous is not None: records[name]["previous_attempt"]=previous
             temp=ledger.with_suffix(".tmp"); temp.write_text(json.dumps(records,indent=2)); temp.replace(ledger)
             print(json.dumps({name:records[name]}),flush=True)
         for name in EXPERIMENTS:
-            if name not in plans: print(json.dumps(dict(run=name,status="gated",gate=EXPERIMENTS[name]["gate"])))
+            if name not in plans and name not in records:
+                print(json.dumps(dict(run=name,status="gated",gate=EXPERIMENTS[name].get("gate"))))
 if __name__=="__main__": main()

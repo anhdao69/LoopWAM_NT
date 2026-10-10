@@ -1,0 +1,24 @@
+[
+  {
+    "run": "RT-A2",
+    "microbatch": 32,
+    "schedule": "S1",
+    "step": 0,
+    "loss": 0.3673003613948822,
+    "gradient_norm": 1.0844242572784424,
+    "peak_allocated_gb": 45.413782528,
+    "seconds": 2.9378261901438236,
+    "all_trainable_parameters_have_gradients": true
+  },
+  {
+    "run": "RT-A2",
+    "microbatch": 32,
+    "schedule": "S1",
+    "step": 1,
+    "loss": 0.4578133821487427,
+    "gradient_norm": 2.033553123474121,
+    "peak_allocated_gb": 45.445393408,
+    "seconds": 2.434296378865838,
+    "all_trainable_parameters_have_gradients": true
+  }
+]

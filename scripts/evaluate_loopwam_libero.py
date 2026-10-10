@@ -141,9 +141,9 @@ def validate_transport_checkpoint(payload,data,stats_hash):
     if data.get("dataset_scope")!="full_libero" or set(data.get("suites",[]))!=set(LIBERO_SUITES):
         raise ValueError("RT must cover all four LIBERO suites")
     if (contract.get("windows")!=data.get("train_windows") or contract.get("epochs")!=10
-            or contract.get("global_batch")!=128 or contract.get("world")!=2
+            or contract.get("global_batch")!=128 or contract.get("world") not in (1,2)
             or not isinstance(contract.get("microbatch"),int) or contract["microbatch"]<1
-            or 128%(2*contract["microbatch"])!=0
+            or 128%(contract["world"]*contract["microbatch"])!=0
             or contract.get("config")!=payload.get("transport_config")
             or stats_hash!=data.get("normalization_sha256")
             or stats_hash!=contract.get("normalization_sha256")):

@@ -72,3 +72,33 @@ def test_retry_only_terminal_failures():
     assert not s.retryable_state("RUNNING")
     assert not s.retryable_state("COMPLETED")
     assert not s.retryable_state("PENDING")
+
+
+def test_single_gpu_rt_epoch_evaluation_contract():
+    import evaluate_loopwam_libero as e
+    from transport_experiments import EXPERIMENTS
+    config=EXPERIMENTS["RT-A2"]
+    contract=dict(config=config,epochs=10,world=1,microbatch=64,global_batch=128,
+        windows=277713,planned_updates=21700,normalization_sha256="stats")
+    payload=dict(format_version="loopwam-s-v1",version="v0",trained_max_loops=4,inference_loops=4,
+        step=17360,transport_config=config,
+        training_state=dict(epoch=8,update=17360,windows_seen=2221704,contract=contract))
+    data=dict(dataset_scope="full_libero",train_windows=277713,normalization_sha256="stats",
+        suites=["libero_spatial","libero_object","libero_goal","libero_10"])
+    assert e.validate_transport_checkpoint(payload,data,"stats")==contract
+
+def test_single_gpu_sampler_matches_two_gpu_global_batches():
+    from train_loopwam import ExactDistributedBatches
+    single=list(ExactDistributedBatches(277713,64,0,1,42))
+    pair=[list(ExactDistributedBatches(277713,64,r,2,42)) for r in range(2)]
+    for update in range(len(pair[0])):
+        serial=single[2*update:2*update+2]
+        serial=[i for batch in serial for i in batch]
+        distributed=pair[0][update]+pair[1][update]
+        assert serial==distributed
+
+
+def test_explicit_phase_two_pair_does_not_unlock_other_runs():
+    from submit_transport import planned_runs
+    assert planned_runs({},independent_phase2_pair=True)==["RT-A2","RT-B2a"]
+    assert planned_runs({})==["RT-A","RT-B4"]

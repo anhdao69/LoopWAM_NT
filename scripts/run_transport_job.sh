@@ -19,11 +19,11 @@ trap on_signal USR1 TERM
 cleanup() { kill "$uploader" 2>/dev/null || true; }
 trap cleanup EXIT
 for attempt in 1 2 3; do
-    args=(--run-name "$RT_RUN" --output-dir "$RT_OUTPUT" --microbatch "${RT_MICROBATCH:-64}" --workers 4)
+    args=(--expected-gpus "${RT_WORLD_SIZE:-2}" --run-name "$RT_RUN" --output-dir "$RT_OUTPUT" --microbatch "${RT_MICROBATCH:-64}" --workers 4)
     if [[ "${RT_CHECKPOINT_BLOCKS:-0}" == 0 ]]; then args+=(--no-checkpoint-blocks); fi
     if [[ -f "$RT_OUTPUT/latest.pt" ]]; then args+=(--resume); fi
     if [[ -n "${RT_INIT_CHECKPOINT:-}" ]]; then args+=(--init-checkpoint "$RT_INIT_CHECKPOINT"); fi
-    torchrun --standalone --nproc_per_node=2 scripts/train_transport.py "${args[@]}" >> "$RT_OUTPUT/train.log" 2>&1 &
+    torchrun --standalone --nproc_per_node="${RT_WORLD_SIZE:-2}" scripts/train_transport.py "${args[@]}" >> "$RT_OUTPUT/train.log" 2>&1 &
     trainer_pid=$!
     code=0
     wait "$trainer_pid" || code=$?

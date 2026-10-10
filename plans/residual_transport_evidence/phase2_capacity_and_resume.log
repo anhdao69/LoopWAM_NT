@@ -1,0 +1,5 @@
+{"run": "RT-A2", "microbatch": 32, "schedule": "S1", "step": 0, "loss": 0.3673003613948822, "gradient_norm": 1.0844242572784424, "peak_allocated_gb": 45.413782528, "seconds": 2.9378261901438236, "all_trainable_parameters_have_gradients": true}
+{"run": "RT-A2", "microbatch": 32, "schedule": "S1", "step": 1, "loss": 0.4578133821487427, "gradient_norm": 2.033553123474121, "peak_allocated_gb": 45.445393408, "seconds": 2.434296378865838, "all_trainable_parameters_have_gradients": true}
+{"run": "RT-B2a", "microbatch": 64, "schedule": "parent2", "step": 0, "loss": 0.019608035683631897, "gradient_norm": 0.33130720257759094, "peak_allocated_gb": 43.323482624, "seconds": 1.997898019850254, "all_trainable_parameters_have_gradients": true}
+{"run": "RT-B2a", "microbatch": 64, "schedule": "parent2", "step": 1, "loss": 0.17290471494197845, "gradient_norm": 3.2672979831695557, "peak_allocated_gb": 44.23030016, "seconds": 1.614583333954215, "all_trainable_parameters_have_gradients": true}
+{'world': 1, 'accumulation': 2, 'resumed_updates': 10, 'bit_exact': True, 'weights': True, 'optimizer': True, 'ema': True, 'losses': True, 'gradient_norms': True}
