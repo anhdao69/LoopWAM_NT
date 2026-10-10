@@ -198,6 +198,10 @@ def main():
     cfg = ChronoConfig(memory_tokens=args.memory_tokens, mem_source=args.mem_source, mem_write=args.mem_write,
                        history_frame=args.history_frame, action_loops=args.action_loops)
     rank, world, local = (int(os.environ.get(k, d)) for k, d in (('RANK', 0), ('WORLD_SIZE', 1), ('LOCAL_RANK', 0)))
+    # Per-rank compiler caches: ranks racing on one Triton bundle directory fail (FileExistsError).
+    base = os.environ.get('TRITON_CACHE_DIR', f'/tmp/chrono_{os.getenv("SLURM_JOB_ID", "local")}_triton')
+    os.environ['TRITON_CACHE_DIR'] = f'{base}_rank{local}'
+    os.environ['TORCHINDUCTOR_CACHE_DIR'] = f'{base}_inductor_rank{local}'
     torch.cuda.set_device(local)
     device = torch.device('cuda', local)
     if world > 1:
