@@ -129,6 +129,33 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False, suite="libero
     return contract
 
 
+
+def validate_transport_checkpoint(payload,data,stats_hash):
+    """Validate retained RT epoch 8/9/10 without discarding transport semantics."""
+    version,loops=checkpoint_policy_spec(payload)
+    state=payload.get("training_state") or {}
+    contract=state.get("contract") or {}
+    epoch=state.get("epoch")
+    if version!="v0" or loops!=4 or epoch not in (8,9,10):
+        raise ValueError("RT evaluation requires a retained v0 epoch 8/9/10")
+    if data.get("dataset_scope")!="full_libero" or set(data.get("suites",[]))!=set(LIBERO_SUITES):
+        raise ValueError("RT must cover all four LIBERO suites")
+    if (contract.get("windows")!=data.get("train_windows") or contract.get("epochs")!=10
+            or contract.get("global_batch")!=128 or contract.get("world")!=2
+            or not isinstance(contract.get("microbatch"),int) or contract["microbatch"]<1
+            or 128%(2*contract["microbatch"])!=0
+            or contract.get("config")!=payload.get("transport_config")
+            or stats_hash!=data.get("normalization_sha256")
+            or stats_hash!=contract.get("normalization_sha256")):
+        raise ValueError("RT data/configuration/normalization contract mismatch")
+    expected=math.ceil(contract["windows"]/128)*epoch
+    if (payload.get("step")!=expected or state.get("update")!=expected
+            or state.get("windows_seen")!=epoch*contract["windows"]
+            or contract.get("planned_updates")!=math.ceil(contract["windows"]/128)*10):
+        raise ValueError("RT checkpoint has not completed its declared epoch")
+    return contract
+
+
 def shard_tasks(task_ids, rank, world):
     if world < 1 or not 0 <= rank < world or len(task_ids) != len(set(task_ids)):
         raise ValueError("Invalid rank/world or duplicate tasks")
@@ -261,6 +288,8 @@ def simulator_preflight(output, tasks, seed, suite_name="libero_10"):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint")
+    parser.add_argument("--transport-zero-shot-kind",choices=("T0","T1","T2"))
+    parser.add_argument("--transport-schedule",help="Required for RT checkpoints, e.g. S1 or S2")
     parser.add_argument("--suite", choices=LIBERO_SUITES, default="libero_10")
     parser.add_argument("--vae-path")
     parser.add_argument("--output-dir", required=True)
@@ -299,17 +328,29 @@ def main():
     stats_path = Path(args.stats) if args.stats else data_dir / "dataset_stats.json"
     stats_hash = sha256_file(stats_path)
     payload = torch.load(checkpoint, map_location="cpu", weights_only=False, mmap=True)
-    contract = validate_checkpoint(payload, data, stats_hash, smoke=args.smoke, suite=args.suite)
+    is_transport="transport_config" in payload
+    if is_transport or args.transport_zero_shot_kind:
+        from fastwam.models.wan22.residual_transport import SCHEDULES
+        if args.transport_schedule not in SCHEDULES:
+            parser.error("RT checkpoints require --transport-schedule")
+        if is_transport and args.transport_zero_shot_kind:
+            parser.error("Zero-shot kind requires original parent weights")
+        contract=validate_transport_checkpoint(payload,data,stats_hash) if is_transport else validate_checkpoint(payload,data,stats_hash,smoke=args.smoke,suite=args.suite)
+        inference_steps=len(SCHEDULES[args.transport_schedule])
+    else:
+        if args.transport_schedule: parser.error("--transport-schedule requires RT weights")
+        contract=validate_checkpoint(payload,data,stats_hash,smoke=args.smoke,suite=args.suite)
+        inference_steps=10
     version, loops = checkpoint_policy_spec(payload)
     action_loops = payload.get("action_loops", loops)
     checkpoint_step = payload["step"]
     del payload
-    train_manifest = json.loads((checkpoint.parent / "manifest.json").read_text())
+    train_manifest = json.loads((checkpoint.parent / ("config.json" if is_transport else "manifest.json")).read_text())
     vae_hash = sha256_file(args.vae_path)
     if vae_hash != train_manifest["asset_sha256"]["vae"]:
         raise ValueError("VAE differs from the one used during training")
     checkpoint_hash = sha256_file(checkpoint)
-    if not args.smoke:
+    if not args.smoke and not is_transport:
         timing = json.loads((checkpoint.parent / "timing.json").read_text())
         if timing.get("status") != "complete":
             raise ValueError("Training run has not reported complete status")
@@ -329,7 +370,7 @@ def main():
                     versions[package] = "unknown"
             manifest = dict(mode="smoke" if args.smoke else "final_rollout", suite=args.suite,
                 checkpoint=str(checkpoint), checkpoint_sha256=checkpoint_hash, checkpoint_step=checkpoint_step,
-                version=version, loops=loops, video_loops=loops, action_loops=action_loops, inference_steps=10, cfg=1.0, action_chunk=32,
+                version=version, loops=loops, video_loops=loops, action_loops=action_loops, inference_steps=inference_steps, transport_schedule=args.transport_schedule, cfg=1.0, action_chunk=32,
                 protocol=dict(max_policy_steps=args.max_steps, settling_steps=args.wait_steps,
                               replan_steps=args.replan_steps, camera_resolution=256,
                               model_camera_size=[224, 224], concatenation="horizontal",
@@ -352,8 +393,13 @@ def main():
         from experiments.libero.libero_utils import get_libero_env, save_rollout_video
         adapter = ObservationAdapter(json.loads(stats_path.read_text()),
             args.text_cache_dir or data["text_cache_dir"], data["text_cache_files"])
-        model = create_loopwam(checkpoint_path=str(checkpoint), vae_path=args.vae_path,
-            version=version, loops=loops, device=f"cuda:{local}", model_dtype=torch.float32).eval()
+        if is_transport or args.transport_zero_shot_kind:
+            from fastwam.models.wan22.transport_inference import TransportInference
+            model=TransportInference(str(checkpoint),args.vae_path,device=f"cuda:{local}",
+                                     schedule=args.transport_schedule,zero_shot_kind=args.transport_zero_shot_kind).eval()
+        else:
+            model = create_loopwam(checkpoint_path=str(checkpoint), vae_path=args.vae_path,
+                version=version, loops=loops, device=f"cuda:{local}", model_dtype=torch.float32).eval()
         suite = benchmark.get_benchmark_dict()[args.suite]()
         episodes = []
         video_dir = output / "videos"
@@ -371,7 +417,7 @@ def main():
                     with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
                         action = model.infer_action(input_image=image, proprio=proprio,
                             context=context, context_mask=mask, action_horizon=32,
-                            num_inference_steps=10, text_cfg_scale=1.0, seed=sampler_seed)["action"]
+                            num_inference_steps=inference_steps, text_cfg_scale=1.0, seed=sampler_seed)["action"]
                     return adapter.libero_actions(action)
                 for episode in range(args.episodes_per_task):
                     seed = args.seed + task_id * 100000 + episode * 1000

@@ -1,0 +1,13 @@
+{
+  "logical_ranks": 4,
+  "physical_gpus": 2,
+  "windows": 8,
+  "loss": 0.25958362221717834,
+  "gradient_norm": 0.18281249701976776,
+  "relative_errors": {
+    "loss": 1.1480818995703877e-07,
+    "gradient_norm": 0.0002718303009252748
+  },
+  "tolerance": 0.02,
+  "four_physical_gpu_nccl_tested": false
+}

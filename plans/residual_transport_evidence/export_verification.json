@@ -1,0 +1,10 @@
+{
+  "export_max_absolute_error": {
+    "S1": 0.0,
+    "S2": 0.0,
+    "parent10": 0.0
+  },
+  "stack_exact": true,
+  "teacher_unchanged": true,
+  "synthetic_checkpoint_not_for_publication": true
+}

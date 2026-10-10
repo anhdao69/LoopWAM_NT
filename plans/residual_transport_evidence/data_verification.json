@@ -1,0 +1,72 @@
+{
+  "windows": 277713,
+  "episodes": 1712,
+  "exact_window_checks": [
+    [
+      "libero_spatial",
+      0
+    ],
+    [
+      "libero_spatial",
+      31
+    ],
+    [
+      "libero_spatial",
+      26614
+    ],
+    [
+      "libero_spatial",
+      53228
+    ],
+    [
+      "libero_object",
+      0
+    ],
+    [
+      "libero_object",
+      31
+    ],
+    [
+      "libero_object",
+      33654
+    ],
+    [
+      "libero_object",
+      67308
+    ],
+    [
+      "libero_goal",
+      0
+    ],
+    [
+      "libero_goal",
+      31
+    ],
+    [
+      "libero_goal",
+      26447
+    ],
+    [
+      "libero_goal",
+      52894
+    ],
+    [
+      "libero_10",
+      0
+    ],
+    [
+      "libero_10",
+      31
+    ],
+    [
+      "libero_10",
+      52140
+    ],
+    [
+      "libero_10",
+      104279
+    ]
+  ],
+  "gripper_actions_checked": 1000,
+  "gripper_signs_match": true
+}

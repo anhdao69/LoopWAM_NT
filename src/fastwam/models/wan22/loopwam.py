@@ -221,7 +221,7 @@ def _validate_checkpoint_depth(payload):
 
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
-                   checkpoint_path=None, action_loops=None):
+                   checkpoint_path=None, action_loops=None, allow_transport_backbone=False):
     from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
                                target_configs, architecture_metadata_for_version)
     if vae_path is None:
@@ -229,6 +229,8 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
     if checkpoint_path is not None:
         # Reconstruct the declared compact student directly, without native donors.
         payload = torch.load(checkpoint_path, map_location='cpu', weights_only=False, mmap=True)
+        if 'transport_config' in payload and not allow_transport_backbone:
+            raise ValueError('Use TransportInference to load RT weights and conditioning')
         if payload.get('format_version') != 'loopwam-s-v1':
             raise ValueError('Expected a LoopWAM student checkpoint')
         version = payload['version']
