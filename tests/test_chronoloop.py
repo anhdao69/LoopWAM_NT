@@ -236,6 +236,7 @@ def test_compile_matches_eager():
     """The trainer compiles block functions. Against an FP32 eager reference, compiled BF16
     gradients must be at least as accurate as eager BF16 ones (the two round differently)."""
     torch._dynamo.config.cache_size_limit = 256
+    torch._inductor.config.comprehensive_padding = False
     model = build(CLA, ckpt_blocks=True)
     model.train()
     with torch.no_grad():

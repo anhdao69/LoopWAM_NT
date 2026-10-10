@@ -242,6 +242,9 @@ def main():
     if args.compile:
         torch._dynamo.config.cache_size_limit = 256
         torch._dynamo.config.accumulated_cache_size_limit = 8192
+        # Batch size can change inside one TBPTT graph (traversals end mid-segment); padded
+        # strides then break checkpoint recomputation of the dynamic-shape graph (inductor 2.7).
+        torch._inductor.config.comprehensive_padding = False
         for name in ('_joint_block', '_video_only_block', '_chrono_block'):
             # Bound-method attributes: partial(self.<name>, i) picks up the compiled version.
             setattr(model.mot, name, torch.compile(getattr(model.mot, name)))
