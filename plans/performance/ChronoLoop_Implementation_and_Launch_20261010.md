@@ -4,6 +4,7 @@ Branch `chrono` (git worktree `/lustre/fs1/home/an221229/code/LoopWAM_chrono`, b
 Production code snapshot: `ec3aa35` at `/groups/yshang/an221229/checkpoints/ChronoLoop/code/ec3aa354f355`.
 Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
+Results table to fill: [ChronoLoop_Results_Template.md](ChronoLoop_Results_Template.md).
 
 **Status at writing (14:05 EDT): no ChronoLoop run has finished training, and no run has been evaluated.**
 CL-0 and CL-A are training in the interactive allocation (job 894901). The other five runs, and the
