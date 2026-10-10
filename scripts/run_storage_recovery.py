@@ -23,6 +23,8 @@ PLANS={
  'mix':[
   dict(label='full_22_resume',version='v0',video=2,action=2,mode='aligned',scope='full_libero',resume=ROOT/'storage_recovery_20261010/input_checkpoints/full_22_resume.pt',source=ROOT/'training_only_job4796/full_22/train/latest.pt',source_step=4340,config_job=4771,config_label='full_22'),
   dict(label='full_dense30',version='dense_s30',video=1,action=1,mode='aligned',scope='full_libero',config_job=4771,config_label='full_dense30')],
+ 'mix_tail':[
+  dict(label='full_dense30',version='dense_s30',video=1,action=1,mode='aligned',scope='full_libero',config_job=4771,config_label='full_dense30')],
  'kv_mix':[
   dict(label='full_mix',version='v0',video=4,action=1,mode='mix',scope='full_libero',fresh=True,config_job=None,config_label=None)]}
 
@@ -125,6 +127,16 @@ def main():
  valid=np.memmap(cache/'valid.uint8',mode='r',dtype=np.uint8)
  if len(valid)!=277713 or not np.all(valid==1):raise ValueError('Full-suite latent cache is incomplete')
  del valid
+ if a.plan=='mix_tail':
+  # Job 4824's training is expected to finish before this dependent tail.
+  # Verify its result, including the exact resume provenance, before starting
+  # Dense-S30; fail closed if the preceding stage did not complete correctly.
+  previous=ROOT/'storage_recovery_20261010/job4824_mix/full_22_resume/train'
+  prepared=read(ROOT/'kv_campaign_job4771/campaign_3a89bfa/prepared.json')
+  prior=make_spec('full_22_resume','v0',2,2,'aligned','full_libero')
+  prior['resume']=str(ROOT/'storage_recovery_20261010/input_checkpoints/full_22_resume.pt')
+  report=validate_final(previous,prior,prepared['configs']['full_22'],4341,baseline)
+  write(ROOT/'storage_recovery_20261010/job4824_mix/full_22_resume_complete.json',report)
  for item in plan:
   s=make_spec(item['label'],item['version'],item['video'],item['action'],item['mode'],item['scope'])
   s['resume']=str(item['resume']) if item.get('resume') else None
