@@ -1,0 +1,51 @@
+{
+  "captured_utc": "2026-10-10T17:21:04.245508+00:00",
+  "submissions": {
+    "RT-A2": {
+      "job_id": "4857",
+      "launch": "interactive_step",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A2",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91",
+      "gpus": 1,
+      "submission_policy": "user_requested_independent_phase2_pair",
+      "dependencies": []
+    },
+    "RT-B2a": {
+      "job_id": "4859",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B2a",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91",
+      "gpus": 2,
+      "submission_policy": "user_requested_independent_phase2_pair",
+      "dependencies": []
+    }
+  },
+  "slurm_details": {
+    "RT-A2": "JobId=4857 JobName=debug UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=RUNNING Reason=None Dependency=(null) Requeue=1 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0 RunTime=00:10:06 TimeLimit=UNLIMITED TimeMin=N/A SubmitTime=2026-10-10T17:10:58 EligibleTime=2026-10-10T17:10:58 AccrueTime=Unknown StartTime=2026-10-10T17:10:58 EndTime=Unknown Deadline=N/A PreemptEligibleTime=2026-10-10T17:10:58 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T17:10:58 Scheduler=Main Partition=main AllocNode:Sid=login-0:327604 ReqNodeList=(null) ExcNodeList=(null) NodeList=worker-1 BatchHost=worker-1 NumNodes=1 NumCPUs=16 NumTasks=1 CPUs/Task=15 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=15,mem=120G,node=1,billing=15,gres/gpu=1 AllocTRES=cpu=16,mem=128G,node=1,billing=16,gres/gpu=1 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=15 MinMemoryCPU=8G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/bin/bash WorkDir=/home/anhdh35 TresPerJob=gres/gpu:1 TresPerTask=cpu=15",
+    "RT-B2a": "JobId=4859 JobName=rt_RT-B2a UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T17:18:36 EligibleTime=2026-10-10T17:18:36 AccrueTime=2026-10-10T17:18:36 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T17:21:00 Scheduler=Backfill:* Partition=main AllocNode:Sid=login-0:2016555 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-B2a:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B2a_4859.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B2a_4859.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30"
+  },
+  "rt_a2_step": "4857.4",
+  "latest_rt_a2_metric": {
+    "update": 33,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 4224,
+    "schedule": "S8",
+    "seconds": 3.2913656178861856,
+    "grad_norm": 0.24706943333148956,
+    "peak_allocated_gb": 83.825957376,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 72.0,
+    "measured_action_blocks": null,
+    "local": 0.021791279315948486,
+    "end": 0.009401676245033741,
+    "grip": 0.02552110143005848,
+    "anchor": 0.019703157246112823
+  },
+  "production_verified": true,
+  "run_count": 7,
+  "remaining_gated": 13,
+  "phase2_evaluation_wait_overridden_by_user": true,
+  "single_gpu_resume_bit_exact": true,
+  "hf_metadata_revision": "cf27328466fedde6545341eb2bc87e693a48533a"
+}

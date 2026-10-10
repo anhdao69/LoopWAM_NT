@@ -29,3 +29,13 @@ Allocation 4857 is an idle, unlimited-time single-H100 job on worker-1 with 16 a
 - Single-GPU interrupted/uninterrupted recovery reproduced ten subsequent updates bit for bit, including weights, Adam state, EMA, losses and gradient norms; see single_resume_verification.json.
 
 Launch IDs and current state are recorded in phase2_submission_status.json. This report describes training setup, not evaluation results.
+
+
+## Verified launch
+
+- RT-A2: RUNNING in Slurm step4857.4, one H100, more than20 production updates verified with finite losses/gradients.
+- RT-B2a: batch job4859, PENDING(Priority), exactly two H100s requested.
+- Both have no Slurm dependencies. Seven total training runs are now launched/submitted;13 remain gated.
+- New immutable implementation snapshot: a7403b5aab91. The earlier five jobs retain their original source.
+- Public model metadata updated and downloaded back with exact hash verification; phase2_hf_publication.json records the receipt.
+- Keep interactive allocation4857 alive for RT-A2. It is the actual single-GPU training allocation, not a pending standalone batch job.

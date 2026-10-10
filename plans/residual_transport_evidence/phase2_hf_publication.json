@@ -1,0 +1,15 @@
+{
+  "public": true,
+  "revision": "cf27328466fedde6545341eb2bc87e693a48533a",
+  "verified_files": [
+    "README.md",
+    "experiment_matrix.json",
+    "RT-A2/planned_config.json",
+    "RT-B2a/planned_config.json",
+    "RT-A2/config.json",
+    "RT-A2/dataset_stats.json",
+    "RT-A2/data/data_manifest.json",
+    "RT-A2/data/dataset_stats.json"
+  ],
+  "run": "mixed_gpu_phase2_pair"
+}

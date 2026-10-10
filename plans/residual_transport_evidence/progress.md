@@ -21,3 +21,7 @@ All currently eligible launches complete. External gates, actual four-device NCC
 User steering: submit exactly five independent phase-1 batch jobs; no dependencies and no evaluation waits.
 RT-A checkpointed/stopped at update220; backup4847 promoted to primary RT-A. No interactive allocation cancelled.
 Verified five jobs: A4847, B44846, T1ft4849, Pa4850, TF4851. Each requests2 H100; all dependencies null.
+
+Mixed-GPU request: RT-A2 started in single-H100 step4857.4; RT-B2a submitted as two-H100 batch4859, no dependencies.
+Single-GPU batch128/10-epoch contract and20 production updates verified. Ten resumed single-GPU updates bit-exact.
+New source a7403b5aab91; existing five jobs unchanged. Seven total runs launched/submitted,13 still gated.

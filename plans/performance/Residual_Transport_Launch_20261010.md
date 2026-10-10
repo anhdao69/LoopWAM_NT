@@ -1,6 +1,8 @@
 # Residual Transport launch — 2026-10-10
 
-## Current status: five independent batch jobs
+Two additional runs were subsequently launched with mixed GPU counts; see [the phase-2 launch report](Residual_Transport_Phase2_Launch_20261010.md). Total submitted/launched: seven.
+
+## Phase 1: five independent batch jobs
 
 The user's later instruction overrides the original phase-1 evaluation waits and round dependencies. All five phase-1 recipes are submitted independently, each requesting exactly two H100s. They can run concurrently whenever Slurm has resources; no inter-job dependency or evaluation hold is present.
 
