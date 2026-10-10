@@ -7,7 +7,9 @@
 #SBATCH --gres=gpu:nvidia_h100_80gb_hbm3:4
 #SBATCH --time=22:00:00
 #SBATCH --signal=B:USR1@600
-# ChronoLoop training job: exactly 4 x H100 per run. Submit through scripts/chronoloop_submit.sh.
+# ChronoLoop training job on 2 or 4 H100s (the --gres given at submission; default 4).
+# Submit through scripts/chronoloop_submit.sh, which may queue a 2-GPU and a 4-GPU twin per run:
+# the first to start takes the run lock and cancels its pending twin.
 # Required env: CHRONO_RUN (registry key), CHRONO_CODE (frozen code snapshot), CHRONO_OUT (run directory).
 # Behaviour: resume from <out>/latest.pt if present; exit cleanly before walltime; if unfinished,
 # resubmit itself (one pending continuation at most); when complete, upload epochs 8/9/10 to HF
@@ -25,6 +27,9 @@ LOG="$CHRONO_OUT/job_${SLURM_JOB_ID}.log"
 exec >>"$LOG" 2>&1
 echo "[$(date -Is)] job $SLURM_JOB_ID on $(hostname) run=$CHRONO_RUN code=$CHRONO_CODE"
 nvidia-smi --query-gpu=index,name,memory.used --format=csv,noheader
+
+NGPU=${SLURM_GPUS_ON_NODE:-$(nvidia-smi -L | wc -l)}
+if [[ $NGPU -ne 2 && $NGPU -ne 4 ]]; then echo "Unsupported GPU count $NGPU"; exit 1; fi
 
 walltime_hours() {  # remaining allocation hours from Slurm
   local end; end=$(squeue -h -j "$SLURM_JOB_ID" -o %e)
@@ -48,15 +53,29 @@ EOF
   fi
 fi
 
-# Node-local latent copy made by the trainer (--stage-latents auto); removed when this job exits.
-trap 'rm -rf "/dev/shm/chronoloop_latents_${SLURM_JOB_ID}"' EXIT
+# Run lock (mkdir is atomic): a lock held by a job that is no longer running is stale.
+LOCK="$CHRONO_OUT/.run_lock"
+if ! mkdir "$LOCK" 2>/dev/null; then
+  OWNER=$(cat "$LOCK/job" 2>/dev/null || echo none)
+  if [[ "$OWNER" != "$SLURM_JOB_ID" ]] && squeue -h -j "$OWNER" -t R,CG 2>/dev/null | grep -q .; then
+    echo "Run locked by running job $OWNER; exiting without work."; exit 0
+  fi
+  echo "Taking over stale lock from $OWNER"; rm -rf "$LOCK"; mkdir "$LOCK" || { echo "lock race lost"; exit 0; }
+fi
+echo "$SLURM_JOB_ID" > "$LOCK/job"
+# Cancel the pending twin (same run, other GPU count) now that this job owns the run.
+for TWIN in $(squeue -h -u "$USER" -n "$JOB_NAME" -t PD -o %i); do
+  [[ "$TWIN" != "$SLURM_JOB_ID" ]] && scancel "$TWIN" && echo "cancelled pending twin $TWIN"
+done
+# Node-local latent copy made by the trainer (--stage-latents auto) and the lock go when this job exits.
+trap 'rm -rf "/dev/shm/chronoloop_latents_${SLURM_JOB_ID}"; [[ "$(cat "$LOCK/job" 2>/dev/null)" == "$SLURM_JOB_ID" ]] && rm -rf "$LOCK"' EXIT
 STATUS=0
 if [[ ! -f "$CHRONO_OUT/COMPLETE" ]]; then
   LIMIT=$(walltime_hours)
-  echo "[$(date -Is)] training; remaining allocation ${LIMIT} h"
-  torchrun --standalone --nproc_per_node=4 scripts/train_chronoloop.py \
+  echo "[$(date -Is)] training on $NGPU GPUs; remaining allocation ${LIMIT} h"
+  torchrun --standalone --nproc_per_node=$NGPU scripts/train_chronoloop.py \
     $(python scripts/chronoloop_experiments.py "$CHRONO_RUN") \
-    --output-dir "$CHRONO_OUT" --time-limit-hours "$LIMIT" &
+    --stream-micro $((32 / NGPU)) --output-dir "$CHRONO_OUT" --time-limit-hours "$LIMIT" &
   TRAIN_PID=$!
   trap 'echo "USR1: walltime near"; ' USR1
   wait $TRAIN_PID; STATUS=$?
@@ -93,6 +112,7 @@ if [[ -f "$CHRONO_OUT/latest.pt" || $STATUS -eq 0 || $FAILS -lt 3 ]]; then
   PENDING=$(squeue -h -u "$USER" -n "$JOB_NAME" -t PD -o %i | grep -v "^$SLURM_JOB_ID$" | head -1)
   if [[ -z "$PENDING" ]]; then
     NEW=$(sbatch --parsable --job-name="$JOB_NAME" --output="$CHRONO_OUT/slurm_%j.out" \
+          --gres=gpu:nvidia_h100_80gb_hbm3:$NGPU --cpus-per-task=$((4 * NGPU)) --mem=$((64 * NGPU))G \
           --export=ALL,CHRONO_RUN="$CHRONO_RUN",CHRONO_CODE="$CHRONO_CODE",CHRONO_OUT="$CHRONO_OUT" \
           "$CHRONO_CODE/scripts/chronoloop_job.sbatch")
     echo "[$(date -Is)] continuation submitted: $NEW"

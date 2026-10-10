@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-# Submit ChronoLoop runs as 4 x H100 Slurm jobs from a frozen code snapshot of HEAD.
-#   bash scripts/chronoloop_submit.sh [--after JOBID] [--time HH:MM:SS] RUN [RUN ...]
-# Skips a run that is COMPLETE or already has a queued/running job with its name.
+# Submit ChronoLoop runs as H100 Slurm jobs from a frozen code snapshot of HEAD.
+#   bash scripts/chronoloop_submit.sh [--after JOBID] [--gpus 4|2|2,4] [--time HH:MM:SS] [--time2 HH:MM:SS] RUN ...
+# --gpus 2,4 queues a 2-GPU and a 4-GPU twin per run; whichever starts first trains and cancels the
+# other (run lock in chronoloop_job.sbatch). Skips COMPLETE runs and GPU counts already queued.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 source scripts/chrono_env.sh
-AFTER=""; TIME="22:00:00"; RUNS=()
+AFTER=""; TIME="22:00:00"; TIME2=""; GPUS="4"; RUNS=()
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --after) AFTER="$2"; shift 2;;
     --time) TIME="$2"; shift 2;;
+    --time2) TIME2="$2"; shift 2;;
+    --gpus) GPUS="$2"; shift 2;;
     *) RUNS+=("$1"); shift;;
   esac
 done
@@ -35,11 +38,15 @@ for RUN in "${RUNS[@]}"; do
   OUT=$CHRONO_RUNS/$(python scripts/chronoloop_experiments.py "$RUN" --field dir)
   mkdir -p "$OUT"
   if [[ -f "$OUT/COMPLETE" ]]; then echo "$RUN: complete, skipped"; continue; fi
-  if squeue -h -u "$USER" -n "$JOB" -o %i | grep -q .; then
-    echo "$RUN: job already queued/running ($(squeue -h -u "$USER" -n "$JOB" -o '%i %T' | tr '\n' ' ')), skipped"; continue
-  fi
-  DEP=(); [[ -n "$AFTER" ]] && DEP=(--dependency="afterany:$AFTER")
-  ID=$(sbatch --parsable --job-name="$JOB" --time="$TIME" "${DEP[@]}" --output="$OUT/slurm_%j.out" \
-       --export=ALL,CHRONO_RUN="$RUN",CHRONO_CODE="$CODE",CHRONO_OUT="$OUT" "$CODE/scripts/chronoloop_job.sbatch")
-  echo "$ID $RUN $JOB $CODE $OUT ${AFTER:+after:$AFTER}" | tee -a "$CHRONO_RUNS/submissions.txt"
+  for G in ${GPUS//,/ }; do
+    if squeue -h -u "$USER" -n "$JOB" -o "%i %b" | grep -q ":$G\b"; then
+      echo "$RUN: a ${G}-GPU job is already queued/running, skipped"; continue
+    fi
+    T="$TIME"; [[ "$G" == 2 && -n "$TIME2" ]] && T="$TIME2"
+    DEP=(); [[ -n "$AFTER" ]] && DEP=(--dependency="afterany:$AFTER")
+    ID=$(sbatch --parsable --job-name="$JOB" --time="$T" "${DEP[@]}" --output="$OUT/slurm_%j.out" \
+         --gres=gpu:nvidia_h100_80gb_hbm3:$G --cpus-per-task=$((4 * G)) --mem=$((64 * G))G \
+         --export=ALL,CHRONO_RUN="$RUN",CHRONO_CODE="$CODE",CHRONO_OUT="$OUT" "$CODE/scripts/chronoloop_job.sbatch")
+    echo "$ID $RUN $JOB ${G}xH100 $T $CODE $OUT ${AFTER:+after:$AFTER}" | tee -a "$CHRONO_RUNS/submissions.txt"
+  done
 done
