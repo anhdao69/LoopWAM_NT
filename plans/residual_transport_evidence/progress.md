@@ -25,3 +25,5 @@ Verified five jobs: A4847, B44846, T1ft4849, Pa4850, TF4851. Each requests2 H100
 Mixed-GPU request: RT-A2 started in single-H100 step4857.4; RT-B2a submitted as two-H100 batch4859, no dependencies.
 Single-GPU batch128/10-epoch contract and20 production updates verified. Ten resumed single-GPU updates bit-exact.
 New source a7403b5aab91; existing five jobs unchanged. Seven total runs launched/submitted,13 still gated.
+
+RT-A2 transferred to standalone one-H100 batch4861 after checkpointing update58. User-requested scancel4857 confirmed CANCELLED. No dependencies;48h batch limit. Seven runs remain, now all standalone batch jobs.

@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-10-10T17:23:34.140998+00:00",
+  "run": "RT-A2",
+  "batch_job": "4861",
+  "gpus": 1,
+  "resume_update": 58,
+  "old_interactive": "4857",
+  "cancellation_requested": true,
+  "dependencies": [],
+  "time_limit_hours": 48,
+  "slurm_details": "JobId=4861 JobName=rt_RT-A2 UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=None Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=2-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T17:22:41 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T17:22:41 Scheduler=Main Partition=main AllocNode:Sid=login-0:2017705 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=15 NumTasks=1 CPUs/Task=15 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=15,mem=128G,node=1,billing=15,gres/gpu=1 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=15 MinMemoryNode=128G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_a7403b5aab91/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-A2:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A2_4861.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A2_4861.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:1 TresPerTask=cpu=15"
+}

@@ -1,5 +1,7 @@
 # Residual Transport: next two runs, mixed GPU counts
 
+**Latest handoff:** RT-A2 is now standalone one-H100 batch job **4861**, resuming update **58**. Interactive allocation **4857 was canceled** at the user's request. The batch job has no dependencies and a48-hour limit; measured remaining training is approximately24 hours plus queue/upload time. The interactive launch details below are historical.
+
 The user's latest request is two more training runs, one on two GPUs and one on the newly available single-GPU interactive allocation. This overrides the earlier uniform two-GPU requirement for RT-A2. The selected next two independent runs are RT-A2 and RT-B2a; their phase-2 evaluation wait is overridden for submission, without asserting Gate 1 has passed. RT+B2 still requires the final B2a checkpoint and is not submitted.
 
 ## Configuration
