@@ -206,35 +206,30 @@ Each Slurm job (`scripts/chronoloop_job.sbatch`) does the following:
   a CPU-only upload job.
 - Refuses to train if another live job's heartbeat owns the run directory, which prevents duplicates.
 
-## 7. Job IDs
+## 7. Job IDs (current, from snapshot `f74e2e4`; trainer and model code identical to `ec3aa35`)
 
-At 14:33 EDT the 4 x H100-only jobs 897650–897656 were cancelled while still pending. They were
-replaced by **2/4-GPU twins** from snapshot `f74e2e4`, after you asked whether 2-GPU continuations
-were acceptable. The trainer and model code are unchanged from `ec3aa35`.
+Each Slurm run has a 2-GPU and a 4-GPU **twin**. Whichever starts first takes an atomic lock on the run
+directory and cancels the pending twin; on 2 GPUs a rank holds 16 streams, on 4 GPUs 8. The global batch,
+schedule and noise are unchanged, and resuming across GPU counts was tested (section 4).
 
-- Every run has one 2 x H100 job and one 4 x H100 job queued.
-- Whichever twin starts first takes an atomic run lock (`<run>/.run_lock`) and cancels its pending
-  sibling.
-- 2-GPU jobs use `--stream-micro 16`, so the global batch stays 128 and the schedule is unchanged.
-- A run may switch GPU count between jobs. This is supported and tested (section 4, "Resume").
-- This departs from the original "4 x H100 per job" requirement, because half the twins request 2 GPUs.
+Time estimates: s/update was measured for CL-0 and CL-A. For the other runs it is estimated from their
+extra compute relative to those two, so treat those as ±25%. Each total adds about 0.3 h for staging,
+compile and checkpoints. Queue wait is unknown: all 32 highgpu GPUs were busy at submission.
 
-| Run | Interactive (894901) | 2 x H100 job | 4 x H100 job | Output directory (under `…/ChronoLoop/runs/`) |
-|---|---|---|---|---|
-| CL-0 | GPUs 0–1, until 04:38 EDT | 897738 (8 h, after 894901) | 897739 (6 h, after 894901) | `CL-0_no-memory_a4` |
-| CL-A | GPUs 2–3, until 04:38 EDT | 897740 (8 h, after 894901) | 897741 (6 h, after 894901) | `CL-A_mem16-learned-loopwrite_a4` |
-| CL-REG | - | 897728 (22 h) | 897729 (16 h) | `CL-REG_mem16-reset-registers_a4` |
-| CL-W2 | - | 897730 (22 h) | 897731 (16 h) | `CL-W2_mem16-learned-external-updater_a4` |
-| CL-0@1 | - | 897732 (22 h) | 897733 (16 h) | `CL-0-at1_no-memory_a1` |
-| CL-A@1 | - | 897734 (22 h) | 897735 (16 h) | `CL-A-at1_mem16-learned-loopwrite_a1` |
-| CL-FRAME | - | 897736 (22 h) | 897737 (16 h) | `CL-FRAME_history-frame-k3_a4` |
+| Run | Where | Jobs (2-GPU / 4-GPU) | Walltime | s/update 2 / 4 GPU | Training time 2 / 4 GPU |
+|---|---|---|---|---|---|
+| CL-0 | interactive 894901, GPUs 0–1 (2.18 s measured) | – | to 04:38 EDT | 2.18 measured | finishes ~04:20 EDT, then uploads |
+| CL-A | interactive 894901, GPUs 2–3 (2.64 s measured) | – | to 04:38 EDT | 2.64 measured | reaches ~update 20,500 of 23,862 |
+| CL-0 continuation (after 894901) | Slurm | 897738 / 897739 | 8 h / 6 h | 2.18 / 1.33 | likely upload check only |
+| CL-A continuation (after 894901) | Slurm | 897740 / 897741 | 8 h / 6 h | 2.64 / 1.80 | ~2.7 h / ~1.9 h |
+| CL-REG | Slurm | 897728 / 897729 | 22 h / 16 h | ~2.3 / ~1.4 | ~15.5 h / ~9.6 h |
+| CL-W2 | Slurm | 897730 / 897731 | 22 h / 16 h | ~2.8 / ~1.9 | ~18.9 h / ~12.9 h |
+| CL-0@1 | Slurm | 897732 / 897733 | 22 h / 16 h | ~2.0 / ~1.2 | ~13.6 h / ~8.3 h |
+| CL-A@1 | Slurm | 897734 / 897735 | 22 h / 16 h | ~2.4 / ~1.6 | ~16.2 h / ~10.9 h |
+| CL-FRAME | Slurm | 897736 / 897737 | 22 h / 16 h | ~2.8 / ~1.75 | ~18.9 h / ~11.9 h |
 
-Projected training time is about 9 h for stateless runs and about 12 h for stateful ones on 4 GPUs
-(from the benchmark), and about 1.6x that on 2 GPUs. Queue wait is unknown.
-
-Superseded submissions are recorded in `runs/submissions.txt`:
-- 897638–897644 (snapshot `97d55b1`), cancelled while pending.
-- 897650–897656 (snapshot `ec3aa35`), cancelled while pending.
+Superseded submissions, all cancelled while still pending and never started: 897638–897644 (`97d55b1`)
+and 897650–897656 (`ec3aa35`, 4-GPU only). See `runs/submissions.txt`.
 
 ## 8. Hugging Face
 
