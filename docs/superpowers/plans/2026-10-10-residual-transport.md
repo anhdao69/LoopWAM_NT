@@ -27,4 +27,4 @@ User explicitly retains evaluation gates: only RT-A and RT-B4 currently eligible
 - [x] 3. Add tested full-data FU/TF trainer, teacher targets/losses, all parameter scopes, exact resume/EMA, epoch checkpoints and measurement.
 - [x] 4. Add full experiment matrix, gated submission, retryable public uploads and durable independent Slurm jobs.
 - [x] 5. Run CPU/native 2-H100 smokes, optimization measurements, resume/graph/parity checks; fix failures.
-- [ ] 6. Review, commit/push residual_trans, submit eligible runs and verify queue/training; document evidence and blocked gates.
+- [x] 6. Review, commit/push residual_trans, submit eligible runs and verify queue/training; document evidence and blocked gates.

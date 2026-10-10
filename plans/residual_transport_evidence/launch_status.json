@@ -1,0 +1,57 @@
+{
+  "captured_utc": "2026-10-10T16:37:32.071673+00:00",
+  "source_revision": "f669184242b56f24ff07fa2c987c799036723a0b",
+  "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+  "submissions": {
+    "RT-A": {
+      "job_id": "4843",
+      "launch": "interactive_step",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5",
+      "recovery_job_id": "4847"
+    },
+    "RT-B4": {
+      "job_id": "4846",
+      "launch": "batch",
+      "output": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4",
+      "source": "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5"
+    }
+  },
+  "rt_a_step": "4843.16",
+  "rt_a_status": "RUNNING",
+  "rt_b4_status": "PENDING_RESOURCES",
+  "recovery_status": "PENDING_DEPENDENCY",
+  "latest_metric": {
+    "update": 45,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 5760,
+    "schedule": "S2",
+    "seconds": 2.333352671004832,
+    "grad_norm": 0.07326161861419678,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": null,
+    "local": 0.1493234932422638,
+    "end": 0.017554720863699913,
+    "grip": 0.05716829374432564,
+    "anchor": 0.014992883428931236
+  },
+  "configuration_verified": true,
+  "slurm_details": {
+    "4843": "JobId=4843 JobName=train_vln UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=RUNNING Reason=None Dependency=(null) Requeue=1 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0 RunTime=01:59:27 TimeLimit=UNLIMITED TimeMin=N/A SubmitTime=2026-10-10T14:37:46 EligibleTime=2026-10-10T14:37:46 AccrueTime=2026-10-10T14:37:46 StartTime=2026-10-10T14:38:05 EndTime=Unknown Deadline=N/A PreemptEligibleTime=2026-10-10T14:38:05 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T14:38:05 Scheduler=Main Partition=main AllocNode:Sid=login-0:12243 ReqNodeList=(null) ExcNodeList=(null) NodeList=worker-0 BatchHost=worker-0 NumNodes=1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=768G,node=1,billing=30,gres/gpu=2 AllocTRES=cpu=30,mem=768G,node=1,billing=30,gres/gpu=2 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=768G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/bin/bash WorkDir=/home/anhdh35 TresPerJob=gres/gpu:2 TresPerTask=cpu=30",
+    "4846": "JobId=4846 JobName=rt_RT-B4 UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Resources Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:35:08 EligibleTime=2026-10-10T16:35:08 AccrueTime=2026-10-10T16:35:08 StartTime=2026-10-13T03:27:14 EndTime=2026-10-18T03:27:14 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:37:29 Scheduler=Main Partition=main AllocNode:Sid=login-0:2010392 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport:RT-B4:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4_4846.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-B4_4846.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30",
+    "4847": "JobId=4847 JobName=rt_RT-A_recovery UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A Priority=1 Nice=0 Account=(null) QOS=normal JobState=PENDING Reason=Dependency Dependency=afterany:4843(unfulfilled) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=5-00:00:00 TimeMin=N/A SubmitTime=2026-10-10T16:35:08 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-10T16:35:08 Scheduler=Main Partition=main AllocNode:Sid=login-0:2010392 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=30 NumTasks=1 CPUs/Task=30 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=30,mem=256G,node=1,billing=30,gres/gpu=2 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=30 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/source_f669184242b5/scripts/submit_transport.sbatch WorkDir=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT Comment=residual-transport-recovery:RT-A:/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010  StdErr=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A_recovery_4847.slurm.log StdIn=/dev/null StdOut=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/runs/residual_transport/campaign_20261010/RT-A_recovery_4847.slurm.log TresPerNode=gres/gpu:nvidia_h100_80gb_hbm3:2 TresPerTask=cpu=30"
+  },
+  "gated_recipes": 18,
+  "undefined_deferred_regime": "R-FM",
+  "four_physical_gpu_nccl_tested": false,
+  "retained_epochs": [
+    8,
+    9,
+    10
+  ],
+  "checkpoint_weights_published": false,
+  "huggingface": "https://huggingface.co/anhdao69/ResidualTrans"
+}

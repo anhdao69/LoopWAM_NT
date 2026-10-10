@@ -12,3 +12,8 @@ Exports: unmerged trained state preserved for BF16 bit-exact inference; B2a roun
 Layout: 2/4 logical ranks on 2 physical GPUs passed 2% tolerance; no 4-device NCCL claim.
 Final benchmark: deterministic global128/micro64, no block checkpoint, 73.07GB/GPU.
 Implementation ready for pinned snapshot and eligible production launch.
+
+Launch: RT-A step4843.16 running; RT-B4 job4846 pending resources; RT-A recovery4847 pending dependency.
+Source f669184242b5 pushed and pinned. First20 production updates finite and full training contract confirmed.
+HF public metadata uploaded and downloaded back with exact hash match; trained weights pending milestones.
+All currently eligible launches complete. External gates, actual four-device NCCL and undefined R-FM remain explicitly outstanding.

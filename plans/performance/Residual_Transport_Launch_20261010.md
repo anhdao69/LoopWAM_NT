@@ -86,3 +86,16 @@ Use gates.json only after genuine external evaluations per specification5.2–5.
 Public destination: https://huggingface.co/anhdao69/ResidualTrans . Uploaders run inside training wrappers, retry exponentially, publish each run's portable early/epoch checkpoints plus config/data metadata, verify size/LFS SHA256 and save atomic receipts. Recovery optimizer/RNG files and synthetic test weights remain remote. Final uploads are checked before wrapper success.
 
 Job IDs, source revision and status are recorded in plans/residual_transport_evidence/launch_status.json and the output root's submissions.json. Pending/running means training is unfinished. Epoch8/9/10 uploads are not claimed before their receipts exist.
+
+
+## Verified launch status
+
+- Implementation snapshot: f669184242b5 (full revision in launch_status.json).
+- RT-A: RUNNING in step4843.16, original allocation4843 (two H100s). First20 production updates passed.
+- RT-B4: job4846, PENDING(Resources), exactly two H100s requested.
+- RT-A recovery: job4847, PENDING(afterany:4843), same output and two H100s. The interactive wrapper cancels this backup after verified training/uploads; on terminal wrapper failure it releases the dependency. Allocation termination releases it through Slurm.
+- Existing jobs4825/4844 and allocation4843's original shell remain intact.
+- Public HF metadata uploaded and downloaded back with matching SHA256; no trained weights exist yet.
+- Submission deduplication was exercised: re-running --submit created no additional jobs.
+
+The source snapshot is pinned independently of later status/documentation commits. Evaluation gates and all 18 gated recipes remain unsubmitted.

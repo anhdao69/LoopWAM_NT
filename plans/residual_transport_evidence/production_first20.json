@@ -1,0 +1,402 @@
+[
+  {
+    "update": 1,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 128,
+    "schedule": "S1",
+    "seconds": 4.412149179028347,
+    "grad_norm": 0.16998900473117828,
+    "peak_allocated_gb": 73.024502272,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.28025102615356445,
+    "end": 0.03316660597920418,
+    "grip": 0.10206382721662521,
+    "anchor": 0.015464847907423973
+  },
+  {
+    "update": 2,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 256,
+    "schedule": "S1",
+    "seconds": 2.823909382103011,
+    "grad_norm": 0.17406336963176727,
+    "peak_allocated_gb": 73.070501376,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2948493957519531,
+    "end": 0.03279729560017586,
+    "grip": 0.08329496532678604,
+    "anchor": 0.01567970961332321
+  },
+  {
+    "update": 3,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 384,
+    "schedule": "S1",
+    "seconds": 2.7926986750680953,
+    "grad_norm": 0.17600160837173462,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2877309322357178,
+    "end": 0.03134377673268318,
+    "grip": 0.07735151052474976,
+    "anchor": 0.013791459612548351
+  },
+  {
+    "update": 4,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 512,
+    "schedule": "S1",
+    "seconds": 2.714775115950033,
+    "grad_norm": 0.16193273663520813,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2903531789779663,
+    "end": 0.029001975432038307,
+    "grip": 0.04825602471828461,
+    "anchor": 0.016881311312317848
+  },
+  {
+    "update": 5,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 640,
+    "schedule": "S2",
+    "seconds": 2.32688417006284,
+    "grad_norm": 0.07071508467197418,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.1718900054693222,
+    "end": 0.018402384594082832,
+    "grip": 0.0509672611951828,
+    "anchor": 0.019789433106780052
+  },
+  {
+    "update": 6,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 768,
+    "schedule": "S2",
+    "seconds": 2.3055421449244022,
+    "grad_norm": 0.06593839824199677,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.17123952507972717,
+    "end": 0.019083473831415176,
+    "grip": 0.06089511141180992,
+    "anchor": 0.015759937465190887
+  },
+  {
+    "update": 7,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 896,
+    "schedule": "S1",
+    "seconds": 2.6932107592001557,
+    "grad_norm": 0.16477800905704498,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2804407477378845,
+    "end": 0.03123030811548233,
+    "grip": 0.08620447665452957,
+    "anchor": 0.01773255318403244
+  },
+  {
+    "update": 8,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1024,
+    "schedule": "S2",
+    "seconds": 2.345504097174853,
+    "grad_norm": 0.067799873650074,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.16531777381896973,
+    "end": 0.01901644840836525,
+    "grip": 0.05785520374774933,
+    "anchor": 0.016264894977211952
+  },
+  {
+    "update": 9,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1152,
+    "schedule": "S1",
+    "seconds": 2.7294097640551627,
+    "grad_norm": 0.155459463596344,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2863837778568268,
+    "end": 0.03092927113175392,
+    "grip": 0.07818244397640228,
+    "anchor": 0.014153288677334785
+  },
+  {
+    "update": 10,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1280,
+    "schedule": "S2",
+    "seconds": 2.37042721407488,
+    "grad_norm": 0.067356176674366,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.16654062271118164,
+    "end": 0.020031321793794632,
+    "grip": 0.06604088842868805,
+    "anchor": 0.012391269207000732
+  },
+  {
+    "update": 11,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1408,
+    "schedule": "S2",
+    "seconds": 2.5344530830625445,
+    "grad_norm": 0.06663087010383606,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.1620503067970276,
+    "end": 0.017590947449207306,
+    "grip": 0.05011428892612457,
+    "anchor": 0.017916778102517128
+  },
+  {
+    "update": 12,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1536,
+    "schedule": "S2",
+    "seconds": 2.297929132124409,
+    "grad_norm": 0.0678672045469284,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.16768500208854675,
+    "end": 0.020027263090014458,
+    "grip": 0.06237417459487915,
+    "anchor": 0.018810516223311424
+  },
+  {
+    "update": 13,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1664,
+    "schedule": "S1",
+    "seconds": 2.7390634338371456,
+    "grad_norm": 0.171980619430542,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.29393547773361206,
+    "end": 0.03318682685494423,
+    "grip": 0.09608553349971771,
+    "anchor": 0.017054123803973198
+  },
+  {
+    "update": 14,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1792,
+    "schedule": "S1",
+    "seconds": 2.677514797076583,
+    "grad_norm": 0.17511630058288574,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.2766885757446289,
+    "end": 0.02718421444296837,
+    "grip": 0.057847801595926285,
+    "anchor": 0.013697742484509945
+  },
+  {
+    "update": 15,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 1920,
+    "schedule": "S2",
+    "seconds": 2.293156352126971,
+    "grad_norm": 0.07053431123495102,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.17335809767246246,
+    "end": 0.01816922053694725,
+    "grip": 0.04639129713177681,
+    "anchor": 0.015525300055742264
+  },
+  {
+    "update": 16,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 2048,
+    "schedule": "S1",
+    "seconds": 2.694339567795396,
+    "grad_norm": 0.16005171835422516,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.27960699796676636,
+    "end": 0.029939798638224602,
+    "grip": 0.07406368851661682,
+    "anchor": 0.015616587363183498
+  },
+  {
+    "update": 17,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 2176,
+    "schedule": "S1",
+    "seconds": 2.714701486984268,
+    "grad_norm": 0.1717248409986496,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.27363553643226624,
+    "end": 0.027186620980501175,
+    "grip": 0.04862692207098007,
+    "anchor": 0.01564865931868553
+  },
+  {
+    "update": 18,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 2304,
+    "schedule": "S1",
+    "seconds": 2.7206674139015377,
+    "grad_norm": 0.17014583945274353,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 222.0,
+    "measured_action_blocks": {
+      "forward": 222,
+      "backward": 195
+    },
+    "local": 0.277854859828949,
+    "end": 0.03212409466505051,
+    "grip": 0.09065717458724976,
+    "anchor": 0.017246227711439133
+  },
+  {
+    "update": 19,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 2432,
+    "schedule": "S2",
+    "seconds": 2.339101284975186,
+    "grad_norm": 0.06843286007642746,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.1573931872844696,
+    "end": 0.015102773904800415,
+    "grip": 0.031020600348711014,
+    "anchor": 0.013799233362078667
+  },
+  {
+    "update": 20,
+    "epoch": 1,
+    "windows": 128,
+    "windows_seen": 2560,
+    "schedule": "S2",
+    "seconds": 2.313261189032346,
+    "grad_norm": 0.06972458213567734,
+    "peak_allocated_gb": 73.071877632,
+    "teacher_passes_per_microbatch": 20.0,
+    "student_forward_blocks_per_microbatch": 168.0,
+    "measured_action_blocks": {
+      "forward": 168,
+      "backward": 141
+    },
+    "local": 0.16437043249607086,
+    "end": 0.01930781453847885,
+    "grip": 0.06764259189367294,
+    "anchor": 0.0166068933904171
+  }
+]

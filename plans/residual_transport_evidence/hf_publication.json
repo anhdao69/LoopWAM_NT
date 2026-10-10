@@ -1,0 +1,15 @@
+{
+  "repo": "anhdao69/ResidualTrans",
+  "public": true,
+  "revision": "0c139ec0a7b0c16448bef3d6baf3c90da05c6dc3",
+  "verified_files": [
+    "README.md",
+    "experiment_matrix.json",
+    "RT-B4/planned_config.json",
+    "RT-A/config.json",
+    "RT-A/dataset_stats.json",
+    "RT-A/data/data_manifest.json",
+    "RT-A/data/dataset_stats.json"
+  ],
+  "weights_uploaded": false
+}
