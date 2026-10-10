@@ -242,17 +242,17 @@ and 897650–897656 (`ec3aa35`, 4-GPU only). See `runs/submissions.txt`.
 - **Credentials:** the token is read from `/groups/yshang/an221229/cache/huggingface/token` and never printed.
 - **Current state:** no checkpoint has been uploaded yet, because none exists yet.
 
-## 9. Experiment tracking (`python scripts/chronoloop_status.py`)
+## 9. Experiment tracking (snapshot 14:35 EDT; live: `python scripts/chronoloop_status.py`)
 
 | Run | Flags (mem/src/write/K_a/hist) | Status | Update | GPUs | Slurm | Checkpoints | HF verified |
 |---|---|---|---|---|---|---|---|
-| CL-0 | 0/none/none/4/0 | running (interactive) | 618/23862 | 2 | 897655 pending (dependency) | - | - |
-| CL-A | 16/learned/loop/4/0 | running (interactive) | 598/23862 | 2 | 897656 pending (dependency) | - | - |
-| CL-REG | 16/reset/loop/4/0 | queued | - | 4 | 897650 pending | - | - |
-| CL-W2 | 16/learned/external/4/0 | queued | - | 4 | 897651 pending | - | - |
-| CL-0@1 | 0/none/none/1/0 | queued | - | 4 | 897652 pending | - | - |
-| CL-A@1 | 16/learned/loop/1/0 | queued | - | 4 | 897653 pending | - | - |
-| CL-FRAME | 0/none/none/4/3 | queued | - | 4 | 897654 pending | - | - |
+| CL-0 | 0/none/none/4/0 | running (interactive) | 1472/23862 | 2 | 897738 / 897739 pending (dependency) | - | - |
+| CL-A | 16/learned/loop/4/0 | running (interactive) | 1295/23862 | 2 | 897740 / 897741 pending (dependency) | - | - |
+| CL-REG | 16/reset/loop/4/0 | queued | - | 2 or 4 | 897728 / 897729 pending | - | - |
+| CL-W2 | 16/learned/external/4/0 | queued | - | 2 or 4 | 897730 / 897731 pending | - | - |
+| CL-0@1 | 0/none/none/1/0 | queued | - | 2 or 4 | 897732 / 897733 pending | - | - |
+| CL-A@1 | 16/learned/loop/1/0 | queued | - | 2 or 4 | 897734 / 897735 pending | - | - |
+| CL-FRAME | 0/none/none/4/3 | queued | - | 2 or 4 | 897736 / 897737 pending | - | - |
 | CL-ORACLE | - | not submitted (conditional) | - | - | - | - | - |
 
 There are no evaluation results yet. Following your instruction, nothing is evaluated on the H100 server.
