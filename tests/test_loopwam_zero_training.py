@@ -129,3 +129,27 @@ def test_cli_explicitly_rejects_zero_resume_before_gpu_initialization(tmp_path):
                              '--output-dir', str(tmp_path)], capture_output=True, text=True)
     assert result.returncode == 2
     assert '--resume is currently supported only for DDP' in result.stderr
+
+
+@pytest.mark.parametrize("backend", ["ddp", "zero1"])
+def test_retained_epoch_survives_latest_replacement_and_native_pruning(tmp_path, backend):
+    class Engine:
+        def save_checkpoint(self, directory, **kwargs):
+            (Path(directory) / kwargs['tag']).mkdir(parents=True, exist_ok=True)
+    class Model:
+        def save_checkpoint(self, path, **kwargs):
+            temporary = path.with_suffix('.tmp')
+            torch.save(kwargs, temporary)
+            temporary.replace(path)
+    for epoch in range(4, 9):
+        state = dict(epoch=epoch-1, next_micro=1, update=epoch, windows_seen=epoch*128, rng=[])
+        trainer.save_training_checkpoint(Model(), Engine(), None, tmp_path, epoch, state,
+            backend=backend, rank=0, world=1, retain_epoch=epoch if epoch>=5 else None)
+    assert not (tmp_path/'epoch_004.pt').exists()
+    for epoch in range(5, 9):
+        payload=torch.load(tmp_path/f'epoch_{epoch:03d}.pt', weights_only=False)
+        assert payload['step']==epoch
+        if backend!='ddp':
+            native=payload['training_state']['native_optimizer_checkpoint']
+            assert (Path(native['directory'])/native['tag']).is_dir()
+    assert (tmp_path/'latest.pt').stat().st_ino==(tmp_path/'epoch_008.pt').stat().st_ino

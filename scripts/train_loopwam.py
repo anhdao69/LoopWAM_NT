@@ -192,7 +192,7 @@ def step_training_backend(runner, optimizer, parameters, model, learning_rate, *
 
 
 def save_training_checkpoint(model, runner, optimizer, output_dir, update, state, *,
-                             backend, rank, world):
+                             backend, rank, world, retain_epoch=None):
     """Publish portable evaluation weights plus native partitioned recovery state.
 
     Native DeepSpeed checkpoints are collective. Keep the newest two completed
@@ -214,11 +214,17 @@ def save_training_checkpoint(model, runner, optimizer, output_dir, update, state
         (output_dir / 'trainer_state.json').write_text(json.dumps({
             **{key: state[key] for key in ('epoch', 'next_micro', 'update', 'windows_seen', 'backend')},
             'micro': state['next_micro'] - 1}, indent=2))
+        if retain_epoch is not None:
+            # save_checkpoint atomically replaces latest.pt, preserving this inode.
+            os.link(output_dir / 'latest.pt', output_dir / f'epoch_{retain_epoch:03d}.pt')
+            if is_zero:
+                (native_dir / tag / '.retained_epoch').write_text(str(retain_epoch))
         if is_zero:
             completed = sorted(path for path in native_dir.glob('step_*')
                                if path.is_dir() and len(path.name) == 13 and path.name[5:].isdigit())
             for old in completed[:-2]:
-                shutil.rmtree(old)
+                if not (old / '.retained_epoch').exists():
+                    shutil.rmtree(old)
     if world > 1:
         dist.barrier()
 
@@ -250,6 +256,7 @@ def main():
     p.add_argument('--structured-attention',action='store_true')
     p.add_argument('--latent-cache-dir',default=None)
     p.add_argument('--save-every',type=int,default=100)
+    p.add_argument('--retain-epochs-from',type=int,default=None,help='Keep separate completed-epoch checkpoints from this 1-based epoch')
     p.add_argument('--resume',default=None)
     p.add_argument('--validation-samples',type=int,default=8)
     p.add_argument('--smoke',action='store_true',help='Check all intended gradients and VAE anchor before training')
@@ -266,6 +273,8 @@ def main():
     if is_zero and args.resume: p.error('--resume is currently supported only for DDP; ZeRO runs must start fresh')
     if is_zero: args.fused_optimizer = True
     if min(args.microbatch,args.global_batch,args.epochs,args.save_every)<=0: p.error('Batch, epochs, save interval must be positive')
+    if args.retain_epochs_from is not None and not 1<=args.retain_epochs_from<=args.epochs:
+        p.error('--retain-epochs-from must be within 1..epochs')
     if args.max_updates is not None and args.max_updates<=0: p.error('--max-updates must be positive')
     if args.workers<0 or args.validation_samples<0: p.error('Worker and validation counts cannot be negative')
     if args.dataset_scope == 'full_libero' and args.validation_samples != 0:
@@ -466,7 +475,8 @@ def main():
                 state=dict(epoch=epoch,next_micro=micro+1,update=update,windows_seen=windows_seen,rng=rngs,contract=contract)
                 checkpoint_start=time.perf_counter()
                 save_training_checkpoint(model,runner,opt,out,update,state,
-                    backend=args.backend,rank=rank,world=world)
+                    backend=args.backend,rank=rank,world=world,
+                    retain_epoch=epoch+1 if epoch_done and args.retain_epochs_from is not None and epoch+1>=args.retain_epochs_from else None)
                 checkpoint_seconds_total+=time.perf_counter()-checkpoint_start
                 checkpoint_count+=1
             group_start=time.perf_counter(); group_logs={}; group_windows=0
