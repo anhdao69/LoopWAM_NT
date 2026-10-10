@@ -46,7 +46,10 @@ def main():
  minimum=500*1024**3
  if usage.free<minimum:raise OSError(f'/mnt/data needs at least 500 GiB free; has {usage.free/1024**3:.1f} GiB')
  baseline=read(BASE/'manifest.json')
- if not all(baseline[k]==v for k,v in dict(dataset_scope='full_libero',global_batch=128,epochs=10,seed=42,train_windows=277713,planned_updates=21700,world_size=2).items()):
+ # The common full-suite reference was trained on four GPUs; resume sources
+ # are the two-GPU experiments. Validate the shared data/optimization budget,
+ # and validate each resume source's world size independently below.
+ if not all(baseline[k]==v for k,v in dict(dataset_scope='full_libero',global_batch=128,epochs=10,seed=42,train_windows=277713,planned_updates=21700).items()):
   raise ValueError('Baseline is not the expected full-suite training contract')
  cache=R/'v0_full_libero_job4659_20261006/latents'
  valid=__import__('numpy').memmap(cache/'valid.uint8',mode='r',dtype='uint8')
