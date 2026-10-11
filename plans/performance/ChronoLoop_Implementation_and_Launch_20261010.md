@@ -6,7 +6,11 @@ Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
 Results table to fill: [ChronoLoop_Results_Template.md](ChronoLoop_Results_Template.md).
 
-**Status update (October 11, 09:25 EDT): CL-0 and CL-REG are fully trained and uploaded. No run has been evaluated.**
+**Status update (October 11, 14:05 EDT): CL-0, CL-REG and CL-W2 are fully trained and uploaded. No run has been evaluated.**
+- **CL-W2:** completed at 13:59 on Slurm 897730 after 18.61 h on 2 GPUs. Epochs 8, 9 and 10 are on
+  Hugging Face, verified by SHA-256.
+
+Earlier update (09:25 EDT):
 - **CL-REG:** completed at 09:10 on Slurm 897728 after 15.7 h on 2 GPUs. Epochs 8, 9 and 10 are on
   Hugging Face, verified by SHA-256.
 - **CL-A@1:** started at 08:52 on 897735, 4 GPUs, at 1.6 s/update.
@@ -279,6 +283,10 @@ started first, logged `cancelled pending twin`, and the 4-GPU twin shows CANCELL
     [CL-REG_mem16-reset-registers_a4](https://huggingface.co/anhdao69/ChronoLoop/tree/main/CL-REG_mem16-reset-registers_a4).
     Each `policy.pt` is 2,338,751,283 bytes, and the Hub SHA-256 for epoch 10 (`6de1bbf8…`) equals the
     local file.
+  - **CL-W2** is also verified, at
+    [CL-W2_mem16-learned-external-updater_a4](https://huggingface.co/anhdao69/ChronoLoop/tree/main/CL-W2_mem16-learned-external-updater_a4).
+    Each `policy.pt` is 2,489,910,121 bytes; it is larger because it includes the 37.8 M-parameter
+    updater. The Hub SHA-256 for epoch 10 (`d08096fa…`) equals the local file.
 
 ## 9. Experiment tracking (snapshot October 11, 04:41 EDT; live: `python scripts/chronoloop_status.py`)
 
