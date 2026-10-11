@@ -6,10 +6,15 @@ Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
 Results table to fill: [ChronoLoop_Results_Template.md](ChronoLoop_Results_Template.md).
 
-**Status at writing (14:05 EDT): no ChronoLoop run has finished training, and no run has been evaluated.**
-CL-0 and CL-A are training in the interactive allocation (job 894901). The other five runs, and the
-continuations of CL-0 and CL-A, are queued as 4 x H100 Slurm jobs. Use `python scripts/chronoloop_status.py`
-for the live table (section 9).
+**Status update (October 11, 04:45 EDT): CL-0 is fully trained and uploaded. No run has been evaluated.**
+- **CL-0:** completed all 10 epochs in the interactive allocation at 04:08. Epochs 8, 9 and 10 are on
+  Hugging Face, verified by SHA-256.
+- **CL-A:** stopped cleanly at the allocation limit at update 20,088, after saving epoch 8. Continuation
+  897740/897741 finishes epochs 9 and 10.
+- **CL-REG, CL-W2, CL-0@1:** training on Slurm.
+- **CL-A@1, CL-FRAME:** queued.
+
+The full snapshot is in section 9. Use `python scripts/chronoloop_status.py` for the live table.
 
 ## 1. What the audit established
 
@@ -232,6 +237,20 @@ compile and checkpoints. Queue wait is unknown: all 32 highgpu GPUs were busy at
 Superseded submissions, all cancelled while still pending and never started: 897638–897644 (`97d55b1`)
 and 897650–897656 (`ec3aa35`, 4-GPU only). See `runs/submissions.txt`.
 
+**What actually ran (as of October 11, 04:45 EDT).** The twin mechanism worked every time: the 2-GPU twin
+started first, logged `cancelled pending twin`, and the 4-GPU twin shows CANCELLED.
+
+| Run | Job that ran | Started | Twin cancelled | Measured s/update |
+|---|---|---|---|---|
+| CL-REG | 897728, 2 GPUs, evc102 | Oct 10 17:21 | 897729 | 2.35 |
+| CL-W2 | 897730, 2 GPUs, evc104 | Oct 10 19:17 | 897731 | 2.75 |
+| CL-0@1 | 897732, 2 GPUs, evc104 | Oct 11 02:46 | 897733 | 2.1 |
+
+- **CL-0 continuations (897738/897739):** cancelled while pending, because CL-0 finished inside the
+  interactive allocation. If either had started, it would only have re-checked the upload.
+- **CL-0 actual time:** 23,862 updates in 14.73 h of training on 2 GPUs.
+- **CL-A actual time:** 20,088 updates in 15.29 h of training on 2 GPUs.
+
 ## 8. Hugging Face
 
 - **Repository:** `anhdao69/ChronoLoop`, created public as you asked, with a model card. Write access was
@@ -241,20 +260,37 @@ and 897650–897656 (`ec3aa35`, 4-GPU only). See `runs/submissions.txt`.
 - **Upload script:** `scripts/chronoloop_hf_upload.py` is idempotent. It records a file as uploaded only
   when the Hub's size and LFS SHA-256 match the local file, then writes `hf_upload.json` in the run directory.
 - **Credentials:** the token is read from `/groups/yshang/an221229/cache/huggingface/token` and never printed.
-- **Current state:** no checkpoint has been uploaded yet, because none exists yet.
+- **Current state (October 11, 04:45 EDT):** CL-0 is uploaded and verified at
+  [CL-0_no-memory_a4](https://huggingface.co/anhdao69/ChronoLoop/tree/main/CL-0_no-memory_a4). Each
+  `policy.pt` is 2,338,624,933 bytes.
+  - I checked this separately from the upload script. I read the repo's file metadata through the Hugging Face API, and it
+    shows the repo as public.
+  - The Hub's LFS SHA-256 for `epoch_10/policy.pt` (`137f0a83…`) equals the local `sha256sum`.
+  - No other run has finished yet.
 
-## 9. Experiment tracking (snapshot 14:35 EDT; live: `python scripts/chronoloop_status.py`)
+## 9. Experiment tracking (snapshot October 11, 04:41 EDT; live: `python scripts/chronoloop_status.py`)
 
-| Run | Flags (mem/src/write/K_a/hist) | Status | Update | GPUs | Slurm | Checkpoints | HF verified |
-|---|---|---|---|---|---|---|---|
-| CL-0 | 0/none/none/4/0 | running (interactive) | 1472/23862 | 2 | 897738 / 897739 pending (dependency) | - | - |
-| CL-A | 16/learned/loop/4/0 | running (interactive) | 1295/23862 | 2 | 897740 / 897741 pending (dependency) | - | - |
-| CL-REG | 16/reset/loop/4/0 | queued | - | 2 or 4 | 897728 / 897729 pending | - | - |
-| CL-W2 | 16/learned/external/4/0 | queued | - | 2 or 4 | 897730 / 897731 pending | - | - |
-| CL-0@1 | 0/none/none/1/0 | queued | - | 2 or 4 | 897732 / 897733 pending | - | - |
-| CL-A@1 | 16/learned/loop/1/0 | queued | - | 2 or 4 | 897734 / 897735 pending | - | - |
-| CL-FRAME | 0/none/none/4/3 | queued | - | 2 or 4 | 897736 / 897737 pending | - | - |
-| CL-ORACLE | - | not submitted (conditional) | - | - | - | - | - |
+| Run | Flags (mem/src/write/K_a/hist) | Status | Update | Train h | GPUs | Slurm | Checkpoints | HF verified |
+|---|---|---|---|---|---|---|---|---|
+| CL-0 | 0/none/none/4/0 | **complete** | 23862/23862 | 14.73 | 2 (interactive) | continuations cancelled (not needed) | epoch_08/09/10, update_002000 | **yes, e8/e9/e10** |
+| CL-A | 16/learned/loop/4/0 | stopped at allocation end, resumable | 20088/23862 | 15.29 | 2 (interactive) | 897740 / 897741 pending (dependency) | epoch_08, update_002000 | - |
+| CL-REG | 16/reset/loop/4/0 | running | 17005/23862 | 11.21 | 2 | 897728 running | update_002000 | - |
+| CL-W2 | 16/learned/external/4/0 | running | 11898/23862 | 9.31 | 2 | 897730 running | update_002000 | - |
+| CL-0@1 | 0/none/none/1/0 | running | 2921/23862 | 1.81 | 2 | 897732 running | - | - |
+| CL-A@1 | 16/learned/loop/1/0 | queued | - | - | 2 or 4 | 897734 / 897735 pending | - | - |
+| CL-FRAME | 0/none/none/4/3 | queued | - | - | 2 or 4 | 897736 / 897737 pending | - | - |
+| CL-ORACLE | - | not submitted (conditional) | - | - | - | - | - | - |
+
+**Training health, checked October 10–11**
+- **Logs:** in every run log there are no non-finite losses or gradients, no duplicate or missing updates, and no stalls.
+- **Gradient norms:** typically 0.15–0.2; the largest single spike, 1.04 (CL-REG update 3,643), recovered on the next update.
+- **CL-0@1:** starts at an action loss of 0.335 because it removes three action loops from the 4/4 parent. Its gradient
+  norms are about 1–2 while it adapts.
+- **Action loss warm-up bump:** action loss rose during warm-up (0.017 → 0.026 at peak LR) and then fell
+  steadily; CL-0's mean over its last 1,000 updates was
+  0.0086 action / 0.0512 video.
+- **CL-A memory:** the read gates open slowly, with mean |tanh α| per block up to about 0.02 by update 8,000.
+  Through update 8,000, CL-A's training loss matched CL-0's to the fourth decimal.
 
 There are no evaluation results yet. Following your instruction, nothing is evaluated on the H100 server.
 
@@ -265,10 +301,8 @@ There are no evaluation results yet. Following your instruction, nothing is eval
   pipeline and the trainer wiring do not.
 - **CL-TF (eval-only).** Not implemented in the evaluator.
 - **CUDA-graph inference test.** Not done; the inference path is eager.
-- **Pushing `chrono`.** Not possible from this node: there are no GitHub credentials (HTTPS asks for a
-  username and the SSH key is not registered). All commits are local on branch `chrono`. Push from a
-  machine with credentials:
-  `git -C /lustre/fs1/home/an221229/code/LoopWAM_chrono push -u origin chrono`.
+- **Pushing `chrono`.** This node has no stored GitHub credentials. The branch was pushed once with a
+  token you supplied, which was not stored. Later pushes need credentials again.
 
 ## 11. Evaluating on the other server
 

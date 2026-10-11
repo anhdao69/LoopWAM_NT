@@ -30,7 +30,7 @@ Compare paired by (task, state, seed), with a cluster bootstrap over (task, stat
 
 | Run | Definition | Hugging Face folder | Memory params | Updates (10 ep) | Train layout | Train GPU-h |
 |---|---|---|---|---|---|---|
-| CL-0 | No memory (control), K_a = 4 | `CL-0_no-memory_a4` | 0 | 23,862 | 2 GPU interactive + continuation | |
+| CL-0 | No memory (control), K_a = 4 | `CL-0_no-memory_a4` | 0 | 23,862 | 2 GPU interactive (completed there) | 29.5 (2 × 14.73 h) |
 | CL-A | Memory written by the core loops, K_a = 4 | `CL-A_mem16-learned-loopwrite_a4` | 31,008 | 23,862 | 2 GPU interactive + continuation | |
 | CL-REG | 16 registers reset every query | `CL-REG_mem16-reset-registers_a4` | 31,008 | 23,862 | Slurm 2 or 4 GPU | |
 | CL-W2 | Read-only memory, external 1-block updater | `CL-W2_mem16-learned-external-updater_a4` | 37,818,144 | 23,862 | Slurm 2 or 4 GPU | |
