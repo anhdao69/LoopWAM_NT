@@ -6,7 +6,14 @@ Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
 Results table to fill: [ChronoLoop_Results_Template.md](ChronoLoop_Results_Template.md).
 
-**Status update (October 11, 04:45 EDT): CL-0 is fully trained and uploaded. No run has been evaluated.**
+**Status update (October 11, 09:25 EDT): CL-0 and CL-REG are fully trained and uploaded. No run has been evaluated.**
+- **CL-REG:** completed at 09:10 on Slurm 897728 after 15.7 h on 2 GPUs. Epochs 8, 9 and 10 are on
+  Hugging Face, verified by SHA-256.
+- **CL-A@1:** started at 08:52 on 897735, 4 GPUs, at 1.6 s/update.
+- **CL-FRAME:** started at 09:13 on 897736, 2 GPUs, at 3.0 s/update.
+- **CL-A:** continuation 897740/897741 is still waiting for GPUs.
+
+Earlier update (04:45 EDT):
 - **CL-0:** completed all 10 epochs in the interactive allocation at 04:08. Epochs 8, 9 and 10 are on
   Hugging Face, verified by SHA-256.
 - **CL-A:** stopped cleanly at the allocation limit at update 20,088, after saving epoch 8. Continuation
@@ -245,6 +252,8 @@ started first, logged `cancelled pending twin`, and the 4-GPU twin shows CANCELL
 | CL-REG | 897728, 2 GPUs, evc102 | Oct 10 17:21 | 897729 | 2.35 |
 | CL-W2 | 897730, 2 GPUs, evc104 | Oct 10 19:17 | 897731 | 2.75 |
 | CL-0@1 | 897732, 2 GPUs, evc104 | Oct 11 02:46 | 897733 | 2.1 |
+| CL-A@1 | 897735, **4 GPUs**, evc101 | Oct 11 08:52 | 897734 | 1.6 |
+| CL-FRAME | 897736, 2 GPUs, evc102 | Oct 11 09:13 | 897737 | 3.0 |
 
 - **CL-0 continuations (897738/897739):** cancelled while pending, because CL-0 finished inside the
   interactive allocation. If either had started, it would only have re-checked the upload.
@@ -266,7 +275,10 @@ started first, logged `cancelled pending twin`, and the 4-GPU twin shows CANCELL
   - I checked this separately from the upload script. I read the repo's file metadata through the Hugging Face API, and it
     shows the repo as public.
   - The Hub's LFS SHA-256 for `epoch_10/policy.pt` (`137f0a83…`) equals the local `sha256sum`.
-  - No other run has finished yet.
+  - **CL-REG** is also verified, at
+    [CL-REG_mem16-reset-registers_a4](https://huggingface.co/anhdao69/ChronoLoop/tree/main/CL-REG_mem16-reset-registers_a4).
+    Each `policy.pt` is 2,338,751,283 bytes, and the Hub SHA-256 for epoch 10 (`6de1bbf8…`) equals the
+    local file.
 
 ## 9. Experiment tracking (snapshot October 11, 04:41 EDT; live: `python scripts/chronoloop_status.py`)
 
