@@ -6,6 +6,20 @@ Run root: `/groups/yshang/an221229/checkpoints/ChronoLoop/runs/<experiment>`.
 Hugging Face: [anhdao69/ChronoLoop](https://huggingface.co/anhdao69/ChronoLoop) (public).
 Results table to fill: [ChronoLoop_Results_Template.md](ChronoLoop_Results_Template.md).
 
+**Final training status (October 12, 10:41 EDT): all seven runs completed 23,862/23,862 updates (10 epochs).
+Epochs 8, 9 and 10 of every run are on Hugging Face at https://huggingface.co/anhdao69/ChronoLoop. Each
+file's size on the Hub matches the local checkpoint. No run has been evaluated on this server.**
+
+| Run | Final job | GPUs | Training hours |
+|---|---|---|---|
+| CL-0 | interactive 894901 | 2 | 14.7 |
+| CL-A | interactive 894901, then Slurm 897740 | 2 | 18.2 |
+| CL-REG | Slurm 897728 | 2 | 15.7 |
+| CL-W2 | Slurm 897730 | 2 | 18.6 |
+| CL-0@1 | Slurm 897732 | 2 | 14.3 |
+| CL-A@1 | Slurm 897735 | 4 | 12.7 |
+| CL-FRAME | Slurm 897736 | 2 | 20.3 |
+
 **Status update (October 11, 14:05 EDT): CL-0, CL-REG and CL-W2 are fully trained and uploaded. No run has been evaluated.**
 - **CL-W2:** completed at 13:59 on Slurm 897730 after 18.61 h on 2 GPUs. Epochs 8, 9 and 10 are on
   Hugging Face, verified by SHA-256.
