@@ -1,0 +1,29 @@
+{
+  "Python": "3.10",
+  "torch": "2.7.1+cu128",
+  "torchvision": "0.22.1+cu128",
+  "numpy": "1.26.4",
+  "mujoco": "3.3.2",
+  "robosuite": "1.4.0",
+  "envs": [
+    "lightwam-libero-eval",
+    "loopwam-libero-eval",
+    "fastwam-libero-eval"
+  ],
+  "conda_root": "/storage/anhdh35/miniconda3",
+  "LoopWAM_original_release_revision": "006be1b959e8b188350bfa9db3944dfd0a8a1755",
+  "LoopWAM_v1a4_release_revision": "90453499bb825be2502702f20022895e1dfcda30",
+  "FastWAM_release_revision": "8eaceeb24c3cc92ff2a9c9a9d266a4941b836705",
+  "FastWAM_weight": "libero_uncond_2cam224.pt",
+  "FastWAM_checkpoint_sha256": "1000437cfcf55c000094f79a2600634c502bcb5b492476b94bf8509883a49579",
+  "Wan22_VAE_sha256": "20eb789667fa5e60e7516bf509512f6cb61f01b0aa0695eadaea930c13892b36",
+  "FastWAM_training_metadata": "Not independently recovered from original checkpoint; no assumed training seed/demo count.",
+  "LightWAM_checkpoint_sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+  "LightWAM_checkpoint_bytes": 3720363717,
+  "LoopWAM_full41_release_revision": "969a358ff1a5f3dfd9cea96667b506d27c7e30ab",
+  "LoopWAM_full41_checkpoint_sha256": "d460ccea7148876d96e7b6969c97f698fb02119e12ab1f749872faf3d30c3a92",
+  "LoopWAM_full22_release_revision": "df6197a1ca20619faa9dff892826cf8eeb64d26a",
+  "LoopWAM_full22_checkpoint_sha256": "5dd6ef39b7afb44a672750cebea57358eee43c7e998517e16f2c4f457c843600",
+  "LoopWAM_fullmix_release_revision": "db0d9bf7ecab737654440b8b3af06fcca4b587eb",
+  "LoopWAM_fullmix_checkpoint_sha256": "ec4ff8ab3e00a761bd75c180bb70a93e0632d84862c5c6ff27746065342c579d"
+}

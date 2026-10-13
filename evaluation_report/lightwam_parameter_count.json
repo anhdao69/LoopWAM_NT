@@ -1,0 +1,14 @@
+{
+  "total": 1986819434,
+  "trainable": 1859926903,
+  "children": {
+    "video_expert": 1508861248,
+    "action_expert": 0,
+    "mot": 1508861248,
+    "vae": 126892531,
+    "proprio_encoder": 36864,
+    "state_fusion_action_expert": 351028791
+  },
+  "policy": 1859926903,
+  "note": "Unique parameters via nn.Module.parameters; requires_grad count is not an audited fine-tuning count."
+}

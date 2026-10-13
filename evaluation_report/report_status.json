@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "updated_at": "2026-10-11T04:55:41.958726+00:00",
+  "pid": 1079377,
+  "output": "/storage/anhdh35/Light-WAM/evaluation_report/final/report.html",
+  "scored_episodes": 45000,
+  "final": true,
+  "copied_report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/final/report.html"
+}

@@ -1,0 +1,121 @@
+{
+  "Light-WAM": {
+    "path": "/storage/anhdh35/Light-WAM",
+    "used_head": "db7d05e724f3eac2d4f0c9c3ac727fe93a44d727",
+    "refs": [
+      "refs/heads/main db7d05e724f3eac2d4f0c9c3ac727fe93a44d727",
+      "refs/remotes/origin/HEAD db7d05e724f3eac2d4f0c9c3ac727fe93a44d727",
+      "refs/remotes/origin/main db7d05e724f3eac2d4f0c9c3ac727fe93a44d727"
+    ],
+    "status": [
+      "?? scripts/libero_long_env.sh",
+      "?? scripts/libero_long_requirements.lock.txt",
+      "?? scripts/run_libero_long_seeds.sh"
+    ],
+    "file_hashes_by_ref": {
+      "refs/heads/main": {
+        "experiments/libero/eval_libero_single.py": "c7f5c738df6c40ac8e9e0f26e024ea0e5efd30fbb88562c6551123e13b37cabe",
+        "experiments/libero/libero_utils.py": "ac1496d46a7668f5d7b0834d93389c4231b7b1bb9976827716d4c50cd0d94ce4",
+        "scripts/eval_libero.sh": "18d9cf1ae5414e9c1e8be00a2a82e3909161f0c578984fe6f16f524a55383751",
+        "scripts/run_libero_long_seeds.sh": null
+      },
+      "refs/remotes/origin/main": {
+        "experiments/libero/eval_libero_single.py": "c7f5c738df6c40ac8e9e0f26e024ea0e5efd30fbb88562c6551123e13b37cabe",
+        "experiments/libero/libero_utils.py": "ac1496d46a7668f5d7b0834d93389c4231b7b1bb9976827716d4c50cd0d94ce4",
+        "scripts/eval_libero.sh": "18d9cf1ae5414e9c1e8be00a2a82e3909161f0c578984fe6f16f524a55383751",
+        "scripts/run_libero_long_seeds.sh": null
+      }
+    }
+  },
+  "LoopWAM_NT": {
+    "path": "/storage/anhdh35/LoopWAM_NT",
+    "used_head": "8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+    "refs": [
+      "refs/heads/LoopWAM_NT 8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+      "refs/remotes/origin/HEAD 8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+      "refs/remotes/origin/KV_concat 2652293dfae63469b91f167c1b5aa8e855b58f39",
+      "refs/remotes/origin/LoopWAM_NT 8d74c8df2eca4d165626830d90c2cc9bc56412b6"
+    ],
+    "status": [],
+    "file_hashes_by_ref": {
+      "refs/heads/LoopWAM_NT": {
+        "src/fastwam/models/wan22/loopwam.py": "c67d055f0d37549521661e6fe420f2910c3fb9016805c1b0a6109bdb52352598",
+        "src/fastwam/models/wan22/loop_mot.py": "e8285ab8a5f303df5b0205b37f2eef42f9c5720ee91d5ef65a54b99efd418719",
+        "scripts/evaluate_loopwam_libero.py": "c3d99fa72cc0be9a518299898515ffcd1036344d984c8a90723cec588f810a51",
+        "scripts/evaluate_loopwam_pool.py": null
+      },
+      "refs/remotes/origin/KV_concat": {
+        "src/fastwam/models/wan22/loopwam.py": "a41918e0af9055d2499765af647cb683e9e5094280a50b2c0cee61525b80d8f3",
+        "src/fastwam/models/wan22/loop_mot.py": "ab25efb32c43309ed772e5f00ab3c5d4ad19d8af57dfd9f163df73efeb661fa8",
+        "scripts/evaluate_loopwam_libero.py": "258ab0ab65241cac6d15ed6f771768ee7a8b83537feb89bec2a2be8a491efe41",
+        "scripts/evaluate_loopwam_pool.py": "f303efbdd4b00e9f7f61cb2147b00e85c269ab50dacf7baa3bc6d147c437a3d2"
+      },
+      "refs/remotes/origin/LoopWAM_NT": {
+        "src/fastwam/models/wan22/loopwam.py": "c67d055f0d37549521661e6fe420f2910c3fb9016805c1b0a6109bdb52352598",
+        "src/fastwam/models/wan22/loop_mot.py": "e8285ab8a5f303df5b0205b37f2eef42f9c5720ee91d5ef65a54b99efd418719",
+        "scripts/evaluate_loopwam_libero.py": "c3d99fa72cc0be9a518299898515ffcd1036344d984c8a90723cec588f810a51",
+        "scripts/evaluate_loopwam_pool.py": null
+      }
+    }
+  },
+  "Fast-WAM-used": {
+    "path": "/storage/anhdh35/FastWAM-eval",
+    "used_head": "8afd20fd01b965cea67c3824556ebbb26f970e9b",
+    "refs": [
+      "refs/heads/LoopWAM_NT 8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+      "refs/remotes/origin/HEAD 8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+      "refs/remotes/origin/KV_concat 2652293dfae63469b91f167c1b5aa8e855b58f39",
+      "refs/remotes/origin/LoopWAM_NT 8d74c8df2eca4d165626830d90c2cc9bc56412b6"
+    ],
+    "status": [
+      "?? docs/",
+      "?? scripts/concat_guard.py",
+      "?? scripts/evaluate_matched_lightwam.py",
+      "?? scripts/matched_cuda_graph.py",
+      "?? scripts/matched_eval_env.sh",
+      "?? scripts/matched_fastwam.py",
+      "?? scripts/run_after_concat.py",
+      "?? scripts/run_after_concat.sh",
+      "?? scripts/test_matched_fastwam.py",
+      "?? scripts/verify_matched_graph.py",
+      "?? setup_logs/"
+    ],
+    "refs_note": "Inherited LoopWAM repository refs; official Fast-WAM branches are listed separately."
+  },
+  "LoopWAM_used_head": "467eeabca0e3b3487ec422fa519355e0304f0047",
+  "Fast-WAM-official-remote-heads": [
+    "153d8df6463af21abfd0189bafd36848d2f48187\trefs/heads/dev/fix_gpu_oom",
+    "7faa71108368fbb3b6885649f112af607427a2d4\trefs/heads/main",
+    "866aa119d26b1e7cd41e1c92421a90b76b240172\trefs/heads/web_pages"
+  ],
+  "Fast-WAM-official-branches": {
+    "main": {
+      "revision": "7faa71108368fbb3b6885649f112af607427a2d4",
+      "diff_from_executed": "configs/data/libero_2cam_lerobot_v30.yaml          |  59 ++\n configs/model/fastwam.yaml                         |   4 +-\n configs/model/fastwam_idm.yaml                     |   4 +-\n configs/model/fastwam_joint.yaml                   |   4 +-\n configs/model/fastwam_optional_idm.yaml            |   4 +-\n configs/sim_libero.yaml                            |   1 -\n .../libero_optional_idm_shift0p5_2cam224_1e-4.yaml |  28 -\n experiments/libero/eval_libero_single.py           | 249 ++++++--\n experiments/libero/run_libero_manager.py           | 301 ++++++++--\n experiments/libero/run_libero_parallel_test.sh     | 643 ---------------------\n experiments/libero/summarize_results.py            |   9 +-\n experiments/libero/worker_pool.py                  |  86 +++\n .../datasets/lerobot/base_lerobot_dataset.py       |  19 +-\n .../lerobot/processors/fastwam_processor.py        |   4 +-\n .../datasets/lerobot/robot_video_dataset.py        |  20 +-\n src/fastwam/datasets/lerobot3/__init__.py          |  13 +\n .../datasets/lerobot3/base_lerobot_dataset.py      |  11 +\n src/fastwam/datasets/lerobot3/lerobot_dataset.py   | 401 +++++++++++++\n .../datasets/lerobot3/robot_video_dataset.py       |   9 +\n src/fastwam/models/wan22/fastwam_idm.py            |  39 +-\n src/fastwam/models/wan22/fastwam_joint.py          |   4 +\n 21 files changed, 1081 insertions(+), 831 deletions(-)",
+      "files": {
+        "experiments/libero/eval_libero_single.py": "3854ba516fd0369eb538fea29eee2e4735fcccb19626a1009e29f782e00051f4",
+        "experiments/libero/run_libero_manager.py": "5076fa41771241b8dda679204bf7f536d6d4e4630506874498811fbb0599e2cb",
+        "src/fastwam/models/wan22/fastwam.py": "154c339efd33fae119fe902d6efb91cde7475e3cfd0e7b50e606278c1c3eac09"
+      }
+    },
+    "dev/fix_gpu_oom": {
+      "revision": "153d8df6463af21abfd0189bafd36848d2f48187",
+      "diff_from_executed": "configs/data/libero_2cam.yaml                      |   1 -\n configs/model/fastwam.yaml                         |   3 +-\n configs/model/fastwam_idm.yaml                     |   4 +-\n configs/model/fastwam_joint.yaml                   |   2 +-\n configs/model/fastwam_optional_idm.yaml            |  62 ----\n configs/sim_libero.yaml                            |   1 -\n configs/task/libero_optional_idm_2cam224_1e-4.yaml |  24 --\n .../libero_optional_idm_shift0p5_2cam224_1e-4.yaml |  28 --\n experiments/libero/eval_libero_single.py           |  32 +-\n .../datasets/lerobot/lerobot/lerobot_dataset.py    |  12 +-\n .../datasets/lerobot/robot_video_dataset.py        |  15 +-\n src/fastwam/models/wan22/action_dit.py             |  67 ++--\n src/fastwam/models/wan22/fastwam.py                | 377 ++++++++-------------\n src/fastwam/models/wan22/fastwam_idm.py            | 332 ++++++------------\n src/fastwam/models/wan22/fastwam_optional_idm.py   | 120 -------\n src/fastwam/models/wan22/mot.py                    | 293 +---------------\n src/fastwam/models/wan22/wan22.py                  |  18 +-\n src/fastwam/models/wan22/wan_video_dit.py          | 162 ++-------\n src/fastwam/models/wan22/wan_video_vae.py          |  33 +-\n src/fastwam/runtime.py                             | 103 +-----\n src/fastwam/trainer.py                             |  23 --\n 21 files changed, 354 insertions(+), 1358 deletions(-)",
+      "files": {
+        "experiments/libero/eval_libero_single.py": "4e261fe387bddb7549f6c943dd28951e81632d85ca450b8ad9230a5dc7a040d7",
+        "experiments/libero/run_libero_manager.py": "36a0ce9f3dc016be0b9eb2673b4449e5ab8b8f0b9381499acb7ae7567d35f04a",
+        "src/fastwam/models/wan22/fastwam.py": "36a61b652944a89dfd59dbba94ce206a664e40ed27868ca6d7bdbf0642e3bd0a"
+      }
+    },
+    "web_pages": {
+      "revision": "866aa119d26b1e7cd41e1c92421a90b76b240172",
+      "diff_from_executed": "configs/data/libero_2cam.yaml                      |   68 -\n configs/data/robotwin.yaml                         |  125 --\n configs/model/fastwam.yaml                         |   59 -\n configs/model/fastwam_idm.yaml                     |   60 -\n configs/model/fastwam_joint.yaml                   |   58 -\n configs/model/fastwam_optional_idm.yaml            |   62 -\n configs/sim_libero.yaml                            |   60 -\n configs/sim_robotwin.yaml                          |   51 -\n configs/task/libero_idm_2cam224_1e-4.yaml          |   27 -\n configs/task/libero_joint_2cam224_1e-4.yaml        |   27 -\n configs/task/libero_optional_idm_2cam224_1e-4.yaml |   24 -\n .../libero_optional_idm_shift0p5_2cam224_1e-4.yaml |   28 -\n configs/task/libero_uncond_2cam224_1e-4.yaml       |   27 -\n configs/task/robotwin_idm_3cam_384_1e-4.yaml       |   27 -\n configs/task/robotwin_joint_3cam_384_1e-4.yaml     |   27 -\n configs/task/robotwin_uncond_3cam_384_1e-4.yaml    |   27 -\n configs/train.yaml                                 |   48 -\n experiments/libero/action_ensembler.py             |   32 -\n experiments/libero/eval_libero_single.py           |  814 ------------\n experiments/libero/libero_utils.py                 |  189 ---\n experiments/libero/run_libero_manager.py           |  163 ---\n experiments/libero/run_libero_parallel_test.sh     |  643 ---------\n experiments/libero/summarize_results.py            |  307 -----\n experiments/robotwin/eval_robotwin_single.py       |  273 ----\n experiments/robotwin/fastwam_policy/__init__.py    |    2 -\n .../robotwin/fastwam_policy/deploy_policy.py       |  400 ------\n .../robotwin/fastwam_policy/deploy_policy.yml      |   26 -\n experiments/robotwin/run_robotwin_manager.py       |  412 ------\n src/fastwam/__init__.py                            |    1 -\n src/fastwam/datasets/__init__.py                   |    0\n src/fastwam/datasets/dataset_utils.py              |  109 --\n .../datasets/lerobot/base_lerobot_dataset.py       |  412 ------\n src/fastwam/datasets/lerobot/constants.py          |   54 -\n .../lerobot/lerobot/datasets/compute_stats.py      |  179 ---\n .../datasets/lerobot/lerobot/datasets/utils.py     |  903 -------------\n .../lerobot/lerobot/datasets/video_utils.py        |  527 --------\n .../datasets/lerobot/lerobot/lerobot_dataset.py    | 1298 ------------------\n .../datasets/lerobot/processors/base_processor.py  |  263 ----\n .../lerobot/processors/fastwam_processor.py        |  304 -----\n .../datasets/lerobot/robot_video_dataset.py        |  280 ----\n .../lerobot/transforms/action_state_merger.py      |   78 --\n src/fastwam/datasets/lerobot/transforms/image.py   |   25 -\n src/fastwam/datasets/lerobot/transforms/misc.py    |   20 -\n .../datasets/lerobot/transforms/relative_action.py |  104 --\n .../datasets/lerobot/transforms/rotation.py        |  133 --\n src/fastwam/datasets/lerobot/utils/normalizer.py   |  291 -----\n src/fastwam/datasets/lerobot/utils/rotation.py     |  621 ---------\n src/fastwam/models/__init__.py                     |    1 -\n src/fastwam/models/wan22/__init__.py               |    0\n src/fastwam/models/wan22/action_dit.py             |  362 ------\n src/fastwam/models/wan22/fastwam.py                | 1233 ------------------\n src/fastwam/models/wan22/fastwam_idm.py            |  588 ---------\n src/fastwam/models/wan22/fastwam_joint.py          |  236 ----\n src/fastwam/models/wan22/fastwam_optional_idm.py   |  120 --\n src/fastwam/models/wan22/helpers/__init__.py       |   15 -\n src/fastwam/models/wan22/helpers/gradient.py       |   25 -\n src/fastwam/models/wan22/helpers/io.py             |  207 ---\n src/fastwam/models/wan22/helpers/loader.py         |  221 ----\n .../models/wan22/helpers/state_dict_converters.py  |   90 --\n src/fastwam/models/wan22/mot.py                    |  819 ------------\n .../wan22/schedulers/scheduler_continuous.py       |   88 --\n src/fastwam/models/wan22/wan22.py                  |  399 ------\n src/fastwam/models/wan22/wan_video_dit.py          |  772 -----------\n src/fastwam/models/wan22/wan_video_text_encoder.py |  342 -----\n src/fastwam/models/wan22/wan_video_vae.py          | 1375 --------------------\n src/fastwam/runtime.py                             |  533 --------\n src/fastwam/trainer.py                             |  814 ------------\n src/fastwam/utils/__init__.py                      |    4 -\n src/fastwam/utils/config_resolvers.py              |   70 -\n src/fastwam/utils/fs.py                            |    5 -\n src/fastwam/utils/logging_config.py                |  140 --\n src/fastwam/utils/misc.py                          |   43 -\n src/fastwam/utils/pytorch_utils.py                 |  137 --\n src/fastwam/utils/samplers.py                      |   39 -\n src/fastwam/utils/video_io.py                      |   34 -\n src/fastwam/utils/video_metrics.py                 |   95 --\n 76 files changed, 18475 deletions(-)",
+      "files": {
+        "experiments/libero/eval_libero_single.py": null,
+        "experiments/libero/run_libero_manager.py": null,
+        "src/fastwam/models/wan22/fastwam.py": null
+      }
+    }
+  },
+  "audited_at": "2026-10-10T03:02:12.007465+00:00"
+}

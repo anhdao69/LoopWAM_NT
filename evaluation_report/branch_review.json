@@ -1,0 +1,32 @@
+{
+  "review_scope": "All available branch tips fetched at audit time; pinned inference paths reviewed separately. Branch tips are not each separately evaluated.",
+  "Light-WAM/main": {
+    "executed_revision": "db7d05e724f3eac2d4f0c9c3ac727fe93a44d727",
+    "finding": "Only available branch. Original episode loop used unchanged; Long-only baseline."
+  },
+  "LoopWAM_NT/LoopWAM_NT": {
+    "revision": "8d74c8df2eca4d165626830d90c2cc9bc56412b6",
+    "finding": "Original aligned loop implementation. Selected aligned cache-mapping and prefill functions have equivalent ASTs to pinned KV code; no blanket numerical cross-branch equivalence claim."
+  },
+  "LoopWAM_NT/KV_concat": {
+    "tip": "2652293dfae63469b91f167c1b5aa8e855b58f39",
+    "executed_revision": "467eeabca0e3b3487ec422fa519355e0304f0047",
+    "finding": "Adds KV mix/concat modes and associated contracts; preserves existing asymmetric-depth support. Latest tip versus executed revision has no src/experiments changes; later commits concern training continuation, retained epochs, runners, documentation and timing logs."
+  },
+  "Fast-WAM/main": {
+    "tip": "7faa71108368fbb3b6885649f112af607427a2d4",
+    "executed_revision": "8afd20fd01b965cea67c3824556ebbb26f970e9b",
+    "finding": "Current main action scheduler train/infer shift defaults are 1.0; executed snapshot and explicit queued config use 5.0. Source defaults do not establish released checkpoint historical training shift. Base FastWAM/MoT/action DiT/video DiT/VAE/runtime unchanged; native observation/action conversion and episode loop ASTs unchanged. Evaluation orchestration, dataset v3 support and separate IDM/joint model code changed. Do not describe this run as latest-main default evaluation.",
+    "evidence": "git diff 8afd20f fastwam-audit/main -- configs/model/fastwam.yaml; main config lines 53-55; commit 0050a44"
+  },
+  "Fast-WAM/dev/fix_gpu_oom": {
+    "tip": "153d8df6463af21abfd0189bafd36848d2f48187",
+    "finding": "Ancestor of executed snapshot, not a newer fix. CPU checkpoint-loading fix is incorporated. Older dictionary-cache APIs lack the tensor-cache/compile interfaces required by current graph wrapper; not a drop-in alternate branch. Cross-branch numerical parity not tested.",
+    "evidence": "git merge-base 8afd20f fastwam-audit/dev/fix_gpu_oom returns this tip"
+  },
+  "Fast-WAM/web_pages": {
+    "tip": "866aa119d26b1e7cd41e1c92421a90b76b240172",
+    "finding": "Website-only branch: README.md, index.html, assets, static and .gitignore. No executable policy/evaluation implementation."
+  },
+  "review_verdict": "No demonstrated new defect invalidating SR in reviewed paths. Comparison matches simulator protocol while retaining native model semantics. Timing boundaries, preprocessing, training scope and selected Fast-WAM historical scheduler configuration must remain explicit. Queued GPU gates and final grid verification are still required."
+}
