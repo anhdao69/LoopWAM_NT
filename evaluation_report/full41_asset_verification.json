@@ -1,0 +1,12 @@
+{
+  "status": "ready",
+  "updated_at": 1791634415.577416,
+  "release_path": "libero-all-suites/v0-video4-action1",
+  "hub_revision": "969a358ff1a5f3dfd9cea96667b506d27c7e30ab",
+  "checkpoint_sha256": "d460ccea7148876d96e7b6969c97f698fb02119e12ab1f749872faf3d30c3a92",
+  "video_loops": 4,
+  "action_loops": 1,
+  "strict_cpu_load": true,
+  "cuda_used": false,
+  "training_scope": "full_libero"
+}

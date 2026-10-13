@@ -73,7 +73,7 @@ def load_native(label,folder,suites,final):
     if any(not (0<=r['policy_steps']<=caps[r['suite']]) or r['queries']<0 or r['query_seconds']<0 for r in rows):raise ValueError('invalid rollout telemetry')
     cp=pathlib.Path(a.get('checkpoint_dir',''))
     if a.get('backend')=='cuda-graph':
-        gate_path=(FAST/'setup_logs/verified_graph_fastwam.json') if label.startswith('Fast') else LOOP/'setup_logs'/('verified_graph_'+cp.name+'.json')
+        gate_path=(FAST/'setup_logs/verified_graph_fastwam.json') if label.startswith('Fast') else LOOP/'setup_logs'/('verified_graph_full_'+cp.name+'.json' if label in ['LoopWAM full video4/action1','LoopWAM full video2/action2','LoopWAM full KV mix 4/1'] else 'verified_graph_'+cp.name+'.json')
         gate=read(gate_path,{})
         if not gate.get('passed') or gate.get('max_abs_difference')!=0 or gate.get('checkpoint_sha256')!=sha:raise ValueError('graph gate absent/failed/mismatched')
     metadata={f:read(cp/f) for f in ['export.json','training_manifest.json','training_timing.json','fairness.json'] if (cp/f).exists()}
@@ -98,7 +98,7 @@ def table(rows,keys=None):
 
 def detail(title,obj):return '<details><summary>'+html.escape(title)+'</summary><pre>'+html.escape(json.dumps(obj,indent=2))+'</pre></details>'
 def completion():
-    paths=[LOOP/'evaluate_results/matched_lightwam/campaign_status.json',FAST/'evaluate_results/matched_lightwam/queue_status.json',LOOP/'evaluate_results/matched_v1a4/queue_status.json']
+    paths=[LOOP/'evaluate_results/matched_lightwam/campaign_status.json',FAST/'evaluate_results/matched_lightwam/queue_status.json',LOOP/'evaluate_results/matched_v1a4/queue_status.json',LOOP/'evaluate_results/matched_full41/queue_status.json',LOOP/'evaluate_results/matched_full22/queue_status.json',LOOP/'evaluate_results/matched_fullmix/queue_status.json']
     return [{'path':str(p),'state':read(p,{})} for p in paths]
 
 def build(final=False):
@@ -107,10 +107,10 @@ def build(final=False):
     if not (ROOT/'branch_review.json').exists():raise ValueError('branch review absent')
     rows,light=load_light();models=[light]
     specs=[(label,LOOP/'evaluate_results/matched_lightwam'/stage,SUITES if i==0 else ['libero_10']) for i,(stage,label) in enumerate(zip(STAGES,LABELS))]
-    specs += [('Fast-WAM original all suites',FAST/'evaluate_results/matched_lightwam/rollouts',SUITES),('LoopWAM full video1/action4',LOOP/'evaluate_results/matched_v1a4/rollouts',SUITES)]
+    specs += [('Fast-WAM original all suites',FAST/'evaluate_results/matched_lightwam/rollouts',SUITES),('LoopWAM full video1/action4',LOOP/'evaluate_results/matched_v1a4/rollouts',SUITES),('LoopWAM full video4/action1',LOOP/'evaluate_results/matched_full41/rollouts',SUITES),('LoopWAM full video2/action2',LOOP/'evaluate_results/matched_full22/rollouts',SUITES),('LoopWAM full KV mix 4/1',LOOP/'evaluate_results/matched_fullmix/rollouts',SUITES)]
     for label,folder,suites in specs:
         rs,m=load_native(label,folder,suites,final);rows.extend(rs);models.append(m)
-    if final and len(rows)!=27000:raise ValueError('wrong campaign total')
+    if final and len(rows)!=45000:raise ValueError('wrong campaign total')
     suite=aggregate(rows,['model','suite']);seeds=aggregate(rows,['model','suite','seed']);tasks=aggregate(rows,['model','suite','task']);taskseeds=aggregate(rows,['model','suite','task','seed'])
     baseline_rate=100*sum(r['success'] for r in rows if r['model']=='Light-WAM Long')/1500
     for r in tasks+taskseeds:
@@ -127,7 +127,7 @@ def build(final=False):
         counts=collections.Counter((baseline[(r['seed'],r['task'],r['episode'])],r['success']) for r in rs)
         paired.append({'model':m['label'],'both_success':counts[True,True],'both_failure':counts[False,False],'light_only_success':counts[True,False],'model_only_success':counts[False,True],'paired_episodes':len(rs)})
     evidence=[];artifacts={}
-    for base in [LOOP/'setup_logs',FAST/'setup_logs',LOOP/'evaluate_results/matched_lightwam',LOOP/'evaluate_results/matched_v1a4',FAST/'evaluate_results/matched_lightwam',ROOT]:
+    for base in [LOOP/'setup_logs',FAST/'setup_logs',LOOP/'evaluate_results/matched_lightwam',LOOP/'evaluate_results/matched_v1a4',LOOP/'evaluate_results/matched_full41',LOOP/'evaluate_results/matched_full22',LOOP/'evaluate_results/matched_fullmix',FAST/'evaluate_results/matched_lightwam',ROOT]:
         for p in sorted(list(base.glob('*.json'))+list(base.glob('*tests.log'))+list(base.glob('regression*.log'))+list(base.glob('environment.lock.txt'))+list(base.glob('*.py'))):
             if p.name in ['results.json','evidence_index.json','report_status.json']:continue
             b=p.read_bytes();evidence.append({'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)})
@@ -136,11 +136,11 @@ def build(final=False):
         base=pathlib.Path(m['path'])
         for p in [base/'summary.json',base/'manifest.json']:
             if p.is_file():b=p.read_bytes();evidence.append({'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)})
-    report={'generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'final':final,'scored_episodes':len(rows),'expected_episodes':27000,'models':models,'suite_results':suite,'seed_results':seeds,'task_results':tasks,'paired_long':paired,'queues':queues,'audit':read(ROOT/'audit_findings.json'),'branch_inventory':read(ROOT/'branch_inventory.json'),'branch_review':read(ROOT/'branch_review.json'),'hardware':read(ROOT/'hardware.json'),'environment_and_releases':read(ROOT/'release_environment_provenance.json'),'source_environment_hashes':read(ROOT/'source_environment_evidence.json'),'speed_and_setup_evidence':artifacts}
+    report={'generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'final':final,'scored_episodes':len(rows),'expected_episodes':45000,'models':models,'suite_results':suite,'seed_results':seeds,'task_results':tasks,'paired_long':paired,'queues':queues,'audit':read(ROOT/'audit_findings.json'),'branch_inventory':read(ROOT/'branch_inventory.json'),'branch_review':read(ROOT/'branch_review.json'),'hardware':read(ROOT/'hardware.json'),'environment_and_releases':read(ROOT/'release_environment_provenance.json'),'source_environment_hashes':read(ROOT/'source_environment_evidence.json'),'speed_and_setup_evidence':artifacts}
     out=ROOT/('final' if final else 'draft');out.mkdir(exist_ok=True)
     (out/'results.json').write_text(json.dumps(report,indent=2));(out/'evidence_index.json').write_text(json.dumps(evidence,indent=2))
     for name,rs in [('suite_results',suite),('seed_results',seeds),('task_results',tasks),('task_seed_results',taskseeds),('paired_long',paired),('episodes',rows)]:csv_write(out/(name+'.csv'),rs)
-    parts=['<!doctype html><html><head><meta charset="utf-8"><title>WAM evaluation report</title><style>body{font:16px system-ui;max-width:1500px;margin:32px auto;padding:0 24px;line-height:1.55;color:#172330}h1,h2{color:#143e65}table{border-collapse:collapse;font-size:14px}td,th{padding:8px;border:1px solid #ccd6e0;text-align:left}th{background:#eaf1f7}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;background:#f4f7fa;padding:16px}.scroll{overflow:auto}details{margin:16px 0}summary{cursor:pointer;font-weight:600}li{margin:7px 0}</style></head><body>', '<h1>WAM evaluation: detailed setup, branch audit and results</h1>',f'<p><strong>{"FINAL — all 27,000 scored episodes verified" if final else "DRAFT — incomplete campaign; pending models have no final score"}</strong>. Generated {report["generated_at"]}. Reconstructed scored episodes: {len(rows):,}/27,000.</p>', '<p>Seeds 42, 43, 44; 50 official initial states per task. The report distinguishes common rollout rules from native policy settings and timing boundaries. Every reported score below was independently reconstructed from complete episode records.</p>','<h2>Results by suite</h2>',table(suite),'<h2>Results by seed</h2>',table(seeds),'<h2>Production performance</h2>']
+    parts=['<!doctype html><html><head><meta charset="utf-8"><title>WAM evaluation report</title><style>body{font:16px system-ui;max-width:1500px;margin:32px auto;padding:0 24px;line-height:1.55;color:#172330}h1,h2{color:#143e65}table{border-collapse:collapse;font-size:14px}td,th{padding:8px;border:1px solid #ccd6e0;text-align:left}th{background:#eaf1f7}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;background:#f4f7fa;padding:16px}.scroll{overflow:auto}details{margin:16px 0}summary{cursor:pointer;font-weight:600}li{margin:7px 0}</style></head><body>', '<h1>WAM evaluation: detailed setup, branch audit and results</h1>',f'<p><strong>{"FINAL — all 45,000 scored episodes verified" if final else "DRAFT — incomplete campaign; pending models have no final score"}</strong>. Generated {report["generated_at"]}. Reconstructed scored episodes: {len(rows):,}/45,000.</p>', '<p>Seeds 42, 43, 44; 50 official initial states per task. The report distinguishes common rollout rules from native policy settings and timing boundaries. Every reported score below was independently reconstructed from complete episode records.</p>','<h2>Results by suite</h2>',table(suite),'<h2>Results by seed</h2>',table(seeds),'<h2>Production performance</h2>']
     perf=[]
     for m in models:
         p=m.get('performance',{});perf.append(dict(model=m['label'],status=m['status'],production_wall_seconds=m.get('wall_seconds'),**p))

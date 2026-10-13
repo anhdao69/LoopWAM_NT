@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-10-10T22:01:53.497188+07:00",
+  "model": "Fast-WAM",
+  "final_model_score": false,
+  "episodes": 3081,
+  "successes": 2946,
+  "overall_partial_sr_percent": 95.61830574488802,
+  "suites": {
+    "libero_10": {
+      "episodes": 1500,
+      "successes": 1403,
+      "sr_percent": 93.53333333333333,
+      "complete_grid": true
+    },
+    "libero_spatial": {
+      "episodes": 1496,
+      "successes": 1458,
+      "sr_percent": 97.45989304812834,
+      "complete_grid": false
+    },
+    "libero_object": {
+      "episodes": 85,
+      "successes": 85,
+      "sr_percent": 100.0,
+      "complete_grid": false
+    }
+  }
+}

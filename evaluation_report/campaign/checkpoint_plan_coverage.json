@@ -1,0 +1,97 @@
+{
+  "checked_at": "2026-10-12T18:42:46.079970+07:00",
+  "epoch": 10,
+  "revisions": {
+    "chrono": "cf52c6364579e45408150cd5f526b573d42eef4d",
+    "residual_trans": "318ced3b8bfe709ec6a9a49e823831a11c954751"
+  },
+  "families": {
+    "chrono": {
+      "planned_checkpoints": 7,
+      "published_checkpoints": 7,
+      "planned_eval_conditions": 7,
+      "published_eval_conditions": 7,
+      "missing_epoch10_checkpoints": [],
+      "present_but_incomplete_assets": [],
+      "published_runs": [
+        "CL-0",
+        "CL-0@1",
+        "CL-A",
+        "CL-A@1",
+        "CL-FRAME",
+        "CL-REG",
+        "CL-W2"
+      ]
+    },
+    "residual_trans": {
+      "planned_checkpoints": 20,
+      "published_checkpoints": 7,
+      "planned_eval_conditions": 48,
+      "published_eval_conditions": 19,
+      "missing_epoch10_checkpoints": [
+        {
+          "run": "RT+B2",
+          "path": "RT+B2/epoch_10.pt"
+        },
+        {
+          "run": "RT-B4-2",
+          "path": "RT-B4-2/epoch_10.pt"
+        },
+        {
+          "run": "RT-T3",
+          "path": "RT-T3/epoch_10.pt"
+        },
+        {
+          "run": "RT-T5",
+          "path": "RT-T5/epoch_10.pt"
+        },
+        {
+          "run": "RT-T6",
+          "path": "RT-T6/epoch_10.pt"
+        },
+        {
+          "run": "RT-Pc",
+          "path": "RT-Pc/epoch_10.pt"
+        },
+        {
+          "run": "RT-NFE1",
+          "path": "RT-NFE1/epoch_10.pt"
+        },
+        {
+          "run": "RT-no-local",
+          "path": "RT-no-local/epoch_10.pt"
+        },
+        {
+          "run": "RT-no-end",
+          "path": "RT-no-end/epoch_10.pt"
+        },
+        {
+          "run": "RT-no-grip",
+          "path": "RT-no-grip/epoch_10.pt"
+        },
+        {
+          "run": "RT-no-anchor",
+          "path": "RT-no-anchor/epoch_10.pt"
+        },
+        {
+          "run": "RT-A-seed43",
+          "path": "RT-A-seed43/epoch_10.pt"
+        },
+        {
+          "run": "RT-A-seed44",
+          "path": "RT-A-seed44/epoch_10.pt"
+        }
+      ],
+      "present_but_incomplete_assets": [],
+      "published_runs": [
+        "RT-A",
+        "RT-A2",
+        "RT-B2a",
+        "RT-B4",
+        "RT-Pa",
+        "RT-T1ft",
+        "RT-TF"
+      ]
+    }
+  }
+}
