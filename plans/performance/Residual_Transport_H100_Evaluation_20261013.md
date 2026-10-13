@@ -1,6 +1,6 @@
 # Residual Transport: H100 evaluation of the missing conditions (2026-10-13)
 
-**Status: IN PROGRESS (interim snapshot, 2026-10-13 04:50 EDT).** 3 of 14 conditions are complete; the rest are running or queued. Rows without numbers have not been evaluated yet. A blank never means zero.
+**Status: IN PROGRESS (interim snapshot, 2026-10-13 05:25 EDT).** 4 of 14 conditions are complete; the rest are running or queued. Rows without numbers have not been evaluated yet. A blank never means zero.
 
 [Results tables](Residual_Transport_Results.md) · [Remote campaign report](../../evaluation_report/campaign/report.html) · [Evidence](../residual_transport_evidence/h100_eval/)
 
@@ -107,8 +107,8 @@ Text embeddings: the H100 cache has the same 40 prompts and valid-token counts a
 | **RT-A** | **S4** | 156 | H100 | 95.40 | 98.40 | 95.00 | 86.67 | **93.87** | 1.28 |
 | **RT-T1ft** | **S1** | 192 | H100 | 96.67 | 98.47 | 94.93 | 88.20 | **94.57** | 1.27 |
 | **RT-T1ft** | **S2** | 138 | H100 | 96.73 | 98.87 | 95.67 | 85.47 | **94.18** | 0.50 |
-| RT-Pa | S1 | 192 | H100 | running | | | | | |
-| RT-Pa | S2 | 138 | H100 | queued | | | | | |
+| **RT-Pa** | **S1** | 192 | H100 | 96.73 | 98.40 | 94.80 | 85.87 | **93.95** | 0.87 |
+| RT-Pa | S2 | 138 | H100 | running | | | | | |
 | RT-TF | S1, S2 | | H100 | queued | | | | | |
 | RT-A2 | S1, S2, S5, S6, S7, S8 | | H100 | queued | | | | | |
 | RT-B2a | parent2 | 60 | H100 | queued | | | | | |
@@ -124,6 +124,7 @@ Paired differences are matched by (suite, task, initial state, seed). The 95% in
 | Gate 1 / Phase-1 R2 | RT-A S1 − RT-B4 S1 (both remote) | +0.15 | [−0.45, +0.78] | ≥ +1 (Gate 1); ≥ +2 with CI > 0 (R2) | **Fail** at S1; S2 unavailable (RT-B4 S2 partial) |
 | Learned transport | RT-A S1 − RT-T1ft S1 (cross-hardware) | −0.10 | [−0.75, +0.55] | ≥ +1 | **Fail** |
 | Learned transport | RT-A S2 − RT-T1ft S2 (cross-hardware) | −0.07 | [−0.72, +0.57] | ≥ +1 | **Fail** |
+| Transport-only scope (S1, descriptive) | RT-Pa S1 − RT-A S1 (cross-hardware) | −0.52 | [−1.17, +0.13] | RT-Pa within 1 point of RT-A (rule is at S2) | — (S2 pending; RT-B5 not evaluated) |
 | Schedule sweep | RT-A S4 − RT-A S2 (cross-hardware) | −0.25 | [−0.85, +0.35] | descriptive | — |
 
 The remaining decision rows will be filled when their conditions finish.

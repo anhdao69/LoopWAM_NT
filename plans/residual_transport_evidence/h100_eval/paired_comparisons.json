@@ -56,7 +56,15 @@
   "a": "RT-Pa S1",
   "b": "RT-A S1",
   "rule": "descriptive",
-  "unavailable": "one side incomplete or not evaluated"
+  "paired_episodes": 6000,
+  "diff_pp": -0.5166666666666666,
+  "ci95": [
+   -1.1666666666666667,
+   0.13333333333333333
+  ],
+  "a_only": 191,
+  "b_only": 222,
+  "cross_hardware": true
  },
  {
   "decision": "FU vs TF",
