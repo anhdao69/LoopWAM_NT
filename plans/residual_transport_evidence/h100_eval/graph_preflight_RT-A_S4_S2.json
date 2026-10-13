@@ -1,0 +1,250 @@
+{
+ "run": "RT-A",
+ "schedules": [
+  "S4",
+  "S2"
+ ],
+ "all_bit_exact": true,
+ "queries": [
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 0,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 22.63816635683179,
+   "graph_seconds": 1.3656903728842735
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 0,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.1764798518270254,
+   "graph_seconds": 1.003164840862155
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 1,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.19578294828534126,
+   "graph_seconds": 0.06775306910276413
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 1,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.17539137788116932,
+   "graph_seconds": 0.06184895895421505
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 2,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18976420164108276,
+   "graph_seconds": 0.06786520592868328
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 2,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16707355715334415,
+   "graph_seconds": 0.06172708980739117
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 3,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18668240308761597,
+   "graph_seconds": 0.06799570843577385
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 3,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16920785047113895,
+   "graph_seconds": 0.06173733249306679
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 4,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18645065277814865,
+   "graph_seconds": 0.06784719601273537
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 4,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16592416912317276,
+   "graph_seconds": 0.06167251989245415
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 5,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.189537288621068,
+   "graph_seconds": 0.06782109290361404
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 5,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16713060438632965,
+   "graph_seconds": 0.06172995828092098
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 0,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18817713670432568,
+   "graph_seconds": 0.06842813454568386
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 0,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16865195706486702,
+   "graph_seconds": 0.062357574701309204
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 1,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.19011450000107288,
+   "graph_seconds": 0.06772288680076599
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 1,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.1668170802295208,
+   "graph_seconds": 0.06193661876022816
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 2,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18667655065655708,
+   "graph_seconds": 0.06784594245254993
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 2,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.17295258305966854,
+   "graph_seconds": 0.06181810423731804
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 3,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18803739733994007,
+   "graph_seconds": 0.06773553416132927
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 3,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16803982108831406,
+   "graph_seconds": 0.06180744059383869
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 4,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.18997502513229847,
+   "graph_seconds": 0.06785210967063904
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 4,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.16797963716089725,
+   "graph_seconds": 0.06172305718064308
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 5,
+   "schedule": "S4",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.1873689368367195,
+   "graph_seconds": 0.0678500309586525
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 5,
+   "schedule": "S2",
+   "max_abs_difference": 0.0,
+   "bit_exact": true,
+   "eager_seconds": 0.1701110415160656,
+   "graph_seconds": 0.06179128400981426
+  }
+ ]
+}

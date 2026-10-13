@@ -1,0 +1,678 @@
+{
+ "RT-A S1": {
+  "run": "RT-A",
+  "schedule": "S1",
+  "source": "remote campaign",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign)",
+  "backend": "eager",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+  "complete": true,
+  "action_calls": 192,
+  "episodes": 6000,
+  "successes": 5668,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1446,
+    "success_pct": 96.4,
+    "seed_pct": {
+     "42": 96.0,
+     "43": 96.6,
+     "44": 96.6
+    },
+    "seed_std_pct": 0.3464101615137722
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1482,
+    "success_pct": 98.8,
+    "seed_pct": {
+     "42": 99.2,
+     "43": 98.6,
+     "44": 98.6
+    },
+    "seed_std_pct": 0.3464101615137804
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1430,
+    "success_pct": 95.33333333333333,
+    "seed_pct": {
+     "42": 95.2,
+     "43": 95.2,
+     "44": 95.6
+    },
+    "seed_std_pct": 0.23094010767584539
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1310,
+    "success_pct": 87.33333333333333,
+    "seed_pct": {
+     "42": 89.4,
+     "43": 87.6,
+     "44": 85.0
+    },
+    "seed_std_pct": 2.21208800307161
+   }
+  },
+  "four_suite_mean_pct": 94.46666666666665,
+  "seed_four_suite_mean_pct": {
+   "42": 94.94999999999999,
+   "43": 94.5,
+   "44": 93.94999999999999
+  },
+  "seed_std_pct": 0.5008326400438909
+ },
+ "RT-A S2": {
+  "run": "RT-A",
+  "schedule": "S2",
+  "source": "remote campaign",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign)",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+  "complete": true,
+  "action_calls": 138,
+  "episodes": 6000,
+  "successes": 5647,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1448,
+    "success_pct": 96.53333333333333,
+    "seed_pct": {
+     "42": 96.4,
+     "43": 97.0,
+     "44": 96.2
+    },
+    "seed_std_pct": 0.4163331998932245
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1475,
+    "success_pct": 98.33333333333333,
+    "seed_pct": {
+     "42": 99.4,
+     "43": 98.6,
+     "44": 97.0
+    },
+    "seed_std_pct": 1.222020185321559
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1431,
+    "success_pct": 95.4,
+    "seed_pct": {
+     "42": 95.4,
+     "43": 96.4,
+     "44": 94.4
+    },
+    "seed_std_pct": 1.0
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1293,
+    "success_pct": 86.2,
+    "seed_pct": {
+     "42": 90.2,
+     "43": 85.2,
+     "44": 83.2
+    },
+    "seed_std_pct": 3.605551275463989
+   }
+  },
+  "four_suite_mean_pct": 94.11666666666666,
+  "seed_four_suite_mean_pct": {
+   "42": 95.35000000000001,
+   "43": 94.3,
+   "44": 92.7
+  },
+  "seed_std_pct": 1.334478674739068
+ },
+ "RT-A S3": {
+  "run": "RT-A",
+  "schedule": "S3",
+  "source": "remote campaign",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign)",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+  "complete": true,
+  "action_calls": 168,
+  "episodes": 6000,
+  "successes": 5643,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1447,
+    "success_pct": 96.46666666666667,
+    "seed_pct": {
+     "42": 97.2,
+     "43": 96.4,
+     "44": 95.8
+    },
+    "seed_std_pct": 0.7023769168568519
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1481,
+    "success_pct": 98.73333333333333,
+    "seed_pct": {
+     "42": 100.0,
+     "43": 99.2,
+     "44": 97.0
+    },
+    "seed_std_pct": 1.5534906930308061
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1428,
+    "success_pct": 95.2,
+    "seed_pct": {
+     "42": 95.6,
+     "43": 96.0,
+     "44": 94.0
+    },
+    "seed_std_pct": 1.0583005244258352
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1287,
+    "success_pct": 85.8,
+    "seed_pct": {
+     "42": 87.2,
+     "43": 86.8,
+     "44": 83.4
+    },
+    "seed_std_pct": 2.088061301782107
+   }
+  },
+  "four_suite_mean_pct": 94.05,
+  "seed_four_suite_mean_pct": {
+   "42": 94.99999999999999,
+   "43": 94.60000000000001,
+   "44": 92.55000000000001
+  },
+  "seed_std_pct": 1.3143439428094816
+ },
+ "RT-B4 S1": {
+  "run": "RT-B4",
+  "schedule": "S1",
+  "source": "remote campaign",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign)",
+  "backend": "eager",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+  "complete": true,
+  "action_calls": 192,
+  "episodes": 6000,
+  "successes": 5659,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1433,
+    "success_pct": 95.53333333333333,
+    "seed_pct": {
+     "42": 95.6,
+     "43": 95.2,
+     "44": 95.8
+    },
+    "seed_std_pct": 0.30550504633038594
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1483,
+    "success_pct": 98.86666666666666,
+    "seed_pct": {
+     "42": 99.4,
+     "43": 99.2,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.7571877794400391
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1435,
+    "success_pct": 95.66666666666667,
+    "seed_pct": {
+     "42": 96.2,
+     "43": 95.8,
+     "44": 95.0
+    },
+    "seed_std_pct": 0.6110100926607795
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1308,
+    "success_pct": 87.2,
+    "seed_pct": {
+     "42": 91.0,
+     "43": 87.0,
+     "44": 83.6
+    },
+    "seed_std_pct": 3.7040518354904295
+   }
+  },
+  "four_suite_mean_pct": 94.31666666666666,
+  "seed_four_suite_mean_pct": {
+   "42": 95.55,
+   "43": 94.3,
+   "44": 93.1
+  },
+  "seed_std_pct": 1.2250850310624715
+ },
+ "RT-B4 S2": {
+  "run": "RT-B4",
+  "schedule": "S2",
+  "source": "remote campaign",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign)",
+  "backend": "eager",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+  "complete": false,
+  "action_calls": 138,
+  "episodes": 2505,
+  "successes": 2422,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1439,
+    "success_pct": 95.93333333333334,
+    "seed_pct": {
+     "42": 97.0,
+     "43": 96.0,
+     "44": 94.8
+    },
+    "seed_std_pct": 1.1015141094572218
+   },
+   "libero_object": {
+    "episodes": 1005,
+    "successes": 983,
+    "success_pct": 97.81094527363184,
+    "seed_pct": {
+     "42": 98.55907780979827,
+     "43": 97.94721407624634,
+     "44": 96.84542586750788
+    },
+    "seed_std_pct": 0.8684197779747995
+   }
+  }
+ },
+ "RT-A2 S1": {
+  "run": "RT-A2",
+  "schedule": "S1",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 192,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A2 S2": {
+  "run": "RT-A2",
+  "schedule": "S2",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 138,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A2 S5": {
+  "run": "RT-A2",
+  "schedule": "S5",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 102,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A2 S6": {
+  "run": "RT-A2",
+  "schedule": "S6",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 78,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A2 S7": {
+  "run": "RT-A2",
+  "schedule": "S7",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 48,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A2 S8": {
+  "run": "RT-A2",
+  "schedule": "S8",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "complete": false,
+  "action_calls": 42,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-A S4": {
+  "run": "RT-A",
+  "schedule": "S4",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+  "complete": true,
+  "action_calls": 156,
+  "episodes": 6000,
+  "successes": 5632,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1431,
+    "success_pct": 95.4,
+    "seed_pct": {
+     "42": 95.0,
+     "43": 95.8,
+     "44": 95.4
+    },
+    "seed_std_pct": 0.3999999999999986
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1476,
+    "success_pct": 98.4,
+    "seed_pct": {
+     "42": 99.0,
+     "43": 98.2,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.5291502622129176
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1425,
+    "success_pct": 95.0,
+    "seed_pct": {
+     "42": 96.0,
+     "43": 96.2,
+     "44": 92.8
+    },
+    "seed_std_pct": 1.9078784028338938
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1300,
+    "success_pct": 86.66666666666667,
+    "seed_pct": {
+     "42": 90.2,
+     "43": 86.0,
+     "44": 83.8
+    },
+    "seed_std_pct": 3.251666239535256
+   }
+  },
+  "four_suite_mean_pct": 93.86666666666667,
+  "seed_four_suite_mean_pct": {
+   "42": 95.05,
+   "43": 94.05,
+   "44": 92.5
+  },
+  "seed_std_pct": 1.2848475914805342
+ },
+ "RT-B2a parent2": {
+  "run": "RT-B2a",
+  "schedule": "parent2",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+  "complete": false,
+  "action_calls": 60,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-Pa S1": {
+  "run": "RT-Pa",
+  "schedule": "S1",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+  "complete": false,
+  "action_calls": 192,
+  "episodes": 2200,
+  "successes": 2002,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 750,
+    "successes": 733,
+    "success_pct": 97.73333333333333,
+    "seed_pct": {
+     "42": 98.0,
+     "43": 96.0,
+     "44": 100.0
+    },
+    "seed_std_pct": 2.0
+   },
+   "libero_10": {
+    "episodes": 1450,
+    "successes": 1269,
+    "success_pct": 87.51724137931035,
+    "seed_pct": {
+     "42": 88.0,
+     "43": 86.0,
+     "44": 88.66666666666667
+    },
+    "seed_std_pct": 1.3877773329774237
+   }
+  }
+ },
+ "RT-Pa S2": {
+  "run": "RT-Pa",
+  "schedule": "S2",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+  "complete": false,
+  "action_calls": 138,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-T1ft S1": {
+  "run": "RT-T1ft",
+  "schedule": "S1",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+  "complete": true,
+  "action_calls": 192,
+  "episodes": 6000,
+  "successes": 5674,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1450,
+    "success_pct": 96.66666666666667,
+    "seed_pct": {
+     "42": 97.0,
+     "43": 96.4,
+     "44": 96.6
+    },
+    "seed_std_pct": 0.3055050463303875
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1477,
+    "success_pct": 98.46666666666667,
+    "seed_pct": {
+     "42": 99.2,
+     "43": 98.2,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.6429100507328647
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1424,
+    "success_pct": 94.93333333333334,
+    "seed_pct": {
+     "42": 94.8,
+     "43": 96.0,
+     "44": 94.0
+    },
+    "seed_std_pct": 1.0066445913694335
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1323,
+    "success_pct": 88.2,
+    "seed_pct": {
+     "42": 91.4,
+     "43": 89.2,
+     "44": 84.0
+    },
+    "seed_std_pct": 3.800000000000003
+   }
+  },
+  "four_suite_mean_pct": 94.56666666666666,
+  "seed_four_suite_mean_pct": {
+   "42": 95.6,
+   "43": 94.95,
+   "44": 93.15
+  },
+  "seed_std_pct": 1.2691860908997232
+ },
+ "RT-T1ft S2": {
+  "run": "RT-T1ft",
+  "schedule": "S2",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+  "complete": true,
+  "action_calls": 138,
+  "episodes": 6000,
+  "successes": 5651,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1451,
+    "success_pct": 96.73333333333333,
+    "seed_pct": {
+     "42": 97.2,
+     "43": 95.8,
+     "44": 97.2
+    },
+    "seed_std_pct": 0.8082903768654793
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1483,
+    "success_pct": 98.86666666666666,
+    "seed_pct": {
+     "42": 98.2,
+     "43": 99.4,
+     "44": 99.0
+    },
+    "seed_std_pct": 0.6110100926607795
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1435,
+    "success_pct": 95.66666666666667,
+    "seed_pct": {
+     "42": 95.4,
+     "43": 96.2,
+     "44": 95.4
+    },
+    "seed_std_pct": 0.461880215351699
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1282,
+    "success_pct": 85.46666666666667,
+    "seed_pct": {
+     "42": 88.2,
+     "43": 84.6,
+     "44": 83.6
+    },
+    "seed_std_pct": 2.4193663082165453
+   }
+  },
+  "four_suite_mean_pct": 94.18333333333334,
+  "seed_four_suite_mean_pct": {
+   "42": 94.75,
+   "43": 94.0,
+   "44": 93.80000000000001
+  },
+  "seed_std_pct": 0.5008326400438863
+ },
+ "RT-TF S1": {
+  "run": "RT-TF",
+  "schedule": "S1",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+  "complete": false,
+  "action_calls": 192,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ },
+ "RT-TF S2": {
+  "run": "RT-TF",
+  "schedule": "S2",
+  "source": "H100 (this work)",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "backend": "cuda-graph",
+  "checkpoint": "epoch_10.pt",
+  "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+  "complete": false,
+  "action_calls": 138,
+  "episodes": 0,
+  "successes": 0,
+  "per_suite": {}
+ }
+}

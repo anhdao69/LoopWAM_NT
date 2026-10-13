@@ -1,0 +1,118 @@
+[
+ {
+  "decision": "Gate 1 / Phase-1 R2",
+  "a": "RT-A S1",
+  "b": "RT-B4 S1",
+  "rule": "RT-A minus RT-B4 >= +1 (Gate 1) / >= +2 with CI lower > 0 (R2)",
+  "paired_episodes": 6000,
+  "diff_pp": 0.15,
+  "ci95": [
+   -0.44999999999999996,
+   0.7833333333333333
+  ],
+  "a_only": 189,
+  "b_only": 180,
+  "cross_hardware": false
+ },
+ {
+  "decision": "Learned transport",
+  "a": "RT-A S1",
+  "b": "RT-T1ft S1",
+  "rule": ">= +1",
+  "paired_episodes": 6000,
+  "diff_pp": -0.1,
+  "ci95": [
+   -0.75,
+   0.5499999999999999
+  ],
+  "a_only": 186,
+  "b_only": 192,
+  "cross_hardware": true
+ },
+ {
+  "decision": "Learned transport",
+  "a": "RT-A S2",
+  "b": "RT-T1ft S2",
+  "rule": ">= +1",
+  "paired_episodes": 6000,
+  "diff_pp": -0.06666666666666667,
+  "ci95": [
+   -0.7166666666666667,
+   0.5666666666666667
+  ],
+  "a_only": 190,
+  "b_only": 194,
+  "cross_hardware": true
+ },
+ {
+  "decision": "Transport-only scope (partial: RT-B5 not evaluated)",
+  "a": "RT-Pa S2",
+  "b": "RT-A S2",
+  "rule": "RT-Pa within 1 point of RT-A",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "Transport-only scope (S1, descriptive)",
+  "a": "RT-Pa S1",
+  "b": "RT-A S1",
+  "rule": "descriptive",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "FU vs TF",
+  "a": "RT-A S2",
+  "b": "RT-TF S2",
+  "rule": ">= +1",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "FU vs TF (S1, descriptive)",
+  "a": "RT-A S1",
+  "b": "RT-TF S1",
+  "rule": "descriptive",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "Phase-2 retention",
+  "a": "RT-A2 S1",
+  "b": "RT-A S1",
+  "rule": "within 1 point",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "Phase-2 retention",
+  "a": "RT-A2 S2",
+  "b": "RT-A S2",
+  "rule": "within 1 point",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "Phase-2 R1 (partial: no RT-B1 line)",
+  "a": "RT-A2 S6",
+  "b": "RT-B2a parent2",
+  "rule": "+2 with CI lower > 0 at equal latency, or equal at >=20% lower latency",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "Phase-2 R1 (partial: no RT-B1 line)",
+  "a": "RT-A2 S7",
+  "b": "RT-B2a parent2",
+  "rule": "same",
+  "unavailable": "one side incomplete or not evaluated"
+ },
+ {
+  "decision": "RT-A schedule sweep (descriptive)",
+  "a": "RT-A S4",
+  "b": "RT-A S2",
+  "rule": "descriptive",
+  "paired_episodes": 6000,
+  "diff_pp": -0.25,
+  "ci95": [
+   -0.8500000000000001,
+   0.35000000000000003
+  ],
+  "a_only": 164,
+  "b_only": 179,
+  "cross_hardware": true
+ }
+]

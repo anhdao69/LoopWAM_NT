@@ -1,5 +1,7 @@
 # Residual Transport results — fill in after evaluation
 
+**H100 evaluation of missing conditions (in progress): [Residual_Transport_H100_Evaluation_20261013.md](Residual_Transport_H100_Evaluation_20261013.md)**
+
 [Implementation report](Residual_Transport_Implementation.md) · [Detailed CSV](Residual_Transport_Results.csv) · [Original protocol and decision rules](../residual_transport.md#6-results-to-fill)
 
 All measured-result cells are intentionally blank. Action calls are theoretical action-block forward calls per query, computed as sum(6 + 6 × core loops). They are not measured latency. Historical scores in the proposal have not been copied into this matched evaluation table.
