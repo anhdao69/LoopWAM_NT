@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-10-10T19:14:13.406618+07:00",
+  "completed_episodes": 204,
+  "planned_episodes": 6000,
+  "linear_remaining_hours": 8.386469276971805,
+  "linear_finish_vietnam": "2026-10-11T03:37:24.696015+07:00",
+  "planning_range_remaining_hours": [
+    6,
+    9
+  ],
+  "caveat": "Early Long-first sample; later suites and GPU contention affect finish time."
+}

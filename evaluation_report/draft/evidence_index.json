@@ -15,6 +15,56 @@
     "bytes": 1368
   },
   {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full22_hub_release.json",
+    "sha256": "1512a86455e2a6c5557939282098c0414c7b8d72b9db10f26b3c5954f32013a0",
+    "bytes": 560
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full22_queue_plan.json",
+    "sha256": "0ff5ed06cb35ac5d27d5f9007859763edfab98ef01008ec7268c81611d075883",
+    "bytes": 615
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full22_setup_status.json",
+    "sha256": "d5cb6e8231375859017a3a913bd950a18fffa6ffe161efe5494b7509253ed9f8",
+    "bytes": 394
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full41_hub_release.json",
+    "sha256": "edb07844311b68b0d83db84e531e278ba4f9257ba9f6040422d565a1ee987aac",
+    "bytes": 616
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full41_queue_plan.json",
+    "sha256": "0c1de8f43ad44bfbd47d95297558b640523a3ff44b2a53f586b369435012829b",
+    "bytes": 653
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/full41_setup_status.json",
+    "sha256": "331a119d7559f053e5f45105c52a89740e29612999e28ff1cebeec369daa20f0",
+    "bytes": 393
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/fullmix_hub_release.json",
+    "sha256": "3ccc599710c97d2b0ee01c110efb19af81b44bbd03936de77730379717ff5033",
+    "bytes": 609
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/fullmix_queue_plan.json",
+    "sha256": "c59444ce97bb3c648d4bac056518f5f5e9b7bbfe7a010814c50161f04d779e89",
+    "bytes": 685
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/fullmix_setup_status.json",
+    "sha256": "2d119a4ffcca3cd67ee8f3951fc648b3fb6b73265a829ac0d7b49f67d1225356",
+    "bytes": 428
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/fullmix_source_hash_audit.json",
+    "sha256": "4d94951901d190e9fae3e45644019c407c6a3a6878cf71ba5b464ecb1ce53402",
+    "bytes": 1974
+  },
+  {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/graph_full44.json",
     "sha256": "c8bf5bbcad2bfce76ec1d9254b68c4fceb4162e278cabf75ca7badc527d63816",
     "bytes": 377
@@ -65,6 +115,26 @@
     "bytes": 267
   },
   {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/verified_graph_full_v0-video2-action2.json",
+    "sha256": "ecca7d6ea124887d1171873bcab25d12cb5810e45d45e8e02a61ae5290dfbfca",
+    "bytes": 410
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/verified_graph_full_v0-video4-action1-kv-mix.json",
+    "sha256": "5ee432b69a1b515d7b0d736791c285cb3f1784197a825f37abe38443e190dee1",
+    "bytes": 418
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/verified_graph_full_v0-video4-action1.json",
+    "sha256": "d107ffb2e1b1117455cb7ba592bb2896b19d60196d8d9c4abdd3596f35efbadc",
+    "bytes": 411
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/verified_graph_v0-video1-action4.json",
+    "sha256": "f60e7535eeeed068076a1a5860bbfdaafeef471fc34e0b33c7307f0ae131c46b",
+    "bytes": 409
+  },
+  {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/setup_logs/verified_graph_v0-video4-action1-kv-concat.json",
     "sha256": "52206d3499f369e7321af568b245a3fd5da674179b6e9531ab778163a1f7d9d1",
     "bytes": 382
@@ -110,6 +180,11 @@
     "bytes": 2797
   },
   {
+    "path": "/storage/anhdh35/FastWAM-eval/setup_logs/fastwam_eta.json",
+    "sha256": "d9339d60bc325a0b6ccdd73f3177c8f498c6959f96b557f297f7cd12ac587351",
+    "bytes": 370
+  },
+  {
     "path": "/storage/anhdh35/FastWAM-eval/setup_logs/hub_release.json",
     "sha256": "aa36366956fdf6fba48fc47ed63746e14f318ab7ef385a602273ba7767f364f6",
     "bytes": 2074
@@ -118,6 +193,11 @@
     "path": "/storage/anhdh35/FastWAM-eval/setup_logs/planned_protocol.json",
     "sha256": "ac5c47aa58fd2f53f3e7e722f55e4c6471180ed74696bb19797cb2d4f41199a0",
     "bytes": 2914
+  },
+  {
+    "path": "/storage/anhdh35/FastWAM-eval/setup_logs/verified_graph_fastwam.json",
+    "sha256": "61076ff1e92077c46263fffad39cc76a0013a10485355feaa0037a52168f7524",
+    "bytes": 583
   },
   {
     "path": "/storage/anhdh35/FastWAM-eval/setup_logs/wan_release.json",
@@ -131,28 +211,68 @@
   },
   {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/campaign_status.json",
-    "sha256": "8e856034d475aea25e50cae5ce1e4d119f006a19893cc7aced447de58c613ea7",
-    "bytes": 7250
+    "sha256": "63e2cf2d161a536981e55091930963e3f50eac936c2b6e70bef6efc00b83a5b3",
+    "bytes": 8020
   },
   {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/completed_stages.json",
-    "sha256": "4bd9d8e59a4b1d68272b4468f28156653de32cfd5d1a7961ef7a939cc3340b2a",
-    "bytes": 6362
+    "sha256": "a6ca20f9e8aeb69f2ed7ffe8242403c1d18345e492f6c4978b046a12809d4ffe",
+    "bytes": 7328
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_v1a4/campaign_plan.json",
+    "sha256": "eb285e0f98762a54f5ffe74b12e899acf55c4a41c1d27f259692430fcd86c207",
+    "bytes": 904
   },
   {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_v1a4/queue_status.json",
-    "sha256": "52ba3414c3876026afee751e1b5755dedcd95233cf24f7010ddb022271cf9299",
-    "bytes": 356
+    "sha256": "8f832aec41b00aa15c893ae9dce4b03422b29d6b401ee159ba0b1ad1d77b4437",
+    "bytes": 2694
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full41/campaign_plan.json",
+    "sha256": "f29923a172487ecc11945727bfe52c5e2ccf38a1524022d984dda4c754a51515",
+    "bytes": 922
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full41/queue_status.json",
+    "sha256": "691decb13bcb3667cf67c34d318adf46f2672370bb7005fb87a2aa5e28564c99",
+    "bytes": 2705
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full22/campaign_plan.json",
+    "sha256": "3ca02115c6519fd448b603cda9eed44e06060aff95cf7de712308d1a7175b7e7",
+    "bytes": 922
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full22/queue_status.json",
+    "sha256": "17d81971c9e8eb1c7320af96b4bdd2d99d6946eecbc8c9d858646757ff57136a",
+    "bytes": 2722
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_fullmix/campaign_plan.json",
+    "sha256": "bc73325fbe30b8471f950535ddcb2a8da3e4a4524d5e432d9ace058e6dca7f65",
+    "bytes": 955
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_fullmix/queue_status.json",
+    "sha256": "70bbc5d9bbf0084647c322f2939d72b3b6a3cd2d1c1ddb03632f3c1058d28bae",
+    "bytes": 310
+  },
+  {
+    "path": "/storage/anhdh35/FastWAM-eval/evaluate_results/matched_lightwam/campaign_plan.json",
+    "sha256": "8d81775492ac7e1a538d8fe4ca764ba3d9a7c6b9cd54da2e724416d4aee36dd0",
+    "bytes": 1304
   },
   {
     "path": "/storage/anhdh35/FastWAM-eval/evaluate_results/matched_lightwam/queue_status.json",
-    "sha256": "51975e30a91e82697c1d6e1334f343795c0ed1ebac4ecc4afb6b5e5cb8777839",
-    "bytes": 352
+    "sha256": "8ae5eaf28a8b0e17cfd95bf179d2201c940eac1cabd382443df15611fda762f2",
+    "bytes": 2726
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/audit_findings.json",
-    "sha256": "769409d8ad66885fc19929d9d3d5862a72e95ca633f2461364a2789388d83681",
-    "bytes": 13373
+    "sha256": "3c1aea6de6f8535aff29628e71097dcf44db288e4f67aa191e8cfd15058937d5",
+    "bytes": 18516
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/audit_setup.py",
@@ -171,13 +291,38 @@
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/build_report.py",
-    "sha256": "09b0ee53b8ba76a3b1b6e461cb40ce40e41b34c94f68eed8676f3ec6c270c5ed",
-    "bytes": 15966
+    "sha256": "e1769c21d48b1f8f3573348ab36d4ba1223135338ea1dc628d353c4159892ddb",
+    "bytes": 16689
+  },
+  {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/current_sr.json",
+    "sha256": "bb387771868cfe4350a8c8f815c47b5bd5822f45ea04b2e27438bdc6b6c86b06",
+    "bytes": 639
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/enrich_evidence.py",
     "sha256": "8b249595ae72dfa62844a689c60a0e1d4fe8be71eb57d5c27994beaeecbbff29",
     "bytes": 2529
+  },
+  {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/fastwam_eta.json",
+    "sha256": "d9339d60bc325a0b6ccdd73f3177c8f498c6959f96b557f297f7cd12ac587351",
+    "bytes": 370
+  },
+  {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/full22_asset_verification.json",
+    "sha256": "d5cb6e8231375859017a3a913bd950a18fffa6ffe161efe5494b7509253ed9f8",
+    "bytes": 394
+  },
+  {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/full41_asset_verification.json",
+    "sha256": "331a119d7559f053e5f45105c52a89740e29612999e28ff1cebeec369daa20f0",
+    "bytes": 393
+  },
+  {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/fullmix_asset_verification.json",
+    "sha256": "2d119a4ffcca3cd67ee8f3951fc648b3fb6b73265a829ac0d7b49f67d1225356",
+    "bytes": 428
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/hardware.json",
@@ -190,14 +335,19 @@
     "bytes": 387
   },
   {
+    "path": "/storage/anhdh35/Light-WAM/evaluation_report/recovery_status.json",
+    "sha256": "7fc47f2d3659f8be3beaf0fcb51ead3924d16454ef69fca9514c3573747a31fe",
+    "bytes": 250
+  },
+  {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/release_environment_provenance.json",
-    "sha256": "6a8aa1322eb9cfa770bc1210c3c7d64530ecc835919790937b25fa38ce4938e6",
-    "bytes": 1033
+    "sha256": "7ffebd148829eaad6ce75f79231ef4ce20113620944cbff297abe48dd5f9eaa0",
+    "bytes": 1596
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/source_environment_evidence.json",
-    "sha256": "9914a9d5a3654a9310d786b0910ae7ea29338e0f6393b80029dd078341f385e8",
-    "bytes": 20346
+    "sha256": "904e4e95b7511a47977f79daab92fc0c3f1889d2df478e3eb85c435201f9f43e",
+    "bytes": 21647
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/test_report.py",
@@ -206,8 +356,8 @@
   },
   {
     "path": "/storage/anhdh35/Light-WAM/evaluation_report/watch_report.py",
-    "sha256": "47b97b0b83dd8c6059c35925c6ca7682a91909a3ca7ab19205e7d0f1607e0f97",
-    "bytes": 1247
+    "sha256": "c854813d1cca74e77bc346c545024a2f30563962872178362f6e9c716a621c3b",
+    "bytes": 1715
   },
   {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/01_full_4_4/summary.json",
@@ -260,8 +410,58 @@
     "bytes": 25093
   },
   {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/06_long_concat/summary.json",
+    "sha256": "fee4fde06d0b9330e7a08b16eeb7380c61b3f5da2b7c6dfee1b8479999c8f411",
+    "bytes": 889
+  },
+  {
     "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_lightwam/06_long_concat/manifest.json",
     "sha256": "8f721104143729ecda6c512a318f752c170dab58d448e6662b270a4f62fe9ab2",
     "bytes": 25116
+  },
+  {
+    "path": "/storage/anhdh35/FastWAM-eval/evaluate_results/matched_lightwam/rollouts/summary.json",
+    "sha256": "4f0099be650afccf345657494bce652e5f23aa74ccb96bf6d2f24218febd8a70",
+    "bytes": 2343
+  },
+  {
+    "path": "/storage/anhdh35/FastWAM-eval/evaluate_results/matched_lightwam/rollouts/manifest.json",
+    "sha256": "31c48c3b6ff8c7348032a2d1199ac18e9fcd8b82a2188d24047b099e97fad19d",
+    "bytes": 37687
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_v1a4/rollouts/summary.json",
+    "sha256": "3f03bfb9226385203c0a3f5336c1217c00fc9a93f55ab5e2e3fab23f19ed5329",
+    "bytes": 2312
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_v1a4/rollouts/manifest.json",
+    "sha256": "645ea0da4712e3c024938ead7f15024e69df428d077d933e97136f1b3f10bea8",
+    "bytes": 38071
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full41/rollouts/summary.json",
+    "sha256": "d5ede3f9939964d145a95f3c1138f7af6cc92e37b75cfab388eb853f719f4bde",
+    "bytes": 2323
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full41/rollouts/manifest.json",
+    "sha256": "bb946e1cd2573a7cae096fb550409d438e5cbc63de9d365922f1185cca180fc2",
+    "bytes": 38075
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full22/rollouts/summary.json",
+    "sha256": "bd4257ca0ba4ba8b263f643226ad6044597ae88a00d923239594b94b0d6daf55",
+    "bytes": 2339
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_full22/rollouts/manifest.json",
+    "sha256": "e3e1b231b4ab6ad2d229b9c5730bced095c2dbe1405993bcccd15e5e72c75785",
+    "bytes": 38074
+  },
+  {
+    "path": "/storage/anhdh35/LoopWAM_NT-eval/evaluate_results/matched_fullmix/rollouts/manifest.json",
+    "sha256": "af3dd01f6d2e795dfd587c973bbc6dc01bd0790962576ce4568e4215fafb4d1f",
+    "bytes": 38086
   }
 ]

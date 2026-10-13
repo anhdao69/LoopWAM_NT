@@ -1,0 +1,2432 @@
+{
+  "conditions": {
+    "chrono__CL-0__native__137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae": {
+      "family": "chrono",
+      "run": "CL-0",
+      "folder": "CL-0_no-memory_a4",
+      "schedule": null,
+      "checkpoint": "CL-0_no-memory_a4/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-0__native__137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "revision": "fea8b7334294ce67058c44105ec858025f3eca28",
+      "assets": [
+        {
+          "rfilename": "CL-0_no-memory_a4/epoch_10/policy.pt",
+          "blobId": "8a7ba1b3fe6e28b55ba89e20a2721a89d9e5a26d",
+          "size": 2338624933,
+          "lfs": {
+            "sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+            "size": 2338624933,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-0_no-memory_a4/epoch_10/config.json",
+          "blobId": "68657410028adb6a8046fcfa751ca118daee85c7",
+          "size": 629
+        },
+        {
+          "rfilename": "CL-0_no-memory_a4/manifest.json",
+          "blobId": "2bcbb74838b81baafda02b2aa7a03a827a0684cf",
+          "size": 2921
+        },
+        {
+          "rfilename": "CL-0_no-memory_a4/timing.json",
+          "blobId": "49f2d64582b81252fec84870ab90d681eb65a086",
+          "size": 177
+        }
+      ],
+      "pid": 1132242,
+      "identity": "36992082",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/CL-0_native_137f0a839b5a",
+      "status": "complete",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5766,
+        "success_rate": 0.961,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1352,
+            "episodes": 1500,
+            "success_rate": 0.9013333333333333,
+            "seeds": {
+              "42": {
+                "successes": 451,
+                "episodes": 500,
+                "success_rate": 0.902
+              },
+              "43": {
+                "successes": 450,
+                "episodes": 500,
+                "success_rate": 0.9
+              },
+              "44": {
+                "successes": 451,
+                "episodes": 500,
+                "success_rate": 0.902
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1468,
+            "episodes": 1500,
+            "success_rate": 0.9786666666666667,
+            "seeds": {
+              "42": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "43": {
+                "successes": 490,
+                "episodes": 500,
+                "success_rate": 0.98
+              },
+              "44": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1493,
+            "episodes": 1500,
+            "success_rate": 0.9953333333333333,
+            "seeds": {
+              "42": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "43": {
+                "successes": 499,
+                "episodes": 500,
+                "success_rate": 0.998
+              },
+              "44": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1453,
+            "episodes": 1500,
+            "success_rate": 0.9686666666666667,
+            "seeds": {
+              "42": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "43": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "44": {
+                "successes": 484,
+                "episodes": 500,
+                "success_rate": 0.968
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 13625.318943244987,
+        "recovered_episodes": 0,
+        "total_queries": 99521,
+        "total_query_seconds": 68613.37366103561,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791736649.6512022
+    },
+    "residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b": {
+      "family": "residual_trans",
+      "run": "RT-A",
+      "folder": "RT-A",
+      "schedule": "S1",
+      "checkpoint": "RT-A/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-A/epoch_10.pt",
+          "blobId": "e454983f5e24c4a477191c8fc6c6007a2756d79e",
+          "size": 2768411424,
+          "lfs": {
+            "sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "size": 2768411424,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A/config.json",
+          "blobId": "85dff8ac3085222b50356cd42d26f97da08a3061",
+          "size": 2182
+        },
+        {
+          "rfilename": "RT-A/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "pid": 1400136,
+      "identity": "44350074",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5668,
+        "success_rate": 0.9446666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1310,
+            "episodes": 1500,
+            "success_rate": 0.8733333333333333,
+            "seeds": {
+              "42": {
+                "successes": 447,
+                "episodes": 500,
+                "success_rate": 0.894
+              },
+              "43": {
+                "successes": 438,
+                "episodes": 500,
+                "success_rate": 0.876
+              },
+              "44": {
+                "successes": 425,
+                "episodes": 500,
+                "success_rate": 0.85
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1430,
+            "episodes": 1500,
+            "success_rate": 0.9533333333333334,
+            "seeds": {
+              "42": {
+                "successes": 476,
+                "episodes": 500,
+                "success_rate": 0.952
+              },
+              "43": {
+                "successes": 476,
+                "episodes": 500,
+                "success_rate": 0.952
+              },
+              "44": {
+                "successes": 478,
+                "episodes": 500,
+                "success_rate": 0.956
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1482,
+            "episodes": 1500,
+            "success_rate": 0.988,
+            "seeds": {
+              "42": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "43": {
+                "successes": 493,
+                "episodes": 500,
+                "success_rate": 0.986
+              },
+              "44": {
+                "successes": 493,
+                "episodes": 500,
+                "success_rate": 0.986
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1446,
+            "episodes": 1500,
+            "success_rate": 0.964,
+            "seeds": {
+              "42": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "43": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "44": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 14185.309893606987,
+        "recovered_episodes": 0,
+        "total_queries": 104142,
+        "total_query_seconds": 73670.31573927018,
+        "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791811662.8764367
+    },
+    "residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b": {
+      "family": "residual_trans",
+      "run": "RT-A",
+      "folder": "RT-A",
+      "schedule": "S2",
+      "checkpoint": "RT-A/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-A/epoch_10.pt",
+          "blobId": "e454983f5e24c4a477191c8fc6c6007a2756d79e",
+          "size": 2768411424,
+          "lfs": {
+            "sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "size": 2768411424,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A/config.json",
+          "blobId": "85dff8ac3085222b50356cd42d26f97da08a3061",
+          "size": 2182
+        },
+        {
+          "rfilename": "RT-A/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "pid": 1499283,
+      "identity": "47392299",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5647,
+        "success_rate": 0.9411666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1293,
+            "episodes": 1500,
+            "success_rate": 0.862,
+            "seeds": {
+              "42": {
+                "successes": 451,
+                "episodes": 500,
+                "success_rate": 0.902
+              },
+              "43": {
+                "successes": 426,
+                "episodes": 500,
+                "success_rate": 0.852
+              },
+              "44": {
+                "successes": 416,
+                "episodes": 500,
+                "success_rate": 0.832
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1431,
+            "episodes": 1500,
+            "success_rate": 0.954,
+            "seeds": {
+              "42": {
+                "successes": 477,
+                "episodes": 500,
+                "success_rate": 0.954
+              },
+              "43": {
+                "successes": 482,
+                "episodes": 500,
+                "success_rate": 0.964
+              },
+              "44": {
+                "successes": 472,
+                "episodes": 500,
+                "success_rate": 0.944
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1475,
+            "episodes": 1500,
+            "success_rate": 0.9833333333333333,
+            "seeds": {
+              "42": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "43": {
+                "successes": 493,
+                "episodes": 500,
+                "success_rate": 0.986
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1448,
+            "episodes": 1500,
+            "success_rate": 0.9653333333333334,
+            "seeds": {
+              "42": {
+                "successes": 482,
+                "episodes": 500,
+                "success_rate": 0.964
+              },
+              "43": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              },
+              "44": {
+                "successes": 481,
+                "episodes": 500,
+                "success_rate": 0.962
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 8167.861818491016,
+        "recovered_episodes": 0,
+        "total_queries": 105250,
+        "total_query_seconds": 31569.374597950547,
+        "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791835948.4248936
+    },
+    "residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b": {
+      "family": "residual_trans",
+      "run": "RT-A",
+      "folder": "RT-A",
+      "schedule": "S3",
+      "checkpoint": "RT-A/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-A/epoch_10.pt",
+          "blobId": "e454983f5e24c4a477191c8fc6c6007a2756d79e",
+          "size": 2768411424,
+          "lfs": {
+            "sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "size": 2768411424,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A/config.json",
+          "blobId": "85dff8ac3085222b50356cd42d26f97da08a3061",
+          "size": 2182
+        },
+        {
+          "rfilename": "RT-A/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "pid": 1546698,
+      "identity": "48284969",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5643,
+        "success_rate": 0.9405,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1287,
+            "episodes": 1500,
+            "success_rate": 0.858,
+            "seeds": {
+              "42": {
+                "successes": 436,
+                "episodes": 500,
+                "success_rate": 0.872
+              },
+              "43": {
+                "successes": 434,
+                "episodes": 500,
+                "success_rate": 0.868
+              },
+              "44": {
+                "successes": 417,
+                "episodes": 500,
+                "success_rate": 0.834
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1428,
+            "episodes": 1500,
+            "success_rate": 0.952,
+            "seeds": {
+              "42": {
+                "successes": 478,
+                "episodes": 500,
+                "success_rate": 0.956
+              },
+              "43": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "44": {
+                "successes": 470,
+                "episodes": 500,
+                "success_rate": 0.94
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1481,
+            "episodes": 1500,
+            "success_rate": 0.9873333333333333,
+            "seeds": {
+              "42": {
+                "successes": 500,
+                "episodes": 500,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1447,
+            "episodes": 1500,
+            "success_rate": 0.9646666666666667,
+            "seeds": {
+              "42": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "43": {
+                "successes": 482,
+                "episodes": 500,
+                "success_rate": 0.964
+              },
+              "44": {
+                "successes": 479,
+                "episodes": 500,
+                "success_rate": 0.958
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 9318.421580338036,
+        "recovered_episodes": 0,
+        "total_queries": 105635,
+        "total_query_seconds": 39093.93112005235,
+        "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791846063.6119568
+    },
+    "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b": {
+      "family": "residual_trans",
+      "run": "RT-A",
+      "folder": "RT-A",
+      "schedule": "S4",
+      "checkpoint": "RT-A/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-A/epoch_10.pt",
+          "blobId": "e454983f5e24c4a477191c8fc6c6007a2756d79e",
+          "size": 2768411424,
+          "lfs": {
+            "sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "size": 2768411424,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A/config.json",
+          "blobId": "85dff8ac3085222b50356cd42d26f97da08a3061",
+          "size": 2182
+        },
+        {
+          "rfilename": "RT-A/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "error",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "pid": 1593599,
+      "identity": "49296489",
+      "error": "Traceback (most recent call last):\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/campaign_watch.py\", line 113, in main\n    summary=verify_complete(active['output'],active['checkpoint_sha256'])\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/queue_state.py\", line 17, in verify_complete\n    output=Path(output); manifest=json.loads((output/'manifest.json').read_text())\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1134, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/manifest.json'\n"
+    },
+    "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711": {
+      "family": "residual_trans",
+      "run": "RT-B4",
+      "folder": "RT-B4",
+      "schedule": "S1",
+      "checkpoint": "RT-B4/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-B4/epoch_10.pt",
+          "blobId": "278ad36be75573eb30ab97183eab89ca9e74e85c",
+          "size": 2768102594,
+          "lfs": {
+            "sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+            "size": 2768102594,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-B4/config.json",
+          "blobId": "b0b028d736b925a8ba8aa1aac437ac7bc9e78db8",
+          "size": 2187
+        },
+        {
+          "rfilename": "RT-B4/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-B4/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "pid": 1595203,
+      "identity": "49320556",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5659,
+        "success_rate": 0.9431666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1308,
+            "episodes": 1500,
+            "success_rate": 0.872,
+            "seeds": {
+              "42": {
+                "successes": 455,
+                "episodes": 500,
+                "success_rate": 0.91
+              },
+              "43": {
+                "successes": 435,
+                "episodes": 500,
+                "success_rate": 0.87
+              },
+              "44": {
+                "successes": 418,
+                "episodes": 500,
+                "success_rate": 0.836
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1435,
+            "episodes": 1500,
+            "success_rate": 0.9566666666666667,
+            "seeds": {
+              "42": {
+                "successes": 481,
+                "episodes": 500,
+                "success_rate": 0.962
+              },
+              "43": {
+                "successes": 479,
+                "episodes": 500,
+                "success_rate": 0.958
+              },
+              "44": {
+                "successes": 475,
+                "episodes": 500,
+                "success_rate": 0.95
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1483,
+            "episodes": 1500,
+            "success_rate": 0.9886666666666667,
+            "seeds": {
+              "42": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "43": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "44": {
+                "successes": 490,
+                "episodes": 500,
+                "success_rate": 0.98
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1433,
+            "episodes": 1500,
+            "success_rate": 0.9553333333333334,
+            "seeds": {
+              "42": {
+                "successes": 478,
+                "episodes": 500,
+                "success_rate": 0.956
+              },
+              "43": {
+                "successes": 476,
+                "episodes": 500,
+                "success_rate": 0.952
+              },
+              "44": {
+                "successes": 479,
+                "episodes": 500,
+                "success_rate": 0.958
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 14159.371107635961,
+        "recovered_episodes": 0,
+        "total_queries": 104965,
+        "total_query_seconds": 73606.34981972846,
+        "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791861415.1723952
+    },
+    "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711": {
+      "family": "residual_trans",
+      "run": "RT-B4",
+      "folder": "RT-B4",
+      "schedule": "S2",
+      "checkpoint": "RT-B4/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "revision": "469ed84cdad941c009fc69675085e5553d1d0f3d",
+      "assets": [
+        {
+          "rfilename": "RT-B4/epoch_10.pt",
+          "blobId": "278ad36be75573eb30ab97183eab89ca9e74e85c",
+          "size": 2768102594,
+          "lfs": {
+            "sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+            "size": 2768102594,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-B4/config.json",
+          "blobId": "b0b028d736b925a8ba8aa1aac437ac7bc9e78db8",
+          "size": 2187
+        },
+        {
+          "rfilename": "RT-B4/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-B4/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "running",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+      "pid": 1644367,
+      "identity": "50831645"
+    },
+    "chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d": {
+      "family": "chrono",
+      "run": "CL-REG",
+      "folder": "CL-REG_mem16-reset-registers_a4",
+      "schedule": null,
+      "checkpoint": "CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "revision": "f45c862e1e45645eee407c7a26d0e9fd816bc872",
+      "assets": [
+        {
+          "rfilename": "CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+          "blobId": "573bf1ecdf22f373b7b6cd571b452bc56d4882e1",
+          "size": 2338751283,
+          "lfs": {
+            "sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "size": 2338751283,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-REG_mem16-reset-registers_a4/epoch_10/config.json",
+          "blobId": "2720643cf20b32c98d04f2961ac7cd171a88f0ab",
+          "size": 647
+        },
+        {
+          "rfilename": "CL-REG_mem16-reset-registers_a4/manifest.json",
+          "blobId": "cb43f3170307e3df2eb739d17f65dbfc282ddaf7",
+          "size": 2974
+        },
+        {
+          "rfilename": "CL-REG_mem16-reset-registers_a4/timing.json",
+          "blobId": "bb400e12ec7b7ab5a6ab8f3d7c8156538907cd54",
+          "size": 177
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/f45c862e1e45645eee407c7a26d0e9fd816bc872/CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "pid": 1173761,
+      "identity": "38355094",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5758,
+        "success_rate": 0.9596666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1350,
+            "episodes": 1500,
+            "success_rate": 0.9,
+            "seeds": {
+              "42": {
+                "successes": 456,
+                "episodes": 500,
+                "success_rate": 0.912
+              },
+              "43": {
+                "successes": 448,
+                "episodes": 500,
+                "success_rate": 0.896
+              },
+              "44": {
+                "successes": 446,
+                "episodes": 500,
+                "success_rate": 0.892
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1454,
+            "episodes": 1500,
+            "success_rate": 0.9693333333333334,
+            "seeds": {
+              "42": {
+                "successes": 478,
+                "episodes": 500,
+                "success_rate": 0.956
+              },
+              "43": {
+                "successes": 491,
+                "episodes": 500,
+                "success_rate": 0.982
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1493,
+            "episodes": 1500,
+            "success_rate": 0.9953333333333333,
+            "seeds": {
+              "42": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "43": {
+                "successes": 499,
+                "episodes": 500,
+                "success_rate": 0.998
+              },
+              "44": {
+                "successes": 498,
+                "episodes": 500,
+                "success_rate": 0.996
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1461,
+            "episodes": 1500,
+            "success_rate": 0.974,
+            "seeds": {
+              "42": {
+                "successes": 484,
+                "episodes": 500,
+                "success_rate": 0.968
+              },
+              "43": {
+                "successes": 490,
+                "episodes": 500,
+                "success_rate": 0.98
+              },
+              "44": {
+                "successes": 487,
+                "episodes": 500,
+                "success_rate": 0.974
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 13500.285907173995,
+        "recovered_episodes": 0,
+        "total_queries": 99920,
+        "total_query_seconds": 67680.41647388111,
+        "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791750351.9806597
+    },
+    "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1": {
+      "family": "residual_trans",
+      "run": "RT-T1ft",
+      "folder": "RT-T1ft",
+      "schedule": "S1",
+      "checkpoint": "RT-T1ft/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "revision": "5193679abdba8a584ed0ef16a6df716b831d78c5",
+      "assets": [
+        {
+          "rfilename": "RT-T1ft/epoch_10.pt",
+          "blobId": "c451c02bd2d7ad82fb1f3e52191e8848f565b2a3",
+          "size": 2768102594,
+          "lfs": {
+            "sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+            "size": 2768102594,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-T1ft/config.json",
+          "blobId": "61bc5d92da87dff2ef4d8e36cbad8efc19d3d9d6",
+          "size": 2217
+        },
+        {
+          "rfilename": "RT-T1ft/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-T1ft/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390328,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1": {
+      "family": "residual_trans",
+      "run": "RT-T1ft",
+      "folder": "RT-T1ft",
+      "schedule": "S2",
+      "checkpoint": "RT-T1ft/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "revision": "5193679abdba8a584ed0ef16a6df716b831d78c5",
+      "assets": [
+        {
+          "rfilename": "RT-T1ft/epoch_10.pt",
+          "blobId": "c451c02bd2d7ad82fb1f3e52191e8848f565b2a3",
+          "size": 2768102594,
+          "lfs": {
+            "sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+            "size": 2768102594,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-T1ft/config.json",
+          "blobId": "61bc5d92da87dff2ef4d8e36cbad8efc19d3d9d6",
+          "size": 2217
+        },
+        {
+          "rfilename": "RT-T1ft/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-T1ft/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390338,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3": {
+      "family": "residual_trans",
+      "run": "RT-Pa",
+      "folder": "RT-Pa",
+      "schedule": "S1",
+      "checkpoint": "RT-Pa/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "revision": "6120115ae1695015b23231aea3e46c55a0d0dcdb",
+      "assets": [
+        {
+          "rfilename": "RT-Pa/epoch_10.pt",
+          "blobId": "7494b1fc03cdaaec60aefda5d826ba19e529ad22",
+          "size": 2760114040,
+          "lfs": {
+            "sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+            "size": 2760114040,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-Pa/config.json",
+          "blobId": "dfcfc22a3c986039b53e3d8a2a8ff0439961da76",
+          "size": 2208
+        },
+        {
+          "rfilename": "RT-Pa/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-Pa/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390343,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3": {
+      "family": "residual_trans",
+      "run": "RT-Pa",
+      "folder": "RT-Pa",
+      "schedule": "S2",
+      "checkpoint": "RT-Pa/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "revision": "6120115ae1695015b23231aea3e46c55a0d0dcdb",
+      "assets": [
+        {
+          "rfilename": "RT-Pa/epoch_10.pt",
+          "blobId": "7494b1fc03cdaaec60aefda5d826ba19e529ad22",
+          "size": 2760114040,
+          "lfs": {
+            "sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+            "size": 2760114040,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-Pa/config.json",
+          "blobId": "dfcfc22a3c986039b53e3d8a2a8ff0439961da76",
+          "size": 2208
+        },
+        {
+          "rfilename": "RT-Pa/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-Pa/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390345,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032": {
+      "family": "chrono",
+      "run": "CL-W2",
+      "folder": "CL-W2_mem16-learned-external-updater_a4",
+      "schedule": null,
+      "checkpoint": "CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "revision": "8706968184639b57fc12410cad4a89dce3f79836",
+      "assets": [
+        {
+          "rfilename": "CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+          "blobId": "d31e1060473e8eb11d457fbf0a5af52ace1154df",
+          "size": 2489910121,
+          "lfs": {
+            "sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "size": 2489910121,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-W2_mem16-learned-external-updater_a4/epoch_10/config.json",
+          "blobId": "9f0ead77ed9ddfdcf2b49995a0412ca2744b03de",
+          "size": 660
+        },
+        {
+          "rfilename": "CL-W2_mem16-learned-external-updater_a4/manifest.json",
+          "blobId": "7b5ad8f2986c2f024dc1d67bc23892db25b034ed",
+          "size": 2994
+        },
+        {
+          "rfilename": "CL-W2_mem16-learned-external-updater_a4/timing.json",
+          "blobId": "8b5535dee8c508ab561a833635ba0409c0669827",
+          "size": 177
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8706968184639b57fc12410cad4a89dce3f79836/CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "pid": 1216378,
+      "identity": "39725324",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5761,
+        "success_rate": 0.9601666666666666,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1355,
+            "episodes": 1500,
+            "success_rate": 0.9033333333333333,
+            "seeds": {
+              "42": {
+                "successes": 466,
+                "episodes": 500,
+                "success_rate": 0.932
+              },
+              "43": {
+                "successes": 445,
+                "episodes": 500,
+                "success_rate": 0.89
+              },
+              "44": {
+                "successes": 444,
+                "episodes": 500,
+                "success_rate": 0.888
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1459,
+            "episodes": 1500,
+            "success_rate": 0.9726666666666667,
+            "seeds": {
+              "42": {
+                "successes": 488,
+                "episodes": 500,
+                "success_rate": 0.976
+              },
+              "43": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "44": {
+                "successes": 482,
+                "episodes": 500,
+                "success_rate": 0.964
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1489,
+            "episodes": 1500,
+            "success_rate": 0.9926666666666667,
+            "seeds": {
+              "42": {
+                "successes": 494,
+                "episodes": 500,
+                "success_rate": 0.988
+              },
+              "43": {
+                "successes": 495,
+                "episodes": 500,
+                "success_rate": 0.99
+              },
+              "44": {
+                "successes": 500,
+                "episodes": 500,
+                "success_rate": 1.0
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1458,
+            "episodes": 1500,
+            "success_rate": 0.972,
+            "seeds": {
+              "42": {
+                "successes": 487,
+                "episodes": 500,
+                "success_rate": 0.974
+              },
+              "43": {
+                "successes": 487,
+                "episodes": 500,
+                "success_rate": 0.974
+              },
+              "44": {
+                "successes": 484,
+                "episodes": 500,
+                "success_rate": 0.968
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 13486.50299093203,
+        "recovered_episodes": 0,
+        "total_queries": 99512,
+        "total_query_seconds": 67833.14002505684,
+        "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791764040.1583648
+    },
+    "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S1",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.139035,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S2",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390352,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S5",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390355,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S6",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390355,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S7",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390357,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
+      "family": "residual_trans",
+      "run": "RT-A2",
+      "folder": "RT-A2",
+      "schedule": "S8",
+      "checkpoint": "RT-A2/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "revision": "eaa75a14dbd348c26cd3782b8d06c1231ac9f63e",
+      "assets": [
+        {
+          "rfilename": "RT-A2/epoch_10.pt",
+          "blobId": "5154ab3518c10c76ba7591d5b1553e1a98cab172",
+          "size": 2770014828,
+          "lfs": {
+            "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+            "size": 2770014828,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-A2/config.json",
+          "blobId": "cb3ab161895538bd91edec1450e79bf9f8bcdf76",
+          "size": 2477
+        },
+        {
+          "rfilename": "RT-A2/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-A2/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.139036,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39": {
+      "family": "chrono",
+      "run": "CL-A",
+      "folder": "CL-A_mem16-learned-loopwrite_a4",
+      "schedule": null,
+      "checkpoint": "CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "revision": "8e25a4e7d117c36b50fdad51f83c5c4211d47be5",
+      "assets": [
+        {
+          "rfilename": "CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+          "blobId": "593903bd5fa0aa2d924c0b4bb3ebd7f0b64bb108",
+          "size": 2338751283,
+          "lfs": {
+            "sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "size": 2338751283,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-A_mem16-learned-loopwrite_a4/epoch_10/config.json",
+          "blobId": "fa7a906ad9cc4505c6bff81cfd150acbf5a11718",
+          "size": 647
+        },
+        {
+          "rfilename": "CL-A_mem16-learned-loopwrite_a4/manifest.json",
+          "blobId": "b46668f15375d5e974bea687e5b38bd52f3dca84",
+          "size": 2946
+        },
+        {
+          "rfilename": "CL-A_mem16-learned-loopwrite_a4/timing.json",
+          "blobId": "023369d18585efd48165c2a8c8760cfd40fec513",
+          "size": 177
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "recovery_reason": "Graph rollout disagreed with matching native eager benchmarks; graph disabled for CL-A.",
+      "requeued_at": 1791766926.9489188,
+      "pid": 1306132,
+      "identity": "41950049",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5771,
+        "success_rate": 0.9618333333333333,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1364,
+            "episodes": 1500,
+            "success_rate": 0.9093333333333333,
+            "seeds": {
+              "42": {
+                "successes": 462,
+                "episodes": 500,
+                "success_rate": 0.924
+              },
+              "43": {
+                "successes": 459,
+                "episodes": 500,
+                "success_rate": 0.918
+              },
+              "44": {
+                "successes": 443,
+                "episodes": 500,
+                "success_rate": 0.886
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1453,
+            "episodes": 1500,
+            "success_rate": 0.9686666666666667,
+            "seeds": {
+              "42": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "43": {
+                "successes": 482,
+                "episodes": 500,
+                "success_rate": 0.964
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1494,
+            "episodes": 1500,
+            "success_rate": 0.996,
+            "seeds": {
+              "42": {
+                "successes": 500,
+                "episodes": 500,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "44": {
+                "successes": 498,
+                "episodes": 500,
+                "success_rate": 0.996
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1460,
+            "episodes": 1500,
+            "success_rate": 0.9733333333333334,
+            "seeds": {
+              "42": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "43": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 14562.949667133973,
+        "recovered_episodes": 0,
+        "total_queries": 99004,
+        "total_query_seconds": 77817.02785852266,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791787671.8089104
+    },
+    "chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930": {
+      "family": "chrono",
+      "run": "CL-0@1",
+      "folder": "CL-0-at1_no-memory_a1",
+      "schedule": null,
+      "checkpoint": "CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "revision": "8e25a4e7d117c36b50fdad51f83c5c4211d47be5",
+      "assets": [
+        {
+          "rfilename": "CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+          "blobId": "2973f52aa81231a7f14c7db7e3c5523755bb58a1",
+          "size": 2338624933,
+          "lfs": {
+            "sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "size": 2338624933,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-0-at1_no-memory_a1/epoch_10/config.json",
+          "blobId": "38c5f60b696db0d793b5beaf6c9e06f3c945cb1e",
+          "size": 635
+        },
+        {
+          "rfilename": "CL-0-at1_no-memory_a1/manifest.json",
+          "blobId": "061ebf75bea5554da73337dc41e80c2185311c5d",
+          "size": 2956
+        },
+        {
+          "rfilename": "CL-0-at1_no-memory_a1/timing.json",
+          "blobId": "cf51b5b6972b1a9d537470cda3f38c8e2e8a605c",
+          "size": 178
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "pid": 1261914,
+      "identity": "41110476",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5742,
+        "success_rate": 0.957,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1334,
+            "episodes": 1500,
+            "success_rate": 0.8893333333333333,
+            "seeds": {
+              "42": {
+                "successes": 454,
+                "episodes": 500,
+                "success_rate": 0.908
+              },
+              "43": {
+                "successes": 450,
+                "episodes": 500,
+                "success_rate": 0.9
+              },
+              "44": {
+                "successes": 430,
+                "episodes": 500,
+                "success_rate": 0.86
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1450,
+            "episodes": 1500,
+            "success_rate": 0.9666666666666667,
+            "seeds": {
+              "42": {
+                "successes": 481,
+                "episodes": 500,
+                "success_rate": 0.962
+              },
+              "43": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "44": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1489,
+            "episodes": 1500,
+            "success_rate": 0.9926666666666667,
+            "seeds": {
+              "42": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "43": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "44": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1469,
+            "episodes": 1500,
+            "success_rate": 0.9793333333333333,
+            "seeds": {
+              "42": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "43": {
+                "successes": 491,
+                "episodes": 500,
+                "success_rate": 0.982
+              },
+              "44": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 8168.037704649963,
+        "recovered_episodes": 0,
+        "total_queries": 100629,
+        "total_query_seconds": 31185.861888078216,
+        "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791772598.976776
+    },
+    "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea": {
+      "family": "residual_trans",
+      "run": "RT-TF",
+      "folder": "RT-TF",
+      "schedule": "S1",
+      "checkpoint": "RT-TF/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "revision": "0a615453025d0e7ec06eb6c2054d064be8b14989",
+      "assets": [
+        {
+          "rfilename": "RT-TF/epoch_10.pt",
+          "blobId": "0d4601877cc0ad7cb08193fb8b5b5030db336bcb",
+          "size": 2768411488,
+          "lfs": {
+            "sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+            "size": 2768411488,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-TF/config.json",
+          "blobId": "f7446b3ad918e7374f774df3d93e4104eae618d3",
+          "size": 2209
+        },
+        {
+          "rfilename": "RT-TF/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-TF/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390362,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea": {
+      "family": "residual_trans",
+      "run": "RT-TF",
+      "folder": "RT-TF",
+      "schedule": "S2",
+      "checkpoint": "RT-TF/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "revision": "0a615453025d0e7ec06eb6c2054d064be8b14989",
+      "assets": [
+        {
+          "rfilename": "RT-TF/epoch_10.pt",
+          "blobId": "0d4601877cc0ad7cb08193fb8b5b5030db336bcb",
+          "size": 2768411488,
+          "lfs": {
+            "sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+            "size": 2768411488,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-TF/config.json",
+          "blobId": "f7446b3ad918e7374f774df3d93e4104eae618d3",
+          "size": 2209
+        },
+        {
+          "rfilename": "RT-TF/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-TF/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390364,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac": {
+      "family": "residual_trans",
+      "run": "RT-B2a",
+      "folder": "RT-B2a",
+      "schedule": "parent2",
+      "checkpoint": "RT-B2a/epoch_10.pt",
+      "episodes": 6000,
+      "key": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "revision": "318ced3b8bfe709ec6a9a49e823831a11c954751",
+      "assets": [
+        {
+          "rfilename": "RT-B2a/epoch_10.pt",
+          "blobId": "d1bdded30187f6c39895fc15905105af684e6e90",
+          "size": 2761408422,
+          "lfs": {
+            "sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+            "size": 2761408422,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "RT-B2a/config.json",
+          "blobId": "18c4e97c77145e7aaacba99faf78d3fbeb69554e",
+          "size": 2056
+        },
+        {
+          "rfilename": "RT-B2a/dataset_stats.json",
+          "blobId": "37aaedd4aefa4e5997c19bba904f81a24ed48149",
+          "size": 973
+        },
+        {
+          "rfilename": "RT-B2a/data/data_manifest.json",
+          "blobId": "286656e94b32f2cf86d5b7c7f1346c84cb2c96f6",
+          "size": 96861
+        }
+      ],
+      "status": "cancelled",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/318ced3b8bfe709ec6a9a49e823831a11c954751/RT-B2a/epoch_10.pt",
+      "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/318ced3b8bfe709ec6a9a49e823831a11c954751/RT-B2a/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "previous_status": "ready",
+      "cancelled_at": 1791865041.1390367,
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+    },
+    "chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781": {
+      "family": "chrono",
+      "run": "CL-A@1",
+      "folder": "CL-A-at1_mem16-learned-loopwrite_a1",
+      "schedule": null,
+      "checkpoint": "CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "revision": "204137bc56b946ff46816a3f64bd268e03d99d69",
+      "assets": [
+        {
+          "rfilename": "CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+          "blobId": "cf92ad9cd3ad875708380cb1593291716198fd55",
+          "size": 2338751283,
+          "lfs": {
+            "sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "size": 2338751283,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/config.json",
+          "blobId": "8869ddf6021bbe39a6bb574a357148ba283053ec",
+          "size": 653
+        },
+        {
+          "rfilename": "CL-A-at1_mem16-learned-loopwrite_a1/manifest.json",
+          "blobId": "03002af33e5d8278b741de39e9f150468d4ad1e5",
+          "size": 2978
+        },
+        {
+          "rfilename": "CL-A-at1_mem16-learned-loopwrite_a1/timing.json",
+          "blobId": "9b5ebb8fdea0a65b80989ce90bca8e1f467ff5e6",
+          "size": 178
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/204137bc56b946ff46816a3f64bd268e03d99d69/CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "pid": 1352942,
+      "identity": "43457309",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5720,
+        "success_rate": 0.9533333333333334,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1322,
+            "episodes": 1500,
+            "success_rate": 0.8813333333333333,
+            "seeds": {
+              "42": {
+                "successes": 446,
+                "episodes": 500,
+                "success_rate": 0.892
+              },
+              "43": {
+                "successes": 441,
+                "episodes": 500,
+                "success_rate": 0.882
+              },
+              "44": {
+                "successes": 435,
+                "episodes": 500,
+                "success_rate": 0.87
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1448,
+            "episodes": 1500,
+            "success_rate": 0.9653333333333334,
+            "seeds": {
+              "42": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "43": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "44": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1489,
+            "episodes": 1500,
+            "success_rate": 0.9926666666666667,
+            "seeds": {
+              "42": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "43": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "44": {
+                "successes": 495,
+                "episodes": 500,
+                "success_rate": 0.99
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1461,
+            "episodes": 1500,
+            "success_rate": 0.974,
+            "seeds": {
+              "42": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "43": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "44": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 8291.642832537997,
+        "recovered_episodes": 0,
+        "total_queries": 100989,
+        "total_query_seconds": 32820.445244009374,
+        "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791796599.4661038
+    },
+    "chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a": {
+      "family": "chrono",
+      "run": "CL-FRAME",
+      "folder": "CL-FRAME_history-frame-k3_a4",
+      "schedule": null,
+      "checkpoint": "CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "episodes": 6000,
+      "key": "chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "revision": "cf52c6364579e45408150cd5f526b573d42eef4d",
+      "assets": [
+        {
+          "rfilename": "CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+          "blobId": "e75ad937d95817ef37710752c85bfa94748ddfaa",
+          "size": 2338626793,
+          "lfs": {
+            "sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "size": 2338626793,
+            "pointerSize": 135
+          }
+        },
+        {
+          "rfilename": "CL-FRAME_history-frame-k3_a4/epoch_10/config.json",
+          "blobId": "42d7f6a35155edd3d6773c66f7796bb1328c7da7",
+          "size": 644
+        },
+        {
+          "rfilename": "CL-FRAME_history-frame-k3_a4/manifest.json",
+          "blobId": "ad4ff67799f72e3316564aee41e2c7ac255d9203",
+          "size": 2969
+        },
+        {
+          "rfilename": "CL-FRAME_history-frame-k3_a4/timing.json",
+          "blobId": "20a5ca5ac00a98377644445cd0d436fe6b4c62b4",
+          "size": 177
+        }
+      ],
+      "status": "complete",
+      "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/cf52c6364579e45408150cd5f526b573d42eef4d/CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "stats_path": "/storage/anhdh35/LoopWAM_NT-eval/checkpoints/release/libero-all-suites/v0-video4-action4/dataset_stats.json",
+      "output": "/data14t/anhdh35/loopwam_campaign/results/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "pid": 1448965,
+      "identity": "45856415",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5754,
+        "success_rate": 0.959,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1348,
+            "episodes": 1500,
+            "success_rate": 0.8986666666666666,
+            "seeds": {
+              "42": {
+                "successes": 445,
+                "episodes": 500,
+                "success_rate": 0.89
+              },
+              "43": {
+                "successes": 457,
+                "episodes": 500,
+                "success_rate": 0.914
+              },
+              "44": {
+                "successes": 446,
+                "episodes": 500,
+                "success_rate": 0.892
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1460,
+            "episodes": 1500,
+            "success_rate": 0.9733333333333334,
+            "seeds": {
+              "42": {
+                "successes": 488,
+                "episodes": 500,
+                "success_rate": 0.976
+              },
+              "43": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "44": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1485,
+            "episodes": 1500,
+            "success_rate": 0.99,
+            "seeds": {
+              "42": {
+                "successes": 494,
+                "episodes": 500,
+                "success_rate": 0.988
+              },
+              "43": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "44": {
+                "successes": 494,
+                "episodes": 500,
+                "success_rate": 0.988
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1461,
+            "episodes": 1500,
+            "success_rate": 0.974,
+            "seeds": {
+              "42": {
+                "successes": 484,
+                "episodes": 500,
+                "success_rate": 0.968
+              },
+              "43": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "44": {
+                "successes": 488,
+                "episodes": 500,
+                "success_rate": 0.976
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 14273.787298498966,
+        "recovered_episodes": 0,
+        "total_queries": 99989,
+        "total_query_seconds": 75843.42931878933,
+        "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791827021.7255425
+    }
+  },
+  "active": {
+    "key": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+    "pid": 1644367,
+    "identity": "50831645",
+    "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+    "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+  },
+  "adoption_recorded": true,
+  "known_sessions": [
+    1644367
+  ],
+  "unregistered_epoch10": {
+    "chrono": [],
+    "residual_trans": []
+  },
+  "available_keys": [
+    "chrono__CL-0__native__137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+    "chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+    "chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+    "chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+    "chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+    "chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+    "chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+    "residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+    "residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+    "residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+    "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+    "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+    "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+    "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+    "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+    "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+    "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+    "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+    "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+    "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+    "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac"
+  ],
+  "hub_revisions": {
+    "chrono": "cf52c6364579e45408150cd5f526b573d42eef4d",
+    "residual_trans": "318ced3b8bfe709ec6a9a49e823831a11c954751"
+  },
+  "watcher": {
+    "pid": 1669307,
+    "identity": "51222413",
+    "updated_at": 1791865578.164622
+  },
+  "expected_conditions": 55,
+  "expected_episodes": 330000,
+  "unmanaged_gpu_jobs": [],
+  "last_manual_hub_check": {
+    "verified_at": 1791805564.6195595,
+    "transport": "curl with certificate verification",
+    "new_checkpoints": [
+      "chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a"
+    ]
+  },
+  "active_stage": {
+    "stage": "full_evaluation",
+    "started_at": 1791862120.166025,
+    "selected": {
+      "backend": "eager",
+      "workers": 8,
+      "summary": {
+        "episodes": 64,
+        "successes": 64,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 64,
+            "episodes": 64,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 86.19166004302679,
+        "recovered_episodes": 0,
+        "total_queries": 674,
+        "total_query_seconds": 291.6474923796486,
+        "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+        "backend": "eager",
+        "workers": 8
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
+    },
+    "command": [
+      "/storage/anhdh35/LoopWAM-campaign-eval/run_family.sh",
+      "residual_trans",
+      "/storage/anhdh35/LoopWAM-campaign-eval/campaign_runner_fast.py",
+      "--family",
+      "residual_trans",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/epoch_10.pt",
+      "--stats",
+      "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/dataset_stats.json",
+      "--schedule",
+      "S2",
+      "--backend",
+      "eager",
+      "--workers",
+      "8",
+      "--output",
+      "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+    ]
+  },
+  "active_progress": {
+    "completed": 2548,
+    "planned": 6000,
+    "successes": 2464,
+    "ready_workers": 8,
+    "workers": 8,
+    "elapsed_seconds": 3452.8276376980357,
+    "recovered_episodes": 0
+  },
+  "queue_enabled": false,
+  "discovery_enabled": false,
+  "stop_request": {
+    "requested_at": 1791865041.1390288,
+    "reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+    "finish_only_key": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+  }
+}

@@ -22,7 +22,7 @@ if __name__=='__main__':
     if MIRROR!=ROOT:shutil.copytree(ROOT,MIRROR,dirs_exist_ok=True,ignore=shutil.ignore_patterns("__pycache__","*.tmp"))
     output["copied_report"]=str(MIRROR/"final/report.html")
     status('complete',**output);print(json.dumps(output),flush=True);break
-   status('waiting_for_all_evaluations',queues=[{'path':x['path'],'status':x['state'].get('status'),'stage':x['state'].get('stage')} for x in queues],expected_episodes=27000,final_report=str(ROOT/'final/report.html'),copied_report=str(MIRROR/'final/report.html'))
+   status('waiting_for_all_evaluations',queues=[{'path':x['path'],'status':x['state'].get('status'),'stage':x['state'].get('stage')} for x in queues],expected_episodes=45000,final_report=str(ROOT/'final/report.html'),copied_report=str(MIRROR/'final/report.html'))
    time.sleep(30)
  except BaseException as e:
   status('failed',error=str(e),traceback=traceback.format_exc());raise
