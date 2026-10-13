@@ -1,6 +1,6 @@
 # Residual Transport: H100 evaluation of the missing conditions (2026-10-13)
 
-**Status: IN PROGRESS (interim snapshot, 2026-10-13 05:25 EDT).** 4 of 14 conditions are complete; the rest are running or queued. Rows without numbers have not been evaluated yet. A blank never means zero.
+**Status: IN PROGRESS (interim snapshot, 2026-10-13 13:30 EDT).** 8 of the 14 missing conditions are complete and reported below. RT-Pa S2 and RT-A2 S5 are running; RT-A2 S6/S7/S8 and RT-B2a parent2 are queued. Rows without numbers have not been evaluated yet. A blank never means zero.
 
 [Results tables](Residual_Transport_Results.md) · [Remote campaign report](../../evaluation_report/campaign/report.html) · [Evidence](../residual_transport_evidence/h100_eval/)
 
@@ -98,45 +98,71 @@ Text embeddings: the H100 cache has the same 40 prompts and valid-token counts a
 
 ## Results so far (epoch 10, fixed noise, success %)
 
-| Run | Schedule | Action calls | Source | Spatial | Object | Goal | Long | Four-suite mean | Seed std |
-|---|---|---:|---|---:|---:|---:|---:|---:|---:|
-| RT-A | S1 | 192 | remote | 96.40 | 98.80 | 95.33 | 87.33 | 94.47 | 0.50 |
-| RT-A | S2 | 138 | remote | 96.53 | 98.33 | 95.40 | 86.20 | 94.12 | 1.33 |
-| RT-A | S3 | 168 | remote | 96.47 | 98.73 | 95.20 | 85.80 | 94.05 | 1.31 |
-| RT-B4 | S1 | 192 | remote | 95.53 | 98.87 | 95.67 | 87.20 | 94.32 | 1.23 |
-| **RT-A** | **S4** | 156 | H100 | 95.40 | 98.40 | 95.00 | 86.67 | **93.87** | 1.28 |
-| **RT-T1ft** | **S1** | 192 | H100 | 96.67 | 98.47 | 94.93 | 88.20 | **94.57** | 1.27 |
-| **RT-T1ft** | **S2** | 138 | H100 | 96.73 | 98.87 | 95.67 | 85.47 | **94.18** | 0.50 |
-| **RT-Pa** | **S1** | 192 | H100 | 96.73 | 98.40 | 94.80 | 85.87 | **93.95** | 0.87 |
-| RT-Pa | S2 | 138 | H100 | running | | | | | |
-| RT-TF | S1, S2 | | H100 | queued | | | | | |
-| RT-A2 | S1, S2, S5, S6, S7, S8 | | H100 | queued | | | | | |
-| RT-B2a | parent2 | 60 | H100 | queued | | | | | |
+Every row covers 6,000 episodes: 4 suites × 10 tasks × 50 initial states × 3 seeds.
 
-Seed std is the sample standard deviation of the three per-seed four-suite means.
+| Run | Schedule | Action calls | Source | Spatial | Object | Goal | Long | Four-suite mean | Seed std | Successes |
+|---|---|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| RT-A | S1 | 192 | remote | 96.40 | 98.80 | 95.33 | 87.33 | 94.47 | 0.50 | 5668 |
+| RT-A | S2 | 138 | remote | 96.53 | 98.33 | 95.40 | 86.20 | 94.12 | 1.33 | 5647 |
+| RT-A | S3 | 168 | remote | 96.47 | 98.73 | 95.20 | 85.80 | 94.05 | 1.31 | 5643 |
+| RT-B4 | S1 | 192 | remote | 95.53 | 98.87 | 95.67 | 87.20 | 94.32 | 1.23 | 5659 |
+| RT-B4 | S2 | 138 | remote | partial (2,505/6,000), not scored | | | | | | |
+| **RT-A** | **S4** | 156 | H100 | 95.40 | 98.40 | 95.00 | 86.67 | **93.87** | 1.28 | 5632 |
+| **RT-T1ft** | **S1** | 192 | H100 | 96.67 | 98.47 | 94.93 | 88.20 | **94.57** | 1.27 | 5674 |
+| **RT-T1ft** | **S2** | 138 | H100 | 96.73 | 98.87 | 95.67 | 85.47 | **94.18** | 0.50 | 5651 |
+| **RT-Pa** | **S1** | 192 | H100 | 96.73 | 98.40 | 94.80 | 85.87 | **93.95** | 0.87 | 5637 |
+| RT-Pa | S2 | 138 | H100 | running | | | | | | |
+| **RT-TF** | **S1** | 192 | H100 | 97.00 | 98.47 | 94.67 | 87.53 | **94.42** | 1.04 | 5665 |
+| **RT-TF** | **S2** | 138 | H100 | 95.93 | 98.27 | 95.93 | 86.40 | **94.13** | 1.33 | 5648 |
+| **RT-A2** | **S1** | 192 | H100 | 95.93 | 99.00 | 94.60 | 86.87 | **94.10** | 1.35 | 5646 |
+| **RT-A2** | **S2** | 138 | H100 | 95.47 | 98.27 | 94.80 | 84.33 | **93.22** | 1.14 | 5593 |
+| RT-A2 | S5 | 102 | H100 | running | | | | | | |
+| RT-A2 | S6, S7, S8 | 78, 48, 42 | H100 | queued | | | | | | |
+| RT-B2a | parent2 | 60 | H100 | queued | | | | | | |
 
-## Paired comparisons so far
+Seed std is the sample standard deviation of the three per-seed four-suite means. Per-suite and per-seed counts are in `suite_seed_results.csv`; every H100 episode is in `h100_episodes.csv`.
+
+**Reading the results:**
+- All twelve complete conditions lie between 93.2% and 94.6%. That range is about the size of the seed-to-seed spread (0.5–1.4 points).
+- Spatial, Object and Goal are near ceiling, so Long (84–88%) carries most of the differences.
+- The variants with more transport machinery do not beat the simpler controls. Identity reuse (RT-T1ft) and teacher forcing (RT-TF) match RT-A.
+- RT-A2 is the only result with a paired 95% interval below zero: −0.90 points at S2, driven by Long (84.33% vs 86.20%). It compares H100 with the remote server, and the parity check found H100 about 1 point lower on the same checkpoint, so this gap may be partly hardware.
+
+## Paired comparisons (decision rules)
 
 Paired differences are matched by (suite, task, initial state, seed). The 95% interval is a cluster bootstrap over the 2,000 (suite, task, initial state) clusters, with 10,000 resamples. Full output: `paired_comparisons.json`.
 
+"Cross-hardware" means one side ran on the remote RTX PRO 6000 and the other on H100. The parity check found H100 about 1.0 point lower on the same checkpoint (not significant), so treat cross-hardware differences near 1 point with care.
+
 | Decision | Comparison | Difference (pp) | 95% CI | Rule | Verdict |
 |---|---|---:|---|---|---|
-| Gate 1 / Phase-1 R2 | RT-A S1 − RT-B4 S1 (both remote) | +0.15 | [−0.45, +0.78] | ≥ +1 (Gate 1); ≥ +2 with CI > 0 (R2) | **Fail** at S1; S2 unavailable (RT-B4 S2 partial) |
+| Gate 1 | RT-A S1 − RT-B4 S1 (both remote) | +0.15 | [−0.45, +0.78] | ≥ +1 at S1 or S2 | **Not met at S1**; S2 unavailable (RT-B4 S2 partial) |
+| Phase-1 R2 | RT-A S1 − RT-B4 S1 (both remote) | +0.15 | [−0.45, +0.78] | ≥ +2 and CI > 0 at each of S1/S2 | **Fail** (fails at S1) |
 | Learned transport | RT-A S1 − RT-T1ft S1 (cross-hardware) | −0.10 | [−0.75, +0.55] | ≥ +1 | **Fail** |
 | Learned transport | RT-A S2 − RT-T1ft S2 (cross-hardware) | −0.07 | [−0.72, +0.57] | ≥ +1 | **Fail** |
-| Transport-only scope (S1, descriptive) | RT-Pa S1 − RT-A S1 (cross-hardware) | −0.52 | [−1.17, +0.13] | RT-Pa within 1 point of RT-A (rule is at S2) | — (S2 pending; RT-B5 not evaluated) |
-| Schedule sweep | RT-A S4 − RT-A S2 (cross-hardware) | −0.25 | [−0.85, +0.35] | descriptive | — |
+| FU vs TF | RT-A S2 − RT-TF S2 (cross-hardware) | −0.02 | [−0.63, +0.62] | ≥ +1 | **Fail** |
+| FU vs TF (descriptive) | RT-A S1 − RT-TF S1 (cross-hardware) | +0.05 | [−0.58, +0.68] | — | — |
+| Phase-2 retention | RT-A2 S1 − RT-A S1 (cross-hardware) | −0.37 | [−0.97, +0.23] | within 1 point | **Pass** |
+| Phase-2 retention | RT-A2 S2 − RT-A S2 (cross-hardware) | −0.90 | [−1.57, −0.22] | within 1 point | **Pass on the point estimate**, borderline: the CI excludes 0 and extends past −1 |
+| Transport-only scope (descriptive) | RT-Pa S1 − RT-A S1 (cross-hardware) | −0.52 | [−1.17, +0.13] | rule is at S2 | Pending RT-Pa S2; RT-B5 not evaluated |
+| Schedule sweep (descriptive) | RT-A S4 − RT-A S2 (cross-hardware) | −0.25 | [−0.85, +0.35] | — | — |
 
-The remaining decision rows will be filled when their conditions finish.
+Not yet decidable:
+- **Gate 0** and **Phase-1 R1**: the parent RT-B0/RT-B1 baselines and latency have not been evaluated.
+- **Transport-only scope**: needs RT-Pa S2 (running) and RT-B5 (not evaluated).
+- **Phase-2 R1**: needs RT-A2 S6/S7 and RT-B2a parent2 (queued), plus the RT-B1 latency line.
+- **Phase-2 R2 and R3**: RT-B4-2 and RT+B2 were never trained.
 
 ## How the remaining work continues
 
-- Interactive allocation 898977 (4 H100, 16 CPUs) ends 2026-10-13 05:55.
-- Batch job **903898** (`scripts/run_rt_missing_eval.sbatch`: 4 H100, 32 CPUs, 1 day) is queued to continue.
-- The runner writes each task/seed group atomically and claims groups with heartbeated lock files. A restart or a concurrent allocation never repeats or mixes work, and each group's identity (checkpoint hash, schedule, backend, protocol) is checked on resume.
+- Interactive allocation 898977 (4 H100, 16 CPUs) ran until 2026-10-13 05:55.
+- Batch job 905224 (2 H100, 16 CPUs) has been running since about 06:00 and ends at about 17:55.
+- Job 907959 is queued to start after 905224 ends, and job 903898 (4 H100) is also queued.
+- 16 RT-Pa S2 groups were in flight when 898977 ended. Job 905224 started before their claims expired, so it skipped them. Any later runner will redo them; no partial group is ever scored.
+- The runner writes each task/seed group atomically and claims groups with heartbeated lock files. On resume it checks each group's identity: checkpoint hash, schedule, backend and protocol.
 - To resume anywhere: `bash scripts/run_rt_missing_eval.sh`.
 - Progress: `python scripts/rt_eval_status.py`.
-- Rebuild this evidence: `python scripts/build_rt_h100_report.py`.
+- Rebuild this evidence: `python scripts/build_rt_h100_report.py`, then `python scripts/fill_rt_results.py`.
 - Outputs: `/groups/yshang/an221229/checkpoints/LoopWAM_NT/rt_eval_h100/final_rollout/<condition>/groups/*.json`.
 
 Latency (p50, batch 1, CUDA graph, 500 replayed observations) will be measured on an idle H100 with `scripts/measure_rt_latency.py` after scoring finishes.

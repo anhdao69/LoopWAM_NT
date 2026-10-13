@@ -71,28 +71,60 @@
   "a": "RT-A S2",
   "b": "RT-TF S2",
   "rule": ">= +1",
-  "unavailable": "one side incomplete or not evaluated"
+  "paired_episodes": 6000,
+  "diff_pp": -0.016666666666666666,
+  "ci95": [
+   -0.6333333333333333,
+   0.6166666666666667
+  ],
+  "a_only": 177,
+  "b_only": 178,
+  "cross_hardware": true
  },
  {
   "decision": "FU vs TF (S1, descriptive)",
   "a": "RT-A S1",
   "b": "RT-TF S1",
   "rule": "descriptive",
-  "unavailable": "one side incomplete or not evaluated"
+  "paired_episodes": 6000,
+  "diff_pp": 0.05,
+  "ci95": [
+   -0.5833333333333334,
+   0.6833333333333333
+  ],
+  "a_only": 181,
+  "b_only": 178,
+  "cross_hardware": true
  },
  {
   "decision": "Phase-2 retention",
   "a": "RT-A2 S1",
   "b": "RT-A S1",
   "rule": "within 1 point",
-  "unavailable": "one side incomplete or not evaluated"
+  "paired_episodes": 6000,
+  "diff_pp": -0.36666666666666664,
+  "ci95": [
+   -0.9666666666666667,
+   0.23333333333333336
+  ],
+  "a_only": 167,
+  "b_only": 189,
+  "cross_hardware": true
  },
  {
   "decision": "Phase-2 retention",
   "a": "RT-A2 S2",
   "b": "RT-A S2",
   "rule": "within 1 point",
-  "unavailable": "one side incomplete or not evaluated"
+  "paired_episodes": 6000,
+  "diff_pp": -0.8999999999999999,
+  "ci95": [
+   -1.5666666666666667,
+   -0.21666666666666665
+  ],
+  "a_only": 180,
+  "b_only": 234,
+  "cross_hardware": true
  },
  {
   "decision": "Phase-2 R1 (partial: no RT-B1 line)",

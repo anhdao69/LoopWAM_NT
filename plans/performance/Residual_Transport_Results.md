@@ -63,25 +63,25 @@ All measured-result cells are intentionally blank. Action calls are theoretical 
 
 | Run | Schedule | Action calls | Final checkpoint/hash | p50 ms | Long @ 2k % | Long fixed % | Long fresh % | Four-suite mean % | Report |
 |---|---|---:|---|---:|---:|---:|---:|---:|---|
-| RT-A | S1 | 192 |  | |  | | | | |
-| RT-A | S2 | 138 |  | |  | | | | |
-| RT-A | S3 | 168 |  | | N/A | | | | |
-| RT-A | S4 | 156 |  | | N/A | | | | |
-| RT-B4 | S1 | 192 |  | |  | | | | |
+| RT-A | S1 | 192 | epoch_10 / 15ba0de18c94 |  |  | 87.33 |  | 94.47 | [remote campaign](../../evaluation_report/campaign/report.html) |
+| RT-A | S2 | 138 | epoch_10 / 15ba0de18c94 |  |  | 86.20 |  | 94.12 | [remote campaign](../../evaluation_report/campaign/report.html) |
+| RT-A | S3 | 168 | epoch_10 / 15ba0de18c94 |  | N/A | 85.80 |  | 94.05 | [remote campaign](../../evaluation_report/campaign/report.html) |
+| RT-A | S4 | 156 | epoch_10 / 15ba0de18c94 |  | N/A | 86.67 |  | 93.87 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-B4 | S1 | 192 | epoch_10 / 7ec1dedc3444 |  |  | 87.20 |  | 94.32 | [remote campaign](../../evaluation_report/campaign/report.html) |
 | RT-B4 | S2 | 138 |  | |  | | | | |
-| RT-T1ft | S1 | 192 |  | |  | | | | |
-| RT-T1ft | S2 | 138 |  | |  | | | | |
-| RT-Pa | S1 | 192 |  | |  | | | | |
+| RT-T1ft | S1 | 192 | epoch_10 / efb19b697478 |  |  | 88.20 |  | 94.57 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-T1ft | S2 | 138 | epoch_10 / efb19b697478 |  |  | 85.47 |  | 94.18 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-Pa | S1 | 192 | epoch_10 / 17f089aed0a4 |  |  | 85.87 |  | 93.95 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
 | RT-Pa | S2 | 138 |  | |  | | | | |
-| RT-TF | S1 | 192 |  | |  | | | | |
-| RT-TF | S2 | 138 |  | |  | | | | |
+| RT-TF | S1 | 192 | epoch_10 / c6cdba96a98a |  |  | 87.53 |  | 94.42 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-TF | S2 | 138 | epoch_10 / c6cdba96a98a |  |  | 86.40 |  | 94.13 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
 
 ## Phase 2
 
 | Run | Schedule | Action calls | Final checkpoint/hash | p50 ms | Long @ 2k % | Long fixed % | Long fresh % | Four-suite mean % | Report |
 |---|---|---:|---|---:|---:|---:|---:|---:|---|
-| RT-A2 | S1 | 192 |  | |  | | | | |
-| RT-A2 | S2 | 138 |  | |  | | | | |
+| RT-A2 | S1 | 192 | epoch_10 / 25ad8ca4705e |  |  | 86.87 |  | 94.10 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-A2 | S2 | 138 | epoch_10 / 25ad8ca4705e |  |  | 84.33 |  | 93.22 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
 | RT-A2 | S5 | 102 |  | |  | | | | |
 | RT-A2 | S6 | 78 |  | |  | | | | |
 | RT-A2 | S7 | 48 |  | |  | | | | |
@@ -129,13 +129,13 @@ Submission overrides are not evidence of a passed scientific gate. Apply these r
 | Decision | Comparison | Rule | Difference, percentage points (95% CI) | Pass / fail | Evidence |
 |---|---|---|---|---|---|
 | Gate 0 | Parent NFE 4 vs NFE 10, Long fixed | If NFE 4 is within 1 point, follow the specification's stop rule after round 1 | | | |
-| Gate 1 | RT-A minus RT-B4, S1 or S2 | At least +1 point at either schedule | | | |
+| Gate 1 | RT-A minus RT-B4, S1 or S2 | At least +1 point at either schedule | S1: +0.15 (−0.45, +0.78); S2: unavailable | Not met at S1; S2 pending | [H100 report](Residual_Transport_H100_Evaluation_20261013.md) |
 | Phase-1 R1 | RT-A S2 vs RT-B1 at equal latency | At least +2 points with CI lower bound > 0, or equal success at at least 20% lower latency | | | |
-| Phase-1 R2 | RT-A minus RT-B4, each S1/S2 | At least +2 points and CI lower bound > 0 | | | |
-| Learned transport | RT-A minus RT-T1ft, each S1/S2 | At least +1 point | | | |
+| Phase-1 R2 | RT-A minus RT-B4, each S1/S2 | At least +2 points and CI lower bound > 0 | S1: +0.15 (−0.45, +0.78) | Fail | [H100 report](Residual_Transport_H100_Evaluation_20261013.md) |
+| Learned transport | RT-A minus RT-T1ft, each S1/S2 | At least +1 point | S1: −0.10 (−0.75, +0.55); S2: −0.07 (−0.72, +0.57) | Fail | [H100 report](Residual_Transport_H100_Evaluation_20261013.md), cross-hardware |
 | Transport-only scope | RT-Pa minus RT-B5 at S2 | At least +2 points, and RT-Pa within 1 point of RT-A | | | |
-| FU vs TF | RT-A minus RT-TF at S2 | At least +1 point | | | |
-| Phase-2 retention | RT-A2 minus RT-A, each S1/S2 | Within 1 point | | | |
+| FU vs TF | RT-A minus RT-TF at S2 | At least +1 point | −0.02 (−0.63, +0.62) | Fail | [H100 report](Residual_Transport_H100_Evaluation_20261013.md), cross-hardware |
+| Phase-2 retention | RT-A2 minus RT-A, each S1/S2 | Within 1 point | S1: −0.37 (−0.97, +0.23); S2: −0.90 (−1.57, −0.22) | Pass (S2 borderline: CI excludes 0) | [H100 report](Residual_Transport_H100_Evaluation_20261013.md), cross-hardware |
 | Phase-2 R1 | RT-A2 S6/S7 vs RT-B2a and RT-B1 line | Same criterion as phase-1 R1 | | | |
 | Phase-2 R2 | RT-A2 minus RT-B4-2 at S6 | At least +2 points and CI lower bound > 0 | | | |
 | Phase-2 R3 | RT+B2 S8 minus RT-B2a parent2 | CI lower bound > -1.5 points, at lower latency | | | |

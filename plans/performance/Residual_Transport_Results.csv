@@ -14,23 +14,23 @@ baseline,RT-B6,S2,138,parent,,,42/43/44,fixed,,,,,,,,,,
 phase1,RT-A,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-A,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-A,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-A,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-A,S1,192,epoch_10,15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b,42,42/43/44,fixed,96.40,98.80,95.33,87.33,94.47,,,NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign),evaluation_report/campaign,5668/6000 episodes; seed std 0.50 pp
 phase1,RT-A,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-A,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-A,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-A,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-A,S2,138,epoch_10,15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b,42,42/43/44,fixed,96.53,98.33,95.40,86.20,94.12,,,NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign),evaluation_report/campaign,5647/6000 episodes; seed std 1.33 pp
 phase1,RT-A,S3,168,step_00002000,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
 phase1,RT-A,S3,168,epoch_08,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
 phase1,RT-A,S3,168,epoch_09,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
-phase1,RT-A,S3,168,epoch_10,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
+phase1,RT-A,S3,168,epoch_10,15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b,42,42/43/44,fixed,96.47,98.73,95.20,85.80,94.05,,,NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign),evaluation_report/campaign,held-out schedule; 5643/6000 episodes; seed std 1.31 pp
 phase1,RT-A,S4,156,step_00002000,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
 phase1,RT-A,S4,156,epoch_08,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
 phase1,RT-A,S4,156,epoch_09,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
-phase1,RT-A,S4,156,epoch_10,,42,42/43/44,fixed,,,,,,,,,,held-out schedule
+phase1,RT-A,S4,156,epoch_10,15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b,42,42/43/44,fixed,95.40,98.40,95.00,86.67,93.87,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,held-out schedule; 5632/6000 episodes; seed std 1.28 pp
 phase1,RT-B4,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-B4,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-B4,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-B4,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-B4,S1,192,epoch_10,7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711,42,42/43/44,fixed,95.53,98.87,95.67,87.20,94.32,,,NVIDIA RTX PRO 6000 Blackwell Max-Q (remote campaign),evaluation_report/campaign,5659/6000 episodes; seed std 1.23 pp
 phase1,RT-B4,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-B4,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-B4,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
@@ -38,15 +38,15 @@ phase1,RT-B4,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-T1ft,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-T1ft,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-T1ft,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-T1ft,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-T1ft,S1,192,epoch_10,efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1,42,42/43/44,fixed,96.67,98.47,94.93,88.20,94.57,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5674/6000 episodes; seed std 1.27 pp
 phase1,RT-T1ft,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-T1ft,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-T1ft,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-T1ft,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-T1ft,S2,138,epoch_10,efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1,42,42/43/44,fixed,96.73,98.87,95.67,85.47,94.18,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5651/6000 episodes; seed std 0.50 pp
 phase1,RT-Pa,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-Pa,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-Pa,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-Pa,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-Pa,S1,192,epoch_10,17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3,42,42/43/44,fixed,96.73,98.40,94.80,85.87,93.95,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5637/6000 episodes; seed std 0.87 pp
 phase1,RT-Pa,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-Pa,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-Pa,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
@@ -54,19 +54,19 @@ phase1,RT-Pa,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-TF,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-TF,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-TF,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-TF,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-TF,S1,192,epoch_10,c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea,42,42/43/44,fixed,97.00,98.47,94.67,87.53,94.42,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5665/6000 episodes; seed std 1.04 pp
 phase1,RT-TF,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-TF,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase1,RT-TF,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase1,RT-TF,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase1,RT-TF,S2,138,epoch_10,c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea,42,42/43/44,fixed,95.93,98.27,95.93,86.40,94.13,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5648/6000 episodes; seed std 1.33 pp
 phase2,RT-A2,S1,192,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S1,192,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S1,192,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S1,192,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S1,192,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,95.93,99.00,94.60,86.87,94.10,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5646/6000 episodes; seed std 1.35 pp
 phase2,RT-A2,S2,138,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S2,138,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S2,138,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S2,138,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S2,138,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,95.47,98.27,94.80,84.33,93.22,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5593/6000 episodes; seed std 1.14 pp
 phase2,RT-A2,S5,102,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S5,102,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S5,102,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
