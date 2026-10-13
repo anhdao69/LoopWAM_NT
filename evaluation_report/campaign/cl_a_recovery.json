@@ -1,0 +1,142 @@
+{
+  "selected": {
+    "backend": "eager",
+    "workers": 8,
+    "summary": {
+      "episodes": 16,
+      "successes": 16,
+      "success_rate": 1.0,
+      "per_suite": {
+        "libero_spatial": {
+          "successes": 16,
+          "episodes": 16,
+          "success_rate": 1.0,
+          "seeds": {
+            "42": {
+              "successes": 8,
+              "episodes": 8,
+              "success_rate": 1.0
+            },
+            "43": {
+              "successes": 8,
+              "episodes": 8,
+              "success_rate": 1.0
+            }
+          }
+        }
+      },
+      "elapsed_seconds": 37.89764220500365,
+      "recovered_episodes": 0,
+      "total_queries": 152,
+      "total_query_seconds": 129.10252058150945,
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "backend": "eager",
+      "workers": 8
+    },
+    "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8"
+  },
+  "candidates": [
+    {
+      "backend": "eager",
+      "workers": 4,
+      "summary": {
+        "episodes": 16,
+        "successes": 16,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 16,
+            "episodes": 16,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 8,
+                "episodes": 8,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 8,
+                "episodes": 8,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 41.26657309604343,
+        "recovered_episodes": 0,
+        "total_queries": 152,
+        "total_query_seconds": 64.3086874356377,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 4
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w4"
+    },
+    {
+      "backend": "eager",
+      "workers": 8,
+      "summary": {
+        "episodes": 16,
+        "successes": 16,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 16,
+            "episodes": 16,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 8,
+                "episodes": 8,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 8,
+                "episodes": 8,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 37.89764220500365,
+        "recovered_episodes": 0,
+        "total_queries": 152,
+        "total_query_seconds": 129.10252058150945,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 8
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8"
+    },
+    {
+      "backend": "cuda-graph",
+      "workers": 4,
+      "error": "rollout differs from native eager",
+      "differences": [
+        {
+          "episode": [
+            "libero_spatial",
+            43,
+            1,
+            0
+          ],
+          "reference": [
+            true,
+            106,
+            11
+          ],
+          "candidate": [
+            true,
+            104,
+            11
+          ]
+        }
+      ],
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/cuda-graph_w4"
+    }
+  ],
+  "graph_passed": true,
+  "graph_rollout_passed": false,
+  "recovery_reason": "Graph rollout disagreed with matching native eager benchmarks; graph disabled for CL-A.",
+  "verified_at": 1791766926.847294
+}

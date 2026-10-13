@@ -1,0 +1,210 @@
+{
+  "selected": {
+    "backend": "eager",
+    "workers": 8,
+    "summary": {
+      "episodes": 64,
+      "successes": 64,
+      "success_rate": 1.0,
+      "per_suite": {
+        "libero_spatial": {
+          "successes": 64,
+          "episodes": 64,
+          "success_rate": 1.0,
+          "seeds": {
+            "42": {
+              "successes": 32,
+              "episodes": 32,
+              "success_rate": 1.0
+            },
+            "43": {
+              "successes": 32,
+              "episodes": 32,
+              "success_rate": 1.0
+            }
+          }
+        }
+      },
+      "elapsed_seconds": 114.13447295303922,
+      "recovered_episodes": 0,
+      "total_queries": 676,
+      "total_query_seconds": 492.740540519997,
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "backend": "eager",
+      "workers": 8
+    },
+    "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8_attempt_1791772748643903667"
+  },
+  "candidates": [
+    {
+      "backend": "eager",
+      "workers": 4,
+      "summary": {
+        "episodes": 64,
+        "successes": 64,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 64,
+            "episodes": 64,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 123.85455057804938,
+        "recovered_episodes": 0,
+        "total_queries": 676,
+        "total_query_seconds": 235.97341577790212,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 4
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w4_attempt_1791772621313006290"
+    },
+    {
+      "backend": "eager",
+      "workers": 8,
+      "summary": {
+        "episodes": 64,
+        "successes": 64,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 64,
+            "episodes": 64,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 114.13447295303922,
+        "recovered_episodes": 0,
+        "total_queries": 676,
+        "total_query_seconds": 492.740540519997,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 8
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8_attempt_1791772748643903667"
+    },
+    {
+      "backend": "eager",
+      "workers": 12,
+      "summary": {
+        "episodes": 64,
+        "successes": 64,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 64,
+            "episodes": 64,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 116.04743889096426,
+        "recovered_episodes": 0,
+        "total_queries": 676,
+        "total_query_seconds": 663.7208116326365,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 12
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w12"
+    },
+    {
+      "backend": "eager",
+      "workers": 16,
+      "summary": {
+        "episodes": 64,
+        "successes": 64,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 64,
+            "episodes": 64,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 32,
+                "episodes": 32,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 115.61551463697106,
+        "recovered_episodes": 0,
+        "total_queries": 676,
+        "total_query_seconds": 1005.0573630956933,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "backend": "eager",
+        "workers": 16
+      },
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w16"
+    }
+  ],
+  "graph_passed": true,
+  "graph_allowed": false,
+  "speed_profile": {
+    "worker_counts": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "tasks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "episodes": 4,
+    "runner": "campaign_runner_fast.py",
+    "graph_disabled_checkpoints": [
+      "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+    ]
+  },
+  "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+}

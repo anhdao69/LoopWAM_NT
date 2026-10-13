@@ -1,0 +1,13 @@
+{
+  "status": "ready",
+  "updated_at": 1791683858.7864547,
+  "release_path": "libero-all-suites/v0-video4-action1-kv-mix",
+  "hub_revision": "db0d9bf7ecab737654440b8b3af06fcca4b587eb",
+  "checkpoint_sha256": "ec4ff8ab3e00a761bd75c180bb70a93e0632d84862c5c6ff27746065342c579d",
+  "video_loops": 4,
+  "action_loops": 1,
+  "action_kv_mode": "mix",
+  "strict_cpu_load": true,
+  "cuda_used": false,
+  "training_scope": "full_libero"
+}

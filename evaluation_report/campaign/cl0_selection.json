@@ -1,0 +1,187 @@
+{
+  "family": "chrono",
+  "run": "CL-0",
+  "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+  "backend": "cuda-graph",
+  "workers": 8,
+  "benchmark": {
+    "workers": 8,
+    "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/cl0_graph_compare_w8",
+    "summary": {
+      "episodes": 24,
+      "successes": 24,
+      "success_rate": 1.0,
+      "per_suite": {
+        "libero_spatial": {
+          "successes": 24,
+          "episodes": 24,
+          "success_rate": 1.0,
+          "seeds": {
+            "42": {
+              "successes": 12,
+              "episodes": 12,
+              "success_rate": 1.0
+            },
+            "43": {
+              "successes": 12,
+              "episodes": 12,
+              "success_rate": 1.0
+            }
+          }
+        }
+      },
+      "elapsed_seconds": 45.96068434504559,
+      "recovered_episodes": 0,
+      "total_queries": 228,
+      "total_query_seconds": 156.22175430122297,
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "backend": "cuda-graph",
+      "workers": 8
+    }
+  },
+  "all_candidates": [
+    {
+      "workers": 4,
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/cl0_compare_w4",
+      "summary": {
+        "episodes": 24,
+        "successes": 24,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 24,
+            "episodes": 24,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 57.82049450802151,
+        "recovered_episodes": 0,
+        "total_queries": 228,
+        "total_query_seconds": 106.0348424949334,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "backend": "eager",
+        "workers": 4
+      }
+    },
+    {
+      "workers": 8,
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/cl0_compare_w8",
+      "summary": {
+        "episodes": 24,
+        "successes": 24,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 24,
+            "episodes": 24,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 51.416485830035526,
+        "recovered_episodes": 0,
+        "total_queries": 228,
+        "total_query_seconds": 195.99156998004764,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "backend": "eager",
+        "workers": 8
+      }
+    },
+    {
+      "workers": 4,
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/cl0_graph_compare_w4",
+      "summary": {
+        "episodes": 24,
+        "successes": 24,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 24,
+            "episodes": 24,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 52.32072431000415,
+        "recovered_episodes": 0,
+        "total_queries": 228,
+        "total_query_seconds": 86.13849308277713,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "backend": "cuda-graph",
+        "workers": 4
+      }
+    },
+    {
+      "workers": 8,
+      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/cl0_graph_compare_w8",
+      "summary": {
+        "episodes": 24,
+        "successes": 24,
+        "success_rate": 1.0,
+        "per_suite": {
+          "libero_spatial": {
+            "successes": 24,
+            "episodes": 24,
+            "success_rate": 1.0,
+            "seeds": {
+              "42": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              },
+              "43": {
+                "successes": 12,
+                "episodes": 12,
+                "success_rate": 1.0
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 45.96068434504559,
+        "recovered_episodes": 0,
+        "total_queries": 228,
+        "total_query_seconds": 156.22175430122297,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "backend": "cuda-graph",
+        "workers": 8
+      }
+    }
+  ],
+  "outcome_steps_queries_match_across_all_candidates": true,
+  "selected_at": 1791723027.4467607,
+  "full_output": "/data14t/anhdh35/loopwam_campaign/results/CL-0_native_137f0a839b5a"
+}
