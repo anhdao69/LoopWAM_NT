@@ -1,0 +1,342 @@
+{
+  "audited_at": 1791949254.5857925,
+  "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+  "conditions": [
+    {
+      "model": "RT-A2 S1",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5646,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A2 S2",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5593,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A2 S5",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5699,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A2 S6",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5669,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A2 S7",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5696,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A2 S8",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5672,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-A S4",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5632,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-B2a parent2",
+      "complete": false,
+      "episodes": 5350,
+      "successes": 5061,
+      "audit": {
+        "exact_episode_grid": false,
+        "complete_task_seed_groups": 107,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-Pa S1",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5637,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-Pa S2",
+      "complete": false,
+      "episodes": 5200,
+      "successes": 4792,
+      "audit": {
+        "exact_episode_grid": false,
+        "complete_task_seed_groups": 104,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-T1ft S1",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5674,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-T1ft S2",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5651,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-TF S1",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5665,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    },
+    {
+      "model": "RT-TF S2",
+      "complete": true,
+      "episodes": 6000,
+      "successes": 5648,
+      "audit": {
+        "exact_episode_grid": true,
+        "complete_task_seed_groups": 120,
+        "checkpoint_sha_matches_local": true,
+        "declared_protocol_matches": true,
+        "adapter_source_hash_matches": true,
+        "runner_export_hash_matches": false,
+        "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+        "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+        "hardware": "NVIDIA H100 80GB HBM3",
+        "torch": "2.7.1+cu128",
+        "video_artifacts_locally_available": false,
+        "limitations": [
+          "H100 hardware differs from local Blackwell.",
+          "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+          "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+        ]
+      }
+    }
+  ]
+}

@@ -1,29 +1,4040 @@
 {
-  "status": "selected",
-  "profile": {
-    "worker_counts": [
-      4,
-      8,
-      12,
-      16
-    ],
-    "tasks": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7
-    ],
-    "episodes": 4,
-    "runner": "campaign_runner_fast.py",
-    "graph_disabled_checkpoints": [
-      "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
-    ]
-  },
-  "selected_backend": "eager",
-  "selected_workers": 8,
-  "benchmark_episodes": 64
+  "updated_at": "2026-10-14T19:19:52.477583+07:00",
+  "scope": "all planned conditions",
+  "conditions": [
+    {
+      "model": "CL-0",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": null,
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-A S1",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 63,
+            "success_rate": 0.984375,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 63,
+                "episodes": 64,
+                "success_rate": 0.984375,
+                "seeds": {
+                  "42": {
+                    "successes": 31,
+                    "episodes": 32,
+                    "success_rate": 0.96875
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 109.93646415998228,
+            "recovered_episodes": 0,
+            "total_queries": 705,
+            "total_query_seconds": 457.09132528619375,
+            "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 120.5492378679919,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 208.99428649176843,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 109.93646415998228,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 457.09132528619375,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 112.99293904699152,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 632.8872924478492,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 113.9121851620148,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 933.988461099274,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w4",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 94.94775054097408,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 122.47676827537362,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w8",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 85.42623276996892,
+              "recovered_episodes": 0,
+              "total_queries": 705,
+              "total_query_seconds": 294.3146852552891,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  43,
+                  6,
+                  0
+                ],
+                "reference": [
+                  true,
+                  106,
+                  11
+                ],
+                "candidate": [
+                  true,
+                  105,
+                  11
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S1__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-A S2",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 63,
+            "success_rate": 0.984375,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 63,
+                "episodes": 64,
+                "success_rate": 0.984375,
+                "seeds": {
+                  "42": {
+                    "successes": 31,
+                    "episodes": 32,
+                    "success_rate": 0.96875
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 74.88349577295594,
+            "recovered_episodes": 0,
+            "total_queries": 710,
+            "total_query_seconds": 199.83918076945702,
+            "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 103.15757510700496,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 142.97933564940467,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 93.74958970095031,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 314.46321412263205,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 93.567647096992,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 452.379399890895,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 93.14970618201187,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 683.1484294661204,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 87.98999637004454,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 93.8862690195092,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 74.88349577295594,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 199.83918076945702,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 76.63467747700633,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 317.20830306387506,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 75.88873363402672,
+              "recovered_episodes": 0,
+              "total_queries": 710,
+              "total_query_seconds": 496.6035082215676,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S2__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-A S3",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 64,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 64,
+                "episodes": 64,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 77.46372237097239,
+            "recovered_episodes": 0,
+            "total_queries": 674,
+            "total_query_seconds": 240.0022918227478,
+            "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 109.297070325003,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 178.17338234611088,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 98.17631873703795,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 370.84522804705193,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 100.82456204498885,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 523.6062244923669,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 97.80790296097985,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 783.7340807690052,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 88.79978500399739,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 111.51262080640299,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 77.46372237097239,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 240.0022918227478,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 81.48607391898986,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 358.9550511040725,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 79.47553690400673,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 563.1358844371862,
+              "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+              "backend": "cuda-graph",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-A__S3__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-A S4",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-B4 S1",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 61,
+            "success_rate": 0.953125,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 61,
+                "episodes": 64,
+                "success_rate": 0.953125,
+                "seeds": {
+                  "42": {
+                    "successes": 30,
+                    "episodes": 32,
+                    "success_rate": 0.9375
+                  },
+                  "43": {
+                    "successes": 31,
+                    "episodes": 32,
+                    "success_rate": 0.96875
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 119.4224472999922,
+            "recovered_episodes": 0,
+            "total_queries": 764,
+            "total_query_seconds": 484.7624958305387,
+            "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 61,
+              "success_rate": 0.953125,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 61,
+                  "episodes": 64,
+                  "success_rate": 0.953125,
+                  "seeds": {
+                    "42": {
+                      "successes": 30,
+                      "episodes": 32,
+                      "success_rate": 0.9375
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 132.270822882012,
+              "recovered_episodes": 0,
+              "total_queries": 764,
+              "total_query_seconds": 228.6874556467519,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 61,
+              "success_rate": 0.953125,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 61,
+                  "episodes": 64,
+                  "success_rate": 0.953125,
+                  "seeds": {
+                    "42": {
+                      "successes": 30,
+                      "episodes": 32,
+                      "success_rate": 0.9375
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 119.4224472999922,
+              "recovered_episodes": 0,
+              "total_queries": 764,
+              "total_query_seconds": 484.7624958305387,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  43,
+                  1,
+                  0
+                ],
+                "reference": [
+                  true,
+                  106,
+                  11
+                ],
+                "candidate": [
+                  true,
+                  105,
+                  11
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 61,
+              "success_rate": 0.953125,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 61,
+                  "episodes": 64,
+                  "success_rate": 0.953125,
+                  "seeds": {
+                    "42": {
+                      "successes": 30,
+                      "episodes": 32,
+                      "success_rate": 0.9375
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 119.81584653700702,
+              "recovered_episodes": 0,
+              "total_queries": 764,
+              "total_query_seconds": 1000.9340919962851,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w4",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 61,
+              "success_rate": 0.953125,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 61,
+                  "episodes": 64,
+                  "success_rate": 0.953125,
+                  "seeds": {
+                    "42": {
+                      "successes": 30,
+                      "episodes": 32,
+                      "success_rate": 0.9375
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 105.48644791799597,
+              "recovered_episodes": 0,
+              "total_queries": 764,
+              "total_query_seconds": 142.09882885508705,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w8",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 61,
+              "success_rate": 0.953125,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 61,
+                  "episodes": 64,
+                  "success_rate": 0.953125,
+                  "seeds": {
+                    "42": {
+                      "successes": 30,
+                      "episodes": 32,
+                      "success_rate": 0.9375
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 92.97445662703831,
+              "recovered_episodes": 0,
+              "total_queries": 764,
+              "total_query_seconds": 310.800620415248,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  42,
+                  6,
+                  0
+                ],
+                "reference": [
+                  true,
+                  105,
+                  11
+                ],
+                "candidate": [
+                  true,
+                  106,
+                  11
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-B4 S2",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 64,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 64,
+                "episodes": 64,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 86.19166004302679,
+            "recovered_episodes": 0,
+            "total_queries": 674,
+            "total_query_seconds": 291.6474923796486,
+            "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 97.07196391699836,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 137.97966703691054,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 86.19166004302679,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 291.6474923796486,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 88.10454716201639,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 414.79439563461347,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 86.87998968199827,
+              "recovered_episodes": 0,
+              "total_queries": 674,
+              "total_query_seconds": 642.5688700102037,
+              "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  42,
+                  3,
+                  1
+                ],
+                "reference": [
+                  true,
+                  80,
+                  8
+                ],
+                "candidate": [
+                  true,
+                  81,
+                  9
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "CL-REG",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 16,
+            "successes": 16,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 16,
+                "episodes": 16,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 35.78303647303255,
+            "recovered_episodes": 0,
+            "total_queries": 152,
+            "total_query_seconds": 113.62848906620638,
+            "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 41.164792221970856,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 65.23640554433223,
+              "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 38.03915144997882,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 130.39291480369866,
+              "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d/eager_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 38.68091558100423,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 56.282702158088796,
+              "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 35.78303647303255,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 113.62848906620638,
+              "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d/cuda-graph_w8"
+          }
+        ],
+        "graph_passed": true
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-T1ft S1",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-T1ft S2",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-Pa S1",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-Pa S2",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 63,
+            "success_rate": 0.984375,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 63,
+                "episodes": 64,
+                "success_rate": 0.984375,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 31,
+                    "episodes": 32,
+                    "success_rate": 0.96875
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 70.19841845706105,
+            "recovered_episodes": 0,
+            "total_queries": 713,
+            "total_query_seconds": 167.3938254249515,
+            "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 93.31855771597475,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 119.1396352185402,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 85.5070137900766,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 253.65764322737232,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 86.04442389600445,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 370.38852070097346,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 85.43572627299,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 565.6468235047068,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 82.37988035904709,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 85.46201087569352,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 70.19841845706105,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 167.3938254249515,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 70.19874466594774,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 265.046360381064,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "cuda-graph",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 71.15435038902797,
+              "recovered_episodes": 0,
+              "total_queries": 713,
+              "total_query_seconds": 423.0553120264085,
+              "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+              "backend": "cuda-graph",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "CL-W2",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 16,
+            "successes": 16,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 16,
+                "episodes": 16,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 35.44273951096693,
+            "recovered_episodes": 0,
+            "total_queries": 152,
+            "total_query_seconds": 109.81938467279542,
+            "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 41.66076076601166,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 67.80524560180493,
+              "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 38.324732676032,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 130.86537591187516,
+              "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032/eager_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 37.98444686201401,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 55.751530887326226,
+              "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 35.44273951096693,
+              "recovered_episodes": 0,
+              "total_queries": 152,
+              "total_query_seconds": 109.81938467279542,
+              "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032/cuda-graph_w8"
+          }
+        ],
+        "graph_passed": true
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-A2 S1",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-A2 S2",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-A2 S5",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-A2 S6",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-A2 S7",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-A2 S8",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "CL-A",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 64,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 64,
+                "episodes": 64,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 114.13447295303922,
+            "recovered_episodes": 0,
+            "total_queries": 676,
+            "total_query_seconds": 492.740540519997,
+            "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8_attempt_1791772748643903667"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 123.85455057804938,
+              "recovered_episodes": 0,
+              "total_queries": 676,
+              "total_query_seconds": 235.97341577790212,
+              "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w4_attempt_1791772621313006290"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 114.13447295303922,
+              "recovered_episodes": 0,
+              "total_queries": 676,
+              "total_query_seconds": 492.740540519997,
+              "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w8_attempt_1791772748643903667"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 116.04743889096426,
+              "recovered_episodes": 0,
+              "total_queries": 676,
+              "total_query_seconds": 663.7208116326365,
+              "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 115.61551463697106,
+              "recovered_episodes": 0,
+              "total_queries": 676,
+              "total_query_seconds": 1005.0573630956933,
+              "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39/eager_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": false,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "CL-0@1",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 16,
+            "successes": 16,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 16,
+                "episodes": 16,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 8,
+                    "episodes": 8,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 27.095585559960455,
+            "recovered_episodes": 0,
+            "total_queries": 150,
+            "total_query_seconds": 51.39021617482649,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 31.219063890981488,
+              "recovered_episodes": 0,
+              "total_queries": 150,
+              "total_query_seconds": 30.453873806167394,
+              "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 27.338318232970778,
+              "recovered_episodes": 0,
+              "total_queries": 150,
+              "total_query_seconds": 55.5985637709382,
+              "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930/eager_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 30.53729631699389,
+              "recovered_episodes": 0,
+              "total_queries": 150,
+              "total_query_seconds": 27.840078990906477,
+              "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 16,
+              "successes": 16,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 16,
+                  "episodes": 16,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 8,
+                      "episodes": 8,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 27.095585559960455,
+              "recovered_episodes": 0,
+              "total_queries": 150,
+              "total_query_seconds": 51.39021617482649,
+              "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-0@1__native__77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930/cuda-graph_w8"
+          }
+        ],
+        "graph_passed": true
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT-TF S1",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-TF S2",
+      "status": "external_complete",
+      "backend": "cuda-graph",
+      "workers": null,
+      "selection": null,
+      "evidence_source": "upstream H100"
+    },
+    {
+      "model": "RT-B2a parent2",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 64,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 64,
+                "episodes": 64,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 58.97448568302207,
+            "recovered_episodes": 0,
+            "total_queries": 684,
+            "total_query_seconds": 117.99828474374954,
+            "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/eager_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 75.21897478704341,
+              "recovered_episodes": 0,
+              "total_queries": 684,
+              "total_query_seconds": 64.55172163492534,
+              "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 58.97448568302207,
+              "recovered_episodes": 0,
+              "total_queries": 684,
+              "total_query_seconds": 117.99828474374954,
+              "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 61.272501801955514,
+              "recovered_episodes": 0,
+              "total_queries": 684,
+              "total_query_seconds": 182.59233978122938,
+              "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  43,
+                  6,
+                  2
+                ],
+                "reference": [
+                  true,
+                  96,
+                  10
+                ],
+                "candidate": [
+                  true,
+                  94,
+                  10
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  43,
+                  6,
+                  2
+                ],
+                "reference": [
+                  true,
+                  96,
+                  10
+                ],
+                "candidate": [
+                  true,
+                  94,
+                  10
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "CL-A@1",
+      "status": "complete",
+      "backend": "eager",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "eager",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 64,
+            "success_rate": 1.0,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 64,
+                "episodes": 64,
+                "success_rate": 1.0,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 71.02341879199957,
+            "recovered_episodes": 0,
+            "total_queries": 669,
+            "total_query_seconds": 192.3380781961023,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "backend": "eager",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/eager_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 84.29061233595712,
+              "recovered_episodes": 0,
+              "total_queries": 669,
+              "total_query_seconds": 95.6932832346065,
+              "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 71.02341879199957,
+              "recovered_episodes": 0,
+              "total_queries": 669,
+              "total_query_seconds": 192.3380781961023,
+              "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 73.29249312198954,
+              "recovered_episodes": 0,
+              "total_queries": 669,
+              "total_query_seconds": 284.0176742337644,
+              "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  42,
+                  7,
+                  0
+                ],
+                "reference": [
+                  true,
+                  145,
+                  15
+                ],
+                "candidate": [
+                  true,
+                  146,
+                  15
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/cuda-graph_w4",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 79.98475517501356,
+              "recovered_episodes": 0,
+              "total_queries": 669,
+              "total_query_seconds": 80.26810137694702,
+              "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/cuda-graph_w8",
+            "rejected_summary": {
+              "episodes": 64,
+              "successes": 64,
+              "success_rate": 1.0,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 64,
+                  "episodes": 64,
+                  "success_rate": 1.0,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 65.16413427202497,
+              "recovered_episodes": 0,
+              "total_queries": 669,
+              "total_query_seconds": 164.91478861717042,
+              "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "error": "graph backend rejected by later rollout mismatch"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "error": "rollout differs from native eager",
+            "differences": [
+              {
+                "episode": [
+                  "libero_spatial",
+                  43,
+                  5,
+                  3
+                ],
+                "reference": [
+                  true,
+                  90,
+                  9
+                ],
+                "candidate": [
+                  false,
+                  400,
+                  40
+                ]
+              }
+            ],
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "error": "graph backend rejected by earlier rollout mismatch",
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "CL-FRAME",
+      "status": "complete",
+      "backend": "cuda-graph",
+      "workers": 8,
+      "selection": {
+        "selected": {
+          "backend": "cuda-graph",
+          "workers": 8,
+          "summary": {
+            "episodes": 64,
+            "successes": 63,
+            "success_rate": 0.984375,
+            "per_suite": {
+              "libero_spatial": {
+                "successes": 63,
+                "episodes": 64,
+                "success_rate": 0.984375,
+                "seeds": {
+                  "42": {
+                    "successes": 32,
+                    "episodes": 32,
+                    "success_rate": 1.0
+                  },
+                  "43": {
+                    "successes": 31,
+                    "episodes": 32,
+                    "success_rate": 0.96875
+                  }
+                }
+              }
+            },
+            "elapsed_seconds": 118.05313423404004,
+            "recovered_episodes": 0,
+            "total_queries": 704,
+            "total_query_seconds": 496.7672865783097,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "backend": "cuda-graph",
+            "workers": 8
+          },
+          "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/cuda-graph_w8"
+        },
+        "candidates": [
+          {
+            "backend": "eager",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 142.93895510100992,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 289.31011114420835,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "eager",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/eager_w4"
+          },
+          {
+            "backend": "eager",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 135.88168357196264,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 610.5494980246876,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "eager",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/eager_w8"
+          },
+          {
+            "backend": "eager",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 134.66582060500514,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 846.5440566705656,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "eager",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/eager_w12"
+          },
+          {
+            "backend": "eager",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 135.39242923102574,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 1264.9090596672613,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "eager",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/eager_w16"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 4,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 123.58208399702562,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 211.69932068127673,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "cuda-graph",
+              "workers": 4
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/cuda-graph_w4"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 8,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 118.05313423404004,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 496.7672865783097,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "cuda-graph",
+              "workers": 8
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/cuda-graph_w8"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 12,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 119.20970802399097,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 706.0796791153844,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "cuda-graph",
+              "workers": 12
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/cuda-graph_w12"
+          },
+          {
+            "backend": "cuda-graph",
+            "workers": 16,
+            "summary": {
+              "episodes": 64,
+              "successes": 63,
+              "success_rate": 0.984375,
+              "per_suite": {
+                "libero_spatial": {
+                  "successes": 63,
+                  "episodes": 64,
+                  "success_rate": 0.984375,
+                  "seeds": {
+                    "42": {
+                      "successes": 32,
+                      "episodes": 32,
+                      "success_rate": 1.0
+                    },
+                    "43": {
+                      "successes": 31,
+                      "episodes": 32,
+                      "success_rate": 0.96875
+                    }
+                  }
+                }
+              },
+              "elapsed_seconds": 119.23412168899085,
+              "recovered_episodes": 0,
+              "total_queries": 704,
+              "total_query_seconds": 1050.156879040529,
+              "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+              "backend": "cuda-graph",
+              "workers": 16
+            },
+            "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a/cuda-graph_w16"
+          }
+        ],
+        "graph_passed": true,
+        "graph_allowed": true,
+        "speed_profile": {
+          "worker_counts": [
+            4,
+            8,
+            12,
+            16
+          ],
+          "tasks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "episodes": 4,
+          "runner": "campaign_runner_fast.py",
+          "graph_disabled_checkpoints": [
+            "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+          ]
+        },
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea"
+      },
+      "evidence_source": "local"
+    },
+    {
+      "model": "RT+B2 S8",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT+B2 S7",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S5",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S6",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S7",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-B4-2 S8",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T3 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T3 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T5 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T5 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T6 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-T6 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-Pc S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-Pc S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-NFE1 parent1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-local S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-local S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-end S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-end S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-grip S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-grip S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-anchor S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-no-anchor S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-A-seed43 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-A-seed43 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-A-seed44 S1",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    },
+    {
+      "model": "RT-A-seed44 S2",
+      "status": "not_published",
+      "backend": null,
+      "workers": null,
+      "selection": null,
+      "evidence_source": "no scored execution"
+    }
+  ]
 }

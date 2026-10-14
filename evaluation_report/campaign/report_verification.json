@@ -1,0 +1,43 @@
+{
+  "verified_at": "2026-10-14T18:54:16.434169+07:00",
+  "report_snapshot_updated_at": "2026-10-14T18:53:42.707211+07:00",
+  "completion_summary": {
+    "planned_conditions": 55,
+    "available_conditions": 26,
+    "local_complete_conditions": 14,
+    "externally_reported_complete_conditions": 12,
+    "remaining_available_conditions": 0,
+    "awaiting_weights_conditions": 29,
+    "scored_episodes": 156000,
+    "local_scored_wall_seconds": 158698.690571543,
+    "available_evaluations_complete": true,
+    "full_plan_complete": false,
+    "awaiting_weights_checkpoints": 13,
+    "active_condition": null
+  },
+  "checks_passed": [
+    "14 local complete conditions strictly verified with video and atomic group evidence",
+    "12 external H100 grids/identities validated separately",
+    "156000 unique scored episode rows",
+    "Suite/seed/task totals agree with run summaries",
+    "Unpublished conditions have null SR",
+    "No obsolete remaining-run claims in current status files"
+  ],
+  "tests_passed": 27,
+  "rows": {
+    "runs": 55,
+    "suites": 220,
+    "suite_seeds": 660,
+    "task_seeds": 3120,
+    "episodes": 156000
+  },
+  "artifact_sha256": {
+    "detailed_report.html": "fd428db032267be415afcaf7fcb52f061d798c0baacc8a864b97bbecd1eb8166",
+    "detailed_results.json": "8763915941d124fe01688dab3738bb60d80c267d6896ee4f98aa292403a7bc3e",
+    "run_summary.csv": "1fca523b66b1a1e5b21934abb07f42cbad1371c26c2141b419de4ee8995dc4c2",
+    "suite_results.csv": "a9247233fe939b09ffa5971042c7033e34673992d60a4df75db52b0e58ea5a88",
+    "all_condition_suite_seed_details.csv": "6a2b5f75ac35fbd3196d96d373fcb439398c9977a228ab34c91014d348e68449",
+    "task_seed_details.csv": "e7df47394387ddd951dc5dee7717a304da5a08ac2751fac8ea805e67b66fc16f",
+    "episode_details.csv": "1371aabf63341051eff8c67333e70ec6ac05edfc07403520e49c4d4487a4906b"
+  }
+}
