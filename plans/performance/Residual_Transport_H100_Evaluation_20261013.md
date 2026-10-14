@@ -1,6 +1,6 @@
 # Residual Transport: H100 evaluation of the missing conditions (2026-10-13)
 
-**Status: IN PROGRESS (interim snapshot, 2026-10-13 13:30 EDT).** 8 of the 14 missing conditions are complete and reported below. RT-Pa S2 and RT-A2 S5 are running; RT-A2 S6/S7/S8 and RT-B2a parent2 are queued. Rows without numbers have not been evaluated yet. A blank never means zero.
+**Status: IN PROGRESS (interim snapshot, 2026-10-13 22:20 EDT).** 12 of the 14 missing conditions are complete and reported below. RT-Pa S2 (104/120 task/seed groups) and RT-B2a parent2 (107/120) are partial and are not scored. Their last 29 groups are waiting for GPU time (see the last section). Rows without numbers have not been evaluated yet. A blank never means zero.
 
 [Results tables](Residual_Transport_Results.md) · [Remote campaign report](../../evaluation_report/campaign/report.html) · [Evidence](../residual_transport_evidence/h100_eval/)
 
@@ -111,22 +111,39 @@ Every row covers 6,000 episodes: 4 suites × 10 tasks × 50 initial states × 3 
 | **RT-T1ft** | **S1** | 192 | H100 | 96.67 | 98.47 | 94.93 | 88.20 | **94.57** | 1.27 | 5674 |
 | **RT-T1ft** | **S2** | 138 | H100 | 96.73 | 98.87 | 95.67 | 85.47 | **94.18** | 0.50 | 5651 |
 | **RT-Pa** | **S1** | 192 | H100 | 96.73 | 98.40 | 94.80 | 85.87 | **93.95** | 0.87 | 5637 |
-| RT-Pa | S2 | 138 | H100 | running | | | | | | |
+| RT-Pa | S2 | 138 | H100 | partial (104/120 groups), not scored | | | | | | |
 | **RT-TF** | **S1** | 192 | H100 | 97.00 | 98.47 | 94.67 | 87.53 | **94.42** | 1.04 | 5665 |
 | **RT-TF** | **S2** | 138 | H100 | 95.93 | 98.27 | 95.93 | 86.40 | **94.13** | 1.33 | 5648 |
 | **RT-A2** | **S1** | 192 | H100 | 95.93 | 99.00 | 94.60 | 86.87 | **94.10** | 1.35 | 5646 |
 | **RT-A2** | **S2** | 138 | H100 | 95.47 | 98.27 | 94.80 | 84.33 | **93.22** | 1.14 | 5593 |
-| RT-A2 | S5 | 102 | H100 | running | | | | | | |
-| RT-A2 | S6, S7, S8 | 78, 48, 42 | H100 | queued | | | | | | |
-| RT-B2a | parent2 | 60 | H100 | queued | | | | | | |
+| **RT-A2** | **S5** | 102 | H100 | 96.27 | 99.20 | 96.47 | 88.00 | **94.98** | 1.28 | 5699 |
+| **RT-A2** | **S6** | 78 | H100 | 96.20 | 98.73 | 96.13 | 86.87 | **94.48** | 1.41 | 5669 |
+| **RT-A2** | **S7** | 48 | H100 | 97.67 | 98.47 | 95.73 | 87.87 | **94.93** | 0.64 | 5696 |
+| **RT-A2** | **S8** | 42 | H100 | 96.67 | 98.67 | 95.00 | 87.80 | **94.53** | 1.07 | 5672 |
+| RT-B2a | parent2 | 60 | H100 | partial (107/120 groups), not scored | | | | | | |
 
 Seed std is the sample standard deviation of the three per-seed four-suite means. Per-suite and per-seed counts are in `suite_seed_results.csv`; every H100 episode is in `h100_episodes.csv`.
 
 **Reading the results:**
-- All twelve complete conditions lie between 93.2% and 94.6%. That range is about the size of the seed-to-seed spread (0.5–1.4 points).
+- The sixteen complete conditions lie between 93.2% and 95.0%. That range is about the size of the seed-to-seed spread (0.5–1.4 points).
 - Spatial, Object and Goal are near ceiling, so Long (84–88%) carries most of the differences.
 - The variants with more transport machinery do not beat the simpler controls. Identity reuse (RT-T1ft) and teacher forcing (RT-TF) match RT-A.
 - RT-A2 is the only result with a paired 95% interval below zero: −0.90 points at S2, driven by Long (84.33% vs 86.20%). It compares H100 with the remote server, and the parity check found H100 about 1 point lower on the same checkpoint, so this gap may be partly hardware.
+
+## RT-A2 across schedules (same checkpoint, same H100 setup)
+
+These comparisons have no hardware confound. RT-A2 was trained with step-size conditioning on all six schedules. Its short schedules match or beat its long ones while using 3–4.6× fewer action calls (`paired_rt_a2_schedules.json`):
+
+| Comparison | Action calls | Difference (pp) | 95% CI | Episodes better / worse |
+|---|---|---:|---|---|
+| S5 − S1 | 102 vs 192 | +0.88 | [+0.30, +1.48] | 189 / 136 |
+| S6 − S1 | 78 vs 192 | +0.38 | [−0.30, +1.07] | 219 / 196 |
+| S7 − S1 | 48 vs 192 | +0.83 | [+0.20, +1.47] | 223 / 173 |
+| S8 − S1 | 42 vs 192 | +0.43 | [−0.27, +1.13] | 215 / 189 |
+| S6 − S2 | 78 vs 138 | +1.27 | [+0.58, +1.97] | 238 / 162 |
+| S8 − S2 | 42 vs 138 | +1.32 | [+0.62, +2.02] | 254 / 175 |
+
+RT-A2 S2 (93.22%) is its weakest schedule. Its shortest schedule, S8 (42 calls), reaches 94.53%. Latency, and the RT-B2a parent2 comparison needed for Phase-2 R1, are still pending.
 
 ## Paired comparisons (decision rules)
 
@@ -149,20 +166,26 @@ Paired differences are matched by (suite, task, initial state, seed). The 95% in
 
 Not yet decidable:
 - **Gate 0** and **Phase-1 R1**: the parent RT-B0/RT-B1 baselines and latency have not been evaluated.
-- **Transport-only scope**: needs RT-Pa S2 (running) and RT-B5 (not evaluated).
-- **Phase-2 R1**: needs RT-A2 S6/S7 and RT-B2a parent2 (queued), plus the RT-B1 latency line.
+- **Transport-only scope**: needs RT-Pa S2 (16 groups left) and RT-B5 (not evaluated).
+- **Phase-2 R1**: needs RT-B2a parent2 (13 groups left) and the RT-B1 latency line. The RT-A2 S6/S7 side is complete (94.48% / 94.93%).
 - **Phase-2 R2 and R3**: RT-B4-2 and RT+B2 were never trained.
 
 ## How the remaining work continues
 
-- Interactive allocation 898977 (4 H100, 16 CPUs) ran until 2026-10-13 05:55.
-- Batch job 905224 (2 H100, 16 CPUs) has been running since about 06:00 and ends at about 17:55.
-- Job 907959 is queued to start after 905224 ends, and job 903898 (4 H100) is also queued.
-- 16 RT-Pa S2 groups were in flight when 898977 ended. Job 905224 started before their claims expired, so it skipped them. Any later runner will redo them; no partial group is ever scored.
-- The runner writes each task/seed group atomically and claims groups with heartbeated lock files. On resume it checks each group's identity: checkpoint hash, schedule, backend and protocol.
-- To resume anywhere: `bash scripts/run_rt_missing_eval.sh`.
-- Progress: `python scripts/rt_eval_status.py`.
-- Rebuild this evidence: `python scripts/build_rt_h100_report.py`, then `python scripts/fill_rt_results.py`.
+Jobs so far:
+- 898977 (4 H100, 16 CPUs, interactive): until 05:55.
+- 905224 (2 H100, 16 CPUs, batch): 05:57–17:57, then hit its time limit.
+- 903898 (4 H100) started at 17:03. Its runner stopped before its first group, and the allocation is now running other SimpleMemVLN work.
+- Follow-up job **907959** (2 H100) is pending with reason `AssocGrpCPUMinutesLimit`: the group's CPU-minutes quota is exhausted.
+
+**Remaining:** 29 task/seed groups, 1,450 episodes (13 for RT-B2a parent2, 16 for RT-Pa S2). That is about 20–30 minutes on 2 H100s.
+
+Partially finished groups are never scored. The runner writes each task/seed group atomically and claims groups with heartbeated lock files. On resume it checks each group's identity: checkpoint hash, schedule, backend and protocol.
+
+Commands:
+- Resume anywhere: `bash scripts/run_rt_missing_eval.sh`.
+- Check progress: `python scripts/rt_eval_status.py`.
+- Rebuild the evidence: `python scripts/build_rt_h100_report.py`, then `python scripts/fill_rt_results.py`.
 - Outputs: `/groups/yshang/an221229/checkpoints/LoopWAM_NT/rt_eval_h100/final_rollout/<condition>/groups/*.json`.
 
 Latency (p50, batch 1, CUDA graph, 500 replayed observations) will be measured on an idle H100 with `scripts/measure_rt_latency.py` after scoring finishes.

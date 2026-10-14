@@ -1,0 +1,86 @@
+[
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 0.8833333333333334,
+  "ci95": [
+   0.3,
+   1.4833333333333334
+  ],
+  "a_only": 189,
+  "b_only": 136,
+  "cross_hardware": false,
+  "a": "RT-A2 S5",
+  "b": "RT-A2 S1",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ },
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 0.3833333333333333,
+  "ci95": [
+   -0.3,
+   1.0666666666666667
+  ],
+  "a_only": 219,
+  "b_only": 196,
+  "cross_hardware": false,
+  "a": "RT-A2 S6",
+  "b": "RT-A2 S1",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ },
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 0.8333333333333334,
+  "ci95": [
+   0.2,
+   1.4666666666666666
+  ],
+  "a_only": 223,
+  "b_only": 173,
+  "cross_hardware": false,
+  "a": "RT-A2 S7",
+  "b": "RT-A2 S1",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ },
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 0.4333333333333333,
+  "ci95": [
+   -0.26666666666666666,
+   1.1333333333333333
+  ],
+  "a_only": 215,
+  "b_only": 189,
+  "cross_hardware": false,
+  "a": "RT-A2 S8",
+  "b": "RT-A2 S1",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ },
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 1.2666666666666666,
+  "ci95": [
+   0.5833333333333334,
+   1.9666666666666666
+  ],
+  "a_only": 238,
+  "b_only": 162,
+  "cross_hardware": false,
+  "a": "RT-A2 S6",
+  "b": "RT-A2 S2",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ },
+ {
+  "paired_episodes": 6000,
+  "diff_pp": 1.3166666666666667,
+  "ci95": [
+   0.6166666666666667,
+   2.0166666666666666
+  ],
+  "a_only": 254,
+  "b_only": 175,
+  "cross_hardware": false,
+  "a": "RT-A2 S8",
+  "b": "RT-A2 S2",
+  "decision": "Within-RT-A2 schedule comparison (same H100, same checkpoint)"
+ }
+]

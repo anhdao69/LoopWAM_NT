@@ -70,19 +70,19 @@ phase2,RT-A2,S2,138,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612
 phase2,RT-A2,S5,102,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S5,102,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S5,102,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S5,102,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S5,102,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,96.27,99.20,96.47,88.00,94.98,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5699/6000 episodes; seed std 1.28 pp
 phase2,RT-A2,S6,78,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S6,78,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S6,78,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S6,78,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S6,78,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,96.20,98.73,96.13,86.87,94.48,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5669/6000 episodes; seed std 1.41 pp
 phase2,RT-A2,S7,48,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S7,48,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S7,48,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S7,48,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S7,48,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,97.67,98.47,95.73,87.87,94.93,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5696/6000 episodes; seed std 0.64 pp
 phase2,RT-A2,S8,42,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S8,42,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-A2,S8,42,epoch_09,,42,42/43/44,fixed,,,,,,,,,,
-phase2,RT-A2,S8,42,epoch_10,,42,42/43/44,fixed,,,,,,,,,,
+phase2,RT-A2,S8,42,epoch_10,25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d,42,42/43/44,fixed,96.67,98.67,95.00,87.80,94.53,,,NVIDIA H100 80GB HBM3,plans/performance/Residual_Transport_H100_Evaluation_20261013.md,5672/6000 episodes; seed std 1.07 pp
 phase2,RT-B2a,parent2,60,step_00002000,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-B2a,parent2,60,epoch_08,,42,42/43/44,fixed,,,,,,,,,,
 phase2,RT-B2a,parent2,60,epoch_09,,42,42/43/44,fixed,,,,,,,,,,

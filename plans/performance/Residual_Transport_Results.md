@@ -82,10 +82,10 @@ All measured-result cells are intentionally blank. Action calls are theoretical 
 |---|---|---:|---|---:|---:|---:|---:|---:|---|
 | RT-A2 | S1 | 192 | epoch_10 / 25ad8ca4705e |  |  | 86.87 |  | 94.10 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
 | RT-A2 | S2 | 138 | epoch_10 / 25ad8ca4705e |  |  | 84.33 |  | 93.22 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
-| RT-A2 | S5 | 102 |  | |  | | | | |
-| RT-A2 | S6 | 78 |  | |  | | | | |
-| RT-A2 | S7 | 48 |  | |  | | | | |
-| RT-A2 | S8 | 42 |  | |  | | | | |
+| RT-A2 | S5 | 102 | epoch_10 / 25ad8ca4705e |  |  | 88.00 |  | 94.98 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-A2 | S6 | 78 | epoch_10 / 25ad8ca4705e |  |  | 86.87 |  | 94.48 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-A2 | S7 | 48 | epoch_10 / 25ad8ca4705e |  |  | 87.87 |  | 94.93 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
+| RT-A2 | S8 | 42 | epoch_10 / 25ad8ca4705e |  |  | 87.80 |  | 94.53 | [H100](Residual_Transport_H100_Evaluation_20261013.md) |
 | RT-B2a | parent2 | 60 |  | |  | | | | |
 | RT+B2 | S8 | 42 |  | |  | | | | |
 | RT+B2 | S7 | 48 |  | |  | | | | |

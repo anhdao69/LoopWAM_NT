@@ -440,34 +440,63 @@
   "backend": "cuda-graph",
   "checkpoint": "epoch_10.pt",
   "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-  "complete": false,
+  "complete": true,
   "action_calls": 102,
-  "episodes": 2000,
-  "successes": 1860,
+  "episodes": 6000,
+  "successes": 5699,
   "per_suite": {
    "libero_spatial": {
-    "episodes": 600,
-    "successes": 591,
-    "success_pct": 98.5,
+    "episodes": 1500,
+    "successes": 1444,
+    "success_pct": 96.26666666666667,
     "seed_pct": {
-     "42": 99.0,
-     "43": 98.5,
-     "44": 98.0
+     "42": 96.6,
+     "43": 96.6,
+     "44": 95.6
     },
-    "seed_std_pct": 0.5
+    "seed_std_pct": 0.5773502691896257
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1488,
+    "success_pct": 99.2,
+    "seed_pct": {
+     "42": 99.2,
+     "43": 99.2,
+     "44": 99.2
+    },
+    "seed_std_pct": 0.0
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1447,
+    "success_pct": 96.46666666666667,
+    "seed_pct": {
+     "42": 97.0,
+     "43": 97.0,
+     "44": 95.4
+    },
+    "seed_std_pct": 0.923760430703398
    },
    "libero_10": {
-    "episodes": 1400,
-    "successes": 1269,
-    "success_pct": 90.64285714285714,
+    "episodes": 1500,
+    "successes": 1320,
+    "success_pct": 88.0,
     "seed_pct": {
      "42": 92.0,
-     "43": 90.88888888888889,
-     "44": 88.88888888888889
+     "43": 87.6,
+     "44": 84.4
     },
-    "seed_std_pct": 1.5765775299105764
+    "seed_std_pct": 3.81575680566778
    }
-  }
+  },
+  "four_suite_mean_pct": 94.98333333333333,
+  "seed_four_suite_mean_pct": {
+   "42": 96.2,
+   "43": 95.1,
+   "44": 93.65
+  },
+  "seed_std_pct": 1.2789970028633095
  },
  "RT-A2 S6": {
   "run": "RT-A2",
@@ -477,11 +506,63 @@
   "backend": "cuda-graph",
   "checkpoint": "epoch_10.pt",
   "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-  "complete": false,
+  "complete": true,
   "action_calls": 78,
-  "episodes": 0,
-  "successes": 0,
-  "per_suite": {}
+  "episodes": 6000,
+  "successes": 5669,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1443,
+    "success_pct": 96.2,
+    "seed_pct": {
+     "42": 95.8,
+     "43": 97.8,
+     "44": 95.0
+    },
+    "seed_std_pct": 1.4422205101855945
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1481,
+    "success_pct": 98.73333333333333,
+    "seed_pct": {
+     "42": 99.0,
+     "43": 99.2,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.6429100507328647
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1442,
+    "success_pct": 96.13333333333334,
+    "seed_pct": {
+     "42": 96.0,
+     "43": 96.6,
+     "44": 95.8
+    },
+    "seed_std_pct": 0.4163331998932245
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1303,
+    "success_pct": 86.86666666666666,
+    "seed_pct": {
+     "42": 89.0,
+     "43": 88.8,
+     "44": 82.8
+    },
+    "seed_std_pct": 3.5232560697930175
+   }
+  },
+  "four_suite_mean_pct": 94.48333333333333,
+  "seed_four_suite_mean_pct": {
+   "42": 94.95,
+   "43": 95.60000000000001,
+   "44": 92.9
+  },
+  "seed_std_pct": 1.4091959882618652
  },
  "RT-A2 S7": {
   "run": "RT-A2",
@@ -491,11 +572,63 @@
   "backend": "cuda-graph",
   "checkpoint": "epoch_10.pt",
   "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-  "complete": false,
+  "complete": true,
   "action_calls": 48,
-  "episodes": 0,
-  "successes": 0,
-  "per_suite": {}
+  "episodes": 6000,
+  "successes": 5696,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1465,
+    "success_pct": 97.66666666666667,
+    "seed_pct": {
+     "42": 96.6,
+     "43": 98.0,
+     "44": 98.4
+    },
+    "seed_std_pct": 0.945163125250527
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1477,
+    "success_pct": 98.46666666666667,
+    "seed_pct": {
+     "42": 98.6,
+     "43": 98.8,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.4163331998932245
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1436,
+    "success_pct": 95.73333333333333,
+    "seed_pct": {
+     "42": 96.8,
+     "43": 95.8,
+     "44": 94.6
+    },
+    "seed_std_pct": 1.1015141094572218
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1318,
+    "success_pct": 87.86666666666666,
+    "seed_pct": {
+     "42": 89.2,
+     "43": 88.6,
+     "44": 85.8
+    },
+    "seed_std_pct": 1.8147543451754948
+   }
+  },
+  "four_suite_mean_pct": 94.93333333333334,
+  "seed_four_suite_mean_pct": {
+   "42": 95.3,
+   "43": 95.30000000000001,
+   "44": 94.2
+  },
+  "seed_std_pct": 0.6350852961085892
  },
  "RT-A2 S8": {
   "run": "RT-A2",
@@ -505,11 +638,63 @@
   "backend": "cuda-graph",
   "checkpoint": "epoch_10.pt",
   "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-  "complete": false,
+  "complete": true,
   "action_calls": 42,
-  "episodes": 0,
-  "successes": 0,
-  "per_suite": {}
+  "episodes": 6000,
+  "successes": 5672,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1450,
+    "success_pct": 96.66666666666667,
+    "seed_pct": {
+     "42": 97.4,
+     "43": 96.4,
+     "44": 96.2
+    },
+    "seed_std_pct": 0.6429100507328647
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1480,
+    "success_pct": 98.66666666666667,
+    "seed_pct": {
+     "42": 98.8,
+     "43": 99.2,
+     "44": 98.0
+    },
+    "seed_std_pct": 0.6110100926607795
+   },
+   "libero_goal": {
+    "episodes": 1500,
+    "successes": 1425,
+    "success_pct": 95.0,
+    "seed_pct": {
+     "42": 95.0,
+     "43": 95.8,
+     "44": 94.2
+    },
+    "seed_std_pct": 0.7999999999999972
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1317,
+    "success_pct": 87.8,
+    "seed_pct": {
+     "42": 89.4,
+     "43": 89.2,
+     "44": 84.8
+    },
+    "seed_std_pct": 2.600000000000004
+   }
+  },
+  "four_suite_mean_pct": 94.53333333333335,
+  "seed_four_suite_mean_pct": {
+   "42": 95.15,
+   "43": 95.15,
+   "44": 93.3
+  },
+  "seed_std_pct": 1.0680979980008125
  },
  "RT-A S4": {
   "run": "RT-A",
@@ -587,9 +772,54 @@
   "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
   "complete": false,
   "action_calls": 60,
-  "episodes": 0,
-  "successes": 0,
-  "per_suite": {}
+  "episodes": 5350,
+  "successes": 5061,
+  "per_suite": {
+   "libero_spatial": {
+    "episodes": 1500,
+    "successes": 1458,
+    "success_pct": 97.2,
+    "seed_pct": {
+     "42": 96.4,
+     "43": 98.2,
+     "44": 97.0
+    },
+    "seed_std_pct": 0.9165151389911671
+   },
+   "libero_object": {
+    "episodes": 1500,
+    "successes": 1476,
+    "success_pct": 98.4,
+    "seed_pct": {
+     "42": 98.8,
+     "43": 99.4,
+     "44": 97.0
+    },
+    "seed_std_pct": 1.2489995996796814
+   },
+   "libero_goal": {
+    "episodes": 850,
+    "successes": 812,
+    "success_pct": 95.52941176470588,
+    "seed_pct": {
+     "42": 95.71428571428571,
+     "43": 97.0,
+     "44": 93.0
+    },
+    "seed_std_pct": 2.042074442132529
+   },
+   "libero_10": {
+    "episodes": 1500,
+    "successes": 1315,
+    "success_pct": 87.66666666666667,
+    "seed_pct": {
+     "42": 89.6,
+     "43": 88.2,
+     "44": 85.2
+    },
+    "seed_std_pct": 2.247962040011645
+   }
+  }
  },
  "RT-Pa S1": {
   "run": "RT-Pa",
