@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-12T18:42:46.079970+07:00",
+  "checked_at": "2026-10-14T18:53:05.345306+07:00",
   "epoch": 10,
   "revisions": {
     "chrono": "cf52c6364579e45408150cd5f526b573d42eef4d",
@@ -11,17 +11,7 @@
       "published_checkpoints": 7,
       "planned_eval_conditions": 7,
       "published_eval_conditions": 7,
-      "missing_epoch10_checkpoints": [],
-      "present_but_incomplete_assets": [],
-      "published_runs": [
-        "CL-0",
-        "CL-0@1",
-        "CL-A",
-        "CL-A@1",
-        "CL-FRAME",
-        "CL-REG",
-        "CL-W2"
-      ]
+      "missing_epoch10_checkpoints": []
     },
     "residual_trans": {
       "planned_checkpoints": 20,
@@ -81,16 +71,6 @@
           "run": "RT-A-seed44",
           "path": "RT-A-seed44/epoch_10.pt"
         }
-      ],
-      "present_but_incomplete_assets": [],
-      "published_runs": [
-        "RT-A",
-        "RT-A2",
-        "RT-B2a",
-        "RT-B4",
-        "RT-Pa",
-        "RT-T1ft",
-        "RT-TF"
       ]
     }
   }

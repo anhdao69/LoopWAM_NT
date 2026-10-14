@@ -1,0 +1,24 @@
+{
+  "updated_at": "2026-10-14T10:43:07.336852+07:00",
+  "main_commit": "b782043c88ab4694609c8a6d764b57c6974104bf",
+  "branch_commits": {
+    "chrono": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "residual_trans": "666219326eb625bdba3e44cd66cb623347389904"
+  },
+  "local_report_backup": "/storage/anhdh35/LoopWAM_NT-reports-before-pull-20261014_103630.tar",
+  "local_report_backup_hash_verified_files": 55,
+  "native_model_changes": {
+    "chrono": [],
+    "residual_trans": []
+  },
+  "completed_local_conditions": 12,
+  "repo_reported_h100_complete_conditions": 12,
+  "remaining_published_conditions": [
+    "RT-Pa S2",
+    "RT-B2a parent2"
+  ],
+  "rerun_policy": "Do not combine partial H100 rows with local scored rows; run full 6000-episode local evaluations for the two incomplete conditions with videos enabled.",
+  "h100_provenance_limitations": "H100 recorded runner hash differs from current committed export; results labelled repository-reported, exact episode grids/weight identity checked, not independent local replays. Original video artifacts are unavailable locally.",
+  "unpublished_planned_checkpoints": 13,
+  "unpublished_planned_conditions": 29
+}

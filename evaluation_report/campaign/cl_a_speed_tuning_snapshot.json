@@ -1,0 +1,29 @@
+{
+  "status": "selected",
+  "profile": {
+    "worker_counts": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "tasks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "episodes": 4,
+    "runner": "campaign_runner_fast.py",
+    "graph_disabled_checkpoints": [
+      "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+    ]
+  },
+  "selected_backend": "eager",
+  "selected_workers": 8,
+  "benchmark_episodes": 64
+}
