@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T11:25:17.203742+07:00",
+  "updated_at": "2026-10-14T19:19:52.477583+07:00",
   "runs": [
     {
       "name": "CL-0_native_137f0a839b5a",
@@ -8912,6 +8912,897 @@
       }
     },
     {
+      "name": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "family": "residual_trans",
+      "schedule": "parent2",
+      "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5674,
+      "status": "complete",
+      "source": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "progress": {
+        "completed": 6000,
+        "planned": 6000,
+        "successes": 5674,
+        "ready_workers": 8,
+        "workers": 8,
+        "elapsed_seconds": 6502.784848324023,
+        "recovered_episodes": 0
+      },
+      "protocol": {
+        "family": "residual_trans",
+        "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+        "schedule": "parent2",
+        "groups": [
+          {
+            "id": "libero_spatial_seed42_task0",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task0",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task0",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task1",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task1",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task1",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task2",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task2",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task2",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task3",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task3",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task3",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task4",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task4",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task4",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task5",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task5",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task5",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task6",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task6",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task6",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task7",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task7",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task7",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task8",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task8",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task8",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task9",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task9",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task9",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task0",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task0",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task0",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task1",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task1",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task1",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task2",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task2",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task2",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task3",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task3",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task3",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task4",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task4",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task4",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task5",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task5",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task5",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task6",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task6",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task6",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task7",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task7",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task7",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task8",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task8",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task8",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task9",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task9",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task9",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task0",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task0",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task0",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task1",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task1",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task1",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task2",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task2",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task2",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task3",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task3",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task3",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task4",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task4",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task4",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task5",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task5",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task5",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task6",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task6",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task6",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task7",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task7",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task7",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task8",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task8",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task8",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task9",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task9",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task9",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task0",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task0",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task0",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task1",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task1",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task1",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task2",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task2",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task2",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task3",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task3",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task3",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task4",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task4",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task4",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task5",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task5",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task5",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task6",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task6",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task6",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task7",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task7",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task7",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task8",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task8",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task8",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task9",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task9",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task9",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          }
+        ],
+        "backend": "eager",
+        "seed_rule": "base seed once per task; same base seed every query; no episode reseeding",
+        "reference_sha256": "c7f5c738df6c40ac8e9e0f26e024ea0e5efd30fbb88562c6551123e13b37cabe",
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea",
+        "adapter_sha256": "399a9cbb2f9f837df6e8dc003b755674df3ab085f44a743e2a5e37fda277e7c7",
+        "helper_sha256": {
+          "chrono_graph.py": "7b0db93a1a95d369ca69269ee0d6316d873d6cbc974e453017743dbeaa9dbfbf",
+          "campaign_state.py": "4ec88c66cd11ac47af9d6aabf42f1dc5f7a85df6d3a557349b5cf7183b2a0355",
+          "preflight.py": "63952314e3567ff4087379e5ff4efeb3f7aaa4b49393a33992a7186aa4b3e589",
+          "run_family.sh": "1e78fa26474a4e6ee20f2a70fe89314e5dc5954b60074e3e34e3eef542217999"
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "settling_steps": 30,
+        "replan_steps": 10,
+        "action_horizon": 32,
+        "max_policy_steps": {
+          "libero_spatial": 400,
+          "libero_object": 400,
+          "libero_goal": 400,
+          "libero_10": 700
+        },
+        "videos": true,
+        "query_timing": "observation preprocessing + native inference + action denormalization",
+        "precision": "FP32 model, BF16 autocast and VAE"
+      }
+    },
+    {
       "name": "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "family": "residual_trans",
       "schedule": "S1",
@@ -9807,18 +10698,18 @@
       "family": "residual_trans",
       "schedule": "S2",
       "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
-      "completed": 2505,
+      "completed": 6000,
       "planned": 6000,
-      "successes": 2422,
-      "status": "partial",
+      "successes": 5566,
+      "status": "complete",
       "source": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "progress": {
-        "completed": 2505,
+        "completed": 6000,
         "planned": 6000,
-        "successes": 2422,
+        "successes": 5566,
         "ready_workers": 8,
         "workers": 8,
-        "elapsed_seconds": 3391.879890470009,
+        "elapsed_seconds": 12850.879780533025,
         "recovered_episodes": 0
       },
       "protocol": {
@@ -10692,6 +11583,1341 @@
         "query_timing": "observation preprocessing + native inference + action denormalization",
         "precision": "FP32 model, BF16 autocast and VAE"
       }
+    },
+    {
+      "name": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "family": "residual_trans",
+      "schedule": "S2",
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5575,
+      "status": "complete",
+      "source": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "progress": {
+        "completed": 6000,
+        "planned": 6000,
+        "successes": 5575,
+        "ready_workers": 8,
+        "workers": 8,
+        "elapsed_seconds": 7602.0091037401,
+        "recovered_episodes": 0
+      },
+      "protocol": {
+        "family": "residual_trans",
+        "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "schedule": "S2",
+        "groups": [
+          {
+            "id": "libero_spatial_seed42_task0",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task0",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task0",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task1",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task1",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task1",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task2",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task2",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task2",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task3",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task3",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task3",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task4",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task4",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task4",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task5",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task5",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task5",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task6",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task6",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task6",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task7",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task7",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task7",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task8",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task8",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task8",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed42_task9",
+            "suite": "libero_spatial",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed43_task9",
+            "suite": "libero_spatial",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_spatial_seed44_task9",
+            "suite": "libero_spatial",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task0",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task0",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task0",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task1",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task1",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task1",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task2",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task2",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task2",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task3",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task3",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task3",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task4",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task4",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task4",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task5",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task5",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task5",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task6",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task6",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task6",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task7",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task7",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task7",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task8",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task8",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task8",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed42_task9",
+            "suite": "libero_object",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed43_task9",
+            "suite": "libero_object",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_object_seed44_task9",
+            "suite": "libero_object",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task0",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task0",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task0",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task1",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task1",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task1",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task2",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task2",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task2",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task3",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task3",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task3",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task4",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task4",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task4",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task5",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task5",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task5",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task6",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task6",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task6",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task7",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task7",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task7",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task8",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task8",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task8",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed42_task9",
+            "suite": "libero_goal",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed43_task9",
+            "suite": "libero_goal",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_goal_seed44_task9",
+            "suite": "libero_goal",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task0",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task0",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task0",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 0,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task1",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task1",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task1",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 1,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task2",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task2",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task2",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 2,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task3",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task3",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task3",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 3,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task4",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task4",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task4",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 4,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task5",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task5",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task5",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 5,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task6",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task6",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task6",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 6,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task7",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task7",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task7",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 7,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task8",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task8",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task8",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 8,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed42_task9",
+            "suite": "libero_10",
+            "seed": 42,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed43_task9",
+            "suite": "libero_10",
+            "seed": 43,
+            "task": 9,
+            "episodes": 50
+          },
+          {
+            "id": "libero_10_seed44_task9",
+            "suite": "libero_10",
+            "seed": 44,
+            "task": 9,
+            "episodes": 50
+          }
+        ],
+        "backend": "cuda-graph",
+        "seed_rule": "base seed once per task; same base seed every query; no episode reseeding",
+        "reference_sha256": "c7f5c738df6c40ac8e9e0f26e024ea0e5efd30fbb88562c6551123e13b37cabe",
+        "runner_sha256": "6c55bb92cbf883e52e970669b222b8c069163d29468800d763b58292993674ea",
+        "adapter_sha256": "399a9cbb2f9f837df6e8dc003b755674df3ab085f44a743e2a5e37fda277e7c7",
+        "helper_sha256": {
+          "chrono_graph.py": "7b0db93a1a95d369ca69269ee0d6316d873d6cbc974e453017743dbeaa9dbfbf",
+          "campaign_state.py": "4ec88c66cd11ac47af9d6aabf42f1dc5f7a85df6d3a557349b5cf7183b2a0355",
+          "preflight.py": "63952314e3567ff4087379e5ff4efeb3f7aaa4b49393a33992a7186aa4b3e589",
+          "run_family.sh": "1e78fa26474a4e6ee20f2a70fe89314e5dc5954b60074e3e34e3eef542217999"
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "settling_steps": 30,
+        "replan_steps": 10,
+        "action_horizon": 32,
+        "max_policy_steps": {
+          "libero_spatial": 400,
+          "libero_object": 400,
+          "libero_goal": 400,
+          "libero_10": 700
+        },
+        "videos": true,
+        "query_timing": "observation preprocessing + native inference + action denormalization",
+        "precision": "FP32 model, BF16 autocast and VAE"
+      }
+    },
+    {
+      "name": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S1",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5646,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S1",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S2",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5593,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S2",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S5",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5699,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S5",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S6",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5669,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S6",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S7",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5696,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S7",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "family": "residual_trans",
+      "schedule": "S8",
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5672,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S8",
+        "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "family": "residual_trans",
+      "schedule": "S4",
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5632,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S4",
+        "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "family": "residual_trans",
+      "schedule": "S1",
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5637,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S1",
+        "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "family": "residual_trans",
+      "schedule": "S1",
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5674,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S1",
+        "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "family": "residual_trans",
+      "schedule": "S2",
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5651,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S2",
+        "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "family": "residual_trans",
+      "schedule": "S1",
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5665,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S1",
+        "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
+    },
+    {
+      "name": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "family": "residual_trans",
+      "schedule": "S2",
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "completed": 6000,
+      "planned": 6000,
+      "successes": 5648,
+      "status": "external_complete",
+      "source": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "progress": {},
+      "protocol": {
+        "family": "residual_trans",
+        "schedule": "S2",
+        "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "external_audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "evidence_source": "H100 repository-reported evaluation; episode grid and aggregates audited, not replayed locally"
     }
   ],
   "suite_seed_results": [
@@ -11896,6 +14122,126 @@
       "status": "complete"
     },
     {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 486,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.972,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 476,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.952,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 497,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.994,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 491,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.982,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 480,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.96,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 452,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.904,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 433,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.866,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 420,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.84,
+      "status": "complete"
+    },
+    {
       "model": "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_spatial",
       "seed": 42,
@@ -12049,91 +14395,1651 @@
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_object",
       "seed": 42,
-      "successes": 342,
-      "episodes": 347,
+      "successes": 492,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": 0.9855907780979827,
-      "status": "partial"
+      "success_rate": 0.984,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_object",
       "seed": 43,
-      "successes": 334,
-      "episodes": 341,
+      "successes": 488,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": 0.9794721407624634,
-      "status": "partial"
+      "success_rate": 0.976,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_object",
       "seed": 44,
-      "successes": 307,
-      "episodes": 317,
+      "successes": 484,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": 0.9684542586750788,
-      "status": "partial"
+      "success_rate": 0.968,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_goal",
       "seed": 42,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 475,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.95,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_goal",
       "seed": 43,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 480,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.96,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_goal",
       "seed": 44,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 466,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.932,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_10",
       "seed": 42,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 429,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.858,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_10",
       "seed": 43,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 420,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.84,
+      "status": "complete"
     },
     {
       "model": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "suite": "libero_10",
       "seed": 44,
-      "successes": 0,
-      "episodes": 0,
+      "successes": 393,
+      "episodes": 500,
       "planned": 500,
-      "success_rate": null,
-      "status": "partial"
+      "success_rate": 0.786,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 488,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.976,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 478,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.956,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 486,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.972,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 468,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.936,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 458,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.916,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 430,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.86,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 418,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.836,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 403,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.806,
+      "status": "complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 482,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.964,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 476,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.952,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 494,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.988,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 469,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.938,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 457,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.914,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 431,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.862,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 415,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.83,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 478,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.956,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 472,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.944,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 443,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.886,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 421,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.842,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 401,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.802,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 478,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.956,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 485,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.97,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 485,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.97,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 460,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.92,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 438,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.876,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 422,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.844,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 475,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.95,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 480,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.96,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 445,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.89,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 444,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.888,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 414,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.828,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 492,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.984,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 493,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.986,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 494,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.988,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 484,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.968,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 446,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.892,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 443,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.886,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 429,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.858,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 487,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.974,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 482,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.964,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 494,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.988,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 475,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.95,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 471,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.942,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 447,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.894,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 446,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.892,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 424,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.848,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 475,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.95,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 491,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.982,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 480,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.96,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 464,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.928,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 451,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.902,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 430,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.86,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 419,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.838,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 482,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.964,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 484,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.968,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 485,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.97,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 492,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.984,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 472,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.944,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 467,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.934,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 440,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.88,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 430,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.86,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 418,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.836,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 485,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.97,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 482,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.964,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 496,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.992,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 491,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.982,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 474,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.948,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 480,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.96,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 470,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.94,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 457,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.914,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 446,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.892,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 420,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.84,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 486,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.972,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 479,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.958,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 486,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.972,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 491,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.982,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 497,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.994,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 477,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.954,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 441,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.882,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 423,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.846,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 418,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.836,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 485,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.97,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 481,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.962,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 494,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.988,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 494,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.988,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 474,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.948,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 452,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.904,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 439,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.878,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 422,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.844,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "successes": 486,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.972,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 43,
+      "successes": 483,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.966,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_spatial",
+      "seed": 44,
+      "successes": 470,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.94,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 42,
+      "successes": 495,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.99,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 43,
+      "successes": 489,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.978,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_object",
+      "seed": 44,
+      "successes": 490,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.98,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 42,
+      "successes": 484,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.968,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 43,
+      "successes": 482,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.964,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_goal",
+      "seed": 44,
+      "successes": 473,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.946,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 42,
+      "successes": 439,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.878,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 43,
+      "successes": 437,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.874,
+      "status": "external_complete"
+    },
+    {
+      "model": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+      "suite": "libero_10",
+      "seed": 44,
+      "successes": 420,
+      "episodes": 500,
+      "planned": 500,
+      "success_rate": 0.84,
+      "status": "external_complete"
     }
   ],
   "note": "Partial rates cover only finished episodes, not the full suite. Benchmark episodes are excluded."

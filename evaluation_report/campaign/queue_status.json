@@ -623,13 +623,105 @@
           "size": 96861
         }
       ],
-      "status": "error",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-A/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
       "pid": 1593599,
       "identity": "49296489",
-      "error": "Traceback (most recent call last):\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/campaign_watch.py\", line 113, in main\n    summary=verify_complete(active['output'],active['checkpoint_sha256'])\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/queue_state.py\", line 17, in verify_complete\n    output=Path(output); manifest=json.loads((output/'manifest.json').read_text())\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1134, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/manifest.json'\n"
+      "previous_status": "error",
+      "external_evidence": {
+        "key": "residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "reported_stats": {
+          "run": "RT-A",
+          "schedule": "S4",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+          "complete": true,
+          "action_calls": 156,
+          "episodes": 6000,
+          "successes": 5632,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1431,
+              "success_pct": 95.4,
+              "seed_pct": {
+                "42": 95.0,
+                "43": 95.8,
+                "44": 95.4
+              },
+              "seed_std_pct": 0.3999999999999986
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1476,
+              "success_pct": 98.4,
+              "seed_pct": {
+                "42": 99.0,
+                "43": 98.2,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.5291502622129176
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1425,
+              "success_pct": 95.0,
+              "seed_pct": {
+                "42": 96.0,
+                "43": 96.2,
+                "44": 92.8
+              },
+              "seed_std_pct": 1.9078784028338938
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1300,
+              "success_pct": 86.66666666666667,
+              "seed_pct": {
+                "42": 90.2,
+                "43": 86.0,
+                "44": 83.8
+              },
+              "seed_std_pct": 3.251666239535256
+            }
+          },
+          "four_suite_mean_pct": 93.86666666666667,
+          "seed_four_suite_mean_pct": {
+            "42": 95.05,
+            "43": 94.05,
+            "44": 92.5
+          },
+          "seed_std_pct": 1.2848475914805342
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/episodes.csv",
+        "records_sha256": "79ffc40858013728f181c9c6f55083715182e4b6fc6678fc5d105408ad3e7613",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": "Traceback (most recent call last):\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/campaign_watch.py\", line 113, in main\n    summary=verify_complete(active['output'],active['checkpoint_sha256'])\n  File \"/storage/anhdh35/LoopWAM-campaign-eval/queue_state.py\", line 17, in verify_complete\n    output=Path(output); manifest=json.loads((output/'manifest.json').read_text())\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1134, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A__S4__15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b/manifest.json'\n"
     },
     "residual_trans__RT-B4__S1__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711": {
       "family": "residual_trans",
@@ -815,12 +907,115 @@
           "size": 96861
         }
       ],
-      "status": "running",
+      "status": "complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
       "pid": 1644367,
-      "identity": "50831645"
+      "identity": "50831645",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5566,
+        "success_rate": 0.9276666666666666,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1242,
+            "episodes": 1500,
+            "success_rate": 0.828,
+            "seeds": {
+              "42": {
+                "successes": 429,
+                "episodes": 500,
+                "success_rate": 0.858
+              },
+              "43": {
+                "successes": 420,
+                "episodes": 500,
+                "success_rate": 0.84
+              },
+              "44": {
+                "successes": 393,
+                "episodes": 500,
+                "success_rate": 0.786
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1421,
+            "episodes": 1500,
+            "success_rate": 0.9473333333333334,
+            "seeds": {
+              "42": {
+                "successes": 475,
+                "episodes": 500,
+                "success_rate": 0.95
+              },
+              "43": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "44": {
+                "successes": 466,
+                "episodes": 500,
+                "success_rate": 0.932
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1464,
+            "episodes": 1500,
+            "success_rate": 0.976,
+            "seeds": {
+              "42": {
+                "successes": 492,
+                "episodes": 500,
+                "success_rate": 0.984
+              },
+              "43": {
+                "successes": 488,
+                "episodes": 500,
+                "success_rate": 0.976
+              },
+              "44": {
+                "successes": 484,
+                "episodes": 500,
+                "success_rate": 0.968
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1439,
+            "episodes": 1500,
+            "success_rate": 0.9593333333333334,
+            "seeds": {
+              "42": {
+                "successes": 485,
+                "episodes": 500,
+                "success_rate": 0.97
+              },
+              "43": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "44": {
+                "successes": 474,
+                "episodes": 500,
+                "success_rate": 0.948
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 12852.27411825204,
+        "recovered_episodes": 0,
+        "total_queries": 109315,
+        "total_query_seconds": 60642.36229982431,
+        "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791874979.492413
     },
     "chrono__CL-REG__native__6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d": {
       "family": "chrono",
@@ -1006,13 +1201,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390328,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "reported_stats": {
+          "run": "RT-T1ft",
+          "schedule": "S1",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+          "complete": true,
+          "action_calls": 192,
+          "episodes": 6000,
+          "successes": 5674,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1450,
+              "success_pct": 96.66666666666667,
+              "seed_pct": {
+                "42": 97.0,
+                "43": 96.4,
+                "44": 96.6
+              },
+              "seed_std_pct": 0.3055050463303875
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1477,
+              "success_pct": 98.46666666666667,
+              "seed_pct": {
+                "42": 99.2,
+                "43": 98.2,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.6429100507328647
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1424,
+              "success_pct": 94.93333333333334,
+              "seed_pct": {
+                "42": 94.8,
+                "43": 96.0,
+                "44": 94.0
+              },
+              "seed_std_pct": 1.0066445913694335
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1323,
+              "success_pct": 88.2,
+              "seed_pct": {
+                "42": 91.4,
+                "43": 89.2,
+                "44": 84.0
+              },
+              "seed_std_pct": 3.800000000000003
+            }
+          },
+          "four_suite_mean_pct": 94.56666666666666,
+          "seed_four_suite_mean_pct": {
+            "42": 95.6,
+            "43": 94.95,
+            "44": 93.15
+          },
+          "seed_std_pct": 1.2691860908997232
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S1__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1/episodes.csv",
+        "records_sha256": "045cfc6afe2346fd507d9642f961c4178ef8701cf64ae5ce4cff76d4ebfa90e9",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1": {
       "family": "residual_trans",
@@ -1051,13 +1338,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/5193679abdba8a584ed0ef16a6df716b831d78c5/RT-T1ft/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390338,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "reported_stats": {
+          "run": "RT-T1ft",
+          "schedule": "S2",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+          "complete": true,
+          "action_calls": 138,
+          "episodes": 6000,
+          "successes": 5651,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1451,
+              "success_pct": 96.73333333333333,
+              "seed_pct": {
+                "42": 97.2,
+                "43": 95.8,
+                "44": 97.2
+              },
+              "seed_std_pct": 0.8082903768654793
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1483,
+              "success_pct": 98.86666666666666,
+              "seed_pct": {
+                "42": 98.2,
+                "43": 99.4,
+                "44": 99.0
+              },
+              "seed_std_pct": 0.6110100926607795
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1435,
+              "success_pct": 95.66666666666667,
+              "seed_pct": {
+                "42": 95.4,
+                "43": 96.2,
+                "44": 95.4
+              },
+              "seed_std_pct": 0.461880215351699
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1282,
+              "success_pct": 85.46666666666667,
+              "seed_pct": {
+                "42": 88.2,
+                "43": 84.6,
+                "44": 83.6
+              },
+              "seed_std_pct": 2.4193663082165453
+            }
+          },
+          "four_suite_mean_pct": 94.18333333333334,
+          "seed_four_suite_mean_pct": {
+            "42": 94.75,
+            "43": 94.0,
+            "44": 93.80000000000001
+          },
+          "seed_std_pct": 0.5008326400438863
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1/episodes.csv",
+        "records_sha256": "bcd980455665beeaa55eccbbd15bd5b381903b056ec7b8693674987c533d0237",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3": {
       "family": "residual_trans",
@@ -1096,13 +1475,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390343,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "reported_stats": {
+          "run": "RT-Pa",
+          "schedule": "S1",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+          "complete": true,
+          "action_calls": 192,
+          "episodes": 6000,
+          "successes": 5637,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1451,
+              "success_pct": 96.73333333333333,
+              "seed_pct": {
+                "42": 96.4,
+                "43": 96.8,
+                "44": 97.0
+              },
+              "seed_std_pct": 0.30550504633038594
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1476,
+              "success_pct": 98.4,
+              "seed_pct": {
+                "42": 99.0,
+                "43": 98.4,
+                "44": 97.8
+              },
+              "seed_std_pct": 0.6000000000000014
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1422,
+              "success_pct": 94.8,
+              "seed_pct": {
+                "42": 94.4,
+                "43": 96.6,
+                "44": 93.4
+              },
+              "seed_std_pct": 1.637070554374484
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1288,
+              "success_pct": 85.86666666666666,
+              "seed_pct": {
+                "42": 88.0,
+                "43": 86.0,
+                "44": 83.6
+              },
+              "seed_std_pct": 2.2030282189144437
+            }
+          },
+          "four_suite_mean_pct": 93.95,
+          "seed_four_suite_mean_pct": {
+            "42": 94.45,
+            "43": 94.44999999999999,
+            "44": 92.95000000000002
+          },
+          "seed_std_pct": 0.8660254037844264
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-Pa__S1__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/episodes.csv",
+        "records_sha256": "92949c26cc811bd505e7644c32881b15ea15ed00bdc0b2c942c881cf3b93d0f8",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3": {
       "family": "residual_trans",
@@ -1141,13 +1612,203 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/6120115ae1695015b23231aea3e46c55a0d0dcdb/RT-Pa/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390345,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "upstream_partial_evidence": {
+        "key": "residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "reported_stats": {
+          "run": "RT-Pa",
+          "schedule": "S2",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+          "complete": false,
+          "action_calls": 138,
+          "episodes": 5200,
+          "successes": 4792,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1443,
+              "success_pct": 96.2,
+              "seed_pct": {
+                "42": 95.8,
+                "43": 98.0,
+                "44": 94.8
+              },
+              "seed_std_pct": 1.6370705543744914
+            },
+            "libero_object": {
+              "episodes": 1000,
+              "successes": 981,
+              "success_pct": 98.1,
+              "seed_pct": {
+                "42": 99.14285714285714,
+                "43": 98.0,
+                "44": 97.0
+              },
+              "seed_std_pct": 1.0722219284950172
+            },
+            "libero_goal": {
+              "episodes": 1200,
+              "successes": 1119,
+              "success_pct": 93.25,
+              "seed_pct": {
+                "42": 95.75,
+                "43": 92.5,
+                "44": 91.5
+              },
+              "seed_std_pct": 2.222048604328897
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1249,
+              "success_pct": 83.26666666666667,
+              "seed_pct": {
+                "42": 85.6,
+                "43": 83.6,
+                "44": 80.6
+              },
+              "seed_std_pct": 2.516611478423583
+            }
+          }
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-Pa__S2__17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3/episodes.csv",
+        "records_sha256": "f9c1af4d0670105189ee8692e01a0cb345ec7cb6dfa31c3fbc8055909132165c",
+        "audit": {
+          "exact_episode_grid": false,
+          "complete_task_seed_groups": 104,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "resume_reason": "Upstream H100 condition incomplete; run full matched local evaluation with videos instead of mixing hardware.",
+      "pid": 1872668,
+      "identity": "59624427",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5575,
+        "success_rate": 0.9291666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1251,
+            "episodes": 1500,
+            "success_rate": 0.834,
+            "seeds": {
+              "42": {
+                "successes": 430,
+                "episodes": 500,
+                "success_rate": 0.86
+              },
+              "43": {
+                "successes": 418,
+                "episodes": 500,
+                "success_rate": 0.836
+              },
+              "44": {
+                "successes": 403,
+                "episodes": 500,
+                "success_rate": 0.806
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1405,
+            "episodes": 1500,
+            "success_rate": 0.9366666666666666,
+            "seeds": {
+              "42": {
+                "successes": 479,
+                "episodes": 500,
+                "success_rate": 0.958
+              },
+              "43": {
+                "successes": 468,
+                "episodes": 500,
+                "success_rate": 0.936
+              },
+              "44": {
+                "successes": 458,
+                "episodes": 500,
+                "success_rate": 0.916
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1470,
+            "episodes": 1500,
+            "success_rate": 0.98,
+            "seeds": {
+              "42": {
+                "successes": 495,
+                "episodes": 500,
+                "success_rate": 0.99
+              },
+              "43": {
+                "successes": 489,
+                "episodes": 500,
+                "success_rate": 0.978
+              },
+              "44": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1449,
+            "episodes": 1500,
+            "success_rate": 0.966,
+            "seeds": {
+              "42": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "43": {
+                "successes": 488,
+                "episodes": 500,
+                "success_rate": 0.976
+              },
+              "44": {
+                "successes": 478,
+                "episodes": 500,
+                "success_rate": 0.956
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 7603.073853994021,
+        "recovered_episodes": 0,
+        "total_queries": 108861,
+        "total_query_seconds": 27539.02789014287,
+        "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+        "backend": "cuda-graph",
+        "workers": 8
+      },
+      "completed_at": 1791957660.6584806
     },
     "chrono__CL-W2__native__d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032": {
       "family": "chrono",
@@ -1333,13 +1994,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.139035,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S1",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 192,
+          "episodes": 6000,
+          "successes": 5646,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1439,
+              "success_pct": 95.93333333333334,
+              "seed_pct": {
+                "42": 96.4,
+                "43": 96.2,
+                "44": 95.2
+              },
+              "seed_std_pct": 0.6429100507328647
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1485,
+              "success_pct": 99.0,
+              "seed_pct": {
+                "42": 99.2,
+                "43": 99.0,
+                "44": 98.8
+              },
+              "seed_std_pct": 0.20000000000000284
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1419,
+              "success_pct": 94.6,
+              "seed_pct": {
+                "42": 94.6,
+                "43": 95.4,
+                "44": 93.8
+              },
+              "seed_std_pct": 0.8000000000000043
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1303,
+              "success_pct": 86.86666666666666,
+              "seed_pct": {
+                "42": 91.4,
+                "43": 86.2,
+                "44": 83.0
+              },
+              "seed_std_pct": 4.239496825489241
+            }
+          },
+          "four_suite_mean_pct": 94.1,
+          "seed_four_suite_mean_pct": {
+            "42": 95.4,
+            "43": 94.2,
+            "44": 92.7
+          },
+          "seed_std_pct": 1.3527749258468695
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S1__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "a2d0d48281fd2da38b6f4b856be10acb9b759f116769c2c4ee99dd365d6c00d2",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
       "family": "residual_trans",
@@ -1378,13 +2131,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390352,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S2",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 138,
+          "episodes": 6000,
+          "successes": 5593,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1432,
+              "success_pct": 95.46666666666667,
+              "seed_pct": {
+                "42": 94.6,
+                "43": 96.2,
+                "44": 95.6
+              },
+              "seed_std_pct": 0.8082903768654799
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1474,
+              "success_pct": 98.26666666666667,
+              "seed_pct": {
+                "42": 99.2,
+                "43": 97.8,
+                "44": 97.8
+              },
+              "seed_std_pct": 0.8082903768654793
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1422,
+              "success_pct": 94.8,
+              "seed_pct": {
+                "42": 94.6,
+                "43": 95.4,
+                "44": 94.4
+              },
+              "seed_std_pct": 0.5291502622129203
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1265,
+              "success_pct": 84.33333333333333,
+              "seed_pct": {
+                "42": 88.6,
+                "43": 84.2,
+                "44": 80.2
+              },
+              "seed_std_pct": 4.20158700175699
+            }
+          },
+          "four_suite_mean_pct": 93.21666666666667,
+          "seed_four_suite_mean_pct": {
+            "42": 94.25,
+            "43": 93.39999999999999,
+            "44": 91.99999999999999
+          },
+          "seed_std_pct": 1.1361484644769577
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S2__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "c0bbc92f7e2d57d5fcfca886230d25221744e6d22e3d3603d9c157f41d981eb7",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
       "family": "residual_trans",
@@ -1423,13 +2268,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390355,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S5",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 102,
+          "episodes": 6000,
+          "successes": 5699,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1444,
+              "success_pct": 96.26666666666667,
+              "seed_pct": {
+                "42": 96.6,
+                "43": 96.6,
+                "44": 95.6
+              },
+              "seed_std_pct": 0.5773502691896257
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1488,
+              "success_pct": 99.2,
+              "seed_pct": {
+                "42": 99.2,
+                "43": 99.2,
+                "44": 99.2
+              },
+              "seed_std_pct": 0.0
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1447,
+              "success_pct": 96.46666666666667,
+              "seed_pct": {
+                "42": 97.0,
+                "43": 97.0,
+                "44": 95.4
+              },
+              "seed_std_pct": 0.923760430703398
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1320,
+              "success_pct": 88.0,
+              "seed_pct": {
+                "42": 92.0,
+                "43": 87.6,
+                "44": 84.4
+              },
+              "seed_std_pct": 3.81575680566778
+            }
+          },
+          "four_suite_mean_pct": 94.98333333333333,
+          "seed_four_suite_mean_pct": {
+            "42": 96.2,
+            "43": 95.1,
+            "44": 93.65
+          },
+          "seed_std_pct": 1.2789970028633095
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S5__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "e3dabecf6dce4c0ce65b226211be22b2b795962f23c80a440516be69e01603bf",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
       "family": "residual_trans",
@@ -1468,13 +2405,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390355,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S6",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 78,
+          "episodes": 6000,
+          "successes": 5669,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1443,
+              "success_pct": 96.2,
+              "seed_pct": {
+                "42": 95.8,
+                "43": 97.8,
+                "44": 95.0
+              },
+              "seed_std_pct": 1.4422205101855945
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1481,
+              "success_pct": 98.73333333333333,
+              "seed_pct": {
+                "42": 99.0,
+                "43": 99.2,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.6429100507328647
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1442,
+              "success_pct": 96.13333333333334,
+              "seed_pct": {
+                "42": 96.0,
+                "43": 96.6,
+                "44": 95.8
+              },
+              "seed_std_pct": 0.4163331998932245
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1303,
+              "success_pct": 86.86666666666666,
+              "seed_pct": {
+                "42": 89.0,
+                "43": 88.8,
+                "44": 82.8
+              },
+              "seed_std_pct": 3.5232560697930175
+            }
+          },
+          "four_suite_mean_pct": 94.48333333333333,
+          "seed_four_suite_mean_pct": {
+            "42": 94.95,
+            "43": 95.60000000000001,
+            "44": 92.9
+          },
+          "seed_std_pct": 1.4091959882618652
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S6__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "cf3fd89c9b90210ba895dc3a9af07abffec2ec7742893f3ce106c001ab331a2a",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
       "family": "residual_trans",
@@ -1513,13 +2542,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390357,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S7",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 48,
+          "episodes": 6000,
+          "successes": 5696,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1465,
+              "success_pct": 97.66666666666667,
+              "seed_pct": {
+                "42": 96.6,
+                "43": 98.0,
+                "44": 98.4
+              },
+              "seed_std_pct": 0.945163125250527
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1477,
+              "success_pct": 98.46666666666667,
+              "seed_pct": {
+                "42": 98.6,
+                "43": 98.8,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.4163331998932245
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1436,
+              "success_pct": 95.73333333333333,
+              "seed_pct": {
+                "42": 96.8,
+                "43": 95.8,
+                "44": 94.6
+              },
+              "seed_std_pct": 1.1015141094572218
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1318,
+              "success_pct": 87.86666666666666,
+              "seed_pct": {
+                "42": 89.2,
+                "43": 88.6,
+                "44": 85.8
+              },
+              "seed_std_pct": 1.8147543451754948
+            }
+          },
+          "four_suite_mean_pct": 94.93333333333334,
+          "seed_four_suite_mean_pct": {
+            "42": 95.3,
+            "43": 95.30000000000001,
+            "44": 94.2
+          },
+          "seed_std_pct": 0.6350852961085892
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S7__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "ec831cda05eae26b203f59c69442857df8dcebcc47b16dca98f2fc2236e4a079",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d": {
       "family": "residual_trans",
@@ -1558,13 +2679,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/eaa75a14dbd348c26cd3782b8d06c1231ac9f63e/RT-A2/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.139036,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "reported_stats": {
+          "run": "RT-A2",
+          "schedule": "S8",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+          "complete": true,
+          "action_calls": 42,
+          "episodes": 6000,
+          "successes": 5672,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1450,
+              "success_pct": 96.66666666666667,
+              "seed_pct": {
+                "42": 97.4,
+                "43": 96.4,
+                "44": 96.2
+              },
+              "seed_std_pct": 0.6429100507328647
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1480,
+              "success_pct": 98.66666666666667,
+              "seed_pct": {
+                "42": 98.8,
+                "43": 99.2,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.6110100926607795
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1425,
+              "success_pct": 95.0,
+              "seed_pct": {
+                "42": 95.0,
+                "43": 95.8,
+                "44": 94.2
+              },
+              "seed_std_pct": 0.7999999999999972
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1317,
+              "success_pct": 87.8,
+              "seed_pct": {
+                "42": 89.4,
+                "43": 89.2,
+                "44": 84.8
+              },
+              "seed_std_pct": 2.600000000000004
+            }
+          },
+          "four_suite_mean_pct": 94.53333333333335,
+          "seed_four_suite_mean_pct": {
+            "42": 95.15,
+            "43": 95.15,
+            "44": 93.3
+          },
+          "seed_std_pct": 1.0680979980008125
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-A2__S8__25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d/episodes.csv",
+        "records_sha256": "f3d5804921786d5f0b7a933659c17aa79060c06d2f5f3426f5a6927c51ab5029",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "chrono__CL-A__native__3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39": {
       "family": "chrono",
@@ -1899,13 +3112,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390362,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "reported_stats": {
+          "run": "RT-TF",
+          "schedule": "S1",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+          "complete": true,
+          "action_calls": 192,
+          "episodes": 6000,
+          "successes": 5665,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1455,
+              "success_pct": 97.0,
+              "seed_pct": {
+                "42": 97.0,
+                "43": 97.8,
+                "44": 96.2
+              },
+              "seed_std_pct": 0.7999999999999972
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1477,
+              "success_pct": 98.46666666666667,
+              "seed_pct": {
+                "42": 98.8,
+                "43": 98.8,
+                "44": 97.8
+              },
+              "seed_std_pct": 0.5773502691896257
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1420,
+              "success_pct": 94.66666666666667,
+              "seed_pct": {
+                "42": 94.8,
+                "43": 94.6,
+                "44": 94.6
+              },
+              "seed_std_pct": 0.1154700538379268
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1313,
+              "success_pct": 87.53333333333333,
+              "seed_pct": {
+                "42": 90.4,
+                "43": 87.8,
+                "44": 84.4
+              },
+              "seed_std_pct": 3.008875759039135
+            }
+          },
+          "four_suite_mean_pct": 94.41666666666666,
+          "seed_four_suite_mean_pct": {
+            "42": 95.25,
+            "43": 94.75,
+            "44": 93.25
+          },
+          "seed_std_pct": 1.0408329997330663
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S1__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea/episodes.csv",
+        "records_sha256": "7396696b0dee82ef9449c38a4a076b6094da2b21e6bfbf738b581c726a0f55b5",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea": {
       "family": "residual_trans",
@@ -1944,13 +3249,105 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "external_complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/0a615453025d0e7ec06eb6c2054d064be8b14989/RT-TF/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390364,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "external_evidence": {
+        "key": "residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "reported_stats": {
+          "run": "RT-TF",
+          "schedule": "S2",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+          "complete": true,
+          "action_calls": 138,
+          "episodes": 6000,
+          "successes": 5648,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1439,
+              "success_pct": 95.93333333333334,
+              "seed_pct": {
+                "42": 97.2,
+                "43": 96.6,
+                "44": 94.0
+              },
+              "seed_std_pct": 1.7009801096230763
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1474,
+              "success_pct": 98.26666666666667,
+              "seed_pct": {
+                "42": 99.0,
+                "43": 97.8,
+                "44": 98.0
+              },
+              "seed_std_pct": 0.6429100507328647
+            },
+            "libero_goal": {
+              "episodes": 1500,
+              "successes": 1439,
+              "success_pct": 95.93333333333334,
+              "seed_pct": {
+                "42": 96.8,
+                "43": 96.4,
+                "44": 94.6
+              },
+              "seed_std_pct": 1.1718930554164664
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1296,
+              "success_pct": 86.4,
+              "seed_pct": {
+                "42": 87.8,
+                "43": 87.4,
+                "44": 84.0
+              },
+              "seed_std_pct": 2.0880613017821106
+            }
+          },
+          "four_suite_mean_pct": 94.13333333333333,
+          "seed_four_suite_mean_pct": {
+            "42": 95.2,
+            "43": 94.54999999999998,
+            "44": 92.65
+          },
+          "seed_std_pct": 1.3250786140200592
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-TF__S2__c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea/episodes.csv",
+        "records_sha256": "8014050f2648e4a01817977daf3638a6a02d72097303a14b62076b3d4f81c72a",
+        "audit": {
+          "exact_episode_grid": true,
+          "complete_task_seed_groups": 120,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "previous_error": null
     },
     "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac": {
       "family": "residual_trans",
@@ -1989,13 +3386,203 @@
           "size": 96861
         }
       ],
-      "status": "cancelled",
+      "status": "complete",
       "checkpoint_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/318ced3b8bfe709ec6a9a49e823831a11c954751/RT-B2a/epoch_10.pt",
       "stats_path": "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/318ced3b8bfe709ec6a9a49e823831a11c954751/RT-B2a/dataset_stats.json",
       "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
-      "previous_status": "ready",
+      "previous_status": "cancelled",
       "cancelled_at": 1791865041.1390367,
-      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations."
+      "cancellation_reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
+      "upstream_partial_evidence": {
+        "key": "residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+        "reported_stats": {
+          "run": "RT-B2a",
+          "schedule": "parent2",
+          "source": "H100 (this work)",
+          "gpu": "NVIDIA H100 80GB HBM3",
+          "backend": "cuda-graph",
+          "checkpoint": "epoch_10.pt",
+          "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+          "complete": false,
+          "action_calls": 60,
+          "episodes": 5350,
+          "successes": 5061,
+          "per_suite": {
+            "libero_spatial": {
+              "episodes": 1500,
+              "successes": 1458,
+              "success_pct": 97.2,
+              "seed_pct": {
+                "42": 96.4,
+                "43": 98.2,
+                "44": 97.0
+              },
+              "seed_std_pct": 0.9165151389911671
+            },
+            "libero_object": {
+              "episodes": 1500,
+              "successes": 1476,
+              "success_pct": 98.4,
+              "seed_pct": {
+                "42": 98.8,
+                "43": 99.4,
+                "44": 97.0
+              },
+              "seed_std_pct": 1.2489995996796814
+            },
+            "libero_goal": {
+              "episodes": 850,
+              "successes": 812,
+              "success_pct": 95.52941176470588,
+              "seed_pct": {
+                "42": 95.71428571428571,
+                "43": 97.0,
+                "44": 93.0
+              },
+              "seed_std_pct": 2.042074442132529
+            },
+            "libero_10": {
+              "episodes": 1500,
+              "successes": 1315,
+              "success_pct": 87.66666666666667,
+              "seed_pct": {
+                "42": 89.6,
+                "43": 88.2,
+                "44": 85.2
+              },
+              "seed_std_pct": 2.247962040011645
+            }
+          }
+        },
+        "source_revision": "666219326eb625bdba3e44cd66cb623347389904",
+        "local_evidence_dir": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+        "records_csv": "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/upstream_h100/residual_trans__RT-B2a__parent2__25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac/episodes.csv",
+        "records_sha256": "7be362c58d245976fe73ede58fe04d4b75f85424fda85c6750dfeb362590129f",
+        "audit": {
+          "exact_episode_grid": false,
+          "complete_task_seed_groups": 107,
+          "checkpoint_sha_matches_local": true,
+          "declared_protocol_matches": true,
+          "adapter_source_hash_matches": true,
+          "runner_export_hash_matches": false,
+          "recorded_runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+          "current_export_runner_sha256": "e4394edd4690cdd8cdfac4bafb2727902367efc0d01fbbfbec7559df62cff952",
+          "hardware": "NVIDIA H100 80GB HBM3",
+          "torch": "2.7.1+cu128",
+          "video_artifacts_locally_available": false,
+          "limitations": [
+            "H100 hardware differs from local Blackwell.",
+            "Manifest declares videos, but committed episode CSV does not include videos; no local video availability claim.",
+            "Recorded runner hash differs from the committed runner export. These are repository-reported results with audited rows, not independently replayed source-identical local results."
+          ]
+        }
+      },
+      "resume_reason": "Upstream H100 condition incomplete; run full matched local evaluation with videos instead of mixing hardware.",
+      "pid": 1926343,
+      "identity": "60456193",
+      "summary": {
+        "episodes": 6000,
+        "successes": 5674,
+        "success_rate": 0.9456666666666667,
+        "per_suite": {
+          "libero_10": {
+            "successes": 1305,
+            "episodes": 1500,
+            "success_rate": 0.87,
+            "seeds": {
+              "42": {
+                "successes": 452,
+                "episodes": 500,
+                "success_rate": 0.904
+              },
+              "43": {
+                "successes": 433,
+                "episodes": 500,
+                "success_rate": 0.866
+              },
+              "44": {
+                "successes": 420,
+                "episodes": 500,
+                "success_rate": 0.84
+              }
+            }
+          },
+          "libero_goal": {
+            "successes": 1440,
+            "episodes": 1500,
+            "success_rate": 0.96,
+            "seeds": {
+              "42": {
+                "successes": 481,
+                "episodes": 500,
+                "success_rate": 0.962
+              },
+              "43": {
+                "successes": 480,
+                "episodes": 500,
+                "success_rate": 0.96
+              },
+              "44": {
+                "successes": 479,
+                "episodes": 500,
+                "success_rate": 0.958
+              }
+            }
+          },
+          "libero_object": {
+            "successes": 1484,
+            "episodes": 1500,
+            "success_rate": 0.9893333333333333,
+            "seeds": {
+              "42": {
+                "successes": 497,
+                "episodes": 500,
+                "success_rate": 0.994
+              },
+              "43": {
+                "successes": 496,
+                "episodes": 500,
+                "success_rate": 0.992
+              },
+              "44": {
+                "successes": 491,
+                "episodes": 500,
+                "success_rate": 0.982
+              }
+            }
+          },
+          "libero_spatial": {
+            "successes": 1445,
+            "episodes": 1500,
+            "success_rate": 0.9633333333333334,
+            "seeds": {
+              "42": {
+                "successes": 483,
+                "episodes": 500,
+                "success_rate": 0.966
+              },
+              "43": {
+                "successes": 486,
+                "episodes": 500,
+                "success_rate": 0.972
+              },
+              "44": {
+                "successes": 476,
+                "episodes": 500,
+                "success_rate": 0.952
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 6503.852855053032,
+        "recovered_episodes": 0,
+        "total_queries": 104148,
+        "total_query_seconds": 20951.739960277802,
+        "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+        "backend": "eager",
+        "workers": 8
+      },
+      "completed_at": 1791964718.7562494
     },
     "chrono__CL-A@1__native__391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781": {
       "family": "chrono",
@@ -2292,17 +3879,9 @@
       "completed_at": 1791827021.7255425
     }
   },
-  "active": {
-    "key": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
-    "pid": 1644367,
-    "identity": "50831645",
-    "output": "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
-    "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
-  },
+  "active": null,
   "adoption_recorded": true,
-  "known_sessions": [
-    1644367
-  ],
+  "known_sessions": [],
   "unregistered_epoch10": {
     "chrono": [],
     "residual_trans": []
@@ -2340,9 +3919,9 @@
     "residual_trans": "318ced3b8bfe709ec6a9a49e823831a11c954751"
   },
   "watcher": {
-    "pid": 1669307,
-    "identity": "51222413",
-    "updated_at": 1791865578.164622
+    "pid": 1872664,
+    "identity": "59624361",
+    "updated_at": 1791980434.3366842
   },
   "expected_conditions": 55,
   "expected_episodes": 330000,
@@ -2354,79 +3933,19 @@
       "chrono__CL-FRAME__native__b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a"
     ]
   },
-  "active_stage": {
-    "stage": "full_evaluation",
-    "started_at": 1791862120.166025,
-    "selected": {
-      "backend": "eager",
-      "workers": 8,
-      "summary": {
-        "episodes": 64,
-        "successes": 64,
-        "success_rate": 1.0,
-        "per_suite": {
-          "libero_spatial": {
-            "successes": 64,
-            "episodes": 64,
-            "success_rate": 1.0,
-            "seeds": {
-              "42": {
-                "successes": 32,
-                "episodes": 32,
-                "success_rate": 1.0
-              },
-              "43": {
-                "successes": 32,
-                "episodes": 32,
-                "success_rate": 1.0
-              }
-            }
-          }
-        },
-        "elapsed_seconds": 86.19166004302679,
-        "recovered_episodes": 0,
-        "total_queries": 674,
-        "total_query_seconds": 291.6474923796486,
-        "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
-        "backend": "eager",
-        "workers": 8
-      },
-      "output": "/data14t/anhdh35/loopwam_campaign/benchmarks/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711/eager_w8"
-    },
-    "command": [
-      "/storage/anhdh35/LoopWAM-campaign-eval/run_family.sh",
-      "residual_trans",
-      "/storage/anhdh35/LoopWAM-campaign-eval/campaign_runner_fast.py",
-      "--family",
-      "residual_trans",
-      "--checkpoint",
-      "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/epoch_10.pt",
-      "--stats",
-      "/data14t/anhdh35/loopwam_campaign/checkpoints/ResidualTrans/469ed84cdad941c009fc69675085e5553d1d0f3d/RT-B4/dataset_stats.json",
-      "--schedule",
-      "S2",
-      "--backend",
-      "eager",
-      "--workers",
-      "8",
-      "--output",
-      "/data14t/anhdh35/loopwam_campaign/results/residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
-    ]
-  },
-  "active_progress": {
-    "completed": 2548,
-    "planned": 6000,
-    "successes": 2464,
-    "ready_workers": 8,
-    "workers": 8,
-    "elapsed_seconds": 3452.8276376980357,
-    "recovered_episodes": 0
-  },
-  "queue_enabled": false,
-  "discovery_enabled": false,
-  "stop_request": {
+  "queue_enabled": true,
+  "discovery_enabled": true,
+  "previous_stop_request": {
     "requested_at": 1791865041.1390288,
     "reason": "User requested finish RT-B4 S2 and stop all following evaluations.",
     "finish_only_key": "residual_trans__RT-B4__S2__7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+  },
+  "resume_request": {
+    "requested_at": 1791949342.5082831,
+    "reason": "User requested latest repository code and completion of missing evaluations.",
+    "remaining_published_conditions": [
+      "RT-Pa S2",
+      "RT-B2a parent2"
+    ]
   }
 }

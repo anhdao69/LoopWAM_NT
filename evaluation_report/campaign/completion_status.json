@@ -1,0 +1,15 @@
+{
+  "updated_at": "2026-10-14T19:19:52.477583+07:00",
+  "planned_conditions": 55,
+  "available_conditions": 26,
+  "local_complete_conditions": 14,
+  "externally_reported_complete_conditions": 12,
+  "remaining_available_conditions": 0,
+  "awaiting_weights_conditions": 29,
+  "scored_episodes": 156000,
+  "local_scored_wall_seconds": 158698.690571543,
+  "available_evaluations_complete": true,
+  "full_plan_complete": false,
+  "awaiting_weights_checkpoints": 13,
+  "active_condition": null
+}
