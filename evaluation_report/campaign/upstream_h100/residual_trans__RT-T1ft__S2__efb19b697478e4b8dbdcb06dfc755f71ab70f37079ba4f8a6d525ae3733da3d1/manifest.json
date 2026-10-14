@@ -1,0 +1,97 @@
+{
+ "run": "RT-T1ft",
+ "schedule": "S2",
+ "depths": [
+  4,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "checkpoint": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-T1ft/epoch_10.pt",
+ "sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+ "stats": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-T1ft/dataset_stats.json",
+ "data_manifest": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-T1ft/data/data_manifest.json",
+ "backend": "cuda-graph",
+ "output": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/rt_eval_h100/final_rollout/residual_trans__RT-T1ft__S2__efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+ "epoch": 10,
+ "transport_config": {
+  "kind": "T1",
+  "scope": "pb",
+  "regime": "fu",
+  "schedules": [
+   "S1",
+   "S2"
+  ],
+  "step_cond": false,
+  "anchor": true,
+  "seed": 42,
+  "gate": "round2"
+ },
+ "protocol": {
+  "suites": [
+   "libero_spatial",
+   "libero_object",
+   "libero_goal",
+   "libero_10"
+  ],
+  "seeds": [
+   42,
+   43,
+   44
+  ],
+  "tasks": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "episodes": 50,
+  "max_policy_steps": {
+   "libero_spatial": 400,
+   "libero_object": 400,
+   "libero_goal": 400,
+   "libero_10": 700
+  },
+  "settling_steps": 30,
+  "settling_action": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   -1
+  ],
+  "settling_done": "ignored",
+  "replan_steps": 10,
+  "action_horizon": 32,
+  "seed_rule": "global seed once per task/seed group; env.seed(base) at construction, env reused for 50 sequential initial states; every query uses the base seed",
+  "success": "environment done flag",
+  "precision": "FP32 model, BF16 autocast",
+  "camera": 256,
+  "model_image": "2x224 horizontal",
+  "videos": true
+ },
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "contract_world": 2,
+ "runner_sha256": "82c935fb5cde5d3f9ca6daab28cb9ad63c526d8e319ec8ab8bc93251dd47b275",
+ "adapter_source_sha256": "7f2b081c696329c254e7c46c6fc99416fba3640ab9c804e35cb8ee5596a991d6",
+ "text_cache_dir": "/groups/yshang/an221229/data/FastWAM/text_embeds_cache/libero",
+ "host": "evc102",
+ "slurm_job_id": "898977",
+ "mujoco_gl": "egl",
+ "torch": "2.7.1+cu128",
+ "gpu": "NVIDIA H100 80GB HBM3"
+}
