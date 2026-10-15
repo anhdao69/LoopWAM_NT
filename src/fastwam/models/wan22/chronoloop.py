@@ -175,9 +175,9 @@ class ChronoLoopMoT(LoopMoT):
         a_new = self._post(ab, aio, a_mixed, actx, amask) if action is not None else None
         return v_new, a_new
 
-    def _run_chrono(self, i, p, n_obs, readonly, video, action, cond):
+    def _run_chrono(self, i, p, n_obs, readonly, video, action, cond, keep_activations=False):
         fn = partial(self._chrono_block, i, p, n_obs, readonly)
-        if self.checkpoint_blocks and self.training and torch.is_grad_enabled():
+        if self.checkpoint_blocks and not keep_activations and self.training and torch.is_grad_enabled():
             return checkpoint(fn, video, action, *cond, use_reentrant=False)
         return fn(video, action, *cond)
 
@@ -191,11 +191,17 @@ class ChronoLoopMoT(LoopMoT):
             raise ValueError('ChronoLoop supports action loops <= video loops (late alignment)')
         mem = self.memory
         p, n_obs = prefix_len, observation_tokens
+        # Speed option: keep the activations of the last N virtual layers instead of recomputing them
+        # (same math; trades memory for ~1/48 of the recompute per layer). 0 = parent behaviour.
+        keep_last = getattr(self, 'uncheckpointed_virtual_layers', 0)
+        n_virtual = self.unique_depth + (k - 1) * self.core_depth
+        calls = [0]
 
         def run(i, v, a):
             cond = (torch.tanh(mem.alpha_video[i]), torch.tanh(mem.alpha_action[i]), video_freqs, action_freqs,
                     video_t_mod, action_t_mod, video_context, video_context_mask, action_context, action_context_mask)
-            return self._run_chrono(i, p, n_obs, readonly, v, a, cond)
+            calls[0] += 1
+            return self._run_chrono(i, p, n_obs, readonly, v, a, cond, keep_activations=calls[0] > n_virtual - keep_last)
 
         v, a = video_tokens, action_tokens
         for i in range(self.pre_depth):

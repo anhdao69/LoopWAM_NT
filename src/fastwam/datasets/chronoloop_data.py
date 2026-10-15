@@ -109,19 +109,19 @@ class FullLiberoWindows:
 
 # --------------------------------------------------------------------------- schedule
 
-def build_traversals(episode_lengths, epochs: int, seed: int) -> np.ndarray:
+def build_traversals(episode_lengths, epochs: int, seed: int, stride: int = REPLAN_STRIDE) -> np.ndarray:
     """[(epoch, demo, phase)] for every epoch, each epoch shuffled with seed+epoch."""
     rows = []
     for epoch in range(epochs):
-        pairs = np.asarray([(d, u) for d in range(len(episode_lengths)) for u in range(REPLAN_STRIDE)
+        pairs = np.asarray([(d, u) for d in range(len(episode_lengths)) for u in range(stride)
                             if u < episode_lengths[d]], dtype=np.int64)
         order = np.random.default_rng(seed + epoch).permutation(len(pairs))
         rows.append(np.column_stack([np.full(len(pairs), epoch), pairs[order]]))
     return np.concatenate(rows).astype(np.int64)
 
 
-def traversal_length(length: int, phase: int) -> int:
-    return max(0, (length - phase + REPLAN_STRIDE - 1) // REPLAN_STRIDE)
+def traversal_length(length: int, phase: int, stride: int = REPLAN_STRIDE) -> int:
+    return max(0, (length - phase + stride - 1) // stride)
 
 
 @dataclass
@@ -141,6 +141,7 @@ class StreamScheduler:
     cursor: int = 0
     states: list = field(default_factory=list)
     finished_per_epoch: dict = field(default_factory=dict)
+    stride: int = REPLAN_STRIDE      # replanning stride (LIBERO 10; robot datasets set their own)
 
     def __post_init__(self):
         if not self.states:
@@ -166,10 +167,10 @@ class StreamScheduler:
             row = []
             if st.traversal >= 0:
                 epoch, d, u = (int(v) for v in self.traversals[st.traversal])
-                n = traversal_length(int(self.episode_lengths[d]), u)
+                n = traversal_length(int(self.episode_lengths[d]), u, self.stride)
                 for w in range(self.tbptt):
                     q = st.position + w
-                    row.append((int(self.episode_starts[d]) + u + REPLAN_STRIDE * q, st.traversal, q) if q < n else None)
+                    row.append((int(self.episode_starts[d]) + u + self.stride * q, st.traversal, q) if q < n else None)
                 st.position += self.tbptt
                 if st.position >= n:
                     self.finished_per_epoch[epoch] = self.finished_per_epoch.get(epoch, 0) + 1
@@ -199,9 +200,9 @@ class StreamScheduler:
         self.finished_per_epoch = {int(k): int(v) for k, v in state['finished_per_epoch'].items()}
 
 
-def simulate_schedule(traversals, episode_starts, episode_lengths, streams=32, tbptt=4):
+def simulate_schedule(traversals, episode_starts, episode_lengths, streams=32, tbptt=4, stride=REPLAN_STRIDE):
     """Total updates, valid windows, and the update at which each epoch completes."""
-    sched = StreamScheduler(traversals, episode_starts, episode_lengths, streams, tbptt)
+    sched = StreamScheduler(traversals, episode_starts, episode_lengths, streams, tbptt, stride=stride)
     updates, valid, epoch_done_at = 0, 0, {}
     while not sched.exhausted:
         slots, _ = sched.next_update()
