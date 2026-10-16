@@ -1,0 +1,72 @@
+[
+  {
+    "model": "CL-0",
+    "published_revision": "97d55b1cfc097e846dc679c0763e93b0b4ac0183",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "diff --git a/src/fastwam/datasets/chronoloop_data.py b/src/fastwam/datasets/chronoloop_data.py\nindex 273855a..5747687 100644\n--- a/src/fastwam/datasets/chronoloop_data.py\n+++ b/src/fastwam/datasets/chronoloop_data.py\n@@ -254,3 +254,54 @@ def read_latents(cache, indices, device):\n         raise RuntimeError('Latent cache miss; run scripts/chronoloop_precompute_latents.py first')\n     bits = np.ascontiguousarray(cache._latents[ids]).view(np.int16)\n     return torch.from_numpy(bits).view(torch.bfloat16).to(device=device, non_blocking=True).float()\n+\n+\n+def stage_latent_cache(src, dst, threads=8, chunk=256 << 20, timeout=3600):\n+    \"\"\"Copy the latent cache directory to node-local storage (e.g. /dev/shm) once per node.\n+\n+    Random 150 KB reads from Lustre are I/O bound (~5 s per 128 windows); a local copy makes\n+    them memory-speed. Concurrent callers (several runs on one node) coordinate through an\n+    exclusive lock file; others wait for READY. Files are copied with parallel positional I/O\n+    and verified by size; the cache's own metadata check runs when it is opened.\n+    \"\"\"\n+    import os, time\n+    from concurrent.futures import ThreadPoolExecutor\n+    src, dst = Path(src), Path(dst)\n+    dst.mkdir(parents=True, exist_ok=True)\n+    ready, lock = dst / 'READY', dst / '.lock'\n+    names = ('metadata.json', 'valid.uint8', 'latents.uint16')\n+    deadline = time.time() + timeout\n+    while not ready.exists():\n+        try:\n+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)\n+        except FileExistsError:\n+            if time.time() > deadline:\n+                raise TimeoutError(f'Timed out waiting for latent staging in {dst}')\n+            time.sleep(5)\n+            continue\n+        try:\n+            for name in names:\n+                size = (src / name).stat().st_size\n+                tmp = dst / f'{name}.tmp'\n+                with open(src / name, 'rb') as fi, open(tmp, 'wb') as fo:\n+                    fo.truncate(size)\n+                    a, b = fi.fileno(), fo.fileno()\n+\n+                    def copy(offset):\n+                        n = min(chunk, size - offset)\n+                        while n > 0:\n+                            data = os.pread(a, min(n, 64 << 20), offset)\n+                            if not data:\n+                                raise IOError('short read while staging latents')\n+                            os.pwrite(b, data, offset)\n+                            offset += len(data); n -= len(data)\n+                    with ThreadPoolExecutor(threads) as pool:\n+                        list(pool.map(copy, range(0, size, chunk)))\n+                if tmp.stat().st_size != size:\n+                    raise IOError(f'staged size mismatch for {name}')\n+                tmp.replace(dst / name)\n+            ready.write_text(str(time.time()))\n+        finally:\n+            os.close(fd)\n+            lock.unlink(missing_ok=True)\n+    return dst\n",
+    "metadata_sha256": "99b8c42f98f75da4cf1a326275c553efc92483716c938054018ede30c063ed44",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-A",
+    "published_revision": "97d55b1cfc097e846dc679c0763e93b0b4ac0183",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "diff --git a/src/fastwam/datasets/chronoloop_data.py b/src/fastwam/datasets/chronoloop_data.py\nindex 273855a..5747687 100644\n--- a/src/fastwam/datasets/chronoloop_data.py\n+++ b/src/fastwam/datasets/chronoloop_data.py\n@@ -254,3 +254,54 @@ def read_latents(cache, indices, device):\n         raise RuntimeError('Latent cache miss; run scripts/chronoloop_precompute_latents.py first')\n     bits = np.ascontiguousarray(cache._latents[ids]).view(np.int16)\n     return torch.from_numpy(bits).view(torch.bfloat16).to(device=device, non_blocking=True).float()\n+\n+\n+def stage_latent_cache(src, dst, threads=8, chunk=256 << 20, timeout=3600):\n+    \"\"\"Copy the latent cache directory to node-local storage (e.g. /dev/shm) once per node.\n+\n+    Random 150 KB reads from Lustre are I/O bound (~5 s per 128 windows); a local copy makes\n+    them memory-speed. Concurrent callers (several runs on one node) coordinate through an\n+    exclusive lock file; others wait for READY. Files are copied with parallel positional I/O\n+    and verified by size; the cache's own metadata check runs when it is opened.\n+    \"\"\"\n+    import os, time\n+    from concurrent.futures import ThreadPoolExecutor\n+    src, dst = Path(src), Path(dst)\n+    dst.mkdir(parents=True, exist_ok=True)\n+    ready, lock = dst / 'READY', dst / '.lock'\n+    names = ('metadata.json', 'valid.uint8', 'latents.uint16')\n+    deadline = time.time() + timeout\n+    while not ready.exists():\n+        try:\n+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)\n+        except FileExistsError:\n+            if time.time() > deadline:\n+                raise TimeoutError(f'Timed out waiting for latent staging in {dst}')\n+            time.sleep(5)\n+            continue\n+        try:\n+            for name in names:\n+                size = (src / name).stat().st_size\n+                tmp = dst / f'{name}.tmp'\n+                with open(src / name, 'rb') as fi, open(tmp, 'wb') as fo:\n+                    fo.truncate(size)\n+                    a, b = fi.fileno(), fo.fileno()\n+\n+                    def copy(offset):\n+                        n = min(chunk, size - offset)\n+                        while n > 0:\n+                            data = os.pread(a, min(n, 64 << 20), offset)\n+                            if not data:\n+                                raise IOError('short read while staging latents')\n+                            os.pwrite(b, data, offset)\n+                            offset += len(data); n -= len(data)\n+                    with ThreadPoolExecutor(threads) as pool:\n+                        list(pool.map(copy, range(0, size, chunk)))\n+                if tmp.stat().st_size != size:\n+                    raise IOError(f'staged size mismatch for {name}')\n+                tmp.replace(dst / name)\n+            ready.write_text(str(time.time()))\n+        finally:\n+            os.close(fd)\n+            lock.unlink(missing_ok=True)\n+    return dst\n",
+    "metadata_sha256": "e9cdcd08015d80460df8b2250dfdeb3f92b86c5e455e2ebb85a5323b59f27d90",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-REG",
+    "published_revision": "f74e2e4e2264675005d9d0307f671cc24bba7b61",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "",
+    "metadata_sha256": "c4f898c8a5e1d73d6e09eb6bc19c5fe2a5d6d99a6be641f7abc5d8aa16b8b2f5",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-W2",
+    "published_revision": "f74e2e4e2264675005d9d0307f671cc24bba7b61",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "",
+    "metadata_sha256": "9828a13633fd57a433323ae02a365f004a098db971dbcb6bf0d1e9524aee4ba0",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-0@1",
+    "published_revision": "f74e2e4e2264675005d9d0307f671cc24bba7b61",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "",
+    "metadata_sha256": "a64cdf13867b9b166f40b56f8d2711ef30d344c1cb893c2d38fdc567d26d3cec",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-A@1",
+    "published_revision": "f74e2e4e2264675005d9d0307f671cc24bba7b61",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "",
+    "metadata_sha256": "6ec576370aab8005b62d4614764da6ffe278353ed3614f4d732c8b86ddd4d0b4",
+    "evaluator_diff": ""
+  },
+  {
+    "model": "CL-FRAME",
+    "published_revision": "f74e2e4e2264675005d9d0307f671cc24bba7b61",
+    "evaluation_revision": "0065121824bbc904ad615c61ea13a467f21044dd",
+    "native_source_diff_empty": true,
+    "adapter_ast_equal": true,
+    "training_only_diff": "",
+    "metadata_sha256": "a7359ae29dfc3d31a79e89f333a57681c5ecedbc04ecb2239911b5dd0e63181d",
+    "evaluator_diff": ""
+  }
+]

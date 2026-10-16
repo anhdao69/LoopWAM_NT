@@ -1,0 +1,6 @@
+{
+  "path": "evaluator_source.tar.gz",
+  "sha256": "5473e38b2231703bed392b547efe92ea301b5872b996004d845c1ffcd710d629",
+  "created_unix": 1792037766.179889,
+  "note": "Source snapshot and tests; native model revisions/checkpoints/assets are pinned separately in protocol/task manifests."
+}

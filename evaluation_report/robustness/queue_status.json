@@ -1,0 +1,1178 @@
+{
+  "jobs": [
+    {
+      "id": "plus__CL-0",
+      "benchmark": "plus",
+      "model": "CL-0",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/fea8b7334294ce67058c44105ec858025f3eca28/CL-0_no-memory_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792037806.176029,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 65040
+          },
+          "workers": 4,
+          "seconds": 161.21755063999444,
+          "signature": "a3c7769b6b4357ab91b0541783de18d4e10f1a408af5670ed0d3f7d9320b5111",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-0/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 9,
+            "success_rate": 0.5294117647058824,
+            "scored_wall_seconds": 161.21755063999444,
+            "elapsed_seconds": 168.1591457379982,
+            "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792037977.3774529,
+            "total_queries": 794,
+            "query_seconds": 321.59538506518584
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 84552
+          },
+          "workers": 8,
+          "seconds": 163.5603069900535,
+          "signature": "e4b6a5839d0b0dbfa7890a3609e86240ea585f324ae03d139bdd5034686bc74b",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-0/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 9,
+            "success_rate": 0.5294117647058824,
+            "scored_wall_seconds": 163.5603069900535,
+            "elapsed_seconds": 172.05516013200395,
+            "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792038161.7714827,
+            "total_queries": 793,
+            "query_seconds": 620.453261417686
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 51245,
+          "observed_worker_peak_mib": 5038
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 708,
+        "success_rate": 0.4701195219123506,
+        "scored_wall_seconds": 11757.592819700018,
+        "elapsed_seconds": 11764.391853373963,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792049934.8043504,
+        "total_queries": 51459,
+        "query_seconds": 20787.264743130072
+      },
+      "finished_unix": 1792049940.9640787
+    },
+    {
+      "id": "plus__CL-A",
+      "benchmark": "plus",
+      "model": "CL-A",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792049941.0063996,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 56090
+          },
+          "workers": 4,
+          "seconds": 160.9478604940232,
+          "signature": "cc212272226cbcd7b6a85ced48d17c1bda2f3cb861df6729a57b6298581d2859",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-A/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 9,
+            "success_rate": 0.5294117647058824,
+            "scored_wall_seconds": 160.9478604940232,
+            "elapsed_seconds": 167.14225476398133,
+            "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792050125.2838874,
+            "total_queries": 792,
+            "query_seconds": 320.70331230561715
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 75604
+          },
+          "workers": 8,
+          "seconds": 164.53005151299294,
+          "signature": "97692e7334cdc597ba6e83f552ec99fd097613c4861d42d3e46b10b2d59388fc",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-A/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 9,
+            "success_rate": 0.5294117647058824,
+            "scored_wall_seconds": 164.53005151299294,
+            "elapsed_seconds": 172.74915419891477,
+            "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792050310.4143417,
+            "total_queries": 792,
+            "query_seconds": 613.5733166022692
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 60972,
+          "observed_worker_peak_mib": 5038
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 719,
+        "success_rate": 0.47742363877822047,
+        "scored_wall_seconds": 10637.103804299957,
+        "elapsed_seconds": 10643.446083940915,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792060962.5331142,
+        "total_queries": 51119,
+        "query_seconds": 17450.524508882547
+      },
+      "finished_unix": 1792060965.5386968
+    },
+    {
+      "id": "plus__CL-REG",
+      "benchmark": "plus",
+      "model": "CL-REG",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/f45c862e1e45645eee407c7a26d0e9fd816bc872/CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-REG",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792060965.6196146,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 56010
+          },
+          "workers": 4,
+          "seconds": 138.02517730300315,
+          "signature": "95b43e0f4916a9160ce3182e95b1f7260d4d3f0274d963bf20793b8d57cbe343",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-REG/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 11,
+            "success_rate": 0.6470588235294118,
+            "scored_wall_seconds": 138.02517730300315,
+            "elapsed_seconds": 144.4172834850615,
+            "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792061120.623146,
+            "total_queries": 724,
+            "query_seconds": 241.97188502026256
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 75606
+          },
+          "workers": 8,
+          "seconds": 145.14712416904513,
+          "signature": "814cd2c248a7384d4484a3cb3149393cfdf2b6759f67648f982ac390700d838f",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-REG/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 11,
+            "success_rate": 0.6470588235294118,
+            "scored_wall_seconds": 145.14712416904513,
+            "elapsed_seconds": 152.3474568419624,
+            "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792061283.2208211,
+            "total_queries": 724,
+            "query_seconds": 490.0149122719886
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 60970,
+          "observed_worker_peak_mib": 5038
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 721,
+        "success_rate": 0.47875166002656044,
+        "scored_wall_seconds": 10403.028917871998,
+        "elapsed_seconds": 10409.305319100036,
+        "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792071702.2068605,
+        "total_queries": 51127,
+        "query_seconds": 17006.297948508058
+      },
+      "finished_unix": 1792071708.6140196
+    },
+    {
+      "id": "plus__CL-W2",
+      "benchmark": "plus",
+      "model": "CL-W2",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8706968184639b57fc12410cad4a89dce3f79836/CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-W2",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792071708.7377224,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5266,
+            "max_total_gpu_mib": 57006
+          },
+          "workers": 4,
+          "seconds": 116.93450600001961,
+          "signature": "ff8345a4a7ece51097309c9a5a12d0cf387d83ab8bfcb8b163e1b360236055d0",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-W2/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 12,
+            "success_rate": 0.7058823529411765,
+            "scored_wall_seconds": 116.93450600001961,
+            "elapsed_seconds": 123.26304639899172,
+            "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792071847.3092866,
+            "total_queries": 706,
+            "query_seconds": 248.5605131208431
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5266,
+            "max_total_gpu_mib": 77430
+          },
+          "workers": 8,
+          "seconds": 128.4014524500817,
+          "signature": "68a36a551326a9f3b209cbf9f19be7614117318b0e00b75e668dbd83eb4d5e11",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-W2/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 12,
+            "success_rate": 0.7058823529411765,
+            "scored_wall_seconds": 128.4014524500817,
+            "elapsed_seconds": 135.62555074505508,
+            "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792071992.2931144,
+            "total_queries": 705,
+            "query_seconds": 510.4337374587776
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 60970,
+          "observed_worker_peak_mib": 5266
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 729,
+        "success_rate": 0.48406374501992033,
+        "scored_wall_seconds": 12209.680516703986,
+        "elapsed_seconds": 12216.12578150502,
+        "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792084215.2695704,
+        "total_queries": 51035,
+        "query_seconds": 21901.026736037456
+      },
+      "finished_unix": 1792084219.675992
+    },
+    {
+      "id": "plus__CL-0@1",
+      "benchmark": "plus",
+      "model": "CL-0@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0-at1",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792084219.8309934,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 75182
+          },
+          "workers": 4,
+          "seconds": 135.11862115794793,
+          "signature": "56c5fa8bfd5e062b86417d705660814a8d0a9cd20d8d7594dcde9c6394202104",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-0-at1/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 11,
+            "success_rate": 0.6470588235294118,
+            "scored_wall_seconds": 135.11862115794793,
+            "elapsed_seconds": 143.03390683897305,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792084380.3205848,
+            "total_queries": 701,
+            "query_seconds": 145.37318899692036
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 58558
+          },
+          "workers": 8,
+          "seconds": 121.69151836493984,
+          "signature": "ca8f467eca801c6e330a5cf5c5cc85f2b2821f264387c6d373e7d4ec5dfef62b",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-0-at1/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 11,
+            "success_rate": 0.6470588235294118,
+            "scored_wall_seconds": 121.69151836493984,
+            "elapsed_seconds": 130.5861453890102,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792084519.7169042,
+            "total_queries": 705,
+            "query_seconds": 254.59491323772818
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 78228
+          },
+          "workers": 12,
+          "seconds": 109.01124566409271,
+          "signature": "f98f3020545f9d377f4f98163797df8c0b2a70a9ba2cf9883f17cbdc55d13b16",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-0-at1/workers12",
+          "summary": {
+            "episodes": 17,
+            "successes": 11,
+            "success_rate": 0.6470588235294118,
+            "scored_wall_seconds": 109.01124566409271,
+            "elapsed_seconds": 119.6643125419505,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "workers": 12,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792084651.934615,
+            "total_queries": 702,
+            "query_seconds": 356.8810693268897
+          }
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 689,
+        "success_rate": 0.45750332005312083,
+        "scored_wall_seconds": 9347.154622328933,
+        "elapsed_seconds": 9354.96626260993,
+        "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792094020.2711606,
+        "total_queries": 51977,
+        "query_seconds": 10995.213428006391
+      },
+      "finished_unix": 1792094024.445952
+    },
+    {
+      "id": "plus__CL-A@1",
+      "benchmark": "plus",
+      "model": "CL-A@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/204137bc56b946ff46816a3f64bd268e03d99d69/CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A-at1",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792094024.6412246,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 38982
+          },
+          "workers": 4,
+          "seconds": 138.89941621699836,
+          "signature": "db0db53e4349c719f4af37edb49c81d436337a0ff1a8c5d0525bc02cbe97fc0e",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-A-at1/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 7,
+            "success_rate": 0.4117647058823529,
+            "scored_wall_seconds": 138.89941621699836,
+            "elapsed_seconds": 146.80862218793482,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792094188.822886,
+            "total_queries": 833,
+            "query_seconds": 180.99871827161405
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 58578
+          },
+          "workers": 8,
+          "seconds": 126.80757678905502,
+          "signature": "df9cb1cdbda1e0285e3d2af5e3656e51efc31b60f4ed490487b4d7760214ad32",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-A-at1/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 7,
+            "success_rate": 0.4117647058823529,
+            "scored_wall_seconds": 126.80757678905502,
+            "elapsed_seconds": 135.5741021609865,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792094337.7830157,
+            "total_queries": 825,
+            "query_seconds": 312.36073053092696
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5038,
+            "max_total_gpu_mib": 78068
+          },
+          "workers": 12,
+          "seconds": 125.09322361496743,
+          "signature": "325dfc8007236fd455b67d965f3f06a5a571b1487618be6cc861329873beaaa7",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-A-at1/workers12",
+          "summary": {
+            "episodes": 17,
+            "successes": 7,
+            "success_rate": 0.4117647058823529,
+            "scored_wall_seconds": 125.09322361496743,
+            "elapsed_seconds": 135.38722347200383,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "workers": 12,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792094481.4415379,
+            "total_queries": 825,
+            "query_seconds": 459.8070920528844
+          }
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 693,
+        "success_rate": 0.4601593625498008,
+        "scored_wall_seconds": 9514.423968599061,
+        "elapsed_seconds": 9522.32615587092,
+        "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792104012.2708342,
+        "total_queries": 51816,
+        "query_seconds": 10885.144771549734
+      },
+      "finished_unix": 1792104019.470219
+    },
+    {
+      "id": "plus__CL-FRAME",
+      "benchmark": "plus",
+      "model": "CL-FRAME",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/cf52c6364579e45408150cd5f526b573d42eef4d/CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-FRAME",
+      "status": "complete",
+      "expected_episodes": 1506,
+      "started_unix": 1792104019.7033315,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5158,
+            "max_total_gpu_mib": 39548
+          },
+          "workers": 4,
+          "seconds": 195.4641142890323,
+          "signature": "93a5da13ca2e64fdb6ec7de1f328cb4f713b42f2b331972ffc385ff26b0d1394",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-FRAME/workers4",
+          "summary": {
+            "episodes": 17,
+            "successes": 10,
+            "success_rate": 0.5882352941176471,
+            "scored_wall_seconds": 195.4641142890323,
+            "elapsed_seconds": 203.16920596302953,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792104240.778004,
+            "total_queries": 746,
+            "query_seconds": 405.0706278437283
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5158,
+            "max_total_gpu_mib": 59540
+          },
+          "workers": 8,
+          "seconds": 169.7754996510921,
+          "signature": "900c72c9f58e5df303d4d7d1a3bb5f681ea38e8cf5c4f513a61133c7235c7dc1",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-FRAME/workers8",
+          "summary": {
+            "episodes": 17,
+            "successes": 10,
+            "success_rate": 0.5882352941176471,
+            "scored_wall_seconds": 169.7754996510921,
+            "elapsed_seconds": 178.70782118395437,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792104428.1353922,
+            "total_queries": 747,
+            "query_seconds": 760.0173650084762
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5158,
+            "max_total_gpu_mib": 79466
+          },
+          "workers": 12,
+          "seconds": 161.958475642954,
+          "signature": "7465d778728d49287dee919e4294a1dbf0d3a5ebf00d82657e4deac8617c381b",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/plus/CL-FRAME/workers12",
+          "summary": {
+            "episodes": 17,
+            "successes": 10,
+            "success_rate": 0.5882352941176471,
+            "scored_wall_seconds": 161.958475642954,
+            "elapsed_seconds": 172.0339944990119,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "workers": 12,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792104607.0026913,
+            "total_queries": 746,
+            "query_seconds": 1095.6306576082716
+          }
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 719,
+        "success_rate": 0.47742363877822047,
+        "scored_wall_seconds": 13800.891446649912,
+        "elapsed_seconds": 13808.728035109001,
+        "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792118429.282645,
+        "total_queries": 51034,
+        "query_seconds": 27957.908160984633
+      },
+      "finished_unix": 1792118432.8545203
+    },
+    {
+      "id": "pro__CL-0",
+      "benchmark": "pro",
+      "model": "CL-0",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/fea8b7334294ce67058c44105ec858025f3eca28/CL-0_no-memory_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792118433.128063,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 49128
+          },
+          "workers": 4,
+          "seconds": 65.34611974097788,
+          "signature": "61ac93b8893e8414e3ad3cdfb9b96a1d3df8fd9fad62f988faa4b224f29c84a1",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-0/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 65.34611974097788,
+            "elapsed_seconds": 73.33312382700387,
+            "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792118509.8115447,
+            "total_queries": 264,
+            "query_seconds": 149.11070718092378
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 68886
+          },
+          "workers": 8,
+          "seconds": 57.48924113402609,
+          "signature": "cde91f97446d3ca7ee6517ccb93d3b455d98d1e0bec637c3db9b44d33f13aad3",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-0/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 57.48924113402609,
+            "elapsed_seconds": 66.43508326099254,
+            "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792118585.9993114,
+            "total_queries": 264,
+            "query_seconds": 249.9796348483069
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 65383,
+          "observed_worker_peak_mib": 5155
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 58,
+        "success_rate": 0.0725,
+        "scored_wall_seconds": 5437.94888507307,
+        "elapsed_seconds": 5445.7687186760595,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792124038.1763926,
+        "total_queries": 25602,
+        "query_seconds": 14978.917290261597
+      },
+      "finished_unix": 1792124046.114248
+    },
+    {
+      "id": "pro__CL-A",
+      "benchmark": "pro",
+      "model": "CL-A",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792124046.4006863,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 49128
+          },
+          "workers": 4,
+          "seconds": 64.30719856696669,
+          "signature": "fa3f002b38a950ca9779eb25ed9a531b8a9a9b6eba6fb4c672fdd585d4c1a183",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-A/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 64.30719856696669,
+            "elapsed_seconds": 72.22903039993253,
+            "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792124122.0241768,
+            "total_queries": 264,
+            "query_seconds": 146.05079232132994
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 68886
+          },
+          "workers": 8,
+          "seconds": 56.540799819049425,
+          "signature": "d1876408e7e177264c2a883d841acc35df322bb0ff73beb1c2bda52888788686",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-A/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 56.540799819049425,
+            "elapsed_seconds": 65.45577998610679,
+            "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792124198.410738,
+            "total_queries": 264,
+            "query_seconds": 244.44932239793707
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 66341,
+          "observed_worker_peak_mib": 5155
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 5359.6730455450015,
+        "elapsed_seconds": 5367.577072245069,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792129573.4794643,
+        "total_queries": 25570,
+        "query_seconds": 14783.08719594183
+      },
+      "finished_unix": 1792129582.600308
+    },
+    {
+      "id": "pro__CL-REG",
+      "benchmark": "pro",
+      "model": "CL-REG",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/f45c862e1e45645eee407c7a26d0e9fd816bc872/CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-REG",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792129582.9011588,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 49128
+          },
+          "workers": 4,
+          "seconds": 64.01079371396918,
+          "signature": "bf6df1850a3de15cb59c58ca8debd237ef30e847ac49b4a3ba72740a7e0efe90",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-REG/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 64.01079371396918,
+            "elapsed_seconds": 71.94993850996252,
+            "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792129658.289301,
+            "total_queries": 264,
+            "query_seconds": 145.5599102161359
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 68886
+          },
+          "workers": 8,
+          "seconds": 56.733583396999165,
+          "signature": "a7c54f670887f12f9a473ba431e92151c0ac6857e06e1a537365461a352dc0fe",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-REG/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 56.733583396999165,
+            "elapsed_seconds": 65.74634836392943,
+            "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792129735.3620896,
+            "total_queries": 264,
+            "query_seconds": 242.96296475303825
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 66315,
+          "observed_worker_peak_mib": 5155
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 5365.5654266870115,
+        "elapsed_seconds": 5373.348429564969,
+        "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792135116.0518749,
+        "total_queries": 25549,
+        "query_seconds": 14778.542803529534
+      },
+      "finished_unix": 1792135125.9115117
+    },
+    {
+      "id": "pro__CL-W2",
+      "benchmark": "pro",
+      "model": "CL-W2",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8706968184639b57fc12410cad4a89dce3f79836/CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-W2",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792135126.217073,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5383,
+            "max_total_gpu_mib": 50040
+          },
+          "workers": 4,
+          "seconds": 64.64336124702822,
+          "signature": "31855e55975681fbc6f6e4d67a1f97bc40ef0698edef9c8c7a57ebc33089bdf3",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-W2/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 64.64336124702822,
+            "elapsed_seconds": 72.6234104790492,
+            "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792135202.3339853,
+            "total_queries": 264,
+            "query_seconds": 148.95223937008996
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5383,
+            "max_total_gpu_mib": 70710
+          },
+          "workers": 8,
+          "seconds": 57.31524423894007,
+          "signature": "57d22c97f317cf07a40941f0c2dd7db9c535f6ef81445813fef656acb045b5e1",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-W2/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 57.31524423894007,
+            "elapsed_seconds": 66.32135685603134,
+            "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792135279.3823373,
+            "total_queries": 264,
+            "query_seconds": 245.46450301946606
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 66655,
+          "observed_worker_peak_mib": 5383
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 53,
+        "success_rate": 0.06625,
+        "scored_wall_seconds": 5395.02475606103,
+        "elapsed_seconds": 5403.062486386974,
+        "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792140689.269461,
+        "total_queries": 25621,
+        "query_seconds": 14791.484943272197
+      },
+      "finished_unix": 1792140695.4814618
+    },
+    {
+      "id": "pro__CL-0@1",
+      "benchmark": "pro",
+      "model": "CL-0@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0-at1",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792140695.8015103,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 49128
+          },
+          "workers": 4,
+          "seconds": 41.31406006694306,
+          "signature": "66745e86cc0c2107d94e9d6600db0cd37d99e28503544104fd2a8d42b61433f6",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-0-at1/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 1,
+            "success_rate": 0.125,
+            "scored_wall_seconds": 41.31406006694306,
+            "elapsed_seconds": 49.03413662198,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792140748.2611487,
+            "total_queries": 256,
+            "query_seconds": 68.35742195835337
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 68886
+          },
+          "workers": 8,
+          "seconds": 35.56420123099815,
+          "signature": "66e15cbc00ee8dc75c6bbfb1c2a30a96e8ad4087c7e80900c6402dac8d47da5b",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-0-at1/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 1,
+            "success_rate": 0.125,
+            "scored_wall_seconds": 35.56420123099815,
+            "elapsed_seconds": 44.40623297903221,
+            "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792140806.5144322,
+            "total_queries": 256,
+            "query_seconds": 114.28006576094776
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 67134,
+          "observed_worker_peak_mib": 5155
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 56,
+        "success_rate": 0.07,
+        "scored_wall_seconds": 3324.568113021902,
+        "elapsed_seconds": 3332.3806469929405,
+        "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792144147.010998,
+        "total_queries": 25575,
+        "query_seconds": 6937.317735072225
+      },
+      "finished_unix": 1792144149.227777
+    },
+    {
+      "id": "pro__CL-A@1",
+      "benchmark": "pro",
+      "model": "CL-A@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/204137bc56b946ff46816a3f64bd268e03d99d69/CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A-at1",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792144149.5586982,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 49128
+          },
+          "workers": 4,
+          "seconds": 42.51600990095176,
+          "signature": "68a531ddaf538d33a6433e67f3e35e8fee123ee39f231476041a30816f1951ca",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-A-at1/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 42.51600990095176,
+            "elapsed_seconds": 50.501567146973684,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792144203.4781907,
+            "total_queries": 264,
+            "query_seconds": 70.40833249781281
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5155,
+            "max_total_gpu_mib": 68886
+          },
+          "workers": 8,
+          "seconds": 36.32934825203847,
+          "signature": "9cee9fd1d813a63900829c54ed4748962278fe6dc9d78cebcb22ac9953f8e1ef",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-A-at1/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 0,
+            "success_rate": 0.0,
+            "scored_wall_seconds": 36.32934825203847,
+            "elapsed_seconds": 45.38738926395308,
+            "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792144261.2551358,
+            "total_queries": 264,
+            "query_seconds": 117.95570100646
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 66912,
+          "observed_worker_peak_mib": 5155
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 3330.948372311075,
+        "elapsed_seconds": 3338.658962453017,
+        "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792147607.2150908,
+        "total_queries": 25548,
+        "query_seconds": 6937.5907218460925
+      },
+      "finished_unix": 1792147617.14257
+    },
+    {
+      "id": "pro__CL-FRAME",
+      "benchmark": "pro",
+      "model": "CL-FRAME",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/cf52c6364579e45408150cd5f526b573d42eef4d/CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-FRAME",
+      "status": "complete",
+      "expected_episodes": 800,
+      "started_unix": 1792147617.4861083,
+      "calibration_profiles": [
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5275,
+            "max_total_gpu_mib": 49608
+          },
+          "workers": 4,
+          "seconds": 70.7863149830373,
+          "signature": "74c498870206b16c4f38cdb6cef744ed6e65731e7637191aff61181b706d57a6",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-FRAME/workers4",
+          "summary": {
+            "episodes": 8,
+            "successes": 1,
+            "success_rate": 0.125,
+            "scored_wall_seconds": 70.7863149830373,
+            "elapsed_seconds": 78.58155996794812,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "workers": 4,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792147699.504226,
+            "total_queries": 259,
+            "query_seconds": 167.0989548470825
+          }
+        },
+        {
+          "resources": {
+            "max_worker_gpu_mib": 5275,
+            "max_total_gpu_mib": 69846
+          },
+          "workers": 8,
+          "seconds": 63.31093851395417,
+          "signature": "bf26c12fa0a1b7d6f9daca32ee2ae63bf297f9500dc3a19a76b82f6310304f6b",
+          "output": "/data14t/anhdh35/loopwam_robustness/calibration/pro/CL-FRAME/workers8",
+          "summary": {
+            "episodes": 8,
+            "successes": 1,
+            "success_rate": 0.125,
+            "scored_wall_seconds": 63.31093851395417,
+            "elapsed_seconds": 71.85636841400992,
+            "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+            "workers": 8,
+            "mode": "unscored_speed_calibration",
+            "completed_unix": 1792147776.6402016,
+            "total_queries": 259,
+            "query_seconds": 282.53103261755314
+          }
+        },
+        {
+          "workers": 12,
+          "skipped": "Insufficient free VRAM with 12% worker headroom and2GiB reserve",
+          "free_mib": 66912,
+          "observed_worker_peak_mib": 5275
+        }
+      ],
+      "selected_workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 62,
+        "success_rate": 0.0775,
+        "scored_wall_seconds": 5688.412735749967,
+        "elapsed_seconds": 5696.205443738028,
+        "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792153484.855207,
+        "total_queries": 25559,
+        "query_seconds": 16142.063395468635
+      },
+      "finished_unix": 1792153495.9283235
+    }
+  ],
+  "active": null,
+  "updated_unix": 1792153496.2792957,
+  "finished_unix": 1792153496.2792926
+}
