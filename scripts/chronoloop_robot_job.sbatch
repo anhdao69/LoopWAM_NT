@@ -28,6 +28,19 @@ nvidia-smi --query-gpu=index,name,memory.used --format=csv,noheader
 NGPU=${SLURM_GPUS_ON_NODE:-$(nvidia-smi -L | wc -l)}
 if [[ $NGPU -ne 2 && $NGPU -ne 4 ]]; then echo "Unsupported GPU count $NGPU"; exit 1; fi
 
+# Some nodes (evc101, 2026-10-16) intermittently fail CUDA init with error 802 (NVRM assertions).
+# cuda_retry CMD...: rerun CMD up to 5 times when an attempt fails with that error.
+cuda_retry() {
+  local a before
+  for a in 1 2 3 4 5; do
+    before=$(wc -l < "$LOG")
+    "$@" && return 0
+    tail -n +$((before + 1)) "$LOG" | grep -q "Error 802: system not yet initialized" || return 1
+    echo "[$(date -Is)] CUDA init failure (error 802), retry $a"; sleep 20
+  done
+  return 1
+}
+
 walltime_hours() {  # remaining allocation hours from Slurm
   local end; end=$(squeue -h -j "$SLURM_JOB_ID" -o %e)
   python - "$end" <<'EOF'
@@ -76,8 +89,8 @@ EOF
 )
 if [[ "$VALID" != complete ]]; then
   echo "[$(date -Is)] latent cache $VALID; building missing windows (waits for any other builder)"
-  flock "$CHRONO_SHARED_DS/.build_lock" torchrun --standalone --nproc_per_node=$NGPU scripts/chronoloop_robot_precompute.py \
-    --dataset "$CHRONO_DATASET" --shared-dir "$CHRONO_SHARED_DS" --workers 3 --decode-threads 1 --batch 16 \
+  flock "$CHRONO_SHARED_DS/.build_lock" bash -c "$(declare -f cuda_retry); LOG='$LOG'; cuda_retry torchrun --standalone --nproc_per_node=$NGPU scripts/chronoloop_robot_precompute.py \
+    --dataset '$CHRONO_DATASET' --shared-dir '$CHRONO_SHARED_DS' --workers 3 --decode-threads 1 --batch 16" \
     || { echo "latent build failed"; echo "$SLURM_JOB_ID" >> "$CHRONO_OUT/failures"; }
 fi
 
@@ -85,7 +98,7 @@ STATUS=0
 if [[ ! -f "$CHRONO_OUT/COMPLETE" ]]; then
   LIMIT=$(walltime_hours)
   echo "[$(date -Is)] training on $NGPU GPUs; remaining allocation ${LIMIT} h"
-  torchrun --standalone --nproc_per_node=$NGPU scripts/train_chronoloop_robot.py \
+  cuda_retry torchrun --standalone --nproc_per_node=$NGPU scripts/train_chronoloop_robot.py \
     --dataset "$CHRONO_DATASET" --run-name "$CHRONO_RUN" $CHRONO_FLAGS --shared-dir "$CHRONO_SHARED_DS" \
     --stream-micro $((32 / NGPU)) --stage-latents "$STAGED" --output-dir "$CHRONO_OUT" --time-limit-hours "$LIMIT" &
   TRAIN_PID=$!
