@@ -1,0 +1,966 @@
+{
+  "repo": "zhouxueyang/LIBERO-Pro",
+  "revision": "c86fc3b8293185a6f373677018ff3e37f8391602",
+  "files": [
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "sha256": "1104896ca46963b0b3b97caf785f84d70635b72cca0efdfe724167dbc9f19926",
+      "git_blob": "150534df073cdabfc4266e02c3476fb0e37801c6",
+      "size": 1485
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "sha256": "a23cf7cdab1071cdd42750ba5b11aa2ee9dca268bc0d9976fb9e7c99c965081b",
+      "git_blob": "1b7cb889ba6ebc854f20edbeae529bd2931e8878",
+      "size": 2233
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "sha256": "9790756193e8597c5f9cb14047ff327f96aeb146a7f9a6a99931d6eec8943c1f",
+      "git_blob": "5a91615be6b8c74767b1dbbbb51acd6b6b46d45c",
+      "size": 1836
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl",
+      "sha256": "bd1cd9e691cf87b076a782e48a91915599ea95eb2c10f8fa24b4753a093323d3",
+      "git_blob": "fe1509977d2f0cc24b9eb489f972a8d97a412204",
+      "size": 1551
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "sha256": "c8fb4eca23783f88bbd26caf85ca317948309bbc634085e1b268bb51edfad9ce",
+      "git_blob": "54ded8e93655c080a51efa397572e51fec955691",
+      "size": 2295
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "sha256": "f2b5896754bf46b02090533835e61f057c64fa8403b8dde0caa380ddfb10e567",
+      "git_blob": "5ad64112650a16d764fe91b99b3f5b140fe99731",
+      "size": 3284
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl",
+      "sha256": "929d856589441ca5825124f18c0bf221015a3d28253a54c4cb01a7a430274af1",
+      "git_blob": "fbb20dab50293d409a41a95115b660ae92635d9c",
+      "size": 3267
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "sha256": "6ae90f039d908fe67ffdb81acd0a029a54ab9c1b9392c7ef86274bf506f44d97",
+      "git_blob": "c5d2c531e28c2822dc46b1059b2c5f69e4c73d95",
+      "size": 2241
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "sha256": "7a34660733f6e7e2db3e84c78b7fe4d1d0b1003b19ccf38da265ccb3170dd796",
+      "git_blob": "b1dd3ce3383a6de6c6c1c6a700d9cb88f879ce20",
+      "size": 2458
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_swap/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "sha256": "3f9677df26af84b85bc1db4ac9818c5b608e710712677e8d728f7d24d10e881c",
+      "git_blob": "34b5bfb96464e9823c6b7247435954b436f7a191",
+      "size": 2055
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "sha256": "cfa0b51a4ee20f3ee5fdcaa63bfa456b4b27e99a3572cffdd50fb5928b7cdf5e",
+      "git_blob": "c34bb93195ca4bb0e540b11248d45a37ddb34771",
+      "size": 1515
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "sha256": "a2e337fb11319c753beb7d0b83e6f952783e982a4cede7d9bf2dbb4e81aa3ee8",
+      "git_blob": "ba85a29987905970665174e6eccf9e73edb8c610",
+      "size": 2255
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "sha256": "f31d1b020ae25801beba84aa3c8b912f9beb0c2b5e33ce84005c556cd578c703",
+      "git_blob": "613daa799e3545ab1943845a64e002706602ccf6",
+      "size": 1838
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl",
+      "sha256": "8193749b068293ae3f118f5cf2711c30b42c28657eae15de8a3d21f2293a6caa",
+      "git_blob": "579f694d21ccf1fb438fe2b7e203788b55c419cb",
+      "size": 1515
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "sha256": "96ca246fd570ffea9870b8ab63352168a13e429f2bffff98f3e419aa4b808245",
+      "git_blob": "deb471aac568882b793b412d5064fb1883a4d150",
+      "size": 2280
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "sha256": "b04e67b9118b6b0a41956541ef4f66e479a341dd408c21f045c372a169fe01ef",
+      "git_blob": "a9515977ce9debf175831a2531ef0605a0727680",
+      "size": 3284
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl",
+      "sha256": "070d643dfbe177e87e25c5a8ce626ae2417ee29bfbd0f7d2138bb08264ac0088",
+      "git_blob": "681e703ab4bd4907b20453d8e48031eda67c4b52",
+      "size": 3269
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "sha256": "f3458f2b14426e23057b40ccb5cf46e5d8e50d7d2799e5923164c58b87374bfd",
+      "git_blob": "75f971ce496a6e4400986e255d09bcb9536f9756",
+      "size": 2227
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "sha256": "c2e8edb0a4b146f655d040ea2c8fd25d230739671a1971abba212438382d0307",
+      "git_blob": "4ff4f6e0a0ba5a62b4c5572131ced7839fa216b0",
+      "size": 2485
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_10_task/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "sha256": "922aef6300ad8e14c2dce1fdd6304a5e84663b922b23f6e386742f1e01854add",
+      "git_blob": "5f40b7ea50e5c0bb7e9fe46c223ddcc5dc76e4d8",
+      "size": 2076
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/open_the_middle_drawer_of_the_cabinet.bddl",
+      "sha256": "c89d9a1795775125a8233382317acec699eef865097717b7d0f360ff33842a79",
+      "git_blob": "fcdaacb430613d11466afbeda7d913929e148648",
+      "size": 2943
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "sha256": "b59abad4375fbd0b3898daac0607d2a2303c644ffa17571d046434eee7a118fd",
+      "git_blob": "0fd156b6749fa1e12ba22783ddb98e7f3a7520b7",
+      "size": 2998
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/push_the_plate_to_the_front_of_the_stove.bddl",
+      "sha256": "ed914104b87b781fd619ccaf92a20cdbeec74220f01851be23dda9587338ac29",
+      "git_blob": "f87137c39681d3952dc91025d7b219eaa8902aa4",
+      "size": 2964
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_bowl_on_the_plate.bddl",
+      "sha256": "a601bf1724195336d9eef6b7b4629cbe25b79adaa6112a91547100065c8e2b46",
+      "git_blob": "d2cfbcc21e71a1432f3d246fa40ee2b3ad1a0499",
+      "size": 2927
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_bowl_on_the_stove.bddl",
+      "sha256": "64c1cfbd554f241b3881731df9def88e24ae1d9f42896584b7d1b0b3d036dee8",
+      "git_blob": "1e3bba685965cf232d83f941ec0b6952e4ac4f1d",
+      "size": 2961
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "sha256": "a62b2bb692f0a2621dee56bf15f456d7342ace4677ba534cc4d65762af80d8c6",
+      "git_blob": "4c143ba78fab53e0ffae295eb8afd521bbfdb433",
+      "size": 2975
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_cream_cheese_in_the_bowl.bddl",
+      "sha256": "53ab183c49350548625456d23574023165616a38bc06baf03403112eb47118fd",
+      "git_blob": "7fbaba43432e93772a8c8c573dd536fcf6f8c141",
+      "size": 2948
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_wine_bottle_on_the_rack.bddl",
+      "sha256": "b5c7107ba2eabe12c6ce7017abe72cb068f8d74c88ca65501870f8751d0ee0c1",
+      "git_blob": "eedb71771be43692ab23c27259ff6d028adf01ce",
+      "size": 2953
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "sha256": "5f3ee58250bc20bdf8d4585c858784346cb14df06aa57d8b8fbb12e600bec5e7",
+      "git_blob": "45b46dce815de28533a6499caa2c4fd1646bf2a7",
+      "size": 2972
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_swap/turn_on_the_stove.bddl",
+      "sha256": "098b3f1e3685b16296fb77653fa00311945e33243c98e477e859fb6f1a4b1f68",
+      "git_blob": "71bfe0e7f49ab2e2f108193a7f27391d84cb3d79",
+      "size": 2891
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/open_the_middle_drawer_of_the_cabinet.bddl",
+      "sha256": "79069933e60bdeb0a7ba4c414b3e2db3ac44ca02408dfc00a73607e201c3b334",
+      "git_blob": "7122871ea272ccb2c069f0fa30bb87d9d606044c",
+      "size": 2937
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "sha256": "468fc65a5aa7e63cc829efb9f7970cadbfc39bfe5695930c5e1d252f05ed5078",
+      "git_blob": "77e20a90e06da4babed86990351ed3f6eeeefba1",
+      "size": 2988
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/push_the_plate_to_the_front_of_the_stove.bddl",
+      "sha256": "af23f20677afe93a35c2467cf4814a2523989b5cc9601155e6f72e6ad28c8f5e",
+      "git_blob": "a3e1345511ceaf1529d37915f24a4745e70ebb48",
+      "size": 2975
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_bowl_on_the_plate.bddl",
+      "sha256": "f00c9a34c2af8e88a4819acc215e410abe9176484ebedf35bd13c99b52bcc560",
+      "git_blob": "ee2cd2b3454984e9cda389929e1d1bd79a5180af",
+      "size": 2914
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_bowl_on_the_stove.bddl",
+      "sha256": "917e7f6796897bd88ed248872b3b03183b27a794aed19566ef41116c8518c6eb",
+      "git_blob": "a0bc4c88b7969e7076dd5ca1703f9101cadb5842",
+      "size": 2930
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "sha256": "8ebaeda89603edc8f149c295ca8eaf159e2af6c6640f96819f9d41b354471ef5",
+      "git_blob": "28e2e081aa4153fe89b5c52a2ad579eb1f1eda56",
+      "size": 2944
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_cream_cheese_in_the_bowl.bddl",
+      "sha256": "6b1313fed55a99f993f2a8c158b7dcf23fc1359ef54977e21516c479d187e36a",
+      "git_blob": "85dfd8c36f03323a407b59269933b9584e839210",
+      "size": 2935
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_wine_bottle_on_the_rack.bddl",
+      "sha256": "2797a1d5dad5e9747a3e7e94aa258764ca412d15df78e73a7ad29f73283c54a0",
+      "git_blob": "ecf785151e124f74cb878e0b08aa0b5fa68d0a4a",
+      "size": 2946
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "sha256": "6b1313fed55a99f993f2a8c158b7dcf23fc1359ef54977e21516c479d187e36a",
+      "git_blob": "85dfd8c36f03323a407b59269933b9584e839210",
+      "size": 2935
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_goal_task/turn_on_the_stove.bddl",
+      "sha256": "f707a0169eea87386e74203f0e651d270aabe9ad10a3ae4019465e627380a83d",
+      "git_blob": "5d81fc250ffd5d307a6d3ad5de338e78c60a9ee6",
+      "size": 2885
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "sha256": "fb1a2a7457cb6b885366915d470c1837830eb0b2422634483bb34380e33acf95",
+      "git_blob": "92212c984c44050e7849315ca35e77ab0a1f711c",
+      "size": 2123
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "sha256": "7e652c93a6d8613cd35add8dc4353567bbf8527147cbc93e5e9c5506326d6f1b",
+      "git_blob": "a172c54c6061672d98d629575936a9d7353b415d",
+      "size": 2144
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "sha256": "3fa926a878d441bcc061a2f7578e4938e40ddcdd08b4336fd326271fc8bfffe4",
+      "git_blob": "6da532f2e4f05b6f6bb74048f0757b46d81b3350",
+      "size": 2108
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "sha256": "d6061f0f035eb88cb1f2223f3ff52abc64c15ba96ad256d15da60e783f696b77",
+      "git_blob": "fc9bdf1419e2ebc6484e0be4304444c0a8b6cf2b",
+      "size": 2168
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "sha256": "59984ec9fb4b381a614f50f271cacecca73b08d3969ddfff71202063de5aacfd",
+      "git_blob": "1ce086baf55f8955038b3c3dade16aa719c775c9",
+      "size": 2114
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "sha256": "69646943311b00a299154293046b528b60af713f64731a6d70f154f525f2c917",
+      "git_blob": "d9c918d16c3dabc3fea68e2a8e58237478ecf6f1",
+      "size": 2099
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "sha256": "43ce8994cd883cbd29550c81f0f7191672172055191acf742d1cc65880484757",
+      "git_blob": "4c5a91ef002802c92bc4e930401d865604de6025",
+      "size": 2102
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "sha256": "2ec847b6887474d1c5dd69f2a3b4e57d5f335b5df169e64d88c10125ed419daf",
+      "git_blob": "b1fd3fbd60e648221c10be3ba07b4253713c87f9",
+      "size": 2132
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "sha256": "87c54b94eb46be003ccf2e2d5fea3496b9da77f12ef1c1ba2c1b76f0b266c1b2",
+      "git_blob": "e06d70e723965333e354fca6a755e5bfb99bce45",
+      "size": 2129
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_swap/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "sha256": "964dcb3a554611cc0c85478c878529d0da5bd2a85045b9c0ec54fa05f7320255",
+      "git_blob": "93414cc1687273be714478bb7d64cf253dd62cec",
+      "size": 2117
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "sha256": "3dcf0acdbafa28968d7b990520232eac3181b525ec1bcc96030dec172b64e2e2",
+      "git_blob": "94d03472e473e4707ef9c78a2fc7a5abc9273732",
+      "size": 2125
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "sha256": "8c74c1db216913d2d5d321613e0c7de99398005493e3792d1d9e329a9e03e0a9",
+      "git_blob": "abc31f85c7f2674a6c2ab211cbf73b79920e88b1",
+      "size": 2143
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "sha256": "cbc70e1f66b3da4255a82c41db3d75c1639accd6c77960ff5c2a7f98655d011d",
+      "git_blob": "a530e47448bd99fbdf300781d1fc4112e69ad8ce",
+      "size": 2131
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "sha256": "654b63bc6d458491640687cbba5ed34b5933727b6230fc9cde1026af5c0344bf",
+      "git_blob": "0635f2adfc21542ba87d60678901b4dc1a4eb877",
+      "size": 2164
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "sha256": "3f11a77af9fe07d9ecdd6d91f06f064d4a30ab162e37df8c9a92d3bd6df17c54",
+      "git_blob": "9570e90dacc734d685cc1992270ba6db8705a717",
+      "size": 2122
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "sha256": "7ca5d3f6a26f08fb060a20c95f814034e52280354d858115cec5bd3ebb284d6c",
+      "git_blob": "1c1b7a79b961c53698b8e1de0c788635772090d2",
+      "size": 2095
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "sha256": "62b05009226957504545e39e34fb47960c64770b1fe09281a4ef288a1d5787f7",
+      "git_blob": "4185f8eb4bf38e7869407a7445aaaec0d76a6b14",
+      "size": 2113
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "sha256": "2b9ec36707999c14410efcbdd36bb84c3a3c875751f9b8dfe42c71ede8cdc5d0",
+      "git_blob": "d72f663fcdd6ff4641f6a82ae9700e0a02957f6a",
+      "size": 2152
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "sha256": "8dca0711795d27e75d8ea9f1d8b598173506be4466894728d8247ce087283e21",
+      "git_blob": "4fe277f74b5808df0c47681bd20359156bc98f89",
+      "size": 2128
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_object_task/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "sha256": "920a5f379061a1e3078a5752ba5084e7dfd5ac70f1c7aa9ee9e00b69200683e2",
+      "git_blob": "c1a5b6de1efba414466eacbe9645d02efa89ee83",
+      "size": 2113
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "d48b60ebde545e9de0bae54a72633532833d9c5feea88687c0e020c27ee70269",
+      "git_blob": "68b1ef54f627dc57035e93c6fc9190f59fa22213",
+      "size": 3035
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "sha256": "0a0cfe5645eb759f3878b589bb3e28492a224003a00d8515cfb760dbf113a256",
+      "git_blob": "f5be98bd33b1e2fbc01d6c095bd12fa033810dc3",
+      "size": 3001
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "sha256": "f4be36409e162da8073f3f84fc1eff1cfb94150e7642ef4f8467bcf2fb0addf4",
+      "git_blob": "abd57fd8fb8e19d68af00e667011c8ffc60049a6",
+      "size": 3059
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+      "sha256": "5bae2baa43f21b1f4e7ddf4053b902aad6792e339d51bf2e2375d78e007a6d7f",
+      "git_blob": "a566890359b4a978dcd49fec4c755acb6a165dcb",
+      "size": 3006
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.bddl",
+      "sha256": "4c5f0591a1a381be994c7f60a24e73358198310bda48221c3322d032c2278453",
+      "git_blob": "31bae3370e5b0a6f1198717fffb58ffd76cda9d7",
+      "size": 3011
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "d2d1f28ac727dc4223e23432ffc56847044efd178b7042c9d74b9208002f05f9",
+      "git_blob": "248e9f9f51ed755aa88b4b85f62230e9f343c9e8",
+      "size": 3011
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.bddl",
+      "sha256": "bbe576acd7d1caa5fc49c940b9078ce7eec6aa7f0e4423d4f862a7276f47edad",
+      "git_blob": "1b3c0d60a75e6d3da32440068c418b90298965cb",
+      "size": 2982
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "d8947a72b5c586a7dcf31605f3cab3b915726acf91e8f1e98d470468264a138e",
+      "git_blob": "37afebb17de1ede3cd1342856b51507f0dae3a5d",
+      "size": 2983
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.bddl",
+      "sha256": "e2dcdf7743d999cd9f38581a65fca2e066fc9736ec60075f95337c3ca3ca7286",
+      "git_blob": "380fbdfe64ff2dc6cc7471fbaa6b3b2b436be910",
+      "size": 2991
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "sha256": "58a27038f68d677d68f71b5a9033abc7a70a2ae9a3e204a4a1ee32efbcc2179d",
+      "git_blob": "0fb013156ee4cae44d16a5c7b3f110994296dd5c",
+      "size": 3000
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "61ff13656df194011d9c5fb3873098fcce18563d380d4437622d8d910a996bdc",
+      "git_blob": "939f79ed7bcafa09ce130d5d718505bea9e33c4d",
+      "size": 3019
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "sha256": "559467aaae3dff5183d444f85b6c9415d34e145c70118ebddb16d4fcc7129982",
+      "git_blob": "30f40ed6bbca0de706fd5ab52abb8d8a3877b766",
+      "size": 2991
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "sha256": "9bf0b5005d599a787e4fe614b6ccd0c30c55239afe3b4f19cffb56d64c92618a",
+      "git_blob": "d8822edb2a5b9e8b5158d907b4be7804fd845348",
+      "size": 3043
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.bddl",
+      "sha256": "a8af1025208c8a682be385872cef07fe2ae8348ffc5bef260cf31dd2c34a30c1",
+      "git_blob": "da34452fabd478264e138edfb5db5d84e0e25ea7",
+      "size": 2985
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.bddl",
+      "sha256": "9d986dd0c2b80c43e12c8b6dc14cae091edfded91048f55e8987ca4eddd1acc0",
+      "git_blob": "9a29744821d05652f4c70e5b80df16488a1bab82",
+      "size": 3003
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "34adfd22783cd5594825b90a2a583ae9edc076090de04d6c542a8adb9924d1e1",
+      "git_blob": "095c0baa721f52dc1b25b00b32aaf7c11fa308ce",
+      "size": 3004
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.bddl",
+      "sha256": "62aecb708cb4611a9d7b0893c9ccc8057242d9171cf9ffa3fdd484438a43b703",
+      "git_blob": "95e6b799ba8e6b668a808995a6dcf22d7c7dc52f",
+      "size": 2979
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.bddl",
+      "sha256": "c21f0b9bc3d7efeda568be81320f8132d966ca208cdafa52e3b2d7dee061d8c3",
+      "git_blob": "c6afa99effc9f517eefff01a33fe2d793acb15a0",
+      "size": 2976
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.bddl",
+      "sha256": "76d5b13228a2089430d79ddb039731b0954f0062da74f67d661d594d53635caa",
+      "git_blob": "f95797936349bfa5dda7ae3887a39607de0b4692",
+      "size": 2994
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/bddl_files/libero_spatial_task/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "sha256": "7280f435458ee68d8d2f26a6d76ac0a6cc8fce27549170a70ac3bfc5fe62c1e6",
+      "git_blob": "7a8f549f4b77a0682012d898fe817564dad16040",
+      "size": 2981
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "sha256": "174e0007595dda35d8d634f91bc32b4f0eeb18dbb67dcd08964a9bc9b47f55f2",
+      "git_blob": "810cbf3bab35f8fe9c9e6ba8a350492d76e055a5",
+      "size": 2312
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "sha256": "4a3874025d232aeefac5ff6e62c4f40114098f408587111a0fa284780874969a",
+      "git_blob": "02d8bff0d0011615f6fe591e6c2c37f3b186f1ef",
+      "size": 2740
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "sha256": "6d198f489d3cb58b92b68caabb18c07c5adc964514b012a551fdb06d3bfdfb81",
+      "git_blob": "4a2dc842bc333dda6227d7be8780f962a17f1ed9",
+      "size": 2636
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "sha256": "a467eb1d097138ad986fbb56ea95a8cd382326aaf022bc9757ddd94023f7e0a7",
+      "git_blob": "5e9c60a962a2d5354868dfbf1316b8c7493d83e5",
+      "size": 2625
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "sha256": "a10d2f1c0247d704d86ac6a3dfea96be8fb3283403d6e682654fa2214ec2e257",
+      "git_blob": "54e64215705da22773519a6456b45f11bee2ca14",
+      "size": 4919
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "sha256": "c4e202fbfeecf8867f8118a1cc45477e1340364191e7dbcf55746a5fc26202df",
+      "git_blob": "6a6c9b6dd9a1ec7a447a301bce953a77645fe580",
+      "size": 7448
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.pruned_init",
+      "sha256": "9addded8cadf4ca2ea41a549953ff84018f87e816167abc9b1e8c557398a6b2d",
+      "git_blob": "0ecafc2fdc678ea1b18905f34b3e124896349816",
+      "size": 7431
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "sha256": "26f4ccea4e65737ffd94e5219050729d2d2a67aa8e7d13033a73bc4598e3e187",
+      "git_blob": "04847a7babddd25ae43c8a3756b94e776414ea8f",
+      "size": 4893
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "sha256": "9c08e6b17852a2a0a11e7a5de82e6a7faac70574808b94d2d65d0484d89db0c6",
+      "git_blob": "79a9e5514d9d82b8eeb481d141f161245702ceb6",
+      "size": 4104
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_swap/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "sha256": "3de465f6ede09c69e0f962a3aed8e7b19361c5de34c59f30757f105f7809562a",
+      "git_blob": "423c2378c04c066d916ad7aef09c7f66b331870b",
+      "size": 3103
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "sha256": "ed7831ef48eac50a6adc3e3b16e09e41cf5bda3648b819f31014da8a545bc5d7",
+      "git_blob": "91ec637f04d3b9cddfc3918723c2f8cfd4a9f371",
+      "size": 2310
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "sha256": "68d7b6a34daddca89713d34f4e3e6752a7a6eaf747f13d71f0330c8a332a9039",
+      "git_blob": "521729c209d205d5bb04c016f79e513feeeb1cd4",
+      "size": 2733
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "sha256": "85fe1e35fef354f2e5e5b1abac4a8ab447aeecc5e95459e29551febaf8092cd3",
+      "git_blob": "611e7c0468ba58d0cec6732fd9c7407d34f65ff9",
+      "size": 2653
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "sha256": "a0f2962d590434c2d44bc3d3108da7b969c2a49b8b1751b104ee6e77682deeec",
+      "git_blob": "c79f1999779db96c9167822d1258fb01ca428ebe",
+      "size": 2650
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "sha256": "b103a140d1228e92bc3d8393d1a3ff93cdb6b53879ef4ff8219ab8d673769b2b",
+      "git_blob": "9ba5ba3add696d348a6d0dbc62a221c2ffbb1913",
+      "size": 4915
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "sha256": "26c7d1bd640ae4d06a68c0b04bbfed789264226d290e33c3fa148b0a38b02b13",
+      "git_blob": "ed8b4f4e899ae5b620326273cb8c56a3bbb32b19",
+      "size": 7442
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.pruned_init",
+      "sha256": "32aef56cb7a71cd4d4a972a828f5db9030ecb53cbb4e439834759fe8bf8e6bd4",
+      "git_blob": "9f05ae0de46aa31c5c553fedaa286e535b58f3b8",
+      "size": 7444
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "sha256": "cccf2d48f1f65761532d3b299e854e63a9bc7e96587236f8525c95c1fd752c0e",
+      "git_blob": "2f897769e5547edaad584240362fae9238964a7e",
+      "size": 4901
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "sha256": "785cfa700b6d3a7d3479c1d5f343920493ddff945e6068edfdf382e714a314e8",
+      "git_blob": "11d22cc14fca4bf4bc52703204f468b0f11b8637",
+      "size": 4113
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_10_task/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "sha256": "4b6feef4808e4d3882115ff0c83b343f423ed551cf9b7b3499d8d546d9461e00",
+      "git_blob": "066d3aba29a5823ff8b1f47f72260c8b68a3eba9",
+      "size": 3117
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/open_the_middle_drawer_of_the_cabinet.pruned_init",
+      "sha256": "003535c27714a4cc51cb1574bdf16723597f2a9d932e800fb478f6c0982c772b",
+      "git_blob": "b504c8031c0cbc1a8fc33740689251a0d92438d3",
+      "size": 4122
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+      "sha256": "a62c59a5af059cf77d97bd0b23280d329c2363556fd9dc9c34f34e1412d80571",
+      "git_blob": "7ecf49fb28082a52bf38b2c135dde20634651251",
+      "size": 4113
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/push_the_plate_to_the_front_of_the_stove.pruned_init",
+      "sha256": "1641d87cb058a6dd80bf0c2dbddef4bb6707398cc0d4ab7a99284ee0a95ea4dd",
+      "git_blob": "d0cfa22855d383d07a6edbb7aebf6da04117099a",
+      "size": 4116
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_bowl_on_the_plate.pruned_init",
+      "sha256": "bfc49fc47486fe872210529a8660da66e0eb6d589a28a3e9d924c6a97c13f73d",
+      "git_blob": "1af3d248ebb06120082d42289f9d7ba234112476",
+      "size": 4114
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_bowl_on_the_stove.pruned_init",
+      "sha256": "3bb00b42caa00eea28b1c5b1a730d1cbbf680723c5e71fa53bf7c0d615ed2ce3",
+      "git_blob": "cb59cf22839cd25b1de5724f5261d6b50855be5b",
+      "size": 4124
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+      "sha256": "077a6ba4855cafee642118c22176a4defb07d5cef71e33d7d7258871aeeb2e90",
+      "git_blob": "42ad1d3d591964169915a4eff1ec5dde2c2d09e2",
+      "size": 4117
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_cream_cheese_in_the_bowl.pruned_init",
+      "sha256": "99ed286464b1f7c8f852a2e3fe6d4d692a7a44e50d2a5b08d721705c6e390f54",
+      "git_blob": "6cb221d4c74e9996c9c0e1af177b4ef20610295e",
+      "size": 4122
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_wine_bottle_on_the_rack.pruned_init",
+      "sha256": "0f87de72a0dab4cb15efd1aa25fde03d16901c794909b30ea066bed87d75199f",
+      "git_blob": "1ceab45d9bb4e47786a1de7d4a337d0aebb8c63e",
+      "size": 4120
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+      "sha256": "66dd3dfdc126653e8c4706c3b6cccea6e0b00d0cefcdaa727aa8245cdbbb8606",
+      "git_blob": "85d68dec9d091ef6ca5eca2b8953dc0bc0a13d50",
+      "size": 4123
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_swap/turn_on_the_stove.pruned_init",
+      "sha256": "2f34af5e6bfe46bfa247080aa60b342149f0e33692659044481b2ac757a52bd1",
+      "git_blob": "24d0e2c573c913ce652937f001772edcf6e31838",
+      "size": 4128
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/open_the_middle_drawer_of_the_cabinet.pruned_init",
+      "sha256": "aca0dd09ccc97b099a6fbd3b3c0f6700e438234cc1b0272b47fb53b88290c6cf",
+      "git_blob": "6c3591026076819a993faf47a3ac30e1f95df9ea",
+      "size": 4111
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+      "sha256": "74b021b8965a24e7cda501c236683f862853ca4fe883621328156c78ad5414c0",
+      "git_blob": "975b2440a20e328e65a81070216b226ca7d999a3",
+      "size": 4139
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/push_the_plate_to_the_front_of_the_stove.pruned_init",
+      "sha256": "5bca40b77b59f91b52b7bbdd77bd39c4dd7f3623bf3acc459fb0170a8e689769",
+      "git_blob": "aac0f910e5714ec2cfccda5d2db892947fc4a9d9",
+      "size": 4133
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_bowl_on_the_plate.pruned_init",
+      "sha256": "4a236e9601a35f9dc46f4abd7471d047c411a53288950a8c5af4d597b531c6d6",
+      "git_blob": "03479f61afdb56c19fcd65813574d33291911c57",
+      "size": 4124
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_bowl_on_the_stove.pruned_init",
+      "sha256": "e681dd9c20bc64127118c5743d3d9016e5754de17111e75254219f12b5d0be46",
+      "git_blob": "e53dc7e233eeb61cd75cc3dbcc2f86e0bb1bb043",
+      "size": 4126
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+      "sha256": "f27e85f6f4e1c1ddecf4c6034367bfe73b33bbaca6109396d360b94505cfd15c",
+      "git_blob": "958b1346cc397e9919fd859fe361f15427c50ecc",
+      "size": 4133
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_cream_cheese_in_the_bowl.pruned_init",
+      "sha256": "8beb8a6afa57c15148a5758565a5070ce1370424572a42081b6fc561be5417ee",
+      "git_blob": "fb1627445e0d001fd92e0e5c35b8ed0eaca3024d",
+      "size": 4137
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_wine_bottle_on_the_rack.pruned_init",
+      "sha256": "1d689368c97c36d6ca4bba0d6c732b6e082715e73791676d71e3bb3e46254b7b",
+      "git_blob": "1f17f7aff5ce1fc400b8d758287c495e9f81c3a0",
+      "size": 4135
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+      "sha256": "8ba943e9e39899cb5a0c6f1e5d241eca95cd1d58c72f9f6e8d90f602b7cb54e9",
+      "git_blob": "d2def5a5ca7b3067d91dfdee1344cf7f1c56e5db",
+      "size": 4145
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_goal_task/turn_on_the_stove.pruned_init",
+      "sha256": "28d352ccac0b7b9c2e7a2f27867fb13aa5e86bad75c891c6bc485bf9df27305d",
+      "git_blob": "b58020a052e1ed78b7063e2d216ec65994815a48",
+      "size": 4136
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "sha256": "73bca978486a6dd218f53a950af06fe984cbb2498c1a3e6253f2e9a8b84df669",
+      "git_blob": "fdf021b0f878cfa89ddde5a821750baabe7b6a97",
+      "size": 4131
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "sha256": "ebf26fc13814fb2d2637e0d496e59a28bd282d48a294d97a725ea4b8920358d3",
+      "git_blob": "678576286b8893d6fbb244c25701ff2c44a6b0a0",
+      "size": 3365
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "sha256": "1f193d9cfd85c3c4e33451f125627d8d1ba292d980a0fa2c2930be7cd67655b8",
+      "git_blob": "26f88a4388be273813cc6846b4a13556785b4bde",
+      "size": 3408
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "sha256": "fe37e20ba14cb409d5aae77cbca2a7dd3cf423f8cff5580549027380f935da69",
+      "git_blob": "6087f5a8c45d1ca4d67af64ed97a903a01cb1031",
+      "size": 2596
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "sha256": "f9bb455a4fd1dac83a72d33673509a2f175f7fb63026b9fef78d66515771e022",
+      "git_blob": "0a1983c79ea2a0acfa2b1efb3394b05fe7b1e932",
+      "size": 4171
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "sha256": "e513b64339189f065bc4c677fac8115cd75024d78165067420ea88686149024a",
+      "git_blob": "ad888b3ac19c0eb8606be2e05e40d9b2541dcde8",
+      "size": 4127
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "sha256": "d44fb8ef27bb4077e085c8f4d561640fdfda975c37dcd17d545d86170636cb3a",
+      "git_blob": "50a2eaae9e0ab34a6aa214a998890daa467a7aef",
+      "size": 4149
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "sha256": "eeb6050333c46e275caa9897892257e3297d9dedea51c7ef751d0da2e90308c2",
+      "git_blob": "2ad4240ee5579cc21f3e5167164ee0141fe38ff5",
+      "size": 3352
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "sha256": "5f540b8392ccfdb988dffa9672bd3d0a8218d4b7ffe8f1e46004523b06d349b4",
+      "git_blob": "b53e76c9465b2e24fb0136d500364327044c296f",
+      "size": 3398
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_swap/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "sha256": "1ee366ef830ab2d7e13d0a49692bc2e380a5706aa7a0acbcefbeb10062c3b683",
+      "git_blob": "1687d7f45edfffe49b3b8746d2e0cb10397eb304",
+      "size": 4140
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "sha256": "292758a37a733e44006270bbe706e14f83c086ff16517fca432f851817932340",
+      "git_blob": "a49b1bf8318ce6e6db8bd83bceb8e263ff4f1044",
+      "size": 4144
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "sha256": "db5ebce3a987ff88cbe4a1b16f48615fc9a351a19fb1193b98089dc141e265f4",
+      "git_blob": "43ec9e7d54dfc187b87156e48e56fdaee9df875b",
+      "size": 3389
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "sha256": "ff52393894a02fdf336daaf0c97a28593c5cd13fd8f6da3b5ef782204d99d54b",
+      "git_blob": "1406a853815c37f0ff202a61e635dae7b9bd4248",
+      "size": 3393
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "sha256": "8d8444e83a8e0067d4e686f56468c6c175be75d99812b7ca1ca7388d2993e444",
+      "git_blob": "e3b4be30dcdd5ca387a2d4a69b1ec31bb562a594",
+      "size": 2594
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "sha256": "e37ade0ccb98728e8af76c2fa69685897253e82ba939ff8be023ff93a95f552a",
+      "git_blob": "d8494d4043789e70c51cb848e57eb4ffd1f269b5",
+      "size": 4201
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "sha256": "667bee4acc975a6ce57b62fd696d9241da2e702967edfeac8b3768bbed4874a5",
+      "git_blob": "ca0233e9e38733e2013feb228d39240a7c4f29d0",
+      "size": 4161
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "sha256": "2bd1d722dc710d434f33888adc9c554e929ccc23774fd658faa02226f667ad56",
+      "git_blob": "356b3649c1aa1a53ea78331107d804cd9fc7f495",
+      "size": 4150
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "sha256": "d67f7ee29ecbc78bed38293d236d9d7f8c7bff70e491b4a40d006659056107b8",
+      "git_blob": "3643ad277868835af084c4bc5c66152f3173f47d",
+      "size": 3353
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "sha256": "41ae02243be8e880e87445dcdf3bab5febcc5ca1905773f130d59a3791129597",
+      "git_blob": "a2f7f709958c9853be61611922a63c338386c749",
+      "size": 3407
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_object_task/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "sha256": "569ebfa7f31d7b01f3e18ffe506bd7e457bde7c2af028cf76c0514309a18d964",
+      "git_blob": "6fec4c091a48bb347d8f3c1cecb85bd08360130c",
+      "size": 4111
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "b03c5dcddce5c6e2cf687861caed0b677faab935ee5a1513a69eb4bb6caf5589",
+      "git_blob": "7bc57e3d1a12f59336fd4d11c4b71090d7ab5860",
+      "size": 4834
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.pruned_init",
+      "sha256": "c432f4d3456b0ac50fd7f3ad71d7f997a702507f1918dbfb9e8444d9e00e8c40",
+      "git_blob": "b091b7275a5d8f9fd0dc52df4eee97fca4da7758",
+      "size": 4520
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+      "sha256": "26e1d094660fc552e5e7496ac9bca46ba4427b48f4953db2fe277ba084158148",
+      "git_blob": "5661a21eb6cc6dd737d7d543fb0c68198d3f83c3",
+      "size": 5293
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+      "sha256": "bbc72f97e5f35e9793cace6cef334b693e6f0eb7a23d23b0fed39a4db4792bc4",
+      "git_blob": "3788031442b1f5c3172fbd122f6555a14079f799",
+      "size": 4892
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.pruned_init",
+      "sha256": "ba9041b336af39ccc651c40c10bc89391f9b3330c5399a0822ac47f49b16ac66",
+      "git_blob": "9dcca7d6956c19e4cfdb15f12ad1ef8a0d556a85",
+      "size": 4827
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "512884d238b024131946aea6a8e84c5410a2ede02d208133b1126c9ce90be8bc",
+      "git_blob": "6934f13c4f81f0642431c0205846ae0dfaa40d12",
+      "size": 4873
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+      "sha256": "d0a4720d847e85060f5bf0a3609d3a8dd9916242b60398f857922be24607e95e",
+      "git_blob": "e64a29008cc03499f59d8f48148e67b9895a243b",
+      "size": 4279
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "06bcf32eb88b0f3b51faf19d5cd4f0a8149024699f695f81673cb99113b32977",
+      "git_blob": "00838ad79b9742c2964a499e856a6b088abf3204",
+      "size": 3562
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.pruned_init",
+      "sha256": "c2c9e517af8e25b1c0bd21152c7603986380e4b8392a43032f76b2ed4c5d4374",
+      "git_blob": "60cda4d3fd743e9473a15b8f0755b9074e57b381",
+      "size": 4919
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_swap/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+      "sha256": "6d49d2e7e0c5f43a46445d458283e535bf49fbd92ee8519de5cee9ef44c3c0de",
+      "git_blob": "03aacfedbb62f8b70423b6e20b1f25311767d2fb",
+      "size": 4910
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "7c407820c1d170359b13e159f9940327674821f416d70ce2b8ca1c5b4bdf954c",
+      "git_blob": "30f52e048bf6aeb0fdbf18077c347ff2e3ffd964",
+      "size": 4871
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.pruned_init",
+      "sha256": "bb596dcafd70103a4c12147df02626a6225675edb3651ceecdde2fb905763829",
+      "git_blob": "ae3d4a79baeba6b72802a837642c8bcd1c950b49",
+      "size": 4522
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+      "sha256": "55a2760f8d6e8cd4a4d9a3b50cac576828e4f119778ea1a2995f4f435f836dad",
+      "git_blob": "bee51ecd1cc04b493909493a789c0d36392db043",
+      "size": 5300
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+      "sha256": "197aedfeac0069d2d1a68d4311412e852fe11c6c71d117b1c7fe74b3fe98c41e",
+      "git_blob": "cb78be72e21ad6ed791138d6960f4b85dc347356",
+      "size": 4919
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.pruned_init",
+      "sha256": "8c5e0028e12a7c53be54b45414a935f02d7b7da7d829a085fabf2937a51b21e0",
+      "git_blob": "cff70f3686c0e8b9d9b188b5221d58c250a65468",
+      "size": 4870
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "baa777f3afb9926e68eaf5cd8bb98be59bca72e79ae24b2b35f927f3b48648f1",
+      "git_blob": "ac50d096b4349c1a32fc3a0f2893d9c2a3ba61d4",
+      "size": 4901
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+      "sha256": "bb5d77bc9841c04c7cafd24fcbb965e3999868d075edc1033c5071bce86f3cef",
+      "git_blob": "423d96a15d73e0c0381dc9cf7f801c098e0ec75c",
+      "size": 4279
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.pruned_init",
+      "sha256": "becb5b0f3f7a9c5d38b83ac345f2cd61fa788acfed784735cc46267d37b58ab9",
+      "git_blob": "8542809ade05c571030505e5778aa4c103adacfc",
+      "size": 3622
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.pruned_init",
+      "sha256": "8026fd8590bfe784b5d01a902cb49a8dd341e0dd000998f0338510f40828dca4",
+      "git_blob": "9d4337b56bf64c5f7f46f9cc8d8c07ce8ef22965",
+      "size": 4911
+    },
+    {
+      "path": "/storage/anhdh35/LIBERO-PRO-eval/liberopro/liberopro/init_files/libero_spatial_task/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+      "sha256": "d0a2603620dad5d10a8894ab81cb4d1f5106807a4d512030fa6d3c570cba63bf",
+      "git_blob": "54f383170176db59bdd8736efcf04a308f817989",
+      "size": 4909
+    }
+  ]
+}
