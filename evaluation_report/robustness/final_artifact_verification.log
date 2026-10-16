@@ -1,0 +1,111 @@
+Hashed 4000/35330 artifacts
+Hashed 8000/35330 artifacts
+Hashed 12000/35330 artifacts
+Hashed 16000/35330 artifacts
+Hashed 20000/35330 artifacts
+Hashed 24000/35330 artifacts
+Hashed 28000/35330 artifacts
+Hashed 32000/35330 artifacts
+{
+  "passed": true,
+  "started_unix": 1792154718.435578,
+  "finished_unix": 1792154721.2364805,
+  "jobs": [
+    {
+      "id": "plus__CL-0",
+      "episodes": 1506,
+      "successes": 708
+    },
+    {
+      "id": "plus__CL-A",
+      "episodes": 1506,
+      "successes": 719
+    },
+    {
+      "id": "plus__CL-REG",
+      "episodes": 1506,
+      "successes": 721
+    },
+    {
+      "id": "plus__CL-W2",
+      "episodes": 1506,
+      "successes": 729
+    },
+    {
+      "id": "plus__CL-0@1",
+      "episodes": 1506,
+      "successes": 689
+    },
+    {
+      "id": "plus__CL-A@1",
+      "episodes": 1506,
+      "successes": 693
+    },
+    {
+      "id": "plus__CL-FRAME",
+      "episodes": 1506,
+      "successes": 719
+    },
+    {
+      "id": "pro__CL-0",
+      "episodes": 800,
+      "successes": 58
+    },
+    {
+      "id": "pro__CL-A",
+      "episodes": 800,
+      "successes": 60
+    },
+    {
+      "id": "pro__CL-REG",
+      "episodes": 800,
+      "successes": 60
+    },
+    {
+      "id": "pro__CL-W2",
+      "episodes": 800,
+      "successes": 53
+    },
+    {
+      "id": "pro__CL-0@1",
+      "episodes": 800,
+      "successes": 56
+    },
+    {
+      "id": "pro__CL-A@1",
+      "episodes": 800,
+      "successes": 60
+    },
+    {
+      "id": "pro__CL-FRAME",
+      "episodes": 800,
+      "successes": 62
+    }
+  ],
+  "episodes": 16142,
+  "queries": 538591,
+  "unique_hashed_files": 35330,
+  "hashed_files_by_kind": {
+    "task_plan": 2,
+    "source": 193,
+    "bddl": 931,
+    "initial_states": 340,
+    "video": 16142,
+    "query_log": 16142,
+    "text_embedding": 1579,
+    "source_bundle": 1
+  },
+  "hashed_bytes_by_kind": {
+    "task_plan": 2379283,
+    "source": 12054908,
+    "bddl": 2709776,
+    "initial_states": 2603792,
+    "video": 6731883924,
+    "query_log": 80295122,
+    "text_embedding": 1660837031,
+    "source_bundle": 24046
+  },
+  "seed": 42,
+  "scope": "All scored episode/group/CSV records, query logs, videos, task plans, referenced source files, BDDL/state files, cached text, and source bundle. No simulations rerun; checkpoint weight tensors and selected state arrays not reloaded.",
+  "audit_script_sha256": "66e3e5d257586a05f8f14cb5cb643216cb5c5e453d2ec78ce73637c1e57fd583"
+}

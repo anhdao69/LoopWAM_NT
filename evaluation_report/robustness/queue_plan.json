@@ -1,0 +1,146 @@
+{
+  "seed": 42,
+  "jobs": [
+    {
+      "id": "plus__CL-0",
+      "benchmark": "plus",
+      "model": "CL-0",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/fea8b7334294ce67058c44105ec858025f3eca28/CL-0_no-memory_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-A",
+      "benchmark": "plus",
+      "model": "CL-A",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-REG",
+      "benchmark": "plus",
+      "model": "CL-REG",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/f45c862e1e45645eee407c7a26d0e9fd816bc872/CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-REG",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-W2",
+      "benchmark": "plus",
+      "model": "CL-W2",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8706968184639b57fc12410cad4a89dce3f79836/CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-W2",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-0@1",
+      "benchmark": "plus",
+      "model": "CL-0@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0-at1",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-A@1",
+      "benchmark": "plus",
+      "model": "CL-A@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/204137bc56b946ff46816a3f64bd268e03d99d69/CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A-at1",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "plus__CL-FRAME",
+      "benchmark": "plus",
+      "model": "CL-FRAME",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/cf52c6364579e45408150cd5f526b573d42eef4d/CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-FRAME",
+      "status": "pending",
+      "expected_episodes": 1506
+    },
+    {
+      "id": "pro__CL-0",
+      "benchmark": "pro",
+      "model": "CL-0",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/fea8b7334294ce67058c44105ec858025f3eca28/CL-0_no-memory_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-A",
+      "benchmark": "pro",
+      "model": "CL-A",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-A_mem16-learned-loopwrite_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-REG",
+      "benchmark": "pro",
+      "model": "CL-REG",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/f45c862e1e45645eee407c7a26d0e9fd816bc872/CL-REG_mem16-reset-registers_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-REG",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-W2",
+      "benchmark": "pro",
+      "model": "CL-W2",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8706968184639b57fc12410cad4a89dce3f79836/CL-W2_mem16-learned-external-updater_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-W2",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-0@1",
+      "benchmark": "pro",
+      "model": "CL-0@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/8e25a4e7d117c36b50fdad51f83c5c4211d47be5/CL-0-at1_no-memory_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0-at1",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-A@1",
+      "benchmark": "pro",
+      "model": "CL-A@1",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/204137bc56b946ff46816a3f64bd268e03d99d69/CL-A-at1_mem16-learned-loopwrite_a1/epoch_10/policy.pt",
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A-at1",
+      "status": "pending",
+      "expected_episodes": 800
+    },
+    {
+      "id": "pro__CL-FRAME",
+      "benchmark": "pro",
+      "model": "CL-FRAME",
+      "checkpoint": "/data14t/anhdh35/loopwam_campaign/checkpoints/ChronoLoop/cf52c6364579e45408150cd5f526b573d42eef4d/CL-FRAME_history-frame-k3_a4/epoch_10/policy.pt",
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-FRAME",
+      "status": "pending",
+      "expected_episodes": 800
+    }
+  ],
+  "planned_episodes": 16142
+}

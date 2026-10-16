@@ -1,0 +1,808 @@
+{
+  "benchmark": "pro",
+  "plan_sha256": "1f400424023dd254e8a895a47732975282606e9c978826b3431924b90f01e4ef",
+  "rows": [
+    {
+      "id": "libero_10_swap__0000__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0001__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0002__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0003__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0004__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0005__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0006__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0007__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0008__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_swap__0009__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0000__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0001__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0002__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0003__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0004__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0005__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0006__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0007__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0008__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_10_task__0009__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0000__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0001__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0002__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0003__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0004__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0005__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0006__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0007__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0008__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_swap__0009__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0000__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0001__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0002__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0003__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0004__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0005__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0006__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0007__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0008__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_goal_task__0009__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0000__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0001__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0002__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0003__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0004__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0005__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0006__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0007__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0008__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_swap__0009__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0000__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0001__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0002__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0003__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0004__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0005__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0006__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0007__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0008__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_spatial_task__0009__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0000__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0001__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0002__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0003__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0004__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0005__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0006__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0007__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0008__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_swap__0009__seed42",
+      "ok": true,
+      "category": "Position",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0000__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0001__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0002__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0003__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0004__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0005__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0006__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0007__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0008__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    },
+    {
+      "id": "libero_object_task__0009__seed42",
+      "ok": true,
+      "category": "Task",
+      "render_shape": [
+        256,
+        256,
+        3
+      ]
+    }
+  ],
+  "passed": true,
+  "elapsed_seconds": 26.999101400375366
+}

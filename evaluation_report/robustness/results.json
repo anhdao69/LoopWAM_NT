@@ -1,0 +1,1300 @@
+{
+  "updated_unix": 1792153496.486509,
+  "seed": 42,
+  "planned_episodes": 16142,
+  "jobs": [
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 708,
+      "success_rate": 0.4701195219123506,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 708,
+        "success_rate": 0.4701195219123506,
+        "scored_wall_seconds": 11757.592819700018,
+        "elapsed_seconds": 11764.391853373963,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792049934.8043504,
+        "total_queries": 51459,
+        "query_seconds": 20787.264743130072
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0"
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 719,
+      "success_rate": 0.47742363877822047,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 719,
+        "success_rate": 0.47742363877822047,
+        "scored_wall_seconds": 10637.103804299957,
+        "elapsed_seconds": 10643.446083940915,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792060962.5331142,
+        "total_queries": 51119,
+        "query_seconds": 17450.524508882547
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A"
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 721,
+      "success_rate": 0.47875166002656044,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 721,
+        "success_rate": 0.47875166002656044,
+        "scored_wall_seconds": 10403.028917871998,
+        "elapsed_seconds": 10409.305319100036,
+        "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792071702.2068605,
+        "total_queries": 51127,
+        "query_seconds": 17006.297948508058
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-REG"
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 729,
+      "success_rate": 0.48406374501992033,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 729,
+        "success_rate": 0.48406374501992033,
+        "scored_wall_seconds": 12209.680516703986,
+        "elapsed_seconds": 12216.12578150502,
+        "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792084215.2695704,
+        "total_queries": 51035,
+        "query_seconds": 21901.026736037456
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-W2"
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 689,
+      "success_rate": 0.45750332005312083,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 689,
+        "success_rate": 0.45750332005312083,
+        "scored_wall_seconds": 9347.154622328933,
+        "elapsed_seconds": 9354.96626260993,
+        "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792094020.2711606,
+        "total_queries": 51977,
+        "query_seconds": 10995.213428006391
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-0-at1"
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 693,
+      "success_rate": 0.4601593625498008,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 693,
+        "success_rate": 0.4601593625498008,
+        "scored_wall_seconds": 9514.423968599061,
+        "elapsed_seconds": 9522.32615587092,
+        "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792104012.2708342,
+        "total_queries": 51816,
+        "query_seconds": 10885.144771549734
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-A-at1"
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "status": "complete",
+      "episodes": 1506,
+      "planned": 1506,
+      "successes": 719,
+      "success_rate": 0.47742363877822047,
+      "workers": 4,
+      "summary": {
+        "episodes": 1506,
+        "successes": 719,
+        "success_rate": 0.47742363877822047,
+        "scored_wall_seconds": 13800.891446649912,
+        "elapsed_seconds": 13808.728035109001,
+        "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792118429.282645,
+        "total_queries": 51034,
+        "query_seconds": 27957.908160984633
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/plus/CL-FRAME"
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 58,
+      "success_rate": 0.0725,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 58,
+        "success_rate": 0.0725,
+        "scored_wall_seconds": 5437.94888507307,
+        "elapsed_seconds": 5445.7687186760595,
+        "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792124038.1763926,
+        "total_queries": 25602,
+        "query_seconds": 14978.917290261597
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0"
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 60,
+      "success_rate": 0.075,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 5359.6730455450015,
+        "elapsed_seconds": 5367.577072245069,
+        "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792129573.4794643,
+        "total_queries": 25570,
+        "query_seconds": 14783.08719594183
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A"
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 60,
+      "success_rate": 0.075,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 5365.5654266870115,
+        "elapsed_seconds": 5373.348429564969,
+        "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792135116.0518749,
+        "total_queries": 25549,
+        "query_seconds": 14778.542803529534
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-REG"
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 53,
+      "success_rate": 0.06625,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 53,
+        "success_rate": 0.06625,
+        "scored_wall_seconds": 5395.02475606103,
+        "elapsed_seconds": 5403.062486386974,
+        "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792140689.269461,
+        "total_queries": 25621,
+        "query_seconds": 14791.484943272197
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-W2"
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 56,
+      "success_rate": 0.07,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 56,
+        "success_rate": 0.07,
+        "scored_wall_seconds": 3324.568113021902,
+        "elapsed_seconds": 3332.3806469929405,
+        "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792144147.010998,
+        "total_queries": 25575,
+        "query_seconds": 6937.317735072225
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-0-at1"
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 60,
+      "success_rate": 0.075,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 60,
+        "success_rate": 0.075,
+        "scored_wall_seconds": 3330.948372311075,
+        "elapsed_seconds": 3338.658962453017,
+        "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792147607.2150908,
+        "total_queries": 25548,
+        "query_seconds": 6937.5907218460925
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-A-at1"
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "status": "complete",
+      "episodes": 800,
+      "planned": 800,
+      "successes": 62,
+      "success_rate": 0.0775,
+      "workers": 4,
+      "summary": {
+        "episodes": 800,
+        "successes": 62,
+        "success_rate": 0.0775,
+        "scored_wall_seconds": 5688.412735749967,
+        "elapsed_seconds": 5696.205443738028,
+        "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+        "workers": 4,
+        "mode": "scored",
+        "completed_unix": 1792153484.855207,
+        "total_queries": 25559,
+        "query_seconds": 16142.063395468635
+      },
+      "output": "/data14t/anhdh35/loopwam_robustness/results/pro/CL-FRAME"
+    }
+  ],
+  "categories": [
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 65,
+      "success_rate": 0.35135135135135137
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 77,
+      "success_rate": 0.3888888888888889
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 77,
+      "success_rate": 0.32083333333333336
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 146,
+      "success_rate": 0.5983606557377049
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 74,
+      "success_rate": 0.28793774319066145
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 126,
+      "success_rate": 0.5727272727272728
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 143,
+      "success_rate": 0.8827160493827161
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 63,
+      "success_rate": 0.34054054054054056
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 80,
+      "success_rate": 0.40404040404040403
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 80,
+      "success_rate": 0.3333333333333333
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 149,
+      "success_rate": 0.610655737704918
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 72,
+      "success_rate": 0.2801556420233463
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 132,
+      "success_rate": 0.6
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 143,
+      "success_rate": 0.8827160493827161
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 65,
+      "success_rate": 0.35135135135135137
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 79,
+      "success_rate": 0.398989898989899
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 79,
+      "success_rate": 0.32916666666666666
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 148,
+      "success_rate": 0.6065573770491803
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 74,
+      "success_rate": 0.28793774319066145
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 135,
+      "success_rate": 0.6136363636363636
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 141,
+      "success_rate": 0.8703703703703703
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 66,
+      "success_rate": 0.3567567567567568
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 76,
+      "success_rate": 0.3838383838383838
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 87,
+      "success_rate": 0.3625
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 153,
+      "success_rate": 0.6270491803278688
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 78,
+      "success_rate": 0.3035019455252918
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 127,
+      "success_rate": 0.5772727272727273
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 142,
+      "success_rate": 0.8765432098765432
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 68,
+      "success_rate": 0.3675675675675676
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 82,
+      "success_rate": 0.41414141414141414
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 60,
+      "success_rate": 0.25
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 153,
+      "success_rate": 0.6270491803278688
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 63,
+      "success_rate": 0.245136186770428
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 129,
+      "success_rate": 0.5863636363636363
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 134,
+      "success_rate": 0.8271604938271605
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 60,
+      "success_rate": 0.32432432432432434
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 73,
+      "success_rate": 0.3686868686868687
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 68,
+      "success_rate": 0.2833333333333333
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 156,
+      "success_rate": 0.639344262295082
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 62,
+      "success_rate": 0.24124513618677043
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 136,
+      "success_rate": 0.6181818181818182
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 138,
+      "success_rate": 0.8518518518518519
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Background Textures",
+      "episodes": 185,
+      "successes": 61,
+      "success_rate": 0.32972972972972975
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Robot Initial States",
+      "episodes": 198,
+      "successes": 72,
+      "success_rate": 0.36363636363636365
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Camera Viewpoints",
+      "episodes": 240,
+      "successes": 92,
+      "success_rate": 0.38333333333333336
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Language Instructions",
+      "episodes": 244,
+      "successes": 150,
+      "success_rate": 0.6147540983606558
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Sensor Noise",
+      "episodes": 257,
+      "successes": 71,
+      "success_rate": 0.27626459143968873
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Objects Layout",
+      "episodes": 220,
+      "successes": 130,
+      "success_rate": 0.5909090909090909
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "Light Conditions",
+      "episodes": 162,
+      "successes": 143,
+      "success_rate": 0.8827160493827161
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 3,
+      "success_rate": 0.0075
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 55,
+      "success_rate": 0.1375
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 3,
+      "success_rate": 0.0075
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 57,
+      "success_rate": 0.1425
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 2,
+      "success_rate": 0.005
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 58,
+      "success_rate": 0.145
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 1,
+      "success_rate": 0.0025
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 52,
+      "success_rate": 0.13
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 2,
+      "success_rate": 0.005
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 54,
+      "success_rate": 0.135
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 4,
+      "success_rate": 0.01
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 56,
+      "success_rate": 0.14
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "Position",
+      "episodes": 400,
+      "successes": 3,
+      "success_rate": 0.0075
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "Task",
+      "episodes": 400,
+      "successes": 59,
+      "success_rate": 0.1475
+    }
+  ],
+  "suites": [
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 159,
+      "success_rate": 0.42063492063492064
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 123,
+      "success_rate": 0.3161953727506427
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 246,
+      "success_rate": 0.6507936507936508
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 180,
+      "success_rate": 0.4986149584487535
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 166,
+      "success_rate": 0.43915343915343913
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 129,
+      "success_rate": 0.33161953727506427
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 252,
+      "success_rate": 0.6666666666666666
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 172,
+      "success_rate": 0.47645429362880887
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 167,
+      "success_rate": 0.4417989417989418
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 121,
+      "success_rate": 0.3110539845758355
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 257,
+      "success_rate": 0.6798941798941799
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 176,
+      "success_rate": 0.48753462603878117
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 178,
+      "success_rate": 0.4708994708994709
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 128,
+      "success_rate": 0.32904884318766064
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 248,
+      "success_rate": 0.656084656084656
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 175,
+      "success_rate": 0.48476454293628807
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 149,
+      "success_rate": 0.3941798941798942
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 135,
+      "success_rate": 0.34704370179948585
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 236,
+      "success_rate": 0.6243386243386243
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 169,
+      "success_rate": 0.46814404432132967
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 152,
+      "success_rate": 0.4021164021164021
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 126,
+      "success_rate": 0.32390745501285345
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 244,
+      "success_rate": 0.6455026455026455
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 171,
+      "success_rate": 0.47368421052631576
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "libero_10",
+      "episodes": 378,
+      "successes": 165,
+      "success_rate": 0.4365079365079365
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "libero_goal",
+      "episodes": 389,
+      "successes": 130,
+      "success_rate": 0.3341902313624679
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "libero_object",
+      "episodes": 378,
+      "successes": 239,
+      "success_rate": 0.6322751322751323
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "group": "libero_spatial",
+      "episodes": 361,
+      "successes": 185,
+      "success_rate": 0.5124653739612188
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 9,
+      "success_rate": 0.045
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 12,
+      "success_rate": 0.06
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 27,
+      "success_rate": 0.135
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 9,
+      "success_rate": 0.045
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 12,
+      "success_rate": 0.06
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 29,
+      "success_rate": 0.145
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 12,
+      "success_rate": 0.06
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 28,
+      "success_rate": 0.14
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 8,
+      "success_rate": 0.04
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 25,
+      "success_rate": 0.125
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 9,
+      "success_rate": 0.045
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 12,
+      "success_rate": 0.06
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 25,
+      "success_rate": 0.125
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 9,
+      "success_rate": 0.045
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 14,
+      "success_rate": 0.07
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 27,
+      "success_rate": 0.135
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "libero_10",
+      "episodes": 200,
+      "successes": 11,
+      "success_rate": 0.055
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "libero_goal",
+      "episodes": 200,
+      "successes": 14,
+      "success_rate": 0.07
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "libero_object",
+      "episodes": 200,
+      "successes": 10,
+      "success_rate": 0.05
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "group": "libero_spatial",
+      "episodes": 200,
+      "successes": 27,
+      "success_rate": 0.135
+    }
+  ],
+  "active": null
+}
