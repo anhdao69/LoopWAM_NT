@@ -1,0 +1,64 @@
+model,benchmark,group,episodes,successes,success_rate
+CL-0,plus,Background Textures,185,65,0.35135135135135137
+CL-0,plus,Robot Initial States,198,77,0.3888888888888889
+CL-0,plus,Camera Viewpoints,240,77,0.32083333333333336
+CL-0,plus,Language Instructions,244,146,0.5983606557377049
+CL-0,plus,Sensor Noise,257,74,0.28793774319066145
+CL-0,plus,Objects Layout,220,126,0.5727272727272728
+CL-0,plus,Light Conditions,162,143,0.8827160493827161
+CL-A,plus,Background Textures,185,63,0.34054054054054056
+CL-A,plus,Robot Initial States,198,80,0.40404040404040403
+CL-A,plus,Camera Viewpoints,240,80,0.3333333333333333
+CL-A,plus,Language Instructions,244,149,0.610655737704918
+CL-A,plus,Sensor Noise,257,72,0.2801556420233463
+CL-A,plus,Objects Layout,220,132,0.6
+CL-A,plus,Light Conditions,162,143,0.8827160493827161
+CL-REG,plus,Background Textures,185,65,0.35135135135135137
+CL-REG,plus,Robot Initial States,198,79,0.398989898989899
+CL-REG,plus,Camera Viewpoints,240,79,0.32916666666666666
+CL-REG,plus,Language Instructions,244,148,0.6065573770491803
+CL-REG,plus,Sensor Noise,257,74,0.28793774319066145
+CL-REG,plus,Objects Layout,220,135,0.6136363636363636
+CL-REG,plus,Light Conditions,162,141,0.8703703703703703
+CL-W2,plus,Background Textures,185,66,0.3567567567567568
+CL-W2,plus,Robot Initial States,198,76,0.3838383838383838
+CL-W2,plus,Camera Viewpoints,240,87,0.3625
+CL-W2,plus,Language Instructions,244,153,0.6270491803278688
+CL-W2,plus,Sensor Noise,257,78,0.3035019455252918
+CL-W2,plus,Objects Layout,220,127,0.5772727272727273
+CL-W2,plus,Light Conditions,162,142,0.8765432098765432
+CL-0@1,plus,Background Textures,185,68,0.3675675675675676
+CL-0@1,plus,Robot Initial States,198,82,0.41414141414141414
+CL-0@1,plus,Camera Viewpoints,240,60,0.25
+CL-0@1,plus,Language Instructions,244,153,0.6270491803278688
+CL-0@1,plus,Sensor Noise,257,63,0.245136186770428
+CL-0@1,plus,Objects Layout,220,129,0.5863636363636363
+CL-0@1,plus,Light Conditions,162,134,0.8271604938271605
+CL-A@1,plus,Background Textures,185,60,0.32432432432432434
+CL-A@1,plus,Robot Initial States,198,73,0.3686868686868687
+CL-A@1,plus,Camera Viewpoints,240,68,0.2833333333333333
+CL-A@1,plus,Language Instructions,244,156,0.639344262295082
+CL-A@1,plus,Sensor Noise,257,62,0.24124513618677043
+CL-A@1,plus,Objects Layout,220,136,0.6181818181818182
+CL-A@1,plus,Light Conditions,162,138,0.8518518518518519
+CL-FRAME,plus,Background Textures,185,61,0.32972972972972975
+CL-FRAME,plus,Robot Initial States,198,72,0.36363636363636365
+CL-FRAME,plus,Camera Viewpoints,240,92,0.38333333333333336
+CL-FRAME,plus,Language Instructions,244,150,0.6147540983606558
+CL-FRAME,plus,Sensor Noise,257,71,0.27626459143968873
+CL-FRAME,plus,Objects Layout,220,130,0.5909090909090909
+CL-FRAME,plus,Light Conditions,162,143,0.8827160493827161
+CL-0,pro,Position,400,3,0.0075
+CL-0,pro,Task,400,55,0.1375
+CL-A,pro,Position,400,3,0.0075
+CL-A,pro,Task,400,57,0.1425
+CL-REG,pro,Position,400,2,0.005
+CL-REG,pro,Task,400,58,0.145
+CL-W2,pro,Position,400,1,0.0025
+CL-W2,pro,Task,400,52,0.13
+CL-0@1,pro,Position,400,2,0.005
+CL-0@1,pro,Task,400,54,0.135
+CL-A@1,pro,Position,400,4,0.01
+CL-A@1,pro,Task,400,56,0.14
+CL-FRAME,pro,Position,400,3,0.0075
+CL-FRAME,pro,Task,400,59,0.1475
