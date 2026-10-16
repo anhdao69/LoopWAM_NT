@@ -94,6 +94,13 @@ def preprocess_frames(views):
     return (torch.cat([high, wrists], -2) * 2 - 1).to(torch.bfloat16)
 
 
+def preprocess_frames_cuda(views, device):
+    """preprocess_frames run on a CUDA device: the same ops, but GPU float summation order, so a small
+    fraction of bf16 outputs differ from the CPU chain by one rounding step. Opt-in per dataset
+    (RobotSpec.preprocess); recorded in the latent-cache provenance."""
+    return preprocess_frames([v.to(device, non_blocking=True) for v in views])
+
+
 @dataclass
 class RobotSpec:
     name: str
@@ -104,14 +111,18 @@ class RobotSpec:
     stats_path: str | None = None     # published global z-score stats; None = compute from the episodes
     text_suffix: str = 't5_len128.wan22ti2v5b.pt'
     notes: dict = field(default_factory=dict)
+    preprocess: str = 'cpu'           # 'cpu' (bit-exact with the v0 adapter) or 'cuda' (latent build only)
 
     def episode_list(self):
         return [(g, int(e)) for g, ids in self.groups.items() for e in ids]
 
     def identity(self):
-        return dict(name=self.name, root=str(Path(self.root).resolve()), groups=self.groups,
-                    replan_stride=self.replan_stride, stats_path=self.stats_path, text_suffix=self.text_suffix,
-                    text_cache_dir=str(Path(self.text_cache_dir).resolve()))
+        ident = dict(name=self.name, root=str(Path(self.root).resolve()), groups=self.groups,
+                     replan_stride=self.replan_stride, stats_path=self.stats_path, text_suffix=self.text_suffix,
+                     text_cache_dir=str(Path(self.text_cache_dir).resolve()))
+        if self.preprocess != 'cpu':      # absent for the default so existing identities are unchanged
+            ident['preprocess'] = self.preprocess
+        return ident
 
     def sha256(self):
         return hashlib.sha256(json.dumps(self.identity(), sort_keys=True).encode()).hexdigest()
@@ -290,7 +301,11 @@ class RobotWindows:
 def latent_provenance(windows: RobotWindows, vae_sha: str) -> dict:
     """Cache identity: data selection, preprocessing code and VAE weights (not the training code)."""
     vae_file = Path(__file__).parents[1] / 'models' / 'wan22' / 'wan_video_vae.py'
-    return dict(format='chronoloop-robot-latents-v1', spec_sha256=windows.spec.sha256(), windows=windows.size,
+    extra = {}
+    if windows.spec.preprocess != 'cpu':
+        extra = dict(preprocess_device=windows.spec.preprocess, preprocess_cuda_sha256=hashlib.sha256(
+            inspect.getsource(preprocess_frames_cuda).encode()).hexdigest())
+    return dict(**extra,format='chronoloop-robot-latents-v1', spec_sha256=windows.spec.sha256(), windows=windows.size,
                 episodes=[list(e) for e in windows.episodes], vae_sha256=vae_sha, latent_shape=list(LATENT_SHAPE),
                 video_offsets=list(VIDEO_OFFSETS), video_size=list(VIDEO_HW), camera_order=list(CAMERAS),
                 preprocess_sha256=hashlib.sha256(inspect.getsource(preprocess_frames).encode()).hexdigest(),
@@ -305,14 +320,14 @@ DATA_ROOT = Path('/groups/yshang/an221229/data')
 
 def robot_spec(name: str) -> RobotSpec:
     if name.startswith('robotwin'):
-        from fastwam.datasets.chronoloop_robot_tasks import ROBOTWIN_SUBSETS
+        from fastwam.datasets.chronoloop_robot_tasks import ROBOTWIN_PREPROCESS, ROBOTWIN_SUBSETS
         tasks, demos = ROBOTWIN_SUBSETS[name]
         return RobotSpec(name=name, root=str(DATA_ROOT / 'robotwin2.0-fastwam/robotwin2.0'),
                          groups=robotwin_episode_ids(tasks, demos),
                          text_cache_dir=str(DATA_ROOT / 'LoopWAM_NT/text_embeds_cache/robotwin'),
                          replan_stride=24, stats_path=str(DATA_ROOT / 'robotwin2.0-fastwam/dataset_stats.json'),
                          notes=dict(replan_source='configs/sim_robotwin.yaml EVALUATION.replan_steps = 24',
-                                    demos=demos))
+                                    demos=demos), preprocess=ROBOTWIN_PREPROCESS.get(name, 'cpu'))
     if name == 'robodojo':
         root = DATA_ROOT / 'robodojo/data/RoboDojo_lerobot_v21_video'
         groups = {}

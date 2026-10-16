@@ -24,7 +24,8 @@ import torch
 import torch.distributed as dist
 
 from fastwam.datasets.chronoloop_robot import (CAMERAS, LATENT_SHAPE, VIDEO_OFFSETS, RobotWindows,
-                                               latent_provenance, preprocess_frames, robot_spec)
+                                               latent_provenance, preprocess_frames, preprocess_frames_cuda,
+                                               robot_spec)
 from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache
 from fastwam.models.wan22.loopwam_init import load_wan21_vae, sha256_file
 
@@ -64,6 +65,8 @@ class EpisodeFrames(torch.utils.data.Dataset):
         need = np.unique(np.minimum(anchors[:, None] + np.asarray(VIDEO_OFFSETS), length - 1))
         views = [decode_rgb(self.video_path(ep, key), int(need[-1]), self.decode_threads)[torch.from_numpy(need)]
                  for key in CAMERAS]
+        if self.windows.spec.preprocess == 'cuda':
+            return d, start, length, anchors, need, views          # raw uint8; resized on the GPU
         return d, start, length, anchors, need, preprocess_frames(views)
 
 
@@ -127,7 +130,10 @@ def main():
         anchors, need = np.asarray(anchors), np.asarray(need)    # the loader converts numpy to tensors
         pos = torch.full((length,), -1, dtype=torch.long)
         pos[torch.from_numpy(need)] = torch.arange(len(need))
-        frames = frames.cuda(non_blocking=True)
+        if windows.spec.preprocess == 'cuda':
+            frames = preprocess_frames_cuda(frames, torch.device('cuda', local))
+        else:
+            frames = frames.cuda(non_blocking=True)
         for lo in range(0, len(anchors), args.batch):
             a = torch.from_numpy(anchors[lo:lo + args.batch])
             idx = pos[torch.clamp(a[:, None] + offsets, max=length - 1)]
