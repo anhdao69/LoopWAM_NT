@@ -14,7 +14,20 @@ Both runs reached the end of epoch 5 (update 35,111 of the 10-epoch schedule) wi
 | CL-0 (no memory) | 0.0623 / 0.0067 | 26.2 h | 2.63-2.69 |
 | CL-A (mem16, learned source, loop write) | 0.0618 / 0.0051 | 31.6 h | 3.13-3.33 |
 
-{{EVAL_SUMMARY}}
+RoboTwin 2.0 evaluation of both `epoch_05.pt` (section 8): unseen instructions, 50 episodes per task and setting,
+1,000 episodes in all. Mean success over the 5 tasks:
+
+| Run | Clean | Randomized |
+|---|---:|---:|
+| CL-0 (no memory) | 55.2% | 50.0% |
+| CL-A (mem16, learned source, loop write) | **57.6%** | **53.1%** |
+
+On the scenes both models ran (220 per setting), CL-A is 1.3 points higher on Clean (56.3% vs 57.6%) and 5.4 points
+higher on Randomized (49.3% vs 54.7%). Neither difference is statistically significant: on matched scenes, CL-A
+alone succeeded 34 times against CL-0 alone 31 times on Clean (exact McNemar p = 0.80), and 28 against 17 on
+Randomized (p = 0.14). By task, handover_mic is solved by both (98-100%), and hanging_mug is the hardest
+(24-30%). CL-A's largest gains on matched scenes are place_can_basket Randomized (+14 points), scan_object
+Randomized and hanging_mug Clean (+9 each); CL-0 is ahead on two matched cells, by one scene each.
 
 ## 2. What was trained
 
@@ -51,7 +64,7 @@ Both runs reached the end of epoch 5 (update 35,111 of the 10-epoch schedule) wi
 | Oct 17 20:36 | CL-0 reached update 35,111, saved `epoch_05.pt` and exited. Its weights were uploaded and verified at 21:16. |
 | Oct 17 21:48 - Oct 18 00:11 | CL-0 RoboTwin evaluation, 500 episodes, 10 processes on GPUs 0-1 next to CL-A's training (section 8). CL-A slowed from 3.2 to about 3.6 s per update while it ran (CPU contention; 8 CPUs). |
 | Oct 18 01:51 | CL-A reached update 35,111 and saved `epoch_05.pt`; the trainer exited at 01:52 and the RAM cache was removed. |
-| Oct 18 01:53 - {{CLA_EVAL_END}} | CL-A RoboTwin evaluation, 20 processes on 4 GPUs, and CL-A's upload. |
+| Oct 18 01:53 - 03:36 | CL-A RoboTwin evaluation, 20 processes on 4 GPUs (episodes from 02:03; the shared T5 server took 10 min to import on a slow Lustre metadata server). CL-A's weights were uploaded and verified at 01:57. |
 
 ## 4. Training curves
 
@@ -112,7 +125,8 @@ launcher retries. The interactive start on October 17 did not hit it.
 
 Hugging Face, https://huggingface.co/anhdao69/ChronoLoop_Robotwin5:
 `<run>/epoch_05/{policy.pt,config.json}` (weights only, FP32), `<run>/{manifest.json,metrics.jsonl,timing.json}`,
-`data/{dataset_stats.json,data_manifest.json}` (normalization and data protocol), `README.md`.
+`data/{dataset_stats.json,data_manifest.json}` (normalization and data protocol),
+`eval/robotwin5hard_epoch05_results.json` (per-seed RoboTwin outcomes of both models), `README.md`.
 Uploads are verified file by file against the local size and SHA-256 (`<run>/hf_upload.json`).
 
 Cluster, `/groups/yshang/an221229/checkpoints/ChronoLoop/robot/`:
@@ -197,7 +211,55 @@ test Easy and Hard), which LiLa-WAM does not use.
 
 ### 8.2 Results
 
-{{EVAL_RESULTS}}
+All 1,000 episodes finished; no process failed. Per-seed outcomes for both models:
+`plans/performance/ChronoLoop_Robotwin5hard_Epoch5_results.json` (written by `chronoloop_robotwin_eval_report.py`).
+Episode logs and one video per episode are in `/groups/yshang/an221229/checkpoints/ChronoLoop/robot/eval/robotwin5hard/`
+(`CL-0_no-memory_a4_epoch05`, `CL-A_mem16-learned-loopwrite_a4_epoch05`).
+
+| Setting | Task | Matched scenes | CL-0 (matched) | CL-A (matched) | CL-0 (all 50) | CL-A (all 50) |
+|---|---|---:|---:|---:|---:|---:|
+| Clean | hanging_mug | 47 | 9/47 (19%) | 13/47 (28%) | 12/50 (24%) | 15/50 (30%) |
+| Clean | blocks_ranking_size | 46 | 23/46 (50%) | 23/46 (50%) | 24/50 (48%) | 23/50 (46%) |
+| Clean | scan_object | 46 | 28/46 (61%) | 27/46 (59%) | 30/50 (60%) | 29/50 (58%) |
+| Clean | place_can_basket | 37 | 19/37 (51%) | 20/37 (54%) | 22/50 (44%) | 27/48 (56%) |
+| Clean | handover_mic | 44 | 44/44 (100%) | 43/44 (98%) | 50/50 (100%) | 49/50 (98%) |
+| Clean | **mean of 5 tasks** | 220 | **56.3%** | **57.6%** | **55.2%** | **57.6%** |
+| Randomized | hanging_mug | 41 | 10/41 (24%) | 11/41 (27%) | 15/50 (30%) | 14/49 (29%) |
+| Randomized | blocks_ranking_size | 49 | 18/49 (37%) | 18/49 (37%) | 18/50 (36%) | 18/50 (36%) |
+| Randomized | scan_object | 45 | 20/45 (44%) | 24/45 (53%) | 22/50 (44%) | 25/50 (50%) |
+| Randomized | place_can_basket | 37 | 16/37 (43%) | 21/37 (57%) | 21/50 (42%) | 25/49 (51%) |
+| Randomized | handover_mic | 48 | 47/48 (98%) | 48/48 (100%) | 49/50 (98%) | 50/50 (100%) |
+| Randomized | **mean of 5 tasks** | 220 | **49.3%** | **54.7%** | **50.0%** | **53.1%** |
+
+"All 50" counts every distinct seed a model ran. CL-A ran 50 episodes in every job, but in three split jobs the
+first half's expert check rejected one or two seeds that CL-0's had accepted, so the first half ran past the second
+half's start seed. Seeds run by both halves count once, so those cells have 48 or 49 scenes. "Mean of 5 tasks" is the mean of the per-task rates, as LiLa-WAM reports it.
+
+Matched scenes by outcome:
+
+| Setting | Task | Both succeed | Only CL-0 | Only CL-A | Neither |
+|---|---|---:|---:|---:|---:|
+| Clean | hanging_mug | 3 | 6 | 10 | 28 |
+| Clean | blocks_ranking_size | 12 | 11 | 11 | 12 |
+| Clean | scan_object | 22 | 6 | 5 | 13 |
+| Clean | place_can_basket | 12 | 7 | 8 | 10 |
+| Clean | handover_mic | 43 | 1 | 0 | 0 |
+| Randomized | hanging_mug | 5 | 5 | 6 | 25 |
+| Randomized | blocks_ranking_size | 11 | 7 | 7 | 24 |
+| Randomized | scan_object | 18 | 2 | 6 | 19 |
+| Randomized | place_can_basket | 13 | 3 | 8 | 13 |
+| Randomized | handover_mic | 47 | 0 | 1 | 0 |
+| | **total** | 186 | 48 | 62 | 144 |
+
+Most outcomes on the middle-difficulty tasks change between the two models on the same scene (blocks_ranking_size
+Clean: 22 of 46 scenes flip, evenly in both directions). At epoch 5, which model succeeds on a given scene depends
+largely on sampling (flow noise and the closed loop), not only on the scene. Exact McNemar tests on the discordant
+scenes: Clean 31 vs 34 (p = 0.80), Randomized 17 vs 28 (p = 0.14), both settings 48 vs 62 (p = 0.22). The Randomized
+gap is the more consistent one (CL-A ahead or tied on every task), but 50 episodes per cell cannot separate it from
+noise.
+
+Wall time: CL-0's evaluation took 2.4 h (10 processes on GPUs 0-1, sharing 8 CPUs with CL-A's training); CL-A's took
+1.6 h of episodes (20 split processes on 4 GPUs; jobs took 0.9-1.55 h). Both are CPU-bound.
 
 ### 8.3 Environment and commands
 
