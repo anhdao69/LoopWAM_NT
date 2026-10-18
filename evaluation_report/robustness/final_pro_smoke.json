@@ -1,0 +1,20 @@
+{
+  "resources": {},
+  "workers": 2,
+  "seconds": 65.85733818402514,
+  "signature": "e3d84035472abed4d2bb50c131844acd0f5a6ac7a9ba5bb0b8f712c71eb2e5eb",
+  "output": "/data14t/anhdh35/loopwam_robustness/smoke/pro_CL-0_final",
+  "summary": {
+    "episodes": 8,
+    "successes": 0,
+    "success_rate": 0.0,
+    "scored_wall_seconds": 65.85733818402514,
+    "elapsed_seconds": 71.30313398793805,
+    "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+    "workers": 2,
+    "mode": "unscored_speed_calibration",
+    "completed_unix": 1792037804.6259582,
+    "total_queries": 264,
+    "query_seconds": 73.28838656132575
+  }
+}
