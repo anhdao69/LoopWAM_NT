@@ -1,0 +1,18 @@
+# ChronoLoop on RoboTwin 2.0 (scripts/evaluate_chronoloop_robotwin.py passes the per-run values as overrides).
+policy_name: chronoloop_policy
+task_name: null
+task_config: null          # demo_clean | demo_randomized
+ckpt_setting: null         # path to <run>/epoch_05/policy.pt (weights only)
+seed: 0                    # RoboTwin seed: episodes start at seed 100000 * (1 + seed), expert-checked
+instruction_type: unseen
+eval_num_episodes: 50
+eval_output_dir: null
+skip_get_obs_within_replan: true
+
+# chronoloop policy args
+dataset: robotwin5hard
+data_dir: null             # training data dir with dataset_stats.json
+vae_path: null
+replan_steps: 24
+num_inference_steps: 10
+t5_server: null           # socket of t5_server.py (the runner starts one); null = T5 in this process

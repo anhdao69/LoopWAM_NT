@@ -97,13 +97,22 @@ fi
 STATUS=0
 if [[ ! -f "$CHRONO_OUT/COMPLETE" ]]; then
   LIMIT=$(walltime_hours)
+  DEADLINE=$(date -d "$(squeue -h -j "$SLURM_JOB_ID" -o %e)" +%s)
   echo "[$(date -Is)] training on $NGPU GPUs; remaining allocation ${LIMIT} h"
+  # The trainer stops 15 min before DEADLINE, however long its start (or a CUDA retry) takes.
   cuda_retry torchrun --standalone --nproc_per_node=$NGPU scripts/train_chronoloop_robot.py \
     --dataset "$CHRONO_DATASET" --run-name "$CHRONO_RUN" $CHRONO_FLAGS --shared-dir "$CHRONO_SHARED_DS" \
-    --stream-micro $((32 / NGPU)) --stage-latents "$STAGED" --output-dir "$CHRONO_OUT" --time-limit-hours "$LIMIT" &
+    --stream-micro $((32 / NGPU)) --stage-latents "$STAGED" --output-dir "$CHRONO_OUT" --deadline-unix "$DEADLINE" &
   TRAIN_PID=$!
-  trap 'echo "USR1: walltime near"; ' USR1
-  wait $TRAIN_PID; STATUS=$?
+  GOT_USR1=0
+  trap 'echo "USR1: walltime near"; GOT_USR1=1' USR1
+  # A trapped signal interrupts wait (status > 128) while the trainer runs on: wait again, or exiting here
+  # would kill the trainer mid-checkpoint (job 935948, 2026-10-17).
+  while :; do
+    wait $TRAIN_PID; STATUS=$?
+    if [[ $GOT_USR1 -eq 1 && $STATUS -gt 128 ]]; then GOT_USR1=0; continue; fi
+    break
+  done
   echo "[$(date -Is)] trainer exit $STATUS"
   if [[ $STATUS -eq 0 ]]; then rm -f "$CHRONO_OUT/failures"; else echo "$SLURM_JOB_ID" >> "$CHRONO_OUT/failures"; fi
 fi

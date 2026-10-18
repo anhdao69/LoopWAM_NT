@@ -228,6 +228,9 @@ def main():
     p.add_argument('--no-save', action='store_true', help='benchmark only')
     p.add_argument('--time-limit-hours', type=float, default=None,
                    help='checkpoint and exit cleanly before this wall time (allocation end)')
+    p.add_argument('--deadline-unix', type=float, default=None,
+                   help='allocation end as a Unix time; preferred over --time-limit-hours, which is counted '
+                        'from after process-group init and so misses a slow start')
     args = p.parse_args()
     if args.streams * args.tbptt != args.global_batch:
         p.error('global batch must equal streams x tbptt (plan: 32 x 4 = 128)')
@@ -246,6 +249,8 @@ def main():
     if args.streams % world:
         raise ValueError('streams must divide evenly across ranks (each rank owns whole streams)')
     wall_start = time.time()
+    deadline = (args.deadline_unix if args.deadline_unix is not None else
+                wall_start + args.time_limit_hours * 3600 if args.time_limit_hours is not None else None)
     out = Path(args.output_dir); out.mkdir(parents=True, exist_ok=True)
     shared = Path(args.shared_dir or Path(os.environ.get('CHRONO_ROBOT_SHARED', '/groups/yshang/an221229/checkpoints/ChronoLoop/robot')) / args.dataset)
     torch.manual_seed(args.seed); random.seed(args.seed); np.random.seed(args.seed)
@@ -586,8 +591,8 @@ def main():
                 save('resume'); last_save = update
             stop_reason = 'max_updates'
             break
-        if args.time_limit_hours is not None:
-            remaining = torch.tensor(float(args.time_limit_hours * 3600 - (time.time() - wall_start)), device=device)
+        if deadline is not None:
+            remaining = torch.tensor(float(deadline - time.time()), device=device)
             if world > 1: dist.all_reduce(remaining, op=dist.ReduceOp.MIN)
             if remaining.item() < 900:
                 if not args.no_save and last_save != update:

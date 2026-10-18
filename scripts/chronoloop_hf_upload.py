@@ -52,6 +52,9 @@ def main():
     run = Path(a.run_dir)
     api = HfApi(token=Path(a.token_file).read_text().strip())
     manifest = json.loads((run / 'manifest.json').read_text()) if (run / 'manifest.json').exists() else {}
+    robot = 'dataset' in manifest          # written by train_chronoloop_robot.py
+    loader = ('fastwam.models.wan22.chronoloop_robot.create_chronoloop_robot (action_dim=proprio_dim=14)' if robot
+              else 'fastwam.models.wan22.chronoloop.create_chronoloop')
     plan = []
     for e in [int(x) for x in a.epochs.split(',')]:
         ckpt = run / 'checkpoints' / f'epoch_{e:02d}.pt'
@@ -59,10 +62,11 @@ def main():
             cfg = run / 'checkpoints' / f'epoch_{e:02d}.config.json'
             if not cfg.exists():
                 cfg.write_text(json.dumps(dict(experiment=manifest.get('run_name'), epoch=e, hf_folder=a.folder,
+                    dataset=manifest.get('dataset', 'libero'),
                     chrono=manifest.get('contract', {}).get('chrono'), parent_sha256=manifest.get('parent_sha256'),
                     schedule_sha256=manifest.get('contract', {}).get('schedule_sha256'),
                     epoch_complete_update=manifest.get('schedule_summary', {}).get('epoch_complete_update', {}).get(str(e)),
-                    format='chronoloop-v1 (weights only; load with fastwam.models.wan22.chronoloop.create_chronoloop)'),
+                    format=f'chronoloop-v1 (weights only; load with {loader})'),
                     indent=2))
             plan += [(ckpt, f'{a.folder}/epoch_{e:02d}/policy.pt'), (cfg, f'{a.folder}/epoch_{e:02d}/config.json')]
     for name in ('manifest.json', 'metrics.jsonl', 'timing.json'):

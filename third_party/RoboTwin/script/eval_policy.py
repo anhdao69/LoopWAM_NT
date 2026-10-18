@@ -12,6 +12,7 @@ import numpy as np
 from pathlib import Path
 from collections import deque
 import traceback
+import random
 
 import yaml
 from datetime import datetime
@@ -124,6 +125,9 @@ def main(usr_args):
     args['task_name'] = task_name
     args["task_config"] = task_config
     args["ckpt_setting"] = ckpt_setting
+    # ChronoLoop: the instruction draw picks from up to `test_num` generated candidates; a split job passes the full
+    # job's episode count so that its episodes draw from the same pool as the sequential job.
+    args["instruction_pool"] = usr_args.get("instruction_pool")
 
     embodiment_type = args.get("embodiment")
     embodiment_config_path = os.path.join(CONFIGS_PATH, "_embodiment_config.yml")
@@ -203,6 +207,8 @@ def main(usr_args):
     seed = usr_args["seed"]
 
     st_seed = 100000 * (1 + seed)
+    if usr_args.get("st_seed") is not None:  # ChronoLoop: start a split job at a known accepted seed
+        st_seed = int(usr_args["st_seed"])
     suc_nums = []
     test_num = eval_num_episodes
     topk = 1
@@ -325,7 +331,10 @@ def eval_policy(task_name,
             print("error occurs !")
             continue
         episode_info_list = [episode_info["info"]]
-        results = generate_episode_descriptions(args["task_name"], episode_info_list, test_num)
+        random.seed(now_seed)  # ChronoLoop: the instruction draw uses Python `random`; seed it per episode so that
+        # every policy gets the same (scene, instruction) pairs. Templates and the seen/unseen split are unchanged.
+        results = generate_episode_descriptions(args["task_name"], episode_info_list,
+                                                args.get("instruction_pool") or test_num)
         instruction = np.random.choice(results[0][instruction_type])
         TASK_ENV.set_instruction(instruction=instruction)  # set language instruction
 
