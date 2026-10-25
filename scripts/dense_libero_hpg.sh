@@ -4,8 +4,9 @@
 # Run from a pinned worktree (git rev-parse must work); every stage checks against the v0 four-suite release.
 #   bash scripts/dense_libero_hpg.sh text                       T5 cache for the 40 prompts, compared to the reference
 #   bash scripts/dense_libero_hpg.sh init                       canonical donor artifact, sha256 must match the reference
-#   bash scripts/dense_libero_hpg.sh smoke VERSION MB WORKERS TAG   10 native updates (cold or warm latent cache)
-#   bash scripts/dense_libero_hpg.sh train VERSION MB WORKERS   production; resumes from latest.pt if it exists
+#   bash scripts/dense_libero_hpg.sh smoke VERSION MB WORKERS TAG [trainer flags]   10 native updates (cold or warm cache)
+#   bash scripts/dense_libero_hpg.sh train VERSION MB WORKERS   production (loader skips decoding cached clips);
+#                                                               resumes from latest.pt if it exists
 #   bash scripts/dense_libero_hpg.sh export VERSION             verify, export and upload to HF (DENSE_HF_TOKEN_FILE)
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -55,9 +56,9 @@ init)
   [[ $got == "$INIT_SHA" ]] || { echo "init artifact differs from the reference $INIT_SHA" >&2; exit 1; }
   ;;
 smoke)
-  version=$2 mb=$3 workers=$4 tag=$5; out=$ROOT/smoke/${version}_mb${mb}_w${workers}_$tag
+  version=$2 mb=$3 workers=$4 tag=$5; shift 5; out=$ROOT/smoke/${version}_mb${mb}_w${workers}_$tag
   [[ -e $out ]] && { echo "exists: $out" >&2; exit 1; }
-  train "$version" "$mb" "$workers" "$out" --max-updates 10
+  train "$version" "$mb" "$workers" "$out" --max-updates 10 "$@"
   python - "$out" <<'E'
 import json, sys
 from pathlib import Path
@@ -72,8 +73,8 @@ E
 train)
   version=$2 mb=$3 workers=$4; out=$ROOT/$version/train
   mkdir -p "$ROOT/$version"
-  if [[ -f $out/latest.pt ]]; then train "$version" "$mb" "$workers" "$out" --resume "$out/latest.pt"
-  else train "$version" "$mb" "$workers" "$out"; fi
+  if [[ -f $out/latest.pt ]]; then train "$version" "$mb" "$workers" "$out" --skip-cached-video-decode --resume "$out/latest.pt"
+  else train "$version" "$mb" "$workers" "$out" --skip-cached-video-decode; fi
   python scripts/dense_libero_hf_export.py verify --train "$out" --reference "$REF"
   ;;
 export)

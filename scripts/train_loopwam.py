@@ -7,6 +7,7 @@ A final partial global batch is weighted by its real sample count, without repea
 """
 from __future__ import annotations
 import argparse
+import bisect
 import contextlib
 import json
 import math
@@ -24,7 +25,7 @@ from torch.utils.data._utils.collate import default_collate
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, Sampler
 
-from fastwam.datasets.loopwam_long import build_long_datasets, build_full_libero_datasets
+from fastwam.datasets.loopwam_long import CAMERAS, build_long_datasets, build_full_libero_datasets
 from fastwam.models.wan22.loopwam import create_loopwam
 
 
@@ -49,13 +50,47 @@ class ExactDistributedBatches(Sampler):
             yield order[offset:offset+self.batch_size]
 
 
+class _NoVideoReader:
+    """Reader view that skips video decoding and returns 1x1 placeholder frames for every camera."""
+    def __init__(self, reader):
+        self.reader=reader
+    def __getitem__(self, index):
+        self.reader.during_training=False
+        try: row=self.reader[index]
+        finally: self.reader.during_training=True
+        for key in CAMERAS:
+            if key in row: raise AssertionError(f'Reader decoded {key} with decoding disabled')
+            row[key]=torch.zeros(9,3,1,1,dtype=torch.uint8)
+        return row
+
+
 class MarkedDataset(torch.utils.data.Dataset):
-    def __init__(self, data):
+    """Training indices plus -1 dummies. With ``cached_video_valid`` (the latent cache's valid.uint8), a real index
+    whose latents are already cached skips video decoding: its video is a placeholder the model never encodes
+    (encode_batch returns the cached latents for valid entries; valid bits are never cleared)."""
+    def __init__(self, data, cached_video_valid=None):
         self.data=data
+        self.cached_video_valid=cached_video_valid; self._valid=None
+        if cached_video_valid is not None and not (isinstance(data, torch.utils.data.ConcatDataset)
+                and all(hasattr(d,'reader') and hasattr(d.reader,'during_training') for d in data.datasets)):
+            raise ValueError('Skipping cached video decoding needs a ConcatDataset of LoopWAM readers')
     def __len__(self):
         return len(self.data)
+    def _cached(self, index):
+        if self.cached_video_valid is None or index < 0: return False
+        if self._valid is None:
+            if not Path(self.cached_video_valid).exists(): return False
+            self._valid=np.memmap(self.cached_video_valid,mode='r',dtype=np.uint8)
+        return bool(self._valid[index]==1)
+    def _without_video(self, index):
+        part=bisect.bisect_right(self.data.cumulative_sizes,index)
+        local=index-(self.data.cumulative_sizes[part-1] if part else 0)
+        dataset=self.data.datasets[part]; reader=dataset.reader
+        dataset.reader=_NoVideoReader(reader)
+        try: return dataset[local]
+        finally: dataset.reader=reader
     def __getitem__(self, index):
-        sample = dict(self.data[max(index,0)])
+        sample = dict(self._without_video(index) if self._cached(index) else self.data[max(index,0)])
         sample['sample_valid'] = index >= 0
         sample['training_index'] = index
         if index < 0:
@@ -246,6 +281,8 @@ def main():
     p.add_argument('--bucket-views',action='store_true')
     p.add_argument('--structured-attention',action='store_true')
     p.add_argument('--latent-cache-dir',default=None)
+    p.add_argument('--skip-cached-video-decode',action='store_true',
+                   help='Loader skips decoding clips whose latents are already cached (same math, less CPU)')
     p.add_argument('--save-every',type=int,default=100)
     p.add_argument('--resume',default=None)
     p.add_argument('--validation-samples',type=int,default=8)
@@ -261,6 +298,7 @@ def main():
     if not args.output_dir: p.error('--output-dir is required')
     is_zero = args.backend != 'ddp'
     if is_zero and args.resume: p.error('--resume is currently supported only for DDP; ZeRO runs must start fresh')
+    if args.skip_cached_video_decode and not args.latent_cache_dir: p.error('--skip-cached-video-decode needs --latent-cache-dir')
     if is_zero: args.fused_optimizer = True
     if min(args.microbatch,args.global_batch,args.epochs,args.save_every)<=0: p.error('Batch, epochs, save interval must be positive')
     if args.max_updates is not None and args.max_updates<=0: p.error('--max-updates must be positive')
@@ -288,7 +326,8 @@ def main():
     if rank!=0:
         train,val,data_manifest=build_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
     sampler=ExactDistributedBatches(len(train),args.microbatch,rank,world,args.seed)
-    loader=DataLoader(MarkedDataset(train),batch_sampler=sampler,num_workers=args.workers,
+    cached_video_valid=str(Path(args.latent_cache_dir)/'valid.uint8') if args.skip_cached_video_decode else None
+    loader=DataLoader(MarkedDataset(train,cached_video_valid),batch_sampler=sampler,num_workers=args.workers,
         pin_memory=True,persistent_workers=args.workers>0, generator=torch.Generator().manual_seed(args.seed+rank))
     updates_per_epoch=math.ceil(len(train)/args.global_batch)
     total=updates_per_epoch*args.epochs
@@ -350,9 +389,12 @@ def main():
             'accumulation':accum,'initialization_mode':manifest['initialization_mode'],'backend':args.backend,'optimizer_state_entries_before_training':len(opt.optimizer.state if is_zero else opt.state),'setup_seconds':manifest['setup_seconds']}),flush=True)
     if args.smoke:
         sample=next(iter(loader))
+        video=sample['video']
+        if args.skip_cached_video_decode:  # cached clips carry placeholders; decode a few of this batch for the check
+            video=torch.stack([train[max(i,0)]['video'] for i in sample['training_index'][:4].tolist()])
         with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
-            clip=model._encode_video_latents(sample['video'].cuda())
-            anchor=model._encode_input_image_latents_tensor(sample['video'][:,:,0].cuda())
+            clip=model._encode_video_latents(video.cuda())
+            anchor=model._encode_input_image_latents_tensor(video[:,:,0].cuda())
         if tuple(clip.shape[1:])!=(16,3,28,56): raise AssertionError(f'VAE shape {clip.shape}')
         torch.testing.assert_close(clip[:,:,:1],anchor,rtol=0,atol=0)
         if rank==0: print(json.dumps({'event':'vae_anchor_pass','shape':list(clip.shape)}),flush=True)
