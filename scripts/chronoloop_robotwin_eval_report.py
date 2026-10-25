@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Success-rate table for ChronoLoop RoboTwin evaluations (scripts/evaluate_chronoloop_robotwin.py outputs).
 
-python scripts/chronoloop_robotwin_eval_report.py CL-0=EVAL_DIR_A CL-A=EVAL_DIR_B [--json OUT.json]
+python scripts/chronoloop_robotwin_eval_report.py CL-0=EVAL_DIR_A CL-A=EVAL_DIR_B [--json OUT.json] [--tasks a,b,...]
 
 A scene seed gives the same scene and instruction for every model, but the set of accepted seeds can differ by a few
 between runs: the expert check (CuRobo) does not accept exactly the same borderline seeds every time. Models are
@@ -34,12 +34,14 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('runs', nargs='+', help='NAME=EVAL_DIR')
     p.add_argument('--json', default=None)
+    p.add_argument('--tasks', default=','.join(TASKS), help='comma-separated RoboTwin tasks (default: the hard 5)')
     a = p.parse_args()
     runs = dict(r.split('=', 1) for r in a.runs)
     names = list(runs)
     rows, record = [], {}
+    tasks = a.tasks.split(',')
     for c in CONFIGS:
-        for t in TASKS:
+        for t in tasks:
             eps = {n: job_episodes(d, t, c) for n, d in runs.items()}
             matched = sorted(set.intersection(*(set(e) for e in eps.values())))
             cell = {n: dict(matched=sum(eps[n][k] for k in matched), k=len(matched),
@@ -56,7 +58,7 @@ def main():
     mean = lambda xs: f'**{100 * sum(xs) / len(xs):.1f}%**' if xs else '-'
     for c in CONFIGS:                                     # LiLa-WAM's "average success rate": mean of task rates
         sub = [(k, cell) for cc, _, k, cell in rows if cc == c]
-        print(f'| {c.removeprefix("demo_")} | **mean of 5 tasks** | {sum(k for k, _ in sub)} | '
+        print(f'| {c.removeprefix("demo_")} | **mean of {len(tasks)} tasks** | {sum(k for k, _ in sub)} | '
               + ' | '.join(mean([cell[n]['matched'] / k for k, cell in sub if k]) for n in names) + ' | '
               + ' | '.join(mean([cell[n]['total'] / cell[n]['n'] for _, cell in sub if cell[n]['n']]) for n in names)
               + ' |')

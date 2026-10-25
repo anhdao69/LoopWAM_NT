@@ -297,3 +297,32 @@ def test_optional_loop_diagnostics_are_detached_and_reset():
     model.collect_diagnostics = False
     model.forward_joint_core(**data)
     assert model.last_diagnostics == {}
+
+
+@pytest.mark.parametrize("version,action_loops", [("v0", 4), ("v0", 1), ("v1", 4)])
+@pytest.mark.parametrize("keep", [0, 5, 12, 100])
+def test_uncheckpointed_last_layers_keep_math_and_skip_recompute(monkeypatch, version, action_loops, keep):
+    import fastwam.models.wan22.loop_mot as loop_mot
+    from fastwam.models.wan22.loop_mot import LoopMoT
+    plain = make_model(version)
+    plain = LoopMoT(copy.deepcopy(dict(plain.mixtures.items())), version=version, action_loops=action_loops)
+    model = LoopMoT(copy.deepcopy(dict(plain.mixtures.items())), version=version, action_loops=action_loops,
+                    checkpoint_blocks=True)
+    model.uncheckpointed_virtual_layers = keep
+    calls = []
+    real = loop_mot.checkpoint
+    monkeypatch.setattr(loop_mot, "checkpoint", lambda *a, **k: calls.append(1) or real(*a, **k))
+    data = inputs()
+    expected, actual = plain.forward_joint_exits(**data), model.forward_joint_exits(**data)
+    exits = len(actual)
+    n_virtual = model.pre_depth + model.loops * model.core_depth + exits * model.post_depth
+    assert len(calls) == n_virtual - min(keep, n_virtual)
+    for k in actual:
+        assert_pair_close(actual[k], expected[k])
+    sum(x.square().mean() for pair in expected.values() for x in pair).backward()
+    sum(x.square().mean() for pair in actual.values() for x in pair).backward()
+    for p, q in zip(plain.parameters(), model.parameters()):
+        if p.grad is None:
+            assert q.grad is None
+        else:
+            torch.testing.assert_close(q.grad, p.grad, atol=1e-6, rtol=1e-5)

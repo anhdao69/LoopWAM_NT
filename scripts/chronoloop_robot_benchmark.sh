@@ -5,9 +5,9 @@
 # chronoloop_robot_precompute.py --windows-file <shared>/needed_windows_u60.npy.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-source scripts/chrono_env.sh
+source scripts/${CHRONO_ENV:-chrono_env.sh}     # HiPerGator: CHRONO_ENV=chrono_env_hpg.sh
 dataset=$1; tag=$2; gpus=$3; shift 3
-root=/groups/yshang/an221229/checkpoints/ChronoLoop/robot
+root=${CHRONO_ROBOT_SHARED:-/groups/yshang/an221229/checkpoints/ChronoLoop/robot}
 out=$root/bench/${dataset}_${tag}
 mkdir -p "$out"
 nproc=$(awk -F, '{print NF}' <<< "$gpus")

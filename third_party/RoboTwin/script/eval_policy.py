@@ -13,6 +13,7 @@ from pathlib import Path
 from collections import deque
 import traceback
 import random
+import json
 
 import yaml
 from datetime import datetime
@@ -209,6 +210,11 @@ def main(usr_args):
     st_seed = 100000 * (1 + seed)
     if usr_args.get("st_seed") is not None:  # ChronoLoop: start a split job at a known accepted seed
         st_seed = int(usr_args["st_seed"])
+    seed_list = None  # ChronoLoop: evaluate exactly these scene seeds, so every model is scored on the same scenes
+    if usr_args.get("seed_list"):
+        with open(usr_args["seed_list"]) as f:
+            seed_list = [int(s) for s in json.load(f)]
+        st_seed, eval_num_episodes = seed_list[0], len(seed_list)
     suc_nums = []
     test_num = eval_num_episodes
     topk = 1
@@ -222,7 +228,8 @@ def main(usr_args):
                                    test_num=test_num,
                                    video_size=video_size,
                                    instruction_type=instruction_type,
-                                   skip_get_obs_within_replan=skip_get_obs_within_replan)
+                                   skip_get_obs_within_replan=skip_get_obs_within_replan,
+                                   seed_list=seed_list)
     suc_nums.append(suc_num)
 
     topk_success_rate = sorted(suc_nums, reverse=True)[:topk]
@@ -247,7 +254,8 @@ def eval_policy(task_name,
                 test_num=100,
                 video_size=None,
                 instruction_type=None,
-                skip_get_obs_within_replan=False):
+                skip_get_obs_within_replan=False,
+                seed_list=None):
     print(f"\033[34mTask Name: {args['task_name']}\033[0m")
     print(f"\033[34mPolicy Name: {args['policy_name']}\033[0m")
 
@@ -264,44 +272,72 @@ def eval_policy(task_name,
     reset_func = eval_function_decorator(policy_name, "reset_model")
 
     now_seed = st_seed
+    # ChronoLoop: with seed_list, walk only the listed seeds. A listed seed is evaluated even if the expert check
+    # fails this time (it passed in the reference run; the expert run still supplies the episode info), and the
+    # policy's noise index follows the position in the list. A seed whose scene cannot be built is skipped.
+    position, episode_base = 0, getattr(model, "episode", None)
+
+    def next_seed(seed):
+        nonlocal position
+        if seed_list is None:
+            return seed + 1
+        position += 1
+        return seed_list[position] if position < len(seed_list) else None
+
     task_total_reward = 0
     clear_cache_freq = args["clear_cache_freq"]
 
     args["eval_mode"] = True
 
-    while succ_seed < test_num:
+    while succ_seed < test_num and now_seed is not None:
         render_freq = args["render_freq"]
         args["render_freq"] = 0
 
         if expert_check:
-            try:
-                TASK_ENV.setup_demo(now_ep_num=now_id, seed=now_seed, is_test=True, **args)
-                episode_info = TASK_ENV.play_once()
-                TASK_ENV.close_env()
-            except UnStableError as e:
-                # print(" -------------")
-                # print("Error: ", e)
-                # print(" -------------")
-                TASK_ENV.close_env()
-                now_seed += 1
+            # ChronoLoop: the expert planner is not deterministic (open_microwave's can raise on a seed it solved
+            # before). A listed seed's expert run only supplies the scene's episode info for the instruction, so
+            # retry it a few times before skipping the seed. Unlisted walks keep the original single attempt.
+            attempts = 5 if seed_list is not None else 1
+            for attempt in range(attempts):
+                try:
+                    TASK_ENV.setup_demo(now_ep_num=now_id, seed=now_seed, is_test=True, **args)
+                    episode_info = TASK_ENV.play_once()
+                    TASK_ENV.close_env()
+                    error = None
+                    break
+                except UnStableError as e:
+                    # print(" -------------")
+                    # print("Error: ", e)
+                    # print(" -------------")
+                    TASK_ENV.close_env()
+                    error = e
+                except Exception as e:
+                    print(" -------------")
+                    print("Error: ", e)
+                    print("Stack Trace: ", traceback.format_exc())
+                    print(" -------------")
+                    TASK_ENV.close_env()
+                    error = e
+                if seed_list is not None:
+                    print(f"ChronoLoop listed seed {now_seed} (#{position}): expert run attempt {attempt + 1} raised "
+                          f"{type(error).__name__}")
+            if error is not None:
+                if seed_list is not None:
+                    print(f"ChronoLoop listed seed {now_seed} (#{position}): skipped after {attempts} expert attempts")
+                now_seed = next_seed(now_seed)
                 args["render_freq"] = render_freq
-                continue
-            except Exception as e:
-                print(" -------------")
-                print("Error: ", e)
-                print("Stack Trace: ", traceback.format_exc())
-                print(" -------------")
-                TASK_ENV.close_env()
-                now_seed += 1
-                args["render_freq"] = render_freq
-                print("error occurs !")
+                if not isinstance(error, UnStableError):
+                    print("error occurs !")
                 continue
 
-        if (not expert_check) or (TASK_ENV.plan_success and TASK_ENV.check_success()):
+        expert_ok = TASK_ENV.plan_success and TASK_ENV.check_success()
+        if seed_list is not None:
+            print(f"ChronoLoop listed seed {now_seed} (#{position}): expert check {'passed' if expert_ok else 'FAILED'}")
+        if (not expert_check) or expert_ok or seed_list is not None:
             succ_seed += 1
             suc_test_seed_list.append(now_seed)
         else:
-            now_seed += 1
+            now_seed = next_seed(now_seed)
             args["render_freq"] = render_freq
             continue
 
@@ -316,7 +352,7 @@ def eval_policy(task_name,
             if len(suc_test_seed_list) > 0 and suc_test_seed_list[-1] == now_seed:
                 suc_test_seed_list.pop()
             TASK_ENV.close_env()
-            now_seed += 1
+            now_seed = next_seed(now_seed)
             continue
         except Exception as e:
             succ_seed -= 1
@@ -327,7 +363,7 @@ def eval_policy(task_name,
             print("Stack Trace: ", traceback.format_exc())
             print(" -------------")
             TASK_ENV.close_env()
-            now_seed += 1
+            now_seed = next_seed(now_seed)
             print("error occurs !")
             continue
         episode_info_list = [episode_info["info"]]
@@ -371,6 +407,8 @@ def eval_policy(task_name,
             TASK_ENV._set_eval_video_ffmpeg(ffmpeg)
 
         succ = False
+        if seed_list is not None and episode_base is not None:
+            model.episode = episode_base + position   # reset() advances it to this seed's index in the list
         reset_func(model)
         while TASK_ENV.take_action_cnt < TASK_ENV.step_lim:
             need_obs = True
@@ -415,7 +453,7 @@ def eval_policy(task_name,
             f"Success rate: \033[96m{TASK_ENV.suc}/{TASK_ENV.test_num}\033[0m => \033[95m{round(TASK_ENV.suc/TASK_ENV.test_num*100, 1)}%\033[0m, current seed: \033[90m{now_seed}\033[0m\n"
         )
         # TASK_ENV._take_picture()
-        now_seed += 1
+        now_seed = next_seed(now_seed)
 
     return now_seed, TASK_ENV.suc
 

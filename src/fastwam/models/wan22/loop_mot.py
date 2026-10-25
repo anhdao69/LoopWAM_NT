@@ -229,10 +229,10 @@ class LoopMoT(MoT):
         return (self._post(video_block, video_io, mixed[:, :n], video_context, video_context_mask),
                 self._post(action_block, action_io, mixed[:, n:], action_context, action_context_mask))
 
-    def _run_pair(self, physical_index, video_tokens, action_tokens, conditioning):
+    def _run_pair(self, physical_index, video_tokens, action_tokens, conditioning, keep_activations=False):
         # Bind the index now: backward recomputation must not capture a loop variable.
         fn = partial(self._joint_block, physical_index)
-        if self.checkpoint_blocks and self.training and torch.is_grad_enabled():
+        if self.checkpoint_blocks and not keep_activations and self.training and torch.is_grad_enabled():
             return checkpoint(fn, video_tokens, action_tokens, *conditioning, use_reentrant=False)
         return fn(video_tokens, action_tokens, *conditioning)
 
@@ -288,9 +288,19 @@ class LoopMoT(MoT):
         conditioning = (video_freqs, action_freqs, video_t_mod, action_t_mod,
                         video_context, video_context_mask, action_context, action_context_mask,
                         attention_mask, observed)
+        # Speed option (default 0 = recompute every checkpointed block): keep the activations of the last N
+        # virtual layers of this forward instead of recomputing them. Same math, more memory.
+        keep_last = getattr(self, "uncheckpointed_virtual_layers", 0)
+        n_virtual = self.pre_depth + max(exits) * self.core_depth + len(exits) * self.post_depth
+        calls = [0]
+
+        def keep():
+            calls[0] += 1
+            return calls[0] > n_virtual - keep_last
+
         state = (video_tokens, action_tokens)
         for i in range(self.pre_depth):
-            state = self._run_pair(i, *state, conditioning)
+            state = self._run_pair(i, *state, conditioning, keep_activations=keep())
         result = {}
         for r in range(1, max(exits) + 1):
             for i in range(self.pre_depth, self.pre_depth + self.core_depth):
@@ -298,12 +308,13 @@ class LoopMoT(MoT):
                     video_args = (state[0], video_freqs, video_t_mod, video_context,
                                   video_context_mask, attention_mask[:video_tokens.shape[1], :video_tokens.shape[1]], observed)
                     fn = partial(self._video_only_block, i)
+                    kept = keep()
                     updated = (checkpoint(fn, *video_args, use_reentrant=False)
-                               if self.checkpoint_blocks and self.training and torch.is_grad_enabled()
+                               if self.checkpoint_blocks and not kept and self.training and torch.is_grad_enabled()
                                else fn(*video_args))
                     state = (updated, state[1])
                 else:
-                    state = self._run_pair(i, *state, conditioning)
+                    state = self._run_pair(i, *state, conditioning, keep_activations=keep())
             if self.collect_diagnostics:
                 # Outside checkpointed blocks, so backward recomputation cannot
                 # mutate diagnostics or retain a second autograd graph.
@@ -312,7 +323,7 @@ class LoopMoT(MoT):
             if r in exits:
                 decoded = state
                 for i in range(self.pre_depth + self.core_depth, self.unique_depth):
-                    decoded = self._run_pair(i, *decoded, conditioning)
+                    decoded = self._run_pair(i, *decoded, conditioning, keep_activations=keep())
                 result[r] = decoded
         return result
 

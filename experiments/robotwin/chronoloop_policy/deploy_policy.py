@@ -8,7 +8,8 @@ Inputs follow the training protocol of src/fastwam/datasets/chronoloop_robot.py 
   128 tokens); prompts already in the training text cache are read from it.
 Each replanning query predicts 32 normalized actions (10 Euler steps, no CFG); they are de-normalized with the
 training statistics and the first `replan_steps` are executed as absolute joint targets (qpos).
-CL-A's memory state is reset at episode start and advances once per query; CL-0 carries no state.
+CL-A's memory state is reset at episode start and advances once per query; CL-0 carries no state. CL-FRAME also
+reads the frame of query k-3 (the episode's first query while k < 3), as in training and the LIBERO evaluator.
 Noise is fixed per episode (the ChronoLoop LIBERO protocol): seed = `seed` * 1_000_003 + episode index.
 """
 from __future__ import annotations
@@ -118,6 +119,7 @@ class ChronoLoopRoboTwinPolicy:
         self.pending = deque()
         # episode index k (noise seed) counts from episode_offset when a job is split at its k-th accepted seed
         self.state, self.episode, self.queries, self.latency = None, int(episode_offset) - 1, 0, []
+        self.images = []                                  # this episode's query frames (CL-FRAME history)
 
     def should_request_observation(self):
         return not self.pending
@@ -125,12 +127,15 @@ class ChronoLoopRoboTwinPolicy:
     def reset(self):
         self.pending.clear()
         self.state, self.queries = None, 0
+        self.images = []
         self.episode += 1
 
     def _query(self, observation, instruction):
         obs = observation['observation']
         views = [torch.from_numpy(np.ascontiguousarray(obs[c]['rgb'])).permute(2, 0, 1).unsqueeze(0) for c in CAMERAS]
         image = preprocess_frames(views)[0]                                   # bf16 [3, 384, 320]
+        self.images.append(image)
+        history = self.images[max(0, self.queries - 3)] if self.cfg.history_frame else None
         joint = torch.as_tensor(np.asarray(observation['joint_action']['vector'], dtype=np.float32))
         proprio = self.normalizer['state'].forward(joint[None])[0]
         context, mask = self.text(DEFAULT_PROMPT.format(task=instruction))
@@ -138,7 +143,7 @@ class ChronoLoopRoboTwinPolicy:
             print(json.dumps(dict(chronoloop_episode=self.episode, instruction=instruction)), flush=True)
         t0 = time.perf_counter()
         with torch.inference_mode(), torch.autocast('cuda', dtype=torch.bfloat16):
-            out = self.model.chrono_infer_action(image, proprio, context, mask, state=self.state,
+            out = self.model.chrono_infer_action(image, proprio, context, mask, state=self.state, history_image=history,
                                                  num_inference_steps=self.num_inference_steps,
                                                  seed=self.seed * 1_000_003 + self.episode)
         torch.cuda.synchronize()

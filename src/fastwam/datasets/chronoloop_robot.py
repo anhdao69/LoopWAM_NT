@@ -19,6 +19,7 @@ from __future__ import annotations
 import hashlib
 import inspect
 import json
+import os
 from collections import OrderedDict
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
@@ -315,7 +316,8 @@ def latent_provenance(windows: RobotWindows, vae_sha: str) -> dict:
 
 # ---------------------------------------------------------------- dataset presets
 
-DATA_ROOT = Path('/groups/yshang/an221229/data')
+# Override with CHRONO_DATA_ROOT on other clusters (HiPerGator: scripts/chrono_env_hpg.sh).
+DATA_ROOT = Path(os.environ.get('CHRONO_DATA_ROOT', '/groups/yshang/an221229/data'))
 
 
 def robot_spec(name: str) -> RobotSpec:

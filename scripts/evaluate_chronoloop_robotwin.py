@@ -14,7 +14,9 @@ All jobs can run at once (`--per-gpu`), so partial results stay balanced across 
 (t5_server.py) encodes the instructions. Jobs run at lower CPU priority (`--nice`) so a training run on the same
 node keeps its speed. `--split-from REF --parts N` runs each job as N processes: part i starts at the accepted
 seed of REF's episode 50*i/N (REF = an earlier evaluation dir of the same tasks) with the episode index offset to
-match, so the parts together are exactly the sequential job. At `--stop-unix`, or when OUT/STOP exists, the runner
+match, so the parts together are exactly the sequential job. `--seeds-from REF` instead evaluates exactly the
+scene seeds REF accepted (one process per task and setting), so models evaluated against the same REF are scored on
+identical scenes even where the expert check would accept a slightly different seed set. At `--stop-unix`, or when OUT/STOP exists, the runner
 stops every job; OUT/summary.json keeps each finished episode
 (seed, success), so a stopped job still counts its first k episodes.
 """
@@ -74,9 +76,22 @@ def main():
     p.add_argument('--stop-unix', type=float, default=None, help='stop all jobs at this time, keeping finished episodes')
     p.add_argument('--split-from', default=None, help='evaluation dir whose accepted seeds define the split points')
     p.add_argument('--parts', type=int, default=1)
+    p.add_argument('--seeds-from', default=None, help='complete evaluation dir whose accepted seeds are evaluated exactly')
     a = p.parse_args()
     out = Path(a.output_dir); out.mkdir(parents=True, exist_ok=True)
     ckpt = Path(a.checkpoint).resolve()
+    if a.seeds_from and a.split_from:
+        raise SystemExit('--seeds-from and --split-from are exclusive')
+    seed_lists = {}                                       # (task, config) -> file with the reference's seeds
+    if a.seeds_from:
+        (out / 'seed_lists').mkdir(exist_ok=True)
+        for c in a.configs.split(','):
+            for t in a.tasks.split(','):
+                seeds = [s for d in job_dirs(Path(a.seeds_from), t, c) for s, _ in episodes(d / 'eval.log')]
+                if len(seeds) != a.episodes or len(set(seeds)) != len(seeds):
+                    raise SystemExit(f'{a.seeds_from}: {t}/{c} has {len(seeds)} seeds, need {a.episodes} distinct')
+                seed_lists[t, c] = out / 'seed_lists' / f'{t}__{c}.json'
+                seed_lists[t, c].write_text(json.dumps(seeds))
     jobs = []                                             # (task, config, first episode, episodes, first seed)
     for c in a.configs.split(','):
         for t in a.tasks.split(','):
@@ -97,7 +112,7 @@ def main():
     (out / 'manifest.json').write_text(json.dumps(dict(
         checkpoint=str(ckpt), robotwin_root=a.robotwin_root, dataset=a.dataset, data_dir=a.data_dir, tasks=a.tasks,
         configs=a.configs, episodes=a.episodes, seed=a.seed, first_seed=100000 * (1 + a.seed),
-        split_from=a.split_from, parts=[dict(task=t, config=c, first_episode=b, episodes=n, first_seed=s)
+        split_from=a.split_from, seeds_from=a.seeds_from, parts=[dict(task=t, config=c, first_episode=b, episodes=n, first_seed=s)
                                         for t, c, b, n, s in jobs],
         instruction_type=a.instruction_type, instruction_seeded_per_episode=True, replan_steps=a.replan_steps,
         num_inference_steps=10, action_chunk=32, noise='fixed per episode', expert_check=True,
@@ -121,7 +136,12 @@ def main():
         key = f'{task}/{config}/{first}'
         results[key] = dict(task=task, config=config, first_episode=first, episodes=len(eps),
                             successes=sum(s for _, s in eps), seeds=[s for s, _ in eps], success=[x for _, x in eps],
-                            exit=proc.returncode, stopped=stopped, complete=len(eps) == count and proc.returncode == 0,
+                            exit=proc.returncode, stopped=stopped,
+                            # a pinned job that walked its whole seed list is complete even if it had to skip a seed
+                            # whose scene could not be built (see skipped; the report compares matched scenes)
+                            complete=proc.returncode == 0 and not stopped
+                                     and (len(eps) == count or (task, config) in seed_lists),
+                            skipped=count - len(eps) if (task, config) in seed_lists and not stopped else 0,
                             hours=round((time.time() - t0) / 3600, 3))
         print(json.dumps(dict(event='end', **{k: v for k, v in results[key].items() if k not in ('seeds', 'success')})),
               flush=True)
@@ -153,6 +173,8 @@ def main():
                        '--instruction_pool', str(a.episodes)]
                 if first_seed is not None:
                     cmd += ['--st_seed', str(first_seed)]
+                if (task, config) in seed_lists:
+                    cmd += ['--seed_list', str(seed_lists[task, config])]
                 proc = subprocess.Popen(cmd, cwd=a.robotwin_root, env={**env, 'CUDA_VISIBLE_DEVICES': slots[slot]},
                                         stdout=(jdir / 'eval.log').open('w'), stderr=subprocess.STDOUT,
                                         preexec_fn=lambda: os.nice(a.nice))
