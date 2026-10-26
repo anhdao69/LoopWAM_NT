@@ -8,6 +8,11 @@ from fastwam.models.wan22.loopwam import create_loopwam
 from fastwam.datasets.loopwam_long import build_full_libero_datasets
 
 
+def inference_inputs(sample):
+    return dict(input_image=sample['video'][:,0],proprio=sample['proprio'][0:1],
+                context=sample['context'].unsqueeze(0),context_mask=sample['context_mask'].unsqueeze(0))
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--checkpoint',required=True);p.add_argument('--output',required=True)
     a=p.parse_args();out=Path(a.output)
@@ -19,8 +24,7 @@ def main():
     sample=train[0]
     def query():
         with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
-            return model.infer_action(input_image=sample['video'][:,0],proprio=sample['proprio'].unsqueeze(0),
-                context=sample['context'].unsqueeze(0),context_mask=sample['context_mask'].unsqueeze(0),
+            return model.infer_action(**inference_inputs(sample),
                 action_horizon=32,num_inference_steps=10,text_cfg_scale=1.,seed=42)['action'].float().cpu()
     a1=query();a2=query()
     if a1.shape!=(32,7) or not torch.isfinite(a1).all() or not torch.equal(a1,a2):

@@ -46,3 +46,15 @@ def test_stale_export_cannot_be_relabelled_as_current_checkpoint(tmp_path):
     r.validate_export(tmp_path,'old-source')
     weights.write_bytes(b'corrupted weights')
     with pytest.raises(ValueError):r.validate_export(tmp_path,'old-source')
+
+def test_inference_uses_only_current_proprioception_and_image():
+    import torch
+    from check_partition_checkpoint import inference_inputs
+    sample=dict(video=torch.randn(3,9,224,448),proprio=torch.randn(32,8),
+                context=torch.randn(128,4096),context_mask=torch.ones(128,dtype=torch.bool))
+    kwargs=inference_inputs(sample)
+    assert kwargs['proprio'].shape==(1,8)
+    assert torch.equal(kwargs['proprio'][0],sample['proprio'][0])
+    assert torch.equal(kwargs['input_image'],sample['video'][:,0])
+    changed={**sample,'proprio':sample['proprio'].clone()};changed['proprio'][1:]+=100
+    assert torch.equal(inference_inputs(changed)['proprio'],kwargs['proprio'])
