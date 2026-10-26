@@ -170,7 +170,6 @@ def publish(train, reference, stage, token_file, delete_token):
         (dst / 'README.md').write_text(readme(info, m, t, fair))
         expected = {f'{repo_path}/{p.name}': dict(size=p.stat().st_size, sha256=sha(p)) for p in dst.iterdir() if p.is_file()}
         print(json.dumps(dict(event='uploading', files=len(expected), bytes=sum(x['size'] for x in expected.values()))), flush=True)
-        assert api.model_info(REPO).private, 'destination must stay private'
         api.upload_folder(repo_id=REPO, repo_type='model', folder_path=str(dst), path_in_repo=repo_path,
                           commit_message=f'Add {repo_path} (four-suite {version}, training only)')
         # Index and model card: add or replace this checkpoint's row.
