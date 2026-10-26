@@ -21,14 +21,37 @@ def validate_action_kv_mode(mode: str, version: str) -> str:
     return mode
 
 
-def resolve_loop_count(version: str, loops: Optional[int] = None) -> int:
+def validate_partition(partition, version='v0') -> tuple[int, int, int]:
+    default = (3, 24, 3) if version == 'dense_s30' else (3, 6, 3)
+    if partition is None:
+        return default
+    if (not isinstance(partition, (tuple, list)) or len(partition) != 3
+            or any(type(n) is not int or n < 0 for n in partition)
+            or partition[1] == 0 or sum(partition) != sum(default)):
+        raise ValueError('partition requires nonnegative pre/coda, positive core and the physical depth')
+    result = tuple(partition)
+    if version != 'v0' and result != default:
+        raise ValueError('Custom partition supports v0 only')
+    return result
+
+
+def loop_capacity(version, partition=None):
+    pre, core, post = validate_partition(partition, version)
+    if version in {'dense_s12', 'dense_s30'}:
+        return 1
+    # Preserve legacy four-loop capacity; allow the 30-application core-3 grid.
+    return max(4, (30 - pre - post) // core) if version == 'v0' else 4
+
+
+def resolve_loop_count(version: str, loops: Optional[int] = None, partition=None) -> int:
     """Resolve architecture depth; Dense controls always execute their blocks once."""
     if version not in {"v0", "v1", "v2", "dense_s12", "dense_s30"}:
         raise ValueError(f"Unsupported LoopMoT version: {version}")
     if loops is None:
         loops = 1 if version in {"dense_s12", "dense_s30"} else 4
-    if isinstance(loops, bool) or not isinstance(loops, int) or not 1 <= loops <= 4:
-        raise ValueError("loops must be an integer in [1, 4].")
+    capacity = loop_capacity(version, partition)
+    if isinstance(loops, bool) or not isinstance(loops, int) or not 1 <= loops <= capacity:
+        raise ValueError(f"{version}: loops must be an integer in [1, {capacity}].")
     if version in {"dense_s12", "dense_s30"} and loops != 1:
         raise ValueError(f"{version} requires exactly one pass (loops=1).")
     return loops
@@ -70,7 +93,9 @@ def structured_mixed_attention(
 
 
 class LoopMoT(MoT):
-    """Shared-depth models use pre(3), core(6)*K, coda(3).
+    """Shared-depth models default to pre(3), core(6)*K, coda(3).
+
+    v0 supports an explicit contiguous partition of the same twelve donors.
 
     Native-layer Dense-S30 uses 30 distinct pairs, grouped 3/24/3, once.
 
@@ -93,20 +118,23 @@ class LoopMoT(MoT):
                  version: str = "v0", checkpoint_blocks: bool = False,
                  mot_checkpoint_mixed_attn: bool = False,
                  collect_diagnostics: bool = False, action_loops: Optional[int] = None,
-                 action_kv_mode: str = "aligned"):
+                 action_kv_mode: str = "aligned", partition=None):
         if set(mixtures) != {"video", "action"}:
             raise ValueError("LoopMoT requires exactly the video and action experts.")
-        loops = resolve_loop_count(version, loops)
+        self.partition = validate_partition(partition, version)
+        if self.partition != validate_partition(None, version) and action_kv_mode != "aligned":
+            raise ValueError("Custom partition currently requires aligned KV")
+        loops = resolve_loop_count(version, loops, self.partition)
         # Canonical token order is always video followed by action.
         super().__init__({name: mixtures[name] for name in ("video", "action")},
                          mot_checkpoint_mixed_attn=mot_checkpoint_mixed_attn)
         self.unique_depth = 30 if version == "dense_s30" else 12
-        self.core_depth = 24 if version == "dense_s30" else 6
+        self.pre_depth, self.core_depth, self.post_depth = self.partition
         if self.num_layers != self.unique_depth:
             raise ValueError(f"{version} requires {self.unique_depth} physical blocks per expert.")
         self.version = version
         self.action_kv_mode = validate_action_kv_mode(action_kv_mode, version)
-        self.trained_max_loops = 1 if version in {"dense_s12", "dense_s30"} else 4
+        self.trained_max_loops = loop_capacity(version, self.partition)
         self.loops = loops
         self.action_loops = action_loops
         if self.action_kv_mode == "mix":
@@ -123,7 +151,7 @@ class LoopMoT(MoT):
         self.last_attention_mass = {}
 
     def _validate_loops(self, loops: int) -> int:
-        return resolve_loop_count(self.version, loops)
+        return resolve_loop_count(self.version, loops, self.partition)
 
     @property
     def loops(self) -> int:

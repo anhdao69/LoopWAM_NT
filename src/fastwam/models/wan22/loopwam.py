@@ -7,11 +7,11 @@ import torch
 from torch import nn
 
 from .fastwam import FastWAM
-from .loop_mot import LoopMoT, resolve_loop_count, validate_action_kv_mode
+from .loop_mot import LoopMoT, resolve_loop_count, validate_action_kv_mode, validate_partition, loop_capacity
 
 
-def exit_weights(version: str, loops: int, scale: float = 1.0) -> dict[int, float]:
-    loops = resolve_loop_count(version, loops)
+def exit_weights(version: str, loops: int, scale: float = 1.0, partition=None) -> dict[int, float]:
+    loops = resolve_loop_count(version, loops, partition)
     if not math.isfinite(scale) or scale <= 0:
         raise ValueError('Exit weight scale must be finite and positive')
     if version == 'v0' or loops == 1:
@@ -38,7 +38,7 @@ class LoopWAM(FastWAM):
             raise ValueError('LoopWAM v0-v2 forbids clean action conditioning in the world stream')
         self.version = version
         self.exit_weight_scale = float(exit_weight_scale)
-        exit_weights(version, self.mot.loops, self.exit_weight_scale)
+        exit_weights(version, self.mot.loops, self.exit_weight_scale, self.mot.partition)
         self.architecture_metadata = architecture_metadata or {}
         self.vae.requires_grad_(False).eval()
         if self.text_encoder is not None:
@@ -121,7 +121,7 @@ class LoopWAM(FastWAM):
                     self.action_expert.post(a)) for k, (v, a) in states.items()}
 
     def reduce_flow_losses(self, outputs, noisy, weights=None):
-        weights = weights or exit_weights(self.version, self.mot.loops, self.exit_weight_scale)
+        weights = weights or exit_weights(self.version, self.mot.loops, self.exit_weight_scale, self.mot.partition)
         if outputs.keys() != weights.keys():
             raise ValueError('Output exits and loss weights must match exactly')
         total = noisy['latents_action'].new_zeros((), dtype=torch.float32)
@@ -165,9 +165,11 @@ class LoopWAM(FastWAM):
 
     def save_checkpoint(self, path, optimizer=None, step=None, training_state=None):
         path = Path(path)
-        payload = dict(format_version='loopwam-s-v1', architecture=self.architecture_metadata,
+        checkpoint_format = ('loopwam-s-v1' if self.mot.partition == validate_partition(None, self.version)
+                             else 'loopwam-s-partition-v1')
+        payload = dict(format_version=checkpoint_format, architecture=self.architecture_metadata,
             version=self.version, video_loops=self.mot.loops, action_loops=self.mot.action_loops,
-            action_kv_mode=self.mot.action_kv_mode, loop_alignment="late", trained_max_loops=self.mot.trained_max_loops, inference_loops=self.mot.loops,
+            block_partition=list(self.mot.partition), action_kv_mode=self.mot.action_kv_mode, loop_alignment="late", trained_max_loops=self.mot.trained_max_loops, inference_loops=self.mot.loops,
             exit_weight_scale=self.exit_weight_scale, training_state=training_state, mot=self.mot.state_dict(),
             proprio_encoder=self.proprio_encoder.state_dict(), step=step)
         if optimizer is not None:
@@ -178,11 +180,13 @@ class LoopWAM(FastWAM):
 
     def load_checkpoint(self, path, optimizer=None):
         payload = torch.load(path, map_location='cpu', weights_only=False)
-        if payload.get('format_version') != 'loopwam-s-v1':
+        if payload.get('format_version') not in {'loopwam-s-v1', 'loopwam-s-partition-v1'}:
             raise ValueError('Expected a LoopWAM student checkpoint')
         if payload['version'] != self.version:
             raise ValueError('Checkpoint version differs; use the stored version when constructing the model')
         _validate_checkpoint_depth(payload)
+        if validate_partition(payload.get('block_partition'), self.version) != self.mot.partition:
+            raise ValueError('Checkpoint partition differs from constructed model')
         if payload.get('action_kv_mode', 'aligned') != self.mot.action_kv_mode:
             raise ValueError('Checkpoint action KV mode differs from constructed model')
         if payload.get('action_loops', payload['inference_loops']) != self.mot.action_loops or payload.get('video_loops', payload['inference_loops']) != self.mot.loops:
@@ -198,7 +202,18 @@ class LoopWAM(FastWAM):
 
 def _validate_checkpoint_depth(payload):
     version = payload['version']
+    partition = validate_partition(payload.get('block_partition'), version)
+    contract = (payload.get('training_state') or {}).get('contract')
+    if contract is not None and validate_partition(contract.get('block_partition'), version) != partition:
+        raise ValueError('Checkpoint partition differs from training contract')
+    if payload.get('format_version') == 'loopwam-s-partition-v1' and 'block_partition' not in payload:
+        raise ValueError('Partition checkpoint requires explicit block_partition')
+    capacity = loop_capacity(version, partition)
+    if 'block_partition' in payload and payload.get('trained_max_loops') != capacity:
+        raise ValueError(f'{version}: Checkpoint partition loop capacity mismatch')
     mode = validate_action_kv_mode(payload.get('action_kv_mode', 'aligned'), version)
+    if partition != validate_partition(None, version) and mode != 'aligned':
+        raise ValueError('Custom partition currently requires aligned KV')
     logits = payload.get('mot', {}).get('action_kv_logits')
     if mode == 'mix':
         # Infer the actual head count from the saved expert RMSNorm, including tiny tests.
@@ -212,7 +227,7 @@ def _validate_checkpoint_depth(payload):
         raise ValueError('Non-mix checkpoint contains mix logits')
     if 'action_loops' in payload or 'video_loops' in payload:
         v, a = payload.get('video_loops'), payload.get('action_loops')
-        if (type(v) is not int or type(a) is not int or not (1 <= a <= 4 and 1 <= v <= 4)
+        if (type(v) is not int or type(a) is not int or not (1 <= a <= capacity and 1 <= v <= capacity)
                 or v != payload.get('inference_loops') or payload.get('loop_alignment') != 'late'
                 or (a != v and version != 'v0')):
             raise ValueError(f'{version}: invalid checkpoint video/action loop contract')
@@ -235,7 +250,7 @@ def _validate_checkpoint_depth(payload):
 
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
-                   checkpoint_path=None, action_loops=None, action_kv_mode=None):
+                   checkpoint_path=None, action_loops=None, action_kv_mode=None, partition=None):
     from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
                                target_configs, architecture_metadata_for_version)
     if vae_path is None:
@@ -243,17 +258,21 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
     if checkpoint_path is not None:
         # Reconstruct the declared compact student directly, without native donors.
         payload = torch.load(checkpoint_path, map_location='cpu', weights_only=False, mmap=True)
-        if payload.get('format_version') != 'loopwam-s-v1':
+        if payload.get('format_version') not in {'loopwam-s-v1', 'loopwam-s-partition-v1'}:
             raise ValueError('Expected a LoopWAM student checkpoint')
         version = payload['version']
         _validate_checkpoint_depth(payload)
+        saved_partition = validate_partition(payload.get('block_partition'), version)
+        if partition is not None and validate_partition(partition, version) != saved_partition:
+            raise ValueError('Checkpoint partition differs from requested partition')
+        partition = saved_partition
         saved_mode = payload.get('action_kv_mode', 'aligned')
         if action_kv_mode is not None and action_kv_mode != saved_mode:
             raise ValueError('Checkpoint action KV mode differs from requested mode')
         action_kv_mode = saved_mode
         if saved_mode != 'aligned' and loops is not None and loops != payload['inference_loops']:
             raise ValueError('Cannot override all-loop KV trained video depth')
-        loops = resolve_loop_count(version, payload['inference_loops'] if loops is None else loops)
+        loops = resolve_loop_count(version, payload['inference_loops'] if loops is None else loops, partition)
         saved_action_loops = payload.get('action_loops', payload['inference_loops'])
         if 'action_loops' in payload and saved_action_loops != payload['inference_loops']:
             if loops != payload['inference_loops'] or (action_loops is not None and action_loops != saved_action_loops):
@@ -272,7 +291,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         exit_weight_scale = payload['exit_weight_scale']
     else:
         action_kv_mode = validate_action_kv_mode('aligned' if action_kv_mode is None else action_kv_mode, version)
-        loops = resolve_loop_count(version, loops)
+        loops = resolve_loop_count(version, loops, partition)
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
         artifact = load_init_artifact(init_artifact)
@@ -281,7 +300,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         metadata = architecture_metadata_for_version(artifact['metadata'], version)
     vae = load_wan21_vae(vae_path, device=device, dtype=torch.bfloat16 if str(device).startswith('cuda') else torch.float32)
     video, action = video.to(device=device,dtype=model_dtype), action.to(device=device,dtype=model_dtype)
-    mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks, action_loops=action_loops, action_kv_mode=action_kv_mode)
+    mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks, action_loops=action_loops, action_kv_mode=action_kv_mode, partition=partition)
     model = LoopWAM(video_expert=video, action_expert=action, mot=mot, vae=vae, text_dim=4096,
         proprio_dim=8, device=device, torch_dtype=model_dtype, version=version,
         exit_weight_scale=exit_weight_scale, architecture_metadata=metadata,

@@ -47,10 +47,11 @@ def write_json(path, payload):
 def checkpoint_policy_spec(payload):
     """Use the checkpoint's declared architecture and full trained depth."""
     version = payload.get("version")
-    if (payload.get("format_version") != "loopwam-s-v1"
+    if (payload.get("format_version") not in {"loopwam-s-v1", "loopwam-s-partition-v1"}
             or version not in {"dense_s30", "dense_s12", "v0", "v1", "v2"}):
         raise ValueError("Expected a supported dense or LoopWAM student checkpoint")
-    capacity = 1 if version in {"dense_s12", "dense_s30"} else 4
+    from fastwam.models.wan22.loop_mot import loop_capacity
+    capacity = loop_capacity(version, payload.get('block_partition'))
     trained = payload.get("trained_max_loops")
     loops = payload.get("inference_loops")
     explicit = 'video_loops' in payload and 'action_loops' in payload
@@ -75,6 +76,9 @@ def validate_checkpoint(payload, data, stats_hash, *, smoke=False, suite="libero
     version, _ = checkpoint_policy_spec(payload)
     state = payload.get("training_state") or {}
     contract = state.get("contract") or {}
+    from fastwam.models.wan22.loop_mot import validate_partition
+    if validate_partition(contract.get('block_partition'), payload['version']) != validate_partition(payload.get('block_partition'), payload['version']):
+        raise ValueError('Training and checkpoint partition contracts differ')
     if contract.get('action_kv_mode', 'aligned') != payload.get('action_kv_mode', 'aligned'):
         raise ValueError('Training and checkpoint action KV mode contracts differ')
     if suite not in LIBERO_SUITES:

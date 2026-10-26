@@ -107,7 +107,7 @@ def cached_action(model, data):
     keys, values = model.prefill_video_cache_tensor(
         data["video_tokens"][:, :2], data["video_freqs"][:2], data["video_t_mod"][:, :2],
         data["video_context"], data["video_context_mask"][:, :2], data["attention_mask"][:2, :2])
-    assert len(keys) == 3 + 6 * model.loops + 3
+    assert len(keys) == model.effective_depth()
     assert keys[3].data_ptr() != keys[9].data_ptr()
     action_mask = torch.cat((data["attention_mask"][4:, :2], data["attention_mask"][4:, 4:]), dim=1)
     return model.forward_action_with_video_cache_tensor(

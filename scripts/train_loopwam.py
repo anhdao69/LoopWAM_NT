@@ -83,6 +83,8 @@ def training_contract(args, world, train_windows, planned_updates, data_manifest
     if getattr(args, 'action_loops', None) is not None or getattr(args, 'video_loops', None) is not None:
         contract.update(video_loops=getattr(args,'video_loops',None) or 4,
                         action_loops=args.action_loops or getattr(args,'video_loops',None) or 4, loop_alignment='late')
+    if getattr(args, 'block_partition', None) is not None:
+        contract['block_partition'] = list(args.block_partition)
     return contract
 
 
@@ -232,6 +234,7 @@ def save_training_checkpoint(model, runner, optimizer, output_dir, update, state
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--config',help='Standalone LoopWAM YAML configuration')
+    p.add_argument('--block-partition',type=int,nargs=3,default=None,metavar=('PRE','CORE','CODA'))
     p.add_argument('--video-loops',type=int,default=None,help='Number of video core repetitions')
     p.add_argument('--action-kv-mode', choices=['aligned','concat','mix'], default='aligned')
     p.add_argument('--action-loops',type=int,default=None,help='v0 action core repetitions')
@@ -305,7 +308,7 @@ def main():
     updates_per_epoch=math.ceil(len(train)/args.global_batch)
     total=updates_per_epoch*args.epochs
     model=create_loopwam(args.init_artifact,args.vae_path,version=args.version,device=f'cuda:{local}',
-        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume,action_loops=args.action_loops,loops=args.video_loops,action_kv_mode=args.action_kv_mode)
+        model_dtype=torch.float32,checkpoint_blocks=args.checkpoint_blocks,checkpoint_path=args.resume,action_loops=args.action_loops,loops=args.video_loops,action_kv_mode=args.action_kv_mode,partition=args.block_partition)
     params=model.policy_parameters()
     count=sum(p.numel() for p in params)
     from fastwam.training_backends import expected_policy_parameters
