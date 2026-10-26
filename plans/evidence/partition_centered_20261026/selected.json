@@ -1,0 +1,9 @@
+{
+  "config": {
+    "backend": "ddp",
+    "microbatch": 8,
+    "checkpoint_blocks": false
+  },
+  "seconds": 1.874040921529134,
+  "reason": "Fastest of DDP and uncontended ZeRO-1/2 sweep; global128 and FP32 state verified"
+}

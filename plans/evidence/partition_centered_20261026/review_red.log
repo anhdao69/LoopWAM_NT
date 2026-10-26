@@ -1,0 +1,27 @@
+.FF                                                                      [100%]
+=================================== FAILURES ===================================
+_________ test_benchmark_gate_rejects_precision_and_budget_corruption __________
+
+    def test_benchmark_gate_rejects_precision_and_budget_corruption():
+        import copy,pytest
+>       from run_centered_partition_grid import validate_benchmark
+E       ImportError: cannot import name 'validate_benchmark' from 'run_centered_partition_grid' (/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/run_centered_partition_grid.py)
+
+tests/test_centered_partition_queue.py:17: ImportError
+___________ test_interrupted_export_checks_weights_before_accepting ____________
+
+tmp_path = PosixPath('/mnt/data/vmo-ai-task/anhdh35/tmp/pytest-of-anhdh35/pytest-16/test_interrupted_export_checks0')
+
+    def test_interrupted_export_checks_weights_before_accepting(tmp_path):
+        import pytest,torch
+        from run_centered_partition_grid import validate_export
+        source=dict(format_version='loopwam-s-partition-v1',version='v0',step=21700,architecture={'donor_strategy':'stage_centered'},mot={'x':torch.ones(2)},proprio_encoder={'x':torch.ones(1)})
+        torch.save(source,tmp_path/'policy.pt')
+>       validate_export(tmp_path,'source-sha',source)
+E       TypeError: validate_export() takes 2 positional arguments but 3 were given
+
+tests/test_centered_partition_queue.py:33: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_centered_partition_queue.py::test_benchmark_gate_rejects_precision_and_budget_corruption
+FAILED tests/test_centered_partition_queue.py::test_interrupted_export_checks_weights_before_accepting
+2 failed, 1 passed in 1.76s

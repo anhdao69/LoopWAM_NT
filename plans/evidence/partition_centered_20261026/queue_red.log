@@ -1,0 +1,29 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_centered_queue_has_exact_six_runs_and_four_gpu_batches __________
+
+tmp_path = PosixPath('/mnt/data/vmo-ai-task/anhdh35/tmp/pytest-of-anhdh35/pytest-13/test_centered_queue_has_exact_0')
+
+    def test_centered_queue_has_exact_six_runs_and_four_gpu_batches(tmp_path):
+>       r=importlib.import_module('run_centered_partition_grid')
+
+tests/test_centered_partition_queue.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'run_centered_partition_grid'
+import_ = <function _gcd_import at 0x7f640be07400>
+
+>   ???
+E   ModuleNotFoundError: No module named 'run_centered_partition_grid'
+
+<frozen importlib._bootstrap>:1004: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_centered_partition_queue.py::test_centered_queue_has_exact_six_runs_and_four_gpu_batches
+1 failed in 2.51s

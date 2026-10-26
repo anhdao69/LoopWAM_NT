@@ -1,6 +1,6 @@
 # Full LIBERO LoopWAM partition ablation — 2026-10-26
 
-Status: **all preflight gates passed; production running in Slurm step5248.63** on worker-2. Both first experiments were verified at update23 with finite losses/gradients. No final training or SR results are claimed.
+Status: **superseded and stopped** on 2026-10-26 at the user’s request. See [centered-donor campaign](LoopWAM_Centered_Donor_Grid_20261026.md). The following is the preserved historical launch snapshot: production had been running in Slurm step5248.63 on worker-2. Both first experiments were verified at update23 with finite losses/gradients. No final training or SR results are claimed.
 
 ## Code and reviewed context
 

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "srun",
+    "--jobid=5248",
+    "--overlap",
+    "--ntasks=1",
+    "--cpus-per-task=48",
+    "--gres=gpu:4",
+    "--job-name=test_training",
+    "bash",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/partition_centered_20261026/lane.sh",
+    "A",
+    "run"
+  ],
+  "time": 1793040656.6224902
+}

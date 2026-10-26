@@ -1,0 +1,37 @@
+[
+  {
+    "config": {
+      "backend": "ddp",
+      "microbatch": 8,
+      "checkpoint_blocks": false
+    },
+    "status": "passed",
+    "seconds": 1.874040921529134
+  },
+  {
+    "config": {
+      "backend": "ddp",
+      "microbatch": 16,
+      "checkpoint_blocks": false
+    },
+    "status": "oom"
+  },
+  {
+    "config": {
+      "backend": "ddp",
+      "microbatch": 16,
+      "checkpoint_blocks": true
+    },
+    "status": "passed",
+    "seconds": 2.2431492805480957
+  },
+  {
+    "config": {
+      "backend": "ddp",
+      "microbatch": 32,
+      "checkpoint_blocks": true
+    },
+    "status": "passed",
+    "seconds": 2.065648158391317
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "config": {
+      "backend": "zero1",
+      "microbatch": 8,
+      "checkpoint_blocks": false
+    },
+    "status": "passed",
+    "seconds": 1.914385696252187
+  },
+  {
+    "config": {
+      "backend": "zero1",
+      "microbatch": 16,
+      "checkpoint_blocks": false
+    },
+    "status": "oom"
+  },
+  {
+    "config": {
+      "backend": "zero1",
+      "microbatch": 32,
+      "checkpoint_blocks": true
+    },
+    "status": "passed",
+    "seconds": 2.2259432872136435
+  },
+  {
+    "config": {
+      "backend": "zero2",
+      "microbatch": 8,
+      "checkpoint_blocks": false
+    },
+    "status": "passed",
+    "seconds": 1.966971218585968
+  },
+  {
+    "config": {
+      "backend": "zero2",
+      "microbatch": 16,
+      "checkpoint_blocks": false
+    },
+    "status": "oom"
+  },
+  {
+    "config": {
+      "backend": "zero2",
+      "microbatch": 32,
+      "checkpoint_blocks": true
+    },
+    "status": "passed",
+    "seconds": 2.1738892793655396
+  }
+]

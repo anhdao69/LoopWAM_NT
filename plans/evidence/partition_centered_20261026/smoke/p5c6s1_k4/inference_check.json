@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "partition": [
+    5,
+    6,
+    1
+  ],
+  "loops": 4,
+  "effective_depth": 30,
+  "parameters": 584536135,
+  "action_shape": [
+    32,
+    7
+  ],
+  "finite": true,
+  "repeat_bit_identical": true,
+  "max_abs": 2.6887435913085938,
+  "gpu": "NVIDIA H100 80GB HBM3"
+}

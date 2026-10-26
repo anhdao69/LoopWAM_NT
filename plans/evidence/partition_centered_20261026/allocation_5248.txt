@@ -1,0 +1,31 @@
+JobId=5248 JobName=train_vln
+   UserId=anhdh35(1025) GroupId=anhdh35(1025) MCS_label=N/A
+   Priority=1 Nice=0 Account=(null) QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0
+   DerivedExitCode=1:0
+   RunTime=6-14:36:55 TimeLimit=UNLIMITED TimeMin=N/A
+   SubmitTime=2026-10-20T04:09:03 EligibleTime=2026-10-20T04:09:03
+   AccrueTime=2026-10-20T04:09:03
+   StartTime=2026-10-20T04:14:45 EndTime=Unknown Deadline=N/A
+   PreemptEligibleTime=2026-10-20T04:14:45 PreemptTime=None
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-20T04:14:45 Scheduler=Main
+   Partition=main AllocNode:Sid=login-0:249003
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=worker-2
+   BatchHost=worker-2
+   NumNodes=1 NumCPUs=60 NumTasks=1 CPUs/Task=60 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=60,mem=480G,node=1,billing=60,gres/gpu=4
+   AllocTRES=cpu=60,mem=480G,node=1,billing=60,gres/gpu=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=gpu:nvidia_h100_80gb_hbm3:4
+     Nodes=worker-2 CPU_IDs=0-59 Mem=491520 GRES=gpu:nvidia_h100_80gb_hbm3:4(IDX:0-3)
+   MinCPUsNode=60 MinMemoryCPU=8G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/bin/bash
+   WorkDir=/home/anhdh35
+   TresPerJob=gres/gpu:4
+   TresPerTask=cpu=60
+   
+

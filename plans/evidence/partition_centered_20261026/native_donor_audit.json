@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "artifact_sha256": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+  "runs": [
+    {
+      "label": "p0c6s6_k4",
+      "partition": [
+        0,
+        6,
+        6
+      ],
+      "donors": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    },
+    {
+      "label": "p1c6s5_k4",
+      "partition": [
+        1,
+        6,
+        5
+      ],
+      "donors": [
+        0,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    },
+    {
+      "label": "p5c6s1_k4",
+      "partition": [
+        5,
+        6,
+        1
+      ],
+      "donors": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        29
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    },
+    {
+      "label": "p6c6s0_k4",
+      "partition": [
+        6,
+        6,
+        0
+      ],
+      "donors": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    },
+    {
+      "label": "p1c9s2_k3",
+      "partition": [
+        1,
+        9,
+        2
+      ],
+      "donors": [
+        0,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        28,
+        29
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    },
+    {
+      "label": "p4c3s5_k7",
+      "partition": [
+        4,
+        3,
+        5
+      ],
+      "donors": [
+        0,
+        1,
+        2,
+        3,
+        13,
+        14,
+        15,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "tensors_compared": 679,
+      "policy_parameters": 584536135,
+      "exact_equal": true
+    }
+  ],
+  "finished": 1793039533.4888656
+}
