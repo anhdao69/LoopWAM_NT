@@ -320,6 +320,176 @@ def validate_artifact(artifact: Mapping) -> None:
                 raise ValueError(f'Inconsistent new-parameter seed for {family}.{key}')
 
 
+# Initialization variants of the 12-layer student (3 prelude + 6 core + 3 coda). A variant artifact stores the
+# finished student tensors, built from the canonical 30-layer donor artifact (pruned video FFN, resized action),
+# and records exactly how every student block was produced. 'default' reproduces select_donor_layers bit for bit.
+STUDENT_FORMAT_VERSION = 'loopwam-student-init-v1'
+INIT_VARIANTS = ('default', 'core16_21', 'core_mean', 'core_random', 'ffn_magnitude', 'stepwise')
+CORE_SLOTS = tuple(range(3, 9))
+
+
+def variant_block_plan(variant: str) -> list:
+    """Per student slot: ['wan', donor_layer], ['mean', [donor_layers]] or ['random', core_index]."""
+    if variant not in INIT_VARIANTS:
+        raise ValueError(f'Unknown initialization variant {variant!r}')
+    core = {
+        'default': [['wan', 9 + i] for i in range(6)],
+        'ffn_magnitude': [['wan', 9 + i] for i in range(6)],
+        'core16_21': [['wan', 15 + i] for i in range(6)],
+        'stepwise': [['wan', i] for i in (4, 8, 12, 16, 20, 24)],
+        'core_mean': [['mean', [3 + i, 9 + i, 15 + i, 21 + i]] for i in range(6)],
+        'core_random': [['random', i] for i in range(6)],
+    }[variant]
+    return [['wan', i] for i in (0, 1, 2)] + core + [['wan', i] for i in (27, 28, 29)]
+
+
+def magnitude_ffn_indices(w1: torch.Tensor, w2: torch.Tensor, target_width: int = 6144) -> torch.Tensor:
+    """Top neurons by ||W1[k,:]||_2 * ||W2[:,k]||_2 (FP64; ties keep the lower index), sorted ascending."""
+    if w1.ndim != 2 or w2.ndim != 2 or w1.shape[0] != w2.shape[1] or not 1 < target_width <= w1.shape[0]:
+        raise ValueError('Magnitude FFN selection requires paired [N,D] and [D,N] weights and 1 < width <= N.')
+    score = w1.double().norm(dim=1) * w2.double().norm(dim=0)
+    order = torch.sort(score, descending=True, stable=True).indices
+    return order[:target_width].sort().values
+
+
+def random_core_blocks(seed: int = 42) -> dict:
+    """Fresh default-initialized DiTBlocks for the six core slots: one CPU RNG stream seeded once,
+    video core blocks 0..5 constructed first, then action core blocks 0..5."""
+    from .wan_video_dit import DiTBlock
+    video_cfg, action_cfg = target_configs(12)
+    with torch.random.fork_rng(devices=[]):
+        torch.manual_seed(seed)
+        blocks = {family: [DiTBlock(cfg['hidden_dim'], cfg['attn_head_dim'], cfg['num_heads'], cfg['ffn_dim'], cfg['eps'])
+                           for _ in CORE_SLOTS]
+                  for family, cfg in (('video', video_cfg), ('action', action_cfg))}
+    return {family: [{k: v.detach().clone() for k, v in block.state_dict().items()} for block in group]
+            for family, group in blocks.items()}
+
+
+def compose_student_state(donor: Mapping, plan: list, random_blocks: list | None = None) -> tuple[dict, dict]:
+    """Assemble one expert's 12-layer state from a 30-layer donor state following ``plan``.
+    Means are taken in FP64 over the already pruned/resized donor tensors and rounded once to FP32."""
+    suffixes = sorted({key.split('.', 2)[2] for key in donor if key.startswith('blocks.')})
+    state, record = {}, {}
+    for key, value in donor.items():
+        if not key.startswith('blocks.'):
+            state[key] = value.detach().clone()
+            record[key] = dict(source=key, transform='copy')
+    for slot, (kind, arg) in enumerate(plan):
+        for suffix in suffixes:
+            key = f'blocks.{slot}.{suffix}'
+            if kind == 'wan':
+                state[key] = donor[f'blocks.{arg}.{suffix}'].detach().clone()
+                record[key] = dict(source=f'blocks.{arg}.{suffix}', transform='copy')
+            elif kind == 'mean':
+                stacked = torch.stack([donor[f'blocks.{i}.{suffix}'].double() for i in arg])
+                state[key] = stacked.mean(0).to(donor[f'blocks.{arg[0]}.{suffix}'].dtype)
+                record[key] = dict(source=[f'blocks.{i}.{suffix}' for i in arg], transform='elementwise_mean_fp64')
+            elif kind == 'random':
+                if random_blocks is None or set(random_blocks[arg]) != set(suffixes):
+                    raise ValueError('Random core blocks do not cover the donor block tensors.')
+                state[key] = random_blocks[arg][suffix].detach().clone()
+                record[key] = dict(source=None, transform='new_DiTBlock_default', core_index=arg)
+            else:
+                raise ValueError(f'Unknown block source {kind!r}')
+    return state, record
+
+
+def build_init_variant(artifact: Mapping, variant: str, *, canonical_sha256: str, native: Mapping | None = None,
+                       seed: int = 42) -> dict:
+    """Student initialization artifact for ``variant`` from the canonical donor artifact (and, for
+    ffn_magnitude, the native checkpoint it was converted from)."""
+    validate_artifact(artifact)
+    plan = variant_block_plan(variant)
+    random_blocks = random_core_blocks(seed) if variant == 'core_random' else None
+    states, tensor_map = {}, {}
+    for family in ('video', 'action'):
+        states[family], record = compose_student_state(artifact[f'{family}_state_dict'], plan,
+                                                       None if random_blocks is None else random_blocks[family])
+        tensor_map.update({f'{family}.{k}': v for k, v in record.items()})
+    ffn_indices = {}
+    if variant == 'ffn_magnitude':
+        if native is None:
+            raise ValueError('ffn_magnitude needs the native Wan2.1 checkpoint.')
+        canonical = canonical_ffn_indices()
+        for slot, (_, layer) in enumerate(plan):
+            w1, b1 = native[f'blocks.{layer}.ffn.0.weight'].float(), native[f'blocks.{layer}.ffn.0.bias'].float()
+            w2 = native[f'blocks.{layer}.ffn.2.weight'].float()
+            # The native source must be the one the canonical artifact was pruned from.
+            for suffix, value in (('ffn.0.weight', w1.index_select(0, canonical)), ('ffn.0.bias', b1.index_select(0, canonical)),
+                                  ('ffn.2.weight', w2.index_select(1, canonical))):
+                if not torch.equal(value, artifact['video_state_dict'][f'blocks.{layer}.{suffix}']):
+                    raise ValueError(f'Native blocks.{layer}.{suffix} is not the canonical artifact source')
+            indices = magnitude_ffn_indices(w1, w2)
+            ffn_indices[slot] = indices.tolist()
+            for suffix, value, axis in (('ffn.0.weight', w1, 0), ('ffn.0.bias', b1, 0), ('ffn.2.weight', w2, 1)):
+                states['video'][f'blocks.{slot}.{suffix}'] = value.index_select(axis, indices).contiguous()
+                tensor_map[f'video.blocks.{slot}.{suffix}'] = dict(
+                    source=f'native:blocks.{layer}.{suffix}', transform=f'magnitude_ffn_select_axis_{axis}')
+    proprio = {k: v.detach().clone() for k, v in artifact['proprio_state_dict'].items()}
+    tensor_map.update({f'proprio.{k}': dict(source=f'proprio.{k}', transform='copy') for k in proprio})
+    meta = deepcopy(dict(artifact['metadata']))
+    wan_only = all(kind == 'wan' for kind, _ in plan)
+    meta.update(donor_indices=[arg for _, arg in plan] if wan_only else None,
+                ffn_indices=None if variant == 'ffn_magnitude' else meta['ffn_indices'],
+                init_variant=variant, student_block_plan=plan, canonical_artifact_sha256=canonical_sha256,
+                canonical_donor_indices=list(DONOR_INDICES), variant_seed=seed,
+                ffn_rule='magnitude_top6144_per_block' if variant == 'ffn_magnitude' else 'canonical_linspace_6144',
+                student_ffn_indices={str(k): v for k, v in ffn_indices.items()} or None,
+                student_tensor_map=tensor_map)
+    result = dict(format_version=STUDENT_FORMAT_VERSION, video_state_dict=states['video'],
+                  action_state_dict=states['action'], proprio_state_dict=proprio, metadata=meta)
+    validate_student_artifact(result)
+    return result
+
+
+@lru_cache(maxsize=1)
+def _student_shapes() -> tuple[dict, dict]:
+    video_cfg, action_cfg = target_configs(12)
+    with torch.device('meta'):
+        return _state_shapes(WanVideoDiT(**video_cfg)), _state_shapes(ActionDiT(**action_cfg))
+
+
+def validate_student_artifact(artifact: Mapping) -> None:
+    if artifact.get('format_version') != STUDENT_FORMAT_VERSION:
+        raise ValueError('Unsupported LoopWAM student initialization artifact version.')
+    meta = artifact['metadata']
+    variant = meta.get('init_variant')
+    if meta.get('student_block_plan') != variant_block_plan(variant):
+        raise ValueError(f'Student block plan does not match variant {variant!r}')
+    if meta['source_model'] != SOURCE_MODEL or len(meta.get('canonical_artifact_sha256', '')) != 64:
+        raise ValueError('Student artifact must name its source model and canonical artifact hash.')
+    validate_source_config(meta['source_config'])
+    expected_video, expected_action = target_configs(12)
+    if meta['target_video_config'] != expected_video or meta['target_action_config'] != expected_action:
+        raise ValueError('Student artifact target architecture differs from LoopWAM-S.')
+    video_shapes, action_shapes = _student_shapes()
+    for family, shapes in [('video', video_shapes), ('action', action_shapes), ('proprio', {'weight': (4096, 8), 'bias': (4096,)})]:
+        validate_state_coverage(artifact[f'{family}_state_dict'], shapes, label=f'student {family}')
+    expected_map = {f'{family}.{key}' for family in ('video', 'action', 'proprio') for key in artifact[f'{family}_state_dict']}
+    if set(meta['student_tensor_map']) != expected_map:
+        raise ValueError('Student tensor provenance does not cover all target tensors.')
+    for family in ('video', 'action', 'proprio'):
+        for key, value in artifact[f'{family}_state_dict'].items():
+            if value.dtype != torch.float32 or not torch.isfinite(value).all():
+                raise ValueError(f'Student tensor {family}.{key} must be finite FP32')
+    indices = meta.get('student_ffn_indices')
+    if (variant == 'ffn_magnitude') != (indices is not None):
+        raise ValueError('Only ffn_magnitude stores per-block FFN indices.')
+    for slot, chosen in (indices or {}).items():
+        if len(chosen) != 6144 or chosen != sorted(set(chosen)) or chosen[0] < 0 or chosen[-1] > 8959:
+            raise ValueError(f'Invalid magnitude FFN indices for student block {slot}')
+
+
+def load_any_init_artifact(path: str | Path) -> dict:
+    artifact = torch.load(str(path), map_location='cpu', weights_only=True, mmap=True)
+    if artifact.get('format_version') == STUDENT_FORMAT_VERSION:
+        validate_student_artifact(artifact)
+    else:
+        validate_artifact(artifact)
+    return artifact
+
+
 def _materialize(module, state, *, device, dtype):
     # assign avoids a second full CPU model allocation before loading.
     converted = {key: value.to(device=device, dtype=dtype, copy=True) for key, value in state.items()}
@@ -329,8 +499,14 @@ def _materialize(module, state, *, device, dtype):
 
 def build_target_experts(artifact_or_path, *, device='cpu', dtype=torch.float32,
                          dense30=False, use_gradient_checkpointing=False):
-    artifact = load_init_artifact(artifact_or_path) if isinstance(artifact_or_path, (str, Path)) else artifact_or_path
-    validate_artifact(artifact)
+    artifact = load_any_init_artifact(artifact_or_path) if isinstance(artifact_or_path, (str, Path)) else artifact_or_path
+    student = artifact.get('format_version') == STUDENT_FORMAT_VERSION
+    if student:
+        validate_student_artifact(artifact)
+        if dense30:
+            raise ValueError('Student initialization variants are 12-layer; Dense-S30 needs the canonical artifact.')
+    else:
+        validate_artifact(artifact)
     video_cfg, action_cfg = target_configs(30 if dense30 else 12)
     video_cfg['use_gradient_checkpointing'] = use_gradient_checkpointing
     action_cfg['use_gradient_checkpointing'] = use_gradient_checkpointing
@@ -338,7 +514,7 @@ def build_target_experts(artifact_or_path, *, device='cpu', dtype=torch.float32,
         video, action, proprio = WanVideoDiT(**video_cfg), ActionDiT(**action_cfg), nn.Linear(8, 4096)
     for family, module in [('video', video), ('action', action)]:
         state = artifact[f'{family}_state_dict']
-        if not dense30:
+        if not dense30 and not student:
             state = select_donor_layers(state)
         _materialize(module, state, device=device, dtype=dtype)
     _materialize(proprio, artifact['proprio_state_dict'], device=device, dtype=dtype)

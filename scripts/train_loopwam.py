@@ -367,7 +367,8 @@ def main():
         if world>1: dist.barrier()
         model.training_latent_cache=LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance)
 
-    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,action_core_loops=model.mot.action_loops,loop_alignment="late",
+    init_variant=model.architecture_metadata.get('init_variant')
+    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else (f'wan_init_variant_{init_variant}_fresh_optimizer' if init_variant else 'canonical_wan_artifact_fresh_optimizer'),world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,action_core_loops=model.mot.action_loops,loop_alignment="late",
         asset_sha256=asset_hashes[0],initialization_metadata=model.architecture_metadata,
         train_windows=len(train),val_windows=len(val),updates_per_epoch=updates_per_epoch,
         planned_updates=total,planned_windows=args.epochs*len(train),data=data_manifest,

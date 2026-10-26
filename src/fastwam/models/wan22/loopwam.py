@@ -222,7 +222,7 @@ def _validate_checkpoint_depth(payload):
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
                    checkpoint_path=None, action_loops=None):
-    from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
+    from .loopwam_init import (build_target_experts, load_wan21_vae, load_any_init_artifact,
                                target_configs, architecture_metadata_for_version)
     if vae_path is None:
         raise ValueError('Native Wan2.1 VAE path is required')
@@ -254,7 +254,7 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         loops = resolve_loop_count(version, loops)
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
-        artifact = load_init_artifact(init_artifact)
+        artifact = load_any_init_artifact(init_artifact)
         video, action, proprio = build_target_experts(artifact, device=device, dtype=model_dtype,
                                                        dense30=version == 'dense_s30')
         metadata = architecture_metadata_for_version(artifact['metadata'], version)
