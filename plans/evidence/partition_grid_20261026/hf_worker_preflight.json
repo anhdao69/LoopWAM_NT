@@ -1,0 +1,8 @@
+{
+  "host": "worker-2",
+  "account": "anhdao69",
+  "repository": "anhdao69/LoopWAM_NT",
+  "revision": "db0d9bf7ecab737654440b8b3af06fcca4b587eb",
+  "token_role": "fineGrained",
+  "worker_network_verified": true
+}

@@ -1,0 +1,18 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/check_partition_checkpoint.py", line 34, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/check_partition_checkpoint.py", line 25, in main
+    a1=query();a2=query()
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/check_partition_checkpoint.py", line 22, in query
+    return model.infer_action(input_image=sample['video'][:,0],proprio=sample['proprio'].unsqueeze(0),
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/src/fastwam/models/wan22/loopwam.py", line 159, in infer_action
+    return super().infer_action(prompt=prompt, input_image=input_image, action_horizon=action_horizon,
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/src/fastwam/models/wan22/fastwam.py", line 1023, in infer_action
+    raise ValueError(f"`proprio` must be [D] or [1,D], got shape {tuple(proprio.shape)}")
+ValueError: `proprio` must be [D] or [1,D], got shape (1, 32, 8)

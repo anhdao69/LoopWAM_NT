@@ -1,0 +1,41 @@
+{
+  "status": "training",
+  "allocation": 5248,
+  "step": "5248.63",
+  "source_revision": "fb81deecac719b1c29eae5c219c773ba92d2cb5a",
+  "release_unix": 1793027530.5653157,
+  "queues": {
+    "A": [
+      "p0c6s6_k4",
+      "p5c6s1_k4",
+      "p1c9s2_k3",
+      "p3c6s3_k4"
+    ],
+    "B": [
+      "p1c6s5_k4",
+      "p6c6s0_k4",
+      "p4c3s5_k7"
+    ]
+  },
+  "config": {
+    "backend": "ddp",
+    "microbatch": 8,
+    "checkpoint_blocks": false
+  },
+  "tests": {
+    "cpu_passed": 449,
+    "cpu_skipped": 16,
+    "gpu_passed": 465
+  },
+  "native_smokes_passed": 7,
+  "projected_training_hours": {
+    "A": 88.76489869459175,
+    "B": 66.91100997983673
+  },
+  "estimated_total_hours_with_overhead": [
+    90,
+    96
+  ],
+  "hf_destination": "anhdao69/LoopWAM_NT/libero-all-suites/partition-grid-20261026",
+  "final_results_available": false
+}

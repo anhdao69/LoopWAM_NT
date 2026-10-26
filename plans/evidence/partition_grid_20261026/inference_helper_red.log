@@ -1,0 +1,13 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_inference_uses_only_current_proprioception_and_image ___________
+
+    def test_inference_uses_only_current_proprioception_and_image():
+        import torch
+>       from check_partition_checkpoint import inference_inputs
+E       ImportError: cannot import name 'inference_inputs' from 'check_partition_checkpoint' (/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/check_partition_checkpoint.py)
+
+tests/test_partition_queue.py:52: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_partition_queue.py::test_inference_uses_only_current_proprioception_and_image
+1 failed in 5.69s

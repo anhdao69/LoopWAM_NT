@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/run_partition_grid.py", line 227, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/run_partition_grid.py", line 220, in main
+    elif a.phase=='smoke':smoke(a.root,a.lane)
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/scripts/run_partition_grid.py", line 117, in smoke
+    raise RuntimeError(f'Inference reload failed: {label}')
+RuntimeError: Inference reload failed: p0c6s6_k4

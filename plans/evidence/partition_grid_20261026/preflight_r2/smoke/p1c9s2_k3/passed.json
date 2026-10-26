@@ -1,0 +1,73 @@
+{
+  "label": "p1c9s2_k3",
+  "timing": {
+    "status": "smoke_complete",
+    "completed_updates": 10,
+    "windows_seen": 1280,
+    "planned_updates": 21700,
+    "elapsed_training_seconds": 50.591681479942054,
+    "checkpoint_seconds_total": 7.739261189009994,
+    "checkpoint_count": 1,
+    "measured_mean_update_seconds": 3.6923753950330944,
+    "estimated_total_training_hours": 22.25681835339393,
+    "estimate_note": "Projection from measured updates; excludes setup/checkpoint overhead",
+    "latest": {
+      "update": 10,
+      "epoch": 1,
+      "windows": 128,
+      "windows_seen": 1280,
+      "effective_passes": 0.004609074836251814,
+      "seconds": 3.6710851192474365,
+      "lr": 9.216589861751153e-07,
+      "grad_norm": 10.626473426818848,
+      "branch_grad_after_clip": {
+        "video": 0.8759751915931702,
+        "action": 0.4821142554283142,
+        "proprio": 0.015266905538737774
+      },
+      "latent_cache_rank_local": {
+        "hits": 640,
+        "misses": 0,
+        "dummy_encodes": 0,
+        "encoder_samples": 0,
+        "batches": 80,
+        "read_seconds": 1.180628445930779,
+        "encode_seconds": 0.0,
+        "write_seconds": 0.0
+      },
+      "peak_allocated_gb": 59.36198425292969,
+      "peak_reserved_gb": 59.72059631347656,
+      "exit3/video_raw": 0.6830253005027771,
+      "exit3/action_raw": 1.36970853805542,
+      "exit3/video": 0.6216369867324829,
+      "exit3/action": 1.3466622829437256,
+      "loss_video": 0.6216369867324829,
+      "loss_action": 1.3466622829437256,
+      "loop/1/video_state_rms": 0.8389164209365845,
+      "loop/1/action_state_rms": 0.5877546072006226,
+      "loop/2/video_state_rms": 0.9108878970146179,
+      "loop/2/action_state_rms": 0.8459078669548035,
+      "loop/3/video_state_rms": 1.0275040864944458,
+      "loop/3/action_state_rms": 1.154275894165039
+    }
+  },
+  "inference": {
+    "passed": true,
+    "partition": [
+      1,
+      9,
+      2
+    ],
+    "loops": 3,
+    "effective_depth": 30,
+    "parameters": 584536135,
+    "action_shape": [
+      32,
+      7
+    ],
+    "finite": true,
+    "repeat_bit_identical": true,
+    "max_abs": 2.9313149452209473,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  }
+}

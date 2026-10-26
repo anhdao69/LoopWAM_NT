@@ -1,0 +1,27 @@
+
+==================================== ERRORS ====================================
+_______ ERROR collecting third_party/RoboTwin/code_gen/test_gen_code.py ________
+ImportError while importing test module '/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/third_party/RoboTwin/code_gen/test_gen_code.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+third_party/RoboTwin/code_gen/__init__.py:2: in <module>
+    from .gpt_agent import *           # Core GPT agent logic
+third_party/RoboTwin/code_gen/gpt_agent.py:1: in <module>
+    from openai import OpenAI
+E   ModuleNotFoundError: No module named 'openai'
+_________ ERROR collecting third_party/RoboTwin/script/test_render.py __________
+ImportError while importing test module '/mnt/data/vmo-ai-task/anhdh35/LoopWAM_partition_grid/third_party/RoboTwin/script/test_render.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+third_party/RoboTwin/script/test_render.py:15: in <module>
+    import sapien.core as sapien
+E   ModuleNotFoundError: No module named 'sapien'
+=========================== short test summary info ============================
+ERROR third_party/RoboTwin/code_gen/test_gen_code.py
+ERROR third_party/RoboTwin/script/test_render.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 10.71s

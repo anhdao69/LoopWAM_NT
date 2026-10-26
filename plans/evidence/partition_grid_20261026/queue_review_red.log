@@ -1,0 +1,17 @@
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+_________ test_stale_export_cannot_be_relabelled_as_current_checkpoint _________
+
+tmp_path = PosixPath('/mnt/data/vmo-ai-task/anhdh35/tmp/pytest-of-anhdh35/pytest-4/test_stale_export_cannot_be_re0')
+
+    def test_stale_export_cannot_be_relabelled_as_current_checkpoint(tmp_path):
+        import json,hashlib
+        r=runner();weights=tmp_path/'model.pt';weights.write_bytes(b'old weights')
+        info=tmp_path/'provenance.json';info.write_text(json.dumps(dict(source_checkpoint_sha256='old-source',sha256=hashlib.sha256(weights.read_bytes()).hexdigest())))
+>       with pytest.raises(ValueError,match='checkpoint'):r.validate_export(tmp_path,'new-source')
+E       AttributeError: module 'run_partition_grid' has no attribute 'validate_export'
+
+tests/test_partition_queue.py:45: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_partition_queue.py::test_stale_export_cannot_be_relabelled_as_current_checkpoint
+1 failed, 4 passed in 4.35s

@@ -1,0 +1,3 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torchvision/io/_video_deprecation_warning.py:5: UserWarning: The video decoding and encoding capabilities of torchvision are deprecated from version 0.22 and will be removed in version 0.24. We recommend that you migrate to TorchCodec, where we'll consolidate the future decoding/encoding capabilities of PyTorch: https://github.com/pytorch/torchcodec
+  warnings.warn(
+{"passed": true, "partition": [1, 6, 5], "loops": 4, "effective_depth": 30, "parameters": 584536135, "action_shape": [32, 7], "finite": true, "repeat_bit_identical": true, "max_abs": 3.0587620735168457, "gpu": "NVIDIA H100 80GB HBM3"}

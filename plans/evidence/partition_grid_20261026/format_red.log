@@ -1,0 +1,31 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_nondefault_checkpoint_format_prevents_silent_legacy_load _________
+
+tmp_path = PosixPath('/mnt/data/vmo-ai-task/anhdh35/tmp/pytest-of-anhdh35/pytest-8/test_nondefault_checkpoint_for0')
+
+    def test_nondefault_checkpoint_format_prevents_silent_legacy_load(tmp_path):
+        from test_loopwam_policy import make_policy
+        policy=make_policy();policy.mot=model_for((0,6,6),4)
+        path=tmp_path/'partition.pt';policy.save_checkpoint(path)
+        p=torch.load(path,weights_only=False)
+>       assert p['format_version']=='loopwam-s-partition-v1'
+E       AssertionError: assert 'loopwam-s-v1' == 'loopwam-s-partition-v1'
+E         
+E         - loopwam-s-partition-v1
+E         + loopwam-s-v1
+
+tests/test_loopwam_partitions.py:142: AssertionError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_partitions.py::test_nondefault_checkpoint_format_prevents_silent_legacy_load
+1 failed in 4.91s

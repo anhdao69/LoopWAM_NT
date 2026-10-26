@@ -1,0 +1,8 @@
+[
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python",
+  "scripts/check_partition_checkpoint.py",
+  "--checkpoint",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/partition_grid_20261026/preflight_r2/smoke/p1c9s2_k3/latest.pt",
+  "--output",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/partition_grid_20261026/preflight_r2/smoke/p1c9s2_k3/inference_check.json"
+]

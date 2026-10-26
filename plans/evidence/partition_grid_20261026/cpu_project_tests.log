@@ -1,0 +1,150 @@
+........................................................................ [ 16%]
+..........................ss....s..s....ss.s............................ [ 32%]
+.................FF...............F..................................... [ 48%]
+........................................................................ [ 65%]
+......ss.....................................................sssssss.... [ 81%]
+.............F.......................................................... [ 97%]
+...........                                                              [100%]
+=================================== FAILURES ===================================
+___________ test_dense_final_only_flow_loss_and_checkpoint_roundtrip ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-10/test_dense_final_only_flow_los0')
+
+    def test_dense_final_only_flow_loss_and_checkpoint_roundtrip(tmp_path):
+        policy = dense_policy()
+        noisy = tiny_noisy(policy)
+        outputs = policy.forward_exits(noisy)
+        loss, logs = policy.reduce_flow_losses(outputs, noisy)
+        assert exit_weights('dense_s12', 1) == {1: 1.0}
+        torch.testing.assert_close(loss, logs['exit1/video'] + logs['exit1/action'])
+        assert not any(key.startswith('exit2/') for key in logs)
+        loss.backward()
+        assert torch.isfinite(loss)
+        path = tmp_path / 'dense.pt'
+        policy.save_checkpoint(path, step=7)
+        payload = torch.load(path, weights_only=False)
+        assert payload['version'] == 'dense_s12'
+        assert payload['trained_max_loops'] == payload['inference_loops'] == 1
+        restored = dense_policy()
+        restored.load_checkpoint(path)
+        for a, b in zip(restored.forward_exits(noisy)[1], outputs[1]):
+            torch.testing.assert_close(a, b, rtol=0, atol=0)
+        for field in ('trained_max_loops', 'inference_loops'):
+            corrupted = copy.deepcopy(payload)
+            corrupted[field] = 4
+            torch.save(corrupted, path)
+>           with pytest.raises(ValueError, match='dense_s12'):
+E           AssertionError: Regex pattern did not match.
+E             Expected regex: 'dense_s12'
+E             Actual message: 'Checkpoint partition loop capacity mismatch'
+
+tests/test_loopwam_dense.py:89: AssertionError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+_____ test_dense_checkpoint_factory_resolves_depth_before_resource_loading _____
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-10/test_dense_checkpoint_factory_0')
+
+    def test_dense_checkpoint_factory_resolves_depth_before_resource_loading(tmp_path):
+        policy = dense_policy()
+        path = tmp_path / 'dense.pt'
+        policy.save_checkpoint(path)
+>       with pytest.raises(ValueError, match='dense_s12'):
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'dense_s12'
+E         Actual message: 'loops must be an integer in [1, 1].'
+
+tests/test_loopwam_dense.py:99: AssertionError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+___________ test_final_only_loss_strict_checkpoint_factory_roundtrip ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-10/test_final_only_loss_strict_ch0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1957d80760>
+
+    def test_final_only_loss_strict_checkpoint_factory_roundtrip(tmp_path, monkeypatch):
+        policy = dense_policy()
+        noisy = tiny_noisy(policy)
+        outputs = policy.forward_exits(noisy)
+        loss, logs = policy.reduce_flow_losses(outputs, noisy)
+        assert exit_weights('dense_s30', 1) == {1: 1.0}
+        torch.testing.assert_close(loss, logs['exit1/video'] + logs['exit1/action'])
+        assert not any(key.startswith('exit2/') for key in logs)
+        path = tmp_path / 'dense30.pt'
+        policy.save_checkpoint(path)
+        monkeypatch.setattr(loopwam_init, 'target_configs', tiny_configs)
+        monkeypatch.setattr(loopwam_init, 'load_wan21_vae', lambda *args, **kwargs: copy.deepcopy(policy.vae))
+        restored = create_loopwam(checkpoint_path=path, vae_path='frozen-test-vae')
+        assert restored.version == 'dense_s30'
+        assert restored.mot.schedule == tuple(range(30))
+        for a, b in zip(restored.forward_exits(noisy)[1], outputs[1]):
+            torch.testing.assert_close(a, b, rtol=0, atol=0)
+        restored.load_checkpoint(path)
+>       with pytest.raises(ValueError, match='dense_s30'):
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'dense_s30'
+E         Actual message: 'loops must be an integer in [1, 1].'
+
+tests/test_loopwam_dense_s30.py:150: AssertionError
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=30
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=30
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+_______ test_camera_rotation_order_and_current_eight_dimensional_proprio _______
+
+    def test_camera_rotation_order_and_current_eight_dimensional_proprio():
+        m = runner()
+        stats = {kind: {"default": {"global_min": [-1.] * dim, "global_max": [1.] * dim}}
+                 for kind, dim in (("state", 8), ("action", 7))}
+        adapter = m.ObservationAdapter(stats, ".")
+        primary = np.zeros((256, 256, 3), dtype=np.uint8)
+        primary[:128] = 255
+        obs = dict(agentview_image=primary, robot0_eye_in_hand_image=np.zeros_like(primary),
+                   robot0_eef_pos=np.array([.1, .2, .3]), robot0_eef_quat=np.array([0., 0., 0., 1.]),
+                   robot0_gripper_qpos=np.array([.04, -.04]))
+>       image, proprio = adapter.observation(obs)
+
+tests/test_loopwam_rollout.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/evaluate_loopwam_libero.py:189: in observation
+    from experiments.libero.libero_utils import get_libero_image, quat2axisangle
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """Utils for evaluating policies in LIBERO simulation environments."""
+    
+    import math
+    import time
+    import pathlib
+    
+    import imageio
+    from PIL import Image, ImageDraw
+    import numpy as np
+>   from libero.libero import get_libero_path
+E   ModuleNotFoundError: No module named 'libero'
+
+experiments/libero/libero_utils.py:10: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_dense.py::test_dense_final_only_flow_loss_and_checkpoint_roundtrip
+FAILED tests/test_loopwam_dense.py::test_dense_checkpoint_factory_resolves_depth_before_resource_loading
+FAILED tests/test_loopwam_dense_s30.py::test_final_only_loss_strict_checkpoint_factory_roundtrip
+FAILED tests/test_loopwam_rollout.py::test_camera_rotation_order_and_current_eight_dimensional_proprio
+4 failed, 423 passed, 16 skipped in 58.00s

@@ -1,0 +1,29 @@
+F
+=================================== FAILURES ===================================
+___________________ test_grid_queue_is_complete_and_disjoint ___________________
+
+    def test_grid_queue_is_complete_and_disjoint():
+>       r=runner();items=r.QUEUES['A']+r.QUEUES['B']
+
+tests/test_partition_queue.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_partition_queue.py:5: in runner
+    return importlib.import_module('run_partition_grid')
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'run_partition_grid', import_ = <function _gcd_import at 0x7f3db2247400>
+
+>   ???
+E   ModuleNotFoundError: No module named 'run_partition_grid'
+
+<frozen importlib._bootstrap>:1004: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_partition_queue.py::test_grid_queue_is_complete_and_disjoint
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 0.06s

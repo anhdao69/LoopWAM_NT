@@ -1,0 +1,36 @@
+{
+  "verified_unix": 1793027658.5067353,
+  "job": 5248,
+  "step": "5248.63",
+  "source_revision": "fb81deecac719b1c29eae5c219c773ba92d2cb5a",
+  "runs": [
+    {
+      "label": "p0c6s6_k4",
+      "updates": 23,
+      "seconds": 3.7355868166143242,
+      "partition": [
+        0,
+        6,
+        6
+      ],
+      "fresh": true,
+      "loss_video": 0.5490180253982544,
+      "loss_action": 1.3895196914672852,
+      "grad_norm": 8.301268577575684
+    },
+    {
+      "label": "p1c6s5_k4",
+      "updates": 23,
+      "seconds": 3.7327101013877173,
+      "partition": [
+        1,
+        6,
+        5
+      ],
+      "fresh": true,
+      "loss_video": 0.415507972240448,
+      "loss_action": 1.2252178192138672,
+      "grad_norm": 6.247494697570801
+    }
+  ]
+}

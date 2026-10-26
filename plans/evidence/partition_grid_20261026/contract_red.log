@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_factory_rejects_partition_corrupted_against_training_contract ______
+
+tmp_path = PosixPath('/mnt/data/vmo-ai-task/anhdh35/tmp/pytest-of-anhdh35/pytest-6/test_factory_rejects_partition0')
+
+    def test_factory_rejects_partition_corrupted_against_training_contract(tmp_path):
+        from test_loopwam_policy import make_policy
+        from fastwam.models.wan22.loopwam import _validate_checkpoint_depth
+        policy=make_policy();path=tmp_path/'student.pt'
+        policy.save_checkpoint(path,training_state={'contract':{'block_partition':[3,6,3]}})
+        payload=torch.load(path,weights_only=False);payload['block_partition']=[0,6,6]
+>       with pytest.raises(ValueError,match='partition'):_validate_checkpoint_depth(payload)
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_loopwam_partitions.py:135: Failed
+------------------------------ Captured log call -------------------------------
+INFO     fastwam.models.wan22.mot:mot.py:64 Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'video': num_params=0.00 B
+INFO     fastwam.models.wan22.mot:mot.py:67   Expert 'action': num_params=0.00 B
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_partitions.py::test_factory_rejects_partition_corrupted_against_training_contract
+1 failed in 5.45s

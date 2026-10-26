@@ -1,0 +1,9 @@
+{
+  "config": {
+    "backend": "ddp",
+    "microbatch": 8,
+    "checkpoint_blocks": false
+  },
+  "mean_seconds": 3.7367870608965554,
+  "reason": "Fastest configuration that passed on both GPU pairs; same layout for all seven comparisons"
+}
