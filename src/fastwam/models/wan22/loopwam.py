@@ -165,7 +165,7 @@ class LoopWAM(FastWAM):
 
     def save_checkpoint(self, path, optimizer=None, step=None, training_state=None):
         path = Path(path)
-        checkpoint_format = ('loopwam-s-v1' if self.mot.partition == validate_partition(None, self.version)
+        checkpoint_format = ('loopwam-s-v1' if self.mot.partition == validate_partition(None, self.version) and self.architecture_metadata.get('donor_strategy', 'canonical') == 'canonical'
                              else 'loopwam-s-partition-v1')
         payload = dict(format_version=checkpoint_format, architecture=self.architecture_metadata,
             version=self.version, video_loops=self.mot.loops, action_loops=self.mot.action_loops,
@@ -185,6 +185,8 @@ class LoopWAM(FastWAM):
         if payload['version'] != self.version:
             raise ValueError('Checkpoint version differs; use the stored version when constructing the model')
         _validate_checkpoint_depth(payload)
+        if payload['architecture'].get('donor_strategy', 'canonical') != self.architecture_metadata.get('donor_strategy', 'canonical'):
+            raise ValueError('Checkpoint donor strategy differs from constructed model')
         if validate_partition(payload.get('block_partition'), self.version) != self.mot.partition:
             raise ValueError('Checkpoint partition differs from constructed model')
         if payload.get('action_kv_mode', 'aligned') != self.mot.action_kv_mode:
@@ -204,6 +206,17 @@ def _validate_checkpoint_depth(payload):
     version = payload['version']
     partition = validate_partition(payload.get('block_partition'), version)
     contract = (payload.get('training_state') or {}).get('contract')
+    from .loopwam_init import resolve_donor_indices
+    metadata = payload.get('architecture', {})
+    strategy = metadata.get('donor_strategy', 'canonical')
+    donors = resolve_donor_indices(strategy, partition, version)
+    if strategy != 'canonical':
+        if metadata.get('donor_indices') != list(donors):
+            raise ValueError('Checkpoint centered donor mapping mismatch')
+        if contract is not None and (contract.get('donor_strategy', 'canonical') != strategy or contract.get('donor_indices') != list(donors)):
+            raise ValueError('Checkpoint donor strategy differs from training contract')
+    elif contract is not None and contract.get('donor_strategy', 'canonical') != 'canonical':
+        raise ValueError('Checkpoint donor strategy differs from training contract')
     if contract is not None and validate_partition(contract.get('block_partition'), version) != partition:
         raise ValueError('Checkpoint partition differs from training contract')
     if payload.get('format_version') == 'loopwam-s-partition-v1' and 'block_partition' not in payload:
@@ -250,9 +263,9 @@ def _validate_checkpoint_depth(payload):
 
 def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, checkpoint_blocks=False,
                    model_dtype=torch.float32, device='cpu', exit_weight_scale=1.0,
-                   checkpoint_path=None, action_loops=None, action_kv_mode=None, partition=None):
+                   checkpoint_path=None, action_loops=None, action_kv_mode=None, partition=None, donor_strategy=None):
     from .loopwam_init import (build_target_experts, load_wan21_vae, load_init_artifact,
-                               target_configs, architecture_metadata_for_version)
+                               target_configs, architecture_metadata_for_version, resolve_donor_indices)
     if vae_path is None:
         raise ValueError('Native Wan2.1 VAE path is required')
     if checkpoint_path is not None:
@@ -262,6 +275,10 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
             raise ValueError('Expected a LoopWAM student checkpoint')
         version = payload['version']
         _validate_checkpoint_depth(payload)
+        saved_strategy = payload['architecture'].get('donor_strategy', 'canonical')
+        if donor_strategy is not None and donor_strategy != saved_strategy:
+            raise ValueError('Checkpoint donor strategy differs from requested strategy')
+        donor_strategy = saved_strategy
         saved_partition = validate_partition(payload.get('block_partition'), version)
         if partition is not None and validate_partition(partition, version) != saved_partition:
             raise ValueError('Checkpoint partition differs from requested partition')
@@ -294,10 +311,15 @@ def create_loopwam(init_artifact=None, vae_path=None, version='v0', loops=None, 
         loops = resolve_loop_count(version, loops, partition)
         if init_artifact is None:
             raise ValueError('Provide a canonical initialization artifact or a student checkpoint')
+        donor_strategy = 'canonical' if donor_strategy is None else donor_strategy
+        donors = resolve_donor_indices(donor_strategy, partition, version)
         artifact = load_init_artifact(init_artifact)
         video, action, proprio = build_target_experts(artifact, device=device, dtype=model_dtype,
-                                                       dense30=version == 'dense_s30')
+                                                       dense30=version == 'dense_s30', donor_indices=donors if donor_strategy != 'canonical' else None)
         metadata = architecture_metadata_for_version(artifact['metadata'], version)
+        if donor_strategy != 'canonical':
+            metadata.update(donor_strategy=donor_strategy, donor_indices=list(donors),
+                            architecture_version='LoopWAM-S-centered-donors-v1')
     vae = load_wan21_vae(vae_path, device=device, dtype=torch.bfloat16 if str(device).startswith('cuda') else torch.float32)
     video, action = video.to(device=device,dtype=model_dtype), action.to(device=device,dtype=model_dtype)
     mot = LoopMoT({'video':video, 'action':action}, loops=loops, version=version, checkpoint_blocks=checkpoint_blocks, action_loops=action_loops, action_kv_mode=action_kv_mode, partition=partition)

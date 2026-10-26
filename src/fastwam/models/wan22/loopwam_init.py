@@ -252,6 +252,25 @@ def build_wan_initialized_donors(source: Mapping, source_config: Mapping, *,
                 })
 
 
+def stage_donor_indices(partition):
+    """Beginning prelude, centered core (lower tie), ending coda; native30 indices."""
+    from .loop_mot import validate_partition
+    pre, core, post = validate_partition(partition, 'v0')
+    start = (30 - core) // 2
+    indices = tuple(range(pre)) + tuple(range(start, start + core)) + tuple(range(30 - post, 30))
+    if len(indices) != 12 or len(set(indices)) != 12:
+        raise ValueError('Centered donor stages must be disjoint and total twelve blocks')
+    return indices
+
+
+def resolve_donor_indices(strategy, partition=None, version='v0'):
+    if strategy == 'canonical':
+        return tuple(range(30)) if version == 'dense_s30' else DONOR_INDICES
+    if strategy != 'stage_centered' or version != 'v0':
+        raise ValueError('stage_centered donor initialization supports v0 only')
+    return stage_donor_indices(partition)
+
+
 def select_donor_layers(state: Mapping, indices=DONOR_INDICES) -> dict:
     lookup = {source: target for target, source in enumerate(indices)}
     if len(lookup) != len(indices):
@@ -328,9 +347,12 @@ def _materialize(module, state, *, device, dtype):
 
 
 def build_target_experts(artifact_or_path, *, device='cpu', dtype=torch.float32,
-                         dense30=False, use_gradient_checkpointing=False):
+                         dense30=False, use_gradient_checkpointing=False, donor_indices=None):
     artifact = load_init_artifact(artifact_or_path) if isinstance(artifact_or_path, (str, Path)) else artifact_or_path
     validate_artifact(artifact)
+    if donor_indices is not None:
+        if dense30 or len(donor_indices) != 12 or len(set(donor_indices)) != 12 or any(type(i) is not int or not 0 <= i < 30 for i in donor_indices):
+            raise ValueError('Invalid twelve-block donor selection')
     video_cfg, action_cfg = target_configs(30 if dense30 else 12)
     video_cfg['use_gradient_checkpointing'] = use_gradient_checkpointing
     action_cfg['use_gradient_checkpointing'] = use_gradient_checkpointing
@@ -339,7 +361,7 @@ def build_target_experts(artifact_or_path, *, device='cpu', dtype=torch.float32,
     for family, module in [('video', video), ('action', action)]:
         state = artifact[f'{family}_state_dict']
         if not dense30:
-            state = select_donor_layers(state)
+            state = select_donor_layers(state, DONOR_INDICES if donor_indices is None else donor_indices)
         _materialize(module, state, device=device, dtype=dtype)
     _materialize(proprio, artifact['proprio_state_dict'], device=device, dtype=dtype)
     # RoPE tables are deliberately complex and are not checkpoint parameters.
