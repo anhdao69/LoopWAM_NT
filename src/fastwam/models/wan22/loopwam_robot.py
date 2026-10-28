@@ -86,3 +86,14 @@ class RobotTrainForward(nn.Module):
         loss,logs=self.model.reduce_flow_losses(self.model.forward_exits(noisy),noisy)
         b=sample['action'].shape[0]
         return loss*b,{name:logs[key]*b for name,key in [('video','loss_video'),('action','loss_action'),('video_raw','exit4/video_raw'),('action_raw','exit4/action_raw')]},None
+
+def verify_optimizer_restore(optimizer,expected):
+    actual=optimizer.state_dict()
+    if actual['param_groups']!=expected['param_groups'] or actual['state'].keys()!=expected['state'].keys():
+        raise ValueError('Optimizer groups or parameter IDs changed on restore')
+    for pid,state in expected['state'].items():
+        if actual['state'][pid].keys()!=state.keys():raise ValueError('Optimizer state keys changed')
+        for key,value in state.items():
+            restored=actual['state'][pid][key]
+            equal=(restored.dtype==value.dtype and torch.equal(restored.detach().cpu(),value.detach().cpu())) if torch.is_tensor(value) else restored==value
+            if not equal:raise ValueError(f'Optimizer restore mismatch: {pid}/{key}')

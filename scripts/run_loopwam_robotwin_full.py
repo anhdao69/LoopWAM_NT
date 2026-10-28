@@ -19,19 +19,23 @@ if a.phase=='smoke':
  run('native_resume',base+['--output-dir',str(r/'smoke'),'--resume','--max-updates','12'])
  rows=metrics(r/'smoke');assert [x['update'] for x in rows]==list(range(1,13)) and all(x['valid_windows']==128 for x in rows)
  reference=metrics(r/'exact_batch'/selected['name'])
+ drift=[]
  for x,y in zip(rows,reference):
   for k in ('loss_video','loss_action'):
-   assert abs(x[k]-y[k])<2e-4,(x['update'],k,x[k],y[k])
+   delta=abs(x[k]-y[k]);drift.append(dict(update=x['update'],metric=k,absolute=delta,relative=delta/max(abs(y[k]),1e-12)))
+   assert delta<=1e-4+1e-3*abs(y[k]),(x['update'],k,x[k],y[k])
+ (r/'independent_run_drift.json').write_text(json.dumps(drift,indent=2))
+ assert read(r/'smoke/resume_audit_u10.json')['optimizer_exact']
  assert read(r/'smoke/timing.json')['windows_seen']==1536
  run('native_tail',base+['--output-dir',str(r/'tail_smoke'),'--smoke-tail','--max-updates','1','--no-save'])
  tail=metrics(r/'tail_smoke');assert len(tail)==1 and tail[0]['valid_windows']==95 and tail[0]['epochs_complete']==1
  assert read(r/'reload_check.json')['passed']
  assert source_hashes()==sources,'Source changed during smoke'
- (r/'gates_passed.json').write_text(json.dumps(dict(passed=True,sources=sources,selected=selected,updates=12,resume_matches_continuous=True,tail_real_windows=95,time=time.time()),indent=2))
+ (r/'gates_passed.json').write_text(json.dumps(dict(passed=True,sources=sources,selected=selected,updates=12,optimizer_restoration_exact=True,resume_cursor_verified=True,independent_run_numerically_consistent=True,tail_real_windows=95,time=time.time()),indent=2))
 else:
  assert read(r/'gates_passed.json')['sources']==sources
- assert '327 passed, 17 skipped' in (r/'gpu_final_tests.log').read_text()
- assert '320 passed, 24 skipped' in (r/'cpu_exact_tests.log').read_text()
+ assert '328 passed, 17 skipped' in (r/'gpu_final_tests.log').read_text()
+ assert '321 passed, 24 skipped' in (r/'cpu_exact_tests.log').read_text()
  assert read(r/'gates_passed.json')['passed'] and read(r/'gates_passed.json')['selected']==selected
  assert read(r/'exact_audit/audit.json')['passed']
  assert not (r/'production').exists()

@@ -54,3 +54,12 @@ def test_exact_epoch_batches_cover_once_and_resume():
         assert sum(global_rows,[])==expected
         assert list(epoch_rank_batches(351,128,8,0,42+epoch,start_batch=1))==ranks[0][1:]
     assert training_budget(6075103,128,5)==(47462,237310,95)
+
+def test_optimizer_restore_check_detects_corrupted_moments():
+    import copy
+    from fastwam.models.wan22.loopwam_robot import verify_optimizer_restore
+    x=nn.Parameter(torch.ones(2));opt=torch.optim.AdamW([x]);x.sum().backward();opt.step()
+    saved=copy.deepcopy(opt.state_dict());y=nn.Parameter(torch.ones(2));restored=torch.optim.AdamW([y]);restored.load_state_dict(copy.deepcopy(saved))
+    verify_optimizer_restore(restored,saved)
+    restored.state[y]['exp_avg'].add_(1)
+    with pytest.raises(ValueError):verify_optimizer_restore(restored,saved)

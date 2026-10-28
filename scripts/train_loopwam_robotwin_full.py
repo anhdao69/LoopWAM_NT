@@ -9,7 +9,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from fastwam.datasets.chronoloop_robot import RobotWindows,robot_spec,LATENT_SHAPE,OBS_TOKENS,latent_provenance
 from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache
 from fastwam.datasets.loopwam_robot_batches import epoch_rank_batches,training_budget
-from fastwam.models.wan22.loopwam_robot import create_loopwam_robot,RobotTrainForward,PARAMETERS
+from fastwam.models.wan22.loopwam_robot import create_loopwam_robot,RobotTrainForward,PARAMETERS,verify_optimizer_restore
 from fastwam.models.wan22.loopwam_init import sha256_file
 ROBOT_DIM=14
 
@@ -128,8 +128,12 @@ def main():
     update=windows_seen=start_epoch=start_batch=0;elapsed_prior=0.
     if a.resume:
         state=payload['training_state'];assert state['contract']==contract,'Resume contract mismatch'
-        opt.load_state_dict(payload['optimizer']);update=state['update'];windows_seen=state['windows_seen']
+        opt.load_state_dict(payload['optimizer']);verify_optimizer_restore(opt,payload['optimizer'])
+        update=state['update'];windows_seen=state['windows_seen']
         start_epoch=state['next_epoch'];start_batch=state['next_batch'];elapsed_prior=state['elapsed_training_seconds']
+        assert update==start_epoch*per_epoch+start_batch and windows_seen==start_epoch*len(w)+start_batch*128,'Invalid resume cursor'
+        resume_ids=next(epoch_rank_batches(len(w),128,world,rank,a.seed+start_epoch,start_batch),[])
+        if rank==0:write(out/f'resume_audit_u{update}.json',dict(passed=True,optimizer_exact=True,next_epoch=start_epoch,next_batch=start_batch,next_rank0_window_ids=resume_ids,next_rank0_noise_seeds=[slot_seed(a.seed,start_epoch,i,0) for i in resume_ids],next_lr=a.lr_backbone*lr_factor(update,total,int(total*a.warmup_fraction))))
     del payload
     if a.smoke_tail:start_batch=per_epoch-1
     if rank==0:
@@ -150,6 +154,8 @@ def main():
         t=time.time();item=pref.get()
         if item is None:status='complete';break
         epoch,batch,n,micros=item
+        if a.resume and epoch==start_epoch and batch==start_batch:
+            assert [i for _,ids,dummy in micros if not dummy for i in ids]==resume_ids,'Resumed data differs from expected next batch'
         factor=lr_factor(update,total,warmup)
         for group,lr in zip(opt.param_groups,[a.lr_backbone,a.lr_robot_io]):group['lr']=lr*factor
         sums=torch.zeros(4,device=device);valid_local=0

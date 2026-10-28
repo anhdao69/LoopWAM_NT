@@ -17,6 +17,9 @@ assert all(p.dtype==torch.float32 for p in model.policy_parameters())
 assert payload['optimizer']['state']
 assert all(v.dtype==torch.float32 for s in payload['optimizer']['state'].values() for k,v in s.items() if k in ('exp_avg','exp_avg_sq'))
 assert not any('memory' in key for key in payload['mot'])
+for family,state in [('mot',model.mot.state_dict()),('proprio_encoder',model.proprio_encoder.state_dict())]:
+    assert state.keys()==payload[family].keys()
+    assert all(torch.equal(v.detach().cpu(),payload[family][k]) for k,v in state.items())
 model.mot.structured_attention=True;model.mot.structured_attention_observation_tokens=480
 shared=Path(a.shared);w=RobotWindows(robot_spec('robotwin50'),cache_dir=shared/'data',text_threads=4)
 cache=LoopWAMLatentCache(shared/'latents',len(w),latent_provenance(w,sha256_file(vae)),latent_shape=LATENT_SHAPE)
@@ -36,5 +39,5 @@ with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
  kw=dict(input_image=image,proprio=sample['proprio'][0,0],context=sample['context'],context_mask=sample['context_mask'],num_inference_steps=10,seed=42)
  first=model.infer_action(**kw)['action'];second=model.infer_action(**kw)['action']
  assert first.shape==(32,14) and torch.isfinite(first).all() and torch.equal(first,second)
-result=dict(passed=True,step=payload['step'],parameters=PARAMETERS,model='original LoopWAM v0 / LoopMoT',policy_dtype='float32',optimizer_moments='float32',loss_wrapper_exact=True,inference_shape=list(first.shape),inference_finite=True,repeated_seed_exact=True)
+result=dict(passed=True,step=payload['step'],parameters=PARAMETERS,model='original LoopWAM v0 / LoopMoT',policy_dtype='float32',optimizer_moments='float32',model_weights_restored_exact=True,loss_wrapper_exact=True,inference_shape=list(first.shape),inference_finite=True,repeated_seed_exact=True)
 Path(a.output).write_text(json.dumps(result,indent=2));print(json.dumps(result))
