@@ -1,0 +1,22 @@
+{
+  "released_unix": 1793167803.8440456,
+  "job": 5489,
+  "gpus": 8,
+  "source_revision": "de52d2fdfb3b2b7b4057f88ed4f5e0a4e3943712",
+  "accepted_root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2",
+  "selected": {
+    "name": "bench_compiled",
+    "micro": 8,
+    "checkpoint_blocks": false,
+    "compile": true,
+    "status": "passed",
+    "seconds": 0.698849089940389,
+    "windows_per_second": 183.15828387344433,
+    "peak_gb": 52.866627584,
+    "planned_updates": 237310
+  },
+  "fresh_initialization": true,
+  "global_batch": 128,
+  "total_updates": 237310,
+  "epochs": 5
+}

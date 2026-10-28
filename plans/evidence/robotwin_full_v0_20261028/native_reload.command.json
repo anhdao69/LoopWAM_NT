@@ -1,0 +1,10 @@
+[
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python",
+  "scripts/check_loopwam_robotwin_checkpoint.py",
+  "--checkpoint",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/smoke/latest.pt",
+  "--shared",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50",
+  "--output",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/reload_check.json"
+]

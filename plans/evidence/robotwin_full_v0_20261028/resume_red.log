@@ -1,0 +1,13 @@
+.......F                                                                 [100%]
+=================================== FAILURES ===================================
+____________ test_optimizer_restore_check_detects_corrupted_moments ____________
+
+    def test_optimizer_restore_check_detects_corrupted_moments():
+        import copy
+>       from fastwam.models.wan22.loopwam_robot import verify_optimizer_restore
+E       ImportError: cannot import name 'verify_optimizer_restore' from 'fastwam.models.wan22.loopwam_robot' (/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/src/fastwam/models/wan22/loopwam_robot.py)
+
+tests/test_loopwam_robot_full.py:60: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_robot_full.py::test_optimizer_restore_check_detects_corrupted_moments
+1 failed, 7 passed in 5.83s

@@ -7,8 +7,11 @@ Architecture: dedicated original-v0 robot factory and trainer, with original for
 - [x] Original model adapter, cache bypass,14Dseed,loss normalization,depth/scale guards unit tests.
 - [x] Exact sampler tests: once-per-epoch,seed42+epoch,tail95,resume cursor;5epoch budget237310.
 - [x] Cache/readiness/init audit and both priorLIBERO queues verified/uploaded, canceled5248/4925; new8GPU allocation5489 running.
-- [ ] CPU/GPU suite, native checkpoint reload and optimizer resume against continuous reference, real95-tail DDP/compile smoke.
-- [ ] Fixed128 benchmark micro4/8 withoutcheckpointing,16withcheckpointing; compiled fastest eagerlayout. Select fastest measured verified layout.
-- [ ] Pin source/config/hash gates, fresh production, verify live updates; push implementation/evidence/report and estimate total runtime.
+- [x] CPU/GPU suite, exact native checkpoint/optimizer restore and resume cursor verification, independent-run numerical consistency, real95-tail DDP/compile smoke.
+- [x] Fixed128 benchmark micro4/8 withoutcheckpointing,16withcheckpointing; compiled fastest eagerlayout. Select fastest measured verified layout.
+- [x] Pin source/config/hash gates, release fresh production and verify initial live updates; implementation pushed. Launch forecast 48–52 hours.
+- [ ] Training completion and epoch3/4/5 outputs: pending ongoing production.
+
+Final documentation note: later SSH checks timed out; newest heartbeat could not be synchronized. Accepted gate evidence and production release were synchronized locally.
 
 Global constraints: no home storage; no mutation of shared cache/data/normalization; no trained parent; no production before all gates pass. Cache1.12TB stays on disk, larger than960GB allocationRAM. Original outputs preserved. Tests on this branch exclude17 optional ChronoLoop-specific GPU-parent tests because no ChronoLoop model is used.

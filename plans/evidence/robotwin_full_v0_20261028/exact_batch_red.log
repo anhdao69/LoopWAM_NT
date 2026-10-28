@@ -1,0 +1,12 @@
+......F                                                                  [100%]
+=================================== FAILURES ===================================
+________________ test_exact_epoch_batches_cover_once_and_resume ________________
+
+    def test_exact_epoch_batches_cover_once_and_resume():
+>       from fastwam.datasets.loopwam_robot_batches import epoch_rank_batches,training_budget
+E       ModuleNotFoundError: No module named 'fastwam.datasets.loopwam_robot_batches'
+
+tests/test_loopwam_robot_full.py:47: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_robot_full.py::test_exact_epoch_batches_cover_once_and_resume
+1 failed, 6 passed in 4.84s

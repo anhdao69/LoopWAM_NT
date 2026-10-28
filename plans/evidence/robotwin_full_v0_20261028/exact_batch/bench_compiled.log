@@ -1,0 +1,26 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+{"update": 1, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 128, "seconds": 54.24613165855408, "loss": 3.2850232124328613, "loss_video": 0.6289243698120117, "loss_action": 2.6560988426208496, "grad_norm": 17.575992584228516, "lr_backbone": 8.428150021070376e-09, "peak_allocated_gb": 48.189734912}
+{"update": 2, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 256, "seconds": 0.7578341960906982, "loss": 3.1626060009002686, "loss_video": 0.6757643818855286, "loss_action": 2.4868416786193848, "grad_norm": 15.701803207397461, "lr_backbone": 1.685630004214075e-08, "peak_allocated_gb": 52.866627584}
+{"update": 3, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 384, "seconds": 0.7271149158477783, "loss": 3.126223564147949, "loss_video": 0.6530052423477173, "loss_action": 2.4732184410095215, "grad_norm": 15.348060607910156, "lr_backbone": 2.5284450063211125e-08, "peak_allocated_gb": 52.866627584}
+{"update": 4, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 512, "seconds": 0.7292270660400391, "loss": 3.266030788421631, "loss_video": 0.6731386184692383, "loss_action": 2.5928921699523926, "grad_norm": 17.039777755737305, "lr_backbone": 3.37126000842815e-08, "peak_allocated_gb": 52.866627584}
+{"update": 5, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 640, "seconds": 0.6821203231811523, "loss": 3.223623275756836, "loss_video": 0.6245390176773071, "loss_action": 2.5990841388702393, "grad_norm": 16.332002639770508, "lr_backbone": 4.214075010535188e-08, "peak_allocated_gb": 52.866627584}
+{"update": 10, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 1280, "seconds": 0.6796376705169678, "loss": 2.9499425888061523, "loss_video": 0.5810928344726562, "loss_action": 2.368849754333496, "grad_norm": 15.060811042785645, "lr_backbone": 8.428150021070376e-08, "peak_allocated_gb": 52.866627584}
+{"update": 20, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 2560, "seconds": 0.6880412101745605, "loss": 2.906857490539551, "loss_video": 0.6053121089935303, "loss_action": 2.3015451431274414, "grad_norm": 13.136152267456055, "lr_backbone": 1.6856300042140752e-07, "peak_allocated_gb": 52.866627584}
+{"update": 30, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 3840, "seconds": 0.6841621398925781, "loss": 2.7480931282043457, "loss_video": 0.5009074211120605, "loss_action": 2.247185707092285, "grad_norm": 9.722345352172852, "lr_backbone": 2.528445006321113e-07, "peak_allocated_gb": 52.866627584}
+{"update": 40, "epoch": 1, "epochs_complete": 0, "valid_windows": 128, "windows_seen": 5120, "seconds": 0.6934370994567871, "loss": 2.654794216156006, "loss_video": 0.4814896285533905, "loss_action": 2.173304796218872, "grad_norm": 8.006884574890137, "lr_backbone": 3.3712600084281504e-07, "peak_allocated_gb": 52.866627584}
+{"status": "max_updates", "update": 45, "planned_updates": 237310, "windows_seen": 5760, "elapsed_training_seconds": 86.83623242378235}

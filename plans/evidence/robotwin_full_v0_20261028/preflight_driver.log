@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/run_loopwam_robotwin_full.py", line 24, in <module>
+    assert abs(x[k]-y[k])<2e-4,(x['update'],k,x[k],y[k])
+AssertionError: (2, 'loss_action', 2.486567497253418, 2.4868416786193848)
+srun: error: worker-2: task 0: Exited with exit code 1

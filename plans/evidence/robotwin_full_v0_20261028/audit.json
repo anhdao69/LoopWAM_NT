@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "model": "original LoopWAM v0 / LoopMoT",
+  "episodes": 27500,
+  "tasks": 50,
+  "windows": 6075103,
+  "cache_valid": 6075103,
+  "finite_latent_samples": 1024,
+  "schedule": {
+    "epoch_complete_update": {
+      "1": 55593,
+      "2": 111178,
+      "3": 166767,
+      "4": 222350,
+      "5": 277937
+    },
+    "slots": 35575936,
+    "updates": 277937,
+    "valid_windows": 30375515
+  },
+  "parameters": 584567886,
+  "donor_tensors_equal": 673,
+  "init_artifact_sha256": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+  "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "memory_parameters": 0,
+  "history_frames": 0
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/bench_loopwam_robotwin_full.py", line 29, in <module>
+    for micro,cp in [(1,False),(2,False),(4,True)]:trial(f'bench_m{micro}_cp{int(cp)}_eager',micro,cp,False)
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/bench_loopwam_robotwin_full.py", line 18, in trial
+    if 'out of memory' not in (r/(name+'.log')).read_text().lower():raise RuntimeError('Non-OOM benchmark failure '+name)
+RuntimeError: Non-OOM benchmark failure bench_m1_cp0_eager
+srun: error: worker-2: task 0: Exited with exit code 1

@@ -1,0 +1,28 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_________________ test_cached_latents_never_encode_dummy_video _________________
+
+    def test_cached_latents_never_encode_dummy_video():
+>       from fastwam.models.wan22.loopwam_robot import RobotLoopWAM
+E       ModuleNotFoundError: No module named 'fastwam.models.wan22.loopwam_robot'
+
+tests/test_loopwam_robot_full.py:6: ModuleNotFoundError
+__________________ test_fresh_interfaces_seed_and_dimensions ___________________
+
+    def test_fresh_interfaces_seed_and_dimensions():
+>       from fastwam.models.wan22.loopwam_robot import fresh_robot_interfaces
+E       ModuleNotFoundError: No module named 'fastwam.models.wan22.loopwam_robot'
+
+tests/test_loopwam_robot_full.py:14: ModuleNotFoundError
+____________________ test_v0_ddp_wrapper_returns_sample_sum ____________________
+
+    def test_v0_ddp_wrapper_returns_sample_sum():
+>       from fastwam.models.wan22.loopwam_robot import RobotTrainForward
+E       ModuleNotFoundError: No module named 'fastwam.models.wan22.loopwam_robot'
+
+tests/test_loopwam_robot_full.py:25: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_robot_full.py::test_cached_latents_never_encode_dummy_video
+FAILED tests/test_loopwam_robot_full.py::test_fresh_interfaces_seed_and_dimensions
+FAILED tests/test_loopwam_robot_full.py::test_v0_ddp_wrapper_returns_sample_sum
+3 failed in 2.12s

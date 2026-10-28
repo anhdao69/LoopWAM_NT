@@ -1,0 +1,100 @@
+{
+  "model": "original LoopWAM v0",
+  "source_revision": "de52d2fdfb3b2b7b4057f88ed4f5e0a4e3943712",
+  "branch": "robotwin_full_v0_20261028",
+  "job": 5489,
+  "release_utc": "2026-10-28T06:10:03.844046+00:00",
+  "status": "Production released after accepted gates; latest live status unavailable because SSH timed out during final documentation",
+  "recipe": {
+    "partition": [
+      3,
+      6,
+      3
+    ],
+    "video_loops": 4,
+    "action_loops": 4,
+    "memory_tokens": 0,
+    "history_frame": 0,
+    "seed": 42,
+    "epochs": 5,
+    "demonstrations": 27500,
+    "windows_per_epoch": 6075103,
+    "total_window_presentations": 30375515,
+    "global_batch": 128,
+    "gpus": 8,
+    "microbatch": 8,
+    "accumulation": 2,
+    "updates_per_epoch": 47462,
+    "total_updates": 237310,
+    "epoch_tail_windows": 95,
+    "shuffle_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "warmup_updates": 11865,
+    "peak_lr": 0.0001,
+    "final_lr": 1e-06,
+    "save_epochs": [
+      3,
+      4,
+      5
+    ]
+  },
+  "selected_benchmark": {
+    "name": "bench_compiled",
+    "micro": 8,
+    "checkpoint_blocks": false,
+    "compile": true,
+    "status": "passed",
+    "seconds": 0.698849089940389,
+    "windows_per_second": 183.15828387344433,
+    "peak_gb": 52.866627584,
+    "planned_updates": 237310
+  },
+  "gates": {
+    "passed": true,
+    "selected": {
+      "name": "bench_compiled",
+      "micro": 8,
+      "checkpoint_blocks": false,
+      "compile": true,
+      "status": "passed",
+      "seconds": 0.698849089940389,
+      "windows_per_second": 183.15828387344433,
+      "peak_gb": 52.866627584,
+      "planned_updates": 237310
+    },
+    "updates": 12,
+    "optimizer_restoration_exact": true,
+    "resume_cursor_verified": true,
+    "independent_run_numerically_consistent": true,
+    "tail_real_windows": 95,
+    "time": 1793167757.5120645
+  },
+  "archived_tests": {
+    "cpu": {
+      "passed": 321,
+      "skipped": 24
+    },
+    "gpu": {
+      "passed": 328,
+      "skipped": 17
+    }
+  },
+  "estimate": {
+    "benchmark_compute_hours": 46.06774375937603,
+    "planned_elapsed_hours": [
+      48,
+      52
+    ],
+    "finish_utc_range": [
+      "2026-10-30T06:10:00+00:00",
+      "2026-10-30T10:10:00+00:00"
+    ],
+    "basis": "Measured benchmark, allowance for checkpoints and startup; assumes allocation continues. Not a current progress estimate."
+  },
+  "evidence": "plans/evidence/robotwin_full_v0_20261028"
+}

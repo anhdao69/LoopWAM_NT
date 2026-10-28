@@ -1,0 +1,11 @@
+{
+  "name": "bench_compiled",
+  "micro": 8,
+  "checkpoint_blocks": false,
+  "compile": true,
+  "status": "passed",
+  "seconds": 0.698849089940389,
+  "windows_per_second": 183.15828387344433,
+  "peak_gb": 52.866627584,
+  "planned_updates": 237310
+}

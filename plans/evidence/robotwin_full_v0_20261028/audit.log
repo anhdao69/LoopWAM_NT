@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/audit_loopwam_robotwin_full.py", line 18, in <module>
+    m=w.manifest();assert m['normalization_sha256']=='7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095'
+AssertionError
+srun: error: worker-2: task 0: Exited with exit code 1

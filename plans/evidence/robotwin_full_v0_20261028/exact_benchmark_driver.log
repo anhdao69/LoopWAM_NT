@@ -1,0 +1,5 @@
+{"name": "bench_m4_cp0_eager", "micro": 4, "checkpoint_blocks": false, "compile": false, "status": "passed", "seconds": 1.3277636369069417, "windows_per_second": 96.40270033164876, "peak_gb": 41.008272896, "planned_updates": 237310}
+{"name": "bench_m8_cp0_eager", "micro": 8, "checkpoint_blocks": false, "compile": false, "status": "passed", "seconds": 1.1089335441589356, "windows_per_second": 115.42621347709424, "peak_gb": 68.829812736, "planned_updates": 237310}
+{"name": "bench_m16_cp1_eager", "micro": 16, "checkpoint_blocks": true, "compile": false, "status": "passed", "seconds": 1.3368977069854737, "windows_per_second": 95.74404932492776, "peak_gb": 17.589692928, "planned_updates": 237310}
+{"name": "bench_compiled", "micro": 8, "checkpoint_blocks": false, "compile": true, "status": "passed", "seconds": 0.698849089940389, "windows_per_second": 183.15828387344433, "peak_gb": 52.866627584, "planned_updates": 237310}
+SELECTED {'name': 'bench_compiled', 'micro': 8, 'checkpoint_blocks': False, 'compile': True, 'status': 'passed', 'seconds': 0.698849089940389, 'windows_per_second': 183.15828387344433, 'peak_gb': 52.866627584, 'planned_updates': 237310}

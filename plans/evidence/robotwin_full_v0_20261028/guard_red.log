@@ -1,0 +1,52 @@
+...FFF                                                                   [100%]
+=================================== FAILURES ===================================
+______ test_robot_loader_rejects_changed_loss_or_depth[inference_loops-3] ______
+
+field = 'inference_loops', bad = 3
+
+    @pytest.mark.parametrize('field,bad',[('inference_loops',3),('trained_max_loops',3),('exit_weight_scale',.5)])
+    def test_robot_loader_rejects_changed_loss_or_depth(field,bad):
+        from fastwam.models.wan22.loopwam_robot import validate_robot_payload,FORMAT
+        from fastwam.models.wan22.loopwam_init import target_configs,DONOR_INDICES
+        v,a=target_configs(12);a['action_dim']=14
+        p=dict(format_version=FORMAT,version='v0',video_loops=4,action_loops=4,memory_tokens=0,history_frame=0,inference_loops=4,trained_max_loops=4,exit_weight_scale=1.,architecture=dict(target_video_config=v,target_action_config=a,robot_proprio_dim=14,donor_indices=list(DONOR_INDICES),initialization_mode='fresh_wan_donors_no_embodied_pretraining'))
+        validate_robot_payload(p);p[field]=bad
+>       with pytest.raises(ValueError):validate_robot_payload(p)
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_loopwam_robot_full.py:44: Failed
+_____ test_robot_loader_rejects_changed_loss_or_depth[trained_max_loops-3] _____
+
+field = 'trained_max_loops', bad = 3
+
+    @pytest.mark.parametrize('field,bad',[('inference_loops',3),('trained_max_loops',3),('exit_weight_scale',.5)])
+    def test_robot_loader_rejects_changed_loss_or_depth(field,bad):
+        from fastwam.models.wan22.loopwam_robot import validate_robot_payload,FORMAT
+        from fastwam.models.wan22.loopwam_init import target_configs,DONOR_INDICES
+        v,a=target_configs(12);a['action_dim']=14
+        p=dict(format_version=FORMAT,version='v0',video_loops=4,action_loops=4,memory_tokens=0,history_frame=0,inference_loops=4,trained_max_loops=4,exit_weight_scale=1.,architecture=dict(target_video_config=v,target_action_config=a,robot_proprio_dim=14,donor_indices=list(DONOR_INDICES),initialization_mode='fresh_wan_donors_no_embodied_pretraining'))
+        validate_robot_payload(p);p[field]=bad
+>       with pytest.raises(ValueError):validate_robot_payload(p)
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_loopwam_robot_full.py:44: Failed
+____ test_robot_loader_rejects_changed_loss_or_depth[exit_weight_scale-0.5] ____
+
+field = 'exit_weight_scale', bad = 0.5
+
+    @pytest.mark.parametrize('field,bad',[('inference_loops',3),('trained_max_loops',3),('exit_weight_scale',.5)])
+    def test_robot_loader_rejects_changed_loss_or_depth(field,bad):
+        from fastwam.models.wan22.loopwam_robot import validate_robot_payload,FORMAT
+        from fastwam.models.wan22.loopwam_init import target_configs,DONOR_INDICES
+        v,a=target_configs(12);a['action_dim']=14
+        p=dict(format_version=FORMAT,version='v0',video_loops=4,action_loops=4,memory_tokens=0,history_frame=0,inference_loops=4,trained_max_loops=4,exit_weight_scale=1.,architecture=dict(target_video_config=v,target_action_config=a,robot_proprio_dim=14,donor_indices=list(DONOR_INDICES),initialization_mode='fresh_wan_donors_no_embodied_pretraining'))
+        validate_robot_payload(p);p[field]=bad
+>       with pytest.raises(ValueError):validate_robot_payload(p)
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_loopwam_robot_full.py:44: Failed
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_robot_full.py::test_robot_loader_rejects_changed_loss_or_depth[inference_loops-3]
+FAILED tests/test_loopwam_robot_full.py::test_robot_loader_rejects_changed_loss_or_depth[trained_max_loops-3]
+FAILED tests/test_loopwam_robot_full.py::test_robot_loader_rejects_changed_loss_or_depth[exit_weight_scale-0.5]
+3 failed, 3 passed in 5.12s

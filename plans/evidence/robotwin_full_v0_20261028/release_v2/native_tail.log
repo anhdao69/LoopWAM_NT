@@ -1,0 +1,18 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+{"update": 1, "epoch": 1, "epochs_complete": 1, "valid_windows": 95, "windows_seen": 95, "seconds": 127.75409054756165, "loss": 3.4199306964874268, "loss_video": 0.6813732385635376, "loss_action": 2.7385573387145996, "grad_norm": 16.627071380615234, "lr_backbone": 8.428150021070376e-09, "peak_allocated_gb": 45.863209984}
+{"status": "max_updates", "update": 1, "planned_updates": 237310, "windows_seen": 95, "elapsed_training_seconds": 127.75865840911865}

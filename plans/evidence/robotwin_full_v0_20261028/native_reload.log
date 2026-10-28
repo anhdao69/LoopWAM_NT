@@ -1,0 +1,1 @@
+{"passed": true, "step": 10, "parameters": 584567886, "model": "original LoopWAM v0 / LoopMoT", "policy_dtype": "float32", "optimizer_moments": "float32", "loss_wrapper_exact": true, "inference_shape": [32, 14], "inference_finite": true, "repeated_seed_exact": true}

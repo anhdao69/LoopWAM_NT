@@ -1,0 +1,8 @@
+{
+  "policy": "float32",
+  "compute": "bfloat16",
+  "optimizer_moment_dtypes": [
+    "torch.float32"
+  ],
+  "all_gradients_present_and_finite": true
+}

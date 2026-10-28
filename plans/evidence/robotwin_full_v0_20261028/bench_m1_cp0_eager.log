@@ -1,0 +1,44 @@
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/train_loopwam_robotwin_full.py", line 594, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_full/scripts/train_loopwam_robotwin_full.py", line 257, in main
+[rank0]:     raise ValueError(f'Refusing to overwrite a different {target}')
+[rank0]: ValueError: Refusing to overwrite a different /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50/data/data_manifest.json
+[rank0]:[W1028 05:40:56.517773548 ProcessGroupNCCL.cpp:1479] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1028 05:40:57.469000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050915 closing signal SIGTERM
+W1028 05:40:57.470000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050916 closing signal SIGTERM
+W1028 05:40:57.470000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050917 closing signal SIGTERM
+W1028 05:40:57.472000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050918 closing signal SIGTERM
+W1028 05:40:57.472000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050919 closing signal SIGTERM
+W1028 05:40:57.473000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050920 closing signal SIGTERM
+W1028 05:40:57.474000 1050909 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1050921 closing signal SIGTERM
+E1028 05:40:58.671000 1050909 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 0 (pid: 1050914) of binary: /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_loopwam_robotwin_full.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-28_05:40:57
+  host      : worker-2.fpt-hpc-worker-svc.fpt-hpc.svc.cluster.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1050914)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
