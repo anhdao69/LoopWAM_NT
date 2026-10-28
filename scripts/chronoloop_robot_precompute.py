@@ -71,11 +71,6 @@ class EpisodeFrames(torch.utils.data.Dataset):
 
 
 def main():
-    # Multiprocessing IPC temp files must not use NFS (.nfs busy-file cleanup).
-    import tempfile
-    scratch = Path('/tmp') / f"robotwin-cache-{os.getuid()}-{os.environ.get('SLURM_JOB_ID', 'local')}"
-    scratch.mkdir(parents=True, exist_ok=True)
-    tempfile.tempdir = os.environ['TMPDIR'] = str(scratch)
     p = argparse.ArgumentParser()
     p.add_argument('--dataset', required=True)
     p.add_argument('--shared-dir', required=True)
@@ -116,8 +111,6 @@ def main():
     wanted = (np.arange(len(windows)) if args.windows_file is None
               else np.unique(np.load(args.windows_file).astype(np.int64)))
     wanted = wanted[np.asarray(cache._valid[wanted]) != 1]
-    # Snapshot existing entries on every rank before any rank starts writing.
-    if world > 1: dist.barrier()
     by_episode = {}
     for w in wanted:
         by_episode.setdefault(int(windows.episode_of[w]), []).append(int(w))
