@@ -7,6 +7,7 @@ A final partial global batch is weighted by its real sample count, without repea
 """
 from __future__ import annotations
 import argparse
+import bisect
 import contextlib
 import json
 import math
@@ -61,6 +62,55 @@ class MarkedDataset(torch.utils.data.Dataset):
         if index < 0:
             sample['action_is_pad'] = torch.ones_like(sample['action_is_pad'],dtype=torch.bool)
             sample['image_is_pad'] = torch.ones_like(sample['image_is_pad'],dtype=torch.bool)
+        return sample
+
+
+class _PreparedRow:
+    """One-row reader stand-in, so LoopWAMLongDataset applies its unchanged transform."""
+    def __init__(self, row):
+        self.row=row
+    def __getitem__(self, index):
+        return self.row
+
+
+class CachedFrameSkipDataset(MarkedDataset):
+    """Skip video decoding for windows whose frozen VAE latents are already cached.
+
+    The latent cache returns the stored latents of valid indices and never reads their pixels, so
+    only that unused video tensor changes (constant frames of the decoded shape). Valid flags only
+    go from 0 to 1, so an index seen valid here is a cache hit in the trainer. Misses and -1 dummies
+    are decoded exactly as before.
+    """
+    def __init__(self, data, cache_dir):
+        super().__init__(data)
+        self.valid_path=Path(cache_dir)/'valid.uint8'
+        self._valid=None
+    def _cached(self, index):
+        if self._valid is None:  # opened lazily inside each worker, after rank zero created the cache
+            self._valid=np.memmap(self.valid_path,mode='r',dtype=np.uint8,shape=(len(self.data),))
+        return bool(self._valid[index])
+    def __getitem__(self, index):
+        if index < 0 or not self._cached(index):
+            return super().__getitem__(index)
+        from fastwam.datasets.loopwam_long import CAMERAS
+        part=bisect.bisect_right(self.data.cumulative_sizes,index)
+        local=index-(self.data.cumulative_sizes[part-1] if part else 0)
+        dataset=self.data.datasets[part]
+        reader=dataset.reader
+        reader.during_training=False  # LeRobot reads every non-video field, but decodes no frames
+        try:
+            row=reader[local]
+        finally:
+            reader.during_training=True
+        for key in CAMERAS:
+            row[key]=torch.zeros((9,3,224,224),dtype=torch.uint8)
+        dataset.reader=_PreparedRow(row)
+        try:
+            sample=dict(dataset[local])
+        finally:
+            dataset.reader=reader
+        sample['sample_valid']=True
+        sample['training_index']=index
         return sample
 
 
@@ -246,6 +296,8 @@ def main():
     p.add_argument('--bucket-views',action='store_true')
     p.add_argument('--structured-attention',action='store_true')
     p.add_argument('--latent-cache-dir',default=None)
+    p.add_argument('--skip-cached-frames',action='store_true',
+                   help='Do not decode video for windows whose latents are already cached (full_libero only)')
     p.add_argument('--save-every',type=int,default=100)
     p.add_argument('--resume',default=None)
     p.add_argument('--validation-samples',type=int,default=8)
@@ -267,6 +319,8 @@ def main():
     if args.workers<0 or args.validation_samples<0: p.error('Worker and validation counts cannot be negative')
     if args.dataset_scope == 'full_libero' and args.validation_samples != 0:
         p.error('Full LIBERO uses every demonstration for training; set --validation-samples 0 and use simulator evaluation')
+    if args.skip_cached_frames and (not args.latent_cache_dir or args.dataset_scope != 'full_libero'):
+        p.error('--skip-cached-frames requires --latent-cache-dir and --dataset-scope full_libero')
     rank=int(os.environ.get('RANK',0)); world=int(os.environ.get('WORLD_SIZE',1)); local=int(os.environ.get('LOCAL_RANK',0))
     torch.cuda.set_device(local)
     if world>1 or is_zero:
@@ -288,7 +342,8 @@ def main():
     if rank!=0:
         train,val,data_manifest=build_datasets(args.dataset_dir,args.text_cache_dir,str(out/'data'),seed=args.seed)
     sampler=ExactDistributedBatches(len(train),args.microbatch,rank,world,args.seed)
-    loader=DataLoader(MarkedDataset(train),batch_sampler=sampler,num_workers=args.workers,
+    marked=CachedFrameSkipDataset(train,args.latent_cache_dir) if args.skip_cached_frames else MarkedDataset(train)
+    loader=DataLoader(marked,batch_sampler=sampler,num_workers=args.workers,
         pin_memory=True,persistent_workers=args.workers>0, generator=torch.Generator().manual_seed(args.seed+rank))
     updates_per_epoch=math.ceil(len(train)/args.global_batch)
     total=updates_per_epoch*args.epochs
@@ -328,7 +383,9 @@ def main():
         if world>1: dist.barrier()
         model.training_latent_cache=LoopWAMLatentCache(args.latent_cache_dir,len(train),provenance)
 
-    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else 'canonical_wan_artifact_fresh_optimizer',world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,action_core_loops=model.mot.action_loops,loop_alignment="late",
+    scratch=model.architecture_metadata.get('initialization')=='scratch_no_video_pretraining'
+    fresh_mode='scratch_no_video_pretraining_fresh_optimizer' if scratch else 'canonical_wan_artifact_fresh_optimizer'
+    manifest=dict(vars(args),initialization_mode='resume_checkpoint' if args.resume else fresh_mode,world_size=world,gradient_accumulation=accum,policy_parameters=count,loops=model.mot.loops,action_core_loops=model.mot.action_loops,loop_alignment="late",
         asset_sha256=asset_hashes[0],initialization_metadata=model.architecture_metadata,
         train_windows=len(train),val_windows=len(val),updates_per_epoch=updates_per_epoch,
         planned_updates=total,planned_windows=args.epochs*len(train),data=data_manifest,
@@ -350,6 +407,8 @@ def main():
             'accumulation':accum,'initialization_mode':manifest['initialization_mode'],'backend':args.backend,'optimizer_state_entries_before_training':len(opt.optimizer.state if is_zero else opt.state),'setup_seconds':manifest['setup_seconds']}),flush=True)
     if args.smoke:
         sample=next(iter(loader))
+        if args.skip_cached_frames:  # cached windows carry blank frames; check the VAE on the real ones
+            sample['video']=torch.stack([MarkedDataset(train)[i]['video'] for i in sample['training_index'].tolist()])
         with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
             clip=model._encode_video_latents(sample['video'].cuda())
             anchor=model._encode_input_image_latents_tensor(sample['video'][:,:,0].cuda())

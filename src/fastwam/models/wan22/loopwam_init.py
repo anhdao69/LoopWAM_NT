@@ -11,6 +11,7 @@ from contextlib import ExitStack
 from functools import lru_cache
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -252,6 +253,113 @@ def build_wan_initialized_donors(source: Mapping, source_config: Mapping, *,
                 })
 
 
+SCRATCH_FORMAT_VERSION = 'loopwam-scratch-donors-v1'
+SCRATCH_INITIALIZATION = 'scratch_no_video_pretraining'
+SCRATCH_RECIPE = ('Wan2.1 WanModel.init_weights: xavier_uniform Linear weights and zero Linear biases; '
+                  'xavier_uniform flattened patch-embedding weight (Conv3d bias keeps the PyTorch default '
+                  'uniform(+-1/sqrt(fan_in))); N(0, 0.02) text/time-embedding Linear weights; zero video output '
+                  'head weight; modulation randn/sqrt(dim); RMSNorm/LayerNorm weights one, biases zero.')
+
+
+def _wan_scratch_state(module: nn.Module, generator: torch.Generator, *, skip=(), zero_weight=()) -> dict:
+    """Wan's from-scratch initialization for every tensor of one expert, drawn in module order on CPU FP32."""
+    state = {}
+    for name, child in module.named_modules():
+        if name.split('.')[0] in skip:
+            continue
+        for pname, param in child.named_parameters(recurse=False):
+            key = f'{name}.{pname}' if name else pname
+            value = torch.empty(param.shape, dtype=torch.float32)
+            if pname == 'modulation':
+                value.copy_(torch.randn(param.shape, generator=generator) / param.shape[-1] ** 0.5)
+            elif isinstance(child, nn.Linear) and pname == 'weight':
+                if name in zero_weight:
+                    value.zero_()
+                elif name.startswith(('text_embedding.', 'time_embedding.')):
+                    nn.init.normal_(value, std=.02, generator=generator)
+                else:
+                    nn.init.xavier_uniform_(value, generator=generator)
+            elif isinstance(child, nn.Linear) and pname == 'bias':
+                value.zero_()
+            elif isinstance(child, nn.Conv3d) and pname == 'weight':
+                nn.init.xavier_uniform_(value.view(value.shape[0], -1), generator=generator)
+            elif isinstance(child, nn.Conv3d) and pname == 'bias':
+                bound = 1 / math.prod(child.weight.shape[1:]) ** 0.5
+                nn.init.uniform_(value, -bound, bound, generator=generator)
+            elif type(child).__name__ in ('RMSNorm', 'LayerNorm') and pname == 'weight':
+                value.fill_(1.)
+            elif type(child).__name__ == 'LayerNorm' and pname == 'bias':
+                value.zero_()
+            else:
+                raise ValueError(f'No from-scratch rule for {key} ({type(child).__name__})')
+            state[key] = value
+    return state
+
+
+def build_scratch_donors(canonical: Mapping, *, canonical_sha256: str, seed: int = 42) -> dict:
+    """LoopWAM-S donors without video pretraining.
+
+    Every tensor that the canonical artifact derives from Wan2.1 weights (all video tensors and the action
+    backbone) is replaced by Wan's own from-scratch initialization. The new action input/output and proprio
+    tensors, which never came from Wan, are copied bit for bit from the canonical artifact.
+    """
+    if canonical.get('format_version') != FORMAT_VERSION:
+        raise ValueError('Scratch donors are derived from the canonical Wan-initialized artifact.')
+    validate_artifact(canonical)
+    _, video_shapes, action_shapes = _expected_shapes()
+    video_cfg, action_cfg = target_configs(30)
+    with torch.device('meta'):
+        video, action = WanVideoDiT(**video_cfg), ActionDiT(**action_cfg)
+    generator = torch.Generator().manual_seed(seed)
+    new_prefixes = ActionDiT.ACTION_BACKBONE_SKIP_PREFIXES
+    video_state = _wan_scratch_state(video, generator, zero_weight=('head.head',))
+    action_state = _wan_scratch_state(action, generator, skip=tuple(p.rstrip('.') for p in new_prefixes))
+    tensor_map = {f'video.{key}': {'source': None, 'transform': 'wan_scratch_init', 'seed': seed} for key in video_state}
+    tensor_map.update({f'action.{key}': {'source': None, 'transform': 'wan_scratch_init', 'seed': seed} for key in action_state})
+    copied = dict(source=None, transform='copied_new_parameter', canonical_artifact_sha256=canonical_sha256)
+    for key, value in canonical['action_state_dict'].items():
+        if key.startswith(new_prefixes):
+            action_state[key] = value.detach().to(device='cpu', dtype=torch.float32).clone()
+            tensor_map[f'action.{key}'] = dict(copied)
+    proprio_state = {key: value.detach().to(device='cpu', dtype=torch.float32).clone()
+                     for key, value in canonical['proprio_state_dict'].items()}
+    tensor_map.update({f'proprio.{key}': dict(copied) for key in proprio_state})
+    validate_state_coverage(video_state, video_shapes, label='scratch video donors')
+    validate_state_coverage(action_state, action_shapes, label='scratch action donors')
+    source = canonical['metadata']
+    metadata = {key: deepcopy(source[key]) for key in (
+        'architecture_version', 'target_video_config', 'target_action_config', 'donor_video_config',
+        'donor_action_config', 'donor_indices', 'tokenization', 'normalization')}
+    metadata.update(initialization=SCRATCH_INITIALIZATION, architecture_source_model=SOURCE_MODEL,
+                    pretrained_weight_tensors=0, scratch_seed=seed, scratch_recipe=SCRATCH_RECIPE,
+                    canonical_artifact_sha256=canonical_sha256, new_parameter_seed=source['new_parameter_seed'],
+                    conversion_dtype='float32', conversion_device='cpu', tensor_map=tensor_map)
+    return dict(format_version=SCRATCH_FORMAT_VERSION, video_state_dict=video_state,
+                action_state_dict=action_state, proprio_state_dict=proprio_state, metadata=metadata)
+
+
+def validate_scratch_artifact(artifact: Mapping) -> None:
+    meta = artifact['metadata']
+    if meta.get('initialization') != SCRATCH_INITIALIZATION or meta.get('pretrained_weight_tensors') != 0:
+        raise ValueError('Scratch artifact must declare that no pretrained weights are used.')
+    if meta['donor_indices'] != list(DONOR_INDICES):
+        raise ValueError('Donor layer selection does not match LoopWAM-S.')
+    expected_video, expected_action = target_configs(12)
+    if meta['target_video_config'] != expected_video or meta['target_action_config'] != expected_action:
+        raise ValueError('Artifact target architecture differs from LoopWAM-S.')
+    _, video_shapes, action_shapes = _expected_shapes()
+    for family, shapes in [('video', video_shapes), ('action', action_shapes), ('proprio', {'weight': (4096, 8), 'bias': (4096,)})]:
+        validate_state_coverage(artifact[f'{family}_state_dict'], shapes, label=family)
+    expected_map = {f'{family}.{key}' for family in ('video', 'action', 'proprio') for key in artifact[f'{family}_state_dict']}
+    if set(meta['tensor_map']) != expected_map:
+        raise ValueError('Artifact tensor provenance does not cover all target tensors.')
+    for name, record in meta['tensor_map'].items():
+        family, key = name.split('.', 1)
+        is_new = family == 'proprio' or (family == 'action' and key.startswith(ActionDiT.ACTION_BACKBONE_SKIP_PREFIXES))
+        if record.get('source') is not None or record.get('transform') != ('copied_new_parameter' if is_new else 'wan_scratch_init'):
+            raise ValueError(f'Invalid scratch provenance for {name}')
+
+
 def select_donor_layers(state: Mapping, indices=DONOR_INDICES) -> dict:
     lookup = {source: target for target, source in enumerate(indices)}
     if len(lookup) != len(indices):
@@ -274,6 +382,8 @@ def load_init_artifact(path: str | Path) -> dict:
 
 
 def validate_artifact(artifact: Mapping) -> None:
+    if artifact.get('format_version') == SCRATCH_FORMAT_VERSION:
+        return validate_scratch_artifact(artifact)
     if artifact.get('format_version') != FORMAT_VERSION:
         raise ValueError('Unsupported LoopWAM initialization artifact version.')
     meta = artifact['metadata']
