@@ -70,6 +70,8 @@ def main():
     prompts = episode_prompts(spec)
     name = lambda pr: out / f'{hashlib.sha256(pr.encode("utf-8")).hexdigest()}.{spec.text_suffix}'
     todo = [pr for pr in prompts if not name(pr).exists()]
+    # Snapshot existing entries on every rank before any rank starts writing.
+    if world > 1: dist.barrier()
     mine = todo[rank::world]
     if rank == 0:
         print(json.dumps(dict(event='prompts', total=len(prompts), todo=len(todo), cache_dir=str(out))), flush=True)
