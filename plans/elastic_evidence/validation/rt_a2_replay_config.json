@@ -1,0 +1,125 @@
+{
+  "asset_sha256": {
+    "teacher": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+    "initial": null,
+    "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "elastic_init": "1ef21388899d851d88b56a67dcda0ca24a007c8cfbcde43edbc2299d2c7cc703"
+  },
+  "config": {
+    "kind": "T4",
+    "scope": "pb",
+    "regime": "fu",
+    "schedules": [
+      "S1",
+      "S2",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "step_cond": true,
+    "anchor": true,
+    "seed": 42,
+    "sampler": "legacy_choice",
+    "init": "rt_a2_legacy_v1",
+    "reuse_teacher_prefix": true,
+    "collect_diagnostics": true,
+    "campaign": "elastic-v1",
+    "verification_only": true
+  },
+  "windows": 277713,
+  "world": 1,
+  "microbatch": 64,
+  "global_batch": 128,
+  "epochs": 10,
+  "planned_updates": 21700,
+  "teacher": "/lustre/fs1/groups/yshang/an221229/checkpoints/ChronoLoop/parent/libero-all-suites/v0-video4-action4/policy.pt",
+  "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+  "checkpoint_blocks": false,
+  "deterministic_algorithms": true,
+  "schedule_sequence_sha256": null,
+  "checkpoint_min_blocks": null,
+  "init_parts": [
+    "student_action",
+    "step_condition",
+    "transport"
+  ],
+  "latent_content_digest": "f2b1b21be72694ec8e3fb217fbda12c61e7cc44d2e3c33f5d28c5e226ea8b341",
+  "run": "RT-A2-replay",
+  "arguments": {
+    "run_name": "RT-A2-replay",
+    "init_artifact": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_work/init/rt_a2_legacy_init_v1.pt",
+    "checkpoint_min_blocks": null,
+    "hf_folder": "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/libero-all-suites/Elastic/RT-A2-replay",
+    "output_dir": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_work/replay/RT-A2-replay",
+    "teacher": "/groups/yshang/an221229/checkpoints/ChronoLoop/parent/libero-all-suites/v0-video4-action4/policy.pt",
+    "vae_path": "/groups/yshang/an221229/checkpoints/RollingForcing/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "manifest": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/full_libero_v0_v4a2_20261026/train/data/data_manifest.json",
+    "latent_dir": "/dev/shm/elastic_latents_1080499",
+    "init_checkpoint": null,
+    "microbatch": 64,
+    "expected_gpus": 1,
+    "workers": 3,
+    "global_batch": 128,
+    "epochs": 10,
+    "save_every": 100,
+    "max_updates": 20,
+    "resume": false,
+    "no_checkpoint_blocks": true,
+    "smoke": false
+  },
+  "trainable_parameters": 2541344,
+  "slurm_job_id": "1080499",
+  "git_revision": "944a07f1e6f3d6ca8b96034370c5fc88e0cf9ac2",
+  "schedules": {
+    "S1": [
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "S2": [
+      4,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "S5": [
+      4,
+      2,
+      2,
+      2,
+      2
+    ],
+    "S6": [
+      4,
+      1,
+      1,
+      1,
+      1
+    ],
+    "S7": [
+      4,
+      2
+    ],
+    "S8": [
+      4,
+      1
+    ]
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch_version": "2.7.1+cu128",
+  "hf_folder": "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/libero-all-suites/Elastic/RT-A2-replay"
+}

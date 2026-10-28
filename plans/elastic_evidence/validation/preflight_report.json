@@ -1,0 +1,279 @@
+{
+  "started": 1793197949.8105943,
+  "checks": {
+    "asset_identity": {
+      "passed": true,
+      "teacher_export_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "source_sha256": "4ffe1b14f35484ea582189ba0f06c5a41ac199e1fa733b491719727105e5e5cc"
+    },
+    "data_identity": {
+      "passed": true,
+      "windows": 277713,
+      "staged": "f2b1b21be72694ec8e3fb217fbda12c61e7cc44d2e3c33f5d28c5e226ea8b341"
+    },
+    "teacher_tensors_equal_rt_teacher": {
+      "passed": true,
+      "video": true,
+      "proprio": true,
+      "action": true
+    },
+    "parameter_counts": {
+      "passed": true,
+      "base_policy": 584536135,
+      "action_expert": 105277959
+    },
+    "common_initialization_and_trainable_counts": {
+      "passed": true,
+      "trainable": {
+        "E0": 105678471,
+        "E1": 105678471,
+        "E2": 105754919,
+        "SP11": 105678471
+      },
+      "deployed_parameters": {
+        "E0": 584936647,
+        "E2": 585013095
+      }
+    },
+    "flat9_paths_E2": {
+      "passed": true,
+      "paths": {
+        "flat_k1_n2": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            15
+          ],
+          "loss": 0.10088146477937698,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k1_n5": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            18
+          ],
+          "loss": 0.0962991788983345,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k1_n10": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            19
+          ],
+          "loss": 0.14760956168174744,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k2_n2": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            15
+          ],
+          "loss": 0.04082809388637543,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k2_n5": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            18
+          ],
+          "loss": 0.10230806469917297,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k2_n10": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            19
+          ],
+          "loss": 0.2678932547569275,
+          "diag": [
+            "diag_correction_ratio",
+            "diag_gate_max",
+            "diag_gate_mean",
+            "diag_gate_min",
+            "diag_prelude_norm",
+            "diag_residual_norm",
+            "diag_transport_ratio",
+            "diag_transport_source_norm",
+            "diag_transported_norm"
+          ]
+        },
+        "flat_k4_n2": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            15
+          ],
+          "loss": 0.01081350538879633,
+          "diag": [
+            "diag_prelude_norm",
+            "diag_residual_norm"
+          ]
+        },
+        "flat_k4_n5": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            18
+          ],
+          "loss": 0.00845435168594122,
+          "diag": [
+            "diag_prelude_norm",
+            "diag_residual_norm"
+          ]
+        },
+        "flat_k4_n10": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "transport_participation": true,
+          "student_grads_present": true,
+          "teacher_passes": [
+            20,
+            19
+          ],
+          "loss": 0.00755001325160265,
+          "diag": [
+            "diag_prelude_norm",
+            "diag_residual_norm"
+          ]
+        }
+      }
+    },
+    "adaptive_checkpointing_bit_identical": {
+      "passed": true
+    },
+    "front6_paths_F0PB": {
+      "passed": true,
+      "paths": {
+        "S1": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        },
+        "S2": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        },
+        "S5": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        },
+        "S6": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        },
+        "S7": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        },
+        "S8": {
+          "reuse_bit_identical": true,
+          "finite": true,
+          "lora_grads": true
+        }
+      },
+      "trainable": 2464896
+    },
+    "export_reload_rollout": {
+      "passed": true,
+      "rollouts": {
+        "flat_k1_n2": {
+          "eager_equal": true,
+          "graph_equal": true
+        },
+        "flat_k2_n5": {
+          "eager_equal": true,
+          "graph_equal": true
+        },
+        "flat_k4_n10": {
+          "eager_equal": true,
+          "graph_equal": true
+        }
+      }
+    }
+  },
+  "finished": 1793198279.268899,
+  "passed": true
+}

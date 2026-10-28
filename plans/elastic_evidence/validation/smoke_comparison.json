@@ -1,0 +1,91 @@
+{
+ "resume": [
+  [
+   1,
+   "flat_k2_n5",
+   true
+  ],
+  [
+   2,
+   "flat_k1_n5",
+   true
+  ],
+  [
+   3,
+   "flat_k1_n2",
+   true
+  ],
+  [
+   4,
+   "flat_k2_n2",
+   true
+  ],
+  [
+   5,
+   "flat_k4_n2",
+   true
+  ],
+  [
+   6,
+   "flat_k4_n10",
+   true
+  ],
+  [
+   7,
+   "flat_k2_n10",
+   true
+  ],
+  [
+   8,
+   "flat_k1_n10",
+   true
+  ]
+ ],
+ "world": [
+  [
+   1,
+   "flat_k2_n5",
+   {
+    "grad_norm": 0.0,
+    "local": 0.0,
+    "end": 0.0,
+    "grip": 0.0,
+    "anchor": 0.0
+   }
+  ],
+  [
+   2,
+   "flat_k1_n5",
+   {
+    "grad_norm": 0.0,
+    "local": 0.0,
+    "end": 0.0,
+    "grip": 0.0,
+    "anchor": 0.0
+   }
+  ],
+  [
+   3,
+   "flat_k1_n2",
+   {
+    "grad_norm": 0.0,
+    "local": 0.0,
+    "end": 0.0,
+    "grip": 0.0,
+    "anchor": 0.0
+   }
+  ],
+  [
+   4,
+   "flat_k2_n2",
+   {
+    "grad_norm": 0.0,
+    "local": 0.0,
+    "end": 0.0,
+    "grip": 0.0,
+    "anchor": 0.0
+   }
+  ]
+ ],
+ "final_weights_equal": true
+}

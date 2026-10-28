@@ -1,0 +1,22 @@
+{
+  "path": "init/elastic_common_init_v1.pt",
+  "sha256": "b2815226865e5b14e9f0b449384d6f21cc20a2c6901636043db7110adc70076c",
+  "recipe": "common_v1",
+  "teacher_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+  "tensor_sha256": {
+    "student_action": "2554fb668d9034387bdb2c755d0f166ae1b0649b4e74c6d48d305c0d9759c6a4",
+    "step_condition": "4f1ee8d82e4c4edcb6851f2008325289bf53a0a02107e1e41216cc37642da3f2",
+    "transport_T4": "1d17f592ff4a5d938b6b04ccd4eb9a7a4f9e97587d4e786a4f1ea313b200cadf"
+  },
+  "metadata": {
+    "format": "elastic-init-v1",
+    "recipe": "common_v1",
+    "teacher_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+    "seed": 42,
+    "generator_seeds": {
+      "step_condition": 822402053239782360,
+      "T4": 616937575533862284
+    },
+    "generator": "torch CPU default generator, fork_rng + manual_seed(label_seed)"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "path": "init/rt_a2_legacy_init_v1.pt",
+  "sha256": "1ef21388899d851d88b56a67dcda0ca24a007c8cfbcde43edbc2299d2c7cc703",
+  "recipe": "rt_a2_legacy_v1",
+  "teacher_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+  "tensor_sha256": {
+    "student_action": "d29f8a419554b74c06c28416a5ecf3dccf6e3990a6f0bf7ecc9656195b393adb",
+    "step_condition": "1350aeb4a5c03ccf78e43b3dbd31207deb73fa68e25711719038e6f7ea26256b",
+    "transport_T4": "4f0185245d0b49916e185e096827142265faeb3e3bd5ea4beeb9391fc145ead7"
+  },
+  "metadata": {
+    "format": "elastic-init-v1",
+    "recipe": "rt_a2_legacy_v1",
+    "teacher_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+    "seed": 42,
+    "historical_source": "a7403b5aab915c0d535a37acdaaffde83fd16b8a",
+    "historical_recipe": "RT-A2: T4, P-b, step_cond, world 1",
+    "torch_version": "2.7.1+cu128",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "lora_tensors": 120
+  }
+}
