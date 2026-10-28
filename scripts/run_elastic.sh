@@ -8,18 +8,50 @@ set -euo pipefail
 mkdir -p "$ELASTIC_OUTPUT"
 exec 9>"$ELASTIC_OUTPUT/run.lock"
 flock -n 9 || { echo "Another process owns $ELASTIC_RUN; refusing duplicate."; exit 75; }
+# Lustre is mounted with localflock, so flock only excludes writers on this node. Across nodes a run is owned
+# through an atomic mkdir claim (owner job + heartbeat); recent training output also counts as ownership.
+claim="$ELASTIC_OUTPUT/claim.d"
+token="${SLURM_JOB_ID:-nojob}:$(hostname):$$"
+recently_written() {
+    local f now; now=$(date +%s)
+    for f in train.log metrics.jsonl; do
+        if [[ -f "$ELASTIC_OUTPUT/$f" ]] && (( now - $(stat -c %Y "$ELASTIC_OUTPUT/$f") < 900 )); then return 0; fi
+    done
+    return 1
+}
+claim_live() {
+    local job beat
+    if [[ ! -f "$claim/heartbeat" ]]; then (( $(date +%s) - $(stat -c %Y "$claim" 2>/dev/null || echo 0) < 120 )); return; fi
+    job=$(cat "$claim/job" 2>/dev/null || true); beat=$(stat -c %Y "$claim/heartbeat")
+    [[ -n "$job" && "$(squeue -h -j "$job" -o %T 2>/dev/null)" == RUNNING ]] && (( $(date +%s) - beat < 600 ))
+}
+if [[ -d "$claim" ]]; then
+    if claim_live; then echo "$ELASTIC_RUN is claimed by $(cat "$claim/owner" 2>/dev/null)"; exit 75; fi
+    mv "$claim" "$ELASTIC_OUTPUT/claim.stale.$(date +%s).$$" 2>/dev/null || exit 75
+fi
+if recently_written; then echo "$ELASTIC_RUN was written in the last 15 min by another process"; exit 75; fi
+mkdir "$claim" 2>/dev/null || exit 75
+echo "${SLURM_JOB_ID:-}" > "$claim/job"; echo "$token" > "$claim/owner"; echo "${ELASTIC_LANE:-}" > "$claim/lane"
+touch "$claim/heartbeat"
+( exec 9>&-; while sleep 60; do touch "$claim/heartbeat" 2>/dev/null || exit 0; done ) &
+heartbeat=$!
 cd "$ELASTIC_ROOT"
 uploader=""
 if [[ -n "${ELASTIC_HF_TOKEN_FILE:-}" ]]; then
     python scripts/upload_elastic.py --run-name "$ELASTIC_RUN" --output-dir "$ELASTIC_OUTPUT" \
-        --token-file "$ELASTIC_HF_TOKEN_FILE" --watch >> "$ELASTIC_OUTPUT/upload.log" 2>&1 &
+        --token-file "$ELASTIC_HF_TOKEN_FILE" --watch >> "$ELASTIC_OUTPUT/upload.log" 2>&1 9>&- &
     uploader=$!
 fi
 trainer_pid=""; stopping=0
 on_signal() { stopping=1; if [[ -n "$trainer_pid" ]]; then pkill -USR1 -P "$trainer_pid" || true; fi; }
 trap on_signal USR1 TERM
-cleanup() { if [[ -n "$uploader" ]]; then kill "$uploader" 2>/dev/null || true; fi; }
+cleanup() {
+    if [[ -n "$uploader" ]]; then kill "$uploader" 2>/dev/null || true; fi
+    kill "$heartbeat" 2>/dev/null || true
+    if [[ "$(cat "$claim/owner" 2>/dev/null)" == "$token" ]]; then rm -rf "$claim"; fi
+}
 trap cleanup EXIT
+revision=$(git rev-parse HEAD 2>/dev/null || echo unknown)
 for attempt in 1 2 3; do
     args=(--run-name "$ELASTIC_RUN" --output-dir "$ELASTIC_OUTPUT" --teacher "$ELASTIC_TEACHER"
           --vae-path "$ELASTIC_VAE" --manifest "$ELASTIC_MANIFEST" --latent-dir "$ELASTIC_LATENTS"
@@ -29,7 +61,7 @@ for attempt in 1 2 3; do
     if [[ -n "${ELASTIC_CKPT_MIN_BLOCKS:-}" ]]; then args+=(--checkpoint-min-blocks "$ELASTIC_CKPT_MIN_BLOCKS"); fi
     if [[ -n "${ELASTIC_MAX_UPDATES:-}" ]]; then args+=(--max-updates "$ELASTIC_MAX_UPDATES"); fi
     if [[ -f "$ELASTIC_OUTPUT/latest.pt" ]]; then args+=(--resume); fi
-    echo "{\"event\":\"launch\",\"run\":\"$ELASTIC_RUN\",\"attempt\":$attempt,\"time\":\"$(date -Is)\",\"gpus\":\"${CUDA_VISIBLE_DEVICES:-}\",\"job\":\"${SLURM_JOB_ID:-}\"}" >> "$ELASTIC_OUTPUT/launches.jsonl"
+    echo "{\"event\":\"launch\",\"run\":\"$ELASTIC_RUN\",\"attempt\":$attempt,\"time\":\"$(date -Is)\",\"gpus\":\"${CUDA_VISIBLE_DEVICES:-}\",\"job\":\"${SLURM_JOB_ID:-}\",\"host\":\"$(hostname)\",\"lane\":\"${ELASTIC_LANE:-}\",\"revision\":\"$revision\"}" >> "$ELASTIC_OUTPUT/launches.jsonl"
     torchrun --standalone --nproc_per_node="$ELASTIC_WORLD" scripts/train_transport.py "${args[@]}" >> "$ELASTIC_OUTPUT/train.log" 2>&1 &
     trainer_pid=$!
     code=0
