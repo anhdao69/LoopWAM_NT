@@ -17,6 +17,12 @@ SCHEDULES = {
     "S3": (4,3,2,2,2,1,1,1,1,1), "S4": (4,4)+(1,)*8,
     "S5": (4,2,2,2,2), "S6": (4,1,1,1,1), "S7": (4,2), "S8": (4,1),
 }
+# Elastic flat grid, appended after the legacy names: the same K_a at every denoising step.
+FLAT9=tuple(f"flat_k{k}_n{n}" for k in (1,2,4) for n in (2,5,10))
+for _name in FLAT9:
+    _k,_n=(int(part[1:]) for part in _name.split("_")[1:])
+    SCHEDULES[_name]=(_k,)*_n
+del _name,_k,_n
 
 @dataclass
 class TransportHistory:
@@ -76,6 +82,24 @@ class ResidualTransport(nn.Module):
                 f=torch.cat((f,history.delta_embedding),-1)
             r=r+self.B(self.A(r)*(1+self.film(f)))
         return gate*r
+
+    @torch.no_grad()
+    def diagnose(self,p,history,next_tau,moved):
+        """Detached per-sample norms (token means of hidden-dim L2 norms); not part of any graph."""
+        norm=lambda x: x.float().norm(dim=-1).mean(-1)
+        out=dict(transport_source_norm=norm(history.residual),transported_norm=norm(moved),
+                 transport_ratio=(moved.float().norm(dim=-1)/(p.float().norm(dim=-1)+1e-6)).mean(-1))
+        if self.kind in {"T3","T4","T5"}:
+            features=torch.cat([sinusoidal_embedding_1d(self.freq_dim,t)
+                                for t in (history.tau,next_tau)],-1)
+            gate=self.gate(features).float().sigmoid()
+            out.update(gate_mean=gate.mean(-1),gate_min=gate.amin(-1),gate_max=gate.amax(-1))
+            if self.kind=="T4":
+                r=history.residual
+                f=features[:,None,:].expand(-1,r.shape[1],-1)
+                correction=self.B(self.A(r)*(1+self.film(f)))
+                out["correction_ratio"]=(correction.float().norm(dim=-1)/(r.float().norm(dim=-1)+1e-6)).mean(-1)
+        return out
 
 class StepCondition(nn.Module):
     def __init__(self,width=512,freq_dim=32):
@@ -138,19 +162,20 @@ def _block(mot,index,slot,x,freqs,tmod,context,context_mask,keys,values,mask,tex
     return block.gate(x,io[7],block.ffn(modulate(block.norm2(x),io[5],io[6])))
 
 def action_core(mot,tokens,freqs,tmod,context,context_mask,keys,values,mask,*,
-                loops,transport,history,next_tau,text_kv=None,trace=None,checkpoint_blocks=False):
+                loops,transport,history,next_tau,text_kv=None,trace=None,checkpoint_blocks=False,stats=None):
     if mot.version!="v0" or mot.loops!=4 or not 1<=loops<=4:
         raise ValueError("RT requires the v0 four-loop video parent and 1..4 action loops")
     if len(keys)!=30 or len(values)!=30:
         raise ValueError("RT needs every parent video-cache slot")
     slots=list(range(3))+[3+6*(4-loops+r)+j for r in range(loops) for j in range(6)]+list(range(27,30))
     schedule=mot.virtual_schedule()
-    x=tokens; p=None; residual=None
+    x=tokens; p=None; residual=None; moved=None
     for n,slot in enumerate(slots):
         if n==3:
             p=x
             if loops<4 and history is not None and transport.kind!="T0":
-                x=p+transport(p,history,next_tau)
+                moved=transport(p,history,next_tau)
+                x=p+moved
         index=schedule[slot][1]
         if trace is not None: trace.append((index,slot))
         fn=partial(_block,mot,index,slot)
@@ -163,6 +188,12 @@ def action_core(mot,tokens,freqs,tmod,context,context_mask,keys,values,mask,*,
                 return gradient
             x.register_hook(measured_backward)
         if n==3+6*loops-1: residual=x-p
+    if stats is not None:
+        # Outside checkpointed blocks: recomputation never repeats or mutates diagnostics.
+        with torch.no_grad():
+            stats["prelude_norm"]=p.float().norm(dim=-1).mean(-1)
+            stats["residual_norm"]=residual.float().norm(dim=-1).mean(-1)
+            if moved is not None: stats.update(transport.diagnose(p,history,next_tau,moved))
     return x,residual
 
 @torch.no_grad()

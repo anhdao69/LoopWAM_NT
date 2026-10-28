@@ -12,13 +12,17 @@ from .residual_transport import (ResidualTransport, StepCondition, TransportHist
 
 class TransportPolicy(nn.Module):
     def __init__(self,parent,*,kind="T4",scope="pb",step_cond=False,regime="fu",
-                 anchor=True,checkpoint_blocks=True,loss_weights=None):
+                 anchor=True,checkpoint_blocks=True,loss_weights=None,
+                 reuse_teacher_prefix=False,collect_diagnostics=False):
         super().__init__()
         if scope not in {"pa","pb","pc"} or regime not in {"fu","tf"}:
             raise ValueError("Invalid RT parameter scope or training regime")
         self.parent=parent.requires_grad_(False).eval()
         self.scope,self.regime,self.anchor=scope,regime,anchor and scope!="pa"
         self.checkpoint_blocks=checkpoint_blocks
+        # Elastic options; both default off so legacy RT recipes are unchanged.
+        self.reuse_teacher_prefix=reuse_teacher_prefix and regime=="fu"
+        self.collect_diagnostics=collect_diagnostics
         self.loss_weights=loss_weights or dict(local=1.,end=.5,grip=.1,anchor=.5)
         action=copy.deepcopy(parent.action_expert)
         width=action.hidden_dim
@@ -54,6 +58,25 @@ class TransportPolicy(nn.Module):
             if ps: groups.append(dict(params=ps,lr=lr,base_lr=lr,weight_decay=decay))
         return groups
 
+    def initial_state(self):
+        """Student tensors that matched arms share: action expert (incl. LoRA), step condition, transport."""
+        state={"student_action":self.student.mixtures["action"].state_dict(),
+               "transport":self.transport.state_dict()}
+        if self.step_condition is not None: state["step_condition"]=self.step_condition.state_dict()
+        return {part:{k:v.detach().cpu().clone() for k,v in tensors.items()} for part,tensors in state.items()}
+
+    @torch.no_grad()
+    def load_initial_state(self,state,parts=("student_action","step_condition")):
+        """Strictly load shared initial tensors, then verify bit equality after the copy."""
+        modules=dict(student_action=self.student.mixtures["action"],step_condition=self.step_condition,
+                     transport=self.transport)
+        for part in parts:
+            if modules[part] is None: raise ValueError(f"This policy has no {part}")
+            modules[part].load_state_dict(state[part],strict=True)
+            loaded=modules[part].state_dict()
+            if not all(torch.equal(loaded[k].cpu(),v.cpu()) for k,v in state[part].items()):
+                raise ValueError(f"Initial {part} tensors differ after loading")
+
     @torch.no_grad()
     def prefill(self,sample):
         context,mask=self.parent._append_proprio_to_context(sample["context"],sample["context_mask"],
@@ -73,7 +96,7 @@ class TransportPolicy(nn.Module):
         embedded=expert.text_embedding(context)
         return embedded,mask[:,None,:].expand(-1,32,-1),cache_text_kv(expert,embedded)
 
-    def velocity(self,z,tau,conditioning,cache,*,teacher=False,loops=4,d=0.,history=None,native_timestep=None):
+    def velocity(self,z,tau,conditioning,cache,*,teacher=False,loops=4,d=0.,history=None,native_timestep=None,stats=None):
         mot=self.parent.mot if teacher else self.student
         expert=mot.mixtures["action"]
         context,mask,text_kv=conditioning
@@ -86,7 +109,7 @@ class TransportPolicy(nn.Module):
         transport=self.transport
         output,residual=action_core(mot,tokens,expert.get_freqs(z.shape[1]),tmod,context,mask,
             *cache,loops=loops,transport=transport,history=None if teacher else history,next_tau=tau,
-            text_kv=text_kv,checkpoint_blocks=self.checkpoint_blocks and not teacher)
+            text_kv=text_kv,checkpoint_blocks=self.checkpoint_blocks and not teacher,stats=stats)
         if teacher: self.teacher_passes+=1
         else: self.student_block_calls+=6+6*loops
         return expert.post(output),residual
@@ -102,22 +125,32 @@ class TransportPolicy(nn.Module):
         def teacher(z,t):
             return self.velocity(z,t,teacher_condition,cache,teacher=True)[0]
         # One deployed parent trajectory, shared endpoint and TF states.
-        teacher_states=[]; endpoint=noise.detach()
+        teacher_states=[]; teacher_velocities=[]; endpoint=noise.detach()
         grid=torch.linspace(1.,0.,11,device=noise.device,dtype=noise.dtype)
         with torch.no_grad():
             for j in range(10):
                 teacher_states.append(endpoint)
-                endpoint=endpoint+(grid[j+1]-grid[j])*teacher(endpoint,grid[j].expand(len(endpoint)))
-        n=len(schedule); z=noise; history=None; local=z.new_zeros(len(z))
+                teacher_velocities.append(teacher(endpoint,grid[j].expand(len(endpoint))))
+                endpoint=endpoint+(grid[j+1]-grid[j])*teacher_velocities[-1]
+        n=len(schedule); z=noise; history=None; local=z.new_zeros(len(z)); steps_stats=[]
         for j,k in enumerate(schedule):
             if j<=n-3: z,history=detach_boundary(z,history)
             tau=1-j/n; next_tau=1-(j+1)/n
             start=round(j*10/n); stop=round((j+1)*10/n)
             current_tau=grid[start].expand(len(z))
             source=teacher_states[j] if self.regime=="tf" else z
-            target=teacher_target(teacher,source,tau,next_tau)
+            if j==0 and self.reuse_teacher_prefix:
+                # The first student state is the shared initial noise, so the teacher macrostep
+                # is the trajectory prefix already computed above: the same operations on the
+                # same tensors as teacher_target, hence bit-identical without new teacher passes.
+                target=(teacher_velocities[0] if stop==1 else
+                        ((teacher_states[stop]-source.detach())/(grid[stop]-grid[start])).detach())
+            else:
+                target=teacher_target(teacher,source,tau,next_tau)
+            stats={} if self.collect_diagnostics else None
             v,r=self.velocity(source,current_tau,student_condition,cache,
-                              loops=k,d=1/n,history=history)
+                              loops=k,d=1/n,history=history,stats=stats)
+            if stats is not None: steps_stats.append(stats)
             local=local+masked_action_loss(v,target,sample["action_is_pad"])/n
             delta=(grid[stop]-grid[start])*v
             new_history=TransportHistory(r,None if history is None else history.residual,
@@ -137,7 +170,14 @@ class TransportPolicy(nn.Module):
         loss=sum(self.loss_weights[key]*value for key,value in components.items())
         # Fixed masking avoids boolean-index graphs and keeps dummy DDP ranks participating.
         valid=sample["sample_valid"].to(loss)
-        return (loss*valid).sum(),{key:(value.detach()*valid).sum() for key,value in components.items()}
+        logs={key:(value.detach()*valid).sum() for key,value in components.items()}
+        if self.collect_diagnostics:
+            logs["total"]=(loss.detach()*valid).sum()
+            # Per-sample means over the student steps that produced each quantity.
+            for key in dict.fromkeys(key for stats in steps_stats for key in stats):
+                values=[stats[key] for stats in steps_stats if key in stats]
+                logs["diag_"+key]=((sum(values)/len(values)).float()*valid).sum()
+        return (loss*valid).sum(),logs
 
     @torch.no_grad()
     def rollout(self,sample,schedule,noise):

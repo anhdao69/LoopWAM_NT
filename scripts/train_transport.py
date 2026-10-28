@@ -20,7 +20,8 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader
 from train_loopwam import ExactDistributedBatches,lr_factor
-from transport_experiments import EXPERIMENTS
+from transport_experiments import EXPERIMENTS,ELASTIC
+from elastic_schedules import schedule_sequence,sequence_sha256,legacy_choice,block_calls
 from fastwam.datasets.transport_cached import TransportCachedDataset
 from fastwam.models.wan22.loopwam import create_loopwam
 from fastwam.models.wan22.transport_policy import TransportPolicy
@@ -56,6 +57,20 @@ def save_recovery(model,opt,ema,out,state,rank,world):
                          ema=ema,rng=states,**state),out/"latest.pt")
         (out/"status.json").write_text(json.dumps({k:v for k,v in state.items() if k!="contract"},indent=2))
     if world>1: dist.barrier()
+
+def load_elastic_init(model,config,path,teacher_sha256):
+    """Copy the hashed common (or legacy-reconstructed) initial tensors and verify equality."""
+    artifact=torch.load(path,map_location="cpu",weights_only=False)
+    if artifact.get("format")!="elastic-init-v1" or artifact.get("recipe")!=config["init"]:
+        raise ValueError(f"Run needs initialization recipe {config['init']}")
+    if artifact["teacher_sha256"]!=teacher_sha256:
+        raise ValueError("Initialization artifact was built from a different parent")
+    state=dict(student_action=artifact["student_action"],step_condition=artifact["step_condition"])
+    parts=["student_action","step_condition"]
+    if any(p.requires_grad for p in model.transport.parameters()):
+        state["transport"]=artifact["transport"][config["kind"]]; parts.append("transport")
+    model.load_initial_state(state,parts)
+    return parts
 
 def export_epoch(model,out,epoch,config,update,contract,early=False):
     parent=model.parent
@@ -101,7 +116,11 @@ def initialize_stacked(model,initial,device):
 
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--run-name",choices=EXPERIMENTS,required=True)
+    p.add_argument("--run-name",choices=[*EXPERIMENTS,*ELASTIC],required=True)
+    p.add_argument("--init-artifact",help="Hashed elastic initialization (scripts/elastic_init.py)")
+    p.add_argument("--checkpoint-min-blocks",type=int,
+        help="Checkpoint student blocks only on updates whose schedule has at least this many block calls")
+    p.add_argument("--hf-folder",default=None)
     p.add_argument("--output-dir",required=True)
     p.add_argument("--teacher",default=str(PARENT_RUN/"train/latest.pt"))
     p.add_argument("--vae-path",default=str(ASSETS/"checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth"))
@@ -129,7 +148,11 @@ def main():
     torch.cuda.set_device(local); torch.set_num_threads(4)
     if world>1: dist.init_process_group("nccl",device_id=torch.device("cuda",local))
     device=torch.device("cuda",local)
-    config=copy.deepcopy(EXPERIMENTS[a.run_name])
+    elastic=a.run_name in ELASTIC
+    config=copy.deepcopy(ELASTIC[a.run_name] if elastic else EXPERIMENTS[a.run_name])
+    if elastic and not a.init_artifact: p.error("Elastic runs need --init-artifact")
+    if config.get("verification_only") and a.max_updates is None: p.error("Verification recipes must stop at --max-updates")
+    if a.checkpoint_min_blocks is not None and not elastic: p.error("Adaptive checkpointing is an elastic option")
     seed=config["seed"]
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     out=Path(a.output_dir); out.mkdir(parents=True,exist_ok=True)
@@ -142,27 +165,47 @@ def main():
     parent=create_loopwam(checkpoint_path=a.teacher,vae_path=a.vae_path,device=str(device))
     parent.requires_grad_(False).eval()
     model=TransportPolicy(parent,**{k:config[k] for k in ("kind","scope","step_cond","regime","anchor")},
-        checkpoint_blocks=not a.no_checkpoint_blocks,loss_weights=config.get("loss_weights")).to(device)
+        checkpoint_blocks=not a.no_checkpoint_blocks,loss_weights=config.get("loss_weights"),
+        reuse_teacher_prefix=config.get("reuse_teacher_prefix",False),
+        collect_diagnostics=config.get("collect_diagnostics",False)).to(device)
+    from fastwam.models.wan22.loopwam_init import sha256_file
+    identities=[None]
+    if rank==0:
+        identities[0]=dict(teacher=sha256_file(a.teacher),initial=None if a.init_checkpoint is None else sha256_file(a.init_checkpoint),vae=sha256_file(a.vae_path))
+        if elastic: identities[0]["elastic_init"]=sha256_file(a.init_artifact)
+    if world>1: dist.broadcast_object_list(identities,src=0)
     if a.init_checkpoint:
         initial=torch.load(a.init_checkpoint,map_location="cpu",weights_only=False)
         validate_stacked_checkpoint(initial)
         initialize_stacked(model,initial,device)
+    init_parts=load_elastic_init(model,config,a.init_artifact,identities[0]["teacher"]) if elastic else None
     params=[p for p in model.parameters() if p.requires_grad]
     opt=torch.optim.AdamW(model.optimizer_groups(),betas=(.9,.95),eps=1e-8,fused=True)
-    runner=DDP(model,device_ids=[local],broadcast_buffers=False,gradient_as_bucket_view=True) if world>1 else model
+    runner=DDP(model,device_ids=[local],broadcast_buffers=False,gradient_as_bucket_view=True,
+               find_unused_parameters=config.get("find_unused_parameters",False)) if world>1 else model
     sampler=ExactDistributedBatches(len(data),a.microbatch,rank,world,seed)
     loader=DataLoader(data,batch_sampler=sampler,num_workers=a.workers,pin_memory=True,
         persistent_workers=a.workers>0,generator=torch.Generator().manual_seed(seed+rank))
     total=math.ceil(len(data)/a.global_batch)*a.epochs
     accum=a.global_batch//(world*a.microbatch)
-    from fastwam.models.wan22.loopwam_init import sha256_file
-    identities=[None]
-    if rank==0: identities[0]=dict(teacher=sha256_file(a.teacher),initial=None if a.init_checkpoint is None else sha256_file(a.init_checkpoint),vae=sha256_file(a.vae_path))
-    if world>1: dist.broadcast_object_list(identities,src=0)
     contract=dict(asset_sha256=identities[0],config=config,windows=len(data),world=world,microbatch=a.microbatch,
         global_batch=a.global_batch,epochs=a.epochs,planned_updates=total,teacher=str(Path(a.teacher).resolve()),
         normalization_sha256=data.manifest["normalization_sha256"],
         checkpoint_blocks=not a.no_checkpoint_blocks,deterministic_algorithms=True)
+    sequence=None
+    if elastic:
+        sequence=schedule_sequence(config,total)
+        staged=Path(a.latent_dir)/"STAGED.json"
+        contract.update(schedule_sequence_sha256=None if sequence is None else sequence_sha256(sequence),
+            checkpoint_min_blocks=a.checkpoint_min_blocks,init_parts=init_parts,
+            latent_content_digest=json.loads(staged.read_text())["chunk_sha256_digest"] if staged.exists() else None)
+        if rank==0 and sequence is not None:
+            record=out/"schedule_sequence.json"
+            if record.exists() and json.loads(record.read_text())["sha256"]!=contract["schedule_sequence_sha256"]:
+                raise ValueError("Persisted schedule sequence differs from the regenerated one")
+            if not record.exists():
+                record.write_text(json.dumps(dict(sha256=contract["schedule_sequence_sha256"],sampler=config["sampler"],
+                    seed=seed,updates=total,sequence=sequence)))
     ema={n:p.detach().clone() for n,p in model.named_parameters() if p.requires_grad}
     update=0; epoch_start=0; micro_start=0; windows_seen=0
     if a.resume:
@@ -187,7 +230,7 @@ def main():
         document=dict(**contract,run=a.run_name,arguments=vars(a),trainable_parameters=sum(p.numel() for p in params),
             slurm_job_id=os.getenv("SLURM_JOB_ID"),git_revision=(ROOT/"REVISION").read_text().strip() if (ROOT/"REVISION").exists() else subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
             schedules={s:list(SCHEDULES[s]) for s in config["schedules"]},gpu=torch.cuda.get_device_name(),
-            torch_version=torch.__version__,hf_folder=f"https://huggingface.co/anhdao69/ResidualTrans/tree/main/{a.run_name}")
+            torch_version=torch.__version__,hf_folder=a.hf_folder or f"https://huggingface.co/anhdao69/ResidualTrans/tree/main/{a.run_name}")
         (out/"config.json").write_text(json.dumps(document,indent=2))
         # Preserve canonical bytes: normalization hashes bind the original formatting.
         import shutil
@@ -208,8 +251,14 @@ def main():
             count=min(a.global_batch,len(data)-group*a.global_batch)
             boundary=(micro+1)%accum==0 or micro+1==len(sampler)
             if micro%accum==0:
-                schedule_name=random.Random(seed+update*65537).choice(config["schedules"])
+                # One configuration for the whole global batch, on every rank and microbatch.
+                if sequence is not None: schedule_name=sequence[update]
+                elif elastic: schedule_name=legacy_choice(seed,update,config["schedules"])
+                else: schedule_name=random.Random(seed+update*65537).choice(config["schedules"])
                 schedule=SCHEDULES[schedule_name]
+                if a.checkpoint_min_blocks is not None:
+                    # Recomputation is deterministic: this trades time for memory, not values.
+                    model.checkpoint_blocks=block_calls(schedule)>=a.checkpoint_min_blocks
                 model.teacher_passes=0; model.student_block_calls=0
                 model.student.rt_measurement={"forward":0,"backward":0} if update<20 else None
             noise,anchor_noise,anchor_tau=sample_noise(sample["training_index"].tolist(),epoch,seed)
@@ -241,6 +290,9 @@ def main():
                 student_forward_blocks_per_microbatch=model.student_block_calls/max(1,math.ceil(count/(world*a.microbatch))),
                 measured_action_blocks=model.student.rt_measurement,
                 **{k:float(v)/count for k,v in zip(logs,reduced)})
+            if elastic:
+                record.update(loops=list(schedule),nfe=len(schedule),d=1/len(schedule),
+                    checkpoint_blocks=model.checkpoint_blocks,lr=[g["lr"] for g in opt.param_groups])
             if rank==0:
                 log.write(json.dumps(record)+"\n"); log.flush()
                 if update<=20 or update%20==0: print(json.dumps(record),flush=True)
