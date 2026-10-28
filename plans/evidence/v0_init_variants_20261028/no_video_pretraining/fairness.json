@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "problems": [],
+  "documented_exceptions": [
+    {
+      "field": "data.text_cache_files[*].sha256",
+      "files_differing": 40,
+      "files": 40,
+      "note": "T5 text-embedding cache regenerated on this cluster; same 40 prompt files and identical valid-token counts (the same exception as libero-all-suites/v0-video4-action2)"
+    }
+  ],
+  "reference": "libero-all-suites/v0-video4-action4",
+  "init_variant": "no_video_pretraining",
+  "initialization_sha256": "69f284e982ac457eb48f6130979743f56d30864a1c5478ff98240543be785eb9",
+  "reference_initialization_sha256": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+  "initialization_differs_by_design": true,
+  "compared_training_fields": [
+    "seed",
+    "epochs",
+    "global_batch",
+    "train_windows",
+    "planned_updates",
+    "planned_windows",
+    "policy_dtype",
+    "optimizer_state_dtype",
+    "compute_dtype"
+  ],
+  "compared_setup_fields": [
+    "version",
+    "loops",
+    "backend",
+    "structured_attention",
+    "fused_optimizer",
+    "bucket_views",
+    "smoke",
+    "validation_samples",
+    "dataset_scope",
+    "torch_version",
+    "asset_sha256.vae"
+  ],
+  "compared_data_fields": [
+    "action_offsets",
+    "available_episodes",
+    "available_windows",
+    "camera_order",
+    "codebase_version",
+    "complete_500_demo_set",
+    "content_files",
+    "dataset_scope",
+    "episode_metadata_sha256",
+    "fps",
+    "info_sha256",
+    "metadata_files",
+    "normalization_scope",
+    "normalization_sha256",
+    "normalization_source",
+    "padding_policy",
+    "seed",
+    "split",
+    "split_algorithm",
+    "suites",
+    "task_counts",
+    "text_encoder_provenance",
+    "train_episodes",
+    "train_windows",
+    "validation_episodes",
+    "validation_windows",
+    "video_offsets",
+    "coverage (paths ignored)",
+    "text_cache_files (names, valid_tokens)"
+  ],
+  "ignored_path_fields": [
+    "dataset_dir",
+    "normalization_path",
+    "text_cache_dir",
+    "coverage.*.dataset_dir"
+  ],
+  "layout": {
+    "world_size": {
+      "this_run": 2,
+      "v0_release": 4
+    },
+    "microbatch": {
+      "this_run": 8,
+      "v0_release": 8
+    },
+    "gradient_accumulation": {
+      "this_run": 8,
+      "v0_release": 4
+    },
+    "gpu": {
+      "this_run": "NVIDIA H100 80GB HBM3",
+      "v0_release": "NVIDIA H100 80GB HBM3"
+    }
+  },
+  "layout_note": "Global batch 128 in every case. This run uses the 2 GPUs x microbatch 8 x accumulation 8 layout of the H100 v0 runs (4/1, 4/2); the v0 4/4 release used 4 x 8 x 4 and init_variants/core16_21 2 x 16 x 4, so sampler order and noise stream differ from those runs.",
+  "world_size": 2,
+  "microbatch": 8,
+  "gradient_accumulation": 8,
+  "git_revision": "56e33285a82c6abe075565b3d60c26a5ba7a148f",
+  "training_code_patch_sha256": "78895645899c8e32a0251be485ac5cd1513048a8e9e577dcc5bbd72f3fd658f5",
+  "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4"
+}

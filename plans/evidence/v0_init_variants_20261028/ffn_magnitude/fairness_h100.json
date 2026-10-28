@@ -1,0 +1,80 @@
+{
+  "passed": false,
+  "problems": [
+    "data manifest differs from the v0 release: ['text_cache_files']"
+  ],
+  "version": "v0",
+  "init_variant": "ffn_magnitude",
+  "initialization_sha256": "c73dea22295a8b0c5de98536c862f6920438f0b51daf44690105bdc4a558d9bf",
+  "reference": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants_work/reference/libero-all-suites/v0-video4-action4",
+  "compared_training_fields": [
+    "seed",
+    "epochs",
+    "global_batch",
+    "train_windows",
+    "planned_updates",
+    "planned_windows",
+    "policy_dtype",
+    "optimizer_state_dtype",
+    "compute_dtype"
+  ],
+  "data_fields": [
+    "action_offsets",
+    "available_episodes",
+    "available_windows",
+    "camera_order",
+    "codebase_version",
+    "complete_500_demo_set",
+    "content_files",
+    "coverage",
+    "dataset_scope",
+    "episode_metadata_sha256",
+    "fps",
+    "info_sha256",
+    "metadata_files",
+    "normalization_scope",
+    "normalization_sha256",
+    "normalization_source",
+    "padding_policy",
+    "seed",
+    "split",
+    "split_algorithm",
+    "suites",
+    "task_counts",
+    "text_cache_files",
+    "text_encoder_provenance",
+    "train_episodes",
+    "train_windows",
+    "validation_episodes",
+    "validation_windows",
+    "video_offsets"
+  ],
+  "ignored_path_fields": [
+    "dataset_dir",
+    "normalization_path",
+    "text_cache_dir"
+  ],
+  "world_size": 2,
+  "microbatch": 8,
+  "gradient_accumulation": 8,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "git_revision": "4ebf38a3c65aa5cc9d6c07d94c52f91c51551b57",
+  "resumed": false,
+  "resume_manifests": [],
+  "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+  "final_epoch_loss_video": 0.055520469528044486,
+  "final_epoch_loss_action": 0.0172774877269975,
+  "training_hours": 22.095675540633188,
+  "h100": {
+    "h100_passed": true,
+    "residual_problems": [],
+    "known_cluster_exceptions": [
+      {
+        "problem": "data manifest differs from the v0 release: ['text_cache_files']",
+        "accepted_because": "text-embedding files regenerated on this cluster; same 40 prompt-hash file names and valid-token counts as the v0 release"
+      }
+    ],
+    "canonical_artifact_sha256": "a990a5831c63e88ae5143689adad2f2aeb02cb1cd151d61ae0dd992990ac3296",
+    "branch_verifier_message": "verification failed: data manifest differs from the v0 release: ['text_cache_files']"
+  }
+}

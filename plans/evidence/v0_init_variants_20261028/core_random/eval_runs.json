@@ -1,0 +1,26 @@
+[
+ {
+  "token": "evc101-990547-446267-1793199452",
+  "started": 1793199461.7285995,
+  "finished": 1793205865.2348156,
+  "wall_seconds": 6403.5062165260315,
+  "gpus": "0,1",
+  "workers": 8,
+  "threads": 1,
+  "groups_completed": 120,
+  "errors": 0,
+  "slurm_job_id": "990547"
+ },
+ {
+  "token": "evc101-990547-455508-1793201987",
+  "started": 1793202026.6159778,
+  "finished": 1793206154.5356457,
+  "wall_seconds": 4127.919668197632,
+  "gpus": "2,3",
+  "workers": 8,
+  "threads": 1,
+  "groups_completed": 103,
+  "errors": 0,
+  "slurm_job_id": "990547"
+ }
+]

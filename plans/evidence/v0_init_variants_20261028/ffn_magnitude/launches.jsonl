@@ -1,0 +1,1 @@
+{"event": "launch", "time": "2026-10-27T13:28:49-04:00", "host": "evc101", "slurm_job": "990547", "slurm_step": "3", "variant": "ffn_magnitude", "gpus": "2,3", "resume": false, "revision": "4ebf38a3c65aa5cc9d6c07d94c52f91c51551b57", "latent_cache": "/tmp/loopwam_iv_ffn_magnitude_990547/latents", "gpu_name": "NVIDIA H100 80GB HBM3"}

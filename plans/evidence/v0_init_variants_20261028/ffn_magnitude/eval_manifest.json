@@ -1,0 +1,79 @@
+{
+ "run": "ffn_magnitude",
+ "checkpoint": "/lustre/fs1/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/ffn_magnitude/train/latest.pt",
+ "sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2",
+ "step": 21700,
+ "stats": "/lustre/fs1/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/ffn_magnitude/train/data/dataset_stats.json",
+ "data_manifest": "/lustre/fs1/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/ffn_magnitude/train/data/data_manifest.json",
+ "vae_path": "/lustre/fs1/home/an221229/code/LoopWAM_initvar/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "text_cache_dir": "/groups/yshang/an221229/data/FastWAM/text_embeds_cache/libero",
+ "backend": "cuda-graph",
+ "output": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/ffn_magnitude/eval_matched",
+ "contract_world": 2,
+ "initialization_mode": "wan_init_variant_ffn_magnitude_fresh_optimizer",
+ "init_sha256": "c73dea22295a8b0c5de98536c862f6920438f0b51daf44690105bdc4a558d9bf",
+ "protocol": {
+  "name": "lightwam_20261009_matched",
+  "suites": [
+   "libero_spatial",
+   "libero_object",
+   "libero_goal",
+   "libero_10"
+  ],
+  "seeds": [
+   42,
+   43,
+   44
+  ],
+  "tasks": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "episodes": 50,
+  "max_policy_steps": {
+   "libero_spatial": 400,
+   "libero_object": 400,
+   "libero_goal": 400,
+   "libero_10": 700
+  },
+  "settling_steps": 30,
+  "settling_action": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   -1
+  ],
+  "settling_done": "ignored",
+  "replan_steps": 10,
+  "action_horizon": 32,
+  "denoising_steps": 10,
+  "cfg": 1.0,
+  "action_shift": 1.0,
+  "seed_rule": "global seed once per task/seed group; env.seed(base) at construction, env reused for 50 sequential initial states; every query uses the base seed",
+  "success": "environment done flag",
+  "precision": "FP32 model, BF16 autocast, BF16 VAE",
+  "camera": 256,
+  "model_image": "2x224 horizontal",
+  "gripper": "sign(-(2*denormalized_gripper-1))",
+  "videos": false
+ },
+ "runner_sha256": "812893704471b99352b26bf8db91cfe548a11213f9ff7ac40d8f1558f1bce5ea",
+ "adapter_source_sha256": "c3d99fa72cc0be9a518299898515ffcd1036344d984c8a90723cec588f810a51",
+ "code_root": "/lustre/fs1/home/an221229/code/LoopWAM_initvar",
+ "host": "evc101",
+ "slurm_job_id": "990547",
+ "mujoco_gl": "egl",
+ "torch": "2.7.1+cu128"
+}

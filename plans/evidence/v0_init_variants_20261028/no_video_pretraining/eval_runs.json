@@ -1,0 +1,14 @@
+[
+ {
+  "token": "evc101-990547-703047-1793217656",
+  "started": 1793217692.4502254,
+  "finished": 1793222842.986672,
+  "wall_seconds": 5150.536447048187,
+  "gpus": "0,1,2,3",
+  "workers": 16,
+  "threads": 1,
+  "groups_completed": 120,
+  "errors": 0,
+  "slurm_job_id": "990547"
+ }
+]

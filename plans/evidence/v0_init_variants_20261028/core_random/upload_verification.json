@@ -1,0 +1,63 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "repo_path": "libero-all-suites/init_variants/core_random",
+  "revision": "76918263b1979aa472fd91b39e21254c7ae4203c",
+  "private": false,
+  "verified_files": {
+    "README.md": {
+      "size": 3451,
+      "sha256": "a0faa0cfea399412114f35f585900981ad2a47a4d1274537973a104ac9d1dbd2",
+      "blob": "b5d107791a3e61ce2d5add45e33b46084f793f42"
+    },
+    "data_manifest.json": {
+      "size": 96892,
+      "sha256": "eff940d8e2f0d4f2fc24e31e86fd7da2ab3d9bf179ba42e1c3e027eb03cc88a0",
+      "blob": "fa45a5190d9d3f1c756d813c5393620df106aa02"
+    },
+    "dataset_stats.json": {
+      "size": 973,
+      "sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "blob": "37aaedd4aefa4e5997c19bba904f81a24ed48149"
+    },
+    "evaluation_summary.json": {
+      "size": 6481,
+      "sha256": "ddfad27a73c37722a80ec79fbc08a95de9ef74108b406488a85e0661bc5f2ee3",
+      "blob": "d895f91912c38c4b0cfc6fa233bb40394d1ab177"
+    },
+    "export.json": {
+      "size": 1808,
+      "sha256": "0f021e376000c07d99b767f924b69d6aa4c9d542e1591dca3aada6227600fc4b",
+      "blob": "77ed17f16a95910803aa149a973f16bb7de8b6bd"
+    },
+    "fairness.json": {
+      "size": 2892,
+      "sha256": "868de05e18a6ee2a9b897bc793d102d37a58678dfeec9400151d9ef609c249e1",
+      "blob": "e36b1420e7c15b7260cf56f2fe61e3cdc64f5263"
+    },
+    "init_variant_manifest.json": {
+      "size": 1116,
+      "sha256": "e732e08da8f5b994eb9fb406a1ade26e6b93278867de274d31bfc640e7ee8e2a",
+      "blob": "226692fbfb56d791174eb2c9920d5155645dfc84"
+    },
+    "policy.pt": {
+      "size": 2338702667,
+      "sha256": "398b5ae51427f6a1f71d9e84f969db1a54aeac75245eafbb63ade22e77b5ea47",
+      "blob": null
+    },
+    "training_manifest.json": {
+      "size": 643353,
+      "sha256": "b6cef86ca09ac1848f024e5af2a0b1131e832e6d54f16ffeee97c121037dd981",
+      "blob": "60001a12b049d2c1f12c51b48ffd7927a2211ac6"
+    },
+    "training_timing.json": {
+      "size": 2858,
+      "sha256": "e951aad0ab6d07f7d1c427945285512ee89d1b756aa05bc39c20e08afa54bde4",
+      "blob": "4cb210cbfd21bcdf621d963519b9587c2e905497"
+    }
+  },
+  "index_revision": "76918263b1979aa472fd91b39e21254c7ae4203c",
+  "already_indexed": false,
+  "readme_count_updated": true,
+  "readme_rows_added": 2,
+  "completed_utc": "2026-10-28T19:17:17.524460+00:00"
+}

@@ -1,0 +1,103 @@
+{
+  "variant": "ffn_magnitude",
+  "artifact": "checkpoints/LoopWAM/init_variants/ffn_magnitude.pt",
+  "artifact_sha256": "c73dea22295a8b0c5de98536c862f6920438f0b51daf44690105bdc4a558d9bf",
+  "canonical_artifact": "checkpoints/LoopWAM/wan21_compact_donors.pt",
+  "canonical_artifact_sha256": "a990a5831c63e88ae5143689adad2f2aeb02cb1cd151d61ae0dd992990ac3296",
+  "student_block_plan": [
+    [
+      "wan",
+      0
+    ],
+    [
+      "wan",
+      1
+    ],
+    [
+      "wan",
+      2
+    ],
+    [
+      "wan",
+      9
+    ],
+    [
+      "wan",
+      10
+    ],
+    [
+      "wan",
+      11
+    ],
+    [
+      "wan",
+      12
+    ],
+    [
+      "wan",
+      13
+    ],
+    [
+      "wan",
+      14
+    ],
+    [
+      "wan",
+      27
+    ],
+    [
+      "wan",
+      28
+    ],
+    [
+      "wan",
+      29
+    ]
+  ],
+  "donor_indices": [
+    0,
+    1,
+    2,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    27,
+    28,
+    29
+  ],
+  "ffn_rule": "magnitude_top6144_per_block",
+  "variant_seed": 42,
+  "policy_parameters": 584536135,
+  "checks": {
+    "tensors": 677,
+    "copied": 641,
+    "mean": 0,
+    "random": 0,
+    "magnitude_ffn": 36,
+    "ffn_overlap_with_canonical": {
+      "0": 4176,
+      "1": 4194,
+      "2": 4165,
+      "3": 4196,
+      "4": 4186,
+      "5": 4237,
+      "6": 4213,
+      "7": 4209,
+      "8": 4197,
+      "9": 4211,
+      "10": 4227,
+      "11": 4218
+    }
+  },
+  "core_slots": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "variant": "core_random",
+  "artifact": "checkpoints/LoopWAM/init_variants/core_random.pt",
+  "artifact_sha256": "893f9a702f574d39183a009b36eb4776780a7a42675ae04b67a1d9e453d6002c",
+  "canonical_artifact": "checkpoints/LoopWAM/wan21_compact_donors.pt",
+  "canonical_artifact_sha256": "a990a5831c63e88ae5143689adad2f2aeb02cb1cd151d61ae0dd992990ac3296",
+  "student_block_plan": [
+    [
+      "wan",
+      0
+    ],
+    [
+      "wan",
+      1
+    ],
+    [
+      "wan",
+      2
+    ],
+    [
+      "random",
+      0
+    ],
+    [
+      "random",
+      1
+    ],
+    [
+      "random",
+      2
+    ],
+    [
+      "random",
+      3
+    ],
+    [
+      "random",
+      4
+    ],
+    [
+      "random",
+      5
+    ],
+    [
+      "wan",
+      27
+    ],
+    [
+      "wan",
+      28
+    ],
+    [
+      "wan",
+      29
+    ]
+  ],
+  "donor_indices": null,
+  "ffn_rule": "canonical_linspace_6144",
+  "variant_seed": 42,
+  "policy_parameters": 584536135,
+  "checks": {
+    "tensors": 677,
+    "copied": 353,
+    "mean": 0,
+    "random": 324,
+    "magnitude_ffn": 0
+  },
+  "core_slots": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

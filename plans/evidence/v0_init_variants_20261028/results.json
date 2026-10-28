@@ -1,0 +1,931 @@
+{
+ "generated_utc": "2026-10-28T22:53:44.953652+00:00",
+ "reference_v0_release": {
+  "successes": 5695,
+  "episodes": 6000,
+  "success_rate": 0.9491666666666667,
+  "per_suite": {
+   "libero_10": {
+    "successes": 1318,
+    "episodes": 1500,
+    "success_rate": 0.8786666666666667,
+    "seeds": {
+     "42": {
+      "successes": 452,
+      "episodes": 500,
+      "success_rate": 0.904
+     },
+     "43": {
+      "successes": 436,
+      "episodes": 500,
+      "success_rate": 0.872
+     },
+     "44": {
+      "successes": 430,
+      "episodes": 500,
+      "success_rate": 0.86
+     }
+    }
+   },
+   "libero_goal": {
+    "successes": 1442,
+    "episodes": 1500,
+    "success_rate": 0.9613333333333334,
+    "seeds": {
+     "42": {
+      "successes": 485,
+      "episodes": 500,
+      "success_rate": 0.97
+     },
+     "43": {
+      "successes": 480,
+      "episodes": 500,
+      "success_rate": 0.96
+     },
+     "44": {
+      "successes": 477,
+      "episodes": 500,
+      "success_rate": 0.954
+     }
+    }
+   },
+   "libero_object": {
+    "successes": 1481,
+    "episodes": 1500,
+    "success_rate": 0.9873333333333333,
+    "seeds": {
+     "42": {
+      "successes": 494,
+      "episodes": 500,
+      "success_rate": 0.988
+     },
+     "43": {
+      "successes": 495,
+      "episodes": 500,
+      "success_rate": 0.99
+     },
+     "44": {
+      "successes": 492,
+      "episodes": 500,
+      "success_rate": 0.984
+     }
+    }
+   },
+   "libero_spatial": {
+    "successes": 1454,
+    "episodes": 1500,
+    "success_rate": 0.9693333333333334,
+    "seeds": {
+     "42": {
+      "successes": 480,
+      "episodes": 500,
+      "success_rate": 0.96
+     },
+     "43": {
+      "successes": 488,
+      "episodes": 500,
+      "success_rate": 0.976
+     },
+     "44": {
+      "successes": 486,
+      "episodes": 500,
+      "success_rate": 0.972
+     }
+    }
+   }
+  },
+  "per_seed": {
+   "42": {
+    "successes": 1911,
+    "episodes": 2000,
+    "success_rate": 0.9555
+   },
+   "43": {
+    "successes": 1899,
+    "episodes": 2000,
+    "success_rate": 0.9495
+   },
+   "44": {
+    "successes": 1885,
+    "episodes": 2000,
+    "success_rate": 0.9425
+   }
+  },
+  "long_tasks": {
+   "0": 138,
+   "1": 146,
+   "2": 142,
+   "3": 147,
+   "4": 128,
+   "5": 148,
+   "6": 94,
+   "7": 147,
+   "8": 90,
+   "9": 138
+  },
+  "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+  "wall_seconds": 12605.898666478985,
+  "workers": 8,
+  "backend": "cuda-graph"
+ },
+ "training": {
+  "default": {
+   "where": "v0 release (earlier campaign)",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "layout": "4 x 8 x 4",
+   "hours": 12.095427779783495,
+   "segments": null,
+   "loss_video": null,
+   "loss_action": null,
+   "fairness": "reference",
+   "hf": "libero-all-suites/v0-video4-action4"
+  },
+  "core16_21": {
+   "where": "HiPerGator",
+   "gpu": "NVIDIA B200",
+   "layout": "2 x 16 x 4",
+   "hours": 12.751762776290223,
+   "segments": 1,
+   "loss_video": 0.051856266728757545,
+   "loss_action": 0.016374211976091756,
+   "fairness": "passed",
+   "hf": "libero-all-suites/init_variants/core16_21",
+   "export_sha256": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+   "source_sha256": "e1d4a1951d04b94fc1be93e25507db3bbc2d9b1fa7923495b5f8a89cc3053f15"
+  },
+  "core_mean": {
+   "where": "HiPerGator",
+   "gpu": "NVIDIA B200",
+   "layout": "2 x 16 x 4",
+   "hours": 12.77148126412985,
+   "segments": 1,
+   "loss_video": 0.0528129199272736,
+   "loss_action": 0.016135175192377133,
+   "fairness": "passed",
+   "hf": "libero-all-suites/init_variants/core_mean",
+   "export_sha256": "7613e262c47bd848af49af6797fab37f0d6a199032312a08cafabaa36d004664",
+   "source_sha256": "ba21e88007fb570577d90bd8c961a7e8eeb671fdcf35c9faf8d95e3bf466e66b"
+  },
+  "core_random": {
+   "where": "H100 job 990547",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "layout": "2 x 8 x 8",
+   "hours": 22.06582182872109,
+   "segments": 1,
+   "loss_video": 0.06304270985935839,
+   "loss_action": 0.03254720020010061,
+   "fairness": "passed (text-cache exception)",
+   "started": "2026-10-27T12:01:48-04:00",
+   "hf": "libero-all-suites/init_variants/core_random",
+   "hf_revision": "76918263b1979aa472fd91b39e21254c7ae4203c",
+   "export_sha256": "398b5ae51427f6a1f71d9e84f969db1a54aeac75245eafbb63ade22e77b5ea47",
+   "source_sha256": "cedc3a02f24978b663b4f3686e7d22435a61ed3eaebf185f8eb08d1b5576ef86"
+  },
+  "ffn_magnitude": {
+   "where": "H100 job 990547",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "layout": "2 x 8 x 8",
+   "hours": 22.095675540633188,
+   "segments": 1,
+   "loss_video": 0.055520469528044486,
+   "loss_action": 0.0172774877269975,
+   "fairness": "passed (text-cache exception)",
+   "started": "2026-10-27T13:28:49-04:00",
+   "hf": "libero-all-suites/init_variants/ffn_magnitude",
+   "hf_revision": "e8665edf7e65f345241b6ff5463e7d6a2a10cc3e",
+   "export_sha256": "a71026b87c5b6384311e8290d2eb6735ef0bd10b116fc485f329749092980d78",
+   "source_sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2"
+  },
+  "stepwise": {
+   "where": "H100 job 1080498",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "layout": "4 x 8 x 4",
+   "hours": 11.379429941125823,
+   "segments": 1,
+   "loss_video": 0.05585372606730555,
+   "loss_action": 0.01595889735115341,
+   "fairness": "passed (text-cache exception)",
+   "started": "2026-10-28T03:13:37-04:00",
+   "hf": null,
+   "hf_revision": null,
+   "export_sha256": null,
+   "source_sha256": "0af0b9174fdd2cdcc377b70744ef58d65226794457ceba9570ad29fb8eb6f1e8"
+  },
+  "no_video_pretraining": {
+   "where": "H100 jobs 990527 -> 990547",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "layout": "2 x 8 x 8",
+   "hours": 23.143350625410676,
+   "segments": 2,
+   "loss_video": 0.07044673483184428,
+   "loss_action": 0.026682693209867263,
+   "fairness": "passed (text-cache exception)",
+   "hf": "libero-all-suites/init_variants/no_video_pretraining",
+   "export_sha256": "e0bfdfa674471f54ff74a04a899ae5f4874a214edbe6f0796b6954995befb892",
+   "source_sha256": "fc615e83f354c4f4004ef22dbc3f9e4372b0716ec83b08d6f238403f83df22d0"
+  }
+ },
+ "evaluation": {
+  "core_mean": {
+   "checkpoint_sha256": "7613e262c47bd848af49af6797fab37f0d6a199032312a08cafabaa36d004664",
+   "checkpoint_step": 21700,
+   "episodes": 6000,
+   "successes": 5569,
+   "success_rate": 0.9281666666666667,
+   "per_suite": {
+    "libero_spatial": {
+     "successes": 1444,
+     "episodes": 1500,
+     "success_rate": 0.9626666666666667,
+     "seeds": {
+      "42": {
+       "successes": 482,
+       "episodes": 500,
+       "success_rate": 0.964
+      },
+      "43": {
+       "successes": 480,
+       "episodes": 500,
+       "success_rate": 0.96
+      },
+      "44": {
+       "successes": 482,
+       "episodes": 500,
+       "success_rate": 0.964
+      }
+     }
+    },
+    "libero_object": {
+     "successes": 1447,
+     "episodes": 1500,
+     "success_rate": 0.9646666666666667,
+     "seeds": {
+      "42": {
+       "successes": 487,
+       "episodes": 500,
+       "success_rate": 0.974
+      },
+      "43": {
+       "successes": 482,
+       "episodes": 500,
+       "success_rate": 0.964
+      },
+      "44": {
+       "successes": 478,
+       "episodes": 500,
+       "success_rate": 0.956
+      }
+     }
+    },
+    "libero_goal": {
+     "successes": 1416,
+     "episodes": 1500,
+     "success_rate": 0.944,
+     "seeds": {
+      "42": {
+       "successes": 474,
+       "episodes": 500,
+       "success_rate": 0.948
+      },
+      "43": {
+       "successes": 474,
+       "episodes": 500,
+       "success_rate": 0.948
+      },
+      "44": {
+       "successes": 468,
+       "episodes": 500,
+       "success_rate": 0.936
+      }
+     }
+    },
+    "libero_10": {
+     "successes": 1262,
+     "episodes": 1500,
+     "success_rate": 0.8413333333333334,
+     "seeds": {
+      "42": {
+       "successes": 437,
+       "episodes": 500,
+       "success_rate": 0.874
+      },
+      "43": {
+       "successes": 423,
+       "episodes": 500,
+       "success_rate": 0.846
+      },
+      "44": {
+       "successes": 402,
+       "episodes": 500,
+       "success_rate": 0.804
+      }
+     }
+    }
+   },
+   "per_seed": {
+    "42": {
+     "successes": 1880,
+     "episodes": 2000,
+     "success_rate": 0.94
+    },
+    "43": {
+     "successes": 1859,
+     "episodes": 2000,
+     "success_rate": 0.9295
+    },
+    "44": {
+     "successes": 1830,
+     "episodes": 2000,
+     "success_rate": 0.915
+    }
+   },
+   "total_policy_steps": 1050965,
+   "total_queries": 107477,
+   "long_task_successes": {
+    "0": 136,
+    "1": 144,
+    "2": 127,
+    "3": 143,
+    "4": 119,
+    "5": 150,
+    "6": 83,
+    "7": 137,
+    "8": 90,
+    "9": 133
+   },
+   "wall_seconds": 4640.691541194916,
+   "cuda_graph_gate": {
+    "checkpoint_sha256": "7613e262c47bd848af49af6797fab37f0d6a199032312a08cafabaa36d004664",
+    "all_bit_exact": true,
+    "queries": 24,
+    "eager_ms_median": 492.0798512175679,
+    "graph_ms_median": 250.08448213338852,
+    "peak_gpu_gib": 2.9684596061706543,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "speedup": 1.9676544782778862
+   }
+  },
+  "ffn_magnitude": {
+   "checkpoint_sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2",
+   "checkpoint_step": 21700,
+   "episodes": 6000,
+   "successes": 5527,
+   "success_rate": 0.9211666666666667,
+   "per_suite": {
+    "libero_spatial": {
+     "successes": 1437,
+     "episodes": 1500,
+     "success_rate": 0.958,
+     "seeds": {
+      "42": {
+       "successes": 480,
+       "episodes": 500,
+       "success_rate": 0.96
+      },
+      "43": {
+       "successes": 474,
+       "episodes": 500,
+       "success_rate": 0.948
+      },
+      "44": {
+       "successes": 483,
+       "episodes": 500,
+       "success_rate": 0.966
+      }
+     }
+    },
+    "libero_object": {
+     "successes": 1474,
+     "episodes": 1500,
+     "success_rate": 0.9826666666666667,
+     "seeds": {
+      "42": {
+       "successes": 493,
+       "episodes": 500,
+       "success_rate": 0.986
+      },
+      "43": {
+       "successes": 490,
+       "episodes": 500,
+       "success_rate": 0.98
+      },
+      "44": {
+       "successes": 491,
+       "episodes": 500,
+       "success_rate": 0.982
+      }
+     }
+    },
+    "libero_goal": {
+     "successes": 1394,
+     "episodes": 1500,
+     "success_rate": 0.9293333333333333,
+     "seeds": {
+      "42": {
+       "successes": 470,
+       "episodes": 500,
+       "success_rate": 0.94
+      },
+      "43": {
+       "successes": 459,
+       "episodes": 500,
+       "success_rate": 0.918
+      },
+      "44": {
+       "successes": 465,
+       "episodes": 500,
+       "success_rate": 0.93
+      }
+     }
+    },
+    "libero_10": {
+     "successes": 1222,
+     "episodes": 1500,
+     "success_rate": 0.8146666666666667,
+     "seeds": {
+      "42": {
+       "successes": 417,
+       "episodes": 500,
+       "success_rate": 0.834
+      },
+      "43": {
+       "successes": 407,
+       "episodes": 500,
+       "success_rate": 0.814
+      },
+      "44": {
+       "successes": 398,
+       "episodes": 500,
+       "success_rate": 0.796
+      }
+     }
+    }
+   },
+   "per_seed": {
+    "42": {
+     "successes": 1860,
+     "episodes": 2000,
+     "success_rate": 0.93
+    },
+    "43": {
+     "successes": 1830,
+     "episodes": 2000,
+     "success_rate": 0.915
+    },
+    "44": {
+     "successes": 1837,
+     "episodes": 2000,
+     "success_rate": 0.9185
+    }
+   },
+   "total_policy_steps": 1071853,
+   "total_queries": 109563,
+   "long_task_successes": {
+    "0": 124,
+    "1": 149,
+    "2": 134,
+    "3": 139,
+    "4": 120,
+    "5": 148,
+    "6": 81,
+    "7": 119,
+    "8": 82,
+    "9": 126
+   },
+   "wall_seconds": 4541.15402173996,
+   "cuda_graph_gate": {
+    "checkpoint_sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2",
+    "all_bit_exact": true,
+    "queries": 24,
+    "eager_ms_median": 246.16836197674274,
+    "graph_ms_median": 102.17705182731152,
+    "peak_gpu_gib": 2.9684596061706543,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "speedup": 2.409233360860613
+   }
+  },
+  "stepwise": {
+   "checkpoint_sha256": "0af0b9174fdd2cdcc377b70744ef58d65226794457ceba9570ad29fb8eb6f1e8",
+   "checkpoint_step": 21700,
+   "episodes": 6000,
+   "successes": 5488,
+   "success_rate": 0.9146666666666666,
+   "per_suite": {
+    "libero_spatial": {
+     "successes": 1424,
+     "episodes": 1500,
+     "success_rate": 0.9493333333333334,
+     "seeds": {
+      "42": {
+       "successes": 476,
+       "episodes": 500,
+       "success_rate": 0.952
+      },
+      "43": {
+       "successes": 473,
+       "episodes": 500,
+       "success_rate": 0.946
+      },
+      "44": {
+       "successes": 475,
+       "episodes": 500,
+       "success_rate": 0.95
+      }
+     }
+    },
+    "libero_object": {
+     "successes": 1436,
+     "episodes": 1500,
+     "success_rate": 0.9573333333333334,
+     "seeds": {
+      "42": {
+       "successes": 492,
+       "episodes": 500,
+       "success_rate": 0.984
+      },
+      "43": {
+       "successes": 476,
+       "episodes": 500,
+       "success_rate": 0.952
+      },
+      "44": {
+       "successes": 468,
+       "episodes": 500,
+       "success_rate": 0.936
+      }
+     }
+    },
+    "libero_goal": {
+     "successes": 1408,
+     "episodes": 1500,
+     "success_rate": 0.9386666666666666,
+     "seeds": {
+      "42": {
+       "successes": 474,
+       "episodes": 500,
+       "success_rate": 0.948
+      },
+      "43": {
+       "successes": 472,
+       "episodes": 500,
+       "success_rate": 0.944
+      },
+      "44": {
+       "successes": 462,
+       "episodes": 500,
+       "success_rate": 0.924
+      }
+     }
+    },
+    "libero_10": {
+     "successes": 1220,
+     "episodes": 1500,
+     "success_rate": 0.8133333333333334,
+     "seeds": {
+      "42": {
+       "successes": 416,
+       "episodes": 500,
+       "success_rate": 0.832
+      },
+      "43": {
+       "successes": 414,
+       "episodes": 500,
+       "success_rate": 0.828
+      },
+      "44": {
+       "successes": 390,
+       "episodes": 500,
+       "success_rate": 0.78
+      }
+     }
+    }
+   },
+   "per_seed": {
+    "42": {
+     "successes": 1858,
+     "episodes": 2000,
+     "success_rate": 0.929
+    },
+    "43": {
+     "successes": 1835,
+     "episodes": 2000,
+     "success_rate": 0.9175
+    },
+    "44": {
+     "successes": 1795,
+     "episodes": 2000,
+     "success_rate": 0.8975
+    }
+   },
+   "total_policy_steps": 1092303,
+   "total_queries": 111615,
+   "long_task_successes": {
+    "0": 124,
+    "1": 148,
+    "2": 136,
+    "3": 145,
+    "4": 102,
+    "5": 142,
+    "6": 80,
+    "7": 110,
+    "8": 106,
+    "9": 127
+   },
+   "wall_seconds": 4672.661868095398,
+   "cuda_graph_gate": {
+    "checkpoint_sha256": "0af0b9174fdd2cdcc377b70744ef58d65226794457ceba9570ad29fb8eb6f1e8",
+    "all_bit_exact": true,
+    "queries": 24,
+    "eager_ms_median": 250.09472016245127,
+    "graph_ms_median": 102.35734470188618,
+    "peak_gpu_gib": 2.9684596061706543,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "speedup": 2.443349042424336
+   }
+  },
+  "core_random": {
+   "checkpoint_sha256": "cedc3a02f24978b663b4f3686e7d22435a61ed3eaebf185f8eb08d1b5576ef86",
+   "checkpoint_step": 21700,
+   "episodes": 6000,
+   "successes": 4932,
+   "success_rate": 0.822,
+   "per_suite": {
+    "libero_spatial": {
+     "successes": 1380,
+     "episodes": 1500,
+     "success_rate": 0.92,
+     "seeds": {
+      "42": {
+       "successes": 470,
+       "episodes": 500,
+       "success_rate": 0.94
+      },
+      "43": {
+       "successes": 473,
+       "episodes": 500,
+       "success_rate": 0.946
+      },
+      "44": {
+       "successes": 437,
+       "episodes": 500,
+       "success_rate": 0.874
+      }
+     }
+    },
+    "libero_object": {
+     "successes": 1366,
+     "episodes": 1500,
+     "success_rate": 0.9106666666666666,
+     "seeds": {
+      "42": {
+       "successes": 476,
+       "episodes": 500,
+       "success_rate": 0.952
+      },
+      "43": {
+       "successes": 466,
+       "episodes": 500,
+       "success_rate": 0.932
+      },
+      "44": {
+       "successes": 424,
+       "episodes": 500,
+       "success_rate": 0.848
+      }
+     }
+    },
+    "libero_goal": {
+     "successes": 1277,
+     "episodes": 1500,
+     "success_rate": 0.8513333333333334,
+     "seeds": {
+      "42": {
+       "successes": 423,
+       "episodes": 500,
+       "success_rate": 0.846
+      },
+      "43": {
+       "successes": 442,
+       "episodes": 500,
+       "success_rate": 0.884
+      },
+      "44": {
+       "successes": 412,
+       "episodes": 500,
+       "success_rate": 0.824
+      }
+     }
+    },
+    "libero_10": {
+     "successes": 909,
+     "episodes": 1500,
+     "success_rate": 0.606,
+     "seeds": {
+      "42": {
+       "successes": 335,
+       "episodes": 500,
+       "success_rate": 0.67
+      },
+      "43": {
+       "successes": 334,
+       "episodes": 500,
+       "success_rate": 0.668
+      },
+      "44": {
+       "successes": 240,
+       "episodes": 500,
+       "success_rate": 0.48
+      }
+     }
+    }
+   },
+   "per_seed": {
+    "42": {
+     "successes": 1704,
+     "episodes": 2000,
+     "success_rate": 0.852
+    },
+    "43": {
+     "successes": 1715,
+     "episodes": 2000,
+     "success_rate": 0.8575
+    },
+    "44": {
+     "successes": 1513,
+     "episodes": 2000,
+     "success_rate": 0.7565
+    }
+   },
+   "total_policy_steps": 1352408,
+   "total_queries": 137315,
+   "long_task_successes": {
+    "0": 95,
+    "1": 137,
+    "2": 104,
+    "3": 132,
+    "4": 82,
+    "5": 97,
+    "6": 40,
+    "7": 98,
+    "8": 49,
+    "9": 75
+   },
+   "wall_seconds": 6692.807046175003,
+   "cuda_graph_gate": {
+    "checkpoint_sha256": "cedc3a02f24978b663b4f3686e7d22435a61ed3eaebf185f8eb08d1b5576ef86",
+    "all_bit_exact": true,
+    "queries": 24,
+    "eager_ms_median": 253.7734815850854,
+    "graph_ms_median": 102.79925540089607,
+    "peak_gpu_gib": 2.9684596061706543,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "speedup": 2.468631514843378
+   }
+  },
+  "no_video_pretraining": {
+   "checkpoint_sha256": "e0bfdfa674471f54ff74a04a899ae5f4874a214edbe6f0796b6954995befb892",
+   "checkpoint_step": 21700,
+   "episodes": 6000,
+   "successes": 5139,
+   "success_rate": 0.8565,
+   "per_suite": {
+    "libero_spatial": {
+     "successes": 1379,
+     "episodes": 1500,
+     "success_rate": 0.9193333333333333,
+     "seeds": {
+      "42": {
+       "successes": 459,
+       "episodes": 500,
+       "success_rate": 0.918
+      },
+      "43": {
+       "successes": 470,
+       "episodes": 500,
+       "success_rate": 0.94
+      },
+      "44": {
+       "successes": 450,
+       "episodes": 500,
+       "success_rate": 0.9
+      }
+     }
+    },
+    "libero_object": {
+     "successes": 1389,
+     "episodes": 1500,
+     "success_rate": 0.926,
+     "seeds": {
+      "42": {
+       "successes": 440,
+       "episodes": 500,
+       "success_rate": 0.88
+      },
+      "43": {
+       "successes": 485,
+       "episodes": 500,
+       "success_rate": 0.97
+      },
+      "44": {
+       "successes": 464,
+       "episodes": 500,
+       "success_rate": 0.928
+      }
+     }
+    },
+    "libero_goal": {
+     "successes": 1350,
+     "episodes": 1500,
+     "success_rate": 0.9,
+     "seeds": {
+      "42": {
+       "successes": 463,
+       "episodes": 500,
+       "success_rate": 0.926
+      },
+      "43": {
+       "successes": 454,
+       "episodes": 500,
+       "success_rate": 0.908
+      },
+      "44": {
+       "successes": 433,
+       "episodes": 500,
+       "success_rate": 0.866
+      }
+     }
+    },
+    "libero_10": {
+     "successes": 1021,
+     "episodes": 1500,
+     "success_rate": 0.6806666666666666,
+     "seeds": {
+      "42": {
+       "successes": 358,
+       "episodes": 500,
+       "success_rate": 0.716
+      },
+      "43": {
+       "successes": 354,
+       "episodes": 500,
+       "success_rate": 0.708
+      },
+      "44": {
+       "successes": 309,
+       "episodes": 500,
+       "success_rate": 0.618
+      }
+     }
+    }
+   },
+   "per_seed": {
+    "42": {
+     "successes": 1720,
+     "episodes": 2000,
+     "success_rate": 0.86
+    },
+    "43": {
+     "successes": 1763,
+     "episodes": 2000,
+     "success_rate": 0.8815
+    },
+    "44": {
+     "successes": 1656,
+     "episodes": 2000,
+     "success_rate": 0.828
+    }
+   },
+   "total_policy_steps": 1253586,
+   "total_queries": 127542,
+   "long_task_successes": {
+    "0": 94,
+    "1": 131,
+    "2": 127,
+    "3": 134,
+    "4": 54,
+    "5": 129,
+    "6": 79,
+    "7": 106,
+    "8": 53,
+    "9": 114
+   },
+   "wall_seconds": 5150.53644657135,
+   "cuda_graph_gate": {
+    "checkpoint_sha256": "e0bfdfa674471f54ff74a04a899ae5f4874a214edbe6f0796b6954995befb892",
+    "all_bit_exact": true,
+    "queries": 24,
+    "eager_ms_median": 504.2237779125571,
+    "graph_ms_median": 254.03675250709057,
+    "peak_gpu_gib": 2.9684596061706543,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "speedup": 1.9848457868256029
+   }
+  }
+ },
+ "runner_sha256": "812893704471b99352b26bf8db91cfe548a11213f9ff7ac40d8f1558f1bce5ea"
+}

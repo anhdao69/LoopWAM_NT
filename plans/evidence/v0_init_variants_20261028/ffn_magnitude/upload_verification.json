@@ -1,0 +1,63 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "repo_path": "libero-all-suites/init_variants/ffn_magnitude",
+  "revision": "e8665edf7e65f345241b6ff5463e7d6a2a10cc3e",
+  "private": false,
+  "verified_files": {
+    "README.md": {
+      "size": 3574,
+      "sha256": "635839ff8903b6f27b67c86351642083d3ae36d2e2434b4abeaaf7f56fd81a33",
+      "blob": "e345bf3b8703ff3729ebedec602f773959d2c68e"
+    },
+    "data_manifest.json": {
+      "size": 96894,
+      "sha256": "56ca56d74335e1811f18d0ea0ebfc6216e95c06fba100f0bc0741732c783d9ee",
+      "blob": "f8a8d9519f6e66f963ee72e45d6fae2619bc12c1"
+    },
+    "dataset_stats.json": {
+      "size": 973,
+      "sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "blob": "37aaedd4aefa4e5997c19bba904f81a24ed48149"
+    },
+    "evaluation_summary.json": {
+      "size": 6521,
+      "sha256": "0ed376ab224b4bcfae0b39d8b14a89025a4d0016ca6337eebc46733d94252a62",
+      "blob": "8dc8ff99d12d33a1b41d1f547a1bbd1e87c5cb66"
+    },
+    "export.json": {
+      "size": 1845,
+      "sha256": "000bcccb710d7f25d730e7622ebcdf335a4c48fec51923669b3c3d8f4bb85a9f",
+      "blob": "fc337531f48b4d72036812ad0b20acc13ce1e87f"
+    },
+    "fairness.json": {
+      "size": 2895,
+      "sha256": "81b7e6717e3d6b0fb0dff8219d2a1effdc6e9304d340c573e9972f6cd01c050d",
+      "blob": "f3c7380568c94f2b2643375d05bd4cafcb03bb4e"
+    },
+    "init_variant_manifest.json": {
+      "size": 1450,
+      "sha256": "68a63af37d07a9f86bed528b63daa304af0bdcecbfd951c578e880852bef28f1",
+      "blob": "0b1098b4f11e3aafbe5ce9a921fef8127b75fce6"
+    },
+    "policy.pt": {
+      "size": 2338914443,
+      "sha256": "a71026b87c5b6384311e8290d2eb6735ef0bd10b116fc485f329749092980d78",
+      "blob": null
+    },
+    "training_manifest.json": {
+      "size": 1589498,
+      "sha256": "afaa7bec801d345b4dd4b05df091698f9e8a289c059cb2fd696dc1b0e8bfc36f",
+      "blob": "6c99191528feb0d55a3415a20a38df46085e6852"
+    },
+    "training_timing.json": {
+      "size": 2858,
+      "sha256": "65defeb25fbcd1b50ab91699bd5e18a0db182f9b7fce663165a2ce6622daa794",
+      "blob": "568d918a22072fd40b03c266d778c7c93f2d80ea"
+    }
+  },
+  "index_revision": "e8665edf7e65f345241b6ff5463e7d6a2a10cc3e",
+  "already_indexed": false,
+  "readme_count_updated": true,
+  "readme_rows_added": 2,
+  "completed_utc": "2026-10-28T19:18:45.279235+00:00"
+}

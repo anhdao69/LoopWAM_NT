@@ -1,0 +1,124 @@
+{
+ "run": "ffn_magnitude",
+ "checkpoint": "/lustre/fs1/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/ffn_magnitude/train/latest.pt",
+ "checkpoint_sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2",
+ "checkpoint_step": 21700,
+ "backend": "cuda-graph",
+ "episodes": 6000,
+ "successes": 5527,
+ "success_rate": 0.9211666666666667,
+ "per_suite": {
+  "libero_spatial": {
+   "successes": 1437,
+   "episodes": 1500,
+   "success_rate": 0.958,
+   "seeds": {
+    "42": {
+     "successes": 480,
+     "episodes": 500,
+     "success_rate": 0.96
+    },
+    "43": {
+     "successes": 474,
+     "episodes": 500,
+     "success_rate": 0.948
+    },
+    "44": {
+     "successes": 483,
+     "episodes": 500,
+     "success_rate": 0.966
+    }
+   }
+  },
+  "libero_object": {
+   "successes": 1474,
+   "episodes": 1500,
+   "success_rate": 0.9826666666666667,
+   "seeds": {
+    "42": {
+     "successes": 493,
+     "episodes": 500,
+     "success_rate": 0.986
+    },
+    "43": {
+     "successes": 490,
+     "episodes": 500,
+     "success_rate": 0.98
+    },
+    "44": {
+     "successes": 491,
+     "episodes": 500,
+     "success_rate": 0.982
+    }
+   }
+  },
+  "libero_goal": {
+   "successes": 1394,
+   "episodes": 1500,
+   "success_rate": 0.9293333333333333,
+   "seeds": {
+    "42": {
+     "successes": 470,
+     "episodes": 500,
+     "success_rate": 0.94
+    },
+    "43": {
+     "successes": 459,
+     "episodes": 500,
+     "success_rate": 0.918
+    },
+    "44": {
+     "successes": 465,
+     "episodes": 500,
+     "success_rate": 0.93
+    }
+   }
+  },
+  "libero_10": {
+   "successes": 1222,
+   "episodes": 1500,
+   "success_rate": 0.8146666666666667,
+   "seeds": {
+    "42": {
+     "successes": 417,
+     "episodes": 500,
+     "success_rate": 0.834
+    },
+    "43": {
+     "successes": 407,
+     "episodes": 500,
+     "success_rate": 0.814
+    },
+    "44": {
+     "successes": 398,
+     "episodes": 500,
+     "success_rate": 0.796
+    }
+   }
+  }
+ },
+ "per_seed": {
+  "42": {
+   "successes": 1860,
+   "episodes": 2000,
+   "success_rate": 0.93
+  },
+  "43": {
+   "successes": 1830,
+   "episodes": 2000,
+   "success_rate": 0.915
+  },
+  "44": {
+   "successes": 1837,
+   "episodes": 2000,
+   "success_rate": 0.9185
+  }
+ },
+ "suite_mean_success_rate": 0.9211666666666667,
+ "total_policy_steps": 1071853,
+ "total_queries": 109563,
+ "total_query_seconds": 25817.860665105283,
+ "group_seconds": 68401.41059929505,
+ "first_group_completed_at": 1793207045.1959522,
+ "last_group_completed_at": 1793210950.779492
+}

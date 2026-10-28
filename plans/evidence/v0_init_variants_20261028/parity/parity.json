@@ -1,0 +1,57 @@
+{
+ "reference": "/groups/yshang/an221229/checkpoints/ChronoLoop/parent/libero-all-suites/v0-video4-action4",
+ "export_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+ "suite": "libero_10",
+ "seed": 42,
+ "episodes": 500,
+ "h100_successes": 454,
+ "campaign_successes": 452,
+ "h100_success_rate": 0.908,
+ "campaign_success_rate": 0.904,
+ "outcome_agreement": 0.912,
+ "identical_policy_steps": 0.11,
+ "per_task": {
+  "0": {
+   "h100": 46,
+   "campaign": 47
+  },
+  "1": {
+   "h100": 48,
+   "campaign": 48
+  },
+  "2": {
+   "h100": 49,
+   "campaign": 49
+  },
+  "3": {
+   "h100": 50,
+   "campaign": 50
+  },
+  "4": {
+   "h100": 41,
+   "campaign": 42
+  },
+  "5": {
+   "h100": 49,
+   "campaign": 50
+  },
+  "6": {
+   "h100": 39,
+   "campaign": 33
+  },
+  "7": {
+   "h100": 49,
+   "campaign": 49
+  },
+  "8": {
+   "h100": 37,
+   "campaign": 39
+  },
+  "9": {
+   "h100": 46,
+   "campaign": 45
+  }
+ },
+ "wall_seconds": 768.5437963008881,
+ "runner_sha256": "812893704471b99352b26bf8db91cfe548a11213f9ff7ac40d8f1558f1bce5ea"
+}

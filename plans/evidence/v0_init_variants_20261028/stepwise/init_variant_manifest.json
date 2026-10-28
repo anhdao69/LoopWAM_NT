@@ -1,0 +1,89 @@
+{
+  "variant": "stepwise",
+  "artifact": "checkpoints/LoopWAM/init_variants/stepwise.pt",
+  "artifact_sha256": "9374cfded0f951db92697cf0e090a415e214b5f4fc3f660bccc4a4b9c9a1935a",
+  "canonical_artifact": "checkpoints/LoopWAM/wan21_compact_donors.pt",
+  "canonical_artifact_sha256": "a990a5831c63e88ae5143689adad2f2aeb02cb1cd151d61ae0dd992990ac3296",
+  "student_block_plan": [
+    [
+      "wan",
+      0
+    ],
+    [
+      "wan",
+      1
+    ],
+    [
+      "wan",
+      2
+    ],
+    [
+      "wan",
+      4
+    ],
+    [
+      "wan",
+      8
+    ],
+    [
+      "wan",
+      12
+    ],
+    [
+      "wan",
+      16
+    ],
+    [
+      "wan",
+      20
+    ],
+    [
+      "wan",
+      24
+    ],
+    [
+      "wan",
+      27
+    ],
+    [
+      "wan",
+      28
+    ],
+    [
+      "wan",
+      29
+    ]
+  ],
+  "donor_indices": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    27,
+    28,
+    29
+  ],
+  "ffn_rule": "canonical_linspace_6144",
+  "variant_seed": 42,
+  "policy_parameters": 584536135,
+  "checks": {
+    "tensors": 677,
+    "copied": 677,
+    "mean": 0,
+    "random": 0,
+    "magnitude_ffn": 0
+  },
+  "core_slots": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

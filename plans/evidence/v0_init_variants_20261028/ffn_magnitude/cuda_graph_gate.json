@@ -1,0 +1,229 @@
+{
+ "checkpoint_sha256": "455bc19ea8027c18cff4be95a2135124b238dd192a06ab2fcd76660be64443e2",
+ "all_bit_exact": true,
+ "queries": 24,
+ "eager_ms_median": 246.16836197674274,
+ "graph_ms_median": 102.17705182731152,
+ "peak_gpu_gib": 2.9684596061706543,
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "torch": "2.7.1+cu128",
+ "details": [
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 0,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2489146739244461,
+   "graph_seconds": 0.11495564505457878
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 1,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24710824713110924,
+   "graph_seconds": 0.1022326834499836
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 2,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24577995017170906,
+   "graph_seconds": 0.10213642008602619
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 3,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24568703584372997,
+   "graph_seconds": 0.10212371870875359
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 4,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24608249217271805,
+   "graph_seconds": 0.10214251093566418
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 5,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2459071408957243,
+   "graph_seconds": 0.1021240595728159
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 6,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24584706872701645,
+   "graph_seconds": 0.10211658477783203
+  },
+  {
+   "suite": "libero_10",
+   "seed": 42,
+   "query": 7,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24557086266577244,
+   "graph_seconds": 0.10210333578288555
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 0,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24625423178076744,
+   "graph_seconds": 0.10223349183797836
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 1,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2475357223302126,
+   "graph_seconds": 0.10244990698993206
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 2,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2467508539557457,
+   "graph_seconds": 0.10212610103189945
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 3,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2476326860487461,
+   "graph_seconds": 0.1021166443824768
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 4,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2470640130341053,
+   "graph_seconds": 0.10216563567519188
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 5,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24730989150702953,
+   "graph_seconds": 0.10217739269137383
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 6,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24719795398414135,
+   "graph_seconds": 0.10214273445308208
+  },
+  {
+   "suite": "libero_spatial",
+   "seed": 43,
+   "query": 7,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24737994000315666,
+   "graph_seconds": 0.10217687115073204
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 0,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24520058929920197,
+   "graph_seconds": 0.10220287181437016
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 1,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24504485353827477,
+   "graph_seconds": 0.10219310969114304
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 2,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24524468742311,
+   "graph_seconds": 0.1021418608725071
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 3,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24599224515259266,
+   "graph_seconds": 0.10218474827706814
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 4,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24601399339735508,
+   "graph_seconds": 0.10220306366682053
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 5,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.2464017029851675,
+   "graph_seconds": 0.10217723250389099
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 6,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24830315448343754,
+   "graph_seconds": 0.10265586152672768
+  },
+  {
+   "suite": "libero_goal",
+   "seed": 44,
+   "query": 7,
+   "bit_exact": true,
+   "max_abs_difference": 0.0,
+   "eager_seconds": 0.24599458277225494,
+   "graph_seconds": 0.10220697708427906
+  }
+ ],
+ "speedup": 2.409233360860613
+}

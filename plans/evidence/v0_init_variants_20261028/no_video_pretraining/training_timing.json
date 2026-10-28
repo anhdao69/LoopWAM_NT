@@ -1,0 +1,109 @@
+{
+  "status": "complete",
+  "completed_updates": 21700,
+  "windows_seen": 2777130,
+  "planned_updates": 21700,
+  "elapsed_training_seconds": 70262.60227270797,
+  "checkpoint_seconds_total": 362.1986327432096,
+  "checkpoint_count": 42,
+  "measured_mean_update_seconds": 3.8306178997578924,
+  "estimated_total_training_hours": 23.090113451318405,
+  "estimate_note": "Projection from measured updates; excludes setup/checkpoint overhead",
+  "latest": {
+    "update": 21700,
+    "epoch": 10,
+    "windows": 81,
+    "windows_seen": 2777130,
+    "effective_passes": 10.0,
+    "seconds": 3.280850648880005,
+    "lr": 1.0000000000000002e-06,
+    "grad_norm": 0.2526375949382782,
+    "branch_grad_after_clip": {
+      "video": 0.220713272690773,
+      "action": 0.12187380343675613,
+      "proprio": 0.01606823317706585
+    },
+    "latent_cache_rank_local": {
+      "hits": 1166385,
+      "misses": 0,
+      "dummy_encodes": 63,
+      "encoder_samples": 63,
+      "batches": 145806,
+      "read_seconds": 2682.5337849855423,
+      "encode_seconds": 10.395975474268198,
+      "write_seconds": 0.0
+    },
+    "peak_allocated_gb": 59.35588073730469,
+    "peak_reserved_gb": 63.243812561035156,
+    "exit4/video_raw": 0.09476718196162472,
+    "exit4/action_raw": 0.03515742148882077,
+    "exit4/video": 0.07395660730055821,
+    "exit4/action": 0.026181803809271917,
+    "loss_video": 0.07395660730055821,
+    "loss_action": 0.026181803809271917,
+    "loop/1/video_state_rms": 1.2170300895785109,
+    "loop/1/action_state_rms": 0.9606170654296875,
+    "loop/2/video_state_rms": 1.4258173247914256,
+    "loop/2/action_state_rms": 0.884286951135706,
+    "loop/3/video_state_rms": 1.6164980287905093,
+    "loop/3/action_state_rms": 0.8549164195119598,
+    "loop/4/video_state_rms": 1.866748951099537,
+    "loop/4/action_state_rms": 0.8975638872311439
+  },
+  "segments": [
+    {
+      "file": "20261026T175018_timing.json",
+      "completed_updates_logged": 3474,
+      "elapsed_training_seconds": 13053.459978770465,
+      "measured_mean_update_seconds": 3.733786522329557,
+      "checkpoint_count": 8
+    },
+    {
+      "file": "timing.json (final segment)",
+      "completed_updates_logged": 21700,
+      "elapsed_training_seconds": 70262.60227270797,
+      "measured_mean_update_seconds": 3.8306178997578924,
+      "checkpoint_count": 42
+    }
+  ],
+  "launches": [
+    {
+      "event": "launch",
+      "time": "2026-10-26T13:44:18-04:00",
+      "host": "evc101",
+      "slurm_job": "990527",
+      "gpus": "2,3",
+      "resume": false,
+      "nice": 10,
+      "revision": "56e33285a82c6abe075565b3d60c26a5ba7a148f",
+      "code_patch_sha256": "78895645899c8e32a0251be485ac5cd1513048a8e9e577dcc5bbd72f3fd658f5",
+      "latent_cache": "/tmp/loopwam_v4a4s_990527/latents",
+      "gpu_name": "NVIDIA H100 80GB HBM3"
+    },
+    {
+      "event": "launch",
+      "time": "2026-10-26T17:50:19-04:00",
+      "host": "evc101",
+      "slurm_job": "990547",
+      "gpus": "2,3",
+      "resume": true,
+      "nice": 0,
+      "revision": "56e33285a82c6abe075565b3d60c26a5ba7a148f",
+      "code_patch_sha256": "78895645899c8e32a0251be485ac5cd1513048a8e9e577dcc5bbd72f3fd658f5",
+      "latent_cache": "/tmp/loopwam_v4a4s_990547/latents",
+      "gpu_name": "NVIDIA H100 80GB HBM3"
+    }
+  ],
+  "gpu_names": [
+    "NVIDIA H100 80GB HBM3"
+  ],
+  "resume_starts": 1,
+  "resume_slurm_jobs": [
+    "990547"
+  ],
+  "total_training_seconds_all_segments": 83316.06225147843,
+  "kept_update_seconds_sum": 82803.28407526016,
+  "epoch1_mean_update_seconds": 3.673565676684753,
+  "epochs2_10_mean_update_seconds": 3.831625527744713,
+  "timing_note": "elapsed_training_seconds/measured_mean_update_seconds at top level are the final segment only (trainer restarts its clock on resume); total_training_seconds_all_segments sums every segment, including updates repeated after an interruption. The run shared its node with another training run for most of its time; the latent cache was filled from the v0 4/2 run's cache (identical provenance), and clips with cached latents were not decoded."
+}
