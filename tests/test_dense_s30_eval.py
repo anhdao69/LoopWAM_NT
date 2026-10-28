@@ -11,7 +11,8 @@ def checkpoint():
                     planned_updates=7250, version='dense_s30', normalization_sha256='stats')
     payload = dict(format_version='loopwam-s-v1', version='dense_s30', step=7250,
         trained_max_loops=1, inference_loops=1,
-        architecture=dict(target_video_config=video, target_action_config=action),
+        architecture=dict(target_video_config=video, target_action_config=action,
+                          architecture_version="Dense-S30-native-v1", donor_indices=list(range(30))),
         training_state=dict(update=7250, epoch=9, next_micro=11585, windows_seen=926780, contract=contract))
     return payload, data
 

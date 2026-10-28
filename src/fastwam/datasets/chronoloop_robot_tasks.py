@@ -33,3 +33,7 @@ ROBOTWIN_PREPROCESS = {'robotwin5hard': 'cuda', 'robotwin10b': 'cuda', 'robotwin
 
 # RoboDojo (25 FPS): actions executed per replanning query, i.e. the TBPTT traversal stride.
 ROBODOJO_REPLAN_STRIDE = 24
+
+# Full release: all 50 tasks, 50 clean + 500 randomized demonstrations per task.
+from fastwam.datasets.chronoloop_robot import ROBOTWIN50_TASKS
+ROBOTWIN_SUBSETS["robotwin50"] = (ROBOTWIN50_TASKS, "clean+randomized")
