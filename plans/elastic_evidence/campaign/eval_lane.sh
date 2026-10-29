@@ -8,6 +8,10 @@
 # The runner's workers receive physical GPU indices (the step sees all four GPUs); its main process is pinned to the
 # lane's first GPU so that nothing touches a training GPU. Everything runs at nice 10 so training keeps its CPUs.
 # Exits when this lane finds no pending group of a ready run. SIGTERM stops the runner (claims expire after 10 min).
+# With EVAL_MPS=1 the lane starts a private CUDA MPS daemon (node-local pipe directory given only to this lane's
+# processes, so training never connects): workers then share each GPU concurrently instead of time-slicing, which
+# removes the GPU bottleneck at several workers per GPU. Under MPS the stack reproduced 20/20 stored RT-A2 episodes
+# exactly (parity_rt.sh via mps_test.sh, 2026-10-29).
 set -uo pipefail
 LANE=$1; GPUS=$2; WPG=$3
 source /groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_work/eval_env.sh
@@ -45,6 +49,23 @@ gate_backend() {  # prints cuda-graph or eager for run $1; returns 1 if the gate
   return 1
 }
 log "start on $(hostname) job ${SLURM_JOB_ID:-?} gpus $GPUS workers/gpu $WPG"
+mps_dir=""
+if [ "${EVAL_MPS:-0}" = 1 ]; then
+  mps_dir=/dev/shm/elastic_mps_${SLURM_JOB_ID:-x}_$LANE
+  rm -rf "$mps_dir"; mkdir -p "$mps_dir/pipe" "$mps_dir/log"
+  export CUDA_MPS_PIPE_DIRECTORY=$mps_dir/pipe CUDA_MPS_LOG_DIRECTORY=$mps_dir/log
+  if ( unset CUDA_VISIBLE_DEVICES; nvidia-cuda-mps-control -d ); then
+    log "MPS daemon started ($mps_dir)"
+  else
+    log "MPS daemon failed to start; running without MPS"
+    unset CUDA_MPS_PIPE_DIRECTORY CUDA_MPS_LOG_DIRECTORY; rm -rf "$mps_dir"; mps_dir=""
+  fi
+fi
+stop_mps() {
+  [ -n "$mps_dir" ] || return 0
+  echo quit | nvidia-cuda-mps-control >/dev/null 2>&1; sleep 3; rm -rf "$mps_dir"; mps_dir=""
+}
+trap stop_mps EXIT
 for attempt in 1 2 3 4 5; do
   [ "$stop" = 1 ] && break
   conds=""; shas=""

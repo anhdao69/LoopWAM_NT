@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Elastic campaign dispatcher (v2: training + evaluation); runs on login node evuser2 (nohup setsid; log logs/dispatcher.log).
+"""Elastic campaign dispatcher (v3: training + evaluation); runs on login node evuser2 (nohup setsid; log logs/dispatcher.log).
 
 User requests 2026-10-28: actively watch all of the user's running and queued interactive jobs and start the remaining
 elastic runs on GPUs that are empty (especially job 1080498; job 990547 is excluded by the user); then also evaluate the
@@ -12,8 +12,10 @@ managed `srun --jobid` step. Pairs of candidate GPUs go first to training lanes 
 incomplete runs remain, then to evaluation lanes (eval_lane.sh) while unclaimed evaluation groups of finished runs
 remain; evaluation is CPU-bound, so its workers per GPU follow the job's CPUs not used by training. If a run whose
 evaluation is requested (E0/E2/E1) waits for GPUs for PREEMPT_POLLS polls, one evaluation lane is stopped to make
-room (its in-flight groups are re-run elsewhere). Near each job's end its lanes are stopped gracefully and its
-/dev/shm cache removed. Once training is complete the caches are removed; once evaluation is complete this exits.
+room (its in-flight groups are re-run elsewhere). v3 (2026-10-29): while unclaimed evaluation groups remain and
+no evaluation lane runs anywhere, a pair goes to training only for a run whose evaluation is requested (F0-PB, which is
+not evaluated, then waits for such a pair instead of displacing the last evaluation lane). Near each job's end its
+lanes are stopped gracefully and its /dev/shm cache removed. Once training is complete the caches are removed; once evaluation is complete this exits.
 Python 3.6 compatible (system python on the login node).
 """
 import glob, json, os, re, subprocess, sys, time
@@ -32,6 +34,7 @@ TRAIN_CPUS, MAX_WPG = 3, 8
 MAX_LAUNCH_RECORDS = 30
 USER = os.environ["USER"]
 DRY = "--dry-run" in sys.argv
+JOB_GPUS = {}   # job id -> GPUs per node (from squeue), so steps request exactly the job's GPUs
 KNOWN = ("nvidia-smi", "stop_lanes.sh", "stop_eval_lane.sh", "clean_cache.sh", "test -d /dev/shm")
 
 def log(msg):
@@ -55,7 +58,10 @@ def running_jobs():
         if jid in EXCLUDE or name != "bash" or "gpu" not in gres: continue
         try: left = time.mktime(time.strptime(end, "%Y-%m-%dT%H:%M:%S")) - time.time()
         except ValueError: continue
-        jobs[jid] = dict(node=node, left=left, cpus=int(cpus) if cpus.isdigit() else 16)
+        count = gres.rsplit(":", 1)[-1]
+        jobs[jid] = dict(node=node, left=left, cpus=int(cpus) if cpus.isdigit() else 16,
+                         gpus=int(count) if count.isdigit() else 4)
+        JOB_GPUS[jid] = jobs[jid]["gpus"]
     return jobs
 
 def job_state(jid):
@@ -147,7 +153,7 @@ def login_steps():
 
 def srun_cmd(jid, cpus, command):
     return ["srun", "--jobid=%s" % jid, "--overlap", "--nodes=1", "--ntasks=1", "--cpus-per-task=%d" % cpus,
-            "--gres=gpu:4", "--mem=0"] + command
+            "--gres=gpu:%d" % JOB_GPUS.get(jid, 4), "--mem=0"] + command
 
 def srun(jid, command, cpus=1, timeout=150):
     return sh(srun_cmd(jid, cpus, command), timeout)
@@ -166,7 +172,7 @@ def probe(jid):
         if len(parts) != 4 or not parts[0].isdigit(): continue
         index, bus, memory, util = int(parts[0]), parts[1].lower(), float(parts[2]), float(parts[3])
         result[index] = memory < 1024 and util == 0 and bus not in busy
-    return result if len(result) == 4 else None
+    return result if len(result) == JOB_GPUS.get(jid, 4) else None
 
 def pairs(free):
     free = sorted(free); chosen = []
@@ -182,7 +188,7 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v2 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.1 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
     while True:
@@ -213,8 +219,10 @@ def main():
         idle_lanes = max(0, lanes - active)
         need = max(0, len(pending) - idle_lanes)
         critical = [r for r in pending if r in EVAL_RUNS]
+        need_critical = max(0, len(critical) - idle_lanes)
         unclaimed = eval_unclaimed()
         evals = sum(len(s["evals"]) for s in steps.values())
+        evals_live = evals
         summary = ", ".join("%s:%s" % (r, "done" if complete(r) else ("owned" if owned(r, states) else
                             ("FAILED" if r in failed else "pending"))) for r in QUEUE)
         evsum = ", ".join("%s/%s:%s" % (r, s.replace("flat_", ""), "done" if eval_done(r, s) else
@@ -246,7 +254,7 @@ def main():
             want_eval = unclaimed > 0 and info["left"] >= EVAL_MIN_LEFT and len(eval_launches) < 8
             if unclaimed > 0 and len(eval_launches) >= 8:
                 log("8 eval lanes launched within the last hour: holding further eval launches (check eval logs)")
-            if len(used) == 4 or (need == 0 and not want_eval):
+            if len(used) >= info["gpus"] or (need == 0 and not want_eval):
                 continue
             idle = probe(jid)
             if idle is None:
@@ -257,13 +265,15 @@ def main():
             log("job %s (%s): idle streaks %s; elastic GPUs %s" % (jid, info["node"], counts, sorted(used)))
             chosen = pairs(free)
             training_lanes = len(entry["lanes"])
-            while chosen and need > 0 and info["left"] >= MIN_LEFT_START:
+            while chosen and need > 0 and info["left"] >= MIN_LEFT_START and (
+                    need_critical > 0 or unclaimed == 0 or evals_live > 0):
                 a, b = chosen.pop(0)
                 lane = "j%sg%d%d" % (jid, a, b)
                 log("launching training lane %s on job %s (%s) GPUs %d,%d" % (lane, jid, info["node"], a, b))
                 children.append(spawn(srun_cmd(jid, 8, ["bash", WORK + "/lane.sh", lane, "%d,%d" % (a, b)]),
                                       "lane_%s.log" % lane))
-                counts[a] = counts[b] = 0; need -= 1; training_lanes += 1; launched_training = True
+                counts[a] = counts[b] = 0; need -= 1; need_critical = max(0, need_critical - 1)
+                training_lanes += 1; launched_training = True
             if chosen and want_eval:
                 target = info["cpus"] - TRAIN_CPUS * training_lanes
                 existing = sum(len(g.split(",")) * w for g, w in entry["evals"].values())
@@ -273,7 +283,7 @@ def main():
                     log("launching eval lane %s on job %s (%s) GPUs %d,%d, %d workers/GPU" % (lane, jid, info["node"], a, b, wpg))
                     children.append(spawn(srun_cmd(jid, info["cpus"], ["bash", WORK + "/eval_lane.sh", lane,
                                                                         "%d,%d" % (a, b), str(wpg)]), "eval_%s.log" % lane))
-                    counts[a] = counts[b] = 0; eval_launches.append(time.time())
+                    counts[a] = counts[b] = 0; eval_launches.append(time.time()); evals_live += 1
         # A run whose evaluation is requested must not wait behind evaluation lanes for long.
         starving = starving + 1 if (critical and need > 0 and not launched_training) else 0
         if starving >= PREEMPT_POLLS:

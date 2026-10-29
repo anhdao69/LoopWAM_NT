@@ -12,3 +12,5 @@ export EVAL_OUT=/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_eval
 # Decisive first pass (plan section 12.2), E0/E1/E2 x [1,1], [1]x10, [4]x10.
 export EVAL_ORDER="E0 E2 E1"
 export EVAL_SCHEDULES="flat_k1_n2 flat_k1_n10 flat_k4_n10"
+# Private CUDA MPS daemon per eval lane (see eval_lane.sh); verified identical actions (parity_rt.sh under MPS, 20/20).
+export EVAL_MPS=1
