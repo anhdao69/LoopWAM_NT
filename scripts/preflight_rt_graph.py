@@ -12,6 +12,7 @@ def main():
     p.add_argument("--weights-root", required=True); p.add_argument("--vae-path", required=True)
     p.add_argument("--text-cache-dir", required=True); p.add_argument("--queries", type=int, default=12)
     p.add_argument("--output", required=True)
+    p.add_argument("--epoch-file", default="epoch_10.pt")
     a = p.parse_args()
     import numpy as np, torch
     from scripts.evaluate_loopwam_libero import ObservationAdapter, initial_states
@@ -20,7 +21,8 @@ def main():
     from libero.libero import benchmark
     from experiments.libero.libero_utils import get_libero_env
     folder = Path(a.weights_root) / a.run
-    model = TransportInference(str(folder / "epoch_10.pt"), a.vae_path, device="cuda:0").eval()
+    checkpoint = folder / a.epoch_file
+    model = TransportInference(str(checkpoint), a.vae_path, device="cuda:0").eval()
     adapter = ObservationAdapter(json.loads((folder / "dataset_stats.json").read_text()), a.text_cache_dir, None)
     report = []
     for suite_name, task_id, seed in (("libero_10", 0, 42), ("libero_spatial", 3, 43)):
@@ -52,7 +54,9 @@ def main():
         env.close()
     ok = all(r["bit_exact"] for r in report)
     Path(a.output).parent.mkdir(parents=True, exist_ok=True)
+    from scripts.evaluate_rt_matched import sha256_file
     Path(a.output).write_text(json.dumps(dict(run=a.run, schedules=a.schedules.split(","), all_bit_exact=ok,
+                                              checkpoint=str(checkpoint), checkpoint_sha256=sha256_file(checkpoint),
                                               queries=report), indent=1))
     print(json.dumps(dict(run=a.run, all_bit_exact=ok, n=len(report),
                           eager_ms=np.median([r["eager_seconds"] for r in report]) * 1e3,

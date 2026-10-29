@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Runs inside an overlapping step of job $1 (launched by dispatcher.py shortly before the job ends, or at campaign
-# end). Gracefully stops this job's elastic lanes/runs (recovery state is saved), then frees the node-local cache.
+# end). Gracefully stops this job's elastic training lanes/runs (recovery state is saved) and evaluation lanes, then frees the node-local cache.
 set -uo pipefail
 JOB=$1
 WORK=/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_work
-mine() { for pid in $(pgrep -u "$USER" -f "$WORK/lane.sh|scripts/run_elastic.sh"); do
+mine() { for pid in $(pgrep -u "$USER" -f "$WORK/lane.sh|$WORK/eval_lane.sh|scripts/run_elastic.sh"); do
            tr '\0' '\n' < /proc/$pid/environ 2>/dev/null | grep -qx "SLURM_JOB_ID=$JOB" && echo "$pid"; done; }
 pids=$(mine)
 echo "[$(date -Is)] job $JOB: stopping ${pids:-nothing}"

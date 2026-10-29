@@ -71,8 +71,8 @@ def claim(path, token, root):
     return False
 
 
-def condition_key(run, schedule, sha):
-    return f"residual_trans__{run}__{schedule}__{sha}"
+def condition_key(run, schedule, sha, prefix="residual_trans"):
+    return f"{prefix}__{run}__{schedule}__{sha}"
 
 
 def groups_for(suites, seeds, tasks):
@@ -237,7 +237,15 @@ def main():
     p.add_argument("--episodes", type=int, default=50)
     p.add_argument("--no-videos", dest="videos", action="store_false")
     p.add_argument("--tag", default="final_rollout")
+    p.add_argument("--key-prefix", default="residual_trans")
+    p.add_argument("--interleave", action="store_true",
+                   help="Queue groups group-major across the schedules of one checkpoint (spreads heavy and light "
+                        "schedules over workers; never changes per-group seeding)")
+    p.add_argument("--smoke", action="store_true",
+                   help="Unscored harness check of a non-final checkpoint; requires a smoke* tag")
     args = p.parse_args()
+    if args.smoke and not args.tag.startswith("smoke"):
+        raise SystemExit("--smoke requires a tag starting with 'smoke'")
     args.token = f"{os.uname().nodename}-{os.environ.get('SLURM_JOB_ID', 'nojob')}-{os.getpid()}-{int(time.time())}"
     def beat():
         write_json(Path(args.output_root) / "runners" / f"{args.token}.json", dict(time=time.time(), token=args.token))
@@ -271,9 +279,17 @@ def main():
             raise SystemExit("VAE differs from the one used in training")
         stats = folder / "dataset_stats.json"; data_manifest = folder / "data" / "data_manifest.json"
         payload = torch.load(ckpt, map_location="cpu", weights_only=False, mmap=True)
-        contract = validate_transport_checkpoint(payload, json.loads(data_manifest.read_text()), sha256_file(stats))
+        if args.smoke:
+            contract = payload["training_state"]["contract"]
+        else:
+            contract = validate_transport_checkpoint(payload, json.loads(data_manifest.read_text()), sha256_file(stats))
+        if config["config"].get("campaign") == "elastic-v1":
+            if payload.get("transport_config") != config["config"]:
+                raise SystemExit(f"{run}: checkpoint transport config differs from config.json")
+            if schedule not in config["config"]["schedules"]:
+                raise SystemExit(f"{run} was not trained on schedule {schedule}")
         epoch = payload["training_state"]["epoch"]; del payload
-        key = condition_key(run, schedule, sha)
+        key = condition_key(run, schedule, sha, args.key_prefix)
         out = root / args.tag / key
         cond = dict(run=run, schedule=schedule, depths=SCHEDULES[schedule], checkpoint=str(ckpt), sha256=sha,
                     stats=str(stats), data_manifest=str(data_manifest), backend=backend, output=str(out),
@@ -298,7 +314,12 @@ def main():
         else:
             write_json(mpath, manifest)
         conditions[key] = cond
-    todo = [dict(condition=k, group=g) for k in conditions for g in groups
+    if args.interleave:
+        runs = list(dict.fromkeys(c["checkpoint"] for c in conditions.values()))
+        order = [(k, g) for r in runs for g in groups for k in conditions if conditions[k]["checkpoint"] == r]
+    else:
+        order = [(k, g) for k in conditions for g in groups]
+    todo = [dict(condition=k, group=g) for k, g in order
             if not (Path(conditions[k]["output"]) / "groups" / f"{g['id']}.json").exists()]
     print(json.dumps(dict(event="plan", conditions=list(conditions), pending_groups=len(todo),
                           total_groups=len(groups) * len(conditions))), flush=True)
