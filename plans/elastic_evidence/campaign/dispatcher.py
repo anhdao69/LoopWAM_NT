@@ -202,7 +202,7 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v3.6 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.7 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
     for arg in sys.argv[1:]:
@@ -284,6 +284,10 @@ def main():
             free = [g for g, c in counts.items() if c >= IDLE_POLLS]
             log("job %s (%s): idle streaks %s; elastic GPUs %s" % (jid, info["node"], counts, sorted(used)))
             chosen = pairs(free)
+            paired = set(g for pair in chosen for g in pair)
+            # v3.7: a GPU that can never be paired (odd number of GPUs not in our lanes, e.g. a 1-GPU job) gets a
+            # single-GPU eval lane; two GPUs released together still wait for each other.
+            singles = [g for g in sorted(free) if g not in paired][:(info["gpus"] - len(used)) % 2]
             training_lanes = len(entry["lanes"])
             while chosen and need > 0 and info["left"] >= MIN_LEFT_START and (
                     need_critical > 0 or unclaimed == 0 or evals_live > 0):
@@ -304,6 +308,17 @@ def main():
                     children.append(spawn(srun_cmd(jid, info["cpus"], ["bash", WORK + "/eval_lane.sh", lane,
                                                                         "%d,%d" % (a, b), str(wpg)]), "eval_%s.log" % lane))
                     counts[a] = counts[b] = 0; eval_launches.append(time.time()); evals_live += 1
+            if singles and want_eval:   # v3.7: a free GPU without a partner runs a single-GPU eval lane
+                target = info["cpus"] - TRAIN_CPUS * training_lanes
+                existing = sum(len(g.split(",")) * w for g, w in entry["evals"].values())
+                existing += 2 * wpg * len(chosen) if chosen else 0
+                wpg1 = max(1, min(MAX_WPG, (target - existing) // len(singles)))
+                for a in singles:
+                    lane = "e%sg%d" % (jid, a)
+                    log("launching single-GPU eval lane %s on job %s (%s) GPU %d, %d workers" % (lane, jid, info["node"], a, wpg1))
+                    children.append(spawn(srun_cmd(jid, info["cpus"], ["bash", WORK + "/eval_lane.sh", lane, str(a), str(wpg1)]),
+                                          "eval_%s.log" % lane))
+                    counts[a] = 0; eval_launches.append(time.time()); evals_live += 1
         # Training must not wait behind evaluation lanes for long (v3.3: any pending run; the lane with the fewest
         # workers is stopped, preferring the job with the most time left).
         starving = starving + 1 if (pending and need > 0 and not launched_training) else 0
