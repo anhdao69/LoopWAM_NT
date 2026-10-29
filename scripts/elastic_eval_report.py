@@ -19,6 +19,15 @@ Extended on 2026-10-29 at the user's request, before any SP11 or remaining-grid 
   practical equal-total-budget cost of elasticity at the fastest point; not a pure weight-sharing penalty);
 - every interval and test draws from its own random stream seeded by (20261028, CRC32 of its name), so results do not
   depend on which other conditions are present; the primary analysis is otherwise unchanged.
+Extended on 2026-10-29 at 13:00, after F0-PB finished training and before any F0-PB episode was scored (plan section
+12.2, F0-PB/F2-PB decisive points; secondary, unadjusted, descriptive of the historical control):
+- conditions: F0-PB at S8 ([4,1]) and S2 ([4]+[1]x9), the two decisive points F0-PB was trained on ([4]x10 is outside
+  its trained schedule set and is not evaluated here);
+- reference F2-PB = RT-A2 epoch 10 (SHA-256 25ad8ca4..., pinned by the plan) at S8 and S2, from its complete 6,000-episode
+  H100 evaluation of 2026-10-13 by the same runner (rt_eval_h100; protocol identical apart from video recording; the
+  elastic stack reproduced 20/20 stored RT-A2 episodes exactly); its groups must match the pinned checkpoint;
+- secondary, unadjusted: F0-PB - F2-PB at S8 and at S2 (same estimator, interval and test). F0-PB and F2-PB differ in
+  transport only if the historical reconstruction is exact; the arms were also scored two weeks apart.
 """
 import argparse, csv, glob, json, math, zlib
 from pathlib import Path
@@ -31,21 +40,29 @@ RUNS = ("E0", "E1", "E2")
 SCHEDULES = ("flat_k1_n2", "flat_k2_n2", "flat_k1_n5", "flat_k4_n2", "flat_k2_n5", "flat_k1_n10", "flat_k4_n5",
              "flat_k2_n10", "flat_k4_n10")
 LABEL = {"flat_k1_n2": "[1,1]", "flat_k2_n2": "[2,2]", "flat_k1_n5": "[1]x5", "flat_k4_n2": "[4,4]", "flat_k2_n5": "[2]x5",
-         "flat_k1_n10": "[1]x10", "flat_k4_n5": "[4]x5", "flat_k2_n10": "[2]x10", "flat_k4_n10": "[4]x10"}
-EXTRA = (("SP11", "flat_k1_n2"),)
+         "flat_k1_n10": "[1]x10", "flat_k4_n5": "[4]x5", "flat_k2_n10": "[2]x10", "flat_k4_n10": "[4]x10",
+         "S8": "[4,1]", "S2": "[4]+[1]x9"}
+EXTRA = (("SP11", "flat_k1_n2"), ("F0-PB", "S8"), ("F0-PB", "S2"))
+# F2-PB: RT-A2 epoch 10 as evaluated on H100 by the same runner (key prefix residual_trans; no summary.json there).
+F2PB_ROOT = "/groups/yshang/an221229/checkpoints/LoopWAM_NT/rt_eval_h100"
+F2PB_SHA = "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+REFERENCE = (("F2-PB", "S8"), ("F2-PB", "S2"))
 CONTRASTS = (("E1", "E0"), ("E2", "E0"), ("E2", "E1"))
 RESAMPLES, SEED = 10_000, 20261028
 
 
-def load(root, run, schedule):
-    dirs = glob.glob(str(Path(root) / "final_rollout" / f"elastic__{run}__{schedule}__*"))
+def load(root, run, schedule, pattern=None, summarize=False):
+    dirs = glob.glob(str(Path(root) / "final_rollout" / (pattern or f"elastic__{run}__{schedule}__*")))
     if len(dirs) != 1:
         return None
     d = Path(dirs[0])
-    if not (d / "summary.json").exists():
-        return None
-    summary = json.loads((d / "summary.json").read_text())
     manifest = json.loads((d / "manifest.json").read_text())
+    if summarize:  # reference arm without summary.json: summarize from its group records below
+        summary = dict(checkpoint_sha256=manifest["sha256"], backend=manifest["backend"])
+    elif (d / "summary.json").exists():
+        summary = json.loads((d / "summary.json").read_text())
+    else:
+        return None
     rows = []
     for p in sorted((d / "groups").glob("*.json")):
         rec = json.loads(p.read_text())
@@ -56,6 +73,10 @@ def load(root, run, schedule):
     if len(rows) != 6000 or len(keys) != 6000:
         raise ValueError(f"{d.name}: expected 6000 unique episodes, found {len(rows)} rows / {len(keys)} keys")
     outcome = {(r["suite"], r["task"], r["initial_state_index"], r["seed"]): int(bool(r["success"])) for r in rows}
+    if summarize:
+        per_suite = {k: dict(success_rate=sum(r["success"] for r in rows if r["suite"] == k) / 1500) for k in SUITES}
+        summary.update(episodes=len(rows), successes=sum(outcome.values()), success_rate=sum(outcome.values()) / len(rows),
+                       per_suite=per_suite, suite_mean_success_rate=sum(v["success_rate"] for v in per_suite.values()) / 4)
     return dict(dir=str(d), summary=summary, manifest=manifest, rows=rows, outcome=outcome)
 
 
@@ -110,6 +131,11 @@ def main():
     a = ap.parse_args()
     data = {(r, s): load(a.eval_root, r, s) for r in RUNS for s in SCHEDULES}
     data.update({(r, s): load(a.eval_root, r, s) for r, s in EXTRA})
+    for r, s in REFERENCE:
+        ref = load(F2PB_ROOT, "RT-A2", s, pattern=f"residual_trans__RT-A2__{s}__{F2PB_SHA}", summarize=True)
+        if ref is None or ref["manifest"]["sha256"] != F2PB_SHA or ref["summary"]["checkpoint_sha256"] != F2PB_SHA:
+            raise ValueError(f"F2-PB reference {s} missing or not the pinned RT-A2 checkpoint")
+        data[(r, s)] = ref
     conditions = {}
     for (r, s), d in data.items():
         rng = stream(f"rate:{r}/{s}")
@@ -130,9 +156,14 @@ def main():
                 for row in sorted(d["rows"], key=lambda x: (x["suite"], x["task"], x["initial_state_index"], x["seed"])):
                     w.writerow([row[c] for c in cols])
     contrasts = {}
-    pairs = [(x, y, s) for s in SCHEDULES for x, y in CONTRASTS] + [("SP11", "E0", "flat_k1_n2")]
+    pairs = ([(x, y, s) for s in SCHEDULES for x, y in CONTRASTS] + [("SP11", "E0", "flat_k1_n2")]
+             + [("F0-PB", "F2-PB", s) for _, s in REFERENCE])
     for x, y, s in pairs:
         if data[(x, s)] is None or data[(y, s)] is None: continue
+        px, py = (dict(data[(z, s)]["manifest"]["protocol"]) for z in (x, y))
+        for p_ in (px, py): p_.pop("videos", None)
+        if px != py:
+            raise ValueError(f"{x} and {y} at {s} were scored under different protocols")
         name = f"{x}-{y}@{s}"; rng = stream(f"contrast:{name}")
         res = paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng)
         res["per_suite"] = {SHORT[k]: paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng, k) for k in SUITES}
@@ -142,7 +173,7 @@ def main():
     if len(primary) == 3:
         for k, adj in zip(primary, holm([contrasts[k]["p_permutation"] for k in primary])):
             contrasts[k]["p_holm"] = adj
-    result = dict(format="elastic-decisive-eval-v2", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
+    result = dict(format="elastic-decisive-eval-v3", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
                   analysis=__doc__.strip(), resamples=RESAMPLES, rng_seed=SEED, conditions=conditions, contrasts=contrasts)
     out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=1))

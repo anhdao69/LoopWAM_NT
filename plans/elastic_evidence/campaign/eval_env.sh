@@ -22,6 +22,9 @@ EVAL_CONDITIONS="$EVAL_CONDITIONS SP11:flat_k1_n2:SP11"
 for s in flat_k2_n2 flat_k1_n5 flat_k4_n2 flat_k2_n5 flat_k4_n5 flat_k2_n10; do
   for r in E0 E1 E2; do EVAL_CONDITIONS="$EVAL_CONDITIONS $r:$s:${r}__grid"; done
 done
+# 3) 2026-10-29 13:00, after F0-PB finished training: F0-PB at its decisive points [4,1] (S8) and [4]+[1]x9 (S2)
+#    (plan section 12.2; F2-PB = RT-A2 already has both on H100 with the same runner).
+EVAL_CONDITIONS="$EVAL_CONDITIONS F0-PB:S8:F0-PB F0-PB:S2:F0-PB"
 export EVAL_CONDITIONS=${EVAL_CONDITIONS# }
 # Private CUDA MPS daemon per eval lane (see eval_lane.sh); verified identical actions (parity_rt.sh under MPS, 20/20).
 export EVAL_MPS=1
