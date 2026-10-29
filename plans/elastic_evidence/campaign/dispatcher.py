@@ -182,7 +182,9 @@ def probe(jid):
         parts = [p.strip() for p in line.split(",")]
         if len(parts) != 4 or not parts[0].isdigit(): continue
         index, bus, memory, util = int(parts[0]), parts[1].lower(), float(parts[2]), float(parts[3])
-        result[index] = memory < 1024 and util == 0 and bus not in busy
+        # v3.5: an idle H100 sometimes reports 1-2% utilization with 0 MiB used and no process; any real CUDA
+        # context holds hundreds of MiB, so below 100 MiB with no compute process the GPU counts as idle.
+        result[index] = memory < 1024 and (util == 0 or memory < 100) and bus not in busy
     return result if len(result) == JOB_GPUS.get(jid, 4) else None
 
 def pairs(free):
@@ -199,7 +201,7 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v3.4 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.5 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
     for arg in sys.argv[1:]:
