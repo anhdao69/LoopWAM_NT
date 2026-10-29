@@ -12,16 +12,27 @@ Predeclared on 2026-10-28, before any final-checkpoint episode was scored:
   Holm correction across the three primary contrasts; [1]x10 and [4]x10 contrasts are secondary and unadjusted;
 - per-suite differences use the same resampling within the suite.
 A nonsignificant difference is not evidence of equivalence.
+Extended on 2026-10-29 at the user's request, before any SP11 or remaining-grid episode was scored (plan sections 8,
+12.3 and 13.1: grid results are secondary unless separately preregistered):
+- conditions: E0/E1/E2 over all nine flat schedules, and SP11 at flat_k1_n2;
+- secondary, unadjusted: the three contrasts at each of the other eight schedules, and SP11-E0 at flat_k1_n2 (the
+  practical equal-total-budget cost of elasticity at the fastest point; not a pure weight-sharing penalty);
+- every interval and test draws from its own random stream seeded by (20261028, CRC32 of its name), so results do not
+  depend on which other conditions are present; the primary analysis is otherwise unchanged.
 """
-import argparse, csv, glob, json, math
+import argparse, csv, glob, json, math, zlib
 from pathlib import Path
 import numpy as np
 
 SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_10")
 SHORT = {"libero_spatial": "Spatial", "libero_object": "Object", "libero_goal": "Goal", "libero_10": "Long"}
 RUNS = ("E0", "E1", "E2")
-SCHEDULES = ("flat_k1_n2", "flat_k1_n10", "flat_k4_n10")
-LABEL = {"flat_k1_n2": "[1,1]", "flat_k1_n10": "[1]x10", "flat_k4_n10": "[4]x10"}
+# Ascending action calls (plan section 3.2): 24, 36, 60, 60, 90, 120, 150, 180, 300.
+SCHEDULES = ("flat_k1_n2", "flat_k2_n2", "flat_k1_n5", "flat_k4_n2", "flat_k2_n5", "flat_k1_n10", "flat_k4_n5",
+             "flat_k2_n10", "flat_k4_n10")
+LABEL = {"flat_k1_n2": "[1,1]", "flat_k2_n2": "[2,2]", "flat_k1_n5": "[1]x5", "flat_k4_n2": "[4,4]", "flat_k2_n5": "[2]x5",
+         "flat_k1_n10": "[1]x10", "flat_k4_n5": "[4]x5", "flat_k2_n10": "[2]x10", "flat_k4_n10": "[4]x10"}
+EXTRA = (("SP11", "flat_k1_n2"),)
 CONTRASTS = (("E1", "E0"), ("E2", "E0"), ("E2", "E1"))
 RESAMPLES, SEED = 10_000, 20261028
 
@@ -55,6 +66,10 @@ def clusters(outcome, suite=None):
         if suite is None or s == suite:
             acc.setdefault((s, t, i), []).append(y)
     return {k: sum(v) / len(v) for k, v in acc.items()}
+
+
+def stream(name):
+    return np.random.default_rng([SEED, zlib.crc32(name.encode())])
 
 
 def paired(a, b, rng, suite=None):
@@ -93,10 +108,11 @@ def main():
     ap.add_argument("--output", required=True, help="results JSON; a Markdown table is written next to it")
     ap.add_argument("--csv-dir", default="", help="optionally write one episodes CSV per condition here")
     a = ap.parse_args()
-    rng = np.random.default_rng(SEED)
     data = {(r, s): load(a.eval_root, r, s) for r in RUNS for s in SCHEDULES}
+    data.update({(r, s): load(a.eval_root, r, s) for r, s in EXTRA})
     conditions = {}
     for (r, s), d in data.items():
+        rng = stream(f"rate:{r}/{s}")
         if d is None:
             conditions[f"{r}/{s}"] = dict(run=r, schedule=s, complete=False); continue
         sm = d["summary"]
@@ -114,18 +130,19 @@ def main():
                 for row in sorted(d["rows"], key=lambda x: (x["suite"], x["task"], x["initial_state_index"], x["seed"])):
                     w.writerow([row[c] for c in cols])
     contrasts = {}
-    for s in SCHEDULES:
-        for x, y in CONTRASTS:
-            if data[(x, s)] is None or data[(y, s)] is None: continue
-            res = paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng)
-            res["per_suite"] = {SHORT[k]: paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng, k) for k in SUITES}
-            res["role"] = "primary" if s == "flat_k1_n2" else "secondary (unadjusted)"
-            contrasts[f"{x}-{y}@{s}"] = res
-    primary = [k for k in contrasts if k.endswith("@flat_k1_n2")]
+    pairs = [(x, y, s) for s in SCHEDULES for x, y in CONTRASTS] + [("SP11", "E0", "flat_k1_n2")]
+    for x, y, s in pairs:
+        if data[(x, s)] is None or data[(y, s)] is None: continue
+        name = f"{x}-{y}@{s}"; rng = stream(f"contrast:{name}")
+        res = paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng)
+        res["per_suite"] = {SHORT[k]: paired(data[(x, s)]["outcome"], data[(y, s)]["outcome"], rng, k) for k in SUITES}
+        res["role"] = "primary" if s == "flat_k1_n2" and x != "SP11" else "secondary (unadjusted)"
+        contrasts[name] = res
+    primary = [k for k in contrasts if contrasts[k]["role"] == "primary"]
     if len(primary) == 3:
         for k, adj in zip(primary, holm([contrasts[k]["p_permutation"] for k in primary])):
             contrasts[k]["p_holm"] = adj
-    result = dict(format="elastic-decisive-eval-v1", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
+    result = dict(format="elastic-decisive-eval-v2", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
                   analysis=__doc__.strip(), resamples=RESAMPLES, rng_seed=SEED, conditions=conditions, contrasts=contrasts)
     out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=1))
@@ -133,7 +150,7 @@ def main():
     lines = ["| Run | Schedule | Success % (95% CI) | Spatial | Object | Goal | Long | Seeds 42/43/44 |", "|---|---|---|---|---|---|---|---|"]
     for k, c in conditions.items():
         if not c["complete"]:
-            lines.append(f"| {c['run']} | {LABEL[c['schedule']]} | pending | | | | | |"); continue
+            lines.append(f"| {c['run']} | {LABEL[c['schedule']]} | pending (incomplete; not scored) | | | | | |"); continue
         lines.append(f"| {c['run']} | {c['label']} | {pct(c['success_rate'])} ({pct(c['ci95'][0])}-{pct(c['ci95'][1])}) | "
                      + " | ".join(pct(c["per_suite"][n]) for n in ("Spatial", "Object", "Goal", "Long")) + " | "
                      + "/".join(pct(c["per_seed"][s]) for s in ("42", "43", "44")) + " |")
