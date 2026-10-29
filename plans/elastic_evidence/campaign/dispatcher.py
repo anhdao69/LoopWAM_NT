@@ -17,7 +17,10 @@ no evaluation lane runs anywhere, a pair goes to training only for a run whose e
 not evaluated, then waits for such a pair instead of displacing the last evaluation lane). v3.2: the private CUDA MPS
 server of an evaluation lane sees every GPU of its job and holds a ~68 MiB context on each, so MPS server processes do
 not make a GPU busy (the <1 GiB and zero-utilization tests still apply); `--released=JOB:G,G` marks GPUs that our own
-lanes released just before a restart. Near each job's end its
+lanes released just before a restart. v3.3 (2026-10-29, user request "eval SP11 also? Run each E0, E1, E2 with 9 runs as
+in the plan"): the evaluation covers the decisive pass plus SP11 [1,1] and the rest of the flat9 grid of E0/E1/E2
+(EVAL_CONDS, mirroring EVAL_CONDITIONS in eval_env.sh, in the same priority order); any pending training run (F0-PB's
+resume) that waits PREEMPT_POLLS polls stops the evaluation lane with the fewest workers. Near each job's end its
 lanes are stopped gracefully and its /dev/shm cache removed. Once training is complete the caches are removed; once evaluation is complete this exits.
 Python 3.6 compatible (system python on the login node).
 """
@@ -27,11 +30,14 @@ WORK = "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_work"
 RUNS = "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic"
 EVAL_OUT = "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic_eval"
 QUEUE = ["E0", "E2", "E1", "SP11", "F0-PB"]
-EVAL_RUNS = ["E0", "E2", "E1"]
-EVAL_SCHEDULES = ["flat_k1_n2", "flat_k1_n10", "flat_k4_n10"]
+DECISIVE = ["flat_k1_n2", "flat_k1_n10", "flat_k4_n10"]
+GRID = ["flat_k2_n2", "flat_k1_n5", "flat_k4_n2", "flat_k2_n5", "flat_k4_n5", "flat_k2_n10"]
+EVAL_CONDS = ([(r, s) for r in ("E0", "E2", "E1") for s in DECISIVE] + [("SP11", "flat_k1_n2")]
+              + [(r, s) for s in GRID for r in ("E0", "E1", "E2")])
+EVAL_RUNS = ["E0", "E2", "E1", "SP11"]
 EVAL_GROUPS = 4 * 10 * 3          # suites x tasks x seeds per condition (50 episodes each)
 EXCLUDE = {"990547"}
-POLL, IDLE_POLLS, PREEMPT_POLLS = 120, 6, 10
+POLL, IDLE_POLLS, PREEMPT_POLLS = 120, 6, 3
 MIN_LEFT_START, EVAL_MIN_LEFT, STOP_LEFT = 3600, 3600, 1500
 TRAIN_CPUS, MAX_WPG = 3, 8
 MAX_LAUNCH_RECORDS = 30
@@ -122,20 +128,18 @@ def live_token(token):
 def eval_unclaimed():
     """Groups of ready, unfinished conditions that are neither scored nor claimed by a live runner."""
     total = 0
-    for run in EVAL_RUNS:
-        if not eval_ready(run): continue
-        for schedule in EVAL_SCHEDULES:
-            if eval_done(run, schedule): continue
-            dirs = eval_dirs(run, schedule)
-            if not dirs: total += EVAL_GROUPS; continue
-            d = dirs[0]
-            done = len(glob.glob(os.path.join(d, "groups", "*.json")))
-            claimed = 0
-            for c in glob.glob(os.path.join(d, "claims", "*.claim")):
-                try: token = open(c).read().strip()
-                except OSError: continue
-                if token and live_token(token): claimed += 1
-            total += max(0, EVAL_GROUPS - done - claimed)
+    for run, schedule in EVAL_CONDS:
+        if not eval_ready(run) or eval_done(run, schedule): continue
+        dirs = eval_dirs(run, schedule)
+        if not dirs: total += EVAL_GROUPS; continue
+        d = dirs[0]
+        done = len(glob.glob(os.path.join(d, "groups", "*.json")))
+        claimed = 0
+        for c in glob.glob(os.path.join(d, "claims", "*.claim")):
+            try: token = open(c).read().strip()
+            except OSError: continue
+            if token and live_token(token): claimed += 1
+        total += max(0, EVAL_GROUPS - done - claimed)
     return total
 
 def login_steps():
@@ -194,7 +198,7 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v3.2 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.3 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
     for arg in sys.argv[1:]:
@@ -211,7 +215,7 @@ def main():
             except OSError: owner = ""
             if owner and owner not in states: states[owner] = job_state(owner)
         training_done = all(complete(r) for r in QUEUE)
-        eval_all_done = all(eval_done(r, s) for r in EVAL_RUNS for s in EVAL_SCHEDULES)
+        eval_all_done = all(eval_done(r, s) for r, s in EVAL_CONDS)
         steps = login_steps()
         if training_done and not caches_cleaned and not DRY:
             for jid in jobs:
@@ -220,8 +224,7 @@ def main():
                         timeout=300)[1].strip()))
             caches_cleaned = True
         if training_done and eval_all_done:
-            log("all five runs trained and all %d evaluation conditions complete; dispatcher done" %
-                (len(EVAL_RUNS) * len(EVAL_SCHEDULES)))
+            log("all five runs trained and all %d evaluation conditions complete; dispatcher done" % len(EVAL_CONDS))
             return
         failed = [r for r in QUEUE if not complete(r) and launch_records(r) >= MAX_LAUNCH_RECORDS]
         pending = [r for r in QUEUE if not complete(r) and not owned(r, states) and r not in failed]
@@ -236,8 +239,10 @@ def main():
         evals_live = evals
         summary = ", ".join("%s:%s" % (r, "done" if complete(r) else ("owned" if owned(r, states) else
                             ("FAILED" if r in failed else "pending"))) for r in QUEUE)
-        evsum = ", ".join("%s/%s:%s" % (r, s.replace("flat_", ""), "done" if eval_done(r, s) else
-                          ("ready" if eval_ready(r) else "-")) for r in EVAL_RUNS for s in EVAL_SCHEDULES)
+        evdone = [c for c in EVAL_CONDS if eval_done(*c)]
+        evsum = "done %d/%d, ready %d, next %s" % (len(evdone), len(EVAL_CONDS),
+                sum(1 for c in EVAL_CONDS if c not in evdone and eval_ready(c[0])),
+                ",".join("%s/%s" % (r, s.replace("flat_", "")) for r, s in EVAL_CONDS if (r, s) not in evdone)[:60])
         log("runs [%s]; lanes %d (idle %d); need %d; eval [%s]; eval lanes %d, unclaimed groups %d; jobs %s" % (
             summary, lanes, idle_lanes, need, evsum, evals, unclaimed,
             {j: "%s %.1fh %dcpu" % (v["node"], v["left"] / 3600, v["cpus"]) for j, v in jobs.items()}))
@@ -295,15 +300,17 @@ def main():
                     children.append(spawn(srun_cmd(jid, info["cpus"], ["bash", WORK + "/eval_lane.sh", lane,
                                                                         "%d,%d" % (a, b), str(wpg)]), "eval_%s.log" % lane))
                     counts[a] = counts[b] = 0; eval_launches.append(time.time()); evals_live += 1
-        # A run whose evaluation is requested must not wait behind evaluation lanes for long.
-        starving = starving + 1 if (critical and need > 0 and not launched_training) else 0
+        # Training must not wait behind evaluation lanes for long (v3.3: any pending run; the lane with the fewest
+        # workers is stopped, preferring the job with the most time left).
+        starving = starving + 1 if (pending and need > 0 and not launched_training) else 0
         if starving >= PREEMPT_POLLS:
-            victims = [(info["left"], jid, lane, gpus) for jid, info in jobs.items() if info["left"] >= MIN_LEFT_START + 1800
-                       for lane, (gpus, _) in steps.get(jid, dict(evals={})).get("evals", {}).items()]
+            victims = [(-len(gpus.split(",")) * wpg, info["left"], jid, lane, gpus) for jid, info in jobs.items()
+                       if info["left"] >= MIN_LEFT_START + 1800
+                       for lane, (gpus, wpg) in steps.get(jid, dict(evals={})).get("evals", {}).items()]
             if victims:
-                left, jid, lane, gpus = max(victims)
+                _, left, jid, lane, gpus = max(victims)
                 log("training %s has waited %d polls: stopping eval lane %s on job %s to free GPUs %s" % (
-                    critical, starving, lane, jid, gpus))
+                    pending, starving, lane, jid, gpus))
                 if not DRY:
                     log(srun(jid, ["bash", WORK + "/stop_eval_lane.sh", jid, lane], timeout=300)[1].strip())
                     for g in gpus.split(","): streak.setdefault(jid, {})[int(g)] = IDLE_POLLS - 1
