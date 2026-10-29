@@ -28,6 +28,13 @@ Extended on 2026-10-29 at 13:00, after F0-PB finished training and before any F0
   elastic stack reproduced 20/20 stored RT-A2 episodes exactly); its groups must match the pinned checkpoint;
 - secondary, unadjusted: F0-PB - F2-PB at S8 and at S2 (same estimator, interval and test). F0-PB and F2-PB differ in
   transport only if the historical reconstruction is exact; the arms were also scored two weeks apart.
+Extended on 2026-10-29 at 13:50 at the user's request ("Eval F0-PB with 9 evals as plan"), before any F0-PB episode
+was scored (plan sections 7, 8 and 12.3: F0-PB's grid is front6 + full3):
+- conditions: F0-PB at all nine points, S8 [4,1], S7 [4,2], parent2 [4,4], S6 [4,1,1,1,1], S5 [4,2,2,2,2],
+  S2 [4]+[1]x9, parent5 [4]x5, S1 [4]+[2]x9, parent10 [4]x10; the full3 are full-depth retention probes at step
+  counts F0-PB was trained with (the runner admits no other untrained schedule);
+- reference F2-PB (as above) at all six front schedules it has on H100; secondary, unadjusted F0-PB - F2-PB at each
+  of them; no F2-PB full-depth result exists on H100, so full3 is reported for F0-PB alone.
 """
 import argparse, csv, glob, json, math, zlib
 from pathlib import Path
@@ -41,12 +48,16 @@ SCHEDULES = ("flat_k1_n2", "flat_k2_n2", "flat_k1_n5", "flat_k4_n2", "flat_k2_n5
              "flat_k2_n10", "flat_k4_n10")
 LABEL = {"flat_k1_n2": "[1,1]", "flat_k2_n2": "[2,2]", "flat_k1_n5": "[1]x5", "flat_k4_n2": "[4,4]", "flat_k2_n5": "[2]x5",
          "flat_k1_n10": "[1]x10", "flat_k4_n5": "[4]x5", "flat_k2_n10": "[2]x10", "flat_k4_n10": "[4]x10",
-         "S8": "[4,1]", "S2": "[4]+[1]x9"}
-EXTRA = (("SP11", "flat_k1_n2"), ("F0-PB", "S8"), ("F0-PB", "S2"))
+         "S8": "[4,1]", "S7": "[4,2]", "S6": "[4,1,1,1,1]", "S5": "[4,2,2,2,2]", "S2": "[4]+[1]x9", "S1": "[4]+[2]x9",
+         "parent2": "[4,4] full", "parent5": "[4]x5 full", "parent10": "[4]x10 full"}
+# F0-PB front6 + full3 (plan section 8), ascending action calls: 42, 48, 60, 78, 102, 138, 150, 192, 300.
+FRONT6 = ("S8", "S7", "S6", "S5", "S2", "S1")
+F0PB_SCHEDULES = ("S8", "S7", "parent2", "S6", "S5", "S2", "parent5", "S1", "parent10")
+EXTRA = (("SP11", "flat_k1_n2"),) + tuple(("F0-PB", s) for s in F0PB_SCHEDULES)
 # F2-PB: RT-A2 epoch 10 as evaluated on H100 by the same runner (key prefix residual_trans; no summary.json there).
 F2PB_ROOT = "/groups/yshang/an221229/checkpoints/LoopWAM_NT/rt_eval_h100"
 F2PB_SHA = "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
-REFERENCE = (("F2-PB", "S8"), ("F2-PB", "S2"))
+REFERENCE = tuple(("F2-PB", s) for s in FRONT6)
 CONTRASTS = (("E1", "E0"), ("E2", "E0"), ("E2", "E1"))
 RESAMPLES, SEED = 10_000, 20261028
 
@@ -173,7 +184,7 @@ def main():
     if len(primary) == 3:
         for k, adj in zip(primary, holm([contrasts[k]["p_permutation"] for k in primary])):
             contrasts[k]["p_holm"] = adj
-    result = dict(format="elastic-decisive-eval-v3", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
+    result = dict(format="elastic-decisive-eval-v4", protocol="lightwam_20261009_matched via scripts/evaluate_rt_matched.py",
                   analysis=__doc__.strip(), resamples=RESAMPLES, rng_seed=SEED, conditions=conditions, contrasts=contrasts)
     out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=1))

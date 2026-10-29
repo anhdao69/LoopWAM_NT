@@ -286,7 +286,12 @@ def main():
         if config["config"].get("campaign") == "elastic-v1":
             if payload.get("transport_config") != config["config"]:
                 raise SystemExit(f"{run}: checkpoint transport config differs from config.json")
-            if schedule not in config["config"]["schedules"]:
+            # Full-depth deployment ([4]xN, plan sections 7 and 8: the "full3" of first-full runs) is evaluated as a
+            # retention probe; it is allowed only at a step count N the run was trained with, so that the step
+            # condition d = 1/N it receives is one it was trained on.
+            trained = config["config"]["schedules"]
+            full_depth = set(SCHEDULES[schedule]) == {4} and any(len(SCHEDULES[t]) == len(SCHEDULES[schedule]) for t in trained)
+            if schedule not in trained and not full_depth:
                 raise SystemExit(f"{run} was not trained on schedule {schedule}")
         epoch = payload["training_state"]["epoch"]; del payload
         key = condition_key(run, schedule, sha, args.key_prefix)

@@ -25,6 +25,10 @@ done
 # 3) 2026-10-29 13:00, after F0-PB finished training: F0-PB at its decisive points [4,1] (S8) and [4]+[1]x9 (S2)
 #    (plan section 12.2; F2-PB = RT-A2 already has both on H100 with the same runner).
 EVAL_CONDITIONS="$EVAL_CONDITIONS F0-PB:S8:F0-PB F0-PB:S2:F0-PB"
+# 4) 2026-10-29 13:50 user: "Eval F0-PB with 9 evals as plan": the rest of F0-PB's front6 + full3 (plan sections 7, 8,
+#    12.3), [4]x10 first, then ascending action calls; full3 = full-depth retention probes, which the runner admits only
+#    at step counts the run was trained with. One gate, gates/F0-PB__grid.json, covers these seven schedules.
+for s in parent10 S7 parent2 S6 S5 parent5 S1; do EVAL_CONDITIONS="$EVAL_CONDITIONS F0-PB:$s:F0-PB__grid"; done
 export EVAL_CONDITIONS=${EVAL_CONDITIONS# }
 # Private CUDA MPS daemon per eval lane (see eval_lane.sh); verified identical actions (parity_rt.sh under MPS, 20/20).
 export EVAL_MPS=1

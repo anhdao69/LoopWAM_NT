@@ -34,7 +34,8 @@ DECISIVE = ["flat_k1_n2", "flat_k1_n10", "flat_k4_n10"]
 GRID = ["flat_k2_n2", "flat_k1_n5", "flat_k4_n2", "flat_k2_n5", "flat_k4_n5", "flat_k2_n10"]
 EVAL_CONDS = ([(r, s) for r in ("E0", "E2", "E1") for s in DECISIVE] + [("SP11", "flat_k1_n2")]
               + [(r, s) for s in GRID for r in ("E0", "E1", "E2")]
-              + [("F0-PB", "S8"), ("F0-PB", "S2")])   # v3.4: F0-PB decisive points it was trained on
+              + [("F0-PB", "S8"), ("F0-PB", "S2")]    # v3.4: F0-PB decisive points it was trained on
+              + [("F0-PB", s) for s in ("parent10", "S7", "parent2", "S6", "S5", "parent5", "S1")])  # v3.6: rest of front6+full3
 EVAL_RUNS = ["E0", "E2", "E1", "SP11", "F0-PB"]
 EVAL_GROUPS = 4 * 10 * 3          # suites x tasks x seeds per condition (50 episodes each)
 EXCLUDE = {"990547"}
@@ -201,7 +202,7 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v3.5 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.6 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
     for arg in sys.argv[1:]:
