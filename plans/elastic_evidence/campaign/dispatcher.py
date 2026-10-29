@@ -14,7 +14,10 @@ remain; evaluation is CPU-bound, so its workers per GPU follow the job's CPUs no
 evaluation is requested (E0/E2/E1) waits for GPUs for PREEMPT_POLLS polls, one evaluation lane is stopped to make
 room (its in-flight groups are re-run elsewhere). v3 (2026-10-29): while unclaimed evaluation groups remain and
 no evaluation lane runs anywhere, a pair goes to training only for a run whose evaluation is requested (F0-PB, which is
-not evaluated, then waits for such a pair instead of displacing the last evaluation lane). Near each job's end its
+not evaluated, then waits for such a pair instead of displacing the last evaluation lane). v3.2: the private CUDA MPS
+server of an evaluation lane sees every GPU of its job and holds a ~68 MiB context on each, so MPS server processes do
+not make a GPU busy (the <1 GiB and zero-utilization tests still apply); `--released=JOB:G,G` marks GPUs that our own
+lanes released just before a restart. Near each job's end its
 lanes are stopped gracefully and its /dev/shm cache removed. Once training is complete the caches are removed; once evaluation is complete this exits.
 Python 3.6 compatible (system python on the login node).
 """
@@ -162,10 +165,13 @@ def probe(jid):
     """{gpu index: idle} from inside the job, or None if the probe failed."""
     code, out = srun(jid, ["bash", "-c", "nvidia-smi --query-gpu=index,pci.bus_id,memory.used,utilization.gpu "
                                          "--format=csv,noheader,nounits; echo APPS; nvidia-smi "
-                                         "--query-compute-apps=gpu_bus_id --format=csv,noheader"])
+                                         "--query-compute-apps=gpu_bus_id,process_name --format=csv,noheader"])
     if code != 0 or "APPS" not in out: return None
     gpus, apps = out.split("APPS")
-    busy = {line.strip().lower() for line in apps.splitlines() if line.strip()}
+    busy = set()
+    for line in apps.splitlines():
+        bus, _, name = line.strip().partition(",")
+        if bus and "nvidia-cuda-mps-server" not in name: busy.add(bus.strip().lower())
     result = {}
     for line in gpus.splitlines():
         parts = [p.strip() for p in line.split(",")]
@@ -188,9 +194,14 @@ def spawn(command, logname):
                             stdin=subprocess.DEVNULL, start_new_session=True)
 
 def main():
-    log("dispatcher v3.1 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
+    log("dispatcher v3.2 pid %d on %s; excluded jobs %s; dry_run=%s" % (os.getpid(), os.uname()[1], sorted(EXCLUDE), DRY))
     streak, children, stopped, prev_used = {}, [], set(), {}
     starving, caches_cleaned, eval_launches = 0, False, []
+    for arg in sys.argv[1:]:
+        if arg.startswith("--released="):
+            jid, gpus = arg.split("=", 1)[1].split(":")
+            for g in gpus.split(","): streak.setdefault(jid, {})[int(g)] = IDLE_POLLS - 1
+            log("job %s GPUs %s were released by our own lanes before this restart" % (jid, gpus))
     while True:
         children = [p for p in children if p.poll() is None]
         jobs = running_jobs()
