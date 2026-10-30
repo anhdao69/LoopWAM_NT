@@ -1,0 +1,73 @@
+{
+  "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "finished": {},
+  "running": {
+    "adjust_bottle/demo_clean": {
+      "episodes": 1,
+      "started": 1793364824.5595055
+    },
+    "adjust_bottle/demo_randomized": {
+      "episodes": 1,
+      "started": 1793364824.5696888
+    },
+    "beat_block_hammer/demo_clean": {
+      "episodes": 1,
+      "started": 1793364824.5789354
+    },
+    "beat_block_hammer/demo_randomized": {
+      "episodes": 1,
+      "started": 1793364824.5888355
+    },
+    "blocks_ranking_rgb/demo_clean": {
+      "episodes": 0,
+      "started": 1793364824.598337
+    },
+    "blocks_ranking_rgb/demo_randomized": {
+      "episodes": 0,
+      "started": 1793364824.6084344
+    },
+    "blocks_ranking_size/demo_clean": {
+      "episodes": 0,
+      "started": 1793364824.618025
+    },
+    "blocks_ranking_size/demo_randomized": {
+      "episodes": 0,
+      "started": 1793364824.6274514
+    },
+    "click_alarmclock/demo_clean": {
+      "episodes": 3,
+      "started": 1793364824.636921
+    },
+    "click_alarmclock/demo_randomized": {
+      "episodes": 3,
+      "started": 1793364824.646994
+    },
+    "click_bell/demo_clean": {
+      "episodes": 3,
+      "started": 1793364824.6583595
+    },
+    "click_bell/demo_randomized": {
+      "episodes": 3,
+      "started": 1793364824.6698089
+    },
+    "dump_bin_bigbin/demo_clean": {
+      "episodes": 0,
+      "started": 1793364824.6856725
+    },
+    "dump_bin_bigbin/demo_randomized": {
+      "episodes": 0,
+      "started": 1793364824.6946733
+    },
+    "grab_roller/demo_clean": {
+      "episodes": 2,
+      "started": 1793364824.7060044
+    },
+    "grab_roller/demo_randomized": {
+      "episodes": 1,
+      "started": 1793364824.7179742
+    }
+  },
+  "failed": [],
+  "pending": 84,
+  "updated": 1793364940.1403484
+}

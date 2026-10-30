@@ -1,5 +1,17 @@
 # Original LoopWAM v0: automatic epoch-5 evaluation and epochs 6–10
 
+## Progress update: October 30, 12:53 UTC
+
+**The original five-epoch training completed at 08:04:52 UTC**, using 237,310 updates and 30,375,515 real windows in **49h54m14s**. Epochs 3, 4 and 5 are saved. Final loss was 0.040306 (video 0.038477; action 0.001828); the last 100-update mean was 0.041315, and the last 1,000 records contained no nonfinite loss/gradient values.
+
+The first automatic controller failed before running checkpoint validation or evaluation. Its nested `srun` inherited the controller's one-CPU/TRES/memory/binding settings, so Slurm rejected the child with `Memory required by task is not available`. All three retries encountered the same launcher error; the training itself was already complete. This caused approximately **4h48m of delay** before evaluation started. No full epoch-5 episodes ran during that gap; the earlier reported simulator runs used epoch 4 and were only smoke checks.
+
+Repair commit **8326632** clears inherited parent-step Slurm/SRUN resource settings and CUDA visibility before launching a child with explicit allocation/resource arguments. The same one-CPU parent reproduced the original failure, then successfully launched a four-CPU child and an **eight-GPU/112-CPU child** after the fix. The new regression test failed before implementation; **13 pipeline tests pass** locally and on the server. Existing simulator/model preflight hashes remain unchanged. A new versioned `config_repair_20261030.json` preserves the original launch contract and records the one changed source hash; previous logs/configs are retained.
+
+The real epoch-5 handoff now passes: every policy tensor matches the final recovery checkpoint, all **679 Adam parameter states** are valid, and the epoch/window cursor is exact. Epoch-5 SHA256: `38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51`. The repaired controller is **5489.67** and full evaluation started in **5489.69 at 12:52:46 UTC**. At 2026-10-30T12:55:42.770846+00:00, all 16 workers were active and 24/10,000 episode outcomes had been recorded, with 24 successes and no worker failures or tracebacks. These are preliminary logs, not a representative final benchmark rate; complete 100-episode cells and all videos still require validation. No completed continuation is claimed. The original training source, data, weights and continuation recipe were not changed.
+
+The original setup details and forecasts below are retained as historical evidence. Current estimates should be based on the evaluation's actual progress after this restart. Repair evidence is in `plans/evidence/robotwin_eval_continue_20261030/repair_20261030/`.
+
 ## Requested sequence and checkpoint policy
 
 The user corrected the last checkpoint number to **10**. After the current five-epoch run completes, evaluate its **epoch_05.pt** on the full RoboTwin benchmark, then continue the original v0 model for epochs **6, 7, 8, 9 and 10**. Save a weight snapshot at every one of those epochs. The continuation starts at **3e-5** and cosine-decays to **3e-7**, without a new warmup, while retaining epoch-5 model weights and Adam state. No epoch-10 evaluation was added.

@@ -1,0 +1,13 @@
+{
+  "state": "finished",
+  "pid": 1223094,
+  "step_id": "68",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; source /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/train_env.sh; exec python /mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/verify_robotwin_handoff.py --weights /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt --recovery /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/latest.pt --output /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/queue/handoff.json"
+  ],
+  "started": 1793364720.2891235,
+  "exit_code": 0,
+  "finished": 1793364749.5830853
+}

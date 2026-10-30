@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "step": 237310,
+  "weights": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt",
+  "weights_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "recovery": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/latest.pt",
+  "recovery_sha256": "d349828265fb88998b5ffe14d098484b901ac3e31250b93c4076f39bf805f291",
+  "optimizer_parameters": 679,
+  "weights_equal": true,
+  "optimizer_valid": true
+}

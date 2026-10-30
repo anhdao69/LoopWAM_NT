@@ -1,0 +1,14 @@
+[
+  {
+    "case": "inherited",
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "srun: Job step's --cpus-per-task value exceeds that of job (4 > 1). Job step may never run.\nsrun: error: Unable to create step for job 5489: Memory required by task is not available\n"
+  },
+  {
+    "case": "clean",
+    "returncode": 0,
+    "stdout": "CHILD_CPU_OK 4 8192\n",
+    "stderr": ""
+  }
+]

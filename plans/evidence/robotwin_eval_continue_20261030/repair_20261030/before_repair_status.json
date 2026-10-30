@@ -1,0 +1,7 @@
+{
+  "stage": "failed",
+  "job_id": "5489",
+  "controller_pid": 1211530,
+  "updated": 1793347696.3987303,
+  "error": "RuntimeError('Stagehandofffailed; inspect stage logs')"
+}

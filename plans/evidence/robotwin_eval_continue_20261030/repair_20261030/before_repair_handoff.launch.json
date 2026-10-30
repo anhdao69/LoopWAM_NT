@@ -1,0 +1,22 @@
+{
+  "command": [
+    "srun",
+    "--jobid",
+    "5489",
+    "--overlap",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--gres=none",
+    "--kill-on-bad-exit=1",
+    "--job-name",
+    "rwq_handoff",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python",
+    "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/robotwin_queue_stage.py",
+    "--command",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/queue/handoff.command.json",
+    "--status",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/queue/handoff.status.json"
+  ],
+  "created": 1793347676.3383625,
+  "attempt": 0
+}

@@ -1,10 +1,10 @@
 {
   "generated_utc": "2026-10-30T03:57:40.401764+00:00",
-  "status": "armed_waiting_for_epoch5",
+  "status": "epoch5_evaluation_running",
   "job_id": 5489,
-  "controller_step": "5489.54",
+  "controller_step": "5489.67",
   "parent_step": "5489.10",
-  "runtime_commit": "0703c9db3f71c8347d1541751ca352c5901ca440",
+  "runtime_commit": "8326632c018401118b4ea6cd87ee93e2fa3fdda9",
   "branch": "robotwin_eval_continue_20261030",
   "sequence": [
     "complete current epoch5 training",
@@ -206,7 +206,8 @@
     "queue_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/queue",
     "eval_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/eval_epoch05",
     "continuation_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/epochs06_10",
-    "preflight": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/preflight_passed.json"
+    "preflight": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/preflight_passed.json",
+    "active_config": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/config_repair_20261030.json"
   },
   "estimates": {
     "epoch5_finish_utc": "2026-10-30 07:45\u201308:15",
@@ -222,7 +223,54 @@
       54,
       76
     ],
-    "caveat": "Two easy smoke scenes do not tightly predict 50-task full evaluation; update from production completed cells."
+    "caveat": "Two easy smoke scenes do not tightly predict 50-task full evaluation; update from production completed cells.",
+    "superseded_by_queue_incident": true
   },
-  "reliability": "Detached persistent Slurm step with locks, immutable hashes, complete-coverage gates, committed-checkpoint recovery and three controller attempts; requires allocation5489 and storage to remain available."
+  "reliability": "Detached persistent Slurm step with locks, immutable hashes, complete-coverage gates, committed-checkpoint recovery and three controller attempts; requires allocation5489 and storage to remain available.",
+  "original_setup_status": "armed_waiting_for_epoch5",
+  "training_epoch5_result": {
+    "completed_utc": "2026-10-30T08:04:52Z",
+    "updates": 237310,
+    "windows": 30375515,
+    "training_seconds": 179653.95618367195,
+    "final_loss": 0.04030565917491913,
+    "final_video_loss": 0.038477275520563126,
+    "final_action_loss": 0.0018283891258761287,
+    "last100_loss_mean": 0.041315149143338205,
+    "last1000_nonfinite_records": 0,
+    "checkpoints": [
+      3,
+      4,
+      5
+    ],
+    "epoch5_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"
+  },
+  "queue_incident": {
+    "failed_before_evaluation": true,
+    "first_failure_utc": "2026-10-30T08:05:35Z",
+    "last_failure_utc": "2026-10-30T08:08:16Z",
+    "cause": "Nested srun inherited controller step CPU/TRES/memory/binding settings; Slurm rejected child before handoff code executed",
+    "repair": "Clean parent-step Slurm/SRUN resource environment and CUDA mask; retain cluster config and explicit job/resource arguments",
+    "new_pipeline_tests_passed": 13,
+    "native_nested_cpu_probe_passed": true,
+    "native_nested_8gpu_112cpu_probe_passed": true,
+    "handoff_passed": true,
+    "optimizer_parameters_verified": 679,
+    "training_contract_changed": false,
+    "evaluation_start_delay_hours": 4.798333333333333
+  },
+  "evaluation_step": "5489.69",
+  "evaluation_started_utc": "2026-10-30T12:52:46Z",
+  "updated_utc": "2026-10-30T12:55:42.770846+00:00",
+  "evaluation_progress": {
+    "checked_utc": "2026-10-30T12:55:42.770846+00:00",
+    "workers": 16,
+    "episode_outcomes_recorded": 24,
+    "successes": 24,
+    "total_planned": 10000,
+    "failed_attempts": [],
+    "tracebacks": 0,
+    "final_success_rate_available": false,
+    "provisional": true
+  }
 }

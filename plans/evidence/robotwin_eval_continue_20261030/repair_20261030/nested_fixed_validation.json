@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "label": "cpu",
+      "returncode": 0,
+      "stdout": "CPU_HANDOFF_RESOURCES_OK\n",
+      "stderr": ""
+    },
+    {
+      "label": "gpu",
+      "returncode": 0,
+      "stdout": "{\"gpus\": 8, \"cpus\": 112, \"values\": [16.0, 16.0, 16.0, 16.0, 16.0, 16.0, 16.0, 16.0], \"visible\": \"0,1,2,3,4,5,6,7\"}\n",
+      "stderr": ""
+    }
+  ]
+}

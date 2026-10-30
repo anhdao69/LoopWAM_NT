@@ -1,0 +1,20 @@
+{
+  "stage": "eval5",
+  "job_id": "5489",
+  "controller_pid": 1223078,
+  "updated": 1793364926.8632388,
+  "child": {
+    "state": "running",
+    "pid": 1223141,
+    "step_id": "69",
+    "command": [
+      "bash",
+      "-c",
+      "set -e; source /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/eval_env.sh; exec python /mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/evaluate_loopwam_robotwin.py --checkpoint /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt --output-dir /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/eval_epoch05 --robotwin-root /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/RoboTwin --data-dir /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50/data --per-gpu 2 --seed 42"
+    ],
+    "started": 1793364766.7748458
+  },
+  "steps": [
+    "5489.69"
+  ]
+}

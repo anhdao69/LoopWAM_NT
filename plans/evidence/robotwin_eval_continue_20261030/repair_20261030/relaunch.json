@@ -1,0 +1,17 @@
+{
+  "command": [
+    "srun",
+    "--jobid=5489",
+    "--overlap",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--gres=none",
+    "--job-name=test_training_queue",
+    "bash",
+    "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/supervise_robotwin_queue.sh",
+    "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/train_env.sh",
+    "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue",
+    "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/config_repair_20261030.json"
+  ],
+  "created": 1793364719.4479253
+}
