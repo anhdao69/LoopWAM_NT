@@ -1,4 +1,0 @@
-[2026-10-30T11:02:27-04:00] watcher start for job 1102933
-[2026-10-30T11:06:58-04:00] watcher start for job 1102933
-[2026-10-30T12:47:08-04:00] job 1102933 RUNNING on evc103; launching eval step
-[2026-10-30T12:50:42-04:00] srun rc=0
