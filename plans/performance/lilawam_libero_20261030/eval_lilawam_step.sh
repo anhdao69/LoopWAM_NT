@@ -12,18 +12,21 @@ nvidia-smi --query-gpu=index,name,memory.used,utilization.gpu --format=csv,nohea
 # wait for training to finish (it runs in job 1094056, which ends 12:51:40)
 while ! grep -q "all done" $RUN/train_job.log && squeue -h -j 1094056 -o %T 2>/dev/null | grep -q RUNNING; do sleep 30; done
 SUITES=""
-for s in libero_10 libero_goal libero_object libero_spatial; do
+for s in libero_spatial libero_object libero_goal libero_10; do   # M.SUITES order: the manifest stores this list
   if ls $RUN/$s/stage2/sft_*/checkpoint_epoch_2.pt >/dev/null 2>&1; then SUITES="$SUITES,$s"; else echo "WARNING: $s has no final checkpoint; not evaluated"; fi
 done
 SUITES=${SUITES#,}
 echo "[$(date -Is)] suites: $SUITES"
 NG=$(nvidia-smi -L | wc -l); GPUS=$(seq -s, 0 $((NG - 1)))
-NP=$(nproc); W=$(( NP > 12 ? NP - 8 : NP - 2 ))
-for attempt in 1 2 3; do
+NP=$(env -u OMP_NUM_THREADS -u OMP_THREAD_LIMIT nproc); W=$(( NP * 5 / 4 ))   # workers wait ~40% of the time on inference, so oversubscribe the CPUs; servers keep priority (workers are niced)
+for attempt in 1 2 3 4; do
+  [ -f $OUT/summary.json ] && break
   echo "[$(date -Is)] attempt $attempt: gpus $GPUS env workers $W"
   python /groups/yshang/an221229/code/lilawam_libero/evaluate_lilawam_matched.py --output-dir $OUT --gpus $GPUS \
-    --env-workers $W --suites $SUITES && break
-  echo "[$(date -Is)] attempt $attempt failed rc=$?"; sleep 30
+    --env-workers $W --server-threads 3 --suites $SUITES
+  echo "[$(date -Is)] attempt $attempt rc=$?"
+  # groups skipped because a stopped runner's claim still looked fresh are picked up by the next attempt
+  [ -f $OUT/summary.json ] || sleep 60
 done
 if [ -f $OUT/summary.json ]; then
   echo "[$(date -Is)] EVAL COMPLETE"; python -c "import json; s=json.load(open('$OUT/summary.json')); print(json.dumps({k: s[k] for k in ('success_rate','successes','episodes')}), {k: round(100*v['success_rate'],2) for k,v in s['per_suite'].items()})"

@@ -5,7 +5,7 @@ This report covers two pieces of work on H100 80GB HBM3. Branch `elastic`.
 1. **Latency of four public world-action models**, each run through **its own public code with its own released weights**, unoptimized: FastWAM, FasterWAM, Light-WAM and LiLa-WAM.
 2. **LiLa-WAM trained on our LIBERO data**, because the authors released no LIBERO model. It uses the paper's LIBERO recipe. The weights are on Hugging Face under `baselines/`, along with an open-loop check and the trained model's latency.
 
-**Training: all four suites finished both stages.** LIBERO success of the trained LiLa-WAM under our matched protocol (Section 6.9): **pending**.
+**Training: all four suites finished both stages.** LIBERO success of the trained LiLa-WAM under our matched protocol (Section 6.9): **22.82% (1369/6000)**.
 
 Where things are:
 - **Data and scripts:** `plans/performance/public_wam_latency_20261030/` (latency) and `plans/performance/lilawam_libero_20261030/` (LiLa-WAM training).
@@ -348,14 +348,27 @@ The public B-spline smoothing (8 control points over 12 steps) barely changes th
   - All 40 task names map to their task vectors.
   - Closed loop: **Long 0/20** (10 tasks). **Goal 1/20**: "put the bowl on top of the cabinet" succeeded in 101 steps.
   - The robot reaches toward the right objects but rarely grasps (`lilawam/eval_debug/closed_loop_montage.png`).
-- **Interpretation.** The pipeline can complete tasks, so it is not broken. The policies are weak because of the training budget, not the method:
-  - 5 + 2 epochs per suite, about 5.7k updates for Long and about 3k for Goal;
-  - training loss still falling every epoch;
-  - open-loop error only about 2× below the mean-action baseline (Section 6.7).
-  - The paper does not state its epoch count. Its 94–99% per suite almost certainly needed much longer training.
-  - **Read the numbers below as "LiLa-WAM after a 7-epoch budget on our data", not as the method's capability.**
+- **What the pre-checks did and did not show.** They ruled out a broken pipeline: a task was completed, and the inputs and sampling match training. They covered only Long and Goal with 2 episodes per task, so they say nothing about Spatial or Object. The full 6,000-episode table below is the result.
+- **Training budget, for reading the table:**
+  - 5 + 2 epochs per suite: about 5.7k updates for Long, about 3k for Goal, and similar for Object and Spatial (Section 6.5);
+  - training loss still falling at the end of every stage.
+  - The paper does not state its epoch count. Where a suite falls well short of the paper's 94–99%, longer training is the first thing to try.
+- **Shared encoder.** Each GPU server encodes a batch once with the frozen pretrained DINOv3 and gives the features to each suite's action model. This is exact:
+  - all four suite configs use the same DINOv3 checkpoint, layers (−12/−8/−4) and token settings;
+  - the trained checkpoints contain only the action model (loaded with `strict=True`), which holds the per-suite feature projection.
 
-Not started yet. `eval_login_watcher.sh` on evuser2 launches `eval_lilawam_step.sh` in your interactive job 1102933 (2 H100, 64 CPUs) as soon as it starts.
+| Suite | Successes / episodes | Success % | Seed 42 / 43 / 44 % | FastWAM (ours, matched) % | Paper (LiLa-WAM) % |
+|---|---|---|---|---|---|
+| Spatial | 554 / 1500 | **36.93** | 9.6 / 68.6 / 32.6 | 97.47 | 98.0 |
+| Object | 293 / 1500 | **19.53** | 18.6 / 21.6 / 18.4 | 99.27 | 98.8 |
+| Goal | 495 / 1500 | **33.00** | 11.0 / 60.8 / 27.2 | 96.27 | 97.2 |
+| Long (libero_10) | 27 / 1500 | **1.80** | 0.2 / 5.2 / 0.0 | 93.53 | 94.2 |
+| **All** | 1369 / 6000 | **22.82** | 9.85 / 39.05 / 19.55 | 96.63 | 97.1 |
+
+- **Completed:** 6000 episodes, 2,488,241 policy steps, 416,811 policy queries.
+- **Runner time:** 42.5 min wall across 1 runner invocation(s), in job 1102933 on evc103. GPUs: 0,1; 80 simulator workers.
+- **Last group completed:** 2026-10-30 13:53:26.
+- **Checkpoint identity:** combined sha256 of the four policies `5f73fc1a4b850e6d…`. Per-suite sha256 values are in `eval_matched/manifest.json` and match Section 6.6.
 
 ## 7. Success-rate context
 
@@ -367,7 +380,7 @@ None of these numbers come from the latency runs.
 | Light-WAM | Long only: **90.87%** (1363/1500); seeds 90.4 / 90.0 / 92.2 | 1,500 | the earlier evaluation scored `lightwam_libero_10/.../step_080000.pt`, the file timed here by name. Its sha256 was not recorded in that evaluation. |
 | FasterWAM | not evaluated by us | – | |
 | LiLa-WAM (RoboTwin release) | not applicable: a RoboTwin model | – | |
-| LiLa-WAM (ours, paper recipe) | **pending** (Section 6.9) | 6,000 (seeds 42/43/44) | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
+| LiLa-WAM (ours, paper recipe) | **22.82% (1369/6000)** (Section 6.9) | 6,000 (seeds 42/43/44) | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
 
 ## 8. Caveats
 

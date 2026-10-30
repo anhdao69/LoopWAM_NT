@@ -93,4 +93,14 @@ Each run is the public `train.py`, unchanged except that its dataset factory rea
 
 Batch 1 on an H100 80GB (evc103, GPU otherwise idle), 500 recorded raw LIBERO observations after 20 warmup queries, from raw observation to the smoothed host action chunk (12×7): mean 52.0 ms, p50 51.1, p95 61.0, peak 1.12 GB; 0.515B parameters including the frozen DINOv3 (212.1M trainable action model).
 
-LIBERO success rates under our matched protocol (4 suites × 10 tasks × 50 trials × 3 seeds): **pending**.
+### LIBERO success under our matched protocol
+
+Protocol lightwam_20261009_matched: 4 suites × 10 tasks × official initial states 0–49 × seeds 42/43/44; 30 settling steps; at most 400 policy steps (700 for Long); success = environment done flag. Each suite uses its own final policy. 6 of 12 predicted actions are executed per query, and the gripper is executed as sign(g). Inference is batched, in bf16.
+
+| Suite | Successes / episodes | Success % | Seeds 42 / 43 / 44 % |
+|---|---|---|---|
+| Spatial | 554 / 1500 | 36.93 | 9.6 / 68.6 / 32.6 |
+| Object | 293 / 1500 | 19.53 | 18.6 / 21.6 / 18.4 |
+| Goal | 495 / 1500 | 33.00 | 11.0 / 60.8 / 27.2 |
+| Long (libero_10) | 27 / 1500 | 1.80 | 0.2 / 5.2 / 0.0 |
+| **All** | 1369 / 6000 | **22.82** | 9.8 / 39.1 / 19.6 |

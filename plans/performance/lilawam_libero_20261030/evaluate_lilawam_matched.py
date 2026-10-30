@@ -37,6 +37,33 @@ TASKCOND = "/groups/yshang/an221229/data/LiLaWAM_libero_ours_taskcond"
 SERVER_ORDER = ["libero_10", "libero_spatial", "libero_goal", "libero_object"]
 
 
+CAMS = ("agentview_image", "robot0_eye_in_hand_image")
+
+
+def camera_switch(env):
+    """Swap the two camera sensors of a LIBERO env between the real renderer and a dummy. robosuite samples camera
+    observables on a timer inside env.step; replacing only the sensor function keeps that timer logic identical, so
+    observations are unchanged wherever the real sensor is installed. The runner installs it for the last 2 control
+    steps before each query (verified bit-identical: images, state, done flags and qpos over 3 suites x 300 steps)."""
+    import numpy as np
+    obs_ = env.env._observables
+    real = {c: obs_[c]._sensor for c in CAMS}
+    dummy = {}
+    for c in CAMS:
+        f = lambda obs_cache: np.zeros((256, 256, 3), np.uint8)
+        f.__modality__ = real[c].__modality__
+        dummy[c] = f
+
+    def cam(on):
+        for c in CAMS:
+            obs_[c]._sensor = real[c] if on else dummy[c]
+    return cam
+
+
+class StopRun(Exception):
+    """--stop-at reached: abandon the unfinished group (nothing of it is written) and exit cleanly."""
+
+
 def task_dir_name(text):
     import re
     return re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_")
@@ -45,12 +72,15 @@ def task_dir_name(text):
 def server(sidx, gpu, suites, cfgs, req_q, resp_qs, ready_q, args):
     os.environ["CUDA_VISIBLE_DEVICES"] = gpu
     try:
+        import glob
         import numpy as np, torch
+        from concurrent.futures import ThreadPoolExecutor
         sys.path.insert(0, ADAPTER)
         import libero_data  # noqa: F401  (LiLa-WAM repo on sys.path)
         import robotwin_infer as R
         from dataloader.dataset import _normalize_image
         torch.set_num_threads(args.server_threads)
+        cpu_pool = ThreadPoolExecutor(args.server_threads)   # numpy releases the GIL: same function, run in parallel
         dt = torch.bfloat16
         infs = {s: R.RobotWinInference(config_path=cfgs[s]["config"], checkpoint_path=cfgs[s]["checkpoint"],
                                        norm_stats_path=cfgs[s]["stats"], device="cuda", dtype=dt) for s in suites}
@@ -70,7 +100,67 @@ def server(sidx, gpu, suites, cfgs, req_q, resp_qs, ready_q, args):
             return noise_cache[seed]
 
         ts = torch.linspace(0, 1, 10 + 1, device="cuda", dtype=dt)
-        ready_q.put(dict(event="server_ready", server=sidx, gpu=gpu, suites=suites))
+
+        def encode(px):
+            return enc.get_vision_features(px)
+
+        def sample(m, feats, st, tc, x):
+            # public robotwin_infer._predict_chunk: 10 Euler steps of the flow, then denormalize
+            qpos = m.normalize_state(st); B = x.shape[0]
+            for k in range(10):
+                out = m.action_model(t=ts[k].repeat(B), noisy_actions=x, qpos_history=qpos,
+                                     dino_features_list=feats, task_cond=tc)
+                x = x + out["final_pred"] * (ts[k + 1] - ts[k])
+            return m.denormalize_action(x)
+
+        # CUDA graphs (one per batch bucket for the encoder, per suite and bucket for the sampler). Each graph is
+        # checked bit-for-bit against eager execution of the same shapes; any mismatch disables graphs entirely.
+        buckets = sorted({b for b in (1, 2, 4, 6, 8, 12, 16, 24, 32, 48, 64) if b < args.max_batch} | {args.max_batch})
+        bucket = lambda n: next(b for b in buckets if b >= n)
+        enc_g, dit_g, graphs_ok, t_cap = {}, {}, False, time.time()
+        if args.cuda_graphs:
+            try:
+                rng = torch.Generator(device="cuda").manual_seed(0)
+                rnd = lambda shape: torch.randn(shape, device="cuda", generator=rng).to(dt)
+                tc_dim = int(np.load(glob.glob(f"{TASKCOND}/{suites[0]}/*/task_cond.npy")[0]).shape[-1])
+
+                def capture(fn, *static):
+                    side = torch.cuda.Stream(); side.wait_stream(torch.cuda.current_stream())
+                    with torch.cuda.stream(side):
+                        for _ in range(2):
+                            fn(*static)
+                    torch.cuda.current_stream().wait_stream(side)
+                    g = torch.cuda.CUDAGraph()
+                    with torch.cuda.graph(g):        # private memory pool per graph: outputs never alias
+                        out = fn(*static)
+                    return g, out
+
+                ok = True
+                with torch.no_grad():
+                    for b in reversed(buckets):
+                        px_s = rnd((b, 3, 256, 512))
+                        g, f_out = capture(encode, px_s)
+                        ref = encode(px_s); g.replay(); torch.cuda.synchronize()
+                        ok = ok and all(torch.equal(a, c) for a, c in zip(f_out, ref))
+                        enc_g[b] = (g, px_s, f_out)
+                        for s in suites:
+                            m = infs[s].model
+                            f_in = [rnd(f.shape) for f in f_out]
+                            st_s, tc_s, x_s = rnd((b, 1, 8)), rnd((b, tc_dim)), rnd((b, CHUNK, 7))
+                            g2, a_out = capture(lambda f, st, tc, x, m=m: sample(m, f, st, tc, x), f_in, st_s, tc_s, x_s)
+                            ref = sample(m, f_in, st_s, tc_s, x_s); g2.replay(); torch.cuda.synchronize()
+                            ok = ok and torch.equal(a_out, ref)
+                            dit_g[(s, b)] = (g2, f_in, st_s, tc_s, x_s, a_out)
+                graphs_ok = bool(ok)
+            except Exception:
+                ready_q.put(dict(event="server_warning", server=sidx, warning="CUDA graph capture failed; eager",
+                                 error=traceback.format_exc()[-800:]))
+                graphs_ok = False
+            if not graphs_ok:
+                enc_g, dit_g = {}, {}
+                torch.cuda.empty_cache()
+        ready_q.put(dict(event="server_ready", server=sidx, gpu=gpu, suites=suites, cuda_graphs=graphs_ok,
+                         buckets=buckets, capture_seconds=round(time.time() - t_cap, 1)))
         stop, nb, nq, busy = False, 0, 0, 0.0
         while not stop:
             first = req_q.get()
@@ -88,23 +178,31 @@ def server(sidx, gpu, suites, cfgs, req_q, resp_qs, ready_q, args):
                 batch.append(r)
             t0 = time.perf_counter()
             with torch.no_grad():
-                px = torch.from_numpy(np.stack([_normalize_image(r["image"]) for r in batch])).to("cuda", dt)
-                feats = enc.get_vision_features(px)
+                n = len(batch)
+                px = torch.from_numpy(np.stack(list(cpu_pool.map(lambda r: _normalize_image(r["image"]), batch)))).to("cuda", dt)
+                if graphs_ok:
+                    g, px_s, f_out = enc_g[bucket(n)]
+                    px_s[:n].copy_(px); g.replay()
+                    feats = [f[:n] for f in f_out]
+                else:
+                    feats = encode(px)
                 for s in sorted({r["suite"] for r in batch}):
                     idx = [i for i, r in enumerate(batch) if r["suite"] == s]
+                    k = len(idx)
                     it = torch.tensor(idx, device="cuda")
-                    m = infs[s].model
                     f_s = [f.index_select(0, it) for f in feats]
                     st = torch.from_numpy(np.stack([batch[i]["state"] for i in idx]))[:, None].to("cuda", dt)
-                    qpos = m.normalize_state(st)
                     tc = torch.stack([task_cond(s, batch[i]["task_dir"]) for i in idx])
                     x = torch.stack([noise(batch[i]["seed"]) for i in idx])
-                    B = len(idx)
-                    for k in range(10):
-                        out = m.action_model(t=ts[k].repeat(B), noisy_actions=x, qpos_history=qpos,
-                                             dino_features_list=f_s, task_cond=tc)
-                        x = x + out["final_pred"] * (ts[k + 1] - ts[k])
-                    act = m.denormalize_action(x).float().cpu().numpy()
+                    if graphs_ok:
+                        g2, f_in, st_s, tc_s, x_s, a_out = dit_g[(s, bucket(k))]
+                        for fi, f in zip(f_in, f_s):
+                            fi[:k].copy_(f)
+                        st_s[:k].copy_(st); tc_s[:k].copy_(tc); x_s[:k].copy_(x)
+                        g2.replay()
+                        act = a_out[:k].float().cpu().numpy()
+                    else:
+                        act = sample(infs[s].model, f_s, st, tc, x).float().cpu().numpy()
                     for j, i in enumerate(idx):
                         a = R.bspline_smooth(act[j], degree=3, num_ctrl_pts=8) if smooth[s] else act[j]
                         resp_qs[batch[i]["worker"]].put(np.asarray(a, dtype=np.float32))
@@ -121,6 +219,7 @@ def server(sidx, gpu, suites, cfgs, req_q, resp_qs, ready_q, args):
 def env_worker(index, egl_gpu, args, cond, work, results, req_qs, suite_server, resp_q):
     os.environ["CUDA_VISIBLE_DEVICES"] = egl_gpu
     os.environ["MUJOCO_EGL_DEVICE_ID"] = egl_gpu
+    os.nice(args.worker_nice)   # the latency-critical inference servers must never wait for a CPU
     for k in ("RANK", "LOCAL_RANK", "WORLD_SIZE", "SLURM_PROCID", "LOCAL_WORLD_SIZE"):
         os.environ.pop(k, None)
     current_claim = None
@@ -157,8 +256,11 @@ def env_worker(index, egl_gpu, args, cond, work, results, req_qs, suite_server, 
                 for episode in range(args.episodes):
                     started = time.perf_counter(); qsec = 0.0; queries = 0
                     env.reset()
+                    cam = camera_switch(env) if args.render_skip else (lambda on: None)
+                    cam(False)
                     obs = env.set_init_state(states[episode])
-                    for _ in range(M.SETTLING):
+                    for i in range(M.SETTLING):
+                        cam(i >= M.SETTLING - 2)
                         obs, _, done, _ = env.step(M.DUMMY)
                     pending, steps, done = [], 0, False
                     while steps < M.MAX_STEPS[suite_name]:
@@ -173,10 +275,14 @@ def env_worker(index, egl_gpu, args, cond, work, results, req_qs, suite_server, 
                             a = a[:REPLAN].astype(np.float64).copy()
                             a[:, -1] = np.sign(a[:, -1])
                             pending = a.tolist()
+                        cam(len(pending) <= 2)
                         obs, _, done, _ = env.step(pending.pop(0))
                         steps += 1
+                        if args.stop_at and time.time() > args.stop_at:
+                            raise StopRun()
                         if done:
                             break
+                    cam(True)   # real sensors back before the next env.reset()
                     rows.append(dict(id=group["id"], suite=suite_name, seed=seed, task=task_id, episode=episode,
                                      initial_state_index=episode, success=bool(done), policy_steps=steps, queries=queries,
                                      query_seconds=qsec, total_seconds=time.perf_counter() - started, video=None))
@@ -192,6 +298,10 @@ def env_worker(index, egl_gpu, args, cond, work, results, req_qs, suite_server, 
                              worker=index, seconds=round(record["elapsed_seconds"], 1),
                              policy_steps=sum(r["policy_steps"] for r in rows)))
         results.put(dict(event="done", worker=index))
+    except StopRun:
+        if current_claim is not None:
+            Path(current_claim).unlink(missing_ok=True)   # unfinished group: free it for the next runner
+        results.put(dict(event="done", worker=index, stopped=True))
     except BaseException:
         if current_claim is not None:
             Path(current_claim).unlink(missing_ok=True)   # let a retry take this group immediately
@@ -227,10 +337,19 @@ def main():
     p.add_argument("--max-batch", type=int, default=64)
     p.add_argument("--batch-wait", type=float, default=0.004)
     p.add_argument("--server-threads", type=int, default=4)
+    p.add_argument("--worker-nice", type=int, default=10)
+    p.add_argument("--no-cuda-graphs", dest="cuda_graphs", action="store_false")
+    p.add_argument("--no-render-skip", dest="render_skip", action="store_false",
+                   help="render the cameras on every step instead of only the 2 steps before each query")
+    p.add_argument("--egl-gpus", default="", help="GPUs used for simulator rendering (default: --gpus); keeping "
+                   "rendering off the inference GPUs avoids context time-slicing with the servers")
     p.add_argument("--suites", default=",".join(M.SUITES))
     p.add_argument("--seeds", default=",".join(map(str, M.SEEDS)))
     p.add_argument("--tasks", default=",".join(map(str, range(10))))
     p.add_argument("--episodes", type=int, default=50)
+    p.add_argument("--order", default="long-first", choices=("long-first", "short-first"),
+                   help="group scheduling order only; per-group seeding and outcomes do not depend on it")
+    p.add_argument("--stop-at", type=float, default=0, help="unix time: abandon unfinished groups and exit cleanly")
     args = p.parse_args()
     args.token = f"{os.uname().nodename}-{os.environ.get('SLURM_JOB_ID', 'nojob')}-{os.getpid()}-{int(time.time())}"
     suites = args.suites.split(","); seeds = [int(x) for x in args.seeds.split(",")]
@@ -253,7 +372,8 @@ def main():
         videos=False), runner_sha256=M.sha256_file(__file__),
         adapter_sha256=M.sha256_file(Path(ADAPTER) / "libero_data.py"), host=os.uname().nodename,
         slurm_job_id=os.environ.get("SLURM_JOB_ID"), mujoco_gl=os.environ.get("MUJOCO_GL"), torch=torch.__version__,
-        gpus=args.gpus, env_workers=args.env_workers, max_batch=args.max_batch, batch_wait=args.batch_wait)
+        gpus=args.gpus, env_workers=args.env_workers, max_batch=args.max_batch, batch_wait=args.batch_wait,
+        cuda_graphs_requested=args.cuda_graphs, egl_gpus=args.egl_gpus or args.gpus, render_skip=args.render_skip)
     mpath = out / "manifest.json"
     if mpath.exists():
         old = json.loads(mpath.read_text())
@@ -263,6 +383,8 @@ def main():
     else:
         M.write_json(mpath, manifest)
     todo = [g for g in groups if not (out / "groups" / f"{g['id']}.json").exists()]
+    if args.order == "short-first":
+        todo = [g for g in todo if g["suite"] != "libero_10"] + [g for g in todo if g["suite"] == "libero_10"]
     t_start = time.time()
     print(json.dumps(dict(event="plan", run=args.run, pending_groups=len(todo), total_groups=len(groups),
                           gpus=args.gpus, env_workers=args.env_workers, token=args.token)), flush=True)
@@ -282,7 +404,8 @@ def main():
         for sp in servers: sp.start()
         for g in todo: work.put(g)
         for _ in range(nworkers): work.put(None)
-        procs = [ctx.Process(target=env_worker, args=(i, gpus[i % len(gpus)], args, cond, work, results, req_qs,
+        egl = (args.egl_gpus or args.gpus).split(",")
+        procs = [ctx.Process(target=env_worker, args=(i, egl[i % len(egl)], args, cond, work, results, req_qs,
                                                        suite_server, resp_qs[i])) for i in range(nworkers)]
         for pr in procs: pr.start()
         finished = done_workers = errors = eps = steps = 0; last_beat = time.time()
@@ -311,6 +434,8 @@ def main():
                     errors = nworkers - done_workers
             elif msg["event"] == "done":
                 done_workers += 1
+                if msg.get("stopped"):
+                    print(json.dumps(dict(event="worker_stopped", worker=msg["worker"], time=time.strftime("%H:%M:%S"))), flush=True)
             else:
                 print(json.dumps(msg), flush=True)
         for q in req_qs: q.put(None)

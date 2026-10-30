@@ -270,12 +270,14 @@ The public B-spline smoothing (8 control points over 12 steps) barely changes th
   - All 40 task names map to their task vectors.
   - Closed loop: **Long 0/20** (10 tasks). **Goal 1/20**: "put the bowl on top of the cabinet" succeeded in 101 steps.
   - The robot reaches toward the right objects but rarely grasps (`lilawam/eval_debug/closed_loop_montage.png`).
-- **Interpretation.** The pipeline can complete tasks, so it is not broken. The policies are weak because of the training budget, not the method:
-  - 5 + 2 epochs per suite, about 5.7k updates for Long and about 3k for Goal;
-  - training loss still falling every epoch;
-  - open-loop error only about 2× below the mean-action baseline (Section 6.7).
-  - The paper does not state its epoch count. Its 94–99% per suite almost certainly needed much longer training.
-  - **Read the numbers below as "LiLa-WAM after a 7-epoch budget on our data", not as the method's capability.**
+- **What the pre-checks did and did not show.** They ruled out a broken pipeline: a task was completed, and the inputs and sampling match training. They covered only Long and Goal with 2 episodes per task, so they say nothing about Spatial or Object. The full 6,000-episode table below is the result.
+- **Training budget, for reading the table:**
+  - 5 + 2 epochs per suite: about 5.7k updates for Long, about 3k for Goal, and similar for Object and Spatial (Section 6.5);
+  - training loss still falling at the end of every stage.
+  - The paper does not state its epoch count. Where a suite falls well short of the paper's 94–99%, longer training is the first thing to try.
+- **Shared encoder.** Each GPU server encodes a batch once with the frozen pretrained DINOv3 and gives the features to each suite's action model. This is exact:
+  - all four suite configs use the same DINOv3 checkpoint, layers (−12/−8/−4) and token settings;
+  - the trained checkpoints contain only the action model (loaded with `strict=True`), which holds the per-suite feature projection.
 
 {{EVAL}}
 
