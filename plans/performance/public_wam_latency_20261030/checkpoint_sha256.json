@@ -1,0 +1,22 @@
+{
+ "FasterWAM/libero/step_021700.pt": {
+  "repo": "hustvl/FasterWAM",
+  "file": "libero/step_021700.pt",
+  "sha256": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+  "hf_lfs_sha256": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+  "match": true
+ },
+ "lightwam-checkpoints/lightwam_libero_10/checkpoints/weights/step_080000.pt": {
+  "repo": "l1ziang/lightwam-checkpoints",
+  "file": "lightwam_libero_10/checkpoints/weights/step_080000.pt",
+  "sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+  "hf_lfs_sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+  "match": true
+ },
+ "lilawam/robotwin/checkpoint.pt": {
+  "source": "modelscope yangfan97/LiLa-WAM_RoboTwin2_0",
+  "sha256": "40e8aba09a6caeb6de1f532e55dd98a3ace0ba9363e87d52634c9ee9adeaeff9",
+  "modelscope_sha256": "40e8aba09a6caeb6de1f532e55dd98a3ace0ba9363e87d52634c9ee9adeaeff9",
+  "match": true
+ }
+}

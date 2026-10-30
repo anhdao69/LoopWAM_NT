@@ -1,0 +1,73 @@
+{
+  "settings": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "dtype": "bfloat16",
+    "batch_size": 1,
+    "warmup": 5,
+    "iterations": 10,
+    "seeds": {
+      "model": 42,
+      "input": 0
+    },
+    "input_size": [
+      224,
+      448
+    ],
+    "action_horizon": 32,
+    "video_frames": 9,
+    "action_denoising_steps": 10
+  },
+  "results": [
+    {
+      "model": "Joint-WAM",
+      "vae_encode_ms": {
+        "mean_ms": 4.837522911839187,
+        "std_ms": 0.06793584246817932
+      },
+      "visual_branch_ms": null,
+      "action_branch_ms": null,
+      "model_infer_ms": {
+        "mean_ms": 427.9240984003991,
+        "std_ms": 1.4392406087389191
+      }
+    },
+    {
+      "model": "Fast-WAM",
+      "vae_encode_ms": {
+        "mean_ms": 4.696957254782319,
+        "std_ms": 0.043346057086911305
+      },
+      "visual_branch_ms": {
+        "mean_ms": 20.84623274859041,
+        "std_ms": 0.4049061093694091
+      },
+      "action_branch_ms": {
+        "mean_ms": 214.92466190829873,
+        "std_ms": 0.4182078402110796
+      },
+      "model_infer_ms": {
+        "mean_ms": 244.70945328939706,
+        "std_ms": 0.7858039811797415
+      }
+    },
+    {
+      "model": "Faster-WAM",
+      "vae_encode_ms": {
+        "mean_ms": 4.795202473178506,
+        "std_ms": 0.0487500355228341
+      },
+      "visual_branch_ms": {
+        "mean_ms": 22.12393598165363,
+        "std_ms": 0.12264826252531309
+      },
+      "action_branch_ms": {
+        "mean_ms": 147.16863250359893,
+        "std_ms": 0.7591956983082313
+      },
+      "model_infer_ms": {
+        "mean_ms": 178.54178962297738,
+        "std_ms": 0.773853077264375
+      }
+    }
+  ]
+}

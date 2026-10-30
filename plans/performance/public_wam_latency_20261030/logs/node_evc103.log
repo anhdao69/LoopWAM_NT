@@ -1,0 +1,12 @@
+[2026-10-30T08:58:46-04:00] fasterwam start on evc103 job 1094056
+[2026-10-30T09:03:53-04:00] fasterwam rc=0
+[2026-10-30T09:03:53-04:00] fastwam start on evc103 job 1094056
+[2026-10-30T09:07:36-04:00] fastwam rc=0
+[2026-10-30T09:07:36-04:00] lightwam start on evc103 job 1094056
+[2026-10-30T09:09:57-04:00] lightwam rc=0
+[2026-10-30T09:09:57-04:00] fastwam_nocompile start on evc103 job 1094056
+[2026-10-30T09:15:36-04:00] fastwam_nocompile rc=0
+[2026-10-30T09:15:37-04:00] lilawam start on evc103 job 1094056
+[2026-10-30T09:16:36-04:00] lilawam rc=0
+[2026-10-30T09:16:38-04:00] official start on evc103 job 1094056
+[2026-10-30T09:17:27-04:00] official rc=0
