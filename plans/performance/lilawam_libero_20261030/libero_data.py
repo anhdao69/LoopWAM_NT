@@ -91,3 +91,26 @@ def create_dataset(config, val=False):
         task_cond_dir=config.dataset.task_cond_dir if config.model.get("use_task_cond", False) else None,
         use_future_feat=bool(ff.get("enabled", False)) if ff else False,
         future_frame_offset=config.dataset.get("future_frame_offset", None))
+
+
+def quat2axisangle(quat):
+    """robosuite transform_utils.quat2axisangle (as copied in FastWAM experiments/libero/libero_utils.py)."""
+    import math
+    quat = np.array(quat, dtype=np.float64)
+    quat[3] = min(max(quat[3], -1.0), 1.0)
+    den = np.sqrt(1.0 - quat[3] * quat[3])
+    if math.isclose(den, 0.0):
+        return np.zeros(3)
+    return (quat[:3] * 2.0 * math.acos(quat[3])) / den
+
+
+def libero_obs_to_inputs(obs):
+    """Raw LIBERO env observation -> (composite RGB uint8 256x512x3, state float32 (8,)), matching training:
+    both views rotated 180 deg like FastWAM's get_libero_image (our training frames are upright), each resized to
+    256x256 with INTER_AREA, joined [agentview | wrist]; state = eef pos, axis-angle(eef quat), gripper qpos
+    (FastWAM _extract_sim_state = our observation.state)."""
+    agent = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
+    wrist = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
+    state = np.concatenate((obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]),
+                            obs["robot0_gripper_qpos"])).astype(np.float32)
+    return composite(agent, wrist), state

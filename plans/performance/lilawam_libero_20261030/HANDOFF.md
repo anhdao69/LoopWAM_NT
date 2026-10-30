@@ -1,4 +1,4 @@
-# LiLa-WAM trained on OUR LIBERO data (paper recipe): state on 2026-10-30 09:45
+# LiLa-WAM trained on OUR LIBERO data (paper recipe): state on 2026-10-30 10:30
 
 User request (2026-10-30): "train the lilawam for me and eval as our protocol".
 
@@ -15,6 +15,15 @@ User request (2026-10-30): "train the lilawam for me and eval as our protocol".
   - `stats_libero.py`, which wrote `/groups/yshang/an221229/data/LiLaWAM_libero_ours_stats.json`;
   - `task_cond_libero.py`, which wrote `/groups/yshang/an221229/data/LiLaWAM_libero_ours_taskcond/<suite>/<task>/task_cond.npy`;
   - `libero_ours.yaml`, the base config.
+  - `libero_data.libero_obs_to_inputs(obs)`: raw LIBERO env obs -> (composite image, 8-D state), exactly as in training. Its `quat2axisangle` matches FastWAM's (max diff 0.0 over 500 observations). **Use this in the eval adapter.**
+  - `openloop_check.py`: held-in open-loop check through the public sampling procedure.
+- **Data verification.** `../verify_conversion.py` checked 24 random demonstrations (3,876 frames): actions, gripper map, state and every pixel match the source exactly (`../conversion_verification.json`).
+- **Hugging Face.** `hf_upload_watcher.py` runs on evuser2 and does not depend on the job or a session. It uploads each finished suite to `anhdao69/LoopWAM_NT` under `baselines/LiLa-WAM_LIBERO_ours/<suite>/`: `stage2_epoch2_final.pt`, `stage1_epoch5.pt`, configs, norm stats, logs and task vectors. It then verifies the HF LFS sha256 against the local file.
+  - Records: `uploaded_<suite>.json`, `manifest.json`. Log: `hf_upload_watcher.log`.
+  - If job 1094056 ends before a suite finishes, that suite's latest checkpoint is uploaded as `INCOMPLETE_<...>.pt`.
+- **Open-loop checks.** `openloop_watcher.sh` runs on evc103 inside the job and writes `openloop/<suite>_stage{1,2}.json` per finished suite.
+- **Latency of the trained policy.** Use `latency/measure_lilawam_libero_latency.py`. It must run with the GPU idle, after training.
+- **Report.** `latency/make_report.py` regenerates `plans/performance/Public_WAM_Latency_20261030.md` from the result files. `latency/finalize_to_repo.sh "<msg>"` copies everything into the LoopWAM_elastic worktree and commits; the push is separate.
 - **Paper recipe** (user, 2026-10-30: "Check the paper LilaWAM and follow their training recipe"; arXiv 2608.03701, Sec. 4.1-4.2):
   - one policy per suite;
   - third-person + wrist views at 256x256;
@@ -38,9 +47,8 @@ User request (2026-10-30): "train the lilawam for me and eval as our protocol".
 1. Check `train_job.log`: every suite should show "stage2 rc=0" with a checkpoint. If the job ended early, resume the unfinished stage with `train_libero.py --config <that stage yaml> --norm_stats_path <suite stats> --save_dir <...> --resume <last ckpt>`.
 2. **LIBERO eval adapter.** Write one for our matched protocol: 4 suites x 10 tasks x 50 trials x seeds 42/43/44 = 6,000 episodes, the same runner and settings as the FastWAM/LoopWAM evals. Requirements:
    - Model build: follow `robotwin_infer.RobotWinInference`, using each suite's stage-2 config and checkpoint and that suite's stats JSON. Every episode of a suite uses that suite's policy. Also use `task_cond` = `<taskcond dir>/<suite>/<task dir>/task_cond.npy`. Task dir = task text lowercased, with non-alphanumerics replaced by `_`.
-   - Image: the raw env obs is upside down, so flip both views `[::-1, ::-1]` the way our data and our FastWAM adapter do. Resize each view to 256x256 (INTER_AREA), then call `libero_data.composite(agent, wrist)`. Use RGB, ImageNet normalization, and the processor's own path.
-   - State: OUR 8-D state, built exactly as our harness builds `observation.state`: eef pos 3, axis-angle 3, gripper qpos 2.
+   - Inputs: `libero_data.libero_obs_to_inputs(obs)` gives the composite (both views flipped `[::-1, ::-1]`, 256x256 INTER_AREA, `[agentview | wrist]`) and the 8-D state. Then ImageNet-normalize, as `measure_lilawam_libero_latency.py` does.
    - Output: the action is already in the raw env convention. Do NOT apply FastWAM's gripper flip.
-   - To check: whether `inference.smooth_actions` (B-spline) also smooths the gripper dim, and the execution horizon. The paper gives none for LIBERO; RoboTwin executes 16 of 32. Pick before the full run, and record the choice.
-   - Before launching 6,000 episodes, sanity-check the trained model open-loop on held-in frames: actions should be close to the ground truth.
+   - Smoothing: the public B-spline smoothing (on by default) acts on all 7 dims, but barely changes predicted chunks (see the open-loop results). The execution horizon must still be chosen: The paper gives none for LIBERO; RoboTwin executes 16 of 32. Pick before the full run, and record the choice.
+   - Open-loop check: done per suite (`openloop/`). Still smoke-test a few closed-loop episodes before launching 6,000.
 3. Report with our matched tables, as done for the other models. Paper reference (per-suite policies, 2 views, 50 rollouts per task): Spatial 98.0, Object 98.8, Goal 97.2, Long 94.2, avg 97.1.

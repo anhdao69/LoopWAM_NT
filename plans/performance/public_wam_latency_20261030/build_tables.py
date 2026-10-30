@@ -3,7 +3,7 @@ Usage: build_tables.py <results dir> <out.md>"""
 import json, sys
 from pathlib import Path
 
-ORDER = ["fastwam", "fastwam_nocompile", "fasterwam", "lightwam", "lilawam"]
+ORDER = ["fastwam", "fastwam_nocompile", "fasterwam", "lightwam", "lilawam", "lilawam_libero"]
 res = {}
 for p in sorted(Path(sys.argv[1]).glob("*.json")):
     if p.name.endswith(".config.yaml") or "smoke" in p.name:
@@ -17,7 +17,7 @@ md.append("### Per-query latency (batch 1, H100 80GB HBM3), ms\n")
 md.append("Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz = 1000 / mean. "
           "Two jobs on two nodes measured every model independently.\n")
 md.append("| Model | Prompt mode | " + " | ".join(f"{n} mean (p50 / p95)" for n in nodes) +
-          " | Hz (" + nodes[0] + ") | Peak GPU GB | Identical to native |")
+          " | Hz (" + nodes[0] + "; the other node where it is -) | Peak GPU GB | Identical to native |")
 md.append("|---|---|" + "---|" * len(nodes) + "---|---|---|")
 for key in ORDER:
     rows = {n: res.get((key, n)) for n in nodes}
@@ -48,6 +48,10 @@ for key in ORDER:
     if key == "lilawam":
         path, prompt = "RobotWinInference._predict_chunk (DINOv3 features + flow steps + B-spline smoothing)", \
             "no language input; precomputed task-condition vector"
+        steps, dtype = r["num_inference_steps"], r["dtype"]
+    elif key == "lilawam_libero":
+        path, prompt = ("public _predict_chunk procedure on LIBERO inputs ([agentview | wrist] 512x256, 8-D state; "
+                        "DINOv3 features + flow steps + B-spline smoothing)"), "no language input; task-condition vector"
         steps, dtype = r["num_inference_steps"], r["dtype"]
     else:
         path = r.get("action_infer_mode") or "infer_action"

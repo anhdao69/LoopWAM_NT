@@ -1,79 +1,94 @@
-# Public WAM baselines: batch-one LIBERO inference latency (2026-10-30)
+# Public WAM baselines on LIBERO: latency of the released models, and LiLa-WAM trained on our data (2026-10-30)
 
-FastWAM, FasterWAM, Light-WAM and LiLa-WAM, each run through **its own public code with its own released weights**, unoptimized, on H100 80GB HBM3.
-- **Data:** `plans/performance/public_wam_latency_20261030/`, with per-query timings in every result file.
-- **Harness:** `measure_public_latency.py` and `measure_lilawam_latency.py` in the same folder.
-- **Comparison report:** the all-models report for our own checkpoints is `LoopWAM_All_Models_Latency_20261030.md`.
+This report covers two pieces of work on H100 80GB HBM3. Branch `elastic`.
+
+1. **Latency of four public world-action models**, each run through **its own public code with its own released weights**, unoptimized: FastWAM, FasterWAM, Light-WAM and LiLa-WAM.
+2. **LiLa-WAM trained on our LIBERO data**, because the authors released no LIBERO model. It uses the paper's LIBERO recipe. The weights are on Hugging Face under `baselines/`, along with an open-loop check and the trained model's latency.
+
+**Training: in progress** (the table in Section 6.5 shows exactly where each suite is). The LIBERO success-rate evaluation of the trained LiLa-WAM under our matched protocol has **not** been run yet (Section 6.9).
+
+Where things are:
+- **Data and scripts:** `plans/performance/public_wam_latency_20261030/` (latency) and `plans/performance/lilawam_libero_20261030/` (LiLa-WAM training).
+- **Our own models:** compared in `LoopWAM_All_Models_Latency_20261030.md`.
 
 ## 1. Summary
 
-- **Per-query latency on H100** (prompt context cached per task, the same text boundary as our matched protocol). Each figure is the mean over 500 queries, with node evc102 first and evc103 second:
-  - Light-WAM: 49.4 / 49.8 ms (about 20 Hz), 4.3 GB peak GPU memory.
-  - LiLa-WAM: 49.5 / 50.8 ms, 1.1 GB. This is its RoboTwin release; no LIBERO model exists.
-  - FastWAM, as its repo runs it with `torch.compile`: 59.3 / 56.5 ms, 25.0 GB.
-  - FasterWAM: 180.8 / 183.7 ms, 24.1 GB.
-  - FastWAM with its compile flag off: 232.5 / 233.7 ms.
-- **Natively, exactly as each repo's LIBERO eval runs**, the times are as follows (evc102):
-  - FastWAM 73.9 ms;
-  - FasterWAM 193.1 ms;
-  - Light-WAM 49.1 ms;
-  - LiLa-WAM 49.5 ms.
+- **Latency of the released models, as their own LIBERO eval runs them.** Batch 1, mean over 500 queries, node evc102:
+  - Light-WAM: 49.1 ms;
+  - LiLa-WAM (RoboTwin release): 49.5 ms;
+  - FastWAM: 73.9 ms;
+  - FasterWAM: 193.1 ms.
+- **With the language prompt encoded once per task** (our matched boundary):
+  - Light-WAM: 49.4 ms;
+  - FastWAM: 59.3 ms;
+  - FasterWAM: 180.8 ms.
 
-  FastWAM and FasterWAM re-encode the prompt with T5-XXL inside every query, which costs 12–18 ms per query. Light-WAM pre-encodes it once per task.
-- **Compile is the biggest single factor.** FastWAM's public LIBERO config turns on `torch.compile`, which makes it 3.9–4.1× faster than its own uncompiled path. FasterWAM has no compile option.
-  - Uncompiled vs uncompiled, FasterWAM is 1.29× faster than FastWAM: 180.8 vs 232.5 ms. Its one-pass future cache shortens the action branch.
-  - FasterWAM's own official latency script independently agrees. It times random-initialized architectures without the text encoder, and reports FasterWAM 178.5, FastWAM 244.7 and Joint-WAM 427.9 ms.
-- **Reliability checks.**
-  - The two nodes agree within 5% for every model.
-  - Caching the prompt never changed an action: identical in 500/500 queries for every model.
-  - Every checkpoint matches its published sha256.
-- **Memory.** FastWAM and FasterWAM keep the 5.7B-parameter T5-XXL encoder on the GPU (about 25 GB peak). Light-WAM offloads T5 after pre-encoding (4.3 GB). LiLa-WAM is a 0.5B model with a DINOv3 ViT-L encoder and no language model (1.1 GB).
+  The second node, evc103, agrees within 5% for every model (Section 4).
+- **FastWAM's speed comes from `torch.compile`.** Its public LIBERO config turns compile on. With compile off it takes 232.5 ms instead of 59.3 ms (3.9–4.1×).
+  - Uncompiled vs uncompiled, FasterWAM is 1.27–1.29× faster than FastWAM (180.8 vs 232.5 ms).
+  - FasterWAM's own latency script agrees: 178.5 vs 244.7 ms on random-weight architectures.
+- **Text encoding cost.** FastWAM and FasterWAM run the 5.7B-parameter T5-XXL text encoder inside every query, which adds 12–18 ms. Light-WAM encodes once per task. LiLa-WAM has no language input.
+- **Prompt caching changes no actions.** Encoding the prompt once per task gave bit-identical actions on 500/500 queries for every model.
+- **Peak GPU memory:**
+  - FastWAM and FasterWAM: about 25 GB, because they keep T5-XXL resident;
+  - Light-WAM: 4.3 GB, because it moves T5 to the CPU after encoding;
+  - LiLa-WAM: 1.1 GB (0.52B parameters, no language model).
+- **Checkpoints are verified.** All timed checkpoints match their published sha256. The FastWAM file is the exact checkpoint our matched evaluation scored (96.63%).
+- **LiLa-WAM has no public LIBERO model**, so we trained one on our LIBERO data with the public code and the paper's LIBERO recipe:
+  - one policy per suite;
+  - third-person + wrist views at 256×256;
+  - chunks of 12 actions;
+  - two-stage cosine learning rate, 2e-4 then 5e-5.
+
+  The paper does not give the number of epochs, so 5 + 2 epochs per suite were chosen to fit one H100 in job 1094056.
+  - The data conversion was verified exactly: 24 randomly chosen demonstrations (3,876 frames), all checks passed: True.
+  - Training progress and losses: Section 6.5. Weights and their sha256 verification: Section 6.6. Open-loop check: Section 6.7.
+  - Latency of the trained LIBERO policy: not measured yet (needs the finished checkpoint and an idle GPU).
 
 ## 2. What was run
 
-| Model | Public code | Released weights (verified sha256) |
-|---|---|---|
-| FastWAM | github.com/yuantianyuan01/FastWAM | `libero_uncond_2cam224.pt` (the released LIBERO checkpoint; sha256 `1000437c…`, the file our matched evaluation scored) |
-| FasterWAM | github.com/hustvl/FasterWAM | HF `hustvl/FasterWAM` `libero/step_021700.pt` (rev `6bf9471c`; sha256 matches HF LFS) |
-| Light-WAM | github.com/L1ziang/Light-WAM | HF `l1ziang/lightwam-checkpoints` `lightwam_libero_10/.../step_080000.pt` (rev `7cc8593f`; sha256 matches HF LFS) |
-| LiLa-WAM | github.com/teee000/LiLa-WAM | ModelScope `yangfan97/LiLa-WAM_RoboTwin2_0` `checkpoint.pt` (sha256 `40e8aba0…` matches ModelScope), DINOv3 ViT-L/16 from HF |
+| Model | Public code (commit) | Released weights | Verified |
+|---|---|---|---|
+| FastWAM | github.com/yuantianyuan01/FastWAM (`7faa711`) | `libero_uncond_2cam224.pt`, the released LIBERO checkpoint, one model for all four suites | sha256 `1000437cfcf55c00…`: the file our matched evaluation scored |
+| FasterWAM | github.com/hustvl/FasterWAM (`8366781`) | HF `hustvl/FasterWAM` `libero/step_021700.pt` (rev `6bf9471c`) | sha256 `01be4efca565d189…` = HF LFS sha256 |
+| Light-WAM | github.com/L1ziang/Light-WAM (`db7d05e`) | HF `l1ziang/lightwam-checkpoints` `lightwam_libero_10/checkpoints/weights/step_080000.pt` (rev `7cc8593f`); one checkpoint per suite | sha256 `93c816ed1e751271…` = HF LFS sha256 |
+| LiLa-WAM | github.com/teee000/LiLa-WAM (`339860f`) | ModelScope `yangfan97/LiLa-WAM_RoboTwin2_0` `checkpoint.pt`, plus DINOv3 ViT-L/16 (`facebook/dinov3-vitl16-pretrain-lvd1689m`) | sha256 `40e8aba09a6caeb6…` = ModelScope sha256 |
+| LiLa-WAM (ours, LIBERO) | the same LiLa-WAM code + our LIBERO adapter | trained here (Section 6) | sha256 of each uploaded file checked against HF LFS (Section 6.6) |
 
-**Light-WAM** releases one checkpoint per LIBERO suite. All four share one architecture and one config apart from training steps, so the LIBERO-Long (`libero_10`) checkpoint was timed.
+**Light-WAM.** The four per-suite Light-WAM checkpoints share one architecture and one config apart from training steps, so the LIBERO-Long checkpoint was timed.
 
-**LiLa-WAM** releases **no LIBERO checkpoint and no LIBERO code** (no LIBERO config, dataloader or evaluation). Its only public weights are the RoboTwin 2.0 model:
-- one 320×240 head camera, a 16-D dual-arm state and 32×14 actions;
-- its row therefore times that release on RoboTwin-shaped inputs, not a LIBERO policy;
-- as agreed, it has no LIBERO success evaluation.
+**LiLa-WAM's public release.** Its only public weights are a RoboTwin 2.0 model: one 320×240 head camera, a 16-D dual-arm state and 32×14 action chunks. Its latency row times that model on RoboTwin-shaped inputs built from the same LIBERO frames. The LIBERO model we trained has its own row.
 
-## 3. Protocol
+## 3. Latency protocol
 
-- **Inputs.** All models replay the same 500 recorded raw LIBERO observations as the all-models report (sha256 `5815c6fd…`; 125 consecutive steps of task 0 in each of the four suites). Every model runs 20 warmup queries, then all 500 timed queries in order.
-- **What one query is.** The query is exactly the repository's own per-replan call:
-  - FastWAM, FasterWAM and Light-WAM: `experiments/libero/eval_libero_single._predict_action_chunk`. It takes the raw simulator observation through the repo's own image and proprio preprocessing, its native inference method and its denormalization, and returns host LIBERO actions.
-  - LiLa-WAM: `RobotWinInference.update_state_buffer` + `_predict_chunk`, which preprocesses the input, extracts DINOv3 features, runs ten flow steps, denormalizes and applies B-spline smoothing. That is what its `step()` runs when it re-plans.
-  - In every case `torch.cuda.synchronize()` runs before the clock starts, and the clock stops when the host action array exists.
-- **Model construction.** Models are built exactly as each repo's `eval_single_process` builds them: its Hydra `sim_libero` config, `instantiate(cfg.model, model_dtype, device)`, its `_load_model_checkpoint`, and its processor with the release's dataset stats. Light-WAM's eval also merges the checkpoint's training config, and so did this run.
-  - No settings were changed, except that `model.redirect_common_files=false` makes FastWAM/FasterWAM load the original Wan2.2 `.pth` T5/VAE files instead of their safetensors conversions from DiffSynth-Studio. The weights are the same; only the file format differs.
-  - Each model uses the repo's own seed and noise settings.
+- **Inputs.** Every model replays the same 500 recorded raw LIBERO observations as the all-models report:
+  - sha256 `5815c6fd…`;
+  - task 0 of each of the four suites, 125 consecutive steps per suite;
+  - 20 warmup queries, then all 500 timed queries in order, batch 1.
+- **One query** is the repository's own per-replan call, from the raw simulator observation to the host action array:
+  - FastWAM, FasterWAM and Light-WAM: `experiments/libero/eval_libero_single._predict_action_chunk`. It applies the repo's own image and proprio preprocessing, its native inference method and its denormalization, and returns LIBERO actions.
+  - LiLa-WAM (RoboTwin release): `RobotWinInference.update_state_buffer` + `_predict_chunk`, which preprocesses, extracts DINOv3 features, runs 10 flow steps, denormalizes and applies B-spline smoothing.
+  - LiLa-WAM (ours): the same `_predict_chunk` procedure on LIBERO inputs, built by `libero_obs_to_inputs` (Section 6.3).
+  - `torch.cuda.synchronize()` runs before the clock starts. The clock stops when the host action array exists.
+- **Model construction.** Each model is built exactly as its repo's `eval_single_process` builds it: its Hydra `sim_libero` config, `instantiate(cfg.model, model_dtype, device)`, `_load_model_checkpoint`, and its processor with the release's dataset stats. Light-WAM also merges the checkpoint's training config, as its eval does.
+  - The only change: `model.redirect_common_files=false` makes FastWAM/FasterWAM load the original Wan2.2 `.pth` T5/VAE files instead of DiffSynth-Studio's safetensors conversions. The weights are the same; only the file format differs.
 - **Prompt modes.**
-  - `native`: whatever the repo's LIBERO evaluation does.
-    - FastWAM and FasterWAM re-encode the language prompt with the 5.7B-parameter T5-XXL encoder **inside every query**.
-    - Light-WAM pre-encodes it once per task (`EVALUATION.preencode_prompt_context=true`, its default).
-  - `prompt_cached`: the T5 context is computed once per task outside the clock, which is our matched protocol's boundary. This is done by memoizing the model's own `encode_prompt` on the prompt string. The memoized function returns the same tensors, and every action chunk was compared with native: identical in 500/500 queries for every model.
-- **FastWAM's compile.** FastWAM's public `sim_libero.yaml` sets `EVALUATION.compile_action_infer: true`, so its native path is torch.compile'd. A second FastWAM row turns this off through the same config key, to show the uncompiled cost. FasterWAM and Light-WAM have no compile path.
-- **Two nodes.** Two of your interactive jobs each had one H100: 1094057 (evc102) and 1094056 (evc103). Every model was measured on both, one model at a time per GPU. The two columns are independent repeats on different hardware.
-- **Environment.**
-  - Software: the FastWAM conda env (torch 2.7.1+cu128).
-  - LiLa-WAM: needs transformers 5.0.0rc0 for DINOv3, which comes from an isolated overlay (`envs/lilawam_venv`); the env itself is unchanged.
-  - LIBERO is imported only for its benchmark module; no simulator runs.
+  - `native`: what the repo's LIBERO eval does. FastWAM and FasterWAM re-encode the prompt with T5-XXL inside every query; Light-WAM pre-encodes it once per task (`EVALUATION.preencode_prompt_context=true`).
+  - `prompt_cached`: T5 runs once per task outside the clock, by memoizing the model's own `encode_prompt`. That is our matched protocol's boundary. Every action chunk was compared with `native`: identical on 500/500 for every model.
+- **Compile.** FastWAM's public `sim_libero.yaml` sets `EVALUATION.compile_action_infer: true`, so its native path is `torch.compile`d. A second FastWAM row sets it to false. FasterWAM and Light-WAM have no compile option.
+- **Nodes.** Your two interactive jobs, each with one H100: 1094057 on evc102 and 1094056 on evc103. Every released model was timed on both, one model at a time per GPU, as independent repeats.
+  - The trained LiLa-WAM was timed only on evc103, after its training ended; evc102 had ended by then.
+- **Software.**
+  - FastWAM conda env: torch 2.7.1+cu128, bf16.
+  - LiLa-WAM: needs transformers 5.0.0rc0 for DINOv3 (plus h5py for training), taken from an isolated overlay `envs/lilawam_venv` on PYTHONPATH. The env itself is unchanged.
 
-## 4. Results
+## 4. Latency results
 
 ### Per-query latency (batch 1, H100 80GB HBM3), ms
 
 Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz = 1000 / mean. Two jobs on two nodes measured every model independently.
 
-| Model | Prompt mode | evc102 mean (p50 / p95) | evc103 mean (p50 / p95) | Hz (evc102) | Peak GPU GB | Identical to native |
+| Model | Prompt mode | evc102 mean (p50 / p95) | evc103 mean (p50 / p95) | Hz (evc102; the other node where it is -) | Peak GPU GB | Identical to native |
 |---|---|---|---|---|---|---|
 | FastWAM | native | 73.9 (73.7 / 75.1) | 74.3 (74.0 / 75.5) | 13.5 | 25.0 |  |
 | FastWAM | prompt_cached | 59.3 (59.1 / 60.4) | 56.5 (56.4 / 56.8) | 16.9 | 25.0 | 500/500 |
@@ -95,44 +110,249 @@ Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz 
 | Light-WAM (libero_10 release) | Light-WAM @ `db7d05e` | `step_080000.pt` | torch.bfloat16 | 10 | infer_action | pre-encoded once per task (EVALUATION.preencode_prompt_context=true) | [32, 7] | 7.67 B | 146 |
 | LiLa-WAM (RoboTwin 2.0 release) | LiLa-WAM @ `339860f` | `checkpoint.pt` | bfloat16 | 10 | RobotWinInference._predict_chunk (DINOv3 features + flow steps + B-spline smoothing) | no language input; precomputed task-condition vector | [32, 14] | 0.52 B | 7 |
 
-### FasterWAM's official latency script (cross-check)
+### 4.1 Full statistics of every run (ms)
 
-`experiments/latency/measure_latency.py` was run unmodified with its defaults on evc103. It builds random-initialized architectures from the repo configs, feeds synthetic inputs and excludes the text encoder: 5 warmup and 10 timed iterations, BF16, batch 1. Its full report is in `official_fasterwam_script/`.
+| Model | Node (job) | Prompt mode | n | mean | std | p5 | p50 | p95 | min | max | Hz | Peak GB | Load s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| FastWAM | evc102 (1094057) | native | 500 | 73.89 | 0.62 | 73.11 | 73.75 | 75.11 | 72.77 | 77.94 | 13.5 | 25.00 | 101 |
+| FastWAM | evc102 (1094057) | prompt_cached | 500 | 59.30 | 0.51 | 58.89 | 59.12 | 60.41 | 58.52 | 61.90 | 16.9 | 25.00 | 101 |
+| FastWAM | evc103 (1094056) | native | 500 | 74.31 | 6.46 | 70.45 | 73.96 | 75.54 | 70.32 | 114.85 | 13.5 | 25.00 | 87 |
+| FastWAM | evc103 (1094056) | prompt_cached | 500 | 56.47 | 0.27 | 56.31 | 56.41 | 56.76 | 56.18 | 58.27 | 17.7 | 25.00 | 87 |
+| FastWAM (compile_action_infer=false) | evc102 (1094057) | native | 500 | 248.03 | 1.41 | 246.33 | 247.75 | 250.54 | 245.69 | 255.39 | 4.0 | 25.00 | 96 |
+| FastWAM (compile_action_infer=false) | evc102 (1094057) | prompt_cached | 500 | 232.53 | 1.60 | 230.33 | 232.48 | 235.26 | 229.26 | 242.76 | 4.3 | 25.00 | 96 |
+| FastWAM (compile_action_infer=false) | evc103 (1094056) | native | 500 | 249.23 | 6.36 | 245.10 | 247.44 | 265.72 | 244.46 | 321.97 | 4.0 | 25.00 | 77 |
+| FastWAM (compile_action_infer=false) | evc103 (1094056) | prompt_cached | 500 | 233.72 | 6.36 | 230.11 | 232.79 | 240.37 | 229.37 | 337.87 | 4.3 | 25.00 | 77 |
+| FasterWAM | evc102 (1094057) | native | 500 | 193.07 | 3.23 | 190.72 | 192.10 | 199.13 | 189.00 | 223.16 | 5.2 | 24.07 | 90 |
+| FasterWAM | evc102 (1094057) | prompt_cached | 500 | 180.75 | 2.86 | 178.48 | 179.79 | 186.31 | 177.86 | 209.10 | 5.5 | 24.08 | 90 |
+| FasterWAM | evc103 (1094056) | native | 500 | 196.17 | 6.70 | 192.46 | 194.11 | 215.16 | 191.78 | 259.63 | 5.1 | 24.07 | 86 |
+| FasterWAM | evc103 (1094056) | prompt_cached | 500 | 183.73 | 4.66 | 180.66 | 181.86 | 193.51 | 179.55 | 210.83 | 5.4 | 24.08 | 86 |
+| Light-WAM (libero_10 release) | evc102 (1094057) | native | 500 | 49.06 | 0.45 | 48.67 | 48.93 | 49.91 | 48.51 | 52.81 | 20.4 | 4.34 | 146 |
+| Light-WAM (libero_10 release) | evc102 (1094057) | prompt_cached | 500 | 49.36 | 0.54 | 48.80 | 49.21 | 50.48 | 48.46 | 52.48 | 20.3 | 4.34 | 146 |
+| Light-WAM (libero_10 release) | evc103 (1094056) | native | 500 | 49.84 | 0.65 | 49.36 | 49.71 | 51.19 | 49.11 | 55.48 | 20.1 | 4.34 | 60 |
+| Light-WAM (libero_10 release) | evc103 (1094056) | prompt_cached | 500 | 49.79 | 0.56 | 49.39 | 49.67 | 50.49 | 49.15 | 54.38 | 20.1 | 4.34 | 60 |
+| LiLa-WAM (RoboTwin 2.0 release) | evc102 (1094057) | native | 500 | 49.51 | 0.31 | 49.23 | 49.42 | 49.99 | 48.90 | 51.81 | 20.2 | 1.10 | 7 |
+| LiLa-WAM (RoboTwin 2.0 release) | evc103 (1094056) | native | 500 | 50.78 | 2.64 | 49.55 | 49.90 | 59.73 | 49.31 | 62.25 | 19.7 | 1.10 | 22 |
 
-| Model | VAE encode | Visual branch | Action branch | Model infer (ms) |
-|---|---:|---:|---:|---:|
-| Joint-WAM | 4.8 | N/A | N/A | 427.9 |
-| Fast-WAM (no compile) | 4.7 | 20.8 | 214.9 | 244.7 |
-| Faster-WAM | 4.8 | 22.1 | 147.2 | 178.5 |
+### 4.2 Cost of encoding the prompt inside every query
 
-## 5. Reading the numbers
+Native minus prompt_cached, mean ms. Light-WAM pre-encodes per task already, so its difference is noise.
+
+| Model | evc102: native − prompt_cached (ms) | evc103: native − prompt_cached (ms) | Share of native (evc102) |
+|---|---|---|---|
+| FastWAM | +14.6 | +17.8 | 19.7% |
+| FastWAM (compile_action_infer=false) | +15.5 | +15.5 | 6.2% |
+| FasterWAM | +12.3 | +12.4 | 6.4% |
+| Light-WAM (libero_10 release) | -0.3 | +0.1 | -0.6% |
+
+### 4.3 FasterWAM's official latency script (cross-check)
+
+`experiments/latency/measure_latency.py` was run unmodified with its defaults on evc103 (job 1094056):
+- random-initialized architectures from the repo configs, with synthetic 224×448 inputs;
+- no text encoder;
+- BF16, batch 1, 5 warmup and 10 GPU-synchronized iterations.
+
+Values are mean ± population std, in ms.
+
+| Model | Parameters | VAE encode | Visual branch | Action branch | Model infer |
+|---|---|---:|---:|---:|---:|
+| Joint-WAM | 6.725B | 4.838 ± 0.068 | N/A | N/A | 427.924 ± 1.439 |
+| Fast-WAM (no compile) | 6.725B | 4.697 ± 0.043 | 20.846 ± 0.405 | 214.925 ± 0.418 | 244.709 ± 0.786 |
+| Faster-WAM | 6.263B | 4.795 ± 0.049 | 22.124 ± 0.123 | 147.169 ± 0.759 | 178.542 ± 0.774 |
+
+These agree with the measured `prompt_cached` uncompiled numbers above (FasterWAM 180.8–183.7 ms, FastWAM 232.5–233.7 ms). FasterWAM's gain comes from the action branch: its one-pass future cache does not re-run the visual branch at each denoising step.
+
+## 5. Reading the latency numbers, and comparison with our models
 
 - **Which number to quote.**
-  - Use `native` to answer "how fast does the released system run its own LIBERO eval".
-  - Use `prompt_cached` to compare with our models: the all-models report excludes T5 the same way, since our evaluations use a T5 cache.
-- **Comparison with our checkpoints.** These figures come from the all-models report, on the same 500 observations and H100s, with T5 cached and our exact `fast` backend:
-  - Elastic E0 at [1,1]: 24.7 ms, 94.33% four-suite success;
-  - F0-PB at [4,4]: 37.0 ms, 95.88%;
-  - all-suites v0 4/4: 99.3 ms, 94.92%;
-  - the released FastWAM checkpoint through our bit-exact path: 107.5 ms, 96.63%.
-- **FastWAM through our harness vs its own default.** Our harness gives 107.5 ms, while FastWAM's public default gives 56–59 ms. Two things differ:
-  - the public default stores weights in BF16 and runs `torch.compile` (Inductor);
-  - our harness keeps FP32-stored weights under BF16 autocast, the setup our matched evaluation scored, and requires bit-exact actions.
+  - `native` answers "how fast does the released system run its own LIBERO eval".
+  - `prompt_cached` is the number to compare with our models, because our matched protocol also excludes T5 (our evaluations use a T5 cache).
+- **Our checkpoints**, from the all-models report: same 500 observations, same H100 type, T5 cached, our exact `fast` backend. These are the points on our success-latency front.
 
-  The all-models report found Inductor compile not bit-exact (0/100), so the public default's actions are not identical to the scored ones.
-- **Success context** (earlier matched evaluations, not these runs):
-  - FastWAM 96.63% (6,000 episodes, four suites);
-  - Light-WAM 90.87% on LIBERO-Long only (1,500 episodes, earlier campaign);
-  - FasterWAM: not evaluated by us;
-  - LiLa-WAM: no LIBERO model has been released. Training it on our LIBERO data was requested on 2026-10-30, as a separate follow-up.
+| Model | Config | LIBERO success % (6,000 episodes, matched) | Mean ms | p95 ms |
+|---|---|---|---|---|
+| elastic SP11 | [1,1] | 93.77 | 23.4 | 24.9 |
+| elastic E0 | [1,1] | 94.33 | 24.7 | 24.8 |
+| elastic E1 | [2,2] | 94.58 | 27.6 | 27.7 |
+| elastic E2 | [2,2] | 94.75 | 27.7 | 27.8 |
+| RT-A2 | S7 [4,2] | 94.93 | 31.5 | 33.9 |
+| elastic E0 | [4,4] | 94.97 | 33.2 | 33.3 |
+| elastic E2 | [4,4] | 95.27 | 33.4 | 33.4 |
+| elastic F0-PB | [4,4] | 95.88 | 37.0 | 37.6 |
+| ChronoLoop CL-A a4 | native | 96.18 | 92.1 | 99.6 |
+| all-suites v0 4/4 | native | 94.92 | 99.3 | 99.6 |
+| FastWAM (released) through our exact harness | native | 96.63 | 107.5 | 108.9 |
 
-## 6. Caveats
+- **FastWAM through our harness vs its own default.** Our harness gives 107.5 ms; the public default gives 56–59 ms. Two things differ:
+  - The public default stores weights in BF16 and runs Inductor `torch.compile`.
+  - Our harness keeps the FP32-stored weights under BF16 autocast, the setup our matched evaluation scored, and requires bit-exact actions.
 
-- **Different query boundaries in the matched protocol.** This report times each repo's own query function end to end. Our matched-protocol latencies time our own adapters with the T5 cache excluded. `prompt_cached` uses that same text boundary, but preprocessing code differs between repos (PIL vs torch resizing, etc.), so the numbers compare closely but not identically with the all-models report.
-- **Success rates come from earlier matched evaluations, not from these runs.**
-  - FastWAM: 96.63% over 6,000 episodes (four suites, seeds 42/43/44).
-  - Light-WAM: 90.87% on LIBERO-Long only, over 1,500 episodes, from the earlier campaign. That campaign's checkpoint identity was not re-verified against this release.
-  - FasterWAM: not evaluated by us.
-  - LiLa-WAM: no LIBERO model exists.
-- **LiLa-WAM inputs.** LiLa-WAM was timed on RoboTwin-shaped inputs built from the LIBERO frames: the agent-view image as head camera, and the end-effector pose for both arms. Values do not change its computation, but its single 320×240 camera differs from the other models' two 224×224 cameras.
-- **Peak GPU memory** is `torch.cuda.max_memory_allocated` during the timed queries. It includes the resident T5-XXL encoder where the repo keeps it on the GPU. Light-WAM's eval moves T5 to the CPU after pre-encoding.
+  The all-models report measured Inductor compile at 87.3 ms on our FP32-weight setup, with 0/50 chunks bit-identical to eager. So the public default's actions are not the ones that scored 96.63%. Uncompiled, the public BF16 path takes 232.5 ms; our eager path took 264.2 ms.
+- **The fastest public baselines vs our models** (prompt cached):
+  - Light-WAM (49.4 ms) and the LiLa-WAM RoboTwin model (49.5 ms) are about 2× slower than our [1,1] Elastic points (23–25 ms) and 1.3× slower than F0-PB [4,4] (37.0 ms).
+  - Compiled FastWAM (56–59 ms) is 1.5–1.6× slower than F0-PB.
+  - FasterWAM (181–184 ms) is 4.9–5.0× slower.
+  - The success rates are in Section 7.
+- **Noise.** Repeated runs on these GPUs can differ by about 5–10% (two latency levels, see the all-models report). Treat differences under about 10% as ties.
+
+## 6. LiLa-WAM trained on our LIBERO data
+
+### 6.1 Why
+
+The paper (arXiv 2608.03701) reports LIBERO results: Spatial 98.0, Object 98.8, Goal 97.2, Long 94.2, average 97.1, with one policy per suite and 50 rollouts per task. But the public code (`339860f`) contains only the RoboTwin pipeline:
+- no LIBERO config, dataloader or evaluation;
+- no LIBERO weights.
+
+The authors' ModelScope repo `yangfan97/LiLa-WAM_Libero` holds LIBERO **data** in HDF5. We inspected one file to copy its layout. We did not use that data.
+
+### 6.2 Data (ours)
+
+- **Source.** Our LIBERO training data: the FastWAM regeneration with MuJoCo 3.3.2 and no-op actions removed, in LeRobot v2.1 format (`data/FastWAM/libero_mujoco3.3.2/*_no_noops_lerobot`). All four suites: 1,712 demonstrations, 277,713 frames, 40 tasks.
+- **Conversion** to the authors' HDF5 layout (`convert_ours_to_lilawam_hdf5.py`), one file per demonstration (`<suite>/<task>/demo_clean/data/episode_XXXXX.hdf5`), 36 GB in total:
+  - `observation/agentview/rgb` and `observation/robot0_eye_in_hand/rgb`: our 512×512 frames resized to 256×256 (INTER_AREA) and stored as PNG. The frames are upright, like our LeRobot data and like the authors' files.
+  - `action` (T,7): our six end-effector deltas, unchanged, plus the gripper converted to raw LIBERO (−1 open, +1 close; = 1 − 2·ours). The trained policy therefore outputs raw environment actions.
+  - `proprio` (T,8): our `observation.state` (eef position 3, axis-angle 3, gripper qpos 2). This is the same state our FastWAM/LoopWAM evaluations feed; the authors' proprio is position + quaternion + 1.
+  - No cleaning: every frame of every demonstration is used.
+- **Verification** (`verify_conversion.py`): 24 randomly chosen demonstrations (3,876 frames), all checks passed: True. On each of those demonstrations:
+  - stored actions, gripper mapping and states equal the source exactly;
+  - frame counts equal the parquet rows for both cameras;
+  - every stored image equals the re-decoded, resized source frame pixel for pixel.
+
+### 6.3 Model inputs, normalization and the adapter
+
+The adapter is in `lilawam_libero_20261030/`. Only data access is new: `train_libero.py` runs the public `train.py` unchanged, with its dataset factory swapped for `libero_data.create_dataset`.
+- **Views.** The paper feeds both views at 256×256 but does not say how they are fused, and the public model takes one image. So the two views are placed side by side: `[agentview | wrist]`, one 512×256 RGB image.
+  - The frozen DINOv3 ViT-L/16 (RoPE) sees 32×16 patches.
+  - The future-feature target is the same composite 12 steps ahead.
+  - Images are decoded to RGB explicitly; the public `_decode` returns BGR.
+- **Normalization.** Action and state min-max per suite, computed over every frame (`stats_libero.py`). LiLa-WAM's loader reads them from the top-level key `robotwin2`.
+- **Task condition.** As in the public `precompute_task_cond.py`: the last-layer DINOv3 CLS of a demonstration's last frame minus its first frame, averaged over the task's demonstrations, computed on the same composite. That gives 40 vectors of 1024-D, keyed by `<suite>/<task>`.
+- **At evaluation time:**
+  - `libero_obs_to_inputs` rotates both raw views by 180°, as FastWAM's `get_libero_image` does, because our training frames are upright. It resizes each view to 256×256 and builds the composite.
+  - It builds the state as eef pos + `quat2axisangle(quat)` + gripper qpos. Its `quat2axisangle` gives exactly the same output as FastWAM's (max difference 0.0 over the 500 observations).
+
+### 6.4 Training recipe: the paper vs this run
+
+| Item | Paper (Sec. 4.1–4.2) | This run |
+|---|---|---|
+| Policies | one per suite (4) | one per suite (4) |
+| Views | third-person + wrist, 256×256 | the same, fused side by side (fusion not described in the paper) |
+| Action chunk | 12 | 12 |
+| Vision encoder | frozen DINOv3 ViT-L/16 | the same; features from layers −12/−8/−4 + CLS/registers (public config) |
+| Action model | DiT action expert | public config: depth 12, hidden 768, 8 heads, 64 adapter queries; 212.1M trainable parameters |
+| Loss | flow matching + λff = 0.5 future-feature loss; logit-normal t | the same |
+| Optimizer | AdamW (0.9, 0.99), wd 0.01, batch 128, clip 1.0 | the same |
+| LR schedule | "stage-wise cosine, peak 2e-4 in the early stage and 5e-5 in the later stage" | stage 1: cosine 2e-4 → 5e-5 (public config floor). Stage 2: the public `--init_from` (weights only; fresh optimizer and schedule), cosine 5e-5 → 5e-6 |
+| Epochs | not stated | stage 1: 5, stage 2: 2, per suite, sized to fit job 1094056 |
+| Data cleaning | not stated | none |
+| Precision / GPU | bf16, "fits a 24 GB GPU" | bf16 autocast, one H100 80GB (23.6 GB used), 0.61 s/update, 12 data workers |
+
+### 6.5 Training runs
+
+- **Where it ran.** Interactive job 1094056 on evc103, step 7. The steps for each suite were:
+  1. stage 1 (`configs/<suite>_stage1.yaml`);
+  2. stage 2 initialized from stage-1 epoch 5 (`configs/<suite>_stage2.yaml`).
+- **Order:** libero_10, goal, object, spatial.
+- **Robustness.** The srun client runs on the login node, so training does not depend on a Claude session. Every epoch is checkpointed.
+- **Wall-clock times** below are evc103 local time.
+
+| Suite | Demos | Frames | Updates / epoch | Stage | LR (cosine) | Epochs done | Per-epoch mean loss | Epoch wall s | Start → end | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Long (libero_10) | 388 | 104,280 | 814 | stage1 | 2e-04 → 5e-05 | 5/5 | 0.2737 → 0.1731 → 0.1546 → 0.1430 → 0.1371 | 507 / 499 / 499 / 500 / 503 | 09:37:17 → 10:19:54 | complete |
+| Long (libero_10) | 388 | 104,280 | 814 | stage2 | 5e-05 → 5e-06 | 0/2 | - | - | 10:19:54 → … | running: epoch 1/2, update 180/814 |
+| Goal | 433 | 52,895 | - | stage1 | - | 0/5 | - | - | - | not started |
+| Goal | 433 | 52,895 | - | stage2 | - | 0/2 | - | - | - | not started |
+| Object | 457 | 67,309 | - | stage1 | - | 0/5 | - | - | - | not started |
+| Object | 457 | 67,309 | - | stage2 | - | 0/2 | - | - | - | not started |
+| Spatial | 434 | 53,229 | - | stage1 | - | 0/5 | - | - | - | not started |
+| Spatial | 434 | 53,229 | - | stage2 | - | 0/2 | - | - | - | not started |
+
+A joint four-suite run started earlier was cancelled after about 6 minutes, before saving any checkpoint, when the paper recipe (one policy per suite) was requested. Its folder is marked SUPERSEDED.
+
+### 6.6 Checkpoints on Hugging Face
+
+- **Location:** `anhdao69/LoopWAM_NT` (public), folder `baselines/LiLa-WAM_LIBERO_ours/`.
+- **Upload process.** `hf_upload_watcher.py`, running on the login node, uploads each suite as soon as its stage 2 finishes, in one commit per suite. It then reads back the HF LFS sha256 of every checkpoint and compares it with the local file.
+- **What else is uploaded with each suite:** both stage configs, the suite's norm stats, the training logs and per-update loss CSVs, and the 40 task vectors. The first commit also adds the code and a model card.
+- **Checkpoint contents.** Each `.pt` holds the 212.1M-parameter action model (bf16), the optimizer and scheduler state, the epoch and the loss. The frozen DINOv3 encoder is not included.
+
+| Suite | File on Hugging Face (`anhdao69/LoopWAM_NT`) | Epoch / update | Epoch mean loss | Size GB | sha256 | HF LFS sha256 = local | Commit |
+|---|---|---|---|---|---|---|---|
+| Long (libero_10) | not uploaded yet | | | | | | |
+| Goal | not uploaded yet | | | | | | |
+| Object | not uploaded yet | | | | | | |
+| Spatial | not uploaded yet | | | | | | |
+
+`manifest.json` in that folder lists the full sha256 values.
+
+### 6.7 Open-loop sanity check (not a success rate)
+
+- **What it runs.** `openloop_check.py` builds the model exactly as the public `RobotWinInference` does (strict state-dict load: 0 missing, 0 unexpected keys). It samples 12-step chunks with the public procedure (Gaussian start, 10 Euler steps, denormalize).
+- **What it is tested on.** 512 random training samples of each suite, seed 0. These are **held-in** frames, so this checks that the weights, stats, task vectors and inference path reproduce the demonstrations. It does not measure generalization or task success.
+- **Baseline:** always predicting the suite's mean action.
+- **Units:** errors are mean absolute error in raw action units, over valid (non-padded) steps.
+
+_No open-loop results yet._
+
+The public B-spline smoothing (8 control points over 12 steps) barely changes the predicted chunks, which are already smooth. On random 12×7 input, the same function changes values by up to 1.13. So it is active, just not needed here.
+
+### 6.8 Latency of the trained LIBERO policy
+
+not measured yet (needs the finished checkpoint and an idle GPU). It is the `lilawam_libero` row in Section 4.
+- One query is the public `_predict_chunk` procedure on LIBERO inputs: two-view composite, 8-D state, DINOv3 features, 10 flow steps, B-spline smoothing.
+- The libero_10 policy was timed on all 500 observations; the four suite policies share one architecture.
+
+### 6.9 Not done yet: LIBERO success rate under our matched protocol
+
+The evaluation needs a GPU allocation and a LiLa-WAM policy adapter for our LIBERO runner. The protocol is 4 suites × 10 tasks × 50 trials × seeds 42/43/44 = 6,000 episodes. The adapter should:
+- for each episode, load the suite's final checkpoint, its config, its `norm_stats.json` and the task's `task_cond.npy`;
+- build inputs with `libero_data.libero_obs_to_inputs`;
+- sample with the public procedure;
+- send actions to the environment as-is, **without** FastWAM's gripper flip, because the policy outputs raw LIBERO actions;
+- use an execution horizon that must be decided and recorded. The paper gives none for LIBERO; the public RoboTwin setting executes 16 of 32 steps.
+
+`plans/performance/lilawam_libero_20261030/HANDOFF.md` lists these steps.
+
+## 7. Success-rate context
+
+None of these numbers come from the latency runs.
+
+| Model | LIBERO success (ours, matched protocol) | Episodes | Notes |
+|---|---|---|---|
+| FastWAM (released) | **96.63%**: Long 93.53 (1403/1500), Goal 96.27 (1444/1500), Object 99.27 (1489/1500), Spatial 97.47 (1462/1500) | 6,000 (seeds 42/43/44) | the same checkpoint file timed here (sha256 match) |
+| Light-WAM | Long only: **90.87%** (1363/1500); seeds 90.4 / 90.0 / 92.2 | 1,500 | the earlier evaluation scored `lightwam_libero_10/.../step_080000.pt`, the file timed here by name. Its sha256 was not recorded in that evaluation. |
+| FasterWAM | not evaluated by us | – | |
+| LiLa-WAM (RoboTwin release) | not applicable: a RoboTwin model | – | |
+| LiLa-WAM (ours, paper recipe) | **pending** (Section 6.9) | – | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
+
+## 8. Caveats
+
+- **Different query boundaries.** This report times each repo's own query function end to end. The all-models report times our adapters. `prompt_cached` uses the same text boundary, but preprocessing code differs between repos (PIL vs torch resizing, CPU vs GPU), so the numbers compare closely but not identically.
+- **Peak GPU memory** is `torch.cuda.max_memory_allocated` during the timed queries. It includes resident encoders: T5-XXL for FastWAM and FasterWAM, and DINOv3 for LiLa-WAM.
+- **Outliers on evc103.** A few queries on evc103 show outliers: FastWAM native max 114.9 ms; FastWAM uncompiled max 322–338 ms. They raise the std and p95 there, but medians agree across nodes within 5%.
+- **Our LiLa-WAM is not the authors' LIBERO model.** It differs in:
+  - training data: ours;
+  - epochs: the paper gives none;
+  - stage-2 LR floor;
+  - view fusion: side by side;
+  - no data cleaning.
+
+  Its success rate, once measured, is a result for this recipe on our data, not a reproduction of the paper's numbers.
+- **Comparable cost, but a different policy.** The released RoboTwin LiLa-WAM row (49.5 ms) and our LIBERO model's row differ in inputs: one 320×240 view vs a 512×256 composite, and 32×14 vs 12×7 actions. The architecture and the number of flow steps are the same.
+
+## 9. Files and reproduction
+
+- **GitHub, branch `elastic`:**
+  - `plans/performance/public_wam_latency_20261030/`: result JSONs with per-query times, the harness, `env.sh`, `run_models.sh`, `build_tables.py`, `make_report.py`, the FasterWAM official-script output, checkpoint hashes and node logs.
+  - `plans/performance/lilawam_libero_20261030/`: converter, adapter, training wrapper, configs, per-suite norm stats, job scripts, the HF upload watcher, `manifest.json`, upload verification records, open-loop results, conversion verification and HANDOFF.
+- **Hugging Face:** `anhdao69/LoopWAM_NT` under `baselines/LiLa-WAM_LIBERO_ours/`.
+- **Cluster:**
+  - code clones: `/groups/yshang/an221229/code/wam_baselines_20261030/`;
+  - weights and latency: `/groups/yshang/an221229/checkpoints/wam_baselines/`;
+  - converted data: `/groups/yshang/an221229/data/LiLaWAM_libero_ours_hdf5` (36 GB);
+  - training run: `/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/`.
+- **Reproduce latency:** `source env.sh; bash run_models.sh <tag> fastwam fastwam_nocompile fasterwam lightwam; bash run_lilawam.sh <tag>`, then `measure_lilawam_libero_latency.py --config <stage2 yaml> --ckpt <final .pt> --stats <suite stats> --out results/lilawam_libero_<node>.json`, then `make_report.py <out.md>`.
+- **Reproduce training:**
+  1. `convert_ours_to_lilawam_hdf5.py <out>`;
+  2. `stats_libero.py <out> <stats.json> <suite>`;
+  3. `task_cond_libero.py <out> <taskcond dir> <dinov3 dir>`;
+  4. `train_job.sh`, inside a GPU allocation.
