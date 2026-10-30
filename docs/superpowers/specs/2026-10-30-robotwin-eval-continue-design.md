@@ -1,0 +1,11 @@
+# Original LoopWAM v0: epoch-5 evaluation and epochs 6–10
+
+User-authorized sequence: current five-epoch training completes, full RoboTwin evaluation of epoch_05.pt, then five additional training epochs. No ChronoLoop model. Global batch128, original 3/6/3 video/action4/4, same data/cache/normalization, BF16compute/FP32weights and moments. User chose cosine LR3e-5 to3e-7 and saves at epochs6,7,8,9,10. Retain Adam state; preserve original outputs.
+
+Approach: separate source worktree and checkpoint output for continuation; a persistent Slurm controller watches verified completion and launches sequential stages in allocation5489. This avoids interrupting a healthy trainer. A single batch job dependent on interactive allocation completion would wait forever while its shell stays alive, so dependency is on verified trainer artifacts. Stop/restart is reserved for a necessary smoke test if GPU resources prove insufficient.
+
+Full evaluation follows FastWAM configuration:50tasks × clean/randomized ×100episodes=10000, unseen instructions, seed0 (scene seeds100000+),32action horizon,24replan,10denoising,CFG1; all episode records and videos retained. One shared T5 plus concurrent independent simulator workers; start2perGPU after measured smoke. Original LoopWAM policy uses identical image packing and published normalization; no memory/state. Simulator runtime/assets are isolated under /mnt/data.
+
+Continuation starts only from verified final epoch5 optimizer checkpoint matching epoch5 model tensors. Absolute epochs6–10 use shuffle seeds47–51; 237310 new updates,30375515 new windows, cumulative474620updates60751030windows. No new warmup: first continuation update3e-5, last3e-7. Save all6–10, recovery latest every1000updates. Resume within continuation strictly checks contract and cursor.
+
+Failures: explicit failed stage, bounded retries of crashed eval jobs, no incomplete eval treated as complete. Existing completed task results reused only with matching checkpoint/protocol. Source/hash/checkpoint guards and flock prevent duplicate controllers. No automatic cancellation of unrelated jobs. Allocation/node/network failures cannot be guaranteed away; controller is detached from SSH and state is durable.

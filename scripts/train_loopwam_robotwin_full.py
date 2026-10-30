@@ -11,6 +11,7 @@ from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache
 from fastwam.datasets.loopwam_robot_batches import epoch_rank_batches,training_budget
 from fastwam.models.wan22.loopwam_robot import create_loopwam_robot,RobotTrainForward,PARAMETERS,verify_optimizer_restore
 from fastwam.models.wan22.loopwam_init import sha256_file
+from fastwam.robotwin_pipeline import continuation_contract,continuation_factor,validate_parent_state,validate_cursor,reconcile_metrics
 ROBOT_DIM=14
 
 def write(path,payload):
@@ -83,8 +84,11 @@ def main():
     p.add_argument('--compile',action=argparse.BooleanOptionalAction,default=False)
     p.add_argument('--smoke-tail',action='store_true',help='One no-save epoch-tail update for DDP/compile validation only')
     p.add_argument('--max-updates',type=int);p.add_argument('--no-save',action='store_true');p.add_argument('--resume',action='store_true')
+    p.add_argument('--continuation-from',help='Final epoch5 optimizer checkpoint; starts a separate epochs6-10 phase')
     a=p.parse_args()
-    if (a.dataset,a.epochs,a.seed,a.global_batch,a.memory_tokens,a.history_frame)!=('robotwin50',5,42,128,0,0):p.error('Full original-v0 recipe requires robotwin50,5epochs,seed42,batch128,memory0,history0')
+    expected_epochs=10 if a.continuation_from else 5
+    if (a.dataset,a.epochs,a.seed,a.global_batch,a.memory_tokens,a.history_frame)!=('robotwin50',expected_epochs,42,128,0,0):p.error('Full original-v0 recipe requires robotwin50,5epochs or continuation10,seed42,batch128,memory0,history0')
+    if a.continuation_from and (a.lr_backbone,a.lr_robot_io,a.warmup_fraction,a.save_epochs,a.smoke_tail)!=(3e-5,3e-5,0.,'6,7,8,9,10',False):p.error('Continuation requires LR3e-5, no warmup, saves6-10, no tail shortcut')
     if a.smoke_tail and (a.max_updates!=1 or not a.no_save or a.resume):p.error('Tail smoke requires max-updates1/no-save/fresh')
     if a.microbatch not in (1,2,4,8,16):p.error('microbatch must divide16')
     rank,world,local=[int(os.getenv(k,d)) for k,d in [('RANK',0),('WORLD_SIZE',1),('LOCAL_RANK',0)]]
@@ -102,17 +106,19 @@ def main():
     w=RobotWindows(robot_spec(a.dataset),cache_dir=shared/'data',text_threads=a.text_threads)
     m=w.manifest();assert len(w)==6075103 and len(w.episodes)==27500 and len(w.groups)==50
     old=json.loads((shared/'data/data_manifest.json').read_text());assert old==m,'Data manifest changed'
-    hashes=[dict(init=sha256_file(a.init_artifact),vae=sha256_file(a.vae_path)) if rank==0 else None];dist.broadcast_object_list(hashes,src=0);hashes=hashes[0]
+    hashes=[dict(init=sha256_file(a.init_artifact),vae=sha256_file(a.vae_path),**({'parent':sha256_file(a.continuation_from)} if a.continuation_from else {})) if rank==0 else None];dist.broadcast_object_list(hashes,src=0);hashes=hashes[0]
     cache=LoopWAMLatentCache(shared/'latents',len(w),latent_provenance(w,hashes['vae']),latent_shape=LATENT_SHAPE)
     assert np.all(cache._valid==1),'Incomplete latent cache'
-    per_epoch,total,tail=training_budget(len(w),a.global_batch,a.epochs);assert (per_epoch,total,tail)==(47462,237310,95)
+    per_epoch,total,tail=training_budget(len(w),a.global_batch,a.epochs);assert (per_epoch,total,tail)==(47462,47462*a.epochs,95)
     contract=dict(model='original LoopWAM v0',partition=[3,6,3],video_loops=4,action_loops=4,memory_tokens=0,history_frame=0,
         init_sha256=hashes['init'],vae_sha256=hashes['vae'],normalization_sha256=m['normalization_sha256'],data_manifest_sha256=hashlib.sha256(json.dumps(m,sort_keys=True).encode()).hexdigest(),
         epochs=a.epochs,seed=a.seed,global_batch=128,world=8,microbatch=a.microbatch,shuffle='randperm(seed+zero_based_epoch)',
         windows_per_epoch=len(w),planned_windows=len(w)*a.epochs,planned_updates=total,updates_per_epoch=per_epoch,last_batch_windows=95,
         lr_backbone=a.lr_backbone,lr_robot_io=a.lr_robot_io,betas=[.9,.95],eps=1e-8,weight_decay=.01,clip=1.,warmup_fraction=a.warmup_fraction,cosine_floor=.01,
         precision='fp32 weights/moments, bf16 compute',save_epochs=a.save_epochs,smoke_tail=a.smoke_tail)
-    model,payload=create_loopwam_robot(a.vae_path,init_artifact=a.init_artifact,checkpoint_path=resume if a.resume else None,
+    if a.continuation_from:
+        contract.update(phase_start_update=237310,phase_start_epoch=5,parent_checkpoint_sha256=hashes['parent'])
+    model,payload=create_loopwam_robot(a.vae_path,init_artifact=a.init_artifact,checkpoint_path=resume if a.resume else a.continuation_from,
         device=device,checkpoint_blocks=a.checkpoint_blocks,seed=a.seed,artifact_sha256=hashes['init'])
     assert model.architecture_metadata['init_artifact_sha256']==hashes['init']
     model.train();model.mot.structured_attention=True;model.mot.structured_attention_observation_tokens=OBS_TOKENS
@@ -126,22 +132,30 @@ def main():
     opt=torch.optim.AdamW(groups,betas=(.9,.95),eps=1e-8,weight_decay=.01,fused=True)
     runner=DDP(RobotTrainForward(model),device_ids=[local],broadcast_buffers=False,find_unused_parameters=False,gradient_as_bucket_view=True)
     update=windows_seen=start_epoch=start_batch=0;elapsed_prior=0.
-    if a.resume:
-        state=payload['training_state'];assert state['contract']==contract,'Resume contract mismatch'
+    if a.resume or a.continuation_from:
+        state=payload['training_state']
+        if a.resume:assert state['contract']==contract,'Resume contract mismatch'
+        else:
+            validate_parent_state(payload,contract)
+            assert continuation_contract(state['contract'],hashes['parent'])==contract,'Continuation contract mismatch'
         opt.load_state_dict(payload['optimizer']);verify_optimizer_restore(opt,payload['optimizer'])
         update=state['update'];windows_seen=state['windows_seen']
-        start_epoch=state['next_epoch'];start_batch=state['next_batch'];elapsed_prior=state['elapsed_training_seconds']
-        assert update==start_epoch*per_epoch+start_batch and windows_seen==start_epoch*len(w)+start_batch*128,'Invalid resume cursor'
+        start_epoch=state['next_epoch'];start_batch=state['next_batch'];elapsed_prior=state['elapsed_training_seconds'] if a.resume else 0.
+        validate_cursor(update,windows_seen,start_epoch,start_batch)
         resume_ids=next(epoch_rank_batches(len(w),128,world,rank,a.seed+start_epoch,start_batch),[])
-        if rank==0:write(out/f'resume_audit_u{update}.json',dict(passed=True,optimizer_exact=True,next_epoch=start_epoch,next_batch=start_batch,next_rank0_window_ids=resume_ids,next_rank0_noise_seeds=[slot_seed(a.seed,start_epoch,i,0) for i in resume_ids],next_lr=a.lr_backbone*lr_factor(update,total,int(total*a.warmup_fraction))))
+        next_factor=continuation_factor(update) if a.continuation_from and update<total else lr_factor(update,total,int(total*a.warmup_fraction))
+        if rank==0:
+            if a.resume:reconcile_metrics(out/'metrics.jsonl',update,first_update=237311 if a.continuation_from else 1)
+            write(out/f'resume_audit_u{update}.json',dict(passed=True,optimizer_exact=True,next_epoch=start_epoch,next_batch=start_batch,next_rank0_window_ids=resume_ids,next_rank0_noise_seeds=[slot_seed(a.seed,start_epoch,i,0) for i in resume_ids],next_lr=a.lr_backbone*next_factor))
     del payload
     if a.smoke_tail:start_batch=per_epoch-1
     if rank==0:
         write(out/('manifest.json' if not a.resume else f'resume_manifest_u{update}.json'),dict(vars(a),contract=contract,world_size=world,policy_parameters=PARAMETERS,memory_parameters=0,
-            resumed_from_update=update if a.resume else None,git_revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),slurm_job_id=os.getenv('SLURM_JOB_ID')))
+            resumed_from_update=update if a.resume or a.continuation_from else None,git_revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),slurm_job_id=os.getenv('SLURM_JOB_ID')))
         (out/'data').mkdir(exist_ok=True);write(out/'data/data_manifest.json',m);write(out/'data/dataset_stats.json',w.stats)
     pref=Prefetcher(w,cache,rank,world,a,start_epoch,start_batch);log=(out/'metrics.jsonl').open('a') if rank==0 else None
     start=time.time();warmup=int(total*a.warmup_fraction);last_save=update;next_epoch,next_batch=start_epoch,start_batch
+    initial_update=update
     def save(epoch=None):
         if rank==0:
             state=dict(contract=contract,update=update,windows_seen=windows_seen,next_epoch=next_epoch,next_batch=next_batch,elapsed_training_seconds=elapsed_prior+time.time()-start)
@@ -154,9 +168,9 @@ def main():
         t=time.time();item=pref.get()
         if item is None:status='complete';break
         epoch,batch,n,micros=item
-        if a.resume and epoch==start_epoch and batch==start_batch:
+        if (a.resume or a.continuation_from) and epoch==start_epoch and batch==start_batch:
             assert [i for _,ids,dummy in micros if not dummy for i in ids]==resume_ids,'Resumed data differs from expected next batch'
-        factor=lr_factor(update,total,warmup)
+        factor=continuation_factor(update) if a.continuation_from else lr_factor(update,total,warmup)
         for group,lr in zip(opt.param_groups,[a.lr_backbone,a.lr_robot_io]):group['lr']=lr*factor
         sums=torch.zeros(4,device=device);valid_local=0
         for mi,(cpu,ids,dummy) in enumerate(micros):
@@ -170,9 +184,9 @@ def main():
                 (loss*(0. if dummy else world/n)).backward()
             if not dummy:
                 valid_local+=len(ids);sums+=torch.stack([loss.detach(),logs['video'],logs['action'],torch.as_tensor(len(ids),device=device)])
-        if update==0 and any(p.grad is None or not torch.isfinite(p.grad).all() for p in params):raise ValueError('Missing/nonfinite gradient')
+        if update==initial_update and any(p.grad is None or not torch.isfinite(p.grad).all() for p in params):raise ValueError('Missing/nonfinite gradient')
         grad=torch.nn.utils.clip_grad_norm_(params,1.,error_if_nonfinite=True);opt.step();opt.zero_grad(set_to_none=True)
-        if update==0:
+        if update==initial_update:
             moments=sorted({str(v.dtype) for state in opt.state.values() for k,v in state.items() if k in ('exp_avg','exp_avg_sq')})
             assert moments==['torch.float32'] and all(p.dtype==torch.float32 for p in params)
             if rank==0:write(out/'precision.json',dict(policy='float32',compute='bfloat16',optimizer_moment_dtypes=moments,all_gradients_present_and_finite=True))
@@ -191,7 +205,7 @@ def main():
         if a.max_updates and update>=a.max_updates:
             if not a.no_save and last_save!=update:save()
             status='max_updates';break
-    if status=='complete':assert update==total and windows_seen==30375515 and next_epoch==5
+    if status=='complete':assert update==total and windows_seen==len(w)*a.epochs and next_epoch==a.epochs
     if rank==0:
         result=dict(status=status,update=update,planned_updates=total,windows_seen=windows_seen,elapsed_training_seconds=elapsed_prior+time.time()-start)
         write(out/'timing.json',result)
