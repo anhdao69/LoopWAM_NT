@@ -1,0 +1,119 @@
+{
+  "family": "loopwam_dense_s30",
+  "suite": "libero_10",
+  "started_at": 1793074882.4649103,
+  "init_independence": {
+    "tensors": 5157,
+    "differing": [],
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/dense-s30/policy.pt",
+      "checkpoint_sha256": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+      "version": "dense_s30",
+      "loops": 1,
+      "action_loops": 1,
+      "step": 21700,
+      "init_seed": 1,
+      "build_seconds": 53.02488743793219,
+      "unloaded": [],
+      "parameters": 1543006778,
+      "policy_parameters": 1416114247,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 2,
+        "microbatch": 16,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "dense_s30",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/dense-s30/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981"
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/dense-s30/policy.pt",
+      "checkpoint_sha256": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+      "version": "dense_s30",
+      "loops": 1,
+      "action_loops": 1,
+      "step": 21700,
+      "init_seed": 2,
+      "build_seconds": 12.023471454158425,
+      "unloaded": [],
+      "parameters": 1543006778,
+      "policy_parameters": 1416114247,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 2,
+        "microbatch": 16,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "dense_s30",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/dense-s30/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981"
+    }
+  ],
+  "worker_fingerprint_sha256": "20134760fd6e98966578811c0f0ecebc16a25570a19caf65f41572c08a56cf80",
+  "matched_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 282,
+      "queries": 29,
+      "action_digest": "3760ed6d493effcabf852fbbf81eddfb0ea532bd52972d34f55ee1ced04bca07",
+      "seconds": 15.929566786857322
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 252,
+      "queries": 26,
+      "action_digest": "373c18955b0a0561ad95094bb5246c6b44aca6b16c298f01f9e522526b944b0b",
+      "seconds": 13.121473097009584
+    }
+  ],
+  "repeat_identical": true,
+  "passed": true
+}
