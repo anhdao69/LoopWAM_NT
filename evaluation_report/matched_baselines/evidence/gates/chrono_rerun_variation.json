@@ -1,0 +1,66 @@
+{
+ "note": "Same-code run-to-run variation of the chrono v0 export (family loopwam_v0_full44, LoopWAM-chrono 277c635) on the campaign group libero_10:9:42, GPU0, reruns of gates.py campaign episodes by rerun_group.py on 2026-10-27. Episodes listed here differ (action digest, sometimes policy steps) between chrono runs of identical code and weights; success never differed. Regression controls of other checkouts may differ from the chrono gate only on these episodes.",
+ "group": "libero_10:9:42",
+ "reference": "gate_loopwam_v0_full44_libero_spatial.json",
+ "identical_to_reference": {
+  "chrono_c": "4/10",
+  "chrono_d": "5/10"
+ },
+ "varying_episodes": [
+  [
+   "libero_10",
+   9,
+   42,
+   3
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   4
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   5
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   6
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   7
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   8
+  ],
+  [
+   "libero_10",
+   9,
+   42,
+   9
+  ]
+ ],
+ "written_at": "2026-10-27T18:51:30Z",
+ "additions": [
+  {
+   "episode": [
+    "libero_10",
+    9,
+    42,
+    8
+   ],
+   "added_at": "2026-10-27T19:05:02Z",
+   "evidence": "gate_loopwam_init_code_v0_full44_libero_spatial.json: the v0 export through LoopWAM-init-variants 4ebf38a, whose checkpoint-load and inference path is byte-identical to chrono 277c635 (only the unused init-artifact branch of create_loopwam/build_target_experts and new module constants/functions differ; loop_mot, wan_video_dit, action_dit, fastwam and libero_utils are identical) and whose worker fingerprint 92e0f66c... equals the chrono gate, gave a different action digest on this episode (same success, 262 steps), so the run is a same-code rerun."
+  }
+ ]
+}

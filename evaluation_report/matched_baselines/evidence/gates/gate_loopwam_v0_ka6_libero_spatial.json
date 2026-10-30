@@ -1,0 +1,139 @@
+{
+  "family": "loopwam_v0_ka6",
+  "suite": "libero_spatial",
+  "started_at": 1793078297.642414,
+  "init_independence": {
+    "tensors": 2241,
+    "differing": [],
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_spatial",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/v0-video4-action4/policy.pt",
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "version": "v0",
+      "loops": 4,
+      "action_loops": 6,
+      "step": 21700,
+      "init_seed": 1,
+      "build_seconds": 19.298447826178744,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 4,
+        "microbatch": 8,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/v0-video4-action4/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "video_loops": 4,
+      "trained_action_loops": 4,
+      "action_core_video_loops": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/v0-video4-action4/policy.pt",
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "version": "v0",
+      "loops": 4,
+      "action_loops": 6,
+      "step": 21700,
+      "init_seed": 2,
+      "build_seconds": 11.459438493009657,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 4,
+        "microbatch": 8,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/v0-video4-action4/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "video_loops": 4,
+      "trained_action_loops": 4,
+      "action_core_video_loops": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "worker_fingerprint_sha256": "92e0f66cfa4f14c1b2f7c0482c9991fc6327a032869fd9eae31ea243ec7c75d4",
+  "matched_episodes": [
+    {
+      "suite": "libero_spatial",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 69,
+      "queries": 7,
+      "action_digest": "7590cc399d4e3cf96d4a38758841b76571353765dc4ca3fd5178e64d346e5811",
+      "seconds": 10.639378182124346
+    },
+    {
+      "suite": "libero_spatial",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 69,
+      "queries": 7,
+      "action_digest": "9bda71af026cd477da05e3002b6b1923a12596d172288c7481fc5eaf1103f294",
+      "seconds": 7.852220996981487
+    }
+  ],
+  "repeat_identical": true,
+  "passed": true
+}

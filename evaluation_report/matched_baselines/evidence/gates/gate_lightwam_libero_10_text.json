@@ -1,0 +1,27 @@
+{
+  "family": "lightwam",
+  "suite": "libero_10",
+  "started_at": 1793073455.7719793,
+  "build": {
+    "suite": "libero_10",
+    "checkpoint": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/checkpoints/weights/step_080000.pt",
+    "checkpoint_sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+    "text_encoder": true,
+    "init_seed": 3,
+    "lean": true,
+    "build_seconds": 421.278683549026,
+    "unloaded": [],
+    "parameters": 7667729770,
+    "dtypes": [
+      "torch.bfloat16"
+    ],
+    "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/dataset_stats.json",
+    "dataset_stats_sha256": "ab672a912327883f1bb0aa513311866933e2aa94dc8aadf50e3d3849e7f56d9d"
+  },
+  "reference_worker_fingerprint_sha256": "345a40394355ee7c4188e05f0f93bdc77f62fdee87798aba2c389d98877b421e",
+  "t5_build_non_t5_fingerprint_sha256": "345a40394355ee7c4188e05f0f93bdc77f62fdee87798aba2c389d98877b421e",
+  "non_t5_tensors": 4608,
+  "reference_tensors": 4608,
+  "t5_tensors": 242,
+  "passed": true
+}

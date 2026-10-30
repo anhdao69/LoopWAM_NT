@@ -1,0 +1,116 @@
+{
+ "family": "loopwam_v0_full44",
+ "repo": "/data/anh/code/wam_baselines/LoopWAM-chrono",
+ "rows": [
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 0,
+   "success": true,
+   "policy_steps": 252,
+   "queries": 26,
+   "action_digest": "12fef71670931cbc47fdd79e5bceeb821151410ae3aa6050cf14812178e944d9",
+   "seconds": 14.47122106095776
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 1,
+   "success": true,
+   "policy_steps": 263,
+   "queries": 27,
+   "action_digest": "9460ead560fc33c35cbb11d245a29a96ca031afdb40dbb51d577d4ee5ce6ce5b",
+   "seconds": 12.481822581961751
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 2,
+   "success": true,
+   "policy_steps": 260,
+   "queries": 26,
+   "action_digest": "d08bb288b3d714936f2172e8579f0527584fc08b718b49a902a247a997ba52b2",
+   "seconds": 8.071945738047361
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 3,
+   "success": false,
+   "policy_steps": 700,
+   "queries": 70,
+   "action_digest": "ef607b4b363ee01cd4d21fcd7aa9cb887f29c5b5cb8781185f5dce87f63d8ccd",
+   "seconds": 19.606314294040203
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 4,
+   "success": true,
+   "policy_steps": 352,
+   "queries": 36,
+   "action_digest": "872118e8937915e8a62f20a5ad0657a47b584667902e898a7097bc681aa38dbf",
+   "seconds": 10.474996201926842
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 5,
+   "success": true,
+   "policy_steps": 267,
+   "queries": 27,
+   "action_digest": "955999ffd76061d0e1e42081e7f36a1c82c27ee4dcf1e25c6b2555123274a98a",
+   "seconds": 8.057108975946903
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 6,
+   "success": false,
+   "policy_steps": 700,
+   "queries": 70,
+   "action_digest": "590dac94dfea348269fbbb318d03c9458ad6abb7313a42e769647c5e3430c9d3",
+   "seconds": 20.245172848924994
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 7,
+   "success": true,
+   "policy_steps": 255,
+   "queries": 26,
+   "action_digest": "a598b5b1a3299cffb8bd3ca1f3411c45dfbb1f377f10b7602c2c288fb1644762",
+   "seconds": 7.745797707000747
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 8,
+   "success": true,
+   "policy_steps": 262,
+   "queries": 27,
+   "action_digest": "7929e50555ac2217ab1add686a01fa2a625901d2dac3e79961d20f63260dfbd5",
+   "seconds": 7.8372364290989935
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "seed": 42,
+   "episode": 9,
+   "success": true,
+   "policy_steps": 254,
+   "queries": 26,
+   "action_digest": "c70d0889a2639ebb61fab14278ab979de18a0949bf6701850f7d2a6c1847269a",
+   "seconds": 8.334707607980818
+  }
+ ]
+}

@@ -1,0 +1,2581 @@
+{
+  "generated_at": 1793380282.7811399,
+  "models": [
+    {
+      "model": "FasterWAM",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5923,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1485,
+          "episodes": 1500,
+          "sr": 99.0,
+          "seed_srs": [
+            98.6,
+            99.0,
+            99.4
+          ],
+          "seed_std": 0.4000000000000057,
+          "wilson95": [
+            98.35660953354521,
+            99.39305625193788
+          ]
+        },
+        "libero_object": {
+          "successes": 1494,
+          "episodes": 1500,
+          "sr": 99.6,
+          "seed_srs": [
+            99.8,
+            99.2,
+            99.8
+          ],
+          "seed_std": 0.3464101615137722,
+          "wilson95": [
+            99.13004908406793,
+            99.8165513845027
+          ]
+        },
+        "libero_goal": {
+          "successes": 1473,
+          "episodes": 1500,
+          "sr": 98.2,
+          "seed_srs": [
+            98.6,
+            98.2,
+            97.8
+          ],
+          "seed_std": 0.3999999999999986,
+          "wilson95": [
+            97.39373619341465,
+            98.76001668128505
+          ]
+        },
+        "libero_10": {
+          "successes": 1471,
+          "episodes": 1500,
+          "sr": 98.06666666666666,
+          "seed_srs": [
+            98.4,
+            98.2,
+            97.6
+          ],
+          "seed_std": 0.4163331998932325,
+          "wilson95": [
+            97.23721235864166,
+            98.65055503092748
+          ]
+        }
+      },
+      "average_sr": 98.71666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+        "libero_object": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+        "libero_goal": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+        "libero_10": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5923,
+        "success_rate": 0.9871666666666666
+      },
+      "run_dir": "runs/fasterwam_matched",
+      "mean_query_seconds": 0.3502312305566219,
+      "mean_policy_steps": 148.2105
+    },
+    {
+      "model": "Light-WAM",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5746,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1450,
+          "episodes": 1500,
+          "sr": 96.66666666666667,
+          "seed_srs": [
+            96.6,
+            97.2,
+            96.2
+          ],
+          "seed_std": 0.5033222956847172,
+          "wilson95": [
+            95.63241639623114,
+            97.46250339946707
+          ]
+        },
+        "libero_object": {
+          "successes": 1483,
+          "episodes": 1500,
+          "sr": 98.86666666666666,
+          "seed_srs": [
+            98.8,
+            99.0,
+            98.8
+          ],
+          "seed_std": 0.1154700538379268,
+          "wilson95": [
+            98.19247434521301,
+            99.29120595513953
+          ]
+        },
+        "libero_goal": {
+          "successes": 1449,
+          "episodes": 1500,
+          "sr": 96.6,
+          "seed_srs": [
+            96.6,
+            96.2,
+            97.0
+          ],
+          "seed_std": 0.3999999999999986,
+          "wilson95": [
+            95.55730400003863,
+            97.40462305309426
+          ]
+        },
+        "libero_10": {
+          "successes": 1364,
+          "episodes": 1500,
+          "sr": 90.93333333333334,
+          "seed_srs": [
+            90.4,
+            90.2,
+            92.2
+          ],
+          "seed_std": 1.1015141094572196,
+          "wilson95": [
+            89.37379267544561,
+            92.28375125963822
+          ]
+        }
+      },
+      "average_sr": 95.76666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "421e954b0a1af5e9e9fccc511d646fd76d25afe1848ebc0c6a8433ed718613b5",
+        "libero_object": "57a83d3041299681bf27976ff978d9b7c18a38ae83e05367b0413b164771b0d4",
+        "libero_goal": "0c40ca8159536308b04bd5b91463555ab3d4fca573a030db687c45d1ad09e01b",
+        "libero_10": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5746,
+        "success_rate": 0.9576666666666667
+      },
+      "run_dir": "runs/lightwam_matched",
+      "mean_query_seconds": 0.12223098462774411,
+      "mean_policy_steps": 163.2765
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5399,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1422,
+          "episodes": 1500,
+          "sr": 94.8,
+          "seed_srs": [
+            95.2,
+            95.6,
+            93.6
+          ],
+          "seed_std": 1.0583005244258379,
+          "wilson95": [
+            93.55758616644476,
+            95.81353683742549
+          ]
+        },
+        "libero_object": {
+          "successes": 1399,
+          "episodes": 1500,
+          "sr": 93.26666666666667,
+          "seed_srs": [
+            98.0,
+            93.8,
+            88.0
+          ],
+          "seed_std": 5.021288015373479,
+          "wilson95": [
+            91.88477317904552,
+            94.42751674582321
+          ]
+        },
+        "libero_goal": {
+          "successes": 1382,
+          "episodes": 1500,
+          "sr": 92.13333333333334,
+          "seed_srs": [
+            92.0,
+            94.0,
+            90.4
+          ],
+          "seed_std": 1.803699901129155,
+          "wilson95": [
+            90.6607929149493,
+            93.39062038630964
+          ]
+        },
+        "libero_10": {
+          "successes": 1196,
+          "episodes": 1500,
+          "sr": 79.73333333333333,
+          "seed_srs": [
+            81.4,
+            79.2,
+            78.6
+          ],
+          "seed_std": 1.4742229591664036,
+          "wilson95": [
+            77.62426892244002,
+            81.69049426167625
+          ]
+        }
+      },
+      "average_sr": 89.98333333333333,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd",
+        "libero_object": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd",
+        "libero_goal": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd",
+        "libero_10": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5399,
+        "success_rate": 0.8998333333333334
+      },
+      "run_dir": "runs/loopwam_dense_s12_matched",
+      "mean_query_seconds": 0.1421567605399656,
+      "mean_policy_steps": 187.6555
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5738,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1459,
+          "episodes": 1500,
+          "sr": 97.26666666666667,
+          "seed_srs": [
+            97.2,
+            98.0,
+            96.6
+          ],
+          "seed_std": 0.7023769168568519,
+          "wilson95": [
+            96.31303790234686,
+            97.97881657643887
+          ]
+        },
+        "libero_object": {
+          "successes": 1479,
+          "episodes": 1500,
+          "sr": 98.6,
+          "seed_srs": [
+            99.2,
+            98.6,
+            98.0
+          ],
+          "seed_std": 0.6000000000000014,
+          "wilson95": [
+            97.86920345854125,
+            99.08250587155015
+          ]
+        },
+        "libero_goal": {
+          "successes": 1438,
+          "episodes": 1500,
+          "sr": 95.86666666666666,
+          "seed_srs": [
+            95.8,
+            96.0,
+            95.8
+          ],
+          "seed_std": 0.1154700538379268,
+          "wilson95": [
+            94.73662755092381,
+            96.76237933399096
+          ]
+        },
+        "libero_10": {
+          "successes": 1362,
+          "episodes": 1500,
+          "sr": 90.8,
+          "seed_srs": [
+            91.4,
+            91.4,
+            89.6
+          ],
+          "seed_std": 1.039230484541333,
+          "wilson95": [
+            89.23128912602252,
+            92.16026932393076
+          ]
+        }
+      },
+      "average_sr": 95.63333333333334,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+        "libero_object": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+        "libero_goal": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+        "libero_10": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5738,
+        "success_rate": 0.9563333333333334
+      },
+      "run_dir": "runs/loopwam_dense_s30_matched",
+      "mean_query_seconds": 0.3535369933265431,
+      "mean_policy_steps": 162.95266666666666
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5368,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1433,
+          "episodes": 1500,
+          "sr": 95.53333333333333,
+          "seed_srs": [
+            95.6,
+            96.4,
+            94.6
+          ],
+          "seed_std": 0.9018499505645844,
+          "wilson95": [
+            94.3665246733406,
+            96.46751849874776
+          ]
+        },
+        "libero_object": {
+          "successes": 1389,
+          "episodes": 1500,
+          "sr": 92.6,
+          "seed_srs": [
+            96.8,
+            91.4,
+            89.6
+          ],
+          "seed_std": 3.746998799039039,
+          "wilson95": [
+            91.16368750021502,
+            93.81867499900092
+          ]
+        },
+        "libero_goal": {
+          "successes": 1394,
+          "episodes": 1500,
+          "sr": 92.93333333333334,
+          "seed_srs": [
+            93.4,
+            93.8,
+            91.6
+          ],
+          "seed_std": 1.1718930554164664,
+          "wilson95": [
+            91.5238184869361,
+            94.12350772510624
+          ]
+        },
+        "libero_10": {
+          "successes": 1152,
+          "episodes": 1500,
+          "sr": 76.8,
+          "seed_srs": [
+            82.2,
+            75.8,
+            72.4
+          ],
+          "seed_std": 4.975942121849891,
+          "wilson95": [
+            74.59704619793486,
+            78.86603631330895
+          ]
+        }
+      },
+      "average_sr": 89.46666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_object": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_goal": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_10": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5368,
+        "success_rate": 0.8946666666666667
+      },
+      "run_dir": "runs/loopwam_v0_ka3_matched",
+      "mean_query_seconds": 0.31750165759134713,
+      "mean_policy_steps": 199.40216666666666
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5676,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1417,
+          "episodes": 1500,
+          "sr": 94.46666666666667,
+          "seed_srs": [
+            94.2,
+            95.0,
+            94.2
+          ],
+          "seed_std": 0.461880215351699,
+          "wilson95": [
+            93.19198416908125,
+            95.5141751219626
+          ]
+        },
+        "libero_object": {
+          "successes": 1483,
+          "episodes": 1500,
+          "sr": 98.86666666666666,
+          "seed_srs": [
+            98.8,
+            98.6,
+            99.2
+          ],
+          "seed_std": 0.30550504633039366,
+          "wilson95": [
+            98.19247434521301,
+            99.29120595513953
+          ]
+        },
+        "libero_goal": {
+          "successes": 1443,
+          "episodes": 1500,
+          "sr": 96.2,
+          "seed_srs": [
+            96.2,
+            96.8,
+            95.6
+          ],
+          "seed_std": 0.6000000000000014,
+          "wilson95": [
+            95.10847352264705,
+            97.05549707509414
+          ]
+        },
+        "libero_10": {
+          "successes": 1333,
+          "episodes": 1500,
+          "sr": 88.86666666666666,
+          "seed_srs": [
+            90.4,
+            87.6,
+            88.6
+          ],
+          "seed_std": 1.4189197769195236,
+          "wilson95": [
+            87.17453627316996,
+            90.3602326423901
+          ]
+        }
+      },
+      "average_sr": 94.6,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_object": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_goal": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_10": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5676,
+        "success_rate": 0.946
+      },
+      "run_dir": "runs/loopwam_v0_ka5_matched",
+      "mean_query_seconds": 0.3447498734841676,
+      "mean_policy_steps": 162.88166666666666
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5352,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1322,
+          "episodes": 1500,
+          "sr": 88.13333333333334,
+          "seed_srs": [
+            85.2,
+            90.0,
+            89.2
+          ],
+          "seed_std": 2.571640202931454,
+          "wilson95": [
+            86.39853710185469,
+            89.67331164548726
+          ]
+        },
+        "libero_object": {
+          "successes": 1454,
+          "episodes": 1500,
+          "sr": 96.93333333333334,
+          "seed_srs": [
+            94.2,
+            98.6,
+            98.0
+          ],
+          "seed_std": 2.386070689089767,
+          "wilson95": [
+            95.9338381496179,
+            97.69305261634145
+          ]
+        },
+        "libero_goal": {
+          "successes": 1406,
+          "episodes": 1500,
+          "sr": 93.73333333333333,
+          "seed_srs": [
+            92.8,
+            94.8,
+            93.6
+          ],
+          "seed_std": 1.0066445913694335,
+          "wilson95": [
+            92.39160279630099,
+            94.85163632652475
+          ]
+        },
+        "libero_10": {
+          "successes": 1170,
+          "episodes": 1500,
+          "sr": 78.0,
+          "seed_srs": [
+            79.6,
+            79.8,
+            74.6
+          ],
+          "seed_std": 2.946183972531248,
+          "wilson95": [
+            75.83359673547369,
+            80.02335514194523
+          ]
+        }
+      },
+      "average_sr": 89.2,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_object": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_goal": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "libero_10": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5352,
+        "success_rate": 0.892
+      },
+      "run_dir": "runs/loopwam_v0_ka6_matched",
+      "mean_query_seconds": 0.4154164515138173,
+      "mean_policy_steps": 183.37666666666667
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5665,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1458,
+          "episodes": 1500,
+          "sr": 97.2,
+          "seed_srs": [
+            97.4,
+            97.4,
+            96.8
+          ],
+          "seed_std": 0.3464101615137804,
+          "wilson95": [
+            96.23696378192302,
+            97.92189795429742
+          ]
+        },
+        "libero_object": {
+          "successes": 1481,
+          "episodes": 1500,
+          "sr": 98.73333333333333,
+          "seed_srs": [
+            99.0,
+            99.2,
+            98.0
+          ],
+          "seed_std": 0.6429100507328647,
+          "wilson95": [
+            98.03009052159712,
+            99.18760429362484
+          ]
+        },
+        "libero_goal": {
+          "successes": 1429,
+          "episodes": 1500,
+          "sr": 95.26666666666667,
+          "seed_srs": [
+            95.2,
+            95.6,
+            95.0
+          ],
+          "seed_std": 0.30550504633038594,
+          "wilson95": [
+            94.07157463691568,
+            96.23049756491157
+          ]
+        },
+        "libero_10": {
+          "successes": 1297,
+          "episodes": 1500,
+          "sr": 86.46666666666667,
+          "seed_srs": [
+            88.0,
+            86.0,
+            85.4
+          ],
+          "seed_std": 1.3613718571108069,
+          "wilson95": [
+            84.64209178125395,
+            88.10493840195593
+          ]
+        }
+      },
+      "average_sr": 94.41666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78",
+        "libero_object": "9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78",
+        "libero_goal": "9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78",
+        "libero_10": "9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5665,
+        "success_rate": 0.9441666666666667
+      },
+      "run_dir": "runs/loopwam_partition_p0c6s6_matched",
+      "mean_query_seconds": 0.31107758709837685,
+      "mean_policy_steps": 171.444
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5620,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1459,
+          "episodes": 1500,
+          "sr": 97.26666666666667,
+          "seed_srs": [
+            97.0,
+            97.0,
+            97.8
+          ],
+          "seed_std": 0.461880215351699,
+          "wilson95": [
+            96.31303790234686,
+            97.97881657643887
+          ]
+        },
+        "libero_object": {
+          "successes": 1472,
+          "episodes": 1500,
+          "sr": 98.13333333333334,
+          "seed_srs": [
+            99.8,
+            97.0,
+            97.6
+          ],
+          "seed_std": 1.4742229591663982,
+          "wilson95": [
+            97.31536653445073,
+            98.70539359768368
+          ]
+        },
+        "libero_goal": {
+          "successes": 1439,
+          "episodes": 1500,
+          "sr": 95.93333333333334,
+          "seed_srs": [
+            95.8,
+            96.0,
+            96.0
+          ],
+          "seed_std": 0.1154700538379268,
+          "wilson95": [
+            94.81085087497054,
+            96.82114875250956
+          ]
+        },
+        "libero_10": {
+          "successes": 1250,
+          "episodes": 1500,
+          "sr": 83.33333333333333,
+          "seed_srs": [
+            85.6,
+            82.8,
+            81.6
+          ],
+          "seed_std": 2.0526405757787534,
+          "wilson95": [
+            81.36269614785282,
+            85.13367513478875
+          ]
+        }
+      },
+      "average_sr": 93.66666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995",
+        "libero_object": "26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995",
+        "libero_goal": "26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995",
+        "libero_10": "26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5620,
+        "success_rate": 0.9366666666666666
+      },
+      "run_dir": "runs/loopwam_partition_p1c6s5_matched",
+      "mean_query_seconds": 0.24585548953324624,
+      "mean_policy_steps": 173.83666666666667
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5587,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1443,
+          "episodes": 1500,
+          "sr": 96.2,
+          "seed_srs": [
+            96.6,
+            96.0,
+            96.0
+          ],
+          "seed_std": 0.3464101615137722,
+          "wilson95": [
+            95.10847352264705,
+            97.05549707509414
+          ]
+        },
+        "libero_object": {
+          "successes": 1459,
+          "episodes": 1500,
+          "sr": 97.26666666666667,
+          "seed_srs": [
+            98.2,
+            96.6,
+            97.0
+          ],
+          "seed_std": 0.832666399786457,
+          "wilson95": [
+            96.31303790234686,
+            97.97881657643887
+          ]
+        },
+        "libero_goal": {
+          "successes": 1419,
+          "episodes": 1500,
+          "sr": 94.6,
+          "seed_srs": [
+            94.2,
+            94.8,
+            94.8
+          ],
+          "seed_std": 0.3464101615137722,
+          "wilson95": [
+            93.33808070240872,
+            95.63406407376569
+          ]
+        },
+        "libero_10": {
+          "successes": 1266,
+          "episodes": 1500,
+          "sr": 84.4,
+          "seed_srs": [
+            87.6,
+            84.0,
+            81.6
+          ],
+          "seed_std": 3.0199337741082997,
+          "wilson95": [
+            82.47610272410964,
+            86.14815243957645
+          ]
+        }
+      },
+      "average_sr": 93.11666666666666,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+        "libero_object": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+        "libero_goal": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+        "libero_10": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5587,
+        "success_rate": 0.9311666666666667
+      },
+      "run_dir": "runs/loopwam_init_core16_21_matched",
+      "mean_query_seconds": 0.24003131289183927,
+      "mean_policy_steps": 176.49866666666668
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5590,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1451,
+          "episodes": 1500,
+          "sr": 96.73333333333333,
+          "seed_srs": [
+            97.4,
+            96.0,
+            96.8
+          ],
+          "seed_std": 0.7023769168568519,
+          "wilson95": [
+            95.70762318978906,
+            97.52028934847442
+          ]
+        },
+        "libero_object": {
+          "successes": 1461,
+          "episodes": 1500,
+          "sr": 97.4,
+          "seed_srs": [
+            98.6,
+            97.0,
+            96.6
+          ],
+          "seed_std": 1.0583005244258352,
+          "wilson95": [
+            96.46556617424174,
+            98.09227378967456
+          ]
+        },
+        "libero_goal": {
+          "successes": 1404,
+          "episodes": 1500,
+          "sr": 93.6,
+          "seed_srs": [
+            94.0,
+            94.0,
+            92.8
+          ],
+          "seed_std": 0.6928203230275526,
+          "wilson95": [
+            92.24660822471301,
+            94.73064541298216
+          ]
+        },
+        "libero_10": {
+          "successes": 1274,
+          "episodes": 1500,
+          "sr": 84.93333333333334,
+          "seed_srs": [
+            87.6,
+            85.4,
+            81.8
+          ],
+          "seed_std": 2.9280255007996994,
+          "wilson95": [
+            83.03391309488791,
+            86.65428400932048
+          ]
+        }
+      },
+      "average_sr": 93.16666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3",
+        "libero_object": "2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3",
+        "libero_goal": "2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3",
+        "libero_10": "2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5590,
+        "success_rate": 0.9316666666666666
+      },
+      "run_dir": "runs/loopwam_partition_p5c6s1_matched",
+      "mean_query_seconds": 0.19735877264183646,
+      "mean_policy_steps": 175.9225
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5416,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1426,
+          "episodes": 1500,
+          "sr": 95.06666666666666,
+          "seed_srs": [
+            96.0,
+            95.6,
+            93.6
+          ],
+          "seed_std": 1.2858201014657293,
+          "wilson95": [
+            93.8509702227178,
+            96.05212375141359
+          ]
+        },
+        "libero_object": {
+          "successes": 1390,
+          "episodes": 1500,
+          "sr": 92.66666666666667,
+          "seed_srs": [
+            95.0,
+            92.4,
+            90.6
+          ],
+          "seed_std": 2.21208800307161,
+          "wilson95": [
+            91.23565030400373,
+            93.87970493777746
+          ]
+        },
+        "libero_goal": {
+          "successes": 1369,
+          "episodes": 1500,
+          "sr": 91.26666666666667,
+          "seed_srs": [
+            93.4,
+            91.8,
+            88.6
+          ],
+          "seed_std": 2.44404037064312,
+          "wilson95": [
+            89.73046658408083,
+            92.59204106382941
+          ]
+        },
+        "libero_10": {
+          "successes": 1231,
+          "episodes": 1500,
+          "sr": 82.06666666666666,
+          "seed_srs": [
+            84.8,
+            80.4,
+            81.0
+          ],
+          "seed_std": 2.386070689089767,
+          "wilson95": [
+            80.04410028143504,
+            83.92540889246614
+          ]
+        }
+      },
+      "average_sr": 90.26666666666667,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda",
+        "libero_object": "2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda",
+        "libero_goal": "2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda",
+        "libero_10": "2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5416,
+        "success_rate": 0.9026666666666666
+      },
+      "run_dir": "runs/loopwam_partition_p6c6s0_matched",
+      "mean_query_seconds": 0.3775768688201428,
+      "mean_policy_steps": 187.04316666666668
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5507,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1463,
+          "episodes": 1500,
+          "sr": 97.53333333333333,
+          "seed_srs": [
+            98.0,
+            97.6,
+            97.0
+          ],
+          "seed_std": 0.5033222956847163,
+          "wilson95": [
+            96.61863245054205,
+            98.20519299850481
+          ]
+        },
+        "libero_object": {
+          "successes": 1475,
+          "episodes": 1500,
+          "sr": 98.33333333333333,
+          "seed_srs": [
+            98.6,
+            98.6,
+            97.8
+          ],
+          "seed_std": 0.461880215351699,
+          "wilson95": [
+            97.55116878046103,
+            98.86856957936924
+          ]
+        },
+        "libero_goal": {
+          "successes": 1402,
+          "episodes": 1500,
+          "sr": 93.46666666666667,
+          "seed_srs": [
+            91.4,
+            95.6,
+            93.4
+          ],
+          "seed_std": 2.1007935008784915,
+          "wilson95": [
+            92.10176464859255,
+            94.60950350397205
+          ]
+        },
+        "libero_10": {
+          "successes": 1167,
+          "episodes": 1500,
+          "sr": 77.8,
+          "seed_srs": [
+            80.4,
+            77.6,
+            75.4
+          ],
+          "seed_std": 2.505992817228334,
+          "wilson95": [
+            75.62733188098153,
+            79.83064176874153
+          ]
+        }
+      },
+      "average_sr": 91.78333333333333,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c",
+        "libero_object": "4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c",
+        "libero_goal": "4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c",
+        "libero_10": "4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5507,
+        "success_rate": 0.9178333333333333
+      },
+      "run_dir": "runs/loopwam_partition_p1c9s2_k3_matched",
+      "mean_query_seconds": 0.6326604264702415,
+      "mean_policy_steps": 182.45933333333332
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "episodes": 6000,
+      "successes": 5445,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1400,
+          "episodes": 1500,
+          "sr": 93.33333333333333,
+          "seed_srs": [
+            92.4,
+            95.4,
+            92.2
+          ],
+          "seed_std": 1.7925772879665012,
+          "wilson95": [
+            91.95706782616664,
+            94.4882148412674
+          ]
+        },
+        "libero_object": {
+          "successes": 1468,
+          "episodes": 1500,
+          "sr": 97.86666666666666,
+          "seed_srs": [
+            98.4,
+            98.8,
+            96.4
+          ],
+          "seed_std": 1.2858201014657242,
+          "wilson95": [
+            97.00394188588247,
+            98.48484727599083
+          ]
+        },
+        "libero_goal": {
+          "successes": 1387,
+          "episodes": 1500,
+          "sr": 92.46666666666667,
+          "seed_srs": [
+            94.2,
+            91.6,
+            91.6
+          ],
+          "seed_std": 1.501110699893032,
+          "wilson95": [
+            91.01985425630731,
+            93.69652275777801
+          ]
+        },
+        "libero_10": {
+          "successes": 1190,
+          "episodes": 1500,
+          "sr": 79.33333333333333,
+          "seed_srs": [
+            81.2,
+            78.0,
+            78.8
+          ],
+          "seed_std": 1.6653327995729081,
+          "wilson95": [
+            77.2105396861094,
+            81.30626704261518
+          ]
+        }
+      },
+      "average_sr": 90.75,
+      "complete_grid": true,
+      "checkpoint_sha256": {
+        "libero_spatial": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+        "libero_object": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+        "libero_goal": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+        "libero_10": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f"
+      },
+      "verified": {
+        "episodes": 6000,
+        "successes": 5445,
+        "success_rate": 0.9075
+      },
+      "run_dir": "runs/loopwam_partition_p4c3s5_k7_matched",
+      "mean_query_seconds": 0.6247069601149099,
+      "mean_policy_steps": 185.97116666666668
+    },
+    {
+      "model": "Light-WAM Long",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1363,
+      "suites": {
+        "libero_10": {
+          "successes": 1363,
+          "episodes": 1500,
+          "sr": 90.86666666666666,
+          "seed_srs": [
+            90.4,
+            90.0,
+            92.2
+          ],
+          "seed_std": 1.1718930554164635,
+          "wilson95": [
+            89.30252927610397,
+            92.22202191641458
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "LoopWAM full 4/4",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5695,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1454,
+          "episodes": 1500,
+          "sr": 96.93333333333334,
+          "seed_srs": [
+            96.0,
+            97.6,
+            97.2
+          ],
+          "seed_std": 0.8326663997864513,
+          "wilson95": [
+            95.9338381496179,
+            97.69305261634145
+          ]
+        },
+        "libero_object": {
+          "successes": 1481,
+          "episodes": 1500,
+          "sr": 98.73333333333333,
+          "seed_srs": [
+            98.8,
+            99.0,
+            98.4
+          ],
+          "seed_std": 0.30550504633038594,
+          "wilson95": [
+            98.03009052159712,
+            99.18760429362484
+          ]
+        },
+        "libero_goal": {
+          "successes": 1442,
+          "episodes": 1500,
+          "sr": 96.13333333333334,
+          "seed_srs": [
+            97.0,
+            96.0,
+            95.4
+          ],
+          "seed_std": 0.8082903768654736,
+          "wilson95": [
+            95.03395494794842,
+            96.99702290722752
+          ]
+        },
+        "libero_10": {
+          "successes": 1318,
+          "episodes": 1500,
+          "sr": 87.86666666666666,
+          "seed_srs": [
+            90.4,
+            87.2,
+            86.0
+          ],
+          "seed_std": 2.2744962812309337,
+          "wilson95": [
+            86.11685854194852,
+            89.42301923513229
+          ]
+        }
+      },
+      "average_sr": 94.91666666666667
+    },
+    {
+      "model": "LoopWAM Long 4/4 original",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1166,
+      "suites": {
+        "libero_10": {
+          "successes": 1166,
+          "episodes": 1500,
+          "sr": 77.73333333333333,
+          "seed_srs": [
+            84.6,
+            77.4,
+            71.2
+          ],
+          "seed_std": 6.706216021970458,
+          "wilson95": [
+            75.558592543501,
+            79.76638836365677
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "LoopWAM Long 4/4 repeat",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1192,
+      "suites": {
+        "libero_10": {
+          "successes": 1192,
+          "episodes": 1500,
+          "sr": 79.46666666666667,
+          "seed_srs": [
+            82.8,
+            80.0,
+            75.6
+          ],
+          "seed_std": 3.6295086903509883,
+          "wilson95": [
+            77.34841542555549,
+            81.43437678829964
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "LoopWAM Long KV mix 4/1",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1133,
+      "suites": {
+        "libero_10": {
+          "successes": 1133,
+          "episodes": 1500,
+          "sr": 75.53333333333333,
+          "seed_srs": [
+            77.8,
+            77.6,
+            71.2
+          ],
+          "seed_std": 3.754108860080286,
+          "wilson95": [
+            73.29441128341233,
+            77.6418091190911
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "LoopWAM Long aligned 4/1",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1110,
+      "suites": {
+        "libero_10": {
+          "successes": 1110,
+          "episodes": 1500,
+          "sr": 74.0,
+          "seed_srs": [
+            77.4,
+            74.6,
+            70.0
+          ],
+          "seed_std": 3.736308338453883,
+          "wilson95": [
+            71.72092828866163,
+            76.1564590348403
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "LoopWAM Long KV concat 4/1",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 1500,
+      "successes": 1118,
+      "suites": {
+        "libero_10": {
+          "successes": 1118,
+          "episodes": 1500,
+          "sr": 74.53333333333333,
+          "seed_srs": [
+            77.4,
+            73.2,
+            73.0
+          ],
+          "seed_std": 2.4846193538112322,
+          "wilson95": [
+            72.26781826242893,
+            76.67351100159526
+          ]
+        }
+      },
+      "average_sr": null
+    },
+    {
+      "model": "Fast-WAM original all suites",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5798,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1462,
+          "episodes": 1500,
+          "sr": 97.46666666666667,
+          "seed_srs": [
+            97.2,
+            98.0,
+            97.2
+          ],
+          "seed_std": 0.461880215351699,
+          "wilson95": [
+            96.54202956667255,
+            98.14880313980905
+          ]
+        },
+        "libero_object": {
+          "successes": 1489,
+          "episodes": 1500,
+          "sr": 99.26666666666667,
+          "seed_srs": [
+            99.8,
+            99.2,
+            98.8
+          ],
+          "seed_std": 0.5033222956847163,
+          "wilson95": [
+            98.69160907462658,
+            99.59002768111765
+          ]
+        },
+        "libero_goal": {
+          "successes": 1444,
+          "episodes": 1500,
+          "sr": 96.26666666666667,
+          "seed_srs": [
+            96.6,
+            96.2,
+            96.0
+          ],
+          "seed_std": 0.30550504633038594,
+          "wilson95": [
+            95.18307048539587,
+            97.1138928549106
+          ]
+        },
+        "libero_10": {
+          "successes": 1403,
+          "episodes": 1500,
+          "sr": 93.53333333333333,
+          "seed_srs": [
+            94.6,
+            93.6,
+            92.4
+          ],
+          "seed_std": 1.1015141094572145,
+          "wilson95": [
+            92.17416783235541,
+            94.67009306277447
+          ]
+        }
+      },
+      "average_sr": 96.63333333333334
+    },
+    {
+      "model": "LoopWAM full video1/action4",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5501,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1440,
+          "episodes": 1500,
+          "sr": 96.0,
+          "seed_srs": [
+            95.6,
+            96.8,
+            95.6
+          ],
+          "seed_std": 0.6928203230275526,
+          "wilson95": [
+            94.88514541497291,
+            96.87984695507242
+          ]
+        },
+        "libero_object": {
+          "successes": 1467,
+          "episodes": 1500,
+          "sr": 97.8,
+          "seed_srs": [
+            98.4,
+            97.8,
+            97.2
+          ],
+          "seed_std": 0.6000000000000014,
+          "wilson95": [
+            96.92655263695904,
+            98.42924378234896
+          ]
+        },
+        "libero_goal": {
+          "successes": 1421,
+          "episodes": 1500,
+          "sr": 94.73333333333333,
+          "seed_srs": [
+            95.6,
+            95.4,
+            93.2
+          ],
+          "seed_std": 1.3316656236958766,
+          "wilson95": [
+            93.48436846494742,
+            95.75376179635757
+          ]
+        },
+        "libero_10": {
+          "successes": 1173,
+          "episodes": 1500,
+          "sr": 78.2,
+          "seed_srs": [
+            82.2,
+            80.8,
+            71.6
+          ],
+          "seed_std": 5.758472019555191,
+          "wilson95": [
+            76.03993238597559,
+            80.21599771913918
+          ]
+        }
+      },
+      "average_sr": 91.68333333333334
+    },
+    {
+      "model": "LoopWAM full video4/action1",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5640,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1444,
+          "episodes": 1500,
+          "sr": 96.26666666666667,
+          "seed_srs": [
+            95.6,
+            96.8,
+            96.4
+          ],
+          "seed_std": 0.6110100926607811,
+          "wilson95": [
+            95.18307048539587,
+            97.1138928549106
+          ]
+        },
+        "libero_object": {
+          "successes": 1471,
+          "episodes": 1500,
+          "sr": 98.06666666666666,
+          "seed_srs": [
+            98.6,
+            97.8,
+            97.8
+          ],
+          "seed_std": 0.461880215351699,
+          "wilson95": [
+            97.23721235864166,
+            98.65055503092748
+          ]
+        },
+        "libero_goal": {
+          "successes": 1431,
+          "episodes": 1500,
+          "sr": 95.4,
+          "seed_srs": [
+            95.2,
+            96.4,
+            94.6
+          ],
+          "seed_std": 0.9165151389911732,
+          "wilson95": [
+            94.21892992599352,
+            96.34912776096428
+          ]
+        },
+        "libero_10": {
+          "successes": 1294,
+          "episodes": 1500,
+          "sr": 86.26666666666667,
+          "seed_srs": [
+            88.0,
+            85.8,
+            85.0
+          ],
+          "seed_std": 1.5534906930308061,
+          "wilson95": [
+            84.43193234831966,
+            87.91611960719437
+          ]
+        }
+      },
+      "average_sr": 94.0
+    },
+    {
+      "model": "LoopWAM full video2/action2",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5547,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1454,
+          "episodes": 1500,
+          "sr": 96.93333333333334,
+          "seed_srs": [
+            97.2,
+            97.4,
+            96.2
+          ],
+          "seed_std": 0.6429100507328647,
+          "wilson95": [
+            95.9338381496179,
+            97.69305261634145
+          ]
+        },
+        "libero_object": {
+          "successes": 1448,
+          "episodes": 1500,
+          "sr": 96.53333333333333,
+          "seed_srs": [
+            98.6,
+            95.4,
+            95.6
+          ],
+          "seed_std": 1.7925772879664967,
+          "wilson95": [
+            95.48228338370886,
+            97.34665092685877
+          ]
+        },
+        "libero_goal": {
+          "successes": 1414,
+          "episodes": 1500,
+          "sr": 94.26666666666667,
+          "seed_srs": [
+            94.2,
+            94.6,
+            94.0
+          ],
+          "seed_std": 0.30550504633038594,
+          "wilson95": [
+            92.97318401798016,
+            95.33399704536782
+          ]
+        },
+        "libero_10": {
+          "successes": 1231,
+          "episodes": 1500,
+          "sr": 82.06666666666666,
+          "seed_srs": [
+            82.8,
+            82.2,
+            81.2
+          ],
+          "seed_std": 0.8082903768654736,
+          "wilson95": [
+            80.04410028143504,
+            83.92540889246614
+          ]
+        }
+      },
+      "average_sr": 92.45
+    },
+    {
+      "model": "LoopWAM full KV mix 4/1",
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "episodes": 6000,
+      "successes": 5667,
+      "suites": {
+        "libero_spatial": {
+          "successes": 1461,
+          "episodes": 1500,
+          "sr": 97.4,
+          "seed_srs": [
+            97.8,
+            98.2,
+            96.2
+          ],
+          "seed_std": 1.0583005244258352,
+          "wilson95": [
+            96.46556617424174,
+            98.09227378967456
+          ]
+        },
+        "libero_object": {
+          "successes": 1475,
+          "episodes": 1500,
+          "sr": 98.33333333333333,
+          "seed_srs": [
+            99.4,
+            98.4,
+            97.2
+          ],
+          "seed_std": 1.1015141094572218,
+          "wilson95": [
+            97.55116878046103,
+            98.86856957936924
+          ]
+        },
+        "libero_goal": {
+          "successes": 1454,
+          "episodes": 1500,
+          "sr": 96.93333333333334,
+          "seed_srs": [
+            97.4,
+            96.0,
+            97.4
+          ],
+          "seed_std": 0.8082903768654793,
+          "wilson95": [
+            95.9338381496179,
+            97.69305261634145
+          ]
+        },
+        "libero_10": {
+          "successes": 1277,
+          "episodes": 1500,
+          "sr": 85.13333333333334,
+          "seed_srs": [
+            87.8,
+            85.4,
+            82.2
+          ],
+          "seed_std": 2.8095076674273947,
+          "wilson95": [
+            83.24329137410793,
+            86.8438839577963
+          ]
+        }
+      },
+      "average_sr": 94.45
+    }
+  ],
+  "paired": [
+    {
+      "model": "FasterWAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1440,
+      "both_failure": 1,
+      "model_only_success": 45,
+      "reference_only_success": 14,
+      "difference_pp": 2.066666666666667,
+      "mcnemar_exact_p": 6.530630444913366e-05
+    },
+    {
+      "model": "FasterWAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1475,
+      "both_failure": 0,
+      "model_only_success": 19,
+      "reference_only_success": 6,
+      "difference_pp": 0.8666666666666667,
+      "mcnemar_exact_p": 0.01463329792022705
+    },
+    {
+      "model": "FasterWAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1419,
+      "both_failure": 4,
+      "model_only_success": 54,
+      "reference_only_success": 23,
+      "difference_pp": 2.066666666666667,
+      "mcnemar_exact_p": 0.0005387801699960487
+    },
+    {
+      "model": "FasterWAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1296,
+      "both_failure": 7,
+      "model_only_success": 175,
+      "reference_only_success": 22,
+      "difference_pp": 10.2,
+      "mcnemar_exact_p": 9.001276711506474e-31
+    },
+    {
+      "model": "FasterWAM",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1339,
+      "both_failure": 5,
+      "model_only_success": 132,
+      "reference_only_success": 24,
+      "difference_pp": 7.2,
+      "mcnemar_exact_p": 2.8702262068715104e-19
+    },
+    {
+      "model": "Light-WAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1410,
+      "both_failure": 6,
+      "model_only_success": 40,
+      "reference_only_success": 44,
+      "difference_pp": -0.26666666666666666,
+      "mcnemar_exact_p": 0.7436441861052041
+    },
+    {
+      "model": "Light-WAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1464,
+      "both_failure": 0,
+      "model_only_success": 19,
+      "reference_only_success": 17,
+      "difference_pp": 0.13333333333333333,
+      "mcnemar_exact_p": 0.8679394004284404
+    },
+    {
+      "model": "Light-WAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1394,
+      "both_failure": 3,
+      "model_only_success": 55,
+      "reference_only_success": 48,
+      "difference_pp": 0.4666666666666667,
+      "mcnemar_exact_p": 0.5546010666648742
+    },
+    {
+      "model": "Light-WAM",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1233,
+      "both_failure": 51,
+      "model_only_success": 131,
+      "reference_only_success": 85,
+      "difference_pp": 3.066666666666667,
+      "mcnemar_exact_p": 0.002126930225951499
+    },
+    {
+      "model": "Light-WAM",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1363,
+      "both_failure": 136,
+      "model_only_success": 1,
+      "reference_only_success": 0,
+      "difference_pp": 0.06666666666666667,
+      "mcnemar_exact_p": 1.0
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1384,
+      "both_failure": 8,
+      "model_only_success": 38,
+      "reference_only_success": 70,
+      "difference_pp": -2.1333333333333333,
+      "mcnemar_exact_p": 0.0026846980412799145
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1384,
+      "both_failure": 4,
+      "model_only_success": 15,
+      "reference_only_success": 97,
+      "difference_pp": -5.466666666666667,
+      "mcnemar_exact_p": 7.121860330286235e-16
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1337,
+      "both_failure": 13,
+      "model_only_success": 45,
+      "reference_only_success": 105,
+      "difference_pp": -4.0,
+      "mcnemar_exact_p": 1.0588547527634354e-06
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1103,
+      "both_failure": 89,
+      "model_only_success": 93,
+      "reference_only_success": 215,
+      "difference_pp": -8.133333333333333,
+      "mcnemar_exact_p": 2.814761064086552e-12
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1112,
+      "both_failure": 53,
+      "model_only_success": 84,
+      "reference_only_success": 251,
+      "difference_pp": -11.133333333333333,
+      "mcnemar_exact_p": 1.8358601020507648e-20
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1420,
+      "both_failure": 7,
+      "model_only_success": 39,
+      "reference_only_success": 34,
+      "difference_pp": 0.3333333333333333,
+      "mcnemar_exact_p": 0.6399729317539424
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1462,
+      "both_failure": 2,
+      "model_only_success": 17,
+      "reference_only_success": 19,
+      "difference_pp": -0.13333333333333333,
+      "mcnemar_exact_p": 0.8679394004284404
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1389,
+      "both_failure": 9,
+      "model_only_success": 49,
+      "reference_only_success": 53,
+      "difference_pp": -0.26666666666666666,
+      "mcnemar_exact_p": 0.7666042612518518
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1239,
+      "both_failure": 59,
+      "model_only_success": 123,
+      "reference_only_success": 79,
+      "difference_pp": 2.933333333333333,
+      "mcnemar_exact_p": 0.002398878883734297
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1257,
+      "both_failure": 32,
+      "model_only_success": 105,
+      "reference_only_success": 106,
+      "difference_pp": -0.06666666666666667,
+      "mcnemar_exact_p": 1.0
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1393,
+      "both_failure": 6,
+      "model_only_success": 40,
+      "reference_only_success": 61,
+      "difference_pp": -1.4,
+      "mcnemar_exact_p": 0.046044066929342806
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1376,
+      "both_failure": 6,
+      "model_only_success": 13,
+      "reference_only_success": 105,
+      "difference_pp": -6.133333333333334,
+      "mcnemar_exact_p": 4.764406071312224e-19
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1343,
+      "both_failure": 7,
+      "model_only_success": 51,
+      "reference_only_success": 99,
+      "difference_pp": -3.2,
+      "mcnemar_exact_p": 0.00010978172637063631
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1092,
+      "both_failure": 122,
+      "model_only_success": 60,
+      "reference_only_success": 226,
+      "difference_pp": -11.066666666666666,
+      "mcnemar_exact_p": 8.017560868572031e-24
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1085,
+      "both_failure": 70,
+      "model_only_success": 67,
+      "reference_only_success": 278,
+      "difference_pp": -14.066666666666666,
+      "mcnemar_exact_p": 1.133655887576194e-31
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1391,
+      "both_failure": 20,
+      "model_only_success": 26,
+      "reference_only_success": 63,
+      "difference_pp": -2.466666666666667,
+      "mcnemar_exact_p": 0.00010992624937112811
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1466,
+      "both_failure": 2,
+      "model_only_success": 17,
+      "reference_only_success": 15,
+      "difference_pp": 0.13333333333333333,
+      "mcnemar_exact_p": 0.860050065908581
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1391,
+      "both_failure": 6,
+      "model_only_success": 52,
+      "reference_only_success": 51,
+      "difference_pp": 0.06666666666666667,
+      "mcnemar_exact_p": 1.0
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1208,
+      "both_failure": 57,
+      "model_only_success": 125,
+      "reference_only_success": 110,
+      "difference_pp": 1.0,
+      "mcnemar_exact_p": 0.36113543690088773
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1229,
+      "both_failure": 33,
+      "model_only_success": 104,
+      "reference_only_success": 134,
+      "difference_pp": -2.0,
+      "mcnemar_exact_p": 0.05990875040361677
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1296,
+      "both_failure": 20,
+      "model_only_success": 26,
+      "reference_only_success": 158,
+      "difference_pp": -8.8,
+      "mcnemar_exact_p": 2.9024672675812567e-24
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1436,
+      "both_failure": 1,
+      "model_only_success": 18,
+      "reference_only_success": 45,
+      "difference_pp": -1.8,
+      "mcnemar_exact_p": 0.0008980471786680215
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1359,
+      "both_failure": 11,
+      "model_only_success": 47,
+      "reference_only_success": 83,
+      "difference_pp": -2.4,
+      "mcnemar_exact_p": 0.0020237797357403877
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1050,
+      "both_failure": 62,
+      "model_only_success": 120,
+      "reference_only_success": 268,
+      "difference_pp": -9.866666666666667,
+      "mcnemar_exact_p": 4.1771057541041294e-14
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1084,
+      "both_failure": 51,
+      "model_only_success": 86,
+      "reference_only_success": 279,
+      "difference_pp": -12.866666666666667,
+      "mcnemar_exact_p": 6.624983885776272e-25
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1417,
+      "both_failure": 5,
+      "model_only_success": 41,
+      "reference_only_success": 37,
+      "difference_pp": 0.26666666666666666,
+      "mcnemar_exact_p": 0.7343420330298468
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1462,
+      "both_failure": 0,
+      "model_only_success": 19,
+      "reference_only_success": 19,
+      "difference_pp": 0.0,
+      "mcnemar_exact_p": 1.0
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1377,
+      "both_failure": 6,
+      "model_only_success": 52,
+      "reference_only_success": 65,
+      "difference_pp": -0.8666666666666667,
+      "mcnemar_exact_p": 0.267182304990396
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1181,
+      "both_failure": 66,
+      "model_only_success": 116,
+      "reference_only_success": 137,
+      "difference_pp": -1.4,
+      "mcnemar_exact_p": 0.20852618262679137
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1200,
+      "both_failure": 40,
+      "model_only_success": 97,
+      "reference_only_success": 163,
+      "difference_pp": -4.4,
+      "mcnemar_exact_p": 5.093575994199916e-05
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1421,
+      "both_failure": 8,
+      "model_only_success": 38,
+      "reference_only_success": 33,
+      "difference_pp": 0.3333333333333333,
+      "mcnemar_exact_p": 0.6353076420876662
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1454,
+      "both_failure": 1,
+      "model_only_success": 18,
+      "reference_only_success": 27,
+      "difference_pp": -0.6,
+      "mcnemar_exact_p": 0.23269319190831084
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1392,
+      "both_failure": 11,
+      "model_only_success": 47,
+      "reference_only_success": 50,
+      "difference_pp": -0.2,
+      "mcnemar_exact_p": 0.8392136618440833
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1143,
+      "both_failure": 75,
+      "model_only_success": 107,
+      "reference_only_success": 175,
+      "difference_pp": -4.533333333333333,
+      "mcnemar_exact_p": 6.130001561684022e-05
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1159,
+      "both_failure": 46,
+      "model_only_success": 91,
+      "reference_only_success": 204,
+      "difference_pp": -7.533333333333333,
+      "mcnemar_exact_p": 4.0653443877029935e-11
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1405,
+      "both_failure": 8,
+      "model_only_success": 38,
+      "reference_only_success": 49,
+      "difference_pp": -0.7333333333333333,
+      "mcnemar_exact_p": 0.2836071084054854
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1442,
+      "both_failure": 2,
+      "model_only_success": 17,
+      "reference_only_success": 39,
+      "difference_pp": -1.4666666666666666,
+      "mcnemar_exact_p": 0.00456153274640822
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1370,
+      "both_failure": 9,
+      "model_only_success": 49,
+      "reference_only_success": 72,
+      "difference_pp": -1.5333333333333334,
+      "mcnemar_exact_p": 0.045051739725735895
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1151,
+      "both_failure": 67,
+      "model_only_success": 115,
+      "reference_only_success": 167,
+      "difference_pp": -3.466666666666667,
+      "mcnemar_exact_p": 0.0023308834481527724
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1163,
+      "both_failure": 34,
+      "model_only_success": 103,
+      "reference_only_success": 200,
+      "difference_pp": -6.466666666666667,
+      "mcnemar_exact_p": 2.6765097583469864e-08
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1419,
+      "both_failure": 14,
+      "model_only_success": 32,
+      "reference_only_success": 35,
+      "difference_pp": -0.2,
+      "mcnemar_exact_p": 0.807194691367025
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1443,
+      "both_failure": 1,
+      "model_only_success": 18,
+      "reference_only_success": 38,
+      "difference_pp": -1.3333333333333333,
+      "mcnemar_exact_p": 0.010454818321892184
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1356,
+      "both_failure": 10,
+      "model_only_success": 48,
+      "reference_only_success": 86,
+      "difference_pp": -2.533333333333333,
+      "mcnemar_exact_p": 0.0013037586710986412
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1152,
+      "both_failure": 60,
+      "model_only_success": 122,
+      "reference_only_success": 166,
+      "difference_pp": -2.933333333333333,
+      "mcnemar_exact_p": 0.01115505681388355
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1179,
+      "both_failure": 42,
+      "model_only_success": 95,
+      "reference_only_success": 184,
+      "difference_pp": -5.933333333333334,
+      "mcnemar_exact_p": 1.083568776628962e-07
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1390,
+      "both_failure": 10,
+      "model_only_success": 36,
+      "reference_only_success": 64,
+      "difference_pp": -1.8666666666666667,
+      "mcnemar_exact_p": 0.006637120515926126
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1377,
+      "both_failure": 6,
+      "model_only_success": 13,
+      "reference_only_success": 104,
+      "difference_pp": -6.066666666666666,
+      "mcnemar_exact_p": 8.490021806129157e-19
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1328,
+      "both_failure": 17,
+      "model_only_success": 41,
+      "reference_only_success": 114,
+      "difference_pp": -4.866666666666666,
+      "mcnemar_exact_p": 3.7943422432160054e-09
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1142,
+      "both_failure": 93,
+      "model_only_success": 89,
+      "reference_only_success": 176,
+      "difference_pp": -5.8,
+      "mcnemar_exact_p": 9.851559269604364e-08
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1142,
+      "both_failure": 48,
+      "model_only_success": 89,
+      "reference_only_success": 221,
+      "difference_pp": -8.8,
+      "mcnemar_exact_p": 4.1331287996700404e-14
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1421,
+      "both_failure": 4,
+      "model_only_success": 42,
+      "reference_only_success": 33,
+      "difference_pp": 0.6,
+      "mcnemar_exact_p": 0.3556992390814875
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1458,
+      "both_failure": 2,
+      "model_only_success": 17,
+      "reference_only_success": 23,
+      "difference_pp": -0.4,
+      "mcnemar_exact_p": 0.42959050784338615
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1356,
+      "both_failure": 12,
+      "model_only_success": 46,
+      "reference_only_success": 86,
+      "difference_pp": -2.6666666666666665,
+      "mcnemar_exact_p": 0.000631288916511294
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1085,
+      "both_failure": 100,
+      "model_only_success": 82,
+      "reference_only_success": 233,
+      "difference_pp": -10.066666666666666,
+      "mcnemar_exact_p": 6.487917385105646e-18
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1084,
+      "both_failure": 54,
+      "model_only_success": 83,
+      "reference_only_success": 279,
+      "difference_pp": -13.066666666666666,
+      "mcnemar_exact_p": 6.646539321193624e-26
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_spatial",
+      "paired_episodes": 1500,
+      "both_success": 1367,
+      "both_failure": 13,
+      "model_only_success": 33,
+      "reference_only_success": 87,
+      "difference_pp": -3.6,
+      "mcnemar_exact_p": 8.680495331686945e-07
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_object",
+      "paired_episodes": 1500,
+      "both_success": 1450,
+      "both_failure": 1,
+      "model_only_success": 18,
+      "reference_only_success": 31,
+      "difference_pp": -0.8666666666666667,
+      "mcnemar_exact_p": 0.08543313315739454
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_goal",
+      "paired_episodes": 1500,
+      "both_success": 1343,
+      "both_failure": 14,
+      "model_only_success": 44,
+      "reference_only_success": 99,
+      "difference_pp": -3.6666666666666665,
+      "mcnemar_exact_p": 4.887162472052845e-06
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "reference": "LoopWAM full 4/4",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1098,
+      "both_failure": 90,
+      "model_only_success": 92,
+      "reference_only_success": 220,
+      "difference_pp": -8.533333333333333,
+      "mcnemar_exact_p": 3.016068615040243e-13
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "reference": "Light-WAM Long",
+      "suite": "libero_10",
+      "paired_episodes": 1500,
+      "both_success": 1114,
+      "both_failure": 61,
+      "model_only_success": 76,
+      "reference_only_success": 249,
+      "difference_pp": -11.533333333333333,
+      "mcnemar_exact_p": 1.2786422331299262e-22
+    }
+  ]
+}

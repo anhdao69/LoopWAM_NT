@@ -1,0 +1,87 @@
+model,source,suite,successes,episodes,success_rate_percent,wilson95_low,wilson95_high,seed42,seed43,seed44,seed_sample_std
+FasterWAM,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1485,1500,99.00,98.36,99.39,98.6,99.0,99.4,0.40
+FasterWAM,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1494,1500,99.60,99.13,99.82,99.8,99.2,99.8,0.35
+FasterWAM,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1473,1500,98.20,97.39,98.76,98.6,98.2,97.8,0.40
+FasterWAM,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1471,1500,98.07,97.24,98.65,98.4,98.2,97.6,0.42
+Light-WAM,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1450,1500,96.67,95.63,97.46,96.6,97.2,96.2,0.50
+Light-WAM,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1483,1500,98.87,98.19,99.29,98.8,99.0,98.8,0.12
+Light-WAM,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1449,1500,96.60,95.56,97.40,96.6,96.2,97.0,0.40
+Light-WAM,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1364,1500,90.93,89.37,92.28,90.4,90.2,92.2,1.10
+LoopWAM Dense-S12,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1422,1500,94.80,93.56,95.81,95.2,95.6,93.6,1.06
+LoopWAM Dense-S12,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1399,1500,93.27,91.88,94.43,98.0,93.8,88.0,5.02
+LoopWAM Dense-S12,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1382,1500,92.13,90.66,93.39,92.0,94.0,90.4,1.80
+LoopWAM Dense-S12,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1196,1500,79.73,77.62,81.69,81.4,79.2,78.6,1.47
+LoopWAM Dense-S30,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1459,1500,97.27,96.31,97.98,97.2,98.0,96.6,0.70
+LoopWAM Dense-S30,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1479,1500,98.60,97.87,99.08,99.2,98.6,98.0,0.60
+LoopWAM Dense-S30,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1438,1500,95.87,94.74,96.76,95.8,96.0,95.8,0.12
+LoopWAM Dense-S30,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1362,1500,90.80,89.23,92.16,91.4,91.4,89.6,1.04
+LoopWAM v0 Ka3,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1433,1500,95.53,94.37,96.47,95.6,96.4,94.6,0.90
+LoopWAM v0 Ka3,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1389,1500,92.60,91.16,93.82,96.8,91.4,89.6,3.75
+LoopWAM v0 Ka3,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1394,1500,92.93,91.52,94.12,93.4,93.8,91.6,1.17
+LoopWAM v0 Ka3,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1152,1500,76.80,74.60,78.87,82.2,75.8,72.4,4.98
+LoopWAM v0 Ka5,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1417,1500,94.47,93.19,95.51,94.2,95.0,94.2,0.46
+LoopWAM v0 Ka5,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1483,1500,98.87,98.19,99.29,98.8,98.6,99.2,0.31
+LoopWAM v0 Ka5,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1443,1500,96.20,95.11,97.06,96.2,96.8,95.6,0.60
+LoopWAM v0 Ka5,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1333,1500,88.87,87.17,90.36,90.4,87.6,88.6,1.42
+LoopWAM v0 Ka6,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1322,1500,88.13,86.40,89.67,85.2,90.0,89.2,2.57
+LoopWAM v0 Ka6,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1454,1500,96.93,95.93,97.69,94.2,98.6,98.0,2.39
+LoopWAM v0 Ka6,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1406,1500,93.73,92.39,94.85,92.8,94.8,93.6,1.01
+LoopWAM v0 Ka6,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1170,1500,78.00,75.83,80.02,79.6,79.8,74.6,2.95
+LoopWAM v0 partition 0/6/6,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1458,1500,97.20,96.24,97.92,97.4,97.4,96.8,0.35
+LoopWAM v0 partition 0/6/6,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1481,1500,98.73,98.03,99.19,99.0,99.2,98.0,0.64
+LoopWAM v0 partition 0/6/6,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1429,1500,95.27,94.07,96.23,95.2,95.6,95.0,0.31
+LoopWAM v0 partition 0/6/6,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1297,1500,86.47,84.64,88.10,88.0,86.0,85.4,1.36
+LoopWAM v0 partition 1/6/5,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1459,1500,97.27,96.31,97.98,97.0,97.0,97.8,0.46
+LoopWAM v0 partition 1/6/5,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1472,1500,98.13,97.32,98.71,99.8,97.0,97.6,1.47
+LoopWAM v0 partition 1/6/5,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1439,1500,95.93,94.81,96.82,95.8,96.0,96.0,0.12
+LoopWAM v0 partition 1/6/5,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1250,1500,83.33,81.36,85.13,85.6,82.8,81.6,2.05
+LoopWAM v0 init core16_21,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1443,1500,96.20,95.11,97.06,96.6,96.0,96.0,0.35
+LoopWAM v0 init core16_21,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1459,1500,97.27,96.31,97.98,98.2,96.6,97.0,0.83
+LoopWAM v0 init core16_21,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1419,1500,94.60,93.34,95.63,94.2,94.8,94.8,0.35
+LoopWAM v0 init core16_21,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1266,1500,84.40,82.48,86.15,87.6,84.0,81.6,3.02
+LoopWAM v0 partition 5/6/1,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1451,1500,96.73,95.71,97.52,97.4,96.0,96.8,0.70
+LoopWAM v0 partition 5/6/1,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1461,1500,97.40,96.47,98.09,98.6,97.0,96.6,1.06
+LoopWAM v0 partition 5/6/1,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1404,1500,93.60,92.25,94.73,94.0,94.0,92.8,0.69
+LoopWAM v0 partition 5/6/1,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1274,1500,84.93,83.03,86.65,87.6,85.4,81.8,2.93
+LoopWAM v0 partition 6/6/0,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1426,1500,95.07,93.85,96.05,96.0,95.6,93.6,1.29
+LoopWAM v0 partition 6/6/0,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1390,1500,92.67,91.24,93.88,95.0,92.4,90.6,2.21
+LoopWAM v0 partition 6/6/0,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1369,1500,91.27,89.73,92.59,93.4,91.8,88.6,2.44
+LoopWAM v0 partition 6/6/0,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1231,1500,82.07,80.04,83.93,84.8,80.4,81.0,2.39
+LoopWAM v0 partition 1/9/2 k3,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1463,1500,97.53,96.62,98.21,98.0,97.6,97.0,0.50
+LoopWAM v0 partition 1/9/2 k3,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1475,1500,98.33,97.55,98.87,98.6,98.6,97.8,0.46
+LoopWAM v0 partition 1/9/2 k3,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1402,1500,93.47,92.10,94.61,91.4,95.6,93.4,2.10
+LoopWAM v0 partition 1/9/2 k3,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1167,1500,77.80,75.63,79.83,80.4,77.6,75.4,2.51
+LoopWAM v0 partition 4/3/5 k7,this evaluation (local RTX PRO 6000 Blackwell),libero_spatial,1400,1500,93.33,91.96,94.49,92.4,95.4,92.2,1.79
+LoopWAM v0 partition 4/3/5 k7,this evaluation (local RTX PRO 6000 Blackwell),libero_object,1468,1500,97.87,97.00,98.48,98.4,98.8,96.4,1.29
+LoopWAM v0 partition 4/3/5 k7,this evaluation (local RTX PRO 6000 Blackwell),libero_goal,1387,1500,92.47,91.02,93.70,94.2,91.6,91.6,1.50
+LoopWAM v0 partition 4/3/5 k7,this evaluation (local RTX PRO 6000 Blackwell),libero_10,1190,1500,79.33,77.21,81.31,81.2,78.0,78.8,1.67
+Light-WAM Long,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1363,1500,90.87,89.30,92.22,90.4,90.0,92.2,1.17
+LoopWAM full 4/4,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1454,1500,96.93,95.93,97.69,96.0,97.6,97.2,0.83
+LoopWAM full 4/4,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1481,1500,98.73,98.03,99.19,98.8,99.0,98.4,0.31
+LoopWAM full 4/4,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1442,1500,96.13,95.03,97.00,97.0,96.0,95.4,0.81
+LoopWAM full 4/4,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1318,1500,87.87,86.12,89.42,90.4,87.2,86.0,2.27
+LoopWAM Long 4/4 original,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1166,1500,77.73,75.56,79.77,84.6,77.4,71.2,6.71
+LoopWAM Long 4/4 repeat,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1192,1500,79.47,77.35,81.43,82.8,80.0,75.6,3.63
+LoopWAM Long KV mix 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1133,1500,75.53,73.29,77.64,77.8,77.6,71.2,3.75
+LoopWAM Long aligned 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1110,1500,74.00,71.72,76.16,77.4,74.6,70.0,3.74
+LoopWAM Long KV concat 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1118,1500,74.53,72.27,76.67,77.4,73.2,73.0,2.48
+Fast-WAM original all suites,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1462,1500,97.47,96.54,98.15,97.2,98.0,97.2,0.46
+Fast-WAM original all suites,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1489,1500,99.27,98.69,99.59,99.8,99.2,98.8,0.50
+Fast-WAM original all suites,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1444,1500,96.27,95.18,97.11,96.6,96.2,96.0,0.31
+Fast-WAM original all suites,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1403,1500,93.53,92.17,94.67,94.6,93.6,92.4,1.10
+LoopWAM full video1/action4,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1440,1500,96.00,94.89,96.88,95.6,96.8,95.6,0.69
+LoopWAM full video1/action4,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1467,1500,97.80,96.93,98.43,98.4,97.8,97.2,0.60
+LoopWAM full video1/action4,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1421,1500,94.73,93.48,95.75,95.6,95.4,93.2,1.33
+LoopWAM full video1/action4,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1173,1500,78.20,76.04,80.22,82.2,80.8,71.6,5.76
+LoopWAM full video4/action1,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1444,1500,96.27,95.18,97.11,95.6,96.8,96.4,0.61
+LoopWAM full video4/action1,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1471,1500,98.07,97.24,98.65,98.6,97.8,97.8,0.46
+LoopWAM full video4/action1,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1431,1500,95.40,94.22,96.35,95.2,96.4,94.6,0.92
+LoopWAM full video4/action1,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1294,1500,86.27,84.43,87.92,88.0,85.8,85.0,1.55
+LoopWAM full video2/action2,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1454,1500,96.93,95.93,97.69,97.2,97.4,96.2,0.64
+LoopWAM full video2/action2,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1448,1500,96.53,95.48,97.35,98.6,95.4,95.6,1.79
+LoopWAM full video2/action2,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1414,1500,94.27,92.97,95.33,94.2,94.6,94.0,0.31
+LoopWAM full video2/action2,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1231,1500,82.07,80.04,83.93,82.8,82.2,81.2,0.81
+LoopWAM full KV mix 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_spatial,1461,1500,97.40,96.47,98.09,97.8,98.2,96.2,1.06
+LoopWAM full KV mix 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_object,1475,1500,98.33,97.55,98.87,99.4,98.4,97.2,1.10
+LoopWAM full KV mix 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_goal,1454,1500,96.93,95.93,97.69,97.4,96.0,97.4,0.81
+LoopWAM full KV mix 4/1,LoopWAM campaign evaluation_report/final (same protocol),libero_10,1277,1500,85.13,83.24,86.84,87.8,85.4,82.2,2.81
