@@ -29,6 +29,17 @@ def shell(env,argv):
     if argv[0]==sys.executable:argv[0]='python'
     return ['bash','-c',f'set -e; source {shlex.quote(env)}; exec '+shlex.join(argv)]
 
+def slurm_step_environment(parent=None):
+    """Launch against the allocation, without inheriting this controller step's limits.
+
+    --jobid and explicit resource arguments select the new step; srun supplies its
+    fresh Slurm/CUDA environment. Preserve the cluster configuration and runtime.
+    """
+    parent=os.environ if parent is None else parent
+    return {k:v for k,v in parent.items()
+            if (not k.startswith(('SLURM_','SRUN_')) or k=='SLURM_CONF')
+            and k!='CUDA_VISIBLE_DEVICES'}
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);a=p.parse_args();cfg=read(a.config)
     out=Path(cfg['queue_dir']);out.mkdir(parents=True,exist_ok=True)
@@ -51,7 +62,7 @@ def main():
                       '--gres='+('gpu:8' if gpus else 'none'),'--kill-on-bad-exit=1','--job-name',jobname,
                       sys.executable,str(ROOT/'scripts/robotwin_queue_stage.py'),'--command',str(command_file),'--status',str(status)]
                 write(out/f'{name}.launch.json',dict(command=argv,created=time.time(),attempt=attempt))
-                proc=subprocess.Popen(argv,stdout=log,stderr=subprocess.STDOUT)
+                proc=subprocess.Popen(argv,env=slurm_step_environment(),stdout=log,stderr=subprocess.STDOUT)
                 log.close()
             else:heartbeat(name,adopted_steps=steps)
             started=time.time()

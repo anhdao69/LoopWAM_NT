@@ -129,3 +129,17 @@ def test_render_gpu_mapping_binds_cuda_and_vulkan_to_same_pci():
     assert b['CUDA_VISIBLE_DEVICES']=='1' and b['DRI_PRIME']=='pci-0000_1c_00_0'
     assert a['LOOPWAM_EXPECT_RENDER_PCI']=='0000:1b:00.0' and a['KEEP']=='value'
     with pytest.raises(ValueError):render_worker_environment({},'1','invalid')
+
+def test_nested_slurm_launch_does_not_inherit_controller_resource_limits():
+    import importlib.util
+    path=Path(__file__).resolve().parents[1]/'scripts/run_robotwin_posttrain_queue.py'
+    spec=importlib.util.spec_from_file_location('queue_script',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    parent={'SLURM_CONF':'/etc/slurm/slurm.conf','SLURM_JOB_ID':'5489',
+            'SLURM_TRES_PER_TASK':'cpu=1','SLURM_CPUS_PER_TASK':'1','SLURM_MEM_PER_CPU':'8192',
+            'SLURM_CPU_BIND':'mask_cpu:0x1','SLURM_STEP_ID':'54','SRUN_CPUS_PER_TASK':'1',
+            'CUDA_VISIBLE_DEVICES':'','PYTHONPATH':'/source','PATH':'/venv/bin:/usr/bin'}
+    child=module.slurm_step_environment(parent)
+    assert {k:v for k,v in child.items() if k.startswith(('SLURM_','SRUN_'))}=={'SLURM_CONF':'/etc/slurm/slurm.conf'}
+    assert 'CUDA_VISIBLE_DEVICES' not in child
+    assert child['PYTHONPATH']=='/source' and child['PATH']==parent['PATH']
+    assert parent['SLURM_CPUS_PER_TASK']=='1' and 'CUDA_VISIBLE_DEVICES' in parent
