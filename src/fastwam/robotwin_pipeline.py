@@ -91,3 +91,12 @@ def validate_preflight(record):
     if not record.get('passed') or not record.get('simulator_clean_and_randomized') or not record.get('runtime_hashes'):
         raise ValueError('Simulator preflight did not pass with a bound runtime')
     for path,sha in record['runtime_hashes'].items():verify_file_hash(path,sha)
+
+def render_worker_environment(base,gpu,pci):
+    import re
+    match=re.fullmatch(r'([0-9a-fA-F]{4,8}):([0-9a-fA-F]{2}):([0-9a-fA-F]{2})\.([0-7])',pci.strip())
+    if not match:raise ValueError(f'Invalid GPU PCI address:{pci}')
+    domain,bus,device,function=(int(v,16) for v in match.groups())
+    normalized=f'{domain:04x}:{bus:02x}:{device:02x}.{function:x}'
+    return dict(base,CUDA_VISIBLE_DEVICES=str(gpu),DRI_PRIME='pci-'+normalized.replace(':','_').replace('.','_'),
+                LOOPWAM_EXPECT_RENDER_PCI=normalized,MESA_VK_DEVICE_SELECT_FORCE_DEFAULT_DEVICE='1')

@@ -242,6 +242,9 @@ class Base_Task(gym.Env):
         # declare sapien scene
         scene_config = sapien.SceneConfig()
         self.scene = self.engine.create_scene(scene_config)
+        expected_pci = os.environ.get("LOOPWAM_EXPECT_RENDER_PCI")
+        if expected_pci and self.scene.render_system.device.pci_string.lower() != expected_pci:
+            raise RuntimeError("Simulator renderer is using the wrong GPU")
         # set simulation timestep
         self.scene.set_timestep(kwargs.get("timestep", 1 / 250))
         # add ground to scene

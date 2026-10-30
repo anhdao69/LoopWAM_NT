@@ -14,7 +14,7 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from fastwam.robotwin_pipeline import validate_eval_summary,fingerprint_files
+from fastwam.robotwin_pipeline import validate_eval_summary,fingerprint_files,render_worker_environment
 EPISODE=re.compile(r'Success rate: (?:\x1b\[\d+m)?(\d+)/(\d+).*?current seed: (?:\x1b\[\d+m)?(\d+)')
 
 def write(path,data):
@@ -62,13 +62,17 @@ def main():
     out=Path(a.output_dir);out.mkdir(parents=True,exist_ok=True)
     lock=(out/'runner.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     sha=digest(a.checkpoint)
+    gpus=a.gpus.split(',');gpu_pci={}
+    if os.environ.get('LOOPWAM_VULKAN_DEVICE_SELECT')=='1':
+        for gpu in gpus:
+            gpu_pci[gpu]=subprocess.check_output(['nvidia-smi','-i',gpu,'--query-gpu=pci.bus_id','--format=csv,noheader'],text=True).strip()
     robotwin=Path(a.robotwin_root);policy=(robotwin/'policy/loopwam_policy').resolve()
     if policy!=(ROOT/'experiments/robotwin/loopwam_policy').resolve():raise ValueError('Wrong deployed policy import target')
     bound=list((robotwin/'envs').rglob('*.py'))+list((robotwin/'task_config').rglob('*.yml'))+list(policy.glob('*.py'))+list(policy.glob('*.yml'))+list((ROOT/'src/fastwam/models/wan22').rglob('*.py'))
     protocol=dict(checkpoint=str(Path(a.checkpoint).resolve()),checkpoint_sha256=sha,expected_step=a.expected_step,
         tasks=tasks,settings=['demo_clean','demo_randomized'],episodes=a.episodes,seed=a.seed,instruction_type='unseen',
         num_inference_steps=10,action_horizon=32,replan_steps=24,noise_seed='fixed seed for every query, FastWAM default',
-        compile_action_infer=a.compile_action_infer,renderer_shader=os.environ.get('LOOPWAM_ROBOTWIN_SHADER','rt'),harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
+        compile_action_infer=a.compile_action_infer,renderer_shader=os.environ.get('LOOPWAM_ROBOTWIN_SHADER','rt'),gpu_pci=gpu_pci,harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
         policy_sha256=digest(ROOT/'experiments/robotwin/loopwam_policy/deploy_policy.py'),
         stats_sha256=digest(Path(a.data_dir)/'dataset_stats.json'),runtime_hashes=fingerprint_files(bound),
         vae_sha256=digest(ROOT/'checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth'))
@@ -91,7 +95,7 @@ def main():
     if not pending:
         validate_eval_summary(summary,sha,tasks,a.episodes);write(out/'COMPLETE.json',summary);return
     env=dict(os.environ);env.update(PYTHONUNBUFFERED='1',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2')
-    gpus=a.gpus.split(',');slots=[g for _ in range(a.per_gpu) for g in gpus]
+    slots=[g for _ in range(a.per_gpu) for g in gpus]
     sock=f'/tmp/loopwam_t5_{os.getpid()}.sock'
     server_log=(out/f't5_{time.time_ns()}.log').open('w')
     server=subprocess.Popen([sys.executable,str(ROOT/'experiments/robotwin/chronoloop_policy/t5_server.py'),'--address',sock],env={**env,'CUDA_VISIBLE_DEVICES':gpus[0]},stdout=server_log,stderr=subprocess.STDOUT,start_new_session=True)
@@ -116,7 +120,8 @@ def main():
                     '--eval_output_dir',str(d),'--data_dir',a.data_dir,'--t5_server',sock,
                     '--expected_step',str(a.expected_step),'--compile_action_infer',str(a.compile_action_infer)]
                 write(d/'command.json',cmd);log=(d/'eval.log').open('w')
-                proc=subprocess.Popen(cmd,cwd=a.robotwin_root,env={**env,'CUDA_VISIBLE_DEVICES':gpu},stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+                worker_env=render_worker_environment(env,gpu,gpu_pci[gpu]) if gpu_pci else {**env,'CUDA_VISIBLE_DEVICES':gpu}
+                proc=subprocess.Popen(cmd,cwd=a.robotwin_root,env=worker_env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
                 running[slot]=dict(proc=proc,task=task,config=config,d=d,log=log,started=time.time(),progress=time.time(),episodes=0)
             for slot,s in list(running.items()):
                 text=(s['d']/'eval.log').read_text(errors='replace');count=len(EPISODE.findall(text))

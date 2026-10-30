@@ -120,3 +120,12 @@ def test_preflight_binds_runtime_and_requires_both_settings(tmp_path):
     env.write_text('export VALUE=2\n')
     with pytest.raises(ValueError):validate_preflight(record)
     with pytest.raises(ValueError):validate_preflight(dict(passed=True,simulator_clean_and_randomized=False,runtime_hashes={}))
+
+def test_render_gpu_mapping_binds_cuda_and_vulkan_to_same_pci():
+    from fastwam.robotwin_pipeline import render_worker_environment
+    a=render_worker_environment({'KEEP':'value'},'0','00000000:1B:00.0')
+    b=render_worker_environment({},'1','00000000:1C:00.0')
+    assert a['CUDA_VISIBLE_DEVICES']=='0' and a['DRI_PRIME']=='pci-0000_1b_00_0'
+    assert b['CUDA_VISIBLE_DEVICES']=='1' and b['DRI_PRIME']=='pci-0000_1c_00_0'
+    assert a['LOOPWAM_EXPECT_RENDER_PCI']=='0000:1b:00.0' and a['KEEP']=='value'
+    with pytest.raises(ValueError):render_worker_environment({},'1','invalid')
