@@ -1,0 +1,71 @@
+{
+  "family": "lightwam",
+  "suite": "libero_10",
+  "started_at": 1793034349.3358016,
+  "init_independence": {
+    "tensors": 4608,
+    "differing": [],
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/checkpoints/weights/step_080000.pt",
+      "checkpoint_sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+      "text_encoder": false,
+      "init_seed": 1,
+      "lean": true,
+      "build_seconds": 210.30795876006596,
+      "unloaded": [],
+      "parameters": 1986819434,
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/dataset_stats.json",
+      "dataset_stats_sha256": "ab672a912327883f1bb0aa513311866933e2aa94dc8aadf50e3d3849e7f56d9d"
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/checkpoints/weights/step_080000.pt",
+      "checkpoint_sha256": "93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e",
+      "text_encoder": false,
+      "init_seed": 2,
+      "lean": true,
+      "build_seconds": 165.57105905679055,
+      "unloaded": [],
+      "parameters": 1986819434,
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/lightwam-checkpoints/lightwam_libero_10/dataset_stats.json",
+      "dataset_stats_sha256": "ab672a912327883f1bb0aa513311866933e2aa94dc8aadf50e3d3849e7f56d9d"
+    }
+  ],
+  "worker_fingerprint_sha256": "345a40394355ee7c4188e05f0f93bdc77f62fdee87798aba2c389d98877b421e",
+  "matched_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 278,
+      "queries": 28,
+      "action_digest": "94ceedf9e5be6261ac6807071908cb3e65669a86adfb1f7876c4e4c5e374ac6f",
+      "seconds": 12.778295430820435
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 251,
+      "queries": 26,
+      "action_digest": "0043c62355cb21ee229143482888d2f182db3d15a5e9035e83fd764c9b5a8ede",
+      "seconds": 7.4734157039783895
+    }
+  ],
+  "repeat_identical": true,
+  "passed": true
+}

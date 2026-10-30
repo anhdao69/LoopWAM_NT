@@ -1,0 +1,205 @@
+{
+  "family": "loopwam_partition_p4c3s5_k7",
+  "suite": "libero_10",
+  "started_at": 1793166364.5334013,
+  "init_independence": {
+    "tensors": 2241,
+    "differing": [],
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/partition-grid-centered-20261026/p4c3s5_k7/policy.pt",
+      "checkpoint_sha256": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+      "version": "v0",
+      "loops": 7,
+      "action_loops": 7,
+      "step": 21700,
+      "init_seed": 1,
+      "build_seconds": 15.632912149187177,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 4,
+        "microbatch": 8,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "action_kv_mode": "aligned",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ],
+        "video_loops": 7,
+        "action_loops": 7,
+        "loop_alignment": "late",
+        "block_partition": [
+          4,
+          3,
+          5
+        ],
+        "donor_strategy": "stage_centered",
+        "donor_indices": [
+          0,
+          1,
+          2,
+          3,
+          13,
+          14,
+          15,
+          25,
+          26,
+          27,
+          28,
+          29
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/partition-grid-centered-20261026/p4c3s5_k7/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "partition": [
+        4,
+        3,
+        5
+      ],
+      "code": "/data/anh/code/wam_baselines/LoopWAM-partition",
+      "initialization_sha256": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+      "training_text_cache": "v0 bytes",
+      "video_loops": 7,
+      "trained_action_loops": 7,
+      "action_core_video_loops": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/partition-grid-centered-20261026/p4c3s5_k7/policy.pt",
+      "checkpoint_sha256": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+      "version": "v0",
+      "loops": 7,
+      "action_loops": 7,
+      "step": 21700,
+      "init_seed": 2,
+      "build_seconds": 3.940530343912542,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 4,
+        "microbatch": 8,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "action_kv_mode": "aligned",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ],
+        "video_loops": 7,
+        "action_loops": 7,
+        "loop_alignment": "late",
+        "block_partition": [
+          4,
+          3,
+          5
+        ],
+        "donor_strategy": "stage_centered",
+        "donor_indices": [
+          0,
+          1,
+          2,
+          3,
+          13,
+          14,
+          15,
+          25,
+          26,
+          27,
+          28,
+          29
+        ]
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/partition-grid-centered-20261026/p4c3s5_k7/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "partition": [
+        4,
+        3,
+        5
+      ],
+      "code": "/data/anh/code/wam_baselines/LoopWAM-partition",
+      "initialization_sha256": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+      "training_text_cache": "v0 bytes",
+      "video_loops": 7,
+      "trained_action_loops": 7,
+      "action_core_video_loops": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "worker_fingerprint_sha256": "bbac40066d23bb5631ce701ba033db39e4d93a5dc34fcb4c2b71dffbc2857fa8",
+  "matched_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 268,
+      "queries": 27,
+      "action_digest": "8e0624e740c344873676cc0fd5c6dd31090f585bf54ccb2e31cd168212a7707c",
+      "seconds": 18.401503236033022
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 409,
+      "queries": 41,
+      "action_digest": "ad50e0bacaba1bbbd24dc4afe95c84666ff1300627f053d9f66639f36479ea82",
+      "seconds": 22.21767028607428
+    }
+  ],
+  "repeat_identical": true,
+  "passed": true
+}
