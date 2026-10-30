@@ -4,7 +4,7 @@
 
 **Goal:** Automatically evaluate epoch5 across full RoboTwin, then train epochs6–10 at cosine3e-5→3e-7 with every epoch saved.
 **Architecture:** Isolated original-v0 adapter, resumable simulator scheduler, phase-aware trainer, persistent allocation controller.
-**Tech Stack:** Python, PyTorchDDP, Slurm, SAPIEN2/CuRobo, existing RoboTwin harness.
+**Tech Stack:** Python, PyTorchDDP, Slurm, SAPIEN3/CuRobo, existing RoboTwin harness.
 **Spec:** docs/superpowers/specs/2026-10-30-robotwin-eval-continue-design.md
 
 ## Global constraints
@@ -30,3 +30,5 @@ Wrong epoch/model checkpoint, incomplete eval counted complete, duplicated/missi
 - [ ] Independent review; address correctness findings, run regression; commit and push source/evidence/report.
 
 Progress ledger: source branch created from04ea0fa. User approved cosine3e-5→3e-7 and epoch6–10 saving. Simulator absent on H100; installation ongoing.
+
+Progress: contract/policy CPU tests15passed; pure pipeline tests6passed including duplicate-stage lock and child failure recording. Original training unaffected. Assets downloaded; SAPIEN3/CuRobo install ongoing, graphics userspace runtime absent in container and being prepared privately. Builder review requested exact checkpoint tensor comparison, optimizer/cursor guards, 10000 verified videos, stage adoption/locks; implemented, final code review pending.

@@ -58,3 +58,24 @@ def test_eval_gate_requires_every_unique_episode_and_video():
         if change=='exit':bad['finished'][k]['exit_code']=1
         if change=='sha':bad['checkpoint_sha256']='bad'
         with pytest.raises(ValueError):validate_eval_summary(bad,sha,tasks,episodes=3)
+
+def test_stage_survives_controller_detach_and_prevents_duplicate_child(tmp_path):
+    import subprocess,sys,time
+    root=Path(__file__).resolve().parents[1];marker=tmp_path/'marker';status=tmp_path/'status.json';command=tmp_path/'command.json'
+    command.write_text(json.dumps([sys.executable,'-c',f'import pathlib,time; pathlib.Path({str(marker)!r}).write_text("once"); time.sleep(1)']))
+    args=[sys.executable,str(root/'scripts/robotwin_queue_stage.py'),'--command',str(command),'--status',str(status)]
+    first=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
+    deadline=time.time()+5
+    while not status.exists() and time.time()<deadline:time.sleep(.02)
+    assert json.loads(status.read_text())['state']=='running'
+    second=subprocess.run(args,capture_output=True,text=True)
+    assert second.returncode!=0 and 'BlockingIOError' in second.stderr
+    assert first.wait(5)==0 and marker.read_text()=='once'
+    assert json.loads(status.read_text())['exit_code']==0
+
+def test_stage_records_child_failure(tmp_path):
+    import subprocess,sys
+    root=Path(__file__).resolve().parents[1];cmd=tmp_path/'cmd.json';status=tmp_path/'status.json'
+    cmd.write_text(json.dumps([sys.executable,'-c','raise SystemExit(7)']))
+    p=subprocess.run([sys.executable,str(root/'scripts/robotwin_queue_stage.py'),'--command',str(cmd),'--status',str(status)],capture_output=True)
+    assert p.returncode==7 and json.loads(status.read_text())['exit_code']==7
