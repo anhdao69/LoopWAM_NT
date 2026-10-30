@@ -1,0 +1,11 @@
+{
+  "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+  "finished": {},
+  "running": {},
+  "failed": [
+    "adjust_bottle/demo_clean",
+    "adjust_bottle/demo_randomized"
+  ],
+  "pending": 0,
+  "updated": 1793331715.2573404
+}

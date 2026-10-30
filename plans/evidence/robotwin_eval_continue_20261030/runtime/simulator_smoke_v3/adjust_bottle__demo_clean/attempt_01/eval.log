@@ -1,0 +1,42 @@
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+[32mRender Well[0m
+============= Config =============
+
+[95mMessy Table:[0m False
+[95mRandom Background:[0m False
+[95mRandom Light:[0m False
+[95mRandom Table Height:[0m 0
+[95mRandom Head Camera Distance:[0m 0
+[94mHead Camera Config:[0m D435, True
+[94mWrist Camera Config:[0m D435, True
+[94mEmbodiment Config:[0m aloha-agilex
+
+==================================
+missing pytorch3d
+[INFO] [fastwam.models.wan22.mot] Initialized MoT with experts: ['video', 'action'], num_layers=12
+[INFO] [fastwam.models.wan22.mot]   Expert 'video': num_params=0.48 B
+[INFO] [fastwam.models.wan22.mot]   Expert 'action': num_params=0.11 B
+[34mTask Name: adjust_bottle[0m
+[34mPolicy Name: loopwam_policy[0m
+[2026-10-30 03:33:28.560] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.579] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.581] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.583] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.585] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.587] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:28.589] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.129] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.132] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.134] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.136] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.139] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.140] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:29.142] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:52.993] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:52.995] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:52.997] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:52.999] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:53.001] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:53.003] [svulkan2] [error] The selected GPU does not support ray tracing
+[2026-10-30 03:33:53.006] [svulkan2] [error] The selected GPU does not support ray tracing

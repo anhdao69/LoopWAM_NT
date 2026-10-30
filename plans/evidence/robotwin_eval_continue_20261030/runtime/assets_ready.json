@@ -1,0 +1,19 @@
+{
+  "repo": "TianxingChen/RoboTwin2.0",
+  "revision": "3dc3b798668feb99ac61cc9086d84cbcc3d79186",
+  "files": [
+    {
+      "file": "embodiments.zip",
+      "bytes": 219847741
+    },
+    {
+      "file": "objects.zip",
+      "bytes": 3737778549
+    },
+    {
+      "file": "background_texture.zip",
+      "bytes": 10970687027
+    }
+  ],
+  "finished": 1793329198.158293
+}

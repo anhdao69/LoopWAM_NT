@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "exit_code": 0,
+  "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+  "task": "adjust_bottle",
+  "config": "demo_clean",
+  "episodes": [
+    {
+      "seed": 4300001,
+      "success": true,
+      "video": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+      "video_verified": true
+    }
+  ],
+  "successes": 1,
+  "directory": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_clean/attempt_01",
+  "seconds": 100.26714134216309
+}

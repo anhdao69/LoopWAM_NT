@@ -1,0 +1,12 @@
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/RoboTwin/script/eval_policy.py", line 8, in <module>
+    from envs import CONFIGS_PATH
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/RoboTwin/envs/__init__.py", line 1, in <module>
+    from .utils import *
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/RoboTwin/envs/utils/__init__.py", line 9, in <module>
+    from .pkl2hdf5 import *
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/RoboTwin/envs/utils/pkl2hdf5.py", line 1, in <module>
+    import h5py, pickle
+ModuleNotFoundError: No module named 'h5py'

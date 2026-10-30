@@ -1,0 +1,4 @@
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+missing pytorch3d
+ALL_50_TASK_IMPORTS_PASSED

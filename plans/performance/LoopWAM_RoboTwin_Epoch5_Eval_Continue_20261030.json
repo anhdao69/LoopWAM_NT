@@ -1,0 +1,228 @@
+{
+  "generated_utc": "2026-10-30T03:57:40.401764+00:00",
+  "status": "armed_waiting_for_epoch5",
+  "job_id": 5489,
+  "controller_step": "5489.54",
+  "parent_step": "5489.10",
+  "runtime_commit": "0703c9db3f71c8347d1541751ca352c5901ca440",
+  "branch": "robotwin_eval_continue_20261030",
+  "sequence": [
+    "complete current epoch5 training",
+    "verify identical epoch5 model and optimizer recovery checkpoint",
+    "full epoch5 RoboTwin evaluation",
+    "native continuation two-update smoke plus two-update resumed smoke",
+    "fresh continuation from epoch5 through epoch10"
+  ],
+  "continuation": {
+    "epochs": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "save_epochs": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "global_batch": 128,
+    "gpus": 8,
+    "microbatch": 8,
+    "accumulation": 2,
+    "lr_start": 3e-05,
+    "lr_end": 3e-07,
+    "schedule": "cosine, no warmup",
+    "retain_adam": true,
+    "additional_updates": 237310,
+    "additional_real_windows": 30375515,
+    "final_update": 474620,
+    "final_real_windows": 60751030,
+    "native_gate_executed": false
+  },
+  "evaluation": {
+    "epoch": 5,
+    "tasks": 50,
+    "settings": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "episodes_per_cell": 100,
+    "total_episodes": 10000,
+    "seed": 42,
+    "instructions": "unseen",
+    "prediction_horizon": 32,
+    "replan_steps": 24,
+    "denoising_steps": 10,
+    "cfg": 1,
+    "noise": "fixed seed42 every query",
+    "workers_per_gpu": 2,
+    "workers": 16,
+    "shared_t5": 1,
+    "shader": "default raster",
+    "simulator": "SAPIEN3.0.0b1",
+    "renderer_gpu_binding": "Mesa PCI device selection, checked against scene device",
+    "comparability_limitation": "Raster rendering differs visually from ray-traced benchmark rendering",
+    "two_workers_per_gpu_benchmarked": false
+  },
+  "tests": {
+    "cpu": {
+      "passed": 337,
+      "skipped": 24
+    },
+    "gpu": {
+      "passed": 344,
+      "skipped": 17
+    }
+  },
+  "smoke": {
+    "simulator_smoke_v4": {
+      "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+      "finished": {
+        "adjust_bottle/demo_clean": {
+          "complete": true,
+          "exit_code": 0,
+          "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+          "task": "adjust_bottle",
+          "config": "demo_clean",
+          "episodes": [
+            {
+              "seed": 4300001,
+              "success": true,
+              "video": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+              "video_verified": true
+            }
+          ],
+          "successes": 1,
+          "directory": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_clean/attempt_01",
+          "seconds": 100.26714134216309
+        },
+        "adjust_bottle/demo_randomized": {
+          "complete": true,
+          "exit_code": 0,
+          "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+          "task": "adjust_bottle",
+          "config": "demo_randomized",
+          "episodes": [
+            {
+              "seed": 4300000,
+              "success": true,
+              "video": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+              "video_verified": true
+            }
+          ],
+          "successes": 1,
+          "directory": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_randomized/attempt_01",
+          "seconds": 95.24823760986328
+        }
+      },
+      "running": {},
+      "failed": [],
+      "pending": 0,
+      "updated": 1793331605.328555,
+      "success_rates": {
+        "demo_clean": 1.0,
+        "demo_randomized": 1.0
+      }
+    },
+    "simulator_smoke_v6_pci": {
+      "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+      "finished": {
+        "adjust_bottle/demo_clean": {
+          "complete": true,
+          "exit_code": 0,
+          "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+          "task": "adjust_bottle",
+          "config": "demo_clean",
+          "episodes": [
+            {
+              "seed": 4300001,
+              "success": true,
+              "video": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v6_pci/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+              "video_verified": true
+            }
+          ],
+          "successes": 1,
+          "directory": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v6_pci/adjust_bottle__demo_clean/attempt_01",
+          "seconds": 110.29210186004639
+        },
+        "adjust_bottle/demo_randomized": {
+          "complete": true,
+          "exit_code": 0,
+          "checkpoint_sha256": "ee1481a31e34229b6617f3e99a55653d8fe476afeeb67a009e606089c8cca9d2",
+          "task": "adjust_bottle",
+          "config": "demo_randomized",
+          "episodes": [
+            {
+              "seed": 4300000,
+              "success": true,
+              "video": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v6_pci/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+              "video_verified": true
+            }
+          ],
+          "successes": 1,
+          "directory": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v6_pci/adjust_bottle__demo_randomized/attempt_01",
+          "seconds": 110.34636569023132
+        }
+      },
+      "running": {},
+      "failed": [],
+      "pending": 0,
+      "updated": 1793332494.509429,
+      "success_rates": {
+        "demo_clean": 1.0,
+        "demo_randomized": 1.0
+      }
+    }
+  },
+  "all_50_tasks_import": true,
+  "armed_verification": {
+    "passed": true,
+    "checked": 1793332610.3742669,
+    "source_files": 87,
+    "runtime_files": 115,
+    "status": {
+      "stage": "waiting_for_epoch5",
+      "job_id": "5489",
+      "controller_pid": 1200529,
+      "updated": 1793332588.1432366,
+      "parent_timing": {
+        "status": "running",
+        "update": 217806,
+        "planned_updates": 237310,
+        "windows_seen": 27879036,
+        "elapsed_training_seconds": 164756.81968426704,
+        "last_update_seconds": 1.4225354194641113,
+        "heartbeat_unix": 1793332587.4519618
+      }
+    },
+    "steps": "5489.0|training\n5489.10|test_training\n5489.54|test_training_queue\n",
+    "posttrain_stages_not_started": true
+  },
+  "paths": {
+    "parent_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production",
+    "queue_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/queue",
+    "eval_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/eval_epoch05",
+    "continuation_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/posttrain_20261030/epochs06_10",
+    "preflight": "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/preflight_passed.json"
+  },
+  "estimates": {
+    "epoch5_finish_utc": "2026-10-30 07:45\u201308:15",
+    "extra_training_hours": [
+      48,
+      52
+    ],
+    "full_eval_hours_preliminary": [
+      6,
+      24
+    ],
+    "after_epoch5_hours": [
+      54,
+      76
+    ],
+    "caveat": "Two easy smoke scenes do not tightly predict 50-task full evaluation; update from production completed cells."
+  },
+  "reliability": "Detached persistent Slurm step with locks, immutable hashes, complete-coverage gates, committed-checkpoint recovery and three controller attempts; requires allocation5489 and storage to remain available."
+}

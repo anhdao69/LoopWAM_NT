@@ -1,0 +1,15 @@
+{
+  "stage": "waiting_for_epoch5",
+  "job_id": "5489",
+  "controller_pid": 1200529,
+  "updated": 1793332558.1099443,
+  "parent_timing": {
+    "status": "running",
+    "update": 217769,
+    "planned_updates": 237310,
+    "windows_seen": 27874300,
+    "elapsed_training_seconds": 164727.4291188717,
+    "last_update_seconds": 0.7164239883422852,
+    "heartbeat_unix": 1793332558.0613966
+  }
+}

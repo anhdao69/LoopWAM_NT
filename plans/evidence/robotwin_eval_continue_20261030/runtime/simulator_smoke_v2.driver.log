@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/evaluate_loopwam_robotwin.py", line 148, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_robotwin_queue/scripts/evaluate_loopwam_robotwin.py", line 140, in main
+    if failed:raise RuntimeError(f'Failed evaluation cells:{failed}')
+RuntimeError: Failed evaluation cells:['adjust_bottle/demo_clean', 'adjust_bottle/demo_randomized']
+srun: error: worker-2: task 0: Exited with exit code 1

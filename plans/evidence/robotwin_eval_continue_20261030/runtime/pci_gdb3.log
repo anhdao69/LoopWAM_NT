@@ -1,0 +1,47 @@
+Function "parsePCIString(std::string)" not defined.
+Breakpoint 1 (parsePCIString(std::string)) pending.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x15554c9ff640 (LWP 1200026)]
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+[Detaching after vfork from child process 1200027]
+[Detaching after vfork from child process 1200030]
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/device_inner.py:2: DeprecationWarning: Engine is deprecated. use sapien.Scene() directly.
+  e=sapien.Engine();e.set_renderer(sapien.SapienRenderer());s=e.create_scene();d=s.render_system.device
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/device_inner.py:2: DeprecationWarning: SapienRenderer is no no longer needed.
+  e=sapien.Engine();e.set_renderer(sapien.SapienRenderer());s=e.create_scene();d=s.render_system.device
+[New Thread 0x155442f53640 (LWP 1200041)]
+0x55555be926a8:	"0000:1B:00.0"
+$1 = 12
+#0  0x000015555216ce10 in sapien::parsePCIString(std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+#1  0x000015555216e51f in sapien::findDevices() () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+#2  0x000015555216effa in sapien::findBestRenderDevice() () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+#3  0x00001555521f2718 in sapien::sapien_renderer::SapienRenderEngine::SapienRenderEngine(std::shared_ptr<sapien::Device>) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+#4  0x00001555521f4505 in sapien::sapien_renderer::SapienRenderEngine::Get(std::shared_ptr<sapien::Device>) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+0x55555dd9d178:	"0000:1b:00.0"
+$2 = 12
+#0  0x00001555502398c0 in parsePCIString(std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#1  0x0000155550249b0b in svulkan2::core::Instance::createPhysicalDevice(std::string const&) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#2  0x000015555023ce54 in svulkan2::core::Context::Context(unsigned int, unsigned int, unsigned int, bool, std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#3  0x000015555023d3de in svulkan2::core::Context::Create(unsigned int, unsigned int, unsigned int, bool, std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#4  0x00001555521f24f8 in sapien::sapien_renderer::SapienRenderEngine::SapienRenderEngine(std::shared_ptr<sapien::Device>) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+0x55555dd9d178:	"0000:1b:00.0"
+$3 = 12
+#0  0x00001555502398c0 in parsePCIString(std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#1  0x0000155550249b0b in svulkan2::core::Instance::createPhysicalDevice(std::string const&) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#2  0x000015555023ce54 in svulkan2::core::Context::Context(unsigned int, unsigned int, unsigned int, bool, std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#3  0x000015555023d3de in svulkan2::core::Context::Create(unsigned int, unsigned int, unsigned int, bool, std::string) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsvulkan2.so
+#4  0x00001555521f24f8 in sapien::sapien_renderer::SapienRenderEngine::SapienRenderEngine(std::shared_ptr<sapien::Device>) () from /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/../sapien.libs/libsapien.so
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/device_inner.py", line 2, in <module>
+    e=sapien.Engine();e.set_renderer(sapien.SapienRenderer());s=e.create_scene();d=s.render_system.device
+  File "/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/wrapper/renderer.py", line 9, in __init__
+    super().__init__()
+RuntimeError: invalid PCI string
+[Thread 0x15554c9ff640 (LWP 1200026) exited]
+[Thread 0x155442f53640 (LWP 1200041) exited]
+[Inferior 1 (process 1200023) exited with code 01]
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/pci.gdb:12: Error in sourced command file:
+No stack.
+srun: error: worker-2: task 0: Exited with exit code 1

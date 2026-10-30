@@ -1,0 +1,29 @@
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+[32mRender Well[0m
+============= Config =============
+
+[95mMessy Table:[0m True
+[95mRandom Background:[0m True
+ - Clean Background Rate: 0.02
+[95mRandom Light:[0m True
+ - Crazy Random Light Rate: 0.02
+[95mRandom Table Height:[0m 0.03
+[95mRandom Head Camera Distance:[0m 0
+[94mHead Camera Config:[0m D435, True
+[94mWrist Camera Config:[0m D435, True
+[94mEmbodiment Config:[0m aloha-agilex
+
+==================================
+missing pytorch3d
+[INFO] [fastwam.models.wan22.mot] Initialized MoT with experts: ['video', 'action'], num_layers=12
+[INFO] [fastwam.models.wan22.mot]   Expert 'video': num_params=0.48 B
+[INFO] [fastwam.models.wan22.mot]   Expert 'action': num_params=0.11 B
+[34mTask Name: adjust_bottle[0m
+[34mPolicy Name: loopwam_policy[0m
+{"loopwam_episode": 0, "instruction": "Use the right arm to grab the bottle the plastic soda bottle", "noise_seed": 42}
+[92mSuccess![0m
+[93madjust_bottle[0m | [94mloopwam_policy[0m | [92mdemo_randomized[0m | [91m/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_04.pt[0m
+Success rate: [96m1/1[0m => [95m100.0%[0m, current seed: [90m4300000[0m
+
+Data has been saved to /mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/simulator_smoke_v4/adjust_bottle__demo_randomized/attempt_01/_result_random.txt

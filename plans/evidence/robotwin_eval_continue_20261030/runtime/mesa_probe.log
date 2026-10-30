@@ -1,0 +1,16 @@
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/mesa_inner.py:2: DeprecationWarning: Engine is deprecated. use sapien.Scene() directly.
+  s=sapien.Engine();s.set_renderer(sapien.SapienRenderer());scene=s.create_scene();d=scene.render_system.device
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/mesa_inner.py:2: DeprecationWarning: SapienRenderer is no no longer needed.
+  s=sapien.Engine();s.set_renderer(sapien.SapienRenderer());scene=s.create_scene();d=scene.render_system.device
+RENDER_DEVICE 0 -1 0000:1b:00.0
+RENDER_OK (64, 64, 4)
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/overlay/sapien/_vulkan_tricks.py:21: UserWarning: Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.
+  warn("Failed to find system libvulkan. Fallback to SAPIEN builtin libvulkan.")
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/mesa_inner.py:2: DeprecationWarning: Engine is deprecated. use sapien.Scene() directly.
+  s=sapien.Engine();s.set_renderer(sapien.SapienRenderer());scene=s.create_scene();d=scene.render_system.device
+/mnt/data/vmo-ai-task/anhdh35/robotwin_eval_runtime_20261030/mesa_inner.py:2: DeprecationWarning: SapienRenderer is no no longer needed.
+  s=sapien.Engine();s.set_renderer(sapien.SapienRenderer());scene=s.create_scene();d=scene.render_system.device
+RENDER_DEVICE 1 -1 0000:1c:00.0
+RENDER_OK (64, 64, 4)
