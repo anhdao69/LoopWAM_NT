@@ -1,0 +1,155 @@
+{
+  "family": "loopwam_init_core16_21",
+  "suite": "libero_10",
+  "started_at": 1793127914.6634908,
+  "init_independence": {
+    "tensors": 2241,
+    "differing": [],
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/init_variants/core16_21/policy.pt",
+      "checkpoint_sha256": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+      "version": "v0",
+      "loops": 4,
+      "action_loops": 4,
+      "step": 21700,
+      "init_seed": 1,
+      "build_seconds": 16.26616504904814,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 2,
+        "microbatch": 16,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ],
+        "video_loops": 4,
+        "action_loops": 4,
+        "loop_alignment": "late"
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/init_variants/core16_21/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "partition": [
+        3,
+        6,
+        3
+      ],
+      "code": "/data/anh/code/wam_baselines/LoopWAM-init-variants",
+      "initialization_sha256": "3eb17dcb6e76904ff1dc0d00a224d71028336f65e2887a00a35c57769780bd2d",
+      "video_loops": 4,
+      "trained_action_loops": 4,
+      "action_core_video_loops": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/init_variants/core16_21/policy.pt",
+      "checkpoint_sha256": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+      "version": "v0",
+      "loops": 4,
+      "action_loops": 4,
+      "step": 21700,
+      "init_seed": 2,
+      "build_seconds": 2.5969792869873345,
+      "unloaded": [],
+      "parameters": 711428666,
+      "policy_parameters": 584536135,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "training_contract": {
+        "world": 2,
+        "microbatch": 16,
+        "global_batch": 128,
+        "seed": 42,
+        "train_windows": 277713,
+        "planned_updates": 21700,
+        "version": "v0",
+        "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+        "dataset_scope": "full_libero",
+        "epochs": 10,
+        "suites": [
+          "libero_spatial",
+          "libero_object",
+          "libero_goal",
+          "libero_10"
+        ],
+        "video_loops": 4,
+        "action_loops": 4,
+        "loop_alignment": "late"
+      },
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/loopwam_hf/init_variants/core16_21/dataset_stats.json",
+      "dataset_stats_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+      "vae": "/data/anh/code/wam_baselines/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "partition": [
+        3,
+        6,
+        3
+      ],
+      "code": "/data/anh/code/wam_baselines/LoopWAM-init-variants",
+      "initialization_sha256": "3eb17dcb6e76904ff1dc0d00a224d71028336f65e2887a00a35c57769780bd2d",
+      "video_loops": 4,
+      "trained_action_loops": 4,
+      "action_core_video_loops": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "worker_fingerprint_sha256": "638466dcf37d69bdf2e8ee6b8f04a19456ad369456572038e87b70973d0aaf47",
+  "matched_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 278,
+      "queries": 28,
+      "action_digest": "515658ac7f004bfd873496a5ddc52b5705e39a09e892b32b32bb659270bf1fae",
+      "seconds": 16.776430868078023
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 238,
+      "queries": 24,
+      "action_digest": "512488c9585adf1b04d4344ea2033a5b42f82e4050bcc83987b1437269bd0235",
+      "seconds": 8.12622121698223
+    }
+  ],
+  "repeat_identical": true,
+  "passed": true
+}
