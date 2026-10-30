@@ -1,0 +1,56 @@
+{
+  "run": "fasterwam_matched",
+  "passed": true,
+  "issues": [],
+  "builds": 7,
+  "unreadable_build_lines": 0,
+  "episodes": 6000,
+  "successes": 5923,
+  "success_rate": 98.7167,
+  "checkpoint_sha256": {
+    "libero_spatial": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+    "libero_object": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+    "libero_goal": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+    "libero_10": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d"
+  },
+  "action_core_video_loops": null,
+  "suites": {
+    "libero_spatial": {
+      "rate": 99.0,
+      "seeds": {
+        "42": 98.6,
+        "43": 99.0,
+        "44": 99.4
+      }
+    },
+    "libero_object": {
+      "rate": 99.6,
+      "seeds": {
+        "42": 99.8,
+        "43": 99.2,
+        "44": 99.8
+      }
+    },
+    "libero_goal": {
+      "rate": 98.2,
+      "seeds": {
+        "42": 98.6,
+        "43": 98.2,
+        "44": 97.8
+      }
+    },
+    "libero_10": {
+      "rate": 98.0667,
+      "seeds": {
+        "42": 98.4,
+        "43": 98.2,
+        "44": 97.6
+      }
+    }
+  },
+  "seeds": {
+    "42": 98.85,
+    "43": 98.65,
+    "44": 98.65
+  }
+}
