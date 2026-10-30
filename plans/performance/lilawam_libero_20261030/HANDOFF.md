@@ -114,3 +114,16 @@ User request (2026-10-30): "train the lilawam for me and eval as our protocol".
   - **Bottleneck:** EGL context time-slicing between dozens of simulator processes and the servers on the same GPU.
   - **ETA:** about 63 min, so about 14:15.
   - **Launch:** from evuser2 via `srun --overlap` (bash -c PID 503088 holds the PAT in its environment for the final push). Log: `eval_step_1102933.log`; use `grep -a`, the log has binary bytes. The 1-worker attempt's log is `eval_step_1102933_attempt0_1worker.log`.
+- **13:53:26, EVAL COMPLETE (6,000 episodes in 42.5 min).**
+  - Overall **22.82%** (1,369/6,000).
+  - Per suite:
+
+    | Suite | Successes | % |
+    |---|---|---|
+    | Spatial | 554/1500 | 36.93 |
+    | Object | 293/1500 | 19.53 |
+    | Goal | 495/1500 | 33.00 |
+    | Long | 27/1500 | 1.80 |
+
+  - Per seed: 42 = 9.85%, 43 = 39.05%, 44 = 19.55%. The large spread is consistent with the fixed per-group query noise; the public code draws fresh noise per query.
+  - HF model card commit 0cf2de60. GitHub `elastic` at 361037c, then a follow-up commit with the seed-spread note.

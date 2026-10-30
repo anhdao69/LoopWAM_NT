@@ -370,6 +370,13 @@ The public B-spline smoothing (8 control points over 12 steps) barely changes th
 - **Last group completed:** 2026-10-30 13:53:26.
 - **Checkpoint identity:** combined sha256 of the four policies `5f73fc1a4b850e6d…`. Per-suite sha256 values are in `eval_matched/manifest.json` and match Section 6.6.
 
+- **Seed spread is large.** See the per-seed column, e.g. Spatial across seeds 42/43/44. The seed sets three things:
+  - the environment seed;
+  - the global RNG;
+  - the starting noise of *every* policy query in that task/seed group. Every query uses the same 12×7 Gaussian draw from the base seed, mirroring the LoopWAM protocol's "every query uses the base seed".
+- For a flow policy this short-trained, that one fixed noise draw evidently shifts behavior across all 50 episodes of a group. The public LiLa-WAM inference (`_predict_chunk`) draws fresh noise per query instead. A fresh-noise run would likely give a different, less seed-sensitive number; it was not run.
+- **Episode lengths.** Successful episodes end early, so the run used 2.49M policy steps instead of the ~2.9M worst case.
+
 ## 7. Success-rate context
 
 None of these numbers come from the latency runs.

@@ -1193,3 +1193,10 @@ INFO:robotwin_infer:Inference Engine Ready. Smooth: True; feat_layers=[-12, -8, 
 [2026-10-30T13:53:32-04:00] EVAL COMPLETE
 {"success_rate": 0.22816666666666666, "successes": 1369, "episodes": 6000} {'libero_spatial': 36.93, 'libero_object': 19.53, 'libero_goal': 33.0, 'libero_10': 1.8}
 uploaded 12 files; commit 0cf2de602562
+wrote /lustre/fs1/home/an221229/code/LoopWAM_elastic/plans/performance/Public_WAM_Latency_20261030.md 38408 chars; training all done: True ; checkpoints uploaded: True
+ 132 files changed, 88025 insertions(+), 36 deletions(-)
+361037c LiLa-WAM (ours, paper recipe) matched LIBERO evaluation results
+To https://github.com/anhdao69/LoopWAM_NT.git
+   7553ce5..361037c  elastic -> elastic
+push ok: 361037c
+[2026-10-30T13:53:44-04:00] step end
