@@ -1,0 +1,121 @@
+{
+  "family": "fasterwam",
+  "suite": "libero_10",
+  "started_at": 1793034968.6906636,
+  "init_independence": {
+    "tensors": 4385,
+    "differing": [],
+    "passed": true
+  },
+  "text_encoder_independence": {
+    "tensors": 4385,
+    "differing": [],
+    "t5_tensors": 242,
+    "passed": true
+  },
+  "builds": [
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/step_021700.pt",
+      "checkpoint_sha256": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+      "text_encoder": false,
+      "init_seed": 1,
+      "lean": true,
+      "build_seconds": 190.89796750387177,
+      "unloaded": [],
+      "parameters": 6263395072,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/dataset_stats.json",
+      "dataset_stats_sha256": "c06dc67fcf819b04e2720c90e3d02e0bc70283af9bca3cc77a7a162432fd0910"
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/step_021700.pt",
+      "checkpoint_sha256": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+      "text_encoder": false,
+      "init_seed": 2,
+      "lean": true,
+      "build_seconds": 139.98206244315952,
+      "unloaded": [],
+      "parameters": 6263395072,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/dataset_stats.json",
+      "dataset_stats_sha256": "c06dc67fcf819b04e2720c90e3d02e0bc70283af9bca3cc77a7a162432fd0910"
+    },
+    {
+      "suite": "libero_10",
+      "checkpoint": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/step_021700.pt",
+      "checkpoint_sha256": "01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d",
+      "text_encoder": true,
+      "init_seed": 3,
+      "lean": true,
+      "build_seconds": 266.66287306603044,
+      "unloaded": [],
+      "parameters": 11944305408,
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "dataset_stats": "/data/anh/code/wam_baselines/checkpoints/fasterwam_release/libero/dataset_stats.json",
+      "dataset_stats_sha256": "c06dc67fcf819b04e2720c90e3d02e0bc70283af9bca3cc77a7a162432fd0910"
+    }
+  ],
+  "worker_fingerprint_sha256": "c11fce4a8d19aa7cdccef6c7e62f7b100fc1ada0f05f80968fa684352c9e3a94",
+  "matched_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 252,
+      "queries": 26,
+      "action_digest": "93416f1f9af5e28d4c7bbb968e8d491951cf727895591474cd54b0c3041473c4",
+      "seconds": 19.41949676699005
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 241,
+      "queries": 25,
+      "action_digest": "e4649e77efeb4ed93537b880b86d8e98c7e59f62803b15fac441f355092afccf",
+      "seconds": 12.967441586079076
+    }
+  ],
+  "repeat_identical": true,
+  "native_loop_episodes": [
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 0,
+      "success": true,
+      "policy_steps": 252,
+      "queries": 26,
+      "action_digest": "93416f1f9af5e28d4c7bbb968e8d491951cf727895591474cd54b0c3041473c4",
+      "seconds": 13.918253878131509
+    },
+    {
+      "suite": "libero_10",
+      "task": 0,
+      "seed": 42,
+      "episode": 1,
+      "success": true,
+      "policy_steps": 241,
+      "queries": 25,
+      "action_digest": "e4649e77efeb4ed93537b880b86d8e98c7e59f62803b15fac441f355092afccf",
+      "seconds": 12.893420832930133
+    }
+  ],
+  "native_loop_identical": true,
+  "passed": true
+}

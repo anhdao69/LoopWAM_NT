@@ -1,0 +1,64 @@
+{
+  "run": "loopwam_partition_p4c3s5_k7_matched",
+  "passed": true,
+  "issues": [],
+  "builds": 10,
+  "unreadable_build_lines": 0,
+  "episodes": 6000,
+  "successes": 5445,
+  "success_rate": 90.75,
+  "checkpoint_sha256": {
+    "libero_spatial": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+    "libero_object": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+    "libero_goal": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+    "libero_10": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f"
+  },
+  "action_core_video_loops": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "suites": {
+    "libero_spatial": {
+      "rate": 93.3333,
+      "seeds": {
+        "42": 92.4,
+        "43": 95.4,
+        "44": 92.2
+      }
+    },
+    "libero_object": {
+      "rate": 97.8667,
+      "seeds": {
+        "42": 98.4,
+        "43": 98.8,
+        "44": 96.4
+      }
+    },
+    "libero_goal": {
+      "rate": 92.4667,
+      "seeds": {
+        "42": 94.2,
+        "43": 91.6,
+        "44": 91.6
+      }
+    },
+    "libero_10": {
+      "rate": 79.3333,
+      "seeds": {
+        "42": 81.2,
+        "43": 78.0,
+        "44": 78.8
+      }
+    }
+  },
+  "seeds": {
+    "42": 91.55,
+    "43": 90.95,
+    "44": 89.75
+  }
+}
