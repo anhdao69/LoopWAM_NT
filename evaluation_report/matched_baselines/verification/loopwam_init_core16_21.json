@@ -1,0 +1,61 @@
+{
+  "run": "loopwam_init_core16_21_matched",
+  "passed": true,
+  "issues": [],
+  "builds": 3,
+  "unreadable_build_lines": 0,
+  "episodes": 6000,
+  "successes": 5587,
+  "success_rate": 93.1167,
+  "checkpoint_sha256": {
+    "libero_spatial": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+    "libero_object": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+    "libero_goal": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+    "libero_10": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2"
+  },
+  "action_core_video_loops": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "suites": {
+    "libero_spatial": {
+      "rate": 96.2,
+      "seeds": {
+        "42": 96.6,
+        "43": 96.0,
+        "44": 96.0
+      }
+    },
+    "libero_object": {
+      "rate": 97.2667,
+      "seeds": {
+        "42": 98.2,
+        "43": 96.6,
+        "44": 97.0
+      }
+    },
+    "libero_goal": {
+      "rate": 94.6,
+      "seeds": {
+        "42": 94.2,
+        "43": 94.8,
+        "44": 94.8
+      }
+    },
+    "libero_10": {
+      "rate": 84.4,
+      "seeds": {
+        "42": 87.6,
+        "43": 84.0,
+        "44": 81.6
+      }
+    }
+  },
+  "seeds": {
+    "42": 94.15,
+    "43": 92.85,
+    "44": 92.35
+  }
+}
