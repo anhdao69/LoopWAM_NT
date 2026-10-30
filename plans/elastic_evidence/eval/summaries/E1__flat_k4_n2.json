@@ -1,0 +1,100 @@
+{
+ "run": "E1",
+ "schedule": "flat_k4_n2",
+ "checkpoint_sha256": "be1cbe2cd1c9fa2b4251f5f474b5962afb226e12c2bf57246aa2be4fa1d27a68",
+ "backend": "cuda-graph",
+ "episodes": 6000,
+ "successes": 5713,
+ "success_rate": 0.9521666666666667,
+ "per_suite": {
+  "libero_spatial": {
+   "successes": 1453,
+   "episodes": 1500,
+   "success_rate": 0.9686666666666667,
+   "seeds": {
+    "42": {
+     "successes": 482,
+     "episodes": 500,
+     "success_rate": 0.964
+    },
+    "43": {
+     "successes": 482,
+     "episodes": 500,
+     "success_rate": 0.964
+    },
+    "44": {
+     "successes": 489,
+     "episodes": 500,
+     "success_rate": 0.978
+    }
+   }
+  },
+  "libero_object": {
+   "successes": 1479,
+   "episodes": 1500,
+   "success_rate": 0.986,
+   "seeds": {
+    "42": {
+     "successes": 494,
+     "episodes": 500,
+     "success_rate": 0.988
+    },
+    "43": {
+     "successes": 491,
+     "episodes": 500,
+     "success_rate": 0.982
+    },
+    "44": {
+     "successes": 494,
+     "episodes": 500,
+     "success_rate": 0.988
+    }
+   }
+  },
+  "libero_goal": {
+   "successes": 1457,
+   "episodes": 1500,
+   "success_rate": 0.9713333333333334,
+   "seeds": {
+    "42": {
+     "successes": 484,
+     "episodes": 500,
+     "success_rate": 0.968
+    },
+    "43": {
+     "successes": 491,
+     "episodes": 500,
+     "success_rate": 0.982
+    },
+    "44": {
+     "successes": 482,
+     "episodes": 500,
+     "success_rate": 0.964
+    }
+   }
+  },
+  "libero_10": {
+   "successes": 1324,
+   "episodes": 1500,
+   "success_rate": 0.8826666666666667,
+   "seeds": {
+    "42": {
+     "successes": 460,
+     "episodes": 500,
+     "success_rate": 0.92
+    },
+    "43": {
+     "successes": 440,
+     "episodes": 500,
+     "success_rate": 0.88
+    },
+    "44": {
+     "successes": 424,
+     "episodes": 500,
+     "success_rate": 0.848
+    }
+   }
+  }
+ },
+ "suite_mean_success_rate": 0.9521666666666667
+}

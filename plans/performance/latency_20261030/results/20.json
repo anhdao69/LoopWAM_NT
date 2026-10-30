@@ -1,0 +1,98 @@
+{
+ "model": "long v0 4/1 kv-concat",
+ "family": "loopwam",
+ "checkpoint": "/dev/shm/latency_hf_1080499/libero-long/v0-video4-action1-kv-concat/policy.pt",
+ "code_root": "/lustre/fs1/home/an221229/code/LoopWAM_kv",
+ "code_commit": "8484ec22440030fb35f429662edfbc79e3a41df5",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "host": "evc102",
+ "torch": "2.7.1+cu128",
+ "cuda": "12.8",
+ "observations": 500,
+ "observations_sha256": "5815c6fdc22d2dfe0c241f89c687a6f2e83804f9bd298332867258eb7160e0f0",
+ "limit": 0,
+ "warmup": 20,
+ "info": {
+  "loader": "LoopWAM",
+  "version": "v0",
+  "video_loops": 4,
+  "action_loops": 1,
+  "action_kv_mode": "concat",
+  "parameters": 711428666,
+  "dataset_stats": "/dev/shm/latency_hf_1080499/libero-long/v0-video4-action1-kv-concat/dataset_stats.json"
+ },
+ "configs": {
+  "native": {
+   "eager": {
+    "n": 50,
+    "mean_ms": 125.19019573926926,
+    "median_ms": 124.94105659425259,
+    "p5_ms": 123.53922789916396,
+    "p95_ms": 127.31751147657633,
+    "std_ms": 1.126026149543009,
+    "min_ms": 123.4065294265747,
+    "preprocess": {
+     "n": 50,
+     "mean_ms": 1.4791308343410492,
+     "median_ms": 1.4830641448497772,
+     "p5_ms": 1.3972599059343338,
+     "p95_ms": 1.559961773455143,
+     "std_ms": 0.050446764673624585,
+     "min_ms": 1.3773180544376373
+    },
+    "peak_allocated_gb": 3.118048768
+   },
+   "config": {
+    "denoising_steps": 10
+   },
+   "graph": {
+    "n": 500,
+    "mean_ms": 64.25182313472033,
+    "median_ms": 65.65041188150644,
+    "p5_ms": 59.81717882677913,
+    "p95_ms": 65.93463532626629,
+    "std_ms": 2.5675675869806045,
+    "min_ms": 59.62996371090412,
+    "preprocess": {
+     "n": 500,
+     "mean_ms": 1.5204911455512047,
+     "median_ms": 1.4937063679099083,
+     "p5_ms": 1.384956482797861,
+     "p95_ms": 1.6485548578202724,
+     "std_ms": 0.3591390567651513,
+     "min_ms": 1.3013500720262527
+    },
+    "peak_allocated_gb": 3.187357696,
+    "exact_vs_eager": 50,
+    "compared_vs_eager": 50,
+    "max_abs_diff_vs_eager": 0.0
+   },
+   "fast": {
+    "n": 500,
+    "mean_ms": 54.00277295708656,
+    "median_ms": 55.929976515471935,
+    "p5_ms": 51.090855337679386,
+    "p95_ms": 56.20517637580633,
+    "std_ms": 2.6417651284732373,
+    "min_ms": 50.98560079932213,
+    "preprocess": {
+     "n": 500,
+     "mean_ms": 1.5422319807112217,
+     "median_ms": 1.4620404690504074,
+     "p5_ms": 1.3613964430987835,
+     "p95_ms": 1.6201551072299478,
+     "std_ms": 1.1850029157650968,
+     "min_ms": 1.32816843688488
+    },
+    "peak_allocated_gb": 2.086160896,
+    "exact_vs_eager": 50,
+    "compared_vs_eager": 50,
+    "max_abs_diff_vs_eager": 0.0
+   }
+  }
+ },
+ "eager_stride": 10,
+ "graph_stride": 1,
+ "eager_warmup": 5,
+ "fast_converted_linear_modules": 254
+}

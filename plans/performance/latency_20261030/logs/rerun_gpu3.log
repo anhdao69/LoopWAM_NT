@@ -1,0 +1,2 @@
+[2026-10-30T03:30:27-04:00] 01: start on evc102 GPU 3 cpus 12,76,14,78: --code-root /lustre/fs1/home/an221229/code/LoopWAM_elastic --family rt --model 'elastic E1' --checkpoint /groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/E1/epoch_10.pt --configs flat_k1_n2,flat_k1_n5,flat_k1_n10,flat_k2_n2,flat_k2_n5,flat_k2_n10,flat_k4_n2,flat_k4_n5,flat_k4_n10 --vae-path /groups/yshang/an221229/checkpoints/RollingForcing/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth --backends eager,graph,fast --extra '{}'
+[2026-10-30T03:39:52-04:00] 01: done

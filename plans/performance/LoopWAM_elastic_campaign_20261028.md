@@ -1,13 +1,28 @@
-# LoopWAM Elastic campaign: implementation, validation and launch (2026-10-28)
+# LoopWAM Elastic campaign: implementation, validation, training, evaluation and latency (2026-10-28, updated 2026-10-30)
 
 Plan: `plans/LoopWAM_elastic.md`. Branch: `elastic`. Training source commit: `57f36a41a67b29fb1e4fed305d5c9a3b1e2da8b6`.
 Evidence referenced below is in `plans/elastic_evidence/`.
 
+**Update 2026-10-30.**
+- **Training:** all five runs are complete (21,700 updates, 10 epochs each), and their `epoch_10.pt` uploads are verified.
+- **Evaluation:** the matched LIBERO evaluation of 37 conditions is complete, 6,000 episodes each (Section 9).
+- **Latency:** every Elastic operating point is timed on H100 together with every other model in the repository (Section 10).
+
 ## 1. Status
 
-All five new training runs from plan Section 8 are queued in the user's interactive job 1080499 (evc102, 4×H100 80GB).
+All five new training runs from plan Section 8 ran in the user's interactive jobs. Each has 2 GPUs per run on 4×H100 80GB nodes: 1080499 (evc102), 1080498 (evc103) and, for part of F0-PB, 1084032 (evc103).
 
-| Run | Transport | Scope | Rollout sampler | Init artifact | Status at writing |
+| Run | Transport | Scope | Rollout sampler | Init artifact | Completed (EDT) | `epoch_10.pt` sha256 | Launches (jobs) |
+|---|---|---|---|---|---|---|---|
+| E0 | T0 | P-c | balanced flat9 | `common_v1` | 2026-10-29 00:30 | `5569c47f…` | 1 (1080499) |
+| E2 | T4 | P-c | same flat9 sequence | `common_v1` | 2026-10-29 00:39 | `6d92ac13…` | 1 (1080499) |
+| E1 | T1 | P-c | same flat9 sequence | `common_v1` | 2026-10-29 05:05 | `be1cbe2c…` | 2 (1080498, 1080499) |
+| SP11 | T0 | P-c | fixed `flat_k1_n2` | `common_v1` | 2026-10-28 23:16 | `ab974f35…` | 1 (1080498) |
+| F0-PB | T0 | P-b | historical `legacy_choice` over S1,S2,S5,S6,S7,S8 | `rt_a2_legacy_v1` | 2026-10-29 13:34 | `ff59791a…` | 3 (1080498, 1080499, 1084032) |
+
+Each run moved between jobs only through the resume path, whose bit-identity was validated (Section 5). The launch-time status at the original writing follows.
+
+| Run | Transport | Scope | Rollout sampler | Init artifact | Status at launch |
 |---|---|---|---|---|---|
 | E0 | T0 | P-c | balanced flat9 | `common_v1` | training, lane A (GPUs 0,1) |
 | E2 | T4 | P-c | same flat9 sequence | `common_v1` | training, lane B (GPUs 2,3) |
@@ -18,9 +33,9 @@ All five new training runs from plan Section 8 are queued in the user's interact
 The two lanes share one ordered queue (E0, E2, E1, SP11, F0-PB). A per-run `flock` lets whichever lane frees first take the next run.
 
 - Measured throughput at launch: 2.42 s/update for both E0 and E2, averaged over updates 6–74. That is about 14.5 h per run.
-- The F0-PB time is not yet measured on this layout.
+- The F0-PB time was not yet measured on this layout.
 - The plan's lane table puts F0-PB third on lane A. With a shared queue, F0-PB instead starts as soon as either lane is free, which is no later.
-- This report does not claim any training outcome.
+- At launch, the report claimed no training outcome. Sections 9 and 10 report the outcomes.
 
 Checkpoints and records are published to `https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/libero-all-suites/Elastic/<RUN>/`:
 
@@ -30,7 +45,7 @@ Checkpoints and records are published to `https://huggingface.co/anhdao69/LoopWA
 
 Each upload is verified by remote size and LFS SHA-256 before a local `<label>.pt.uploaded.json` receipt is written. `latest.pt` (optimizer/RNG recovery state) is never uploaded.
 
-No LIBERO evaluation was run. Evaluation (Section 12), Z10 and the F2-PB re-evaluation are outside this request.
+At launch no LIBERO evaluation had been run. Section 9 reports the evaluation that followed.
 
 ## 2. What was implemented (plan Section 10)
 
@@ -130,7 +145,128 @@ P-c, seconds per 128-window update on one GPU:
 
 ## 8. Not done in this campaign
 
-- **Evaluation:** all of Section 12 (19/55 conditions), Z10 overrides, F2-PB re-evaluation and the RT-B2a reference.
-- **Evaluator and latency scripts:** `scripts/evaluate_rt_matched.py` and `scripts/measure_rt_latency.py` were not modified for flat9.
-- **Four-GPU launcher:** not added. The launcher contract stays at 1/2 GPUs (`--expected-gpus`).
-- **Independent training seeds:** Section 16 and the deferred/conditional runs of Sections 14–15 were not run.
+- **Z10:** the unmodified parent under budget overrides (9 conditions) was not evaluated.
+- **F2-PB full3:** the full-depth points ([4,4], [4]x5, [4]x10) were not evaluated. RT-A2 has no H100 evaluation at those schedules.
+- **Coverage:** the 37 new conditions plus the 6 reused F2-PB front points make 43 of the 55-condition initial matrix (plan Section 12.3).
+- **RT-B2a reference:** RT-B2a at parent2 has a complete matched evaluation (94.57%), but it was scored in the remote campaign (`evaluation_report/campaign/run_summary.csv`), not on this H100 stack.
+- **Four-GPU training launcher:** not added. The launcher contract stays at 1/2 GPUs (`--expected-gpus`).
+- **Independent training seeds:** Section 16 and the deferred or conditional runs of Sections 14–15 were not run.
+
+## 9. Matched LIBERO evaluation (2026-10-29/30)
+
+**Protocol.** `lightwam_20261009_matched` through `scripts/evaluate_rt_matched.py`:
+- 4 suites × 10 tasks × 50 official initial states × seeds 42/43/44, i.e. 6,000 episodes per condition;
+- fixed noise, 30 settling actions, 400/700 policy-step caps, 32 predicted and 10 executed actions;
+- every condition scored from the raw `epoch_10.pt` through the student-only `TransportInference` CUDA-graph backend.
+
+**Before scoring:**
+- **Graph gates:** the CUDA-graph backend matched eager bit for bit on real simulator observations: 592/592 queries across every evaluated schedule of every run (E0 48+96, E1 48+96, E2 48+96, SP11 16, F0-PB 32+112; `elastic_eval/gates/*.json`, also on Hugging Face).
+- **Parity:** the elastic stack reproduced 20/20 stored RT-A2 episodes exactly (`campaign/parity_rt_result.log.md`).
+- **Predeclared analysis:** fixed in `scripts/elastic_eval_report.py` before any final-checkpoint episode was scored, and extended twice before the added conditions were scored. Its text is in `plans/elastic_evidence/eval/results.md`.
+
+**Where it ran.** Eval lanes on 1080499 (evc102, GPUs 0–3) and 1093967 (evc103, GPUs 0–1), each with a private CUDA MPS daemon.
+
+**Evidence.**
+- `plans/elastic_evidence/eval/results.json`/`.md`: every condition, per-suite and per-seed rates, and every contrast with its interval and test.
+- Hugging Face `libero-all-suites/Elastic/eval/`: the same files plus one episodes CSV, `manifest.json` and `summary.json` per condition, and the gate files.
+
+**Status:** complete on 2026-10-30 at 02:49 EDT. All 37 conditions have all 6,000 episodes (222,000 episodes in all) and a runner-validated `summary.json`. Every group record matches its condition's checkpoint sha256 and schedule. Published to Hugging Face at commit `2da56861` (122 files, verified present). One incident: when the 1093967 lane was stopped at 22:16, its 16 in-flight groups (F0-PB S7 and parent2) kept claims that the 1080499 runners had already passed over. The lanes' automatic retry at 02:36 took over the stale claims and scored them. Separately, the runner logs show 3 of the 4,440 groups run twice, through a claim-takeover race between the two lanes (E1 [1,1] spatial s42 t6, E0 [4]x5 Long s42 t4, F0-PB [4,4] Long s43 t0). Each pair produced identical success counts (50/50, 40/40, 46/46), as the deterministic protocol requires. Each group is a single record file, so every condition still holds exactly 6,000 episodes.
+
+### 9.1 P-c runs (E0/E1/E2/SP11), all nine flat schedules
+
+Success % over 6,000 episodes, with LIBERO-Long success after 'L'. 'Fast ms' is the mean batch-one latency of the exact `fast` backend on H100 (Section 10). The parent (v0 4/4, BASE10) scored 94.92% (Long 87.87%) under the same protocol.
+
+| Schedule | Depths | E0 | E1 | E2 | SP11 | Fast ms E0 / E1 / E2 |
+|---|---|---|---|---|---|---|
+| flat_k1_n2 | [1,1] | 94.33 (L 86.67) | 93.73 (L 85.00) | 94.07 (L 85.40) | 93.77 (L 85.00) | 24.7 / 24.8 / 24.8 |
+| flat_k1_n5 | [1]x5 | 94.53 (L 85.47) | 94.30 (L 86.47) | 94.25 (L 86.87) |  | 33.3 / 33.4 / 33.6 |
+| flat_k1_n10 | [1]x10 | 93.68 (L 85.53) | 93.48 (L 84.60) | 94.00 (L 86.13) |  | 47.9 / 47.7 / 48.4 |
+| flat_k2_n2 | [2,2] | 94.53 (L 86.80) | 94.58 (L 87.07) | 94.75 (L 87.40) |  | 27.6 / 27.6 / 27.7 |
+| flat_k2_n5 | [2]x5 | 94.85 (L 87.80) | 94.52 (L 87.73) | 95.07 (L 89.07) |  | 39.1 / 39.1 / 39.4 |
+| flat_k2_n10 | [2]x10 | 93.83 (L 85.27) | 94.00 (L 85.73) | 94.07 (L 86.67) |  | 59.9 / 59.7 / 60.7 |
+| flat_k4_n2 | [4,4] | 94.97 (L 87.73) | 95.22 (L 88.27) | 95.27 (L 88.60) |  | 33.2 / 33.4 / 33.4 |
+| flat_k4_n5 | [4]x5 | 95.45 (L 89.40) | 95.65 (L 89.73) | 95.28 (L 88.53) |  | 54.5 / 54.3 / 54.2 |
+| flat_k4_n10 | [4]x10 | 94.87 (L 88.73) | 94.45 (L 86.73) | 94.70 (L 87.53) |  | 86.2 / 86.3 / 86.0 |
+
+### 9.2 P-b runs: F0-PB (no transport) vs F2-PB (RT-A2, T4 transport)
+
+F2-PB is RT-A2 epoch 10 (sha256 `25ad8ca4...`), from its complete H100 evaluation of 2026-10-13 by the same runner. Contrasts are secondary and unadjusted, with the p-value from the paired cluster permutation test.
+
+| Schedule | Depths | F0-PB | F2-PB (RT-A2, H100) | F0-PB - F2-PB pp (95% CI), p | Fast ms F0-PB / RT-A2 |
+|---|---|---|---|---|---|
+| S8 | [4,1] | 94.50 (L 87.67) | 94.53 (L 87.80) | -0.03 (-0.72 to +0.65), 0.9593 | 31.8 / 31.9 |
+| S7 | [4,2] | 94.70 (L 86.87) | 94.93 (L 87.87) | -0.23 (-0.87 to +0.40), 0.4928 | 31.3 / 31.5 |
+| parent2 | [4,4] full | 95.88 (L 91.73) | - |  | 37.0 / - |
+| S6 | [4,1,1,1,1] | 93.75 (L 86.13) | 94.48 (L 86.87) | -0.73 (-1.40 to -0.03), 0.0379 | 42.1 / 42.0 |
+| S5 | [4,2,2,2,2] | 94.25 (L 86.73) | 94.98 (L 88.00) | -0.73 (-1.37 to -0.10), 0.0218 | 45.1 / 47.7 |
+| S2 | [4]+[1]x9 | 92.05 (L 80.93) | 93.22 (L 84.33) | -1.17 (-1.92 to -0.40), 0.0041 | 54.5 / 59.2 |
+| parent5 | [4]x5 full | 95.75 (L 90.60) | - |  | 59.7 / - |
+| S1 | [4]+[2]x9 | 93.38 (L 84.00) | 94.10 (L 86.87) | -0.72 (-1.37 to -0.03), 0.0361 | 69.2 / 76.4 |
+| parent10 | [4]x10 full | 94.68 (L 87.93) | - |  | 103.8 / - |
+
+### 9.3 Predeclared contrasts at the fastest point [1,1]
+
+Paired over identical episode keys. 95% cluster-bootstrap interval (10,000 resamples). Two-sided paired cluster sign-flip permutation test, with Holm correction across the three primary contrasts. Every secondary grid contrast is in `plans/elastic_evidence/eval/results.md`.
+
+| Contrast | Role | Difference pp (95% CI) | p (perm.) | p (Holm) | Long pp |
+|---|---|---|---|---|---|
+| E1-E0 @ flat_k1_n2 | primary | -0.60 (-1.32 to +0.08) | 0.1012 | 0.3036 | -1.67 |
+| E2-E0 @ flat_k1_n2 | primary | -0.27 (-0.93 to +0.38) | 0.4577 | 0.7223 | -1.27 |
+| E2-E1 @ flat_k1_n2 | primary | +0.33 (-0.35 to +1.02) | 0.3612 | 0.7223 | +0.40 |
+| SP11-E0 @ flat_k1_n2 | secondary | -0.57 (-1.28 to +0.13) | 0.1159 |  | -1.67 |
+
+### 9.4 Findings
+
+All statements below come from the predeclared analysis. Anything not predeclared is labelled descriptive. The parent BASE10 (v0 4/4) scored 94.92% (Long 87.87%) under the same protocol.
+
+1. **Primary question: transport at the fastest point [1,1].** No difference is detectable.
+   - E1−E0 is −0.60 pp (95% CI −1.32 to +0.08; Holm p 0.30).
+   - E2−E0 is −0.27 pp (−0.93 to +0.38; Holm p 0.72).
+   - E2−E1 is +0.33 pp (−0.35 to +1.02; Holm p 0.72).
+   - Both transport-vs-E0 intervals exclude the plan's +0.5 pp "keep transport" gain (Section 13.2). Under this recipe, neither identity nor learned transport earns its place at [1,1].
+   - Identity is not shown noninferior to learned transport within 0.5 pp: the E1−E2 interval reaches −1.02.
+   - A nonsignificant difference is not equivalence. Following plan Section 13.3, the outcome is "E0 strong, E1/E2 not convincingly better": **the main method is elastic training without transport (E0)**, and transport is reported as inconclusive or unhelpful under the tested recipe.
+2. **Full-quality retention at [4]x10** (target within 0.5 pp of the parent; point estimates, not a predeclared test):
+   - E0 94.87 (−0.05), E1 94.45 (−0.47), E2 94.70 (−0.22). All three are within the target.
+   - Long: E0 88.73, E1 86.73, E2 87.53, against the parent's 87.87.
+3. **One checkpoint, nine operating points (descriptive).**
+   - E0's success stays between 93.68 and 95.45 across all nine flat schedules.
+   - [4]x5 (half the parent's denoising steps) is the best flat point for every run: E0 95.45, E1 95.65, E2 95.28, all above the parent's 94.92.
+   - At every depth k ∈ {1, 2, 4}, ten denoising steps score below five steps for every run (9/9 comparisons).
+   - [1]x10 is each run's weakest point.
+4. **SP11 (specialist at [1,1]).** SP11−E0 is −0.57 pp (−1.28 to +0.13; p 0.12, secondary).
+   - The [1,1] specialist did not beat the elastic checkpoint. So there is no detectable equal-budget cost of elasticity at the fastest point.
+   - The interval excludes an SP11 advantage larger than 0.13 pp.
+5. **P-b control (F0-PB, no transport) vs F2-PB (RT-A2, learned transport).** These contrasts are secondary and unadjusted. The arms were scored two weeks apart by the same runner on H100, and the stack reproduced 20/20 stored RT-A2 episodes.
+   - F0-PB is below F2-PB at all six front points: S8 −0.03, S7 −0.23, S6 −0.73 (p 0.038), S5 −0.73 (p 0.022), S2 −1.17 (p 0.004), S1 −0.72 (p 0.036).
+   - The gaps concentrate in Long, up to −3.40 pp at S2.
+   - With E1/E2 not improving on E0, this matches the plan's reading: "transport may compensate for a restricted first-full/adapter regime; the P-c question remains different". In the LoRA-restricted P-b regime, learned transport helps. With full-action fine-tuning (P-c), it does not.
+6. **F0-PB at full depth (descriptive).** The P-b student scored [4,4] 95.88 (Long 91.73), [4]x5 95.75 and [4]x10 94.68.
+   - [4,4] is the highest success of all 37 conditions, with two denoising steps at full depth.
+   - This was not a predeclared comparison and F2-PB has no full-depth H100 result. It suggests that step distillation at full depth, rather than depth reduction, is where these students gain the most.
+
+## 10. Inference latency of the Elastic checkpoints
+
+Every Elastic operating point was timed under the all-models protocol: 500 replayed raw observations, batch 1, raw observation to denormalized host actions, on H100 80GB HBM3. That report is `plans/performance/LoopWAM_All_Models_Latency_20261030.md`.
+- **Same loader for every run:** E0, E1, E2, SP11 and F0-PB are timed through the same student-only loader. E2's learned transport is inside the timed graph.
+- **Memory:** the report gives memory with one operating point resident and with all nine resident (plan Section 12.4).
+- **Exactness:** the `fast` backend reproduces the evaluated actions bit for bit.
+
+Results below use the `fast` backend, batch 1, on H100. The full tables are in Sections 5 and 7 of the latency report.
+
+- **One E0 checkpoint spans 3.5× in latency.** It runs from 24.7 ms at [1,1] (40 Hz) to 86.2 ms at [4]x10.
+  - Eager covers 48.8–227.5 ms over the same points, and the campaign CUDA graph 30.0–98.3 ms.
+  - Every compared action chunk is bit-identical to eager: 50/50 per point, 1,850 in all over the 37 Elastic rows.
+- **Transport adds no measurable latency.**
+  - E0, E1 and E2 are within 2% of one another at every flat point. At [1,1] they run at 24.7, 24.8 and 24.8 ms.
+  - F0-PB (no transport) and RT-A2 (learned T4 transport) are within 1% at S8, S7 and S6.
+  - At S5, S2 and S1, F0-PB's fast mean is 5–9% lower, but the two runs' campaign-graph latencies agree within 2% there. That is within the two-level latency noise (latency report, Section 11), not a resolved cost of transport.
+- **All nine points resident at once (plan Section 12.4).** Keeping all nine fast graphs of one checkpoint resident takes 2.69 GB allocated, with a 3.18 GB peak; the caching allocator reserves 8.36 GB.
+  - A single [1,1] graph peaks at 2.58 GB.
+  - So a deployment can switch operating point on every query, without re-capture, for about 0.6 GB of extra peak memory.
+- **Against the parent BASE10** (v0 4/4 at ten steps, 94.92%): the parent ran at 99.3 ms (fast) in this sweep, and other 4/4-depth LoopWAM models at 89–99 ms.
+  - E0 [4,4] scores 94.97% at 33.2 ms: about 2.7–3.0× faster at the same success.
+  - E0 [4]x5 scores 95.45% at 54.5 ms: 1.6–1.8× faster.
+  - These success comparisons with the parent are descriptive. No parent contrast was predeclared.
+- **SP11 vs E0 at [1,1].** The two run an identical graph, at 23.4 vs 24.7 ms. The difference is latency-level noise, not a model difference.
+- **F0-PB [4,4]** scores 95.88% at 37.0 ms. That is the highest four-suite success of any model in the repository under 50 ms. Only the five ChronoLoop a4 runs (95.90–96.18%, 91–100 ms) and FastWAM (96.63%, 107.5 ms) score higher, and all of them are 2.5–2.9× slower.

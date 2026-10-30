@@ -1,0 +1,83 @@
+{
+ "model": "ChronoLoop CL-A_mem16-learned-loopwrite_a4",
+ "family": "chrono",
+ "checkpoint": "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-A_mem16-learned-loopwrite_a4/checkpoints/epoch_10.pt",
+ "code_root": "/lustre/fs1/home/an221229/code/LoopWAM_chrono",
+ "code_commit": "43e6a2f32572df71a6fbeaae2b3476be5215783c",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "host": "evc102",
+ "torch": "2.7.1+cu128",
+ "cuda": "12.8",
+ "observations": 500,
+ "observations_sha256": "5815c6fdc22d2dfe0c241f89c687a6f2e83804f9bd298332867258eb7160e0f0",
+ "limit": 0,
+ "warmup": 20,
+ "info": {
+  "loader": "create_chronoloop",
+  "chrono": {
+   "memory_tokens": 16,
+   "mem_source": "learned",
+   "mem_write": "loop",
+   "history_frame": 0,
+   "action_loops": 4,
+   "video_loops": 4,
+   "clamp_c": 3.0,
+   "lambda_logit_init": 2.2,
+   "oracle_labels": 64
+  },
+  "parameters": 711459674,
+  "dataset_stats": "/dev/shm/latency_hf_1080499/libero-all-suites/v0-video4-action4/dataset_stats.json"
+ },
+ "configs": {
+  "native": {
+   "eager": {
+    "n": 500,
+    "mean_ms": 283.81718112900853,
+    "median_ms": 281.1720184981823,
+    "p5_ms": 278.7873520515859,
+    "p95_ms": 285.9352359548211,
+    "std_ms": 50.363362392981365,
+    "min_ms": 276.8517155200243,
+    "preprocess": {
+     "n": 500,
+     "mean_ms": 1.6115890592336655,
+     "median_ms": 1.596006564795971,
+     "p5_ms": 1.4843626879155636,
+     "p95_ms": 1.7950451001524925,
+     "std_ms": 0.09147498421346907,
+     "min_ms": 1.4236625283956528
+    },
+    "peak_allocated_gb": 3.120386048
+   },
+   "config": {
+    "denoising_steps": 10
+   },
+   "fast": {
+    "n": 500,
+    "mean_ms": 92.10380240529776,
+    "median_ms": 88.73966429382563,
+    "p5_ms": 88.47395554184914,
+    "p95_ms": 99.60373006761074,
+    "std_ms": 5.031745621856235,
+    "min_ms": 88.35147507488728,
+    "preprocess": {
+     "n": 500,
+     "mean_ms": 1.6536346971988678,
+     "median_ms": 1.6434509307146072,
+     "p5_ms": 1.4736554585397243,
+     "p95_ms": 1.860718708485365,
+     "std_ms": 0.12145741377443721,
+     "min_ms": 1.4128629118204117
+    },
+    "peak_allocated_gb": 2.053266944,
+    "exact_vs_eager": 500,
+    "compared_vs_eager": 500,
+    "max_abs_diff_vs_eager": 0.0
+   }
+  }
+ },
+ "eager_stride": 1,
+ "graph_stride": 1,
+ "eager_warmup": 5,
+ "fast_converted_linear_modules": 254
+}

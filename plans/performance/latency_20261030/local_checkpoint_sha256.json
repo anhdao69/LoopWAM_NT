@@ -1,0 +1,107 @@
+{
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/E0/epoch_10.pt": {
+  "model": "elastic E0",
+  "sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+  "bytes": 2761409126
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/E1/epoch_10.pt": {
+  "model": "elastic E1",
+  "sha256": "be1cbe2cd1c9fa2b4251f5f474b5962afb226e12c2bf57246aa2be4fa1d27a68",
+  "bytes": 2761409126
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/E2/epoch_10.pt": {
+  "model": "elastic E2",
+  "sha256": "6d92ac13a36e8605299c6f8eb1290683115e15da7eb83843d10bb925494d0ae0",
+  "bytes": 2761718020
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/F0-PB/epoch_10.pt": {
+  "model": "elastic F0-PB",
+  "sha256": "ff59791adcf2c43b6922ec42082918a1f177415fa54f20bae4ad9fcd2222df16",
+  "bytes": 2769706382
+ },
+ "/groups/yshang/an221229/checkpoints/FastWAM/fastwam_release/libero_uncond_2cam224.pt": {
+  "model": "FastWAM (released, libero_uncond_2cam224)",
+  "sha256": "1000437cfcf55c000094f79a2600634c502bcb5b492476b94bf8509883a49579",
+  "bytes": 12041735140
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-A2/epoch_10.pt": {
+  "model": "RT-A2",
+  "sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d",
+  "bytes": 2770014828
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-A/epoch_10.pt": {
+  "model": "RT-A",
+  "sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b",
+  "bytes": 2768411424
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-B4/epoch_10.pt": {
+  "model": "RT-B4",
+  "sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711",
+  "bytes": 2768102594
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-Pa/epoch_10.pt": {
+  "model": "RT-Pa",
+  "sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3",
+  "bytes": 2760114040
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-B2a/epoch_10.pt": {
+  "model": "RT-B2a",
+  "sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac",
+  "bytes": 2761408422
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/elastic/SP11/epoch_10.pt": {
+  "model": "elastic SP11",
+  "sha256": "ab974f357659d0944da2513c1684fb661c4edc3b134a50e60a5a82b5b8b81ce0",
+  "bytes": 2761408934
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-0_no-memory_a4/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-0_no-memory_a4",
+  "sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+  "bytes": 2338624933
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-A_mem16-learned-loopwrite_a4/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-A_mem16-learned-loopwrite_a4",
+  "sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39",
+  "bytes": 2338751283
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-T1ft/epoch_10.pt": {
+  "model": "RT-T1ft",
+  "sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1",
+  "bytes": 2768102594
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/RT-TF/epoch_10.pt": {
+  "model": "RT-TF",
+  "sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea",
+  "bytes": 2768411488
+ },
+ "/groups/yshang/an221229/checkpoints/LoopWAM_NT/v0_init_variants/stepwise/train/latest.pt": {
+  "model": "init variant stepwise",
+  "sha256": "0af0b9174fdd2cdcc377b70744ef58d65226794457ceba9570ad29fb8eb6f1e8",
+  "bytes": 7015664859
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-REG_mem16-reset-registers_a4/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-REG_mem16-reset-registers_a4",
+  "sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d",
+  "bytes": 2338751283
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-W2_mem16-learned-external-updater_a4/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-W2_mem16-learned-external-updater_a4",
+  "sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032",
+  "bytes": 2489910121
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-FRAME_history-frame-k3_a4/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-FRAME_history-frame-k3_a4",
+  "sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a",
+  "bytes": 2338626793
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-0-at1_no-memory_a1/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-0-at1_no-memory_a1",
+  "sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930",
+  "bytes": 2338624933
+ },
+ "/groups/yshang/an221229/checkpoints/ChronoLoop/runs/CL-A-at1_mem16-learned-loopwrite_a1/checkpoints/epoch_10.pt": {
+  "model": "ChronoLoop CL-A-at1_mem16-learned-loopwrite_a1",
+  "sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781",
+  "bytes": 2338751283
+ }
+}

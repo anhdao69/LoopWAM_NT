@@ -1,0 +1,191 @@
+{
+ "revision": "393310afabb5f84226d314da14b9222ac193193d",
+ "files": {
+  "libero-all-suites/dense-s12/policy.pt": {
+   "sha256": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd",
+   "export_sha256": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd",
+   "match": true,
+   "bytes": 2338643275
+  },
+  "libero-all-suites/dense-s30/policy.pt": {
+   "sha256": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+   "export_sha256": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34",
+   "match": true,
+   "bytes": 5665343810
+  },
+  "libero-all-suites/init_variants/core16_21/policy.pt": {
+   "sha256": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+   "export_sha256": "7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2",
+   "match": true,
+   "bytes": 2338711947
+  },
+  "libero-all-suites/init_variants/core_mean/policy.pt": {
+   "sha256": "7613e262c47bd848af49af6797fab37f0d6a199032312a08cafabaa36d004664",
+   "export_sha256": "7613e262c47bd848af49af6797fab37f0d6a199032312a08cafabaa36d004664",
+   "match": true,
+   "bytes": 2338749835
+  },
+  "libero-all-suites/init_variants/core_random/policy.pt": {
+   "sha256": "398b5ae51427f6a1f71d9e84f969db1a54aeac75245eafbb63ade22e77b5ea47",
+   "export_sha256": "398b5ae51427f6a1f71d9e84f969db1a54aeac75245eafbb63ade22e77b5ea47",
+   "match": true,
+   "bytes": 2338702667
+  },
+  "libero-all-suites/init_variants/ffn_magnitude/policy.pt": {
+   "sha256": "a71026b87c5b6384311e8290d2eb6735ef0bd10b116fc485f329749092980d78",
+   "export_sha256": "a71026b87c5b6384311e8290d2eb6735ef0bd10b116fc485f329749092980d78",
+   "match": true,
+   "bytes": 2338914443
+  },
+  "libero-all-suites/init_variants/no_video_pretraining/policy.pt": {
+   "sha256": "e0bfdfa674471f54ff74a04a899ae5f4874a214edbe6f0796b6954995befb892",
+   "export_sha256": "e0bfdfa674471f54ff74a04a899ae5f4874a214edbe6f0796b6954995befb892",
+   "match": true,
+   "bytes": 2338538571
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p0c6s6_k4/policy.pt": {
+   "sha256": "9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p1c6s5_k4/policy.pt": {
+   "sha256": "26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p1c9s2_k3/policy.pt": {
+   "sha256": "4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p4c3s5_k7/policy.pt": {
+   "sha256": "39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p5c6s1_k4/policy.pt": {
+   "sha256": "2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/partition-grid-centered-20261026/p6c6s0_k4/policy.pt": {
+   "sha256": "2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda",
+   "export_sha256": null,
+   "match": null,
+   "bytes": 2338662060
+  },
+  "libero-all-suites/v0-video1-action4/policy.pt": {
+   "sha256": "801922e30df320cd7d9f3c642d90315865d49807ec20b6e27ea93c219d2f9a19",
+   "export_sha256": "801922e30df320cd7d9f3c642d90315865d49807ec20b6e27ea93c219d2f9a19",
+   "match": true,
+   "bytes": 2338635000
+  },
+  "libero-all-suites/v0-video2-action2/policy.pt": {
+   "sha256": "5dd6ef39b7afb44a672750cebea57358eee43c7e998517e16f2c4f457c843600",
+   "export_sha256": "5dd6ef39b7afb44a672750cebea57358eee43c7e998517e16f2c4f457c843600",
+   "match": true,
+   "bytes": 2338635000
+  },
+  "libero-all-suites/v0-video4-action1/policy.pt": {
+   "sha256": "d460ccea7148876d96e7b6969c97f698fb02119e12ab1f749872faf3d30c3a92",
+   "export_sha256": "d460ccea7148876d96e7b6969c97f698fb02119e12ab1f749872faf3d30c3a92",
+   "match": true,
+   "bytes": 2338635000
+  },
+  "libero-all-suites/v0-video4-action1-kv-mix/policy.pt": {
+   "sha256": "ec4ff8ab3e00a761bd75c180bb70a93e0632d84862c5c6ff27746065342c579d",
+   "export_sha256": "ec4ff8ab3e00a761bd75c180bb70a93e0632d84862c5c6ff27746065342c579d",
+   "match": true,
+   "bytes": 2338636469
+  },
+  "libero-all-suites/v0-video4-action2/policy.pt": {
+   "sha256": "33476d5808965252eaa3f5e996b5f5f75cc0542314f825a0fc07fbdec2f0c9d4",
+   "export_sha256": "33476d5808965252eaa3f5e996b5f5f75cc0542314f825a0fc07fbdec2f0c9d4",
+   "match": true,
+   "bytes": 2338643275
+  },
+  "libero-all-suites/v0-video4-action4/policy.pt": {
+   "sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+   "export_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+   "match": true,
+   "bytes": 2338669899
+  },
+  "libero-long/dense-s12/policy.pt": {
+   "sha256": "c166bdb0c13ed0edd1456e44cc294a963f435d3f48907d098edbdece852124f7",
+   "export_sha256": "c166bdb0c13ed0edd1456e44cc294a963f435d3f48907d098edbdece852124f7",
+   "match": true,
+   "bytes": 2338537447
+  },
+  "libero-long/dense-s30/policy.pt": {
+   "sha256": "09c5f5ec496788718ccaafccb1b085cf916eed95c3b779f96bd0cd7deda7cb24",
+   "export_sha256": "09c5f5ec496788718ccaafccb1b085cf916eed95c3b779f96bd0cd7deda7cb24",
+   "match": true,
+   "bytes": 5665343554
+  },
+  "libero-long/v0-video1-action4/policy.pt": {
+   "sha256": "e49eaf1d97f4622b9229ac92fc81e41111cc1b4cc3c33ac21461c8df385dac9a",
+   "export_sha256": "e49eaf1d97f4622b9229ac92fc81e41111cc1b4cc3c33ac21461c8df385dac9a",
+   "match": true,
+   "bytes": 2338643083
+  },
+  "libero-long/v0-video2-action2/policy.pt": {
+   "sha256": "d8771b2d94f258d6bcebe6f3ee7f8a0f6c70ffd3e3613b432a85a086de8c72be",
+   "export_sha256": "d8771b2d94f258d6bcebe6f3ee7f8a0f6c70ffd3e3613b432a85a086de8c72be",
+   "match": true,
+   "bytes": 2338643083
+  },
+  "libero-long/v0-video4-action1/policy.pt": {
+   "sha256": "be4712cc76925721080c9e3e7fed558649fb9fe8eeb2b6bf9974b0c5994448b1",
+   "export_sha256": "be4712cc76925721080c9e3e7fed558649fb9fe8eeb2b6bf9974b0c5994448b1",
+   "match": true,
+   "bytes": 2338643083
+  },
+  "libero-long/v0-video4-action1-kv-concat/policy.pt": {
+   "sha256": "641ef91940e85f6ed22a92747ea86adc7d201d99c082556f59e6a188c6eaf5c5",
+   "export_sha256": "641ef91940e85f6ed22a92747ea86adc7d201d99c082556f59e6a188c6eaf5c5",
+   "match": true,
+   "bytes": 2338634808
+  },
+  "libero-long/v0-video4-action1-kv-mix/policy.pt": {
+   "sha256": "b90be503a3ee7c39305b2a6bbc94a0e649d566c5d4705644eba5476058c06340",
+   "export_sha256": "b90be503a3ee7c39305b2a6bbc94a0e649d566c5d4705644eba5476058c06340",
+   "match": true,
+   "bytes": 2338636277
+  },
+  "libero-long/v0-video4-action2/policy.pt": {
+   "sha256": "0cff52e58138c5c87d8a660a75ea1cebeb4f865d56971edd75731ebe1df5c992",
+   "export_sha256": "0cff52e58138c5c87d8a660a75ea1cebeb4f865d56971edd75731ebe1df5c992",
+   "match": true,
+   "bytes": 2338643083
+  },
+  "libero-long/v0-video4-action4-original/policy.pt": {
+   "sha256": "ec2cd9829c6009d727ab892c0954dbf5c64299db4e2692e0104743b99a1114df",
+   "export_sha256": "ec2cd9829c6009d727ab892c0954dbf5c64299db4e2692e0104743b99a1114df",
+   "match": true,
+   "bytes": 2338642955
+  },
+  "libero-long/v0-video4-action4-repeat/policy.pt": {
+   "sha256": "772c75052abbb6d1048cc3dde8fba188ecfc5840e2b1aa67988ad94c2dc4d5b5",
+   "export_sha256": "772c75052abbb6d1048cc3dde8fba188ecfc5840e2b1aa67988ad94c2dc4d5b5",
+   "match": true,
+   "bytes": 2338643083
+  },
+  "libero-long/v1-video4-action4/policy.pt": {
+   "sha256": "551664790363b23b4e4502ac280029145f510e1f6d0b417bda241b58aac8cb6b",
+   "export_sha256": "551664790363b23b4e4502ac280029145f510e1f6d0b417bda241b58aac8cb6b",
+   "match": true,
+   "bytes": 2338642955
+  },
+  "libero-long/v2-video4-action4/policy.pt": {
+   "sha256": "622fcf113458e3b659fe3880a6cc70fc612a8d536fb46f0b2442418bab0448a6",
+   "export_sha256": "622fcf113458e3b659fe3880a6cc70fc612a8d536fb46f0b2442418bab0448a6",
+   "match": true,
+   "bytes": 2338669771
+  }
+ }
+}

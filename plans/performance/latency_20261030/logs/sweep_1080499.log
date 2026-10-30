@@ -1,0 +1,5 @@
+[2026-10-30T02:51:25-04:00] sweep on evc102: GPUs 0,1,2,3, CPUs 0,64,2,66,4,68,6,70,8,72,10,74,12,76,14,78, 4 CPUs per worker
+[2026-10-30T03:28:36-04:00] sweep finished
+[2026-10-30T03:28:36-04:00] control: all-suites v0 4/1 (job 11) alone on GPU 0 CPUs 0,64,2,66
+[2026-10-30T03:28:36-04:00] 11: start on evc102 GPU 0 cpus 0,64,2,66: --code-root /lustre/fs1/home/an221229/code/LoopWAM_v042 --family loopwam --model 'all-suites v0 4/1' --checkpoint /dev/shm/latency_hf_1080499/libero-all-suites/v0-video4-action1/policy.pt --configs native --vae-path /groups/yshang/an221229/checkpoints/RollingForcing/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth --backends eager,graph,fast --extra '{}'
+[2026-10-30T03:30:07-04:00] 11: done
