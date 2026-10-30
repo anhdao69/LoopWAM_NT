@@ -1,0 +1,41 @@
+[2026-10-30T10:37:20-04:00] libero_10 stage1 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage1/sft_2026-10-30_09-37-52/checkpoint_epoch_5.pt
+[2026-10-30T10:38:04-04:00] libero_10 stage1 rc=0
+raw                    MAE(6 deltas)=0.0729  first-step MAE=0.0759  gripper sign agreement=0.9368
+bspline_smoothed       MAE(6 deltas)=0.0729  first-step MAE=0.0759  gripper sign agreement=0.9371
+baseline_mean_action   MAE(6 deltas)=0.1452  first-step MAE=0.1454  gripper sign agreement=0.5343
+[2026-10-30T10:38:04-04:00] libero_10 stage2 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage2/sft_2026-10-30_10-20-08/checkpoint_epoch_2.pt
+[2026-10-30T10:38:43-04:00] libero_10 stage2 rc=0
+raw                    MAE(6 deltas)=0.0702  first-step MAE=0.0730  gripper sign agreement=0.9486
+bspline_smoothed       MAE(6 deltas)=0.0702  first-step MAE=0.0730  gripper sign agreement=0.9484
+baseline_mean_action   MAE(6 deltas)=0.1452  first-step MAE=0.1454  gripper sign agreement=0.5343
+[2026-10-30T11:09:43-04:00] libero_goal stage1 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage1/sft_2026-10-30_10-37-29/checkpoint_epoch_5.pt
+[2026-10-30T11:10:12-04:00] libero_goal stage1 rc=0
+raw                    MAE(6 deltas)=0.0889  first-step MAE=0.0895  gripper sign agreement=0.9481
+bspline_smoothed       MAE(6 deltas)=0.0889  first-step MAE=0.0895  gripper sign agreement=0.9481
+baseline_mean_action   MAE(6 deltas)=0.1845  first-step MAE=0.1844  gripper sign agreement=0.6328
+[2026-10-30T11:10:12-04:00] libero_goal stage2 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage2/sft_2026-10-30_10-59-26/checkpoint_epoch_2.pt
+[2026-10-30T11:11:01-04:00] libero_goal stage2 rc=0
+raw                    MAE(6 deltas)=0.0853  first-step MAE=0.0864  gripper sign agreement=0.9557
+bspline_smoothed       MAE(6 deltas)=0.0853  first-step MAE=0.0864  gripper sign agreement=0.9557
+baseline_mean_action   MAE(6 deltas)=0.1845  first-step MAE=0.1844  gripper sign agreement=0.6328
+[2026-10-30T11:52:01-04:00] libero_object stage1 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_object/stage1/sft_2026-10-30_11-10-16/checkpoint_epoch_5.pt
+[2026-10-30T11:52:55-04:00] libero_object stage1 rc=0
+raw                    MAE(6 deltas)=0.0709  first-step MAE=0.0714  gripper sign agreement=0.9395
+bspline_smoothed       MAE(6 deltas)=0.0709  first-step MAE=0.0714  gripper sign agreement=0.9393
+baseline_mean_action   MAE(6 deltas)=0.1600  first-step MAE=0.1591  gripper sign agreement=0.5365
+[2026-10-30T11:52:55-04:00] libero_object stage2 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_object/stage2/sft_2026-10-30_11-40-12/checkpoint_epoch_2.pt
+[2026-10-30T11:53:44-04:00] libero_object stage2 rc=0
+raw                    MAE(6 deltas)=0.0682  first-step MAE=0.0686  gripper sign agreement=0.9388
+bspline_smoothed       MAE(6 deltas)=0.0682  first-step MAE=0.0685  gripper sign agreement=0.9390
+baseline_mean_action   MAE(6 deltas)=0.1600  first-step MAE=0.1591  gripper sign agreement=0.5365
+[2026-10-30T12:23:44-04:00] libero_spatial stage1 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage1/sft_2026-10-30_11-52-40/checkpoint_epoch_5.pt
+[2026-10-30T12:24:08-04:00] libero_spatial stage1 rc=0
+raw                    MAE(6 deltas)=0.0885  first-step MAE=0.0909  gripper sign agreement=0.9486
+bspline_smoothed       MAE(6 deltas)=0.0884  first-step MAE=0.0909  gripper sign agreement=0.9485
+baseline_mean_action   MAE(6 deltas)=0.1939  first-step MAE=0.1975  gripper sign agreement=0.5357
+[2026-10-30T12:24:08-04:00] libero_spatial stage2 /groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage2/sft_2026-10-30_12-14-57/checkpoint_epoch_2.pt
+[2026-10-30T12:24:29-04:00] libero_spatial stage2 rc=0
+raw                    MAE(6 deltas)=0.0855  first-step MAE=0.0880  gripper sign agreement=0.9500
+bspline_smoothed       MAE(6 deltas)=0.0855  first-step MAE=0.0880  gripper sign agreement=0.9500
+baseline_mean_action   MAE(6 deltas)=0.1939  first-step MAE=0.1975  gripper sign agreement=0.5357
+[2026-10-30T12:24:29-04:00] openloop all done

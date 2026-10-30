@@ -16,10 +16,13 @@ cp $LAT/results/*.json $LAT/results/*.yaml $PL/results/ 2>/dev/null || true
 rm -f $PL/results/*smoke*
 cp $LAT/measure_public_latency.py $LAT/measure_lilawam_latency.py $LAT/measure_lilawam_libero_latency.py \
    $LAT/run_models.sh $LAT/run_lilawam.sh $LAT/run_official_fasterwam.sh $LAT/env.sh $LAT/build_tables.py \
-   $LAT/make_report.py $LAT/report_v2_template.md $LAT/finalize_to_repo.sh $LAT/checkpoint_sha256.json $PL/
+   $LAT/make_report.py $LAT/report_v2_template.md $LAT/finalize_to_repo.sh $LAT/checkpoint_sha256.json \
+   $LAT/run_lilawam_libero_latency.sh $PL/
+mkdir -p $PL/logs; cp $LAT/logs/node_evc10?.log $LAT/logs/lilawam_libero_evc103.log $PL/logs/ 2>/dev/null || true
 # LiLa-WAM training
 cp $CODE/*.py $CODE/libero_ours.yaml $LILA/convert_ours_to_lilawam_hdf5.py $LILA/verify_conversion.py \
-   $LILA/conversion_verification.json $RUN/train_job.sh $RUN/hf_upload_watcher.py $RUN/openloop_watcher.sh $RUN/HANDOFF.md $PT/
+   $LILA/conversion_verification.json $RUN/train_job.sh $RUN/hf_upload_watcher.py $RUN/openloop_watcher.sh $RUN/update_hf_readme.py $RUN/HANDOFF.md $PT/
+cp $RUN/hf_upload_watcher_crash1.log $PT/upload/ 2>/dev/null || true
 cp $RUN/hf_staging/README.md $PT/HF_MODEL_CARD.md
 cp $RUN/configs/*.yaml $PT/configs/
 cp /groups/yshang/an221229/data/LiLaWAM_libero_ours_stats*.json /groups/yshang/an221229/data/LiLaWAM_libero_ours_taskcond/meta.json $PT/configs/ 2>/dev/null || true
@@ -32,6 +35,15 @@ done
 cp $RUN/openloop/*.json $RUN/openloop/watcher.log $PT/openloop/ 2>/dev/null || true
 cp $RUN/manifest.json $RUN/uploaded_*.json $RUN/hf_upload_watcher.log $PT/upload/ 2>/dev/null || true
 rm -f $PT/libero_ours_stats*.json
+# matched LIBERO eval of the trained policies
+cp $RUN/eval_lilawam_step.sh $RUN/eval_login_watcher.sh $LAT/push_repo.sh $PT/ 2>/dev/null || true
+if [ -d $RUN/eval_matched ]; then
+  mkdir -p $PT/eval_matched/groups
+  cp $RUN/eval_matched/manifest.json $RUN/eval_matched/summary.json $PT/eval_matched/ 2>/dev/null || true
+  cp $RUN/eval_matched/groups/*.json $PT/eval_matched/groups/ 2>/dev/null || true
+  cp -r $RUN/eval_matched/runs $PT/eval_matched/ 2>/dev/null || true
+  cp $RUN/eval_step_*.log $RUN/eval_login_watcher.log $PT/logs/ 2>/dev/null || true
+fi
 # report
 cd /tmp && $PY $LAT/make_report.py $W/plans/performance/Public_WAM_Latency_20261030.md
 cd $W

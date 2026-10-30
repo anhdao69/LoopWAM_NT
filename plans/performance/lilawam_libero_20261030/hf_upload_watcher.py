@@ -30,9 +30,15 @@ def sha256(p):
 
 
 def ckpt_info(p):
-    import torch
-    c = torch.load(p, map_location="cpu", weights_only=False)
-    return {"epoch": c["epoch"], "global_step": c["global_step"], "epoch_avg_loss": float(c["loss"])}
+    """epoch / global_step / epoch loss of .../<suite>/<stage>/sft_*/checkpoint_epoch_<k>.pt, read from that run's
+    training log (torch cannot be imported on the login node: libnccl mmap fails under its memory limit).
+    train.py saves global_step = k * batches_per_epoch (grad_accum 1) and loss = epoch k's mean loss."""
+    parts = Path(p).parts
+    suite, stage, k = parts[-4], parts[-3], int(re.search(r"checkpoint_epoch_(\d+)\.pt", p).group(1))
+    t = (RUN / "logs" / f"{suite}_{stage}.log").read_text(errors="ignore")
+    batches = int(re.search(r"Batches per Epoch: (\d+)", t).group(1))
+    losses = [float(x) for x in re.findall(r"Epoch \d+ Completed\. Avg Loss: ([0-9.]+)", t)]
+    return {"stage": stage, "epoch": k, "global_step": k * batches, "epoch_avg_loss": losses[k - 1]}
 
 
 def epoch_losses(logfile):

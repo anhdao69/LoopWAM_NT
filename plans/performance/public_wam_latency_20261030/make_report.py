@@ -165,6 +165,50 @@ def openloop_table():
     return "\n".join(md) if len(md) > 2 else "_No open-loop results yet._"
 
 
+def eval_section():
+    out = RUN / "eval_matched"
+    summ, man = jload(out / "summary.json"), jload(out / "manifest.json")
+    groups = sorted((out / "groups").glob("*.json")) if (out / "groups").exists() else []
+    order = ["libero_spatial", "libero_object", "libero_goal", "libero_10"]
+    fast = {"libero_spatial": 97.47, "libero_object": 99.27, "libero_goal": 96.27, "libero_10": 93.53}
+    paper = {"libero_spatial": 98.0, "libero_object": 98.8, "libero_goal": 97.2, "libero_10": 94.2}
+    if summ:
+        md = ["| Suite | Successes / episodes | Success % | Seed 42 / 43 / 44 % | FastWAM (ours, matched) % | Paper (LiLa-WAM) % |",
+              "|---|---|---|---|---|---|"]
+        for su in order:
+            v = summ["per_suite"].get(su)
+            if not v:
+                md.append(f"| {SUITE_NAME[su]} | not evaluated | | | {fast[su]:.2f} | {paper[su]:.1f} |"); continue
+            sd = " / ".join(f"{100 * v['seeds'][k]['success_rate']:.1f}" for k in sorted(v["seeds"]))
+            md.append(f"| {SUITE_NAME[su]} | {v['successes']} / {v['episodes']} | **{100 * v['success_rate']:.2f}** | {sd} | "
+                      f"{fast[su]:.2f} | {paper[su]:.1f} |")
+        ps = " / ".join(f"{100 * summ['per_seed'][k]['success_rate']:.2f}" for k in sorted(summ["per_seed"]))
+        md.append(f"| **All** | {summ['successes']} / {summ['episodes']} | **{100 * summ['success_rate']:.2f}** | {ps} | 96.63 | 97.1 |")
+        import datetime as _d
+        t0, t1 = summ["first_group_completed_at"], summ["last_group_completed_at"]
+        runs = [jload(p) for p in sorted((out / "runs").glob("*.json"))]
+        wall = sum(r["wall_seconds"] for r in runs if r)
+        md += ["", f"- **Completed:** {summ['episodes']} episodes, {summ['total_policy_steps']:,} policy steps, "
+               f"{summ['total_queries']:,} policy queries.",
+               f"- **Runner time:** {wall / 60:.1f} min wall across {len(runs)} runner invocation(s), in job {man.get('slurm_job_id')} "
+               f"on {man.get('host')}. GPUs: {man.get('gpus')}; {man.get('env_workers')} simulator workers.",
+               f"- **Last group completed:** {_d.datetime.fromtimestamp(t1).strftime('%Y-%m-%d %H:%M:%S')}.",
+               f"- **Checkpoint identity:** combined sha256 of the four policies `{summ['checkpoint_sha256'][:16]}…`. "
+               "Per-suite sha256 values are in `eval_matched/manifest.json` and match Section 6.6."]
+        return "\n".join(md), f"{100 * summ['success_rate']:.2f}% ({summ['successes']}/{summ['episodes']})"
+    if groups:
+        rows = [json.loads(p.read_text()) for p in groups]
+        n = sum(len(r["episodes"]) for r in rows); k = sum(r["successes"] for r in rows)
+        per = {}
+        for r in rows:
+            su = r["group"]["suite"]; a = per.setdefault(su, [0, 0]); a[0] += r["successes"]; a[1] += len(r["episodes"])
+        txt = (f"**Running (interim, not a result):** {len(rows)}/120 task-seed groups done, {k}/{n} episodes successful so far: "
+               + ", ".join(f"{SUITE_NAME[su]} {a[0]}/{a[1]}" for su, a in per.items()) + ".")
+        return txt, "running"
+    return ("Not started yet. `eval_login_watcher.sh` on evuser2 launches `eval_lilawam_step.sh` in your interactive "
+            "job 1102933 (2 H100, 64 CPUs) as soon as it starts."), "pending"
+
+
 def main():
     res = latency_results()
     tables = subprocess.run([sys.executable, str(LAT / "build_tables.py"), str(LAT / "results"), str(LAT / "tables.md")],
@@ -190,6 +234,8 @@ def main():
                .replace("{{LAT_TRAINED}}", lat_tr_line)
                .replace("{{CONV}}", f"{conv['episodes_checked']} randomly chosen demonstrations ({conv['frames_checked']:,} frames)"
                         f", all checks passed: {conv['all_ok']}" if conv else "not run"))
+    ev_md, ev_short = eval_section()
+    out = out.replace("{{EVAL}}", ev_md).replace("{{EVAL_SHORT}}", ev_short)
     assert "{{" not in out, re.findall(r"\{\{\w+\}\}", out)
     Path(sys.argv[1]).write_text(out)
     print("wrote", sys.argv[1], len(out), "chars; training all done:", all_done, "; checkpoints uploaded:", any_ckpt)

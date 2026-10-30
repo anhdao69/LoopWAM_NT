@@ -1,1 +1,642 @@
-[2026-10-30 10:10:38] watcher start
+[2026-10-30 10:38:29] watcher start
+[2026-10-30 10:38:34] libero_10 committing 30 files
+checkpoint_epoch_2.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s]
+checkpoint_epoch_5.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A
+
+
+
+Upload 12 LFS files:   0%|          | 0/12 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[A
+
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 39.7kB/s][A[Acheckpoint_epoch_2.pt:   0%|          | 16.4k/1.27G [00:00<2:46:33, 127kB/s]
+checkpoint_epoch_5.pt:   0%|          | 16.4k/1.27G [00:00<2:29:14, 142kB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 21.3kB/s]
+
+checkpoint_epoch_5.pt:   0%|          | 5.11M/1.27G [00:00<00:45, 28.1MB/s] [Acheckpoint_epoch_2.pt:   0%|          | 836k/1.27G [00:00<04:56, 4.28MB/s]  task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 20.3kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 19.2kB/s]
+checkpoint_epoch_2.pt:   0%|          | 2.70M/1.27G [00:00<02:04, 10.2MB/s]checkpoint_epoch_2.pt:   1%|          | 6.88M/1.27G [00:00<00:58, 21.5MB/s]
+checkpoint_epoch_5.pt:   1%|▏         | 16.0M/1.27G [00:00<00:32, 38.2MB/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 42.9kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 40.2kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 42.8kB/s]
+checkpoint_epoch_2.pt:   1%|▏         | 16.0M/1.27G [00:00<00:40, 31.0MB/s]
+checkpoint_epoch_5.pt:   3%|▎         | 32.0M/1.27G [00:00<00:24, 50.1MB/s][Acheckpoint_epoch_2.pt:   2%|▏         | 22.8M/1.27G [00:00<00:31, 40.2MB/s]
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A
+checkpoint_epoch_5.pt:   4%|▎         | 46.5M/1.27G [00:00<00:17, 70.0MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 47.4kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 47.9kB/s]
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 41.5kB/s]
+checkpoint_epoch_2.pt:   3%|▎         | 32.0M/1.27G [00:01<00:33, 36.8MB/s]
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+checkpoint_epoch_5.pt:   4%|▍         | 54.6M/1.27G [00:01<00:25, 48.6MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 50.0kB/s]
+checkpoint_epoch_2.pt:   3%|▎         | 42.3M/1.27G [00:01<00:24, 49.7MB/s]
+checkpoint_epoch_5.pt:   5%|▌         | 64.0M/1.27G [00:01<00:26, 45.0MB/s][Acheckpoint_epoch_2.pt:   4%|▍         | 48.1M/1.27G [00:01<00:32, 38.1MB/s]
+checkpoint_epoch_5.pt:   6%|▌         | 75.9M/1.27G [00:01<00:21, 56.4MB/s][Acheckpoint_epoch_2.pt:   5%|▌         | 64.0M/1.27G [00:01<00:25, 47.0MB/s]
+checkpoint_epoch_5.pt:   7%|▋         | 82.9M/1.27G [00:01<00:26, 44.7MB/s][Acheckpoint_epoch_2.pt:   6%|▋         | 80.0M/1.27G [00:01<00:23, 50.0MB/s]
+checkpoint_epoch_5.pt:   8%|▊         | 96.0M/1.27G [00:02<00:25, 45.7MB/s][Acheckpoint_epoch_2.pt:   7%|▋         | 92.0M/1.27G [00:02<00:19, 60.3MB/s]checkpoint_epoch_2.pt:   8%|▊         | 99.1M/1.27G [00:02<00:24, 48.5MB/s]
+checkpoint_epoch_5.pt:   9%|▉         | 112M/1.27G [00:02<00:24, 46.8MB/s] [Acheckpoint_epoch_2.pt:   8%|▊         | 108M/1.27G [00:02<00:21, 55.1MB/s] 
+checkpoint_epoch_5.pt:  10%|█         | 128M/1.27G [00:02<00:23, 49.6MB/s][Acheckpoint_epoch_2.pt:   9%|▉         | 115M/1.27G [00:02<00:27, 42.9MB/s]
+checkpoint_epoch_5.pt:  11%|█         | 139M/1.27G [00:02<00:19, 58.4MB/s][Acheckpoint_epoch_2.pt:  10%|█         | 128M/1.27G [00:02<00:24, 47.7MB/s]
+checkpoint_epoch_5.pt:  12%|█▏        | 147M/1.27G [00:03<00:23, 47.2MB/s][A
+checkpoint_epoch_5.pt:  12%|█▏        | 156M/1.27G [00:03<00:20, 54.1MB/s][Acheckpoint_epoch_2.pt:  11%|█▏        | 144M/1.27G [00:03<00:21, 53.4MB/s]checkpoint_epoch_2.pt:  13%|█▎        | 160M/1.27G [00:03<00:15, 70.0MB/s]
+checkpoint_epoch_5.pt:  13%|█▎        | 163M/1.27G [00:03<00:28, 39.6MB/s][Acheckpoint_epoch_2.pt:  13%|█▎        | 169M/1.27G [00:03<00:20, 54.7MB/s]
+checkpoint_epoch_5.pt:  14%|█▍        | 176M/1.27G [00:03<00:24, 44.4MB/s][A
+checkpoint_epoch_5.pt:  15%|█▍        | 188M/1.27G [00:03<00:19, 54.9MB/s][Acheckpoint_epoch_2.pt:  14%|█▍        | 176M/1.27G [00:03<00:24, 45.3MB/s]checkpoint_epoch_2.pt:  15%|█▍        | 188M/1.27G [00:03<00:19, 56.9MB/s]
+checkpoint_epoch_5.pt:  15%|█▌        | 195M/1.27G [00:04<00:23, 45.4MB/s][Acheckpoint_epoch_2.pt:  15%|█▌        | 196M/1.27G [00:04<00:23, 45.1MB/s]checkpoint_epoch_2.pt:  16%|█▌        | 204M/1.27G [00:04<00:21, 50.6MB/s]
+checkpoint_epoch_5.pt:  16%|█▋        | 208M/1.27G [00:04<00:22, 46.6MB/s][A
+checkpoint_epoch_5.pt:  17%|█▋        | 220M/1.27G [00:04<00:18, 56.7MB/s][Acheckpoint_epoch_2.pt:  17%|█▋        | 211M/1.27G [00:04<00:26, 40.8MB/s]checkpoint_epoch_2.pt:  17%|█▋        | 221M/1.27G [00:04<00:21, 49.4MB/s]
+checkpoint_epoch_5.pt:  18%|█▊        | 227M/1.27G [00:04<00:23, 44.6MB/s][Acheckpoint_epoch_2.pt:  18%|█▊        | 227M/1.27G [00:04<00:25, 41.4MB/s]
+checkpoint_epoch_5.pt:  19%|█▉        | 240M/1.27G [00:04<00:21, 47.2MB/s][Acheckpoint_epoch_2.pt:  19%|█▉        | 240M/1.27G [00:05<00:22, 46.7MB/s]checkpoint_epoch_2.pt:  20%|█▉        | 253M/1.27G [00:05<00:16, 61.4MB/s]
+checkpoint_epoch_5.pt:  20%|██        | 256M/1.27G [00:05<00:20, 50.4MB/s][A
+checkpoint_epoch_5.pt:  21%|██▏       | 272M/1.27G [00:05<00:18, 53.9MB/s][Acheckpoint_epoch_2.pt:  21%|██        | 261M/1.27G [00:05<00:21, 47.6MB/s]
+checkpoint_epoch_5.pt:  22%|██▏       | 284M/1.27G [00:05<00:15, 61.9MB/s][Acheckpoint_epoch_2.pt:  21%|██        | 270M/1.27G [00:05<00:18, 53.7MB/s]
+checkpoint_epoch_5.pt:  23%|██▎       | 291M/1.27G [00:05<00:19, 50.3MB/s][Acheckpoint_epoch_2.pt:  22%|██▏       | 277M/1.27G [00:05<00:23, 43.0MB/s]
+checkpoint_epoch_5.pt:  24%|██▍       | 304M/1.27G [00:06<00:18, 51.2MB/s][Acheckpoint_epoch_2.pt:  23%|██▎       | 288M/1.27G [00:06<00:22, 43.7MB/s]
+checkpoint_epoch_5.pt:  25%|██▍       | 316M/1.27G [00:06<00:15, 61.3MB/s][Acheckpoint_epoch_2.pt:  24%|██▍       | 304M/1.27G [00:06<00:19, 49.9MB/s]
+checkpoint_epoch_5.pt:  25%|██▌       | 323M/1.27G [00:06<00:19, 48.1MB/s][Acheckpoint_epoch_2.pt:  25%|██▍       | 317M/1.27G [00:06<00:15, 61.8MB/s]
+checkpoint_epoch_5.pt:  26%|██▋       | 336M/1.27G [00:06<00:20, 46.4MB/s][Acheckpoint_epoch_2.pt:  25%|██▌       | 324M/1.27G [00:06<00:19, 47.5MB/s]checkpoint_epoch_2.pt:  26%|██▋       | 336M/1.27G [00:07<00:19, 47.9MB/s]
+checkpoint_epoch_5.pt:  28%|██▊       | 352M/1.27G [00:07<00:18, 51.2MB/s][Acheckpoint_epoch_2.pt:  28%|██▊       | 352M/1.27G [00:07<00:17, 53.0MB/s]
+checkpoint_epoch_5.pt:  29%|██▉       | 368M/1.27G [00:07<00:16, 54.2MB/s][Acheckpoint_epoch_2.pt:  29%|██▉       | 368M/1.27G [00:07<00:15, 57.3MB/s]
+checkpoint_epoch_5.pt:  30%|███       | 384M/1.27G [00:07<00:15, 56.8MB/s][Acheckpoint_epoch_2.pt:  30%|███       | 384M/1.27G [00:07<00:15, 58.9MB/s]
+checkpoint_epoch_5.pt:  31%|███▏      | 400M/1.27G [00:07<00:15, 56.0MB/s][Acheckpoint_epoch_2.pt:  31%|███▏      | 400M/1.27G [00:08<00:14, 61.6MB/s]
+checkpoint_epoch_5.pt:  33%|███▎      | 416M/1.27G [00:08<00:14, 59.3MB/s][A
+checkpoint_epoch_5.pt:  34%|███▎      | 428M/1.27G [00:08<00:12, 68.1MB/s][Acheckpoint_epoch_2.pt:  33%|███▎      | 416M/1.27G [00:08<00:13, 62.1MB/s]checkpoint_epoch_2.pt:  34%|███▎      | 429M/1.27G [00:08<00:11, 70.7MB/s]
+checkpoint_epoch_5.pt:  34%|███▍      | 436M/1.27G [00:08<00:15, 54.2MB/s][Acheckpoint_epoch_2.pt:  34%|███▍      | 437M/1.27G [00:08<00:15, 53.6MB/s]
+checkpoint_epoch_5.pt:  35%|███▌      | 448M/1.27G [00:08<00:15, 52.3MB/s][A
+checkpoint_epoch_5.pt:  36%|███▌      | 459M/1.27G [00:08<00:13, 61.4MB/s][Acheckpoint_epoch_2.pt:  35%|███▌      | 448M/1.27G [00:09<00:16, 48.7MB/s]
+checkpoint_epoch_5.pt:  37%|███▋      | 467M/1.27G [00:09<00:17, 47.3MB/s][Acheckpoint_epoch_2.pt:  36%|███▋      | 464M/1.27G [00:09<00:15, 52.9MB/s]
+checkpoint_epoch_5.pt:  38%|███▊      | 480M/1.27G [00:09<00:15, 51.2MB/s][Acheckpoint_epoch_2.pt:  38%|███▊      | 480M/1.27G [00:09<00:15, 52.1MB/s]
+checkpoint_epoch_5.pt:  39%|███▉      | 496M/1.27G [00:09<00:13, 56.6MB/s][Acheckpoint_epoch_2.pt:  39%|███▉      | 496M/1.27G [00:09<00:13, 57.0MB/s]
+checkpoint_epoch_5.pt:  40%|████      | 512M/1.27G [00:09<00:12, 59.4MB/s][Acheckpoint_epoch_2.pt:  40%|████      | 512M/1.27G [00:10<00:12, 59.5MB/s]
+checkpoint_epoch_5.pt:  41%|████▏     | 528M/1.27G [00:10<00:12, 59.1MB/s][Acheckpoint_epoch_2.pt:  41%|████▏     | 528M/1.27G [00:10<00:12, 61.4MB/s]
+checkpoint_epoch_5.pt:  43%|████▎     | 544M/1.27G [00:10<00:11, 62.1MB/s][Acheckpoint_epoch_2.pt:  43%|████▎     | 544M/1.27G [00:10<00:12, 59.6MB/s]
+checkpoint_epoch_5.pt:  44%|████▍     | 560M/1.27G [00:10<00:11, 62.0MB/s][Acheckpoint_epoch_2.pt:  44%|████▍     | 560M/1.27G [00:10<00:11, 62.5MB/s]
+checkpoint_epoch_5.pt:  45%|████▌     | 576M/1.27G [00:10<00:11, 59.5MB/s][Acheckpoint_epoch_2.pt:  45%|████▌     | 576M/1.27G [00:11<00:11, 61.6MB/s]
+checkpoint_epoch_5.pt:  47%|████▋     | 592M/1.27G [00:11<00:10, 62.8MB/s][Acheckpoint_epoch_2.pt:  47%|████▋     | 592M/1.27G [00:11<00:11, 61.5MB/s]
+checkpoint_epoch_5.pt:  48%|████▊     | 608M/1.27G [00:11<00:10, 63.6MB/s][A
+checkpoint_epoch_5.pt:  49%|████▊     | 619M/1.27G [00:11<00:09, 70.1MB/s][Acheckpoint_epoch_2.pt:  48%|████▊     | 608M/1.27G [00:11<00:10, 63.5MB/s]
+checkpoint_epoch_5.pt:  49%|████▉     | 627M/1.27G [00:11<00:11, 54.3MB/s][Acheckpoint_epoch_2.pt:  49%|████▉     | 624M/1.27G [00:11<00:10, 60.9MB/s]
+checkpoint_epoch_5.pt:  50%|█████     | 640M/1.27G [00:12<00:11, 53.3MB/s][Acheckpoint_epoch_2.pt:  50%|█████     | 640M/1.27G [00:12<00:10, 61.4MB/s]
+checkpoint_epoch_5.pt:  52%|█████▏    | 656M/1.27G [00:12<00:10, 57.0MB/s][Acheckpoint_epoch_2.pt:  52%|█████▏    | 656M/1.27G [00:12<00:11, 55.6MB/s]
+checkpoint_epoch_5.pt:  53%|█████▎    | 672M/1.27G [00:12<00:10, 59.3MB/s][Acheckpoint_epoch_2.pt:  53%|█████▎    | 672M/1.27G [00:12<00:10, 58.9MB/s]
+checkpoint_epoch_5.pt:  54%|█████▍    | 688M/1.27G [00:12<00:09, 62.3MB/s][Acheckpoint_epoch_2.pt:  54%|█████▍    | 688M/1.27G [00:12<00:09, 61.5MB/s]
+checkpoint_epoch_5.pt:  55%|█████▌    | 704M/1.27G [00:12<00:08, 63.7MB/s][Acheckpoint_epoch_2.pt:  55%|█████▌    | 704M/1.27G [00:13<00:09, 62.0MB/s]
+checkpoint_epoch_5.pt:  57%|█████▋    | 720M/1.27G [00:13<00:08, 65.0MB/s][A
+checkpoint_epoch_5.pt:  57%|█████▋    | 731M/1.27G [00:13<00:07, 71.0MB/s][Acheckpoint_epoch_2.pt:  57%|█████▋    | 720M/1.27G [00:13<00:08, 63.5MB/s]
+checkpoint_epoch_5.pt:  58%|█████▊    | 739M/1.27G [00:13<00:09, 53.5MB/s][Acheckpoint_epoch_2.pt:  58%|█████▊    | 736M/1.27G [00:13<00:08, 62.6MB/s]
+checkpoint_epoch_5.pt:  59%|█████▉    | 752M/1.27G [00:13<00:09, 52.8MB/s][Acheckpoint_epoch_2.pt:  59%|█████▉    | 752M/1.27G [00:13<00:08, 63.5MB/s]
+checkpoint_epoch_5.pt:  60%|██████    | 768M/1.27G [00:14<00:09, 53.5MB/s][Acheckpoint_epoch_2.pt:  60%|██████    | 768M/1.27G [00:14<00:07, 64.6MB/s]
+checkpoint_epoch_5.pt:  62%|██████▏   | 784M/1.27G [00:14<00:08, 57.3MB/s][Acheckpoint_epoch_2.pt:  62%|██████▏   | 784M/1.27G [00:14<00:07, 64.0MB/s]
+checkpoint_epoch_5.pt:  62%|██████▏   | 795M/1.27G [00:14<00:07, 64.5MB/s][Acheckpoint_epoch_2.pt:  63%|██████▎   | 800M/1.27G [00:14<00:07, 65.2MB/s]
+checkpoint_epoch_5.pt:  63%|██████▎   | 802M/1.27G [00:14<00:09, 51.3MB/s][Acheckpoint_epoch_2.pt:  64%|██████▍   | 816M/1.27G [00:14<00:07, 64.0MB/s]
+checkpoint_epoch_5.pt:  64%|██████▍   | 816M/1.27G [00:14<00:08, 54.1MB/s][Acheckpoint_epoch_2.pt:  65%|██████▌   | 832M/1.27G [00:15<00:06, 65.4MB/s]
+checkpoint_epoch_5.pt:  65%|██████▌   | 832M/1.27G [00:15<00:07, 58.0MB/s][Acheckpoint_epoch_2.pt:  67%|██████▋   | 848M/1.27G [00:15<00:06, 67.1MB/s]
+checkpoint_epoch_5.pt:  67%|██████▋   | 848M/1.27G [00:15<00:06, 60.9MB/s][Acheckpoint_epoch_2.pt:  68%|██████▊   | 864M/1.27G [00:15<00:06, 67.5MB/s]
+checkpoint_epoch_5.pt:  68%|██████▊   | 864M/1.27G [00:15<00:06, 60.0MB/s][Acheckpoint_epoch_2.pt:  69%|██████▉   | 880M/1.27G [00:15<00:05, 68.6MB/s]
+checkpoint_epoch_5.pt:  69%|██████▉   | 880M/1.27G [00:16<00:06, 60.6MB/s][Acheckpoint_epoch_2.pt:  70%|███████   | 896M/1.27G [00:16<00:05, 67.7MB/s]
+checkpoint_epoch_5.pt:  70%|███████   | 896M/1.27G [00:16<00:06, 61.8MB/s][Acheckpoint_epoch_2.pt:  72%|███████▏  | 912M/1.27G [00:16<00:05, 65.8MB/s]
+checkpoint_epoch_5.pt:  72%|███████▏  | 912M/1.27G [00:16<00:06, 59.9MB/s][Acheckpoint_epoch_2.pt:  73%|███████▎  | 928M/1.27G [00:16<00:05, 67.0MB/s]
+checkpoint_epoch_5.pt:  73%|███████▎  | 928M/1.27G [00:16<00:05, 62.4MB/s][Acheckpoint_epoch_2.pt:  74%|███████▍  | 944M/1.27G [00:16<00:05, 64.4MB/s]
+checkpoint_epoch_5.pt:  74%|███████▍  | 940M/1.27G [00:16<00:04, 69.3MB/s][Acheckpoint_epoch_2.pt:  75%|███████▌  | 960M/1.27G [00:17<00:05, 62.1MB/s]
+checkpoint_epoch_5.pt:  74%|███████▍  | 947M/1.27G [00:17<00:05, 55.0MB/s][Acheckpoint_epoch_2.pt:  77%|███████▋  | 976M/1.27G [00:17<00:04, 62.4MB/s]
+checkpoint_epoch_5.pt:  75%|███████▌  | 960M/1.27G [00:17<00:06, 51.4MB/s][Acheckpoint_epoch_2.pt:  78%|███████▊  | 992M/1.27G [00:17<00:04, 62.9MB/s]
+checkpoint_epoch_5.pt:  77%|███████▋  | 976M/1.27G [00:17<00:05, 56.5MB/s][Acheckpoint_epoch_2.pt:  79%|███████▉  | 1.01G/1.27G [00:17<00:04, 64.6MB/s]
+checkpoint_epoch_5.pt:  78%|███████▊  | 992M/1.27G [00:17<00:04, 58.6MB/s][Acheckpoint_epoch_2.pt:  80%|████████  | 1.02G/1.27G [00:18<00:03, 66.9MB/s]
+checkpoint_epoch_5.pt:  79%|███████▉  | 1.01G/1.27G [00:18<00:04, 62.2MB/s][Acheckpoint_epoch_2.pt:  82%|████████▏ | 1.04G/1.27G [00:18<00:03, 65.2MB/s]
+checkpoint_epoch_5.pt:  80%|████████  | 1.02G/1.27G [00:18<00:04, 61.7MB/s][Acheckpoint_epoch_2.pt:  83%|████████▎ | 1.06G/1.27G [00:18<00:03, 65.1MB/s]
+checkpoint_epoch_5.pt:  82%|████████▏ | 1.04G/1.27G [00:18<00:03, 63.2MB/s][Acheckpoint_epoch_2.pt:  84%|████████▍ | 1.07G/1.27G [00:18<00:03, 66.5MB/s]
+checkpoint_epoch_5.pt:  83%|████████▎ | 1.06G/1.27G [00:18<00:03, 65.6MB/s][Acheckpoint_epoch_2.pt:  85%|████████▌ | 1.09G/1.27G [00:19<00:02, 67.0MB/s]
+checkpoint_epoch_5.pt:  84%|████████▍ | 1.07G/1.27G [00:19<00:03, 66.5MB/s][Acheckpoint_epoch_2.pt:  87%|████████▋ | 1.10G/1.27G [00:19<00:02, 67.2MB/s]
+checkpoint_epoch_5.pt:  85%|████████▌ | 1.09G/1.27G [00:19<00:02, 66.6MB/s][Acheckpoint_epoch_2.pt:  88%|████████▊ | 1.12G/1.27G [00:19<00:02, 68.7MB/s]
+checkpoint_epoch_5.pt:  87%|████████▋ | 1.10G/1.27G [00:19<00:02, 66.4MB/s][Acheckpoint_epoch_2.pt:  89%|████████▉ | 1.14G/1.27G [00:19<00:01, 68.6MB/s]
+checkpoint_epoch_5.pt:  88%|████████▊ | 1.12G/1.27G [00:19<00:02, 65.4MB/s][Acheckpoint_epoch_2.pt:  90%|█████████ | 1.15G/1.27G [00:19<00:01, 68.0MB/s]
+checkpoint_epoch_5.pt:  89%|████████▉ | 1.14G/1.27G [00:20<00:02, 65.2MB/s][Acheckpoint_epoch_2.pt:  92%|█████████▏| 1.17G/1.27G [00:20<00:01, 65.4MB/s]
+checkpoint_epoch_5.pt:  90%|█████████ | 1.15G/1.27G [00:20<00:01, 63.8MB/s][Acheckpoint_epoch_2.pt:  93%|█████████▎| 1.18G/1.27G [00:20<00:01, 65.0MB/s]
+checkpoint_epoch_5.pt:  92%|█████████▏| 1.17G/1.27G [00:20<00:01, 63.5MB/s][Acheckpoint_epoch_2.pt:  94%|█████████▍| 1.20G/1.27G [00:20<00:01, 64.6MB/s]
+checkpoint_epoch_5.pt:  93%|█████████▎| 1.18G/1.27G [00:20<00:01, 61.1MB/s][Acheckpoint_epoch_2.pt:  96%|█████████▌| 1.22G/1.27G [00:20<00:00, 66.0MB/s]
+checkpoint_epoch_5.pt:  94%|█████████▍| 1.20G/1.27G [00:20<00:01, 67.5MB/s][Acheckpoint_epoch_2.pt:  97%|█████████▋| 1.23G/1.27G [00:21<00:00, 66.3MB/s]
+checkpoint_epoch_5.pt:  94%|█████████▍| 1.20G/1.27G [00:21<00:01, 51.6MB/s][Acheckpoint_epoch_2.pt:  98%|█████████▊| 1.25G/1.27G [00:21<00:00, 68.1MB/s]
+checkpoint_epoch_5.pt:  96%|█████████▌| 1.22G/1.27G [00:21<00:01, 52.3MB/s][Acheckpoint_epoch_2.pt:  99%|█████████▉| 1.26G/1.27G [00:21<00:00, 66.6MB/s]
+checkpoint_epoch_5.pt:  97%|█████████▋| 1.23G/1.27G [00:21<00:00, 57.2MB/s][Acheckpoint_epoch_2.pt: 100%|██████████| 1.27G/1.27G [00:21<00:00, 58.2MB/s]
+
+checkpoint_epoch_5.pt:  98%|█████████▊| 1.25G/1.27G [00:22<00:00, 60.2MB/s][A
+
+
+
+Upload 12 LFS files:   8%|▊         | 1/12 [00:22<04:02, 22.09s/it][A[A[A[A
+checkpoint_epoch_5.pt:  99%|█████████▉| 1.26G/1.27G [00:22<00:00, 61.0MB/s][Acheckpoint_epoch_5.pt: 100%|██████████| 1.27G/1.27G [00:22<00:00, 56.7MB/s]
+
+
+
+
+Upload 12 LFS files:  17%|█▋        | 2/12 [00:22<01:34,  9.42s/it][A[A[A[AUpload 12 LFS files: 100%|██████████| 12/12 [00:22<00:00,  1.89s/it]
+[2026-10-30 10:39:01] libero_10 uploaded commit 4544aebb8c72b41af043efd97373dd0803e80a76 sha256 all match: True
+[2026-10-30 11:10:10] libero_goal committing 20 files
+checkpoint_epoch_2.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s]
+checkpoint_epoch_5.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+Upload 12 LFS files:   0%|          | 0/12 [00:00<?, ?it/s][A[A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[A
+
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 39.6kB/s][A[Acheckpoint_epoch_2.pt:   0%|          | 16.4k/1.27G [00:00<2:37:56, 134kB/s]
+checkpoint_epoch_5.pt:   0%|          | 16.4k/1.27G [00:00<2:34:04, 138kB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 21.9kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 23.3kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 22.5kB/s]
+
+checkpoint_epoch_5.pt:   0%|          | 721k/1.27G [00:00<05:27, 3.89MB/s]  [Acheckpoint_epoch_2.pt:   0%|          | 786k/1.27G [00:00<05:10, 4.10MB/s]  checkpoint_epoch_2.pt:   0%|          | 2.51M/1.27G [00:00<02:11, 9.65MB/s]
+checkpoint_epoch_5.pt:   0%|          | 2.38M/1.27G [00:00<02:17, 9.22MB/s][Acheckpoint_epoch_2.pt:   0%|          | 6.18M/1.27G [00:00<01:03, 19.9MB/s]
+checkpoint_epoch_5.pt:   0%|          | 6.03M/1.27G [00:00<01:05, 19.3MB/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 47.9kB/s]
+checkpoint_epoch_2.pt:   1%|          | 14.4M/1.27G [00:00<00:30, 41.7MB/s]
+checkpoint_epoch_5.pt:   1%|          | 14.5M/1.27G [00:00<00:29, 42.2MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 44.4kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 36.2kB/s]
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[Acheckpoint_epoch_2.pt:   1%|▏         | 18.7M/1.27G [00:00<00:37, 33.4MB/s]
+checkpoint_epoch_5.pt:   1%|▏         | 18.9M/1.27G [00:00<00:36, 34.1MB/s][A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 47.7kB/s]
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[Acheckpoint_epoch_2.pt:   2%|▏         | 26.0M/1.27G [00:00<00:28, 44.2MB/s]task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 34.8kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 38.8kB/s]
+
+checkpoint_epoch_5.pt:   3%|▎         | 32.0M/1.27G [00:00<00:28, 44.1MB/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 49.6kB/s]
+checkpoint_epoch_2.pt:   3%|▎         | 32.0M/1.27G [00:01<00:36, 34.4MB/s]checkpoint_epoch_2.pt:   3%|▎         | 39.8M/1.27G [00:01<00:28, 44.0MB/s]
+checkpoint_epoch_5.pt:   4%|▍         | 48.0M/1.27G [00:01<00:24, 50.7MB/s][Acheckpoint_epoch_2.pt:   4%|▍         | 48.0M/1.27G [00:01<00:32, 37.8MB/s]
+checkpoint_epoch_5.pt:   5%|▌         | 64.0M/1.27G [00:01<00:23, 51.3MB/s][Acheckpoint_epoch_2.pt:   5%|▍         | 58.1M/1.27G [00:01<00:24, 50.0MB/s]checkpoint_epoch_2.pt:   5%|▌         | 64.3M/1.27G [00:01<00:31, 38.1MB/s]
+checkpoint_epoch_5.pt:   6%|▋         | 80.0M/1.27G [00:01<00:23, 50.1MB/s][Acheckpoint_epoch_2.pt:   6%|▌         | 74.7M/1.27G [00:01<00:23, 50.2MB/s]
+checkpoint_epoch_5.pt:   8%|▊         | 96.0M/1.27G [00:02<00:22, 52.1MB/s][Acheckpoint_epoch_2.pt:   6%|▋         | 81.4M/1.27G [00:02<00:31, 38.4MB/s]checkpoint_epoch_2.pt:   7%|▋         | 91.0M/1.27G [00:02<00:24, 48.5MB/s]
+checkpoint_epoch_5.pt:   9%|▉         | 112M/1.27G [00:02<00:21, 53.5MB/s] [Acheckpoint_epoch_2.pt:   8%|▊         | 97.6M/1.27G [00:02<00:29, 39.6MB/s]checkpoint_epoch_2.pt:   8%|▊         | 108M/1.27G [00:02<00:23, 50.4MB/s] 
+checkpoint_epoch_5.pt:  10%|█         | 128M/1.27G [00:02<00:21, 53.2MB/s][A
+checkpoint_epoch_5.pt:  11%|█         | 141M/1.27G [00:02<00:18, 62.2MB/s][Acheckpoint_epoch_2.pt:   9%|▉         | 114M/1.27G [00:02<00:29, 39.7MB/s]checkpoint_epoch_2.pt:  10%|▉         | 123M/1.27G [00:03<00:23, 47.9MB/s]
+checkpoint_epoch_5.pt:  12%|█▏        | 148M/1.27G [00:03<00:21, 51.2MB/s][A
+checkpoint_epoch_5.pt:  12%|█▏        | 158M/1.27G [00:03<00:19, 57.8MB/s][Acheckpoint_epoch_2.pt:  10%|█         | 129M/1.27G [00:03<00:29, 38.3MB/s]checkpoint_epoch_2.pt:  11%|█         | 141M/1.27G [00:03<00:22, 51.1MB/s]
+checkpoint_epoch_5.pt:  13%|█▎        | 165M/1.27G [00:03<00:25, 42.7MB/s][Acheckpoint_epoch_2.pt:  12%|█▏        | 148M/1.27G [00:03<00:28, 39.5MB/s]
+checkpoint_epoch_5.pt:  14%|█▍        | 176M/1.27G [00:03<00:26, 42.1MB/s][Acheckpoint_epoch_2.pt:  12%|█▏        | 157M/1.27G [00:03<00:23, 47.4MB/s]
+checkpoint_epoch_5.pt:  15%|█▍        | 187M/1.27G [00:03<00:20, 52.4MB/s][Acheckpoint_epoch_2.pt:  13%|█▎        | 163M/1.27G [00:04<00:31, 35.4MB/s]
+checkpoint_epoch_5.pt:  15%|█▌        | 194M/1.27G [00:04<00:26, 41.0MB/s][Acheckpoint_epoch_2.pt:  14%|█▎        | 173M/1.27G [00:04<00:24, 44.4MB/s]checkpoint_epoch_2.pt:  14%|█▍        | 179M/1.27G [00:04<00:29, 37.6MB/s]
+checkpoint_epoch_5.pt:  16%|█▋        | 208M/1.27G [00:04<00:26, 40.7MB/s][Acheckpoint_epoch_2.pt:  15%|█▍        | 187M/1.27G [00:04<00:24, 44.7MB/s]
+checkpoint_epoch_5.pt:  18%|█▊        | 224M/1.27G [00:04<00:23, 45.2MB/s][Acheckpoint_epoch_2.pt:  15%|█▌        | 193M/1.27G [00:04<00:30, 36.0MB/s]
+checkpoint_epoch_5.pt:  19%|█▊        | 237M/1.27G [00:04<00:18, 56.9MB/s][Acheckpoint_epoch_2.pt:  16%|█▋        | 208M/1.27G [00:05<00:25, 41.4MB/s]
+checkpoint_epoch_5.pt:  19%|█▉        | 245M/1.27G [00:05<00:22, 45.7MB/s][Acheckpoint_epoch_2.pt:  17%|█▋        | 220M/1.27G [00:05<00:19, 53.9MB/s]
+checkpoint_epoch_5.pt:  20%|██        | 256M/1.27G [00:05<00:22, 44.9MB/s][Acheckpoint_epoch_2.pt:  18%|█▊        | 227M/1.27G [00:05<00:23, 43.9MB/s]
+checkpoint_epoch_5.pt:  21%|██        | 267M/1.27G [00:05<00:18, 54.7MB/s][Acheckpoint_epoch_2.pt:  19%|█▊        | 236M/1.27G [00:05<00:20, 50.3MB/s]
+checkpoint_epoch_5.pt:  22%|██▏       | 275M/1.27G [00:05<00:22, 45.3MB/s][Acheckpoint_epoch_2.pt:  19%|█▉        | 242M/1.27G [00:05<00:25, 40.1MB/s]
+checkpoint_epoch_5.pt:  22%|██▏       | 284M/1.27G [00:05<00:18, 52.3MB/s][Acheckpoint_epoch_2.pt:  20%|██        | 256M/1.27G [00:06<00:22, 45.6MB/s]
+checkpoint_epoch_5.pt:  23%|██▎       | 290M/1.27G [00:06<00:23, 42.7MB/s][Acheckpoint_epoch_2.pt:  21%|██        | 268M/1.27G [00:06<00:17, 57.5MB/s]
+checkpoint_epoch_5.pt:  24%|██▍       | 304M/1.27G [00:06<00:21, 46.1MB/s][Acheckpoint_epoch_2.pt:  22%|██▏       | 276M/1.27G [00:06<00:28, 35.1MB/s]
+checkpoint_epoch_5.pt:  25%|██▌       | 320M/1.27G [00:06<00:21, 45.3MB/s][Acheckpoint_epoch_2.pt:  23%|██▎       | 288M/1.27G [00:06<00:24, 40.2MB/s]
+checkpoint_epoch_5.pt:  26%|██▋       | 336M/1.27G [00:07<00:18, 50.3MB/s][A
+checkpoint_epoch_5.pt:  27%|██▋       | 347M/1.27G [00:07<00:15, 59.1MB/s][Acheckpoint_epoch_2.pt:  24%|██▍       | 304M/1.27G [00:07<00:20, 46.7MB/s]checkpoint_epoch_2.pt:  25%|██▍       | 316M/1.27G [00:07<00:17, 56.2MB/s]
+checkpoint_epoch_5.pt:  28%|██▊       | 355M/1.27G [00:07<00:19, 46.8MB/s][Acheckpoint_epoch_2.pt:  25%|██▌       | 323M/1.27G [00:07<00:20, 47.4MB/s]checkpoint_epoch_2.pt:  26%|██▌       | 333M/1.27G [00:07<00:17, 55.2MB/s]
+checkpoint_epoch_5.pt:  29%|██▉       | 368M/1.27G [00:07<00:18, 47.7MB/s][A
+checkpoint_epoch_5.pt:  30%|██▉       | 378M/1.27G [00:07<00:16, 55.6MB/s][Acheckpoint_epoch_2.pt:  27%|██▋       | 340M/1.27G [00:07<00:20, 45.8MB/s]checkpoint_epoch_2.pt:  28%|██▊       | 352M/1.27G [00:08<00:19, 47.8MB/s]
+checkpoint_epoch_5.pt:  30%|███       | 385M/1.27G [00:08<00:21, 41.7MB/s][Acheckpoint_epoch_2.pt:  29%|██▊       | 364M/1.27G [00:08<00:15, 59.9MB/s]
+checkpoint_epoch_5.pt:  31%|███       | 396M/1.27G [00:08<00:17, 51.1MB/s][Acheckpoint_epoch_2.pt:  29%|██▉       | 372M/1.27G [00:08<00:19, 47.3MB/s]
+checkpoint_epoch_5.pt:  32%|███▏      | 403M/1.27G [00:08<00:20, 42.6MB/s][Acheckpoint_epoch_2.pt:  30%|██▉       | 380M/1.27G [00:08<00:16, 53.3MB/s]
+checkpoint_epoch_5.pt:  33%|███▎      | 416M/1.27G [00:08<00:17, 47.8MB/s][Acheckpoint_epoch_2.pt:  30%|███       | 387M/1.27G [00:08<00:20, 42.6MB/s]checkpoint_epoch_2.pt:  31%|███       | 395M/1.27G [00:08<00:17, 49.5MB/s]
+checkpoint_epoch_5.pt:  34%|███▍      | 432M/1.27G [00:08<00:15, 53.9MB/s][A
+checkpoint_epoch_5.pt:  35%|███▍      | 445M/1.27G [00:09<00:12, 65.6MB/s][Acheckpoint_epoch_2.pt:  32%|███▏      | 401M/1.27G [00:09<00:22, 38.9MB/s]
+checkpoint_epoch_5.pt:  36%|███▌      | 453M/1.27G [00:09<00:15, 52.4MB/s][Acheckpoint_epoch_2.pt:  33%|███▎      | 416M/1.27G [00:09<00:18, 46.5MB/s]checkpoint_epoch_2.pt:  34%|███▎      | 427M/1.27G [00:09<00:14, 57.9MB/s]
+checkpoint_epoch_5.pt:  36%|███▋      | 464M/1.27G [00:09<00:16, 50.3MB/s][Acheckpoint_epoch_2.pt:  34%|███▍      | 435M/1.27G [00:09<00:18, 46.1MB/s]
+checkpoint_epoch_5.pt:  38%|███▊      | 480M/1.27G [00:09<00:15, 50.0MB/s][Acheckpoint_epoch_2.pt:  35%|███▍      | 445M/1.27G [00:09<00:15, 54.3MB/s]
+checkpoint_epoch_5.pt:  39%|███▊      | 492M/1.27G [00:10<00:13, 58.4MB/s][Acheckpoint_epoch_2.pt:  35%|███▌      | 452M/1.27G [00:10<00:18, 43.7MB/s]
+checkpoint_epoch_5.pt:  39%|███▉      | 499M/1.27G [00:10<00:16, 46.4MB/s][Acheckpoint_epoch_2.pt:  36%|███▌      | 461M/1.27G [00:10<00:15, 51.9MB/s]
+checkpoint_epoch_5.pt:  40%|████      | 512M/1.27G [00:10<00:15, 48.2MB/s][Acheckpoint_epoch_2.pt:  37%|███▋      | 467M/1.27G [00:10<00:19, 41.4MB/s]
+checkpoint_epoch_5.pt:  41%|████▏     | 528M/1.27G [00:10<00:11, 64.6MB/s][Acheckpoint_epoch_2.pt:  37%|███▋      | 476M/1.27G [00:10<00:16, 49.2MB/s]
+checkpoint_epoch_5.pt:  42%|████▏     | 536M/1.27G [00:10<00:13, 54.0MB/s][Acheckpoint_epoch_2.pt:  38%|███▊      | 482M/1.27G [00:11<00:21, 36.4MB/s]checkpoint_epoch_2.pt:  39%|███▊      | 491M/1.27G [00:11<00:17, 45.1MB/s]
+checkpoint_epoch_5.pt:  43%|████▎     | 544M/1.27G [00:11<00:15, 47.2MB/s][Acheckpoint_epoch_2.pt:  39%|███▉      | 497M/1.27G [00:11<00:21, 36.0MB/s]
+checkpoint_epoch_5.pt:  44%|████▍     | 560M/1.27G [00:11<00:13, 51.5MB/s][Acheckpoint_epoch_2.pt:  40%|███▉      | 509M/1.27G [00:11<00:15, 48.7MB/s]
+checkpoint_epoch_5.pt:  45%|████▍     | 572M/1.27G [00:11<00:11, 60.5MB/s][Acheckpoint_epoch_2.pt:  40%|████      | 515M/1.27G [00:11<00:18, 40.6MB/s]
+checkpoint_epoch_5.pt:  45%|████▌     | 579M/1.27G [00:11<00:14, 48.6MB/s][Acheckpoint_epoch_2.pt:  41%|████      | 525M/1.27G [00:11<00:15, 49.1MB/s]
+checkpoint_epoch_5.pt:  47%|████▋     | 592M/1.27G [00:12<00:14, 46.9MB/s][Acheckpoint_epoch_2.pt:  42%|████▏     | 531M/1.27G [00:12<00:19, 38.9MB/s]checkpoint_epoch_2.pt:  43%|████▎     | 544M/1.27G [00:12<00:16, 44.5MB/s]
+checkpoint_epoch_5.pt:  48%|████▊     | 608M/1.27G [00:12<00:12, 52.2MB/s][A
+checkpoint_epoch_5.pt:  49%|████▉     | 624M/1.27G [00:12<00:11, 57.5MB/s][Acheckpoint_epoch_2.pt:  44%|████▍     | 560M/1.27G [00:12<00:13, 51.2MB/s]
+checkpoint_epoch_5.pt:  50%|████▉     | 636M/1.27G [00:12<00:09, 66.7MB/s][Acheckpoint_epoch_2.pt:  45%|████▍     | 572M/1.27G [00:12<00:11, 61.9MB/s]checkpoint_epoch_2.pt:  45%|████▌     | 579M/1.27G [00:12<00:14, 48.3MB/s]
+checkpoint_epoch_5.pt:  51%|█████     | 644M/1.27G [00:12<00:12, 50.3MB/s][Acheckpoint_epoch_2.pt:  46%|████▋     | 589M/1.27G [00:13<00:12, 55.4MB/s]
+checkpoint_epoch_5.pt:  52%|█████▏    | 656M/1.27G [00:13<00:12, 50.6MB/s][Acheckpoint_epoch_2.pt:  47%|████▋     | 596M/1.27G [00:13<00:15, 45.0MB/s]checkpoint_epoch_2.pt:  47%|████▋     | 604M/1.27G [00:13<00:13, 50.7MB/s]
+checkpoint_epoch_5.pt:  53%|█████▎    | 672M/1.27G [00:13<00:10, 55.2MB/s][A
+checkpoint_epoch_5.pt:  54%|█████▎    | 684M/1.27G [00:13<00:09, 64.5MB/s][Acheckpoint_epoch_2.pt:  48%|████▊     | 610M/1.27G [00:13<00:16, 40.5MB/s]
+checkpoint_epoch_5.pt:  54%|█████▍    | 691M/1.27G [00:13<00:11, 50.1MB/s][Acheckpoint_epoch_2.pt:  49%|████▉     | 624M/1.27G [00:13<00:13, 46.7MB/s]
+checkpoint_epoch_5.pt:  55%|█████▍    | 700M/1.27G [00:13<00:10, 54.8MB/s][Acheckpoint_epoch_2.pt:  50%|█████     | 640M/1.27G [00:14<00:12, 52.4MB/s]
+checkpoint_epoch_5.pt:  56%|█████▌    | 707M/1.27G [00:14<00:12, 44.1MB/s][Acheckpoint_epoch_2.pt:  51%|█████     | 651M/1.27G [00:14<00:10, 61.4MB/s]
+checkpoint_epoch_5.pt:  56%|█████▋    | 716M/1.27G [00:14<00:10, 52.9MB/s][Acheckpoint_epoch_2.pt:  52%|█████▏    | 658M/1.27G [00:14<00:13, 46.6MB/s]
+checkpoint_epoch_5.pt:  57%|█████▋    | 723M/1.27G [00:14<00:13, 41.4MB/s][Acheckpoint_epoch_2.pt:  53%|█████▎    | 672M/1.27G [00:14<00:12, 49.7MB/s]
+checkpoint_epoch_5.pt:  58%|█████▊    | 736M/1.27G [00:14<00:12, 42.3MB/s][Acheckpoint_epoch_2.pt:  54%|█████▍    | 688M/1.27G [00:15<00:11, 52.0MB/s]
+checkpoint_epoch_5.pt:  59%|█████▉    | 752M/1.27G [00:15<00:10, 49.1MB/s][Acheckpoint_epoch_2.pt:  55%|█████▍    | 699M/1.27G [00:15<00:09, 60.7MB/s]
+checkpoint_epoch_5.pt:  60%|██████    | 768M/1.27G [00:15<00:09, 54.4MB/s][Acheckpoint_epoch_2.pt:  56%|█████▌    | 707M/1.27G [00:15<00:11, 48.5MB/s]
+checkpoint_epoch_5.pt:  62%|██████▏   | 784M/1.27G [00:15<00:08, 58.5MB/s][Acheckpoint_epoch_2.pt:  57%|█████▋    | 720M/1.27G [00:15<00:10, 52.7MB/s]checkpoint_epoch_2.pt:  57%|█████▋    | 731M/1.27G [00:15<00:08, 61.7MB/s]
+checkpoint_epoch_5.pt:  63%|██████▎   | 800M/1.27G [00:15<00:07, 60.2MB/s][Acheckpoint_epoch_2.pt:  58%|█████▊    | 739M/1.27G [00:16<00:11, 48.1MB/s]
+checkpoint_epoch_5.pt:  64%|██████▍   | 816M/1.27G [00:16<00:07, 62.4MB/s][Acheckpoint_epoch_2.pt:  59%|█████▉    | 752M/1.27G [00:16<00:10, 49.6MB/s]
+checkpoint_epoch_5.pt:  65%|██████▌   | 832M/1.27G [00:16<00:07, 61.1MB/s][Acheckpoint_epoch_2.pt:  60%|██████    | 768M/1.27G [00:16<00:09, 54.1MB/s]
+checkpoint_epoch_5.pt:  67%|██████▋   | 848M/1.27G [00:16<00:06, 61.0MB/s][Acheckpoint_epoch_2.pt:  62%|██████▏   | 784M/1.27G [00:16<00:08, 58.1MB/s]
+checkpoint_epoch_5.pt:  68%|██████▊   | 864M/1.27G [00:16<00:06, 63.2MB/s][Acheckpoint_epoch_2.pt:  63%|██████▎   | 800M/1.27G [00:17<00:08, 58.0MB/s]
+checkpoint_epoch_5.pt:  69%|██████▉   | 880M/1.27G [00:17<00:06, 63.6MB/s][Acheckpoint_epoch_2.pt:  64%|██████▍   | 816M/1.27G [00:17<00:07, 59.4MB/s]
+checkpoint_epoch_5.pt:  70%|███████   | 896M/1.27G [00:17<00:06, 62.6MB/s][Acheckpoint_epoch_2.pt:  65%|██████▌   | 832M/1.27G [00:17<00:07, 61.5MB/s]
+checkpoint_epoch_5.pt:  72%|███████▏  | 912M/1.27G [00:17<00:05, 61.5MB/s][Acheckpoint_epoch_2.pt:  67%|██████▋   | 848M/1.27G [00:17<00:06, 60.9MB/s]
+checkpoint_epoch_5.pt:  73%|███████▎  | 928M/1.27G [00:17<00:05, 64.1MB/s][Acheckpoint_epoch_2.pt:  68%|██████▊   | 864M/1.27G [00:18<00:06, 63.4MB/s]
+checkpoint_epoch_5.pt:  74%|███████▍  | 944M/1.27G [00:18<00:05, 63.8MB/s][Acheckpoint_epoch_2.pt:  69%|██████▉   | 880M/1.27G [00:18<00:06, 63.5MB/s]
+checkpoint_epoch_5.pt:  75%|███████▌  | 960M/1.27G [00:18<00:04, 65.3MB/s][Acheckpoint_epoch_2.pt:  70%|███████   | 896M/1.27G [00:18<00:06, 62.5MB/s]
+checkpoint_epoch_5.pt:  77%|███████▋  | 976M/1.27G [00:18<00:04, 61.4MB/s][Acheckpoint_epoch_2.pt:  72%|███████▏  | 912M/1.27G [00:18<00:05, 60.8MB/s]
+checkpoint_epoch_5.pt:  78%|███████▊  | 992M/1.27G [00:18<00:04, 63.6MB/s][Acheckpoint_epoch_2.pt:  73%|███████▎  | 928M/1.27G [00:19<00:05, 63.7MB/s]
+checkpoint_epoch_5.pt:  79%|███████▉  | 1.01G/1.27G [00:19<00:04, 64.0MB/s][Acheckpoint_epoch_2.pt:  74%|███████▍  | 944M/1.27G [00:19<00:05, 61.7MB/s]
+checkpoint_epoch_5.pt:  80%|████████  | 1.02G/1.27G [00:19<00:03, 63.0MB/s][A
+checkpoint_epoch_5.pt:  81%|████████▏ | 1.04G/1.27G [00:19<00:03, 70.4MB/s][Acheckpoint_epoch_2.pt:  75%|███████▌  | 960M/1.27G [00:19<00:04, 63.8MB/s]
+checkpoint_epoch_5.pt:  82%|████████▏ | 1.04G/1.27G [00:19<00:03, 57.7MB/s][Acheckpoint_epoch_2.pt:  77%|███████▋  | 976M/1.27G [00:19<00:04, 64.8MB/s]
+checkpoint_epoch_5.pt:  83%|████████▎ | 1.06G/1.27G [00:20<00:04, 54.2MB/s][Acheckpoint_epoch_2.pt:  78%|███████▊  | 992M/1.27G [00:20<00:04, 66.3MB/s]
+checkpoint_epoch_5.pt:  84%|████████▍ | 1.07G/1.27G [00:20<00:03, 55.5MB/s][Acheckpoint_epoch_2.pt:  79%|███████▉  | 1.01G/1.27G [00:20<00:03, 67.9MB/s]
+checkpoint_epoch_5.pt:  85%|████████▌ | 1.09G/1.27G [00:20<00:03, 57.2MB/s][Acheckpoint_epoch_2.pt:  80%|████████  | 1.02G/1.27G [00:20<00:03, 66.3MB/s]
+checkpoint_epoch_5.pt:  87%|████████▋ | 1.10G/1.27G [00:20<00:02, 59.3MB/s][Acheckpoint_epoch_2.pt:  82%|████████▏ | 1.04G/1.27G [00:20<00:03, 65.2MB/s]checkpoint_epoch_2.pt:  83%|████████▎ | 1.06G/1.27G [00:21<00:03, 64.9MB/s]
+checkpoint_epoch_5.pt:  88%|████████▊ | 1.12G/1.27G [00:21<00:02, 59.6MB/s][Acheckpoint_epoch_2.pt:  84%|████████▍ | 1.07G/1.27G [00:21<00:03, 63.7MB/s]
+checkpoint_epoch_5.pt:  89%|████████▉ | 1.14G/1.27G [00:21<00:02, 59.6MB/s][Acheckpoint_epoch_2.pt:  85%|████████▌ | 1.09G/1.27G [00:21<00:02, 65.3MB/s]
+checkpoint_epoch_5.pt:  90%|█████████ | 1.15G/1.27G [00:21<00:02, 60.1MB/s][Acheckpoint_epoch_2.pt:  87%|████████▋ | 1.10G/1.27G [00:21<00:02, 65.2MB/s]
+checkpoint_epoch_5.pt:  92%|█████████▏| 1.17G/1.27G [00:21<00:01, 62.0MB/s][Acheckpoint_epoch_2.pt:  88%|████████▊ | 1.12G/1.27G [00:22<00:02, 67.0MB/s]
+checkpoint_epoch_5.pt:  93%|█████████▎| 1.18G/1.27G [00:22<00:01, 61.3MB/s][Acheckpoint_epoch_2.pt:  89%|████████▉ | 1.14G/1.27G [00:22<00:02, 68.0MB/s]
+checkpoint_epoch_5.pt:  94%|█████████▍| 1.20G/1.27G [00:22<00:01, 61.9MB/s][Acheckpoint_epoch_2.pt:  90%|█████████ | 1.15G/1.27G [00:22<00:01, 68.0MB/s]
+checkpoint_epoch_5.pt:  96%|█████████▌| 1.22G/1.27G [00:22<00:00, 63.8MB/s][Acheckpoint_epoch_2.pt:  92%|█████████▏| 1.17G/1.27G [00:22<00:01, 69.0MB/s]
+checkpoint_epoch_5.pt:  97%|█████████▋| 1.23G/1.27G [00:22<00:00, 63.6MB/s][Acheckpoint_epoch_2.pt:  93%|█████████▎| 1.18G/1.27G [00:22<00:01, 68.4MB/s]
+checkpoint_epoch_5.pt:  98%|█████████▊| 1.25G/1.27G [00:23<00:00, 65.4MB/s][Acheckpoint_epoch_2.pt:  94%|█████████▍| 1.20G/1.27G [00:23<00:01, 69.4MB/s]
+checkpoint_epoch_5.pt:  99%|█████████▉| 1.26G/1.27G [00:23<00:00, 67.0MB/s][Acheckpoint_epoch_2.pt:  96%|█████████▌| 1.22G/1.27G [00:23<00:00, 69.3MB/s]checkpoint_epoch_5.pt: 100%|██████████| 1.27G/1.27G [00:23<00:00, 54.1MB/s]
+checkpoint_epoch_2.pt:  97%|█████████▋| 1.23G/1.27G [00:23<00:00, 68.6MB/s]checkpoint_epoch_2.pt:  98%|█████████▊| 1.25G/1.27G [00:23<00:00, 65.9MB/s]checkpoint_epoch_2.pt:  99%|█████████▉| 1.26G/1.27G [00:24<00:00, 65.4MB/s]checkpoint_epoch_2.pt: 100%|██████████| 1.27G/1.27G [00:24<00:00, 52.3MB/s]
+
+
+
+Upload 12 LFS files:   8%|▊         | 1/12 [00:24<04:30, 24.58s/it][A[A[AUpload 12 LFS files: 100%|██████████| 12/12 [00:24<00:00,  2.05s/it]
+[2026-10-30 11:10:38] libero_goal uploaded commit 595b21b8b58d3114fd52ff9541bc4382cd05185e sha256 all match: True
+[2026-10-30 11:51:47] libero_object committing 20 files
+checkpoint_epoch_2.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s]
+checkpoint_epoch_5.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+Upload 12 LFS files:   0%|          | 0/12 [00:00<?, ?it/s][A[A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Acheckpoint_epoch_2.pt:   0%|          | 164k/1.27G [00:00<13:04, 1.62MB/s]
+checkpoint_epoch_5.pt:   0%|          | 180k/1.27G [00:00<11:57, 1.77MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 28.7kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 30.2kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 28.3kB/s]
+checkpoint_epoch_2.pt:   0%|          | 1.13M/1.27G [00:00<03:24, 6.23MB/s]
+checkpoint_epoch_5.pt:   0%|          | 1.10M/1.27G [00:00<03:31, 6.02MB/s][A
+checkpoint_epoch_5.pt:   0%|          | 3.23M/1.27G [00:00<01:39, 12.7MB/s][Acheckpoint_epoch_2.pt:   0%|          | 3.38M/1.27G [00:00<01:37, 13.1MB/s]
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[A
+checkpoint_epoch_5.pt:   1%|          | 8.21M/1.27G [00:00<00:46, 27.1MB/s][Acheckpoint_epoch_2.pt:   1%|          | 8.40M/1.27G [00:00<00:46, 27.3MB/s]task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 43.5kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 45.4kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 40.4kB/s]
+checkpoint_epoch_2.pt:   1%|▏         | 16.0M/1.27G [00:00<00:38, 32.6MB/s]
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+checkpoint_epoch_5.pt:   1%|▏         | 16.0M/1.27G [00:00<00:41, 30.5MB/s][A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Acheckpoint_epoch_2.pt:   2%|▏         | 23.2M/1.27G [00:00<00:29, 41.9MB/s]task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 42.7kB/s]
+
+checkpoint_epoch_5.pt:   2%|▏         | 23.7M/1.27G [00:00<00:29, 42.3MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 44.0kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 41.0kB/s]
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[Acheckpoint_epoch_2.pt:   3%|▎         | 32.0M/1.27G [00:00<00:31, 38.8MB/s]
+checkpoint_epoch_5.pt:   3%|▎         | 32.0M/1.27G [00:00<00:31, 39.0MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 50.9kB/s]
+checkpoint_epoch_2.pt:   4%|▎         | 46.4M/1.27G [00:01<00:19, 61.5MB/s]
+checkpoint_epoch_5.pt:   4%|▍         | 48.0M/1.27G [00:01<00:18, 65.3MB/s][Acheckpoint_epoch_2.pt:   4%|▍         | 53.7M/1.27G [00:01<00:24, 49.0MB/s]
+checkpoint_epoch_5.pt:   4%|▍         | 55.9M/1.27G [00:01<00:26, 46.0MB/s][Acheckpoint_epoch_2.pt:   5%|▌         | 64.0M/1.27G [00:01<00:30, 39.8MB/s]
+checkpoint_epoch_5.pt:   5%|▌         | 64.0M/1.27G [00:01<00:31, 38.7MB/s][A
+checkpoint_epoch_5.pt:   6%|▌         | 76.6M/1.27G [00:01<00:22, 53.0MB/s][Acheckpoint_epoch_2.pt:   6%|▋         | 80.0M/1.27G [00:01<00:26, 45.2MB/s]checkpoint_epoch_2.pt:   7%|▋         | 90.4M/1.27G [00:02<00:21, 53.9MB/s]
+checkpoint_epoch_5.pt:   7%|▋         | 84.1M/1.27G [00:02<00:27, 42.8MB/s][A
+checkpoint_epoch_5.pt:   7%|▋         | 95.0M/1.27G [00:02<00:21, 53.8MB/s][Acheckpoint_epoch_2.pt:   8%|▊         | 97.1M/1.27G [00:02<00:27, 43.3MB/s]
+checkpoint_epoch_5.pt:   8%|▊         | 102M/1.27G [00:02<00:26, 43.4MB/s] [Acheckpoint_epoch_2.pt:   9%|▉         | 112M/1.27G [00:02<00:23, 49.4MB/s] 
+checkpoint_epoch_5.pt:   9%|▉         | 112M/1.27G [00:02<00:30, 38.1MB/s][Acheckpoint_epoch_2.pt:  10%|█         | 128M/1.27G [00:02<00:21, 52.6MB/s]checkpoint_epoch_2.pt:  11%|█         | 141M/1.27G [00:02<00:17, 64.1MB/s]
+checkpoint_epoch_5.pt:  10%|█         | 128M/1.27G [00:02<00:24, 46.5MB/s][Acheckpoint_epoch_2.pt:  12%|█▏        | 149M/1.27G [00:03<00:22, 49.7MB/s]
+checkpoint_epoch_5.pt:  11%|█▏        | 144M/1.27G [00:03<00:21, 51.6MB/s][A
+checkpoint_epoch_5.pt:  12%|█▏        | 156M/1.27G [00:03<00:18, 61.2MB/s][Acheckpoint_epoch_2.pt:  13%|█▎        | 160M/1.27G [00:03<00:22, 49.5MB/s]checkpoint_epoch_2.pt:  14%|█▎        | 172M/1.27G [00:03<00:18, 60.4MB/s]
+checkpoint_epoch_5.pt:  13%|█▎        | 164M/1.27G [00:03<00:22, 49.7MB/s][A
+checkpoint_epoch_5.pt:  14%|█▎        | 172M/1.27G [00:03<00:20, 54.8MB/s][Acheckpoint_epoch_2.pt:  14%|█▍        | 180M/1.27G [00:03<00:22, 49.6MB/s]checkpoint_epoch_2.pt:  15%|█▍        | 189M/1.27G [00:03<00:19, 55.1MB/s]
+checkpoint_epoch_5.pt:  14%|█▍        | 179M/1.27G [00:04<00:25, 42.5MB/s][A
+checkpoint_epoch_5.pt:  15%|█▍        | 189M/1.27G [00:04<00:20, 51.8MB/s][Acheckpoint_epoch_2.pt:  15%|█▌        | 196M/1.27G [00:04<00:23, 45.2MB/s]
+checkpoint_epoch_5.pt:  15%|█▌        | 195M/1.27G [00:04<00:25, 42.2MB/s][A
+checkpoint_epoch_5.pt:  16%|█▌        | 205M/1.27G [00:04<00:20, 51.0MB/s][Acheckpoint_epoch_2.pt:  16%|█▋        | 208M/1.27G [00:04<00:24, 42.7MB/s]checkpoint_epoch_2.pt:  18%|█▊        | 224M/1.27G [00:04<00:20, 50.6MB/s]
+checkpoint_epoch_5.pt:  17%|█▋        | 211M/1.27G [00:04<00:26, 40.5MB/s][A
+checkpoint_epoch_5.pt:  17%|█▋        | 222M/1.27G [00:04<00:20, 52.3MB/s][Acheckpoint_epoch_2.pt:  19%|█▉        | 240M/1.27G [00:04<00:19, 53.8MB/s]
+checkpoint_epoch_5.pt:  18%|█▊        | 229M/1.27G [00:05<00:24, 42.8MB/s][Acheckpoint_epoch_2.pt:  20%|██        | 256M/1.27G [00:05<00:18, 54.5MB/s]
+checkpoint_epoch_5.pt:  19%|█▉        | 240M/1.27G [00:05<00:22, 45.1MB/s][Acheckpoint_epoch_2.pt:  21%|██        | 268M/1.27G [00:05<00:15, 63.9MB/s]
+checkpoint_epoch_5.pt:  20%|█▉        | 254M/1.27G [00:05<00:16, 61.6MB/s][Acheckpoint_epoch_2.pt:  22%|██▏       | 276M/1.27G [00:05<00:19, 51.3MB/s]
+checkpoint_epoch_5.pt:  21%|██        | 262M/1.27G [00:05<00:22, 44.3MB/s][Acheckpoint_epoch_2.pt:  23%|██▎       | 288M/1.27G [00:05<00:18, 52.3MB/s]checkpoint_epoch_2.pt:  24%|██▍       | 304M/1.27G [00:06<00:17, 56.5MB/s]
+checkpoint_epoch_5.pt:  21%|██▏       | 272M/1.27G [00:06<00:27, 37.0MB/s][A
+checkpoint_epoch_5.pt:  22%|██▏       | 284M/1.27G [00:06<00:20, 48.5MB/s][Acheckpoint_epoch_2.pt:  25%|██▌       | 320M/1.27G [00:06<00:15, 59.8MB/s]checkpoint_epoch_2.pt:  26%|██▌       | 332M/1.27G [00:06<00:13, 69.3MB/s]
+checkpoint_epoch_5.pt:  23%|██▎       | 291M/1.27G [00:06<00:24, 40.8MB/s][A
+checkpoint_epoch_5.pt:  24%|██▍       | 304M/1.27G [00:06<00:22, 44.0MB/s][Acheckpoint_epoch_2.pt:  27%|██▋       | 340M/1.27G [00:06<00:18, 51.5MB/s]checkpoint_epoch_2.pt:  28%|██▊       | 352M/1.27G [00:06<00:17, 52.3MB/s]
+checkpoint_epoch_5.pt:  25%|██▌       | 320M/1.27G [00:07<00:20, 46.1MB/s][A
+checkpoint_epoch_5.pt:  26%|██▌       | 333M/1.27G [00:07<00:16, 57.7MB/s][Acheckpoint_epoch_2.pt:  29%|██▉       | 368M/1.27G [00:07<00:16, 56.2MB/s]
+checkpoint_epoch_5.pt:  27%|██▋       | 341M/1.27G [00:07<00:19, 47.4MB/s][Acheckpoint_epoch_2.pt:  30%|███       | 384M/1.27G [00:07<00:14, 60.3MB/s]checkpoint_epoch_2.pt:  31%|███       | 396M/1.27G [00:07<00:12, 68.6MB/s]
+checkpoint_epoch_5.pt:  28%|██▊       | 352M/1.27G [00:07<00:18, 48.6MB/s][A
+checkpoint_epoch_5.pt:  29%|██▊       | 363M/1.27G [00:07<00:15, 58.6MB/s][Acheckpoint_epoch_2.pt:  32%|███▏      | 403M/1.27G [00:07<00:15, 55.3MB/s]checkpoint_epoch_2.pt:  33%|███▎      | 416M/1.27G [00:08<00:15, 56.1MB/s]
+checkpoint_epoch_5.pt:  29%|██▉       | 371M/1.27G [00:08<00:19, 46.7MB/s][Acheckpoint_epoch_2.pt:  34%|███▍      | 432M/1.27G [00:08<00:14, 59.8MB/s]
+checkpoint_epoch_5.pt:  30%|███       | 384M/1.27G [00:08<00:18, 48.5MB/s][Acheckpoint_epoch_2.pt:  35%|███▌      | 448M/1.27G [00:08<00:13, 60.6MB/s]
+checkpoint_epoch_5.pt:  31%|███▏      | 400M/1.27G [00:08<00:16, 53.6MB/s][A
+checkpoint_epoch_5.pt:  32%|███▏      | 413M/1.27G [00:08<00:13, 65.1MB/s][Acheckpoint_epoch_2.pt:  36%|███▋      | 464M/1.27G [00:08<00:14, 55.6MB/s]
+checkpoint_epoch_5.pt:  33%|███▎      | 421M/1.27G [00:08<00:15, 53.9MB/s][A
+checkpoint_epoch_5.pt:  34%|███▍      | 432M/1.27G [00:09<00:16, 51.1MB/s][Acheckpoint_epoch_2.pt:  38%|███▊      | 480M/1.27G [00:09<00:14, 54.2MB/s]
+checkpoint_epoch_5.pt:  35%|███▌      | 448M/1.27G [00:09<00:14, 55.4MB/s][Acheckpoint_epoch_2.pt:  39%|███▉      | 496M/1.27G [00:09<00:13, 56.3MB/s]
+checkpoint_epoch_5.pt:  36%|███▌      | 461M/1.27G [00:09<00:12, 66.0MB/s][Acheckpoint_epoch_2.pt:  40%|████      | 512M/1.27G [00:09<00:12, 59.4MB/s]
+checkpoint_epoch_5.pt:  37%|███▋      | 469M/1.27G [00:09<00:14, 53.7MB/s][Acheckpoint_epoch_2.pt:  41%|████▏     | 528M/1.27G [00:09<00:11, 62.6MB/s]
+checkpoint_epoch_5.pt:  38%|███▊      | 480M/1.27G [00:10<00:16, 48.8MB/s][Acheckpoint_epoch_2.pt:  43%|████▎     | 544M/1.27G [00:10<00:11, 63.3MB/s]
+checkpoint_epoch_5.pt:  39%|███▉      | 496M/1.27G [00:10<00:14, 54.6MB/s][Acheckpoint_epoch_2.pt:  44%|████▍     | 560M/1.27G [00:10<00:11, 64.5MB/s]
+checkpoint_epoch_5.pt:  40%|████      | 512M/1.27G [00:10<00:12, 59.3MB/s][A
+checkpoint_epoch_5.pt:  41%|████▏     | 525M/1.27G [00:10<00:10, 69.7MB/s][Acheckpoint_epoch_2.pt:  45%|████▌     | 576M/1.27G [00:10<00:10, 65.5MB/s]
+checkpoint_epoch_5.pt:  42%|████▏     | 533M/1.27G [00:10<00:13, 56.5MB/s][Acheckpoint_epoch_2.pt:  47%|████▋     | 592M/1.27G [00:10<00:10, 66.0MB/s]checkpoint_epoch_2.pt:  48%|████▊     | 608M/1.27G [00:11<00:10, 65.4MB/s]
+checkpoint_epoch_5.pt:  43%|████▎     | 544M/1.27G [00:11<00:16, 43.9MB/s][Acheckpoint_epoch_2.pt:  49%|████▉     | 624M/1.27G [00:11<00:09, 67.0MB/s]
+checkpoint_epoch_5.pt:  44%|████▍     | 560M/1.27G [00:11<00:14, 50.5MB/s][Acheckpoint_epoch_2.pt:  50%|█████     | 640M/1.27G [00:11<00:09, 68.3MB/s]
+checkpoint_epoch_5.pt:  45%|████▌     | 576M/1.27G [00:11<00:12, 53.8MB/s][Acheckpoint_epoch_2.pt:  52%|█████▏    | 656M/1.27G [00:11<00:08, 68.8MB/s]
+checkpoint_epoch_5.pt:  47%|████▋     | 592M/1.27G [00:11<00:11, 57.8MB/s][Acheckpoint_epoch_2.pt:  53%|█████▎    | 672M/1.27G [00:12<00:08, 68.4MB/s]
+checkpoint_epoch_5.pt:  48%|████▊     | 608M/1.27G [00:12<00:11, 57.4MB/s][Acheckpoint_epoch_2.pt:  54%|█████▍    | 688M/1.27G [00:12<00:08, 68.8MB/s]
+checkpoint_epoch_5.pt:  49%|████▉     | 624M/1.27G [00:12<00:11, 58.8MB/s][Acheckpoint_epoch_2.pt:  55%|█████▌    | 704M/1.27G [00:12<00:08, 66.0MB/s]
+checkpoint_epoch_5.pt:  50%|█████     | 640M/1.27G [00:12<00:10, 59.6MB/s][Acheckpoint_epoch_2.pt:  57%|█████▋    | 720M/1.27G [00:12<00:08, 64.9MB/s]checkpoint_epoch_2.pt:  58%|█████▊    | 736M/1.27G [00:13<00:08, 63.8MB/s]
+checkpoint_epoch_5.pt:  52%|█████▏    | 656M/1.27G [00:13<00:10, 58.9MB/s][Acheckpoint_epoch_2.pt:  59%|█████▉    | 752M/1.27G [00:13<00:07, 65.4MB/s]
+checkpoint_epoch_5.pt:  53%|█████▎    | 672M/1.27G [00:13<00:09, 60.6MB/s][Acheckpoint_epoch_2.pt:  60%|██████    | 768M/1.27G [00:13<00:07, 64.5MB/s]
+checkpoint_epoch_5.pt:  54%|█████▍    | 688M/1.27G [00:13<00:09, 60.6MB/s][Acheckpoint_epoch_2.pt:  62%|██████▏   | 784M/1.27G [00:13<00:07, 65.6MB/s]
+checkpoint_epoch_5.pt:  55%|█████▌    | 704M/1.27G [00:13<00:09, 63.1MB/s][A
+checkpoint_epoch_5.pt:  56%|█████▋    | 718M/1.27G [00:13<00:07, 74.4MB/s][Acheckpoint_epoch_2.pt:  63%|██████▎   | 800M/1.27G [00:13<00:07, 66.7MB/s]checkpoint_epoch_2.pt:  64%|██████▍   | 812M/1.27G [00:14<00:06, 73.4MB/s]
+checkpoint_epoch_5.pt:  57%|█████▋    | 727M/1.27G [00:14<00:09, 60.2MB/s][Acheckpoint_epoch_2.pt:  64%|██████▍   | 820M/1.27G [00:14<00:07, 58.9MB/s]
+checkpoint_epoch_5.pt:  58%|█████▊    | 736M/1.27G [00:14<00:10, 52.5MB/s][Acheckpoint_epoch_2.pt:  65%|██████▌   | 832M/1.27G [00:14<00:07, 55.8MB/s]
+checkpoint_epoch_5.pt:  59%|█████▉    | 752M/1.27G [00:14<00:09, 57.4MB/s][Acheckpoint_epoch_2.pt:  66%|██████▋   | 844M/1.27G [00:14<00:06, 64.3MB/s]
+checkpoint_epoch_5.pt:  60%|██████    | 768M/1.27G [00:14<00:08, 56.6MB/s][Acheckpoint_epoch_2.pt:  67%|██████▋   | 851M/1.27G [00:14<00:08, 50.6MB/s]checkpoint_epoch_2.pt:  68%|██████▊   | 860M/1.27G [00:15<00:07, 55.6MB/s]
+checkpoint_epoch_5.pt:  62%|██████▏   | 784M/1.27G [00:15<00:08, 58.4MB/s][A
+checkpoint_epoch_5.pt:  63%|██████▎   | 797M/1.27G [00:15<00:06, 68.1MB/s][Acheckpoint_epoch_2.pt:  68%|██████▊   | 866M/1.27G [00:15<00:09, 43.7MB/s]checkpoint_epoch_2.pt:  69%|██████▉   | 876M/1.27G [00:15<00:07, 51.4MB/s]
+checkpoint_epoch_5.pt:  63%|██████▎   | 805M/1.27G [00:15<00:08, 53.3MB/s][Acheckpoint_epoch_2.pt:  69%|██████▉   | 882M/1.27G [00:15<00:09, 40.9MB/s]
+checkpoint_epoch_5.pt:  64%|██████▍   | 816M/1.27G [00:15<00:08, 51.8MB/s][Acheckpoint_epoch_2.pt:  70%|███████   | 896M/1.27G [00:16<00:08, 42.9MB/s]
+checkpoint_epoch_5.pt:  65%|██████▌   | 832M/1.27G [00:16<00:08, 50.1MB/s][Acheckpoint_epoch_2.pt:  72%|███████▏  | 912M/1.27G [00:16<00:07, 49.9MB/s]
+checkpoint_epoch_5.pt:  67%|██████▋   | 848M/1.27G [00:16<00:08, 51.2MB/s][Acheckpoint_epoch_2.pt:  73%|███████▎  | 928M/1.27G [00:16<00:06, 54.1MB/s]
+checkpoint_epoch_5.pt:  68%|██████▊   | 864M/1.27G [00:16<00:07, 52.9MB/s][Acheckpoint_epoch_2.pt:  74%|███████▍  | 944M/1.27G [00:16<00:05, 56.2MB/s]checkpoint_epoch_2.pt:  75%|███████▌  | 956M/1.27G [00:16<00:04, 64.9MB/s]
+checkpoint_epoch_5.pt:  69%|██████▉   | 880M/1.27G [00:16<00:06, 57.2MB/s][A
+checkpoint_epoch_5.pt:  70%|███████   | 896M/1.27G [00:17<00:06, 60.8MB/s][Acheckpoint_epoch_2.pt:  76%|███████▌  | 963M/1.27G [00:17<00:06, 50.0MB/s]checkpoint_epoch_2.pt:  77%|███████▋  | 976M/1.27G [00:17<00:05, 52.6MB/s]
+checkpoint_epoch_5.pt:  72%|███████▏  | 912M/1.27G [00:17<00:05, 60.9MB/s][Acheckpoint_epoch_2.pt:  78%|███████▊  | 992M/1.27G [00:17<00:04, 56.9MB/s]
+checkpoint_epoch_5.pt:  73%|███████▎  | 928M/1.27G [00:17<00:05, 61.5MB/s][Acheckpoint_epoch_2.pt:  79%|███████▉  | 1.00G/1.27G [00:17<00:04, 64.5MB/s]
+checkpoint_epoch_5.pt:  74%|███████▍  | 944M/1.27G [00:17<00:05, 58.1MB/s][Acheckpoint_epoch_2.pt:  79%|███████▉  | 1.01G/1.27G [00:18<00:05, 48.6MB/s]checkpoint_epoch_2.pt:  80%|████████  | 1.02G/1.27G [00:18<00:04, 54.4MB/s]
+checkpoint_epoch_5.pt:  75%|███████▌  | 960M/1.27G [00:18<00:05, 58.9MB/s][Acheckpoint_epoch_2.pt:  81%|████████  | 1.03G/1.27G [00:18<00:05, 42.2MB/s]
+checkpoint_epoch_5.pt:  77%|███████▋  | 976M/1.27G [00:18<00:04, 62.2MB/s][Acheckpoint_epoch_2.pt:  82%|████████▏ | 1.04G/1.27G [00:18<00:04, 46.6MB/s]
+checkpoint_epoch_5.pt:  78%|███████▊  | 992M/1.27G [00:18<00:04, 64.5MB/s][A
+checkpoint_epoch_5.pt:  79%|███████▉  | 1.01G/1.27G [00:18<00:04, 66.1MB/s][Acheckpoint_epoch_2.pt:  83%|████████▎ | 1.06G/1.27G [00:18<00:04, 52.0MB/s]checkpoint_epoch_2.pt:  84%|████████▍ | 1.07G/1.27G [00:19<00:03, 56.3MB/s]
+checkpoint_epoch_5.pt:  80%|████████  | 1.02G/1.27G [00:19<00:03, 64.3MB/s][Acheckpoint_epoch_2.pt:  85%|████████▌ | 1.08G/1.27G [00:19<00:02, 65.7MB/s]
+checkpoint_epoch_5.pt:  82%|████████▏ | 1.04G/1.27G [00:19<00:03, 59.6MB/s][Acheckpoint_epoch_2.pt:  86%|████████▌ | 1.09G/1.27G [00:19<00:03, 52.5MB/s]checkpoint_epoch_2.pt:  86%|████████▋ | 1.10G/1.27G [00:19<00:03, 56.3MB/s]
+checkpoint_epoch_5.pt:  83%|████████▎ | 1.06G/1.27G [00:19<00:03, 58.6MB/s][Acheckpoint_epoch_2.pt:  87%|████████▋ | 1.11G/1.27G [00:19<00:03, 45.2MB/s]
+checkpoint_epoch_5.pt:  84%|████████▍ | 1.07G/1.27G [00:20<00:03, 61.2MB/s][Acheckpoint_epoch_2.pt:  88%|████████▊ | 1.12G/1.27G [00:20<00:03, 51.9MB/s]checkpoint_epoch_2.pt:  88%|████████▊ | 1.12G/1.27G [00:20<00:03, 40.7MB/s]
+checkpoint_epoch_5.pt:  85%|████████▌ | 1.09G/1.27G [00:20<00:03, 59.5MB/s][Acheckpoint_epoch_2.pt:  89%|████████▉ | 1.14G/1.27G [00:20<00:02, 47.0MB/s]
+checkpoint_epoch_5.pt:  87%|████████▋ | 1.10G/1.27G [00:20<00:02, 61.3MB/s][Acheckpoint_epoch_2.pt:  90%|█████████ | 1.15G/1.27G [00:20<00:02, 51.9MB/s]
+checkpoint_epoch_5.pt:  88%|████████▊ | 1.12G/1.27G [00:20<00:02, 62.8MB/s][Acheckpoint_epoch_2.pt:  91%|█████████▏| 1.16G/1.27G [00:20<00:01, 60.6MB/s]
+checkpoint_epoch_5.pt:  89%|████████▉ | 1.14G/1.27G [00:21<00:02, 62.8MB/s][Acheckpoint_epoch_2.pt:  92%|█████████▏| 1.17G/1.27G [00:21<00:02, 48.2MB/s]
+checkpoint_epoch_5.pt:  90%|█████████ | 1.15G/1.27G [00:21<00:01, 60.8MB/s][Acheckpoint_epoch_2.pt:  93%|█████████▎| 1.18G/1.27G [00:21<00:01, 48.9MB/s]
+checkpoint_epoch_5.pt:  92%|█████████▏| 1.17G/1.27G [00:21<00:01, 63.0MB/s][Acheckpoint_epoch_2.pt:  94%|█████████▍| 1.20G/1.27G [00:21<00:01, 53.4MB/s]
+checkpoint_epoch_5.pt:  93%|█████████▎| 1.18G/1.27G [00:21<00:01, 63.1MB/s][Acheckpoint_epoch_2.pt:  96%|█████████▌| 1.22G/1.27G [00:21<00:01, 53.1MB/s]
+checkpoint_epoch_5.pt:  94%|█████████▍| 1.20G/1.27G [00:22<00:01, 56.0MB/s][Acheckpoint_epoch_2.pt:  97%|█████████▋| 1.23G/1.27G [00:22<00:00, 55.1MB/s]checkpoint_epoch_2.pt:  98%|█████████▊| 1.24G/1.27G [00:22<00:00, 62.5MB/s]
+checkpoint_epoch_5.pt:  96%|█████████▌| 1.22G/1.27G [00:22<00:00, 58.8MB/s][Acheckpoint_epoch_2.pt:  98%|█████████▊| 1.25G/1.27G [00:22<00:00, 49.8MB/s]
+checkpoint_epoch_5.pt:  97%|█████████▋| 1.23G/1.27G [00:22<00:00, 59.9MB/s][Acheckpoint_epoch_2.pt:  99%|█████████▉| 1.26G/1.27G [00:22<00:00, 56.2MB/s]
+checkpoint_epoch_5.pt:  98%|█████████▊| 1.25G/1.27G [00:22<00:00, 60.8MB/s][Acheckpoint_epoch_2.pt: 100%|█████████▉| 1.27G/1.27G [00:23<00:00, 42.8MB/s]
+checkpoint_epoch_5.pt:  99%|█████████▉| 1.26G/1.27G [00:23<00:00, 59.9MB/s][Acheckpoint_epoch_2.pt: 100%|██████████| 1.27G/1.27G [00:23<00:00, 54.9MB/s]
+checkpoint_epoch_5.pt: 100%|██████████| 1.27G/1.27G [00:23<00:00, 54.4MB/s]
+
+
+
+Upload 12 LFS files:   8%|▊         | 1/12 [00:23<04:17, 23.44s/it][A[A[A
+
+
+Upload 12 LFS files:  17%|█▋        | 2/12 [00:23<01:37,  9.78s/it][A[A[AUpload 12 LFS files: 100%|██████████| 12/12 [00:23<00:00,  1.97s/it]
+[2026-10-30 11:52:15] libero_object uploaded commit efda9c4ebf76269473a825f1ee13c98ed103a4de sha256 all match: True
+[2026-10-30 12:24:24] libero_spatial committing 20 files
+checkpoint_epoch_2.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s]
+checkpoint_epoch_5.pt:   0%|          | 0.00/1.27G [00:00<?, ?B/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+Upload 12 LFS files:   0%|          | 0/12 [00:00<?, ?it/s][A[A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[A
+
+
+
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 40.4kB/s][A[A[A[A
+
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 37.6kB/s][A[A
+
+
+
+
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 41.2kB/s][A[A[A[A[A
+checkpoint_epoch_5.pt:   0%|          | 16.4k/1.27G [00:00<2:40:20, 132kB/s][Acheckpoint_epoch_2.pt:   0%|          | 16.4k/1.27G [00:00<2:54:09, 122kB/s]task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 23.3kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 20.9kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 20.7kB/s]
+checkpoint_epoch_2.pt:   1%|          | 9.96M/1.27G [00:00<00:25, 50.5MB/s] 
+checkpoint_epoch_5.pt:   0%|          | 770k/1.27G [00:00<05:18, 3.99MB/s]  [A
+checkpoint_epoch_5.pt:   0%|          | 2.57M/1.27G [00:00<02:09, 9.83MB/s][Acheckpoint_epoch_2.pt:   1%|▏         | 16.0M/1.27G [00:00<00:31, 39.6MB/s]
+checkpoint_epoch_5.pt:   1%|          | 6.49M/1.27G [00:00<01:01, 20.6MB/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Acheckpoint_epoch_2.pt:   2%|▏         | 24.2M/1.27G [00:00<00:24, 51.3MB/s]
+checkpoint_epoch_5.pt:   1%|          | 14.8M/1.27G [00:00<00:29, 42.1MB/s][Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 44.3kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 44.9kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 58.6kB/s]
+
+checkpoint_epoch_5.pt:   2%|▏         | 19.1M/1.27G [00:00<00:33, 37.3MB/s][A
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A
+checkpoint_epoch_5.pt:   2%|▏         | 25.5M/1.27G [00:00<00:27, 45.1MB/s][Acheckpoint_epoch_2.pt:   3%|▎         | 32.0M/1.27G [00:00<00:30, 40.6MB/s]
+
+
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A[A[A[Atask_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 44.4kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 42.3kB/s]
+task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 25.5kB/s]
+
+
+task_cond.npy:   0%|          | 0.00/4.22k [00:00<?, ?B/s][A[A
+checkpoint_epoch_5.pt:   3%|▎         | 32.0M/1.27G [00:01<00:35, 35.1MB/s][Acheckpoint_epoch_2.pt:   4%|▍         | 48.0M/1.27G [00:01<00:24, 49.8MB/s]task_cond.npy: 100%|██████████| 4.22k/4.22k [00:00<00:00, 47.6kB/s]
+
+checkpoint_epoch_5.pt:   4%|▍         | 48.0M/1.27G [00:01<00:28, 43.7MB/s][Acheckpoint_epoch_2.pt:   5%|▌         | 64.0M/1.27G [00:01<00:23, 51.3MB/s]
+checkpoint_epoch_5.pt:   4%|▍         | 56.3M/1.27G [00:01<00:24, 50.6MB/s][Acheckpoint_epoch_2.pt:   6%|▋         | 80.0M/1.27G [00:01<00:21, 54.6MB/s]
+checkpoint_epoch_5.pt:   5%|▌         | 64.0M/1.27G [00:01<00:28, 42.1MB/s][Acheckpoint_epoch_2.pt:   8%|▊         | 96.0M/1.27G [00:01<00:21, 53.9MB/s]
+checkpoint_epoch_5.pt:   6%|▋         | 80.0M/1.27G [00:01<00:25, 47.1MB/s][Acheckpoint_epoch_2.pt:   9%|▊         | 109M/1.27G [00:02<00:18, 64.3MB/s] checkpoint_epoch_2.pt:   9%|▉         | 116M/1.27G [00:02<00:21, 53.6MB/s]
+checkpoint_epoch_5.pt:   8%|▊         | 96.0M/1.27G [00:02<00:23, 50.6MB/s][Acheckpoint_epoch_2.pt:  10%|▉         | 125M/1.27G [00:02<00:19, 58.5MB/s]
+checkpoint_epoch_5.pt:   9%|▉         | 112M/1.27G [00:02<00:21, 54.0MB/s] [Acheckpoint_epoch_2.pt:  10%|█         | 132M/1.27G [00:02<00:24, 46.5MB/s]
+checkpoint_epoch_5.pt:  10%|█         | 128M/1.27G [00:02<00:22, 51.8MB/s][Acheckpoint_epoch_2.pt:  11%|█▏        | 144M/1.27G [00:02<00:24, 46.4MB/s]checkpoint_epoch_2.pt:  12%|█▏        | 157M/1.27G [00:02<00:19, 58.6MB/s]
+checkpoint_epoch_5.pt:  11%|█▏        | 144M/1.27G [00:03<00:20, 54.2MB/s][Acheckpoint_epoch_2.pt:  13%|█▎        | 164M/1.27G [00:03<00:23, 47.1MB/s]
+checkpoint_epoch_5.pt:  13%|█▎        | 160M/1.27G [00:03<00:20, 53.0MB/s][Acheckpoint_epoch_2.pt:  14%|█▍        | 176M/1.27G [00:03<00:22, 47.9MB/s]
+checkpoint_epoch_5.pt:  13%|█▎        | 172M/1.27G [00:03<00:18, 60.6MB/s][Acheckpoint_epoch_2.pt:  15%|█▌        | 192M/1.27G [00:03<00:20, 52.7MB/s]
+checkpoint_epoch_5.pt:  14%|█▍        | 179M/1.27G [00:03<00:22, 48.5MB/s][Acheckpoint_epoch_2.pt:  16%|█▌        | 204M/1.27G [00:03<00:17, 61.2MB/s]
+checkpoint_epoch_5.pt:  15%|█▌        | 192M/1.27G [00:04<00:20, 51.6MB/s][Acheckpoint_epoch_2.pt:  17%|█▋        | 211M/1.27G [00:04<00:21, 49.6MB/s]checkpoint_epoch_2.pt:  17%|█▋        | 221M/1.27G [00:04<00:18, 57.5MB/s]
+checkpoint_epoch_5.pt:  16%|█▋        | 208M/1.27G [00:04<00:19, 55.5MB/s][Acheckpoint_epoch_2.pt:  18%|█▊        | 228M/1.27G [00:04<00:22, 46.7MB/s]
+checkpoint_epoch_5.pt:  18%|█▊        | 224M/1.27G [00:04<00:19, 54.5MB/s][Acheckpoint_epoch_2.pt:  19%|█▉        | 240M/1.27G [00:04<00:21, 48.0MB/s]
+checkpoint_epoch_5.pt:  19%|█▉        | 240M/1.27G [00:04<00:18, 55.9MB/s][Acheckpoint_epoch_2.pt:  20%|██        | 256M/1.27G [00:05<00:20, 50.6MB/s]checkpoint_epoch_2.pt:  21%|██        | 268M/1.27G [00:05<00:16, 61.7MB/s]
+checkpoint_epoch_5.pt:  20%|██        | 256M/1.27G [00:05<00:17, 58.8MB/s][A
+checkpoint_epoch_5.pt:  21%|██▏       | 272M/1.27G [00:05<00:16, 60.4MB/s][A
+checkpoint_epoch_5.pt:  23%|██▎       | 288M/1.27G [00:05<00:16, 60.6MB/s][Acheckpoint_epoch_2.pt:  22%|██▏       | 276M/1.27G [00:05<00:31, 31.4MB/s]
+checkpoint_epoch_5.pt:  24%|██▍       | 304M/1.27G [00:05<00:16, 58.0MB/s][Acheckpoint_epoch_2.pt:  23%|██▎       | 288M/1.27G [00:06<00:27, 36.3MB/s]
+checkpoint_epoch_5.pt:  25%|██▌       | 320M/1.27G [00:06<00:17, 56.0MB/s][Acheckpoint_epoch_2.pt:  24%|██▍       | 304M/1.27G [00:06<00:22, 43.2MB/s]checkpoint_epoch_2.pt:  25%|██▍       | 316M/1.27G [00:06<00:18, 52.0MB/s]
+checkpoint_epoch_5.pt:  26%|██▋       | 336M/1.27G [00:06<00:16, 55.3MB/s][Acheckpoint_epoch_2.pt:  25%|██▌       | 323M/1.27G [00:06<00:21, 43.7MB/s]checkpoint_epoch_2.pt:  26%|██▌       | 332M/1.27G [00:06<00:19, 49.4MB/s]
+checkpoint_epoch_5.pt:  28%|██▊       | 352M/1.27G [00:06<00:15, 57.8MB/s][A
+checkpoint_epoch_5.pt:  29%|██▊       | 364M/1.27G [00:06<00:13, 65.1MB/s][Acheckpoint_epoch_2.pt:  27%|██▋       | 339M/1.27G [00:07<00:23, 40.4MB/s]
+checkpoint_epoch_5.pt:  29%|██▉       | 371M/1.27G [00:07<00:17, 52.3MB/s][A
+checkpoint_epoch_5.pt:  30%|██▉       | 380M/1.27G [00:07<00:15, 56.0MB/s][Acheckpoint_epoch_2.pt:  28%|██▊       | 352M/1.27G [00:07<00:21, 43.2MB/s]
+checkpoint_epoch_5.pt:  30%|███       | 386M/1.27G [00:07<00:19, 45.1MB/s][Acheckpoint_epoch_2.pt:  29%|██▉       | 368M/1.27G [00:07<00:19, 47.3MB/s]
+checkpoint_epoch_5.pt:  31%|███▏      | 400M/1.27G [00:07<00:17, 49.5MB/s][Acheckpoint_epoch_2.pt:  30%|███       | 384M/1.27G [00:07<00:16, 53.1MB/s]
+checkpoint_epoch_5.pt:  33%|███▎      | 416M/1.27G [00:08<00:15, 54.3MB/s][Acheckpoint_epoch_2.pt:  31%|███▏      | 400M/1.27G [00:08<00:15, 56.5MB/s]checkpoint_epoch_2.pt:  33%|███▎      | 416M/1.27G [00:08<00:14, 60.4MB/s]
+checkpoint_epoch_5.pt:  34%|███▍      | 432M/1.27G [00:08<00:15, 52.6MB/s][Acheckpoint_epoch_2.pt:  34%|███▍      | 432M/1.27G [00:08<00:13, 60.2MB/s]
+checkpoint_epoch_5.pt:  35%|███▌      | 448M/1.27G [00:08<00:15, 51.9MB/s][Acheckpoint_epoch_2.pt:  35%|███▌      | 448M/1.27G [00:08<00:13, 62.5MB/s]checkpoint_epoch_2.pt:  36%|███▋      | 464M/1.27G [00:09<00:13, 61.7MB/s]
+checkpoint_epoch_5.pt:  36%|███▋      | 464M/1.27G [00:09<00:18, 44.5MB/s][A
+checkpoint_epoch_5.pt:  38%|███▊      | 478M/1.27G [00:09<00:14, 54.9MB/s][Acheckpoint_epoch_2.pt:  38%|███▊      | 480M/1.27G [00:09<00:13, 58.7MB/s]
+checkpoint_epoch_5.pt:  38%|███▊      | 485M/1.27G [00:09<00:16, 48.1MB/s][Acheckpoint_epoch_2.pt:  39%|███▉      | 496M/1.27G [00:09<00:12, 62.1MB/s]checkpoint_epoch_2.pt:  40%|███▉      | 507M/1.27G [00:09<00:11, 68.5MB/s]
+checkpoint_epoch_5.pt:  39%|███▉      | 496M/1.27G [00:09<00:16, 47.3MB/s][Acheckpoint_epoch_2.pt:  40%|████      | 514M/1.27G [00:09<00:13, 54.3MB/s]
+checkpoint_epoch_5.pt:  40%|████      | 512M/1.27G [00:10<00:15, 49.1MB/s][Acheckpoint_epoch_2.pt:  41%|████▏     | 528M/1.27G [00:10<00:13, 55.8MB/s]
+checkpoint_epoch_5.pt:  41%|████▏     | 528M/1.27G [00:10<00:13, 54.7MB/s][Acheckpoint_epoch_2.pt:  43%|████▎     | 544M/1.27G [00:10<00:12, 59.6MB/s]
+checkpoint_epoch_5.pt:  43%|████▎     | 544M/1.27G [00:10<00:12, 58.2MB/s][Acheckpoint_epoch_2.pt:  44%|████▍     | 560M/1.27G [00:10<00:11, 60.1MB/s]
+checkpoint_epoch_5.pt:  44%|████▍     | 560M/1.27G [00:10<00:11, 59.6MB/s][Acheckpoint_epoch_2.pt:  45%|████▌     | 576M/1.27G [00:10<00:11, 62.9MB/s]
+checkpoint_epoch_5.pt:  45%|████▌     | 576M/1.27G [00:10<00:11, 61.4MB/s][A
+checkpoint_epoch_5.pt:  46%|████▋     | 592M/1.27G [00:11<00:09, 75.3MB/s][Acheckpoint_epoch_2.pt:  47%|████▋     | 592M/1.27G [00:11<00:10, 63.3MB/s]
+checkpoint_epoch_5.pt:  47%|████▋     | 601M/1.27G [00:11<00:10, 62.5MB/s][Acheckpoint_epoch_2.pt:  48%|████▊     | 608M/1.27G [00:11<00:10, 64.9MB/s]
+checkpoint_epoch_5.pt:  48%|████▊     | 608M/1.27G [00:11<00:13, 48.8MB/s][Acheckpoint_epoch_2.pt:  49%|████▉     | 624M/1.27G [00:11<00:10, 62.4MB/s]
+checkpoint_epoch_5.pt:  49%|████▊     | 620M/1.27G [00:11<00:11, 58.5MB/s][Acheckpoint_epoch_2.pt:  50%|█████     | 640M/1.27G [00:11<00:10, 60.2MB/s]
+checkpoint_epoch_5.pt:  49%|████▉     | 627M/1.27G [00:12<00:14, 44.0MB/s][Acheckpoint_epoch_2.pt:  52%|█████▏    | 656M/1.27G [00:12<00:10, 60.9MB/s]
+checkpoint_epoch_5.pt:  50%|█████     | 640M/1.27G [00:12<00:14, 43.5MB/s][A
+checkpoint_epoch_5.pt:  51%|█████     | 652M/1.27G [00:12<00:11, 53.7MB/s][Acheckpoint_epoch_2.pt:  53%|█████▎    | 672M/1.27G [00:12<00:10, 58.0MB/s]
+checkpoint_epoch_5.pt:  52%|█████▏    | 659M/1.27G [00:12<00:13, 44.7MB/s][Acheckpoint_epoch_2.pt:  54%|█████▍    | 688M/1.27G [00:12<00:09, 60.8MB/s]
+checkpoint_epoch_5.pt:  53%|█████▎    | 672M/1.27G [00:12<00:12, 48.0MB/s][Acheckpoint_epoch_2.pt:  55%|█████▌    | 704M/1.27G [00:13<00:09, 62.0MB/s]
+checkpoint_epoch_5.pt:  54%|█████▍    | 688M/1.27G [00:13<00:10, 54.9MB/s][Acheckpoint_epoch_2.pt:  57%|█████▋    | 720M/1.27G [00:13<00:08, 62.7MB/s]
+checkpoint_epoch_5.pt:  55%|█████▌    | 704M/1.27G [00:13<00:10, 54.6MB/s][Acheckpoint_epoch_2.pt:  58%|█████▊    | 736M/1.27G [00:13<00:08, 64.5MB/s]
+checkpoint_epoch_5.pt:  57%|█████▋    | 719M/1.27G [00:13<00:08, 69.1MB/s][Acheckpoint_epoch_2.pt:  59%|█████▉    | 752M/1.27G [00:13<00:07, 65.4MB/s]
+checkpoint_epoch_5.pt:  57%|█████▋    | 728M/1.27G [00:13<00:09, 55.7MB/s][Acheckpoint_epoch_2.pt:  60%|██████    | 768M/1.27G [00:13<00:07, 65.8MB/s]
+checkpoint_epoch_5.pt:  58%|█████▊    | 736M/1.27G [00:14<00:10, 50.1MB/s][Acheckpoint_epoch_2.pt:  62%|██████▏   | 784M/1.27G [00:14<00:07, 65.4MB/s]checkpoint_epoch_2.pt:  63%|██████▎   | 800M/1.27G [00:14<00:07, 63.7MB/s]
+checkpoint_epoch_5.pt:  59%|█████▉    | 752M/1.27G [00:14<00:12, 42.6MB/s][Acheckpoint_epoch_2.pt:  64%|██████▍   | 816M/1.27G [00:14<00:07, 64.6MB/s]
+checkpoint_epoch_5.pt:  60%|██████    | 768M/1.27G [00:14<00:10, 47.0MB/s][A
+checkpoint_epoch_5.pt:  62%|██████▏   | 784M/1.27G [00:15<00:09, 51.8MB/s][Acheckpoint_epoch_2.pt:  65%|██████▌   | 832M/1.27G [00:15<00:07, 57.5MB/s]
+checkpoint_epoch_5.pt:  63%|██████▎   | 800M/1.27G [00:15<00:08, 56.6MB/s][Acheckpoint_epoch_2.pt:  67%|██████▋   | 848M/1.27G [00:15<00:07, 55.7MB/s]
+checkpoint_epoch_5.pt:  64%|██████▍   | 816M/1.27G [00:15<00:07, 59.7MB/s][Acheckpoint_epoch_2.pt:  68%|██████▊   | 864M/1.27G [00:15<00:07, 55.4MB/s]
+checkpoint_epoch_5.pt:  65%|██████▌   | 832M/1.27G [00:15<00:07, 62.0MB/s][Acheckpoint_epoch_2.pt:  69%|██████▉   | 880M/1.27G [00:15<00:06, 58.2MB/s]
+checkpoint_epoch_5.pt:  67%|██████▋   | 848M/1.27G [00:15<00:06, 63.8MB/s][A
+checkpoint_epoch_5.pt:  68%|██████▊   | 864M/1.27G [00:16<00:06, 64.3MB/s][Acheckpoint_epoch_2.pt:  70%|███████   | 896M/1.27G [00:16<00:07, 53.1MB/s]
+checkpoint_epoch_5.pt:  69%|██████▉   | 880M/1.27G [00:16<00:06, 62.6MB/s][Acheckpoint_epoch_2.pt:  72%|███████▏  | 912M/1.27G [00:16<00:06, 55.9MB/s]checkpoint_epoch_2.pt:  73%|███████▎  | 928M/1.27G [00:16<00:05, 59.1MB/s]
+checkpoint_epoch_5.pt:  70%|███████   | 896M/1.27G [00:16<00:06, 60.4MB/s][Acheckpoint_epoch_2.pt:  74%|███████▍  | 944M/1.27G [00:17<00:05, 61.4MB/s]
+checkpoint_epoch_5.pt:  72%|███████▏  | 912M/1.27G [00:17<00:05, 60.9MB/s][Acheckpoint_epoch_2.pt:  75%|███████▌  | 960M/1.27G [00:17<00:05, 61.5MB/s]
+checkpoint_epoch_5.pt:  73%|███████▎  | 928M/1.27G [00:17<00:05, 62.0MB/s][Acheckpoint_epoch_2.pt:  77%|███████▋  | 976M/1.27G [00:17<00:04, 60.6MB/s]
+checkpoint_epoch_5.pt:  74%|███████▍  | 944M/1.27G [00:17<00:05, 62.6MB/s][Acheckpoint_epoch_2.pt:  78%|███████▊  | 988M/1.27G [00:17<00:04, 68.7MB/s]
+checkpoint_epoch_5.pt:  75%|███████▌  | 960M/1.27G [00:17<00:04, 63.5MB/s][Acheckpoint_epoch_2.pt:  78%|███████▊  | 996M/1.27G [00:17<00:05, 55.3MB/s]checkpoint_epoch_2.pt:  79%|███████▉  | 1.00G/1.27G [00:18<00:04, 58.3MB/s]
+checkpoint_epoch_5.pt:  77%|███████▋  | 976M/1.27G [00:18<00:04, 61.1MB/s][Acheckpoint_epoch_2.pt:  79%|███████▉  | 1.01G/1.27G [00:18<00:05, 45.8MB/s]
+checkpoint_epoch_5.pt:  78%|███████▊  | 992M/1.27G [00:18<00:04, 62.3MB/s][Acheckpoint_epoch_2.pt:  80%|████████  | 1.02G/1.27G [00:18<00:05, 49.6MB/s]
+checkpoint_epoch_5.pt:  79%|███████▉  | 1.01G/1.27G [00:18<00:04, 63.3MB/s][Acheckpoint_epoch_2.pt:  82%|████████▏ | 1.04G/1.27G [00:18<00:04, 55.8MB/s]
+checkpoint_epoch_5.pt:  80%|████████  | 1.02G/1.27G [00:18<00:04, 60.8MB/s][Acheckpoint_epoch_2.pt:  83%|████████▎ | 1.06G/1.27G [00:19<00:03, 58.5MB/s]
+checkpoint_epoch_5.pt:  82%|████████▏ | 1.04G/1.27G [00:19<00:03, 61.4MB/s][Acheckpoint_epoch_2.pt:  84%|████████▍ | 1.07G/1.27G [00:19<00:03, 62.1MB/s]
+checkpoint_epoch_5.pt:  83%|████████▎ | 1.06G/1.27G [00:19<00:03, 63.5MB/s][Acheckpoint_epoch_2.pt:  85%|████████▌ | 1.09G/1.27G [00:19<00:03, 61.4MB/s]
+checkpoint_epoch_5.pt:  84%|████████▍ | 1.07G/1.27G [00:19<00:03, 64.1MB/s][Acheckpoint_epoch_2.pt:  87%|████████▋ | 1.10G/1.27G [00:19<00:02, 61.6MB/s]
+checkpoint_epoch_5.pt:  85%|████████▌ | 1.09G/1.27G [00:19<00:03, 60.6MB/s][Acheckpoint_epoch_2.pt:  88%|████████▊ | 1.12G/1.27G [00:19<00:02, 63.1MB/s]
+checkpoint_epoch_5.pt:  87%|████████▋ | 1.10G/1.27G [00:20<00:02, 63.7MB/s][Acheckpoint_epoch_2.pt:  89%|████████▉ | 1.14G/1.27G [00:20<00:02, 59.8MB/s]
+checkpoint_epoch_5.pt:  88%|████████▊ | 1.12G/1.27G [00:20<00:02, 65.5MB/s][Acheckpoint_epoch_2.pt:  90%|█████████ | 1.15G/1.27G [00:20<00:01, 62.4MB/s]
+checkpoint_epoch_5.pt:  89%|████████▉ | 1.14G/1.27G [00:20<00:02, 65.4MB/s][A
+checkpoint_epoch_5.pt:  90%|█████████ | 1.15G/1.27G [00:20<00:01, 63.4MB/s][Acheckpoint_epoch_2.pt:  92%|█████████▏| 1.17G/1.27G [00:20<00:01, 53.0MB/s]
+checkpoint_epoch_5.pt:  92%|█████████▏| 1.17G/1.27G [00:21<00:01, 65.5MB/s][Acheckpoint_epoch_2.pt:  93%|█████████▎| 1.18G/1.27G [00:21<00:01, 57.0MB/s]
+checkpoint_epoch_5.pt:  93%|█████████▎| 1.18G/1.27G [00:21<00:01, 63.6MB/s][A
+checkpoint_epoch_5.pt:  94%|█████████▍| 1.20G/1.27G [00:21<00:01, 71.4MB/s][Acheckpoint_epoch_2.pt:  94%|█████████▍| 1.20G/1.27G [00:21<00:01, 54.5MB/s]
+checkpoint_epoch_5.pt:  95%|█████████▍| 1.20G/1.27G [00:21<00:01, 57.6MB/s][Acheckpoint_epoch_2.pt:  96%|█████████▌| 1.22G/1.27G [00:21<00:00, 58.5MB/s]
+checkpoint_epoch_5.pt:  96%|█████████▌| 1.22G/1.27G [00:21<00:01, 55.8MB/s][Acheckpoint_epoch_2.pt:  97%|█████████▋| 1.23G/1.27G [00:21<00:00, 58.3MB/s]
+checkpoint_epoch_5.pt:  97%|█████████▋| 1.23G/1.27G [00:22<00:00, 57.5MB/s][Acheckpoint_epoch_2.pt:  98%|█████████▊| 1.25G/1.27G [00:22<00:00, 56.1MB/s]
+checkpoint_epoch_5.pt:  98%|█████████▊| 1.25G/1.27G [00:22<00:00, 59.9MB/s][Acheckpoint_epoch_2.pt:  99%|█████████▉| 1.26G/1.27G [00:22<00:00, 55.4MB/s]
+checkpoint_epoch_5.pt:  99%|█████████▉| 1.26G/1.27G [00:22<00:00, 61.2MB/s][Acheckpoint_epoch_2.pt: 100%|██████████| 1.27G/1.27G [00:22<00:00, 55.9MB/s]
+checkpoint_epoch_5.pt: 100%|██████████| 1.27G/1.27G [00:22<00:00, 55.7MB/s]
+
+
+
+Upload 12 LFS files:   8%|▊         | 1/12 [00:22<04:12, 22.98s/it][A[A[A
+
+
+Upload 12 LFS files:  17%|█▋        | 2/12 [00:23<01:35,  9.54s/it][A[A[AUpload 12 LFS files: 100%|██████████| 12/12 [00:23<00:00,  1.93s/it]
+[2026-10-30 12:24:52] libero_spatial uploaded commit 8703bb9113457ea5e292270f22921732e07ca2bd sha256 all match: True
+[2026-10-30 12:24:52] all suites uploaded

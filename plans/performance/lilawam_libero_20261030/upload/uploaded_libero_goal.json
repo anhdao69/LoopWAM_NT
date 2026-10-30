@@ -1,0 +1,21 @@
+{
+ "suite": "libero_goal",
+ "commit": "595b21b8b58d3114fd52ff9541bc4382cd05185e",
+ "time": "2026-10-30 11:10:38",
+ "verify": {
+  "baselines/LiLa-WAM_LIBERO_ours/libero_goal/stage2_epoch2_final.pt": {
+   "local_sha256": "5ac2bfd3aad9c2caa9082bd6d9a78d363c683673472ec6dea60660507ec464ba",
+   "hf_lfs_sha256": "5ac2bfd3aad9c2caa9082bd6d9a78d363c683673472ec6dea60660507ec464ba",
+   "size": 1272974101,
+   "match": true
+  },
+  "baselines/LiLa-WAM_LIBERO_ours/libero_goal/stage1_epoch5.pt": {
+   "local_sha256": "2a7e5fc01631e54eb6e2e945041fd84779e9b20b05780a5a4228753b5d2a487f",
+   "hf_lfs_sha256": "2a7e5fc01631e54eb6e2e945041fd84779e9b20b05780a5a4228753b5d2a487f",
+   "size": 1272974101,
+   "match": true
+  }
+ },
+ "all_match": true,
+ "files": 20
+}

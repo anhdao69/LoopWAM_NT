@@ -1,3 +1,14 @@
 [2026-10-30T09:37:17-04:00] start on evc103 job 1094056 step 7
 [2026-10-30T09:37:17-04:00] libero_10 stage1 start
 [2026-10-30T10:19:54-04:00] libero_10 stage1 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage1/sft_2026-10-30_09-37-52/checkpoint_epoch_5.pt
+[2026-10-30T10:36:54-04:00] libero_10 stage2 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage2/sft_2026-10-30_10-20-08/checkpoint_epoch_2.pt
+[2026-10-30T10:36:54-04:00] libero_goal stage1 start
+[2026-10-30T10:59:01-04:00] libero_goal stage1 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage1/sft_2026-10-30_10-37-29/checkpoint_epoch_5.pt
+[2026-10-30T11:09:28-04:00] libero_goal stage2 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage2/sft_2026-10-30_10-59-26/checkpoint_epoch_2.pt
+[2026-10-30T11:09:28-04:00] libero_object stage1 start
+[2026-10-30T11:38:04-04:00] libero_object stage1 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_object/stage1/sft_2026-10-30_11-10-16/checkpoint_epoch_5.pt
+[2026-10-30T11:51:36-04:00] libero_object stage2 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_object/stage2/sft_2026-10-30_11-40-12/checkpoint_epoch_2.pt
+[2026-10-30T11:51:36-04:00] libero_spatial stage1 start
+[2026-10-30T12:14:32-04:00] libero_spatial stage1 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage1/sft_2026-10-30_11-52-40/checkpoint_epoch_5.pt
+[2026-10-30T12:23:40-04:00] libero_spatial stage2 rc=0 ckpt=/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage2/sft_2026-10-30_12-14-57/checkpoint_epoch_2.pt
+[2026-10-30T12:23:40-04:00] all done

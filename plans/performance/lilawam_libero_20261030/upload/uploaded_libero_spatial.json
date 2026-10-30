@@ -1,0 +1,21 @@
+{
+ "suite": "libero_spatial",
+ "commit": "8703bb9113457ea5e292270f22921732e07ca2bd",
+ "time": "2026-10-30 12:24:52",
+ "verify": {
+  "baselines/LiLa-WAM_LIBERO_ours/libero_spatial/stage2_epoch2_final.pt": {
+   "local_sha256": "0836ecc4ceefb7feacc4ef92c5e76f0683cb46819a8b900a14f5febc69b90af1",
+   "hf_lfs_sha256": "0836ecc4ceefb7feacc4ef92c5e76f0683cb46819a8b900a14f5febc69b90af1",
+   "size": 1272974101,
+   "match": true
+  },
+  "baselines/LiLa-WAM_LIBERO_ours/libero_spatial/stage1_epoch5.pt": {
+   "local_sha256": "5496e10a9303367e843fb6d52bdef0114d5f57bdf56ac6c9022ca71d58470321",
+   "hf_lfs_sha256": "5496e10a9303367e843fb6d52bdef0114d5f57bdf56ac6c9022ca71d58470321",
+   "size": 1272974101,
+   "match": true
+  }
+ },
+ "all_match": true,
+ "files": 20
+}

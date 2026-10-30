@@ -62,3 +62,35 @@ Each run is the public `train.py`, unchanged except that its dataset factory rea
 - **LIBERO success rates under our matched protocol are pending:** 4 suites × 10 tasks × 50 trials × seeds 42/43/44.
 - **Paper reference:** the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average. Those come from the authors' own data and training length, not from these weights.
 - **License:** the LiLa-WAM ModelScope release states Apache-2.0. DINOv3 is under Meta's DINOv3 license and is not redistributed here.
+
+## Results so far (generated from the result files)
+
+### Training
+
+| Suite | Stage-1 epoch mean loss (5 epochs) | Stage-2 epoch mean loss (2 epochs) | Final file | sha256 (HF LFS verified) |
+|---|---|---|---|---|
+| Long (libero_10) | 0.2737 → 0.1731 → 0.1546 → 0.1430 → 0.1371 | 0.1348 → 0.1318 | `libero_10/stage2_epoch2_final.pt` | `27ad99a458d97a68…` (match) |
+| Goal | 0.3463 → 0.1971 → 0.1710 → 0.1591 → 0.1520 | 0.1484 → 0.1456 | `libero_goal/stage2_epoch2_final.pt` | `5ac2bfd3aad9c2ca…` (match) |
+| Object | 0.2800 → 0.1623 → 0.1444 → 0.1352 → 0.1299 | 0.1277 → 0.1247 | `libero_object/stage2_epoch2_final.pt` | `4571a5f45f02dc61…` (match) |
+| Spatial | 0.3419 → 0.1951 → 0.1742 → 0.1626 → 0.1555 | 0.1528 → 0.1503 | `libero_spatial/stage2_epoch2_final.pt` | `0836ecc4ceefb7fe…` (match) |
+
+### Open-loop check on held-in demonstration frames (not a success rate)
+
+512 random training samples per suite, seed 0, public sampling procedure (10 Euler steps). MAE in raw action units over the 6 end-effector deltas; the baseline always predicts the suite's mean action.
+
+| Suite | Checkpoint | MAE model | MAE baseline | Gripper sign agreement model / baseline |
+|---|---|---|---|---|
+| Long (libero_10) | stage-1 epoch 5 | 0.0729 | 0.1452 | 0.937 / 0.534 |
+| Long (libero_10) | final | 0.0702 | 0.1452 | 0.949 / 0.534 |
+| Goal | stage-1 epoch 5 | 0.0889 | 0.1845 | 0.948 / 0.633 |
+| Goal | final | 0.0853 | 0.1845 | 0.956 / 0.633 |
+| Object | stage-1 epoch 5 | 0.0709 | 0.1600 | 0.939 / 0.537 |
+| Object | final | 0.0682 | 0.1600 | 0.939 / 0.537 |
+| Spatial | stage-1 epoch 5 | 0.0885 | 0.1939 | 0.949 / 0.536 |
+| Spatial | final | 0.0855 | 0.1939 | 0.950 / 0.536 |
+
+### Latency
+
+Batch 1 on an H100 80GB (evc103, GPU otherwise idle), 500 recorded raw LIBERO observations after 20 warmup queries, from raw observation to the smoothed host action chunk (12×7): mean 52.0 ms, p50 51.1, p95 61.0, peak 1.12 GB; 0.515B parameters including the frozen DINOv3 (212.1M trainable action model).
+
+LIBERO success rates under our matched protocol (4 suites × 10 tasks × 50 trials × 3 seeds): **pending**.

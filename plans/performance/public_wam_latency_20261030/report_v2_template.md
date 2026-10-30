@@ -5,7 +5,7 @@ This report covers two pieces of work on H100 80GB HBM3. Branch `elastic`.
 1. **Latency of four public world-action models**, each run through **its own public code with its own released weights**, unoptimized: FastWAM, FasterWAM, Light-WAM and LiLa-WAM.
 2. **LiLa-WAM trained on our LIBERO data**, because the authors released no LIBERO model. It uses the paper's LIBERO recipe. The weights are on Hugging Face under `baselines/`, along with an open-loop check and the trained model's latency.
 
-{{TRAIN_STATUS}} The LIBERO success-rate evaluation of the trained LiLa-WAM under our matched protocol has **not** been run yet (Section 6.9).
+{{TRAIN_STATUS}} LIBERO success of the trained LiLa-WAM under our matched protocol (Section 6.9): **{{EVAL_SHORT}}**.
 
 Where things are:
 - **Data and scripts:** `plans/performance/public_wam_latency_20261030/` (latency) and `plans/performance/lilawam_libero_20261030/` (LiLa-WAM training).
@@ -222,6 +222,10 @@ A joint four-suite run started earlier was cancelled after about 6 minutes, befo
 
 `manifest.json` in that folder lists the full sha256 values.
 
+**Uploader incident (no data affected).** The first uploader instance crashed at 10:37 before uploading anything. `import torch` fails on the login node (`libnccl.so.2: failed to map segment`), and it had used torch only to read epoch, step and loss from each checkpoint.
+- It now reads them from the training logs. For both libero_10 checkpoints the values are identical to the checkpoint contents read with torch: stage 1 epoch 5 is step 4070, loss 0.1371; stage 2 epoch 2 is step 1628, loss 0.1318.
+- It was restarted at 10:38, and libero_10 was uploaded and verified at 10:39. The crash log is in `upload/hf_upload_watcher_crash1.log`.
+
 ### 6.7 Open-loop sanity check (not a success rate)
 
 - **What it runs.** `openloop_check.py` builds the model exactly as the public `RobotWinInference` does (strict state-dict load: 0 missing, 0 unexpected keys). It samples 12-step chunks with the public procedure (Gaussian start, 10 Euler steps, denormalize).
@@ -239,16 +243,41 @@ The public B-spline smoothing (8 control points over 12 steps) barely changes th
 - One query is the public `_predict_chunk` procedure on LIBERO inputs: two-view composite, 8-D state, DINOv3 features, 10 flow steps, B-spline smoothing.
 - The libero_10 policy was timed on all 500 observations; the four suite policies share one architecture.
 
-### 6.9 Not done yet: LIBERO success rate under our matched protocol
+### 6.9 LIBERO success rate under our matched protocol
 
-The evaluation needs a GPU allocation and a LiLa-WAM policy adapter for our LIBERO runner. The protocol is 4 suites × 10 tasks × 50 trials × seeds 42/43/44 = 6,000 episodes. The adapter should:
-- for each episode, load the suite's final checkpoint, its config, its `norm_stats.json` and the task's `task_cond.npy`;
-- build inputs with `libero_data.libero_obs_to_inputs`;
-- sample with the public procedure;
-- send actions to the environment as-is, **without** FastWAM's gripper flip, because the policy outputs raw LIBERO actions;
-- use an execution horizon that must be decided and recorded. The paper gives none for LIBERO; the public RoboTwin setting executes 16 of 32 steps.
+- **Protocol:** `lightwam_20261009_matched`, the same as every matched model in our reports. The runner is `evaluate_lilawam_matched.py`. It imports the constants, group claims and summary code of the LoopWAM runner `evaluate_v0_matched.py` unchanged.
+- **Grid:** 4 suites × 10 tasks × official initial states 0–49 × seeds 42/43/44 = 6,000 episodes.
+- **Per task/seed group:**
+  - one environment, created with `env.seed(seed)` and reused for its 50 initial states in order;
+  - `set_global_seed(seed)` once;
+  - 30 settling actions `[0,0,0,0,0,0,-1]`, with `done` ignored;
+  - then at most 400 policy steps (700 for Long);
+  - success = the environment's `done` flag.
+- **LiLa-WAM-specific choices** (upstream has no LIBERO eval; all are recorded in `eval_matched/manifest.json`):
+  - each suite runs its own final policy;
+  - inputs come from `libero_obs_to_inputs`, the training format;
+  - sampling uses the public procedure: 10 Euler steps, then B-spline smoothing;
+  - every query of a group starts from the same seed noise;
+  - **6 of the 12 predicted actions are executed per query** (half the chunk, as the public RoboTwin config executes 16 of 32);
+  - the gripper is executed as sign(predicted raw gripper).
+- **Speed setup.** One batched bf16 inference server per GPU (Long + Goal on one GPU, Spatial + Object on the other) serves many CPU-only simulator workers, each with one environment.
+  - Batching changes only the batch size of the same computation. It is not bit-identical to batch-1 inference.
 
-`plans/performance/lilawam_libero_20261030/HANDOFF.md` lists these steps.
+- **Pre-checks before the full run** (evc103, GPU shared with training, seed 42, 2 episodes per task; not part of the result). These were run to separate a pipeline bug from a weak policy:
+  - The eval image and state match the training format pixel-for-pixel in layout (`lilawam/eval_debug/compare_eval_top_train_bottom.png`).
+  - The sampling code equals the public `_predict_chunk`, and the public processor's resize is a no-op on our 512×256 composite.
+  - The action conventions match our LoopWAM eval: EEF deltas unchanged; gripper open = −1.
+  - All 40 task names map to their task vectors.
+  - Closed loop: **Long 0/20** (10 tasks). **Goal 1/20**: "put the bowl on top of the cabinet" succeeded in 101 steps.
+  - The robot reaches toward the right objects but rarely grasps (`lilawam/eval_debug/closed_loop_montage.png`).
+- **Interpretation.** The pipeline can complete tasks, so it is not broken. The policies are weak because of the training budget, not the method:
+  - 5 + 2 epochs per suite, about 5.7k updates for Long and about 3k for Goal;
+  - training loss still falling every epoch;
+  - open-loop error only about 2× below the mean-action baseline (Section 6.7).
+  - The paper does not state its epoch count. Its 94–99% per suite almost certainly needed much longer training.
+  - **Read the numbers below as "LiLa-WAM after a 7-epoch budget on our data", not as the method's capability.**
+
+{{EVAL}}
 
 ## 7. Success-rate context
 
@@ -260,7 +289,7 @@ None of these numbers come from the latency runs.
 | Light-WAM | Long only: **90.87%** (1363/1500); seeds 90.4 / 90.0 / 92.2 | 1,500 | the earlier evaluation scored `lightwam_libero_10/.../step_080000.pt`, the file timed here by name. Its sha256 was not recorded in that evaluation. |
 | FasterWAM | not evaluated by us | – | |
 | LiLa-WAM (RoboTwin release) | not applicable: a RoboTwin model | – | |
-| LiLa-WAM (ours, paper recipe) | **pending** (Section 6.9) | – | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
+| LiLa-WAM (ours, paper recipe) | **{{EVAL_SHORT}}** (Section 6.9) | 6,000 (seeds 42/43/44) | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
 
 ## 8. Caveats
 

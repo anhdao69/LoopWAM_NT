@@ -1,0 +1,54 @@
+{
+ "checkpoint": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage1/sft_2026-10-30_09-37-52/checkpoint_epoch_5.pt",
+ "config": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_10/stage1/sft_2026-10-30_09-37-52/config.yaml",
+ "stats": "/groups/yshang/an221229/data/LiLaWAM_libero_ours_stats_libero_10.json",
+ "samples": 512,
+ "seed": 0,
+ "valid_action_steps": 6030,
+ "model_ms_per_sample": null,
+ "seconds": 36.1,
+ "raw": {
+  "mae_xyzrot": 0.07294327020645142,
+  "mae_xyzrot_first_action": 0.07593155652284622,
+  "gripper_sign_agreement": 0.93681592039801,
+  "mae_per_dim": [
+   0.12131507694721222,
+   0.096018947660923,
+   0.12239743024110794,
+   0.0223709587007761,
+   0.040025077760219574,
+   0.03553217276930809,
+   0.13211806118488312
+  ]
+ },
+ "bspline_smoothed": {
+  "mae_xyzrot": 0.07291633569440528,
+  "mae_xyzrot_first_action": 0.07593133606053604,
+  "gripper_sign_agreement": 0.9371475953565506,
+  "mae_per_dim": [
+   0.1212827699023029,
+   0.09596802225460056,
+   0.1223576577822977,
+   0.022359602577212426,
+   0.04001482875250262,
+   0.035515132897515456,
+   0.13843009248642849
+  ]
+ },
+ "max_abs_raw_minus_smoothed": 1.1661126731455715,
+ "mean_abs_raw_minus_smoothed": 0.0037333345285003945,
+ "baseline_mean_action": {
+  "mae_xyzrot": 0.14520248770713806,
+  "mae_xyzrot_first_action": 0.14539091289043427,
+  "gripper_sign_agreement": 0.5343283582089552,
+  "mae_per_dim": [
+   0.20340023934841156,
+   0.2761094570159912,
+   0.2801450192928314,
+   0.02172059565782547,
+   0.03549468517303467,
+   0.05434494838118553,
+   0.993684709072113
+  ]
+ }
+}

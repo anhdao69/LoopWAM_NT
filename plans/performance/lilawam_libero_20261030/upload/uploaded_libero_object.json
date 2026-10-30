@@ -1,0 +1,21 @@
+{
+ "suite": "libero_object",
+ "commit": "efda9c4ebf76269473a825f1ee13c98ed103a4de",
+ "time": "2026-10-30 11:52:15",
+ "verify": {
+  "baselines/LiLa-WAM_LIBERO_ours/libero_object/stage2_epoch2_final.pt": {
+   "local_sha256": "4571a5f45f02dc614c64a396112fcc0dc22687df8305740d40c1ab8c044efbce",
+   "hf_lfs_sha256": "4571a5f45f02dc614c64a396112fcc0dc22687df8305740d40c1ab8c044efbce",
+   "size": 1272974101,
+   "match": true
+  },
+  "baselines/LiLa-WAM_LIBERO_ours/libero_object/stage1_epoch5.pt": {
+   "local_sha256": "5564d2cd2ff4b04a6807a12ef831bcdea93cd19cb817ee55f45f1dca82e02370",
+   "hf_lfs_sha256": "5564d2cd2ff4b04a6807a12ef831bcdea93cd19cb817ee55f45f1dca82e02370",
+   "size": 1272974101,
+   "match": true
+  }
+ },
+ "all_match": true,
+ "files": 20
+}

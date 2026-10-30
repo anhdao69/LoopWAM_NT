@@ -1,0 +1,54 @@
+{
+ "checkpoint": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage2/sft_2026-10-30_12-14-57/checkpoint_epoch_2.pt",
+ "config": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_spatial/stage2/sft_2026-10-30_12-14-57/config.yaml",
+ "stats": "/groups/yshang/an221229/data/LiLaWAM_libero_ours_stats_libero_spatial.json",
+ "samples": 512,
+ "seed": 0,
+ "valid_action_steps": 5839,
+ "model_ms_per_sample": null,
+ "seconds": 15.7,
+ "raw": {
+  "mae_xyzrot": 0.08550859987735748,
+  "mae_xyzrot_first_action": 0.0879758819937706,
+  "gripper_sign_agreement": 0.9499914368898784,
+  "mae_per_dim": [
+   0.14433318376541138,
+   0.1079985499382019,
+   0.15060068666934967,
+   0.026742860674858093,
+   0.04849477857351303,
+   0.03488151356577873,
+   0.1060594692826271
+  ]
+ },
+ "bspline_smoothed": {
+  "mae_xyzrot": 0.08547713147525254,
+  "mae_xyzrot_first_action": 0.08797538113201629,
+  "gripper_sign_agreement": 0.9499914368898784,
+  "mae_per_dim": [
+   0.14425030538972225,
+   0.10793496089985437,
+   0.15058512147232217,
+   0.02673761927000959,
+   0.04847956796643034,
+   0.03487521385317656,
+   0.11615406858671087
+  ]
+ },
+ "max_abs_raw_minus_smoothed": 1.1563497193107835,
+ "mean_abs_raw_minus_smoothed": 0.004443378828302518,
+ "baseline_mean_action": {
+  "mae_xyzrot": 0.19394469261169434,
+  "mae_xyzrot_first_action": 0.19752240180969238,
+  "gripper_sign_agreement": 0.535708169207056,
+  "mae_per_dim": [
+   0.3348146378993988,
+   0.27155423164367676,
+   0.43856778740882874,
+   0.024212533608078957,
+   0.05417237430810928,
+   0.040346596390008926,
+   0.9938967227935791
+  ]
+ }
+}

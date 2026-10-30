@@ -5,7 +5,7 @@ This report covers two pieces of work on H100 80GB HBM3. Branch `elastic`.
 1. **Latency of four public world-action models**, each run through **its own public code with its own released weights**, unoptimized: FastWAM, FasterWAM, Light-WAM and LiLa-WAM.
 2. **LiLa-WAM trained on our LIBERO data**, because the authors released no LIBERO model. It uses the paper's LIBERO recipe. The weights are on Hugging Face under `baselines/`, along with an open-loop check and the trained model's latency.
 
-**Training: in progress** (the table in Section 6.5 shows exactly where each suite is). The LIBERO success-rate evaluation of the trained LiLa-WAM under our matched protocol has **not** been run yet (Section 6.9).
+**Training: all four suites finished both stages.** LIBERO success of the trained LiLa-WAM under our matched protocol (Section 6.9): **pending**.
 
 Where things are:
 - **Data and scripts:** `plans/performance/public_wam_latency_20261030/` (latency) and `plans/performance/lilawam_libero_20261030/` (LiLa-WAM training).
@@ -43,7 +43,7 @@ Where things are:
   The paper does not give the number of epochs, so 5 + 2 epochs per suite were chosen to fit one H100 in job 1094056.
   - The data conversion was verified exactly: 24 randomly chosen demonstrations (3,876 frames), all checks passed: True.
   - Training progress and losses: Section 6.5. Weights and their sha256 verification: Section 6.6. Open-loop check: Section 6.7.
-  - Latency of the trained LIBERO policy: not measured yet (needs the finished checkpoint and an idle GPU).
+  - Latency of the trained LIBERO policy: 52.0 ms mean (p50 51.1, p95 61.0), 1.12 GB peak, measured on evc103 after training finished with the GPU otherwise idle.
 
 ## 2. What was run
 
@@ -99,6 +99,7 @@ Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz 
 | Light-WAM (libero_10 release) | native | 49.1 (48.9 / 49.9) | 49.8 (49.7 / 51.2) | 20.4 | 4.3 |  |
 | Light-WAM (libero_10 release) | prompt_cached | 49.4 (49.2 / 50.5) | 49.8 (49.7 / 50.5) | 20.3 | 4.3 | 500/500 |
 | LiLa-WAM (RoboTwin 2.0 release) | native | 49.5 (49.4 / 50.0) | 50.8 (49.9 / 59.7) | 20.2 | 1.1 |  |
+| LiLa-WAM (ours, LIBERO paper recipe, libero_10 policy) | native | - | 52.0 (51.1 / 61.0) | 19.2 | 1.1 |  |
 
 ### Configuration actually executed (read back from each run)
 
@@ -109,6 +110,7 @@ Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz 
 | FasterWAM | FasterWAM @ `8366781` | `step_021700.pt` | torch.bfloat16 | 10 | one_pass_future_cache | T5 prompt encoding inside every query | [32, 7] | 11.94 B | 90 |
 | Light-WAM (libero_10 release) | Light-WAM @ `db7d05e` | `step_080000.pt` | torch.bfloat16 | 10 | infer_action | pre-encoded once per task (EVALUATION.preencode_prompt_context=true) | [32, 7] | 7.67 B | 146 |
 | LiLa-WAM (RoboTwin 2.0 release) | LiLa-WAM @ `339860f` | `checkpoint.pt` | bfloat16 | 10 | RobotWinInference._predict_chunk (DINOv3 features + flow steps + B-spline smoothing) | no language input; precomputed task-condition vector | [32, 14] | 0.52 B | 7 |
+| LiLa-WAM (ours, LIBERO paper recipe, libero_10 policy) | LiLa-WAM @ `339860f` | `checkpoint_epoch_2.pt` | bfloat16 | 10 | public _predict_chunk procedure on LIBERO inputs ([agentview | wrist] 512x256, 8-D state; DINOv3 features + flow steps + B-spline smoothing) | no language input; task-condition vector | [12, 7] | 0.52 B | 8 |
 
 ### 4.1 Full statistics of every run (ms)
 
@@ -132,6 +134,7 @@ Each cell: mean (p50 / p95) over the timed queries, after 20 warmup queries. Hz 
 | Light-WAM (libero_10 release) | evc103 (1094056) | prompt_cached | 500 | 49.79 | 0.56 | 49.39 | 49.67 | 50.49 | 49.15 | 54.38 | 20.1 | 4.34 | 60 |
 | LiLa-WAM (RoboTwin 2.0 release) | evc102 (1094057) | native | 500 | 49.51 | 0.31 | 49.23 | 49.42 | 49.99 | 48.90 | 51.81 | 20.2 | 1.10 | 7 |
 | LiLa-WAM (RoboTwin 2.0 release) | evc103 (1094056) | native | 500 | 50.78 | 2.64 | 49.55 | 49.90 | 59.73 | 49.31 | 62.25 | 19.7 | 1.10 | 22 |
+| LiLa-WAM (ours, LIBERO paper recipe, libero_10 policy) | evc103 (1094056) | native | 500 | 52.00 | 2.94 | 50.44 | 51.08 | 60.98 | 50.31 | 63.41 | 19.2 | 1.12 | 8 |
 
 ### 4.2 Cost of encoding the prompt inside every query
 
@@ -258,13 +261,13 @@ The adapter is in `lilawam_libero_20261030/`. Only data access is new: `train_li
 | Suite | Demos | Frames | Updates / epoch | Stage | LR (cosine) | Epochs done | Per-epoch mean loss | Epoch wall s | Start → end | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Long (libero_10) | 388 | 104,280 | 814 | stage1 | 2e-04 → 5e-05 | 5/5 | 0.2737 → 0.1731 → 0.1546 → 0.1430 → 0.1371 | 507 / 499 / 499 / 500 / 503 | 09:37:17 → 10:19:54 | complete |
-| Long (libero_10) | 388 | 104,280 | 814 | stage2 | 5e-05 → 5e-06 | 0/2 | - | - | 10:19:54 → … | running: epoch 1/2, update 180/814 |
-| Goal | 433 | 52,895 | - | stage1 | - | 0/5 | - | - | - | not started |
-| Goal | 433 | 52,895 | - | stage2 | - | 0/2 | - | - | - | not started |
-| Object | 457 | 67,309 | - | stage1 | - | 0/5 | - | - | - | not started |
-| Object | 457 | 67,309 | - | stage2 | - | 0/2 | - | - | - | not started |
-| Spatial | 434 | 53,229 | - | stage1 | - | 0/5 | - | - | - | not started |
-| Spatial | 434 | 53,229 | - | stage2 | - | 0/2 | - | - | - | not started |
+| Long (libero_10) | 388 | 104,280 | 814 | stage2 | 5e-05 → 5e-06 | 2/2 | 0.1348 → 0.1318 | 502 / 498 | 10:19:54 → 10:36:54 | complete (init from stage-1 epoch 5) |
+| Goal | 433 | 52,895 | 413 | stage1 | 2e-04 → 5e-05 | 5/5 | 0.3463 → 0.1971 → 0.1710 → 0.1591 → 0.1520 | 265 / 254 / 254 / 255 / 254 | 10:36:54 → 10:59:01 | complete |
+| Goal | 433 | 52,895 | 413 | stage2 | 5e-05 → 5e-06 | 2/2 | 0.1484 → 0.1456 | 276 / 318 | 10:59:01 → 11:09:28 | complete (init from stage-1 epoch 5) |
+| Object | 457 | 67,309 | 525 | stage1 | 2e-04 → 5e-05 | 5/5 | 0.2800 → 0.1623 → 0.1444 → 0.1352 → 0.1299 | 348 / 323 / 322 / 322 / 324 | 11:09:28 → 11:38:04 | complete |
+| Object | 457 | 67,309 | 525 | stage2 | 5e-05 → 5e-06 | 2/2 | 0.1277 → 0.1247 | 352 / 324 | 11:38:04 → 11:51:36 | complete (init from stage-1 epoch 5) |
+| Spatial | 434 | 53,229 | 415 | stage1 | 2e-04 → 5e-05 | 5/5 | 0.3419 → 0.1951 → 0.1742 → 0.1626 → 0.1555 | 277 / 257 / 255 / 257 / 256 | 11:51:36 → 12:14:32 | complete |
+| Spatial | 434 | 53,229 | 415 | stage2 | 5e-05 → 5e-06 | 2/2 | 0.1528 → 0.1503 | 258 / 257 | 12:14:32 → 12:23:40 | complete (init from stage-1 epoch 5) |
 
 A joint four-suite run started earlier was cancelled after about 6 minutes, before saving any checkpoint, when the paper recipe (one policy per suite) was requested. Its folder is marked SUPERSEDED.
 
@@ -277,12 +280,20 @@ A joint four-suite run started earlier was cancelled after about 6 minutes, befo
 
 | Suite | File on Hugging Face (`anhdao69/LoopWAM_NT`) | Epoch / update | Epoch mean loss | Size GB | sha256 | HF LFS sha256 = local | Commit |
 |---|---|---|---|---|---|---|---|
-| Long (libero_10) | not uploaded yet | | | | | | |
-| Goal | not uploaded yet | | | | | | |
-| Object | not uploaded yet | | | | | | |
-| Spatial | not uploaded yet | | | | | | |
+| Long (libero_10) | `baselines/LiLa-WAM_LIBERO_ours/libero_10/stage2_epoch2_final.pt` | 2 / 1628 | 0.1318 | 1.27 | `27ad99a458d97a68…` | yes | `4544aebb8c` |
+| Long (libero_10) | `baselines/LiLa-WAM_LIBERO_ours/libero_10/stage1_epoch5.pt` | 5 / 4070 | 0.1371 | 1.27 | `05cdc8445b3f16ca…` | yes | `4544aebb8c` |
+| Goal | `baselines/LiLa-WAM_LIBERO_ours/libero_goal/stage2_epoch2_final.pt` | 2 / 826 | 0.1456 | 1.27 | `5ac2bfd3aad9c2ca…` | yes | `595b21b8b5` |
+| Goal | `baselines/LiLa-WAM_LIBERO_ours/libero_goal/stage1_epoch5.pt` | 5 / 2065 | 0.1520 | 1.27 | `2a7e5fc01631e54e…` | yes | `595b21b8b5` |
+| Object | `baselines/LiLa-WAM_LIBERO_ours/libero_object/stage2_epoch2_final.pt` | 2 / 1050 | 0.1247 | 1.27 | `4571a5f45f02dc61…` | yes | `efda9c4ebf` |
+| Object | `baselines/LiLa-WAM_LIBERO_ours/libero_object/stage1_epoch5.pt` | 5 / 2625 | 0.1299 | 1.27 | `5564d2cd2ff4b04a…` | yes | `efda9c4ebf` |
+| Spatial | `baselines/LiLa-WAM_LIBERO_ours/libero_spatial/stage2_epoch2_final.pt` | 2 / 830 | 0.1503 | 1.27 | `0836ecc4ceefb7fe…` | yes | `8703bb9113` |
+| Spatial | `baselines/LiLa-WAM_LIBERO_ours/libero_spatial/stage1_epoch5.pt` | 5 / 2075 | 0.1555 | 1.27 | `5496e10a9303367e…` | yes | `8703bb9113` |
 
 `manifest.json` in that folder lists the full sha256 values.
+
+**Uploader incident (no data affected).** The first uploader instance crashed at 10:37 before uploading anything. `import torch` fails on the login node (`libnccl.so.2: failed to map segment`), and it had used torch only to read epoch, step and loss from each checkpoint.
+- It now reads them from the training logs. For both libero_10 checkpoints the values are identical to the checkpoint contents read with torch: stage 1 epoch 5 is step 4070, loss 0.1371; stage 2 epoch 2 is step 1628, loss 0.1318.
+- It was restarted at 10:38, and libero_10 was uploaded and verified at 10:39. The crash log is in `upload/hf_upload_watcher_crash1.log`.
 
 ### 6.7 Open-loop sanity check (not a success rate)
 
@@ -291,26 +302,60 @@ A joint four-suite run started earlier was cancelled after about 6 minutes, befo
 - **Baseline:** always predicting the suite's mean action.
 - **Units:** errors are mean absolute error in raw action units, over valid (non-padded) steps.
 
-_No open-loop results yet._
+| Suite | Checkpoint | Samples (valid steps) | MAE, 6 EEF deltas: model | smoothed | mean-action baseline | First-step MAE: model / baseline | Gripper sign agreement: model / baseline | max abs(raw − smoothed) |
+|---|---|---|---|---|---|---|---|---|
+| Long (libero_10) | stage-1 epoch 5 | 512 (6030) | 0.0729 | 0.0729 | 0.1452 | 0.0759 / 0.1454 | 0.937 / 0.534 | 1.1661 |
+| Long (libero_10) | final (stage-2 epoch 2) | 512 (6030) | 0.0702 | 0.0702 | 0.1452 | 0.0730 / 0.1454 | 0.949 / 0.534 | 1.1441 |
+| Goal | stage-1 epoch 5 | 512 (5852) | 0.0889 | 0.0889 | 0.1845 | 0.0895 / 0.1844 | 0.948 / 0.633 | 1.1998 |
+| Goal | final (stage-2 epoch 2) | 512 (5852) | 0.0853 | 0.0853 | 0.1845 | 0.0864 / 0.1844 | 0.956 / 0.633 | 0.9327 |
+| Object | stage-1 epoch 5 | 512 (5884) | 0.0709 | 0.0709 | 0.1600 | 0.0714 / 0.1591 | 0.939 / 0.537 | 0.9206 |
+| Object | final (stage-2 epoch 2) | 512 (5884) | 0.0682 | 0.0682 | 0.1600 | 0.0686 / 0.1591 | 0.939 / 0.537 | 1.0651 |
+| Spatial | stage-1 epoch 5 | 512 (5839) | 0.0885 | 0.0884 | 0.1939 | 0.0909 / 0.1975 | 0.949 / 0.536 | 1.1657 |
+| Spatial | final (stage-2 epoch 2) | 512 (5839) | 0.0855 | 0.0855 | 0.1939 | 0.0880 / 0.1975 | 0.950 / 0.536 | 1.1563 |
 
 The public B-spline smoothing (8 control points over 12 steps) barely changes the predicted chunks, which are already smooth. On random 12×7 input, the same function changes values by up to 1.13. So it is active, just not needed here.
 
 ### 6.8 Latency of the trained LIBERO policy
 
-not measured yet (needs the finished checkpoint and an idle GPU). It is the `lilawam_libero` row in Section 4.
+52.0 ms mean (p50 51.1, p95 61.0), 1.12 GB peak, measured on evc103 after training finished with the GPU otherwise idle. It is the `lilawam_libero` row in Section 4.
 - One query is the public `_predict_chunk` procedure on LIBERO inputs: two-view composite, 8-D state, DINOv3 features, 10 flow steps, B-spline smoothing.
 - The libero_10 policy was timed on all 500 observations; the four suite policies share one architecture.
 
-### 6.9 Not done yet: LIBERO success rate under our matched protocol
+### 6.9 LIBERO success rate under our matched protocol
 
-The evaluation needs a GPU allocation and a LiLa-WAM policy adapter for our LIBERO runner. The protocol is 4 suites × 10 tasks × 50 trials × seeds 42/43/44 = 6,000 episodes. The adapter should:
-- for each episode, load the suite's final checkpoint, its config, its `norm_stats.json` and the task's `task_cond.npy`;
-- build inputs with `libero_data.libero_obs_to_inputs`;
-- sample with the public procedure;
-- send actions to the environment as-is, **without** FastWAM's gripper flip, because the policy outputs raw LIBERO actions;
-- use an execution horizon that must be decided and recorded. The paper gives none for LIBERO; the public RoboTwin setting executes 16 of 32 steps.
+- **Protocol:** `lightwam_20261009_matched`, the same as every matched model in our reports. The runner is `evaluate_lilawam_matched.py`. It imports the constants, group claims and summary code of the LoopWAM runner `evaluate_v0_matched.py` unchanged.
+- **Grid:** 4 suites × 10 tasks × official initial states 0–49 × seeds 42/43/44 = 6,000 episodes.
+- **Per task/seed group:**
+  - one environment, created with `env.seed(seed)` and reused for its 50 initial states in order;
+  - `set_global_seed(seed)` once;
+  - 30 settling actions `[0,0,0,0,0,0,-1]`, with `done` ignored;
+  - then at most 400 policy steps (700 for Long);
+  - success = the environment's `done` flag.
+- **LiLa-WAM-specific choices** (upstream has no LIBERO eval; all are recorded in `eval_matched/manifest.json`):
+  - each suite runs its own final policy;
+  - inputs come from `libero_obs_to_inputs`, the training format;
+  - sampling uses the public procedure: 10 Euler steps, then B-spline smoothing;
+  - every query of a group starts from the same seed noise;
+  - **6 of the 12 predicted actions are executed per query** (half the chunk, as the public RoboTwin config executes 16 of 32);
+  - the gripper is executed as sign(predicted raw gripper).
+- **Speed setup.** One batched bf16 inference server per GPU (Long + Goal on one GPU, Spatial + Object on the other) serves many CPU-only simulator workers, each with one environment.
+  - Batching changes only the batch size of the same computation. It is not bit-identical to batch-1 inference.
 
-`plans/performance/lilawam_libero_20261030/HANDOFF.md` lists these steps.
+- **Pre-checks before the full run** (evc103, GPU shared with training, seed 42, 2 episodes per task; not part of the result). These were run to separate a pipeline bug from a weak policy:
+  - The eval image and state match the training format pixel-for-pixel in layout (`lilawam/eval_debug/compare_eval_top_train_bottom.png`).
+  - The sampling code equals the public `_predict_chunk`, and the public processor's resize is a no-op on our 512×256 composite.
+  - The action conventions match our LoopWAM eval: EEF deltas unchanged; gripper open = −1.
+  - All 40 task names map to their task vectors.
+  - Closed loop: **Long 0/20** (10 tasks). **Goal 1/20**: "put the bowl on top of the cabinet" succeeded in 101 steps.
+  - The robot reaches toward the right objects but rarely grasps (`lilawam/eval_debug/closed_loop_montage.png`).
+- **Interpretation.** The pipeline can complete tasks, so it is not broken. The policies are weak because of the training budget, not the method:
+  - 5 + 2 epochs per suite, about 5.7k updates for Long and about 3k for Goal;
+  - training loss still falling every epoch;
+  - open-loop error only about 2× below the mean-action baseline (Section 6.7).
+  - The paper does not state its epoch count. Its 94–99% per suite almost certainly needed much longer training.
+  - **Read the numbers below as "LiLa-WAM after a 7-epoch budget on our data", not as the method's capability.**
+
+Not started yet. `eval_login_watcher.sh` on evuser2 launches `eval_lilawam_step.sh` in your interactive job 1102933 (2 H100, 64 CPUs) as soon as it starts.
 
 ## 7. Success-rate context
 
@@ -322,7 +367,7 @@ None of these numbers come from the latency runs.
 | Light-WAM | Long only: **90.87%** (1363/1500); seeds 90.4 / 90.0 / 92.2 | 1,500 | the earlier evaluation scored `lightwam_libero_10/.../step_080000.pt`, the file timed here by name. Its sha256 was not recorded in that evaluation. |
 | FasterWAM | not evaluated by us | – | |
 | LiLa-WAM (RoboTwin release) | not applicable: a RoboTwin model | – | |
-| LiLa-WAM (ours, paper recipe) | **pending** (Section 6.9) | – | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
+| LiLa-WAM (ours, paper recipe) | **pending** (Section 6.9) | 6,000 (seeds 42/43/44) | the paper reports 98.0 / 98.8 / 97.2 / 94.2 (Spatial / Object / Goal / Long), 97.1 average, with the authors' own data and training length |
 
 ## 8. Caveats
 

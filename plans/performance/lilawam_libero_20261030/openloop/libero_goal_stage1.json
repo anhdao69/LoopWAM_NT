@@ -1,0 +1,54 @@
+{
+ "checkpoint": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage1/sft_2026-10-30_10-37-29/checkpoint_epoch_5.pt",
+ "config": "/groups/yshang/an221229/checkpoints/wam_baselines/lilawam/libero_ours_paper_recipe/libero_goal/stage1/sft_2026-10-30_10-37-29/config.yaml",
+ "stats": "/groups/yshang/an221229/data/LiLaWAM_libero_ours_stats_libero_goal.json",
+ "samples": 512,
+ "seed": 0,
+ "valid_action_steps": 5852,
+ "model_ms_per_sample": null,
+ "seconds": 23.7,
+ "raw": {
+  "mae_xyzrot": 0.08890368789434433,
+  "mae_xyzrot_first_action": 0.08953068405389786,
+  "gripper_sign_agreement": 0.948051948051948,
+  "mae_per_dim": [
+   0.14938004314899445,
+   0.11821720004081726,
+   0.15685448050498962,
+   0.025271615013480186,
+   0.048691462725400925,
+   0.03500727191567421,
+   0.11095432192087173
+  ]
+ },
+ "bspline_smoothed": {
+  "mae_xyzrot": 0.08886729274275057,
+  "mae_xyzrot_first_action": 0.08953038006620494,
+  "gripper_sign_agreement": 0.948051948051948,
+  "mae_per_dim": [
+   0.14934976655423415,
+   0.11813900059314215,
+   0.15678745927042992,
+   0.025257630085772104,
+   0.04867197730850233,
+   0.03499792264442286,
+   0.11743164499945619
+  ]
+ },
+ "max_abs_raw_minus_smoothed": 1.1997946691122572,
+ "mean_abs_raw_minus_smoothed": 0.00403382928876949,
+ "baseline_mean_action": {
+  "mae_xyzrot": 0.18453039228916168,
+  "mae_xyzrot_first_action": 0.18440485000610352,
+  "gripper_sign_agreement": 0.6327751196172249,
+  "mae_per_dim": [
+   0.29741108417510986,
+   0.2667995095252991,
+   0.38410162925720215,
+   0.03460879251360893,
+   0.05827276408672333,
+   0.06598860770463943,
+   0.9285557270050049
+  ]
+ }
+}
