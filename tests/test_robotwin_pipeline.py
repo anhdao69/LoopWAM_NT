@@ -79,3 +79,35 @@ def test_stage_records_child_failure(tmp_path):
     cmd.write_text(json.dumps([sys.executable,'-c','raise SystemExit(7)']))
     p=subprocess.run([sys.executable,str(root/'scripts/robotwin_queue_stage.py'),'--command',str(cmd),'--status',str(status)],capture_output=True)
     assert p.returncode==7 and json.loads(status.read_text())['exit_code']==7
+
+def test_training_stage_recovery_uses_committed_checkpoint():
+    from fastwam.robotwin_pipeline import training_recovery_action
+    assert training_recovery_action(None,237312,has_records=False)=='fresh'
+    assert training_recovery_action(None,237312,has_records=True)=='quarantine'
+    assert training_recovery_action(237311,237312,has_records=True)=='resume'
+    assert training_recovery_action(237312,237312,has_records=True)=='done'
+    assert training_recovery_action(237314,237312,has_records=True)=='done'
+    with pytest.raises(ValueError):training_recovery_action(237309,237312,has_records=True)
+
+def test_immutable_parent_hash_rechecked_before_continuation(tmp_path):
+    import hashlib
+    from fastwam.robotwin_pipeline import verify_file_hash
+    p=tmp_path/'parent';p.write_bytes(b'original');sha=hashlib.sha256(b'original').hexdigest()
+    verify_file_hash(p,sha)
+    p.write_bytes(b'replacement')
+    with pytest.raises(ValueError):verify_file_hash(p,sha)
+
+def test_eval_configuration_hash_changes_when_randomization_changes(tmp_path):
+    from fastwam.robotwin_pipeline import fingerprint_files
+    p=tmp_path/'demo_randomized.yml';p.write_text('random_background: true')
+    before=fingerprint_files([p]);p.write_text('random_background: false')
+    assert fingerprint_files([p])!=before
+
+def test_stage_resolves_python_after_environment_and_stops_on_source_failure(tmp_path):
+    import importlib.util,subprocess,sys
+    path=Path(__file__).resolve().parents[1]/'scripts/run_robotwin_posttrain_queue.py'
+    spec=importlib.util.spec_from_file_location('queue_script',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    env=tmp_path/'env.sh';env.write_text('return 9\n')
+    p=subprocess.run(module.shell(str(env),[sys.executable,'-c','print("SHOULD_NOT_RUN")']),capture_output=True,text=True)
+    assert p.returncode==9 and 'SHOULD_NOT_RUN' not in p.stdout
+    assert 'exec python ' in module.shell(str(env),[sys.executable,'-c','pass'])[-1]

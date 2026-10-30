@@ -14,7 +14,7 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from fastwam.robotwin_pipeline import validate_eval_summary
+from fastwam.robotwin_pipeline import validate_eval_summary,fingerprint_files
 EPISODE=re.compile(r'Success rate: (?:\x1b\[\d+m)?(\d+)/(\d+).*?current seed: (?:\x1b\[\d+m)?(\d+)')
 
 def write(path,data):
@@ -62,12 +62,16 @@ def main():
     out=Path(a.output_dir);out.mkdir(parents=True,exist_ok=True)
     lock=(out/'runner.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     sha=digest(a.checkpoint)
+    robotwin=Path(a.robotwin_root);policy=(robotwin/'policy/loopwam_policy').resolve()
+    if policy!=(ROOT/'experiments/robotwin/loopwam_policy').resolve():raise ValueError('Wrong deployed policy import target')
+    bound=list((robotwin/'envs').rglob('*.py'))+list((robotwin/'task_config').rglob('*.yml'))+list(policy.glob('*.py'))+list(policy.glob('*.yml'))+list((ROOT/'src/fastwam/models/wan22').rglob('*.py'))
     protocol=dict(checkpoint=str(Path(a.checkpoint).resolve()),checkpoint_sha256=sha,expected_step=a.expected_step,
         tasks=tasks,settings=['demo_clean','demo_randomized'],episodes=a.episodes,seed=a.seed,instruction_type='unseen',
         num_inference_steps=10,action_horizon=32,replan_steps=24,noise_seed='fixed seed for every query, FastWAM default',
         compile_action_infer=a.compile_action_infer,harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
         policy_sha256=digest(ROOT/'experiments/robotwin/loopwam_policy/deploy_policy.py'),
-        stats_sha256=digest(Path(a.data_dir)/'dataset_stats.json'))
+        stats_sha256=digest(Path(a.data_dir)/'dataset_stats.json'),runtime_hashes=fingerprint_files(bound),
+        vae_sha256=digest(ROOT/'checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth'))
     manifest=out/'manifest.json'
     if manifest.exists() and json.loads(manifest.read_text())!=protocol:raise ValueError('Cannot reuse different evaluation contract')
     write(manifest,protocol)

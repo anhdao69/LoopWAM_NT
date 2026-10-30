@@ -85,10 +85,12 @@ def main():
     p.add_argument('--smoke-tail',action='store_true',help='One no-save epoch-tail update for DDP/compile validation only')
     p.add_argument('--max-updates',type=int);p.add_argument('--no-save',action='store_true');p.add_argument('--resume',action='store_true')
     p.add_argument('--continuation-from',help='Final epoch5 optimizer checkpoint; starts a separate epochs6-10 phase')
+    p.add_argument('--expected-parent-sha256',help='Immutable verified epoch5 optimizer SHA256')
     a=p.parse_args()
     expected_epochs=10 if a.continuation_from else 5
     if (a.dataset,a.epochs,a.seed,a.global_batch,a.memory_tokens,a.history_frame)!=('robotwin50',expected_epochs,42,128,0,0):p.error('Full original-v0 recipe requires robotwin50,5epochs or continuation10,seed42,batch128,memory0,history0')
     if a.continuation_from and (a.lr_backbone,a.lr_robot_io,a.warmup_fraction,a.save_epochs,a.smoke_tail)!=(3e-5,3e-5,0.,'6,7,8,9,10',False):p.error('Continuation requires LR3e-5, no warmup, saves6-10, no tail shortcut')
+    if a.continuation_from and not a.expected_parent_sha256:p.error('Continuation requires a verified parent SHA256')
     if a.smoke_tail and (a.max_updates!=1 or not a.no_save or a.resume):p.error('Tail smoke requires max-updates1/no-save/fresh')
     if a.microbatch not in (1,2,4,8,16):p.error('microbatch must divide16')
     rank,world,local=[int(os.getenv(k,d)) for k,d in [('RANK',0),('WORLD_SIZE',1),('LOCAL_RANK',0)]]
@@ -107,6 +109,7 @@ def main():
     m=w.manifest();assert len(w)==6075103 and len(w.episodes)==27500 and len(w.groups)==50
     old=json.loads((shared/'data/data_manifest.json').read_text());assert old==m,'Data manifest changed'
     hashes=[dict(init=sha256_file(a.init_artifact),vae=sha256_file(a.vae_path),**({'parent':sha256_file(a.continuation_from)} if a.continuation_from else {})) if rank==0 else None];dist.broadcast_object_list(hashes,src=0);hashes=hashes[0]
+    if a.continuation_from and hashes['parent']!=a.expected_parent_sha256:raise ValueError('Parent checkpoint changed after handoff')
     cache=LoopWAMLatentCache(shared/'latents',len(w),latent_provenance(w,hashes['vae']),latent_shape=LATENT_SHAPE)
     assert np.all(cache._valid==1),'Incomplete latent cache'
     per_epoch,total,tail=training_budget(len(w),a.global_batch,a.epochs);assert (per_epoch,total,tail)==(47462,47462*a.epochs,95)
@@ -148,6 +151,9 @@ def main():
             if a.resume:reconcile_metrics(out/'metrics.jsonl',update,first_update=237311 if a.continuation_from else 1)
             write(out/f'resume_audit_u{update}.json',dict(passed=True,optimizer_exact=True,next_epoch=start_epoch,next_batch=start_batch,next_rank0_window_ids=resume_ids,next_rank0_noise_seeds=[slot_seed(a.seed,start_epoch,i,0) for i in resume_ids],next_lr=a.lr_backbone*next_factor))
     del payload
+    if a.max_updates and update>=a.max_updates:
+        if rank==0:write(out/'timing.json',dict(status='max_updates',update=update,planned_updates=total,windows_seen=windows_seen,elapsed_training_seconds=elapsed_prior))
+        dist.barrier();dist.destroy_process_group();return
     if a.smoke_tail:start_batch=per_epoch-1
     if rank==0:
         write(out/('manifest.json' if not a.resume else f'resume_manifest_u{update}.json'),dict(vars(a),contract=contract,world_size=world,policy_parameters=PARAMETERS,memory_parameters=0,

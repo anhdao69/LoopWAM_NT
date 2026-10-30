@@ -1,5 +1,6 @@
 """CPU-only contracts shared by the RoboTwin evaluator, continuation, and queue."""
 import json
+import hashlib
 import math
 import time
 from pathlib import Path
@@ -71,3 +72,17 @@ def validate_eval_summary(summary,sha,tasks,episodes=100):
             raise ValueError(f'Duplicate evaluation seeds: {key}')
         if any(type(r['success']) is not bool or r.get('video_verified') is not True for r in records):
             raise ValueError(f'Invalid outcome/video: {key}')
+
+def training_recovery_action(saved_update,target,has_records):
+    if saved_update is None:return 'quarantine' if has_records else 'fresh'
+    if not PARENT_UPDATES<=saved_update<=10*UPDATES:raise ValueError('Invalid continuation checkpoint update')
+    return 'done' if saved_update>=target else 'resume'
+
+def verify_file_hash(path,expected):
+    h=hashlib.sha256()
+    with open(path,'rb') as f:
+        for b in iter(lambda:f.read(8*1024*1024),b''):h.update(b)
+    if h.hexdigest()!=expected:raise ValueError(f'Immutable artifact changed:{path}')
+
+def fingerprint_files(paths):
+    return {str(p):hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in sorted(map(str,paths))}

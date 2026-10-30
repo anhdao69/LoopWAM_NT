@@ -12,7 +12,7 @@ import sys
 import time
 
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
-from fastwam.robotwin_pipeline import validate_eval_summary
+from fastwam.robotwin_pipeline import validate_eval_summary,training_recovery_action,verify_file_hash,validate_cursor
 
 def write(path,data):
     path=Path(path);tmp=path.with_suffix(path.suffix+'.tmp');tmp.write_text(json.dumps(data,indent=2));tmp.replace(path)
@@ -24,7 +24,10 @@ def active_steps(job,name=None):
     pairs=[line.strip().split('|',1) for line in p.stdout.splitlines() if '|' in line]
     return [i for i,n in pairs if name is None or n==name]
 
-def shell(env,argv):return ['bash','-c',f'source {shlex.quote(env)}; exec '+shlex.join(argv)]
+def shell(env,argv):
+    argv=list(argv)
+    if argv[0]==sys.executable:argv[0]='python'
+    return ['bash','-c',f'set -e; source {shlex.quote(env)}; exec '+shlex.join(argv)]
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);a=p.parse_args();cfg=read(a.config)
@@ -64,6 +67,7 @@ def main():
                 heartbeat(name,child=current,steps=live);time.sleep(20)
             if attempt+1==attempts:raise RuntimeError(f'Stage{name}failed; inspect stage logs')
     try:
+        if (out/'COMPLETE.json').exists():heartbeat('complete');return
         heartbeat('waiting_for_epoch5')
         parent=Path(cfg['parent_dir']);release=parent.parent
         while not (release/'verified_complete.json').exists() or f'{job}.10' in active_steps(job):
@@ -82,6 +86,7 @@ def main():
         stage('handoff',shell(cfg['train_env'],[sys.executable,str(ROOT/'scripts/verify_robotwin_handoff.py'),'--weights',str(weights),'--recovery',str(recovery),'--output',str(out/'handoff.json')]),gpus=0)
         handoff=read(out/'handoff.json')
         if not handoff['passed']:raise ValueError('Handoff gate failed')
+        verify_file_hash(weights,handoff['weights_sha256']);verify_file_hash(recovery,handoff['recovery_sha256'])
         stage('eval5',shell(cfg['eval_env'],[sys.executable,str(ROOT/'scripts/evaluate_loopwam_robotwin.py'),'--checkpoint',str(weights),'--output-dir',cfg['eval_dir'],
             '--robotwin-root',cfg['robotwin_root'],'--data-dir',cfg['shared_dir']+'/data','--per-gpu',str(cfg['eval_per_gpu']),'--seed','42']))
         from fastwam.datasets.chronoloop_robot import ROBOTWIN50_TASKS
@@ -89,15 +94,29 @@ def main():
         base=['torchrun','--standalone','--nproc_per_node=8',str(ROOT/'scripts/train_loopwam_robotwin_full.py'),
             '--shared-dir',cfg['shared_dir'],'--init-artifact',cfg['init_artifact'],'--epochs','10','--seed','42','--global-batch','128',
             '--microbatch','8','--compile','--no-checkpoint-blocks','--lr-backbone','3e-5','--lr-robot-io','3e-5','--warmup-fraction','0',
-            '--save-epochs','6,7,8,9,10','--continuation-from',str(recovery)]
+            '--save-epochs','6,7,8,9,10','--continuation-from',str(recovery),'--expected-parent-sha256',handoff['recovery_sha256']]
+        def training_stage(name,directory,target):
+            import torch
+            directory=Path(directory);latest=directory/'latest.pt';saved=None
+            active=active_steps(job,f'rwq_{name}')
+            if latest.exists():
+                state=torch.load(latest,map_location='cpu',mmap=True,weights_only=False)['training_state']
+                saved=state['update'];validate_cursor(saved,state['windows_seen'],state['next_epoch'],state['next_batch'])
+            action=training_recovery_action(saved,target,has_records=directory.exists())
+            if not active:
+                if action=='done' and (target<474620 or (directory/'COMPLETE').exists()):return
+                if action=='quarantine':directory.rename(directory.with_name(directory.name+f'.incomplete.{time.time_ns()}'))
+            cmd=base+['--output-dir',str(directory)]
+            if target<474620:cmd+=['--max-updates',str(target)]
+            if latest.exists():cmd+=['--resume']
+            verify_file_hash(recovery,handoff['recovery_sha256'])
+            stage(name,shell(cfg['train_env'],cmd))
         smoke=out/'continuation_smoke'
-        stage('smoke6',shell(cfg['train_env'],base+['--output-dir',str(smoke),'--max-updates','237312']))
-        stage('resume6',shell(cfg['train_env'],base+['--output-dir',str(smoke),'--resume','--max-updates','237314']))
+        training_stage('smoke6',smoke,237312)
+        training_stage('resume6',smoke,237314)
         audit=read(smoke/'resume_audit_u237312.json');st=read(smoke/'timing.json')
         if not audit['optimizer_exact'] or st['update']!=237314 or st['windows_seen']!=30375515+4*128:raise ValueError('Continuation smoke/resume failed')
-        dest=Path(cfg['continuation_dir']);cmd=base+['--output-dir',str(dest)]
-        if (dest/'latest.pt').exists() and not (dest/'COMPLETE').exists():cmd+=['--resume']
-        stage('train10',shell(cfg['train_env'],cmd))
+        dest=Path(cfg['continuation_dir']);training_stage('train10',dest,474620)
         final=read(dest/'COMPLETE')
         if (final['status'],final['update'],final['windows_seen'])!=('complete',474620,60751030):raise ValueError('Continuation budget incomplete')
         for e in range(6,11):

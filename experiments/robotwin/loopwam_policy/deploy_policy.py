@@ -16,6 +16,7 @@ os.environ.setdefault('DIFFSYNTH_MODEL_BASE_PATH',str(CODE_ROOT/'checkpoints'))
 from fastwam.datasets.chronoloop_robot import preprocess_frames,robot_spec
 from fastwam.datasets.loopwam_long import DEFAULT_PROMPT
 from fastwam.datasets.lerobot.utils.normalizer import SingleFieldLinearNormalizer
+from fastwam.robotwin_pipeline import verify_file_hash
 # Only the validated T5 transport/cache helper is shared; no ChronoLoop model is constructed.
 from experiments.robotwin.chronoloop_policy.deploy_policy import TextEncoder,CAMERAS
 
@@ -24,6 +25,8 @@ class LoopWAMRoboTwinPolicy:
         from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
         from fastwam.models.wan22.loop_mot import LoopMoT
         torch.set_num_threads(2)
+        header=torch.load(checkpoint,map_location='cpu',mmap=True,weights_only=False)
+        verify_file_hash(vae_path,header['training_state']['contract']['vae_sha256']);del header
         self.model,payload=create_loopwam_robot(vae_path,checkpoint_path=checkpoint,device='cuda',checkpoint_blocks=False)
         if type(self.model.mot) is not LoopMoT or payload['step']!=int(expected_step):raise ValueError('Wrong model or checkpoint step')
         stats=json.loads((Path(data_dir)/'dataset_stats.json').read_text())

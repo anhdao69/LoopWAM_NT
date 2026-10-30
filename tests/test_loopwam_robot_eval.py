@@ -39,3 +39,12 @@ def test_policy_replans_after_exactly24_actions():
 def test_protocol_rejects_wrong_replan_depth():
     from experiments.robotwin.loopwam_policy.deploy_policy import get_model
     with pytest.raises(ValueError):get_model({'replan_steps':10})
+
+def test_policy_rejects_vae_mismatch_before_model_construction(tmp_path,monkeypatch):
+    from experiments.robotwin.loopwam_policy.deploy_policy import LoopWAMRoboTwinPolicy
+    from fastwam.models.wan22 import loopwam_robot
+    vae=tmp_path/'vae';vae.write_bytes(b'wrong')
+    monkeypatch.setattr(torch,'load',lambda *a,**k:{'training_state':{'contract':{'vae_sha256':'0'*64}}})
+    def forbidden(*a,**k):pytest.fail('Model constructed before VAE provenance check')
+    monkeypatch.setattr(loopwam_robot,'create_loopwam_robot',forbidden)
+    with pytest.raises(ValueError,match='artifact changed'):LoopWAMRoboTwinPolicy('unused',tmp_path,str(vae))
