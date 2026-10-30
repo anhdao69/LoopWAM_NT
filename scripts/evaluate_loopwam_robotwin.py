@@ -68,7 +68,7 @@ def main():
     protocol=dict(checkpoint=str(Path(a.checkpoint).resolve()),checkpoint_sha256=sha,expected_step=a.expected_step,
         tasks=tasks,settings=['demo_clean','demo_randomized'],episodes=a.episodes,seed=a.seed,instruction_type='unseen',
         num_inference_steps=10,action_horizon=32,replan_steps=24,noise_seed='fixed seed for every query, FastWAM default',
-        compile_action_infer=a.compile_action_infer,harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
+        compile_action_infer=a.compile_action_infer,renderer_shader=os.environ.get('LOOPWAM_ROBOTWIN_SHADER','rt'),harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
         policy_sha256=digest(ROOT/'experiments/robotwin/loopwam_policy/deploy_policy.py'),
         stats_sha256=digest(Path(a.data_dir)/'dataset_stats.json'),runtime_hashes=fingerprint_files(bound),
         vae_sha256=digest(ROOT/'checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth'))
