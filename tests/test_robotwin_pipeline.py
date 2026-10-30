@@ -111,3 +111,12 @@ def test_stage_resolves_python_after_environment_and_stops_on_source_failure(tmp
     p=subprocess.run(module.shell(str(env),[sys.executable,'-c','print("SHOULD_NOT_RUN")']),capture_output=True,text=True)
     assert p.returncode==9 and 'SHOULD_NOT_RUN' not in p.stdout
     assert 'exec python ' in module.shell(str(env),[sys.executable,'-c','pass'])[-1]
+
+def test_preflight_binds_runtime_and_requires_both_settings(tmp_path):
+    from fastwam.robotwin_pipeline import validate_preflight,fingerprint_files
+    env=tmp_path/'env.sh';env.write_text('export VALUE=1\n')
+    record=dict(passed=True,simulator_clean_and_randomized=True,runtime_hashes=fingerprint_files([env]))
+    validate_preflight(record)
+    env.write_text('export VALUE=2\n')
+    with pytest.raises(ValueError):validate_preflight(record)
+    with pytest.raises(ValueError):validate_preflight(dict(passed=True,simulator_clean_and_randomized=False,runtime_hashes={}))

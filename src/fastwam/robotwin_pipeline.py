@@ -86,3 +86,8 @@ def verify_file_hash(path,expected):
 
 def fingerprint_files(paths):
     return {str(p):hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in sorted(map(str,paths))}
+
+def validate_preflight(record):
+    if not record.get('passed') or not record.get('simulator_clean_and_randomized') or not record.get('runtime_hashes'):
+        raise ValueError('Simulator preflight did not pass with a bound runtime')
+    for path,sha in record['runtime_hashes'].items():verify_file_hash(path,sha)

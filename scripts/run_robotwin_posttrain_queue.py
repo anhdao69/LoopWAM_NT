@@ -12,7 +12,7 @@ import sys
 import time
 
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
-from fastwam.robotwin_pipeline import validate_eval_summary,training_recovery_action,verify_file_hash,validate_cursor
+from fastwam.robotwin_pipeline import validate_eval_summary,training_recovery_action,verify_file_hash,validate_cursor,validate_preflight
 
 def write(path,data):
     path=Path(path);tmp=path.with_suffix(path.suffix+'.tmp');tmp.write_text(json.dumps(data,indent=2));tmp.replace(path)
@@ -76,8 +76,7 @@ def main():
         while not Path(cfg['preflight']).exists():
             heartbeat('waiting_for_preflight');time.sleep(30)
         preflight=read(cfg['preflight'])
-        if not preflight.get('passed') or not preflight.get('simulator_clean_and_randomized'):
-            raise ValueError('Simulator preflight did not pass')
+        validate_preflight(preflight)
         t=read(parent/'COMPLETE')
         if (t['status'],t['update'],t['windows_seen'])!=('complete',237310,30375515):raise ValueError('Parent did not complete exact epoch5 budget')
         for path,sha in cfg['source_hashes'].items():
