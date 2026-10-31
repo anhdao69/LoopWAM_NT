@@ -1,0 +1,28 @@
+{
+  "status": "cancelled_by_user",
+  "updated_unix": 1793072239.1342862,
+  "cancelled_unix": 1793072239.1342862,
+  "reason": "User requested removal of Dense-S12 and Dense-S30 from the queue.",
+  "jobs": [],
+  "order": [
+    "v0_Ka1",
+    "v0_Ka2",
+    "v0_Ka3",
+    "v0_Ka5",
+    "v0_Ka6"
+  ],
+  "removed_jobs": [
+    {
+      "model": "dense-s12",
+      "status": "removed_by_user",
+      "completed_episodes": 0
+    },
+    {
+      "model": "dense-s30",
+      "status": "removed_by_user",
+      "completed_episodes": 0
+    }
+  ],
+  "controller_stopped": true,
+  "downloaded_checkpoints_preserved": true
+}

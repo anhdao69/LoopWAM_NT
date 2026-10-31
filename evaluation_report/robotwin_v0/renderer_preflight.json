@@ -1,0 +1,14 @@
+{
+  "shader": "rt",
+  "samples_per_pixel": 32,
+  "path_depth": 8,
+  "denoiser": "oidn",
+  "oidn_version": "2.3.3",
+  "shape": [
+    64,
+    64,
+    4
+  ],
+  "finite": true,
+  "pci": "0000:c1:00.0"
+}
