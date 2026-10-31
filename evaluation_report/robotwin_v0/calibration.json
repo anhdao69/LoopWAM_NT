@@ -1,0 +1,37 @@
+{
+  "profiles": [
+    {
+      "workers": 2,
+      "seconds": 281.14232063293457,
+      "episodes": 16,
+      "peak_gpu_mib": 31203,
+      "successes": 16,
+      "output": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/calibration_w2"
+    },
+    {
+      "workers": 4,
+      "seconds": 185.75202345848083,
+      "episodes": 16,
+      "peak_gpu_mib": 44554,
+      "successes": 16,
+      "output": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/calibration_w4"
+    },
+    {
+      "workers": 8,
+      "seconds": 165.66949772834778,
+      "episodes": 16,
+      "peak_gpu_mib": 67168,
+      "successes": 16,
+      "output": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/calibration_w8"
+    }
+  ],
+  "selected": {
+    "workers": 8,
+    "seconds": 165.66949772834778,
+    "episodes": 16,
+    "peak_gpu_mib": 67168,
+    "successes": 16,
+    "output": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/calibration_w8"
+  },
+  "finished_unix": 1793373503.4593616
+}
