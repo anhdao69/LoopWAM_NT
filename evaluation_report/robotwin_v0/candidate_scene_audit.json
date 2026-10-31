@@ -1,0 +1,12 @@
+{
+  "caught_setup_exception_markers": 357,
+  "affected_pairs": 33,
+  "exception_types": {
+    "TypeError: 'NoneType' object is not subscriptable": 4,
+    "AssertionError: target_pose cannot be None for move action.": 251,
+    "IndexError: list index out of range": 102
+  },
+  "cuda_oom_mentions": 0,
+  "buffer_error_mentions": 0,
+  "skipped_candidates_before_last_accepted": 6971
+}
