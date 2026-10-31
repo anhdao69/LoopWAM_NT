@@ -1,0 +1,18 @@
+{
+  "checked_unix": 1793040846.811304,
+  "scored_started": true,
+  "saved_scored_episodes": 10,
+  "selected_backend": "cuda-graph",
+  "selected_workers": 8,
+  "calibration_wall_seconds": 67.50161106901942,
+  "native_reference_seconds": 81.69093312398763,
+  "queue_order": [
+    1,
+    2,
+    3,
+    5,
+    6
+  ],
+  "total_planned_episodes": 30000,
+  "reported_error": null
+}

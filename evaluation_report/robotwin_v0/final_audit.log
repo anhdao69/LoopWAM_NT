@@ -1,0 +1,80 @@
+Checkpoint and frozen source hashes passed
+Runtime assets and all 95 preserved results passed
+Validated 10/100 pairs including videos and action traces
+Validated 20/100 pairs including videos and action traces
+Validated 30/100 pairs including videos and action traces
+Validated 40/100 pairs including videos and action traces
+Validated 50/100 pairs including videos and action traces
+Validated 60/100 pairs including videos and action traces
+Validated 70/100 pairs including videos and action traces
+Validated 80/100 pairs including videos and action traces
+Validated 90/100 pairs including videos and action traces
+Validated 100/100 pairs including videos and action traces
+{
+  "status": "passed",
+  "audited_unix": 1793452568.0462806,
+  "duration_seconds": 39.9430296421051,
+  "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "complete_sha256": "9d463a458a4f5c52adbfc6925cc48841c1e27c23fff6543d174dcf7c51216129",
+  "protocol_sha256": "56fa331d8eddd0838aa364559ee94df734ed6205e193e6c3419748c576c4e31d",
+  "source_files_verified": 782,
+  "runtime_files_verified": 21132,
+  "completed_pairs": 100,
+  "verified_videos": 10000,
+  "episode_records": 10000,
+  "preserved_result_files": 95,
+  "totals": {
+    "demo_clean": {
+      "successes": 4580,
+      "episodes": 5000,
+      "sr_percent": 91.6
+    },
+    "demo_randomized": {
+      "successes": 4593,
+      "episodes": 5000,
+      "sr_percent": 91.86
+    },
+    "combined": {
+      "successes": 9173,
+      "episodes": 10000,
+      "sr_percent": 91.73
+    }
+  },
+  "failed_attempts": 77,
+  "failure_reasons": {
+    "cuda_out_of_memory": 16,
+    "render_buffer_allocation": 58,
+    "other": 3
+  },
+  "excluded_partial_episodes": 2923,
+  "accepted_attempt_distribution": {
+    "attempt_02": 40,
+    "attempt_01": 44,
+    "attempt_03": 11,
+    "attempt_04": 5
+  },
+  "recovery_new_failures": 0,
+  "timing": {
+    "original_started": 1793373568.4017227,
+    "original_stopped": 1793446208.7440183,
+    "recovery_started": 1793448178.5096004,
+    "finished": 1793452016.262697,
+    "initial_seconds": 72640.34229564667,
+    "downtime_seconds": 1969.7655820846558,
+    "recovery_seconds": 3837.7530965805054,
+    "total_wall_seconds": 78447.86097431183
+  },
+  "query_latency": {
+    "count": 105068,
+    "mean_seconds": 0.3793684494380927,
+    "median_seconds": 0.37576090899528936,
+    "p95_seconds": 0.5672281110309996,
+    "scope": "Scored successful attempts, mixed worker concurrency; not isolated model latency"
+  },
+  "source": {
+    "main_commit": "43ef539b4744ebfec1bb7b3864904f3d48465903",
+    "main_remote": "43ef539b4744ebfec1bb7b3864904f3d48465903",
+    "evaluated_commit": "0a0c6e57c56db40d3ff244b6857621874cbc38c9",
+    "robotwin_upstream_commit": "dc5e75839f0e0fe0dd1f2c288be7dbf45ce2c3e1"
+  }
+}

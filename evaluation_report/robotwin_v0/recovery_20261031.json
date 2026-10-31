@@ -1,0 +1,18 @@
+{
+  "created_unix": 1793448099.9793553,
+  "workers_before": 8,
+  "workers_after": 4,
+  "max_attempts_total": 5,
+  "preserved_cells": 95,
+  "preserved_episodes": 9500,
+  "missing_pairs": [
+    "move_can_pot/demo_randomized",
+    "pick_diverse_bottles/demo_randomized",
+    "pick_dual_bottles/demo_clean",
+    "place_bread_skillet/demo_randomized",
+    "place_burger_fries/demo_randomized"
+  ],
+  "protocol_manifest_sha256": "56fa331d8eddd0838aa364559ee94df734ed6205e193e6c3419748c576c4e31d",
+  "evaluator_modified": false,
+  "archive": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/recovery_20261031"
+}
