@@ -1,0 +1,795 @@
+diff --git a/docs/robotwin_local_evaluation_plan.md b/docs/robotwin_local_evaluation_plan.md
+new file mode 100644
+index 0000000..2722029
+--- /dev/null
++++ b/docs/robotwin_local_evaluation_plan.md
+@@ -0,0 +1,11 @@
++# Local RoboTwin v0 evaluation plan — 2026-10-30
++
++User requests this exact RoboTwin checkpoint evaluated as FastWAM, carefully and efficiently. Use an isolated worktree based on the release loader branch; preserve previous LIBERO reports and cancellations.
++
++1. Pin HF revision and verify all nine release files by size/SHA or Git blob. Strict-load original v0 epoch5,14D,4/4,step237310; confirm stats and VAE hashes.
++2. Install SAPIEN3.0.0b1/MPLib0.2.1/CuRobo0.7.8 in a separate environment with existing PyTorch2.7.1+cu128. Download and verify pinned official RoboTwin assets; restore task_config from vendor's exact upstream commit.
++3. Use released FastWAM scene harness and preprocessing (PIL resize uint8 and BF16 normalization), RT32samples/depth8/OIDN; no H100 raster fallback. Record preprocessing change versus release's training-native evaluator. Keep native LoopWAM FP32weights/BF16 inference.
++4. Seed42 scene start4300000; all50tasks; clean and randomized;100acceptedepisodes per cell; unseen templates;32actions/execute24;NFE10/CFG1. Preserve original expert acceptance. No explicit Python instruction reseeding unlike uploaded H100 run.
++5. Validate real renderer/expert/policy rollouts and videos. Enable CUDA graph only if bit-exact native comparisons pass on multiple real observations; otherwise eager fallback. Benchmark memory-safe concurrency; no protocol reduction for speed.
++6. Freeze runtime code, configuration, asset, weight and T5 identities. Queue100task/setting cells with bounded retries, validated completed-cell resume, no failed/crashed episodes counted as scored. Preserve videos/instructions/action traces, report per-task and setting results.
++7. Independent audit found shader, image transform, language RNG and provenance differences. Address before launch. Tests, smoke results and complete manifest are launch gates. Persistent tmux queue runs to completion; report measured ETA after sufficient completed cells.
+diff --git a/experiments/robotwin/chronoloop_policy/deploy_policy.py b/experiments/robotwin/chronoloop_policy/deploy_policy.py
+index 11ef430..fadb54c 100644
+--- a/experiments/robotwin/chronoloop_policy/deploy_policy.py
++++ b/experiments/robotwin/chronoloop_policy/deploy_policy.py
+@@ -55,12 +55,10 @@ class TextEncoder:
+     def _load_encoder(self):
+         from fastwam.models.wan22.helpers.loader import _load_registered_model, _resolve_configs
+         from fastwam.models.wan22.wan_video_text_encoder import HuggingfaceTokenizer
+-        _, text_config, _, tokenizer_config = _resolve_configs(model_id='Wan-AI/Wan2.2-TI2V-5B',
+-            tokenizer_model_id='Wan-AI/Wan2.1-T2V-1.3B', redirect_common_files=True)
+-        text_config.download_if_necessary(); tokenizer_config.download_if_necessary()   # resolves local files
+-        self.encoder = _load_registered_model(text_config.path, 'wan_video_text_encoder', torch_dtype=torch.bfloat16,
+-                                              device=self.device).eval()
+-        self.tokenizer = HuggingfaceTokenizer(name=tokenizer_config.path, seq_len=128, clean='whitespace')
++        # Same shared Wan UMT5 weights, using the verified local .pth artifact.
++        base=Path(os.environ['DIFFSYNTH_MODEL_BASE_PATH'])/'Wan-AI/Wan2.1-T2V-1.3B'
++        self.encoder=_load_registered_model(str(base/'models_t5_umt5-xxl-enc-bf16.pth'),'wan_video_text_encoder',torch_dtype=torch.bfloat16,device=self.device).eval()
++        self.tokenizer=HuggingfaceTokenizer(name=str(base/'google/umt5-xxl'),seq_len=128,clean='whitespace')
+ 
+     def __call__(self, prompt):
+         if prompt in self.memo:
+diff --git a/experiments/robotwin/loopwam_policy/cuda_graph.py b/experiments/robotwin/loopwam_policy/cuda_graph.py
+new file mode 100644
+index 0000000..da075b7
+--- /dev/null
++++ b/experiments/robotwin/loopwam_policy/cuda_graph.py
+@@ -0,0 +1,38 @@
++"""Replay unchanged eager CUDA kernels; no Inductor or arithmetic transformation.
++
++Fixed-shape inputs are copied on every call. Graph outputs are reused, matching
++this evaluator's strictly sequential per-worker action inference.
++"""
++import torch
++from torch.utils._pytree import tree_flatten,tree_unflatten
++
++class GraphedCall:
++ def __init__(self,fn):
++  self.fn=fn;self.graph=None
++ def __call__(self,*args,**kwargs):
++  leaves,spec=tree_flatten((args,kwargs))
++  if self.graph is None:
++   if any(torch.is_tensor(t) and not t.is_cuda for t in leaves):raise ValueError('CUDA Graph inputs must be CUDA tensors')
++   self.spec=spec
++   self.static=[t.detach().clone() if torch.is_tensor(t) else t for t in leaves]
++   a,k=tree_unflatten(self.static,spec)
++   stream=torch.cuda.Stream();stream.wait_stream(torch.cuda.current_stream())
++   with torch.cuda.stream(stream),torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16,cache_enabled=False):
++    for _ in range(3):self.fn(*a,**k)
++   torch.cuda.current_stream().wait_stream(stream)
++   self.graph=torch.cuda.CUDAGraph()
++   with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16,cache_enabled=False):
++    with torch.cuda.graph(self.graph):self.output=self.fn(*a,**k)
++  else:
++   if spec!=self.spec:raise ValueError('CUDA Graph argument structure changed')
++   for dst,src in zip(self.static,leaves):
++    if torch.is_tensor(dst):
++     if not torch.is_tensor(src) or dst.shape!=src.shape or dst.dtype!=src.dtype or dst.device!=src.device:raise ValueError('CUDA Graph tensor signature changed')
++     dst.copy_(src)
++    elif dst!=src:raise ValueError('CUDA Graph constant changed')
++  self.graph.replay()
++  return self.output
++
++def enable_graphs(model):
++ model.mot.prefill_video_cache_tensor=GraphedCall(model.mot.prefill_video_cache_tensor)
++ model._denoise_action_with_video_cache=GraphedCall(model._denoise_action_with_video_cache)
+diff --git a/experiments/robotwin/loopwam_policy/deploy_policy.py b/experiments/robotwin/loopwam_policy/deploy_policy.py
+index dccbdb4..e7423cc 100644
+--- a/experiments/robotwin/loopwam_policy/deploy_policy.py
++++ b/experiments/robotwin/loopwam_policy/deploy_policy.py
+@@ -20,6 +20,17 @@ from fastwam.robotwin_pipeline import verify_file_hash
+ # Only the validated T5 transport/cache helper is shared; no ChronoLoop model is constructed.
+ from experiments.robotwin.chronoloop_policy.deploy_policy import TextEncoder,CAMERAS
+ 
++
++def fastwam_image(observation,device='cuda'):
++    """Released FastWAM PIL uint8 resize and BF16 normalization, unchanged arithmetic."""
++    from PIL import Image
++    obs=observation['observation']
++    def resize(camera,size):
++        return np.asarray(Image.fromarray(obs[camera]['rgb'].astype(np.uint8),mode='RGB').resize(size,resample=Image.BILINEAR),dtype=np.uint8)
++    head=resize('head_camera',(320,256));left=resize('left_camera',(160,128));right=resize('right_camera',(160,128))
++    packed=np.concatenate([head,np.concatenate([left,right],axis=1)],axis=0)
++    return torch.from_numpy(packed).permute(2,0,1).unsqueeze(0).to(device=device,dtype=torch.bfloat16)*(2.0/255.0)-1.0
++
+ class LoopWAMRoboTwinPolicy:
+     def __init__(self,checkpoint,data_dir,vae_path,seed=42,t5_server=None,expected_step=237310,compile_action_infer=False):
+         from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
+@@ -34,6 +45,9 @@ class LoopWAMRoboTwinPolicy:
+             raise ValueError('Evaluation normalization differs from training')
+         self.normalizer={kind:SingleFieldLinearNormalizer({k.removeprefix('global_'):torch.tensor(v,dtype=torch.float32) for k,v in stats[kind]['default'].items() if k.startswith('global_')},mode='z-score') for kind in ('action','state')}
+         self.model.eval();del payload
++        if os.environ.get('LOOPWAM_CUDA_GRAPH')=='1':
++            from experiments.robotwin.loopwam_policy.cuda_graph import enable_graphs
++            enable_graphs(self.model)
+         spec=robot_spec('robotwin50');self.text=TextEncoder(spec.text_cache_dir,spec.text_suffix,'cuda',server=t5_server)
+         self.seed=int(seed);self.compile_action_infer=bool(compile_action_infer)
+         self.pending=deque();self.episode=-1;self.queries=0;self.latency=[]
+@@ -44,22 +58,28 @@ class LoopWAMRoboTwinPolicy:
+     def should_request_observation(self):return not self.pending
+ 
+     def _query(self,observation,instruction):
+-        obs=observation['observation']
+-        views=[torch.from_numpy(np.ascontiguousarray(obs[c]['rgb'])).permute(2,0,1).unsqueeze(0) for c in CAMERAS]
+-        image=preprocess_frames(views)[0]
++        image=fastwam_image(observation)[0]
+         joint=torch.as_tensor(np.asarray(observation['joint_action']['vector'],dtype=np.float32))
+         if joint.shape!=(14,):raise ValueError('Expected14D joint state')
+         proprio=self.normalizer['state'].forward(joint[None])[0]
+         context,mask=self.text(DEFAULT_PROMPT.format(task=instruction))
+         if self.queries==0:print(json.dumps(dict(loopwam_episode=self.episode,instruction=instruction,noise_seed=self.seed)),flush=True)
++        kw=dict(input_image=image,proprio=proprio,context=context,context_mask=mask,
++            action_horizon=32,num_inference_steps=10,text_cfg_scale=1.,seed=self.seed,rand_device='cpu',compile_action_infer=self.compile_action_infer)
++        capture=os.environ.get('LOOPWAM_CAPTURE_INPUTS')
++        if capture and self.episode==0 and self.queries<2:
++            directory=Path(capture);directory.mkdir(parents=True,exist_ok=True)
++            torch.save({k:v.detach().cpu() if torch.is_tensor(v) else v for k,v in kw.items()},directory/f'{os.getpid()}_q{self.queries}.pt')
+         start=time.perf_counter()
+         with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
+-            result=self.model.infer_action(input_image=image,proprio=proprio,context=context,context_mask=mask,
+-                num_inference_steps=10,seed=self.seed,rand_device='cpu',compile_action_infer=self.compile_action_infer)
++            result=self.model.infer_action(**kw)
+         torch.cuda.synchronize();self.latency.append(time.perf_counter()-start);self.queries+=1
+         action=result['action'].detach().float().cpu()
+         if action.shape!=(32,14) or not torch.isfinite(action).all():raise ValueError('Invalid action output')
+-        return self.normalizer['action'].backward(action[None])[0].numpy()
++        denormalized=self.normalizer['action'].backward(action[None])[0].numpy()
++        if not np.isfinite(denormalized).all():raise ValueError('Nonfinite denormalized action')
++        print(json.dumps(dict(policy_query=self.queries-1,episode=self.episode,seconds=self.latency[-1],action_sha256=hashlib.sha256(denormalized.tobytes()).hexdigest())),flush=True)
++        return denormalized
+ 
+     def step(self,task_env,observation):
+         if not self.pending:
+diff --git a/scripts/evaluate_loopwam_robotwin.py b/scripts/evaluate_loopwam_robotwin.py
+index 72e21bf..7024236 100644
+--- a/scripts/evaluate_loopwam_robotwin.py
++++ b/scripts/evaluate_loopwam_robotwin.py
+@@ -27,7 +27,9 @@ def digest(path):
+     return h.hexdigest()
+ 
+ def completed_records(directory,config,expected,verify=True):
+-    triples=EPISODE.findall((directory/'eval.log').read_text(errors='replace'))
++    log_text=(directory/'eval.log').read_text(errors='replace')
++    triples=EPISODE.findall(log_text)
++    events=[json.loads(line) for line in log_text.splitlines() if line.startswith('{"policy_query"') or line.startswith('{"loopwam_episode"')]
+     if len(triples)!=expected:raise ValueError(f'Expected{expected}episodes, found{len(triples)}')
+     out=[];previous=0
+     for index,(successes,count,seed) in enumerate(triples):
+@@ -38,7 +40,10 @@ def completed_records(directory,config,expected,verify=True):
+         if verify:
+             p=subprocess.run(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=width,height,duration','-of','json',str(video)],capture_output=True,text=True,timeout=30)
+             if p.returncode or not json.loads(p.stdout).get('streams'):raise ValueError(f'Invalid video:{video}')
+-        out.append(dict(seed=seed,success=bool(success),video=str(video),video_verified=True));previous=successes
++        queries=[x for x in events if x.get('episode')==index and 'policy_query' in x]
++        instructions=[x['instruction'] for x in events if x.get('loopwam_episode')==index]
++        if not queries or [x['policy_query'] for x in queries]!=list(range(len(queries))) or len(instructions)!=1:raise ValueError('Missing/malformed action trace or instruction')
++        out.append(dict(seed=seed,success=bool(success),video=str(video),video_sha256=digest(video),video_verified=True,instruction=instructions[0],queries=len(queries),query_trace_sha256=hashlib.sha256(json.dumps([x['action_sha256'] for x in queries]).encode()).hexdigest()));previous=successes
+     if len({x['seed'] for x in out})!=expected:raise ValueError('Repeated scene seed')
+     return out
+ 
+@@ -69,10 +74,16 @@ def main():
+     robotwin=Path(a.robotwin_root);policy=(robotwin/'policy/loopwam_policy').resolve()
+     if policy!=(ROOT/'experiments/robotwin/loopwam_policy').resolve():raise ValueError('Wrong deployed policy import target')
+     bound=list((robotwin/'envs').rglob('*.py'))+list((robotwin/'task_config').rglob('*.yml'))+list(policy.glob('*.py'))+list(policy.glob('*.yml'))+list((ROOT/'src/fastwam/models/wan22').rglob('*.py'))
++    bound += list((ROOT/'src/fastwam').rglob('*.py'))+list((robotwin/'description').rglob('*.py'))+list((robotwin/'description').rglob('*.json'))
++    bound += list((ROOT/'experiments/robotwin/chronoloop_policy').glob('*.py'))+[Path(__file__),ROOT/'experiments/robotwin/loopwam_policy/cuda_graph.py',ROOT/'scripts/robotwin_local_graph_gate.py',ROOT/'scripts/robotwin_local_report.py']
++    bound += list((ROOT/'checkpoints/Wan-AI/Wan2.1-T2V-1.3B/google').rglob('*'))
++    bound=[x for x in bound if x.is_file()]
++    extra=os.environ.get('LOOPWAM_RUNTIME_MANIFEST')
++    if extra:bound.append(Path(extra))
+     protocol=dict(checkpoint=str(Path(a.checkpoint).resolve()),checkpoint_sha256=sha,expected_step=a.expected_step,
+         tasks=tasks,settings=['demo_clean','demo_randomized'],episodes=a.episodes,seed=a.seed,instruction_type='unseen',
+         num_inference_steps=10,action_horizon=32,replan_steps=24,noise_seed='fixed seed for every query, FastWAM default',
+-        compile_action_infer=a.compile_action_infer,renderer_shader=os.environ.get('LOOPWAM_ROBOTWIN_SHADER','rt'),gpu_pci=gpu_pci,harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
++        image_preprocessing='released_fastwam_pil_uint8_bf16',instruction_rng='released_fastwam_no_explicit_python_seed',cuda_graph=os.environ.get('LOOPWAM_CUDA_GRAPH','0'),compile_action_infer=a.compile_action_infer,renderer_shader=os.environ.get('LOOPWAM_ROBOTWIN_SHADER','rt'),gpu_pci=gpu_pci,harness_sha256=digest(Path(a.robotwin_root)/'script/eval_policy.py'),
+         policy_sha256=digest(ROOT/'experiments/robotwin/loopwam_policy/deploy_policy.py'),
+         stats_sha256=digest(Path(a.data_dir)/'dataset_stats.json'),runtime_hashes=fingerprint_files(bound),
+         vae_sha256=digest(ROOT/'checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth'))
+diff --git a/scripts/launch_robotwin_local.sh b/scripts/launch_robotwin_local.sh
+new file mode 100755
+index 0000000..87b6c72
+--- /dev/null
++++ b/scripts/launch_robotwin_local.sh
+@@ -0,0 +1,5 @@
++#!/usr/bin/env bash
++set -euo pipefail
++source /data14t/anhdh35/loopwam_robotwin_v0_20261030/environment.sh
++cd /storage/anhdh35/LoopWAM-robotwin-eval
++exec python scripts/robotwin_local_queue.py
+diff --git a/scripts/robotwin_local_graph_gate.py b/scripts/robotwin_local_graph_gate.py
+new file mode 100644
+index 0000000..f813bf2
+--- /dev/null
++++ b/scripts/robotwin_local_graph_gate.py
+@@ -0,0 +1,28 @@
++"""Compare native and CUDA graph inference on captured real simulator inputs."""
++import json,time,hashlib
++from pathlib import Path
++import torch
++from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
++from experiments.robotwin.loopwam_policy.cuda_graph import enable_graphs
++B=Path('/data14t/anhdh35/loopwam_robotwin_v0_20261030');torch.set_num_threads(2)
++paths=sorted((B/'gate_inputs').glob('*.pt'))
++if len(paths)<4:raise ValueError('Need multiple real observation inputs before graph gate')
++model,_=create_loopwam_robot('/storage/anhdh35/Light-WAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth',checkpoint_path=str(B/'checkpoints/v0-video4-action4/policy.pt'),device='cuda',checkpoint_blocks=False);model.eval()
++inputs=[torch.load(p,map_location='cpu',weights_only=False) for p in paths[:8]]
++for i,kw in enumerate(inputs):kw['seed']=42+i%3
++
++def predict(kw):
++ with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):a=model.infer_action(**kw)['action'].float().cpu().clone()
++ assert a.shape==(32,14) and torch.isfinite(a).all()
++ return a
++predict(inputs[0]);start=time.perf_counter();native=[predict(kw) for kw in inputs];native_s=(time.perf_counter()-start)/len(inputs)
++report=dict(checkpoint_sha256='38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51',nfe=10,atol=0,rtol=0,inputs=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in paths[:8]],native_query_seconds=native_s,graph_passed=False)
++try:
++ enable_graphs(model)
++ for i in list(range(len(inputs)))+list(reversed(range(len(inputs)))):torch.testing.assert_close(predict(inputs[i]),native[i],atol=0,rtol=0)
++ start=time.perf_counter()
++ for kw in inputs:predict(kw)
++ report.update(graph_passed=True,max_abs_difference=0,graph_query_seconds=(time.perf_counter()-start)/len(inputs))
++except Exception as e:report['error']=repr(e)
++report['peak_reserved_mib']=torch.cuda.max_memory_reserved()/2**20
++(B/'graph_gate.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+diff --git a/scripts/robotwin_local_queue.py b/scripts/robotwin_local_queue.py
+new file mode 100644
+index 0000000..60e1eba
+--- /dev/null
++++ b/scripts/robotwin_local_queue.py
+@@ -0,0 +1,47 @@
++"""Launch the calibrated full benchmark and keep the report current."""
++import fcntl,hashlib,json,os,signal,subprocess,time,traceback
++from pathlib import Path
++from robotwin_local_report import update
++B=Path('/data14t/anhdh35/loopwam_robotwin_v0_20261030');ROOT=Path('/storage/anhdh35/LoopWAM-robotwin-eval')
++
++def sha(path):
++ h=hashlib.sha256()
++ with Path(path).open('rb') as f:
++  for chunk in iter(lambda:f.read(8*1024*1024),b''):h.update(chunk)
++ return h.hexdigest()
++
++def main():
++ lock=(B/'controller.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++ calibration=json.loads((B/'calibration.json').read_text());assert calibration.get('finished_unix')
++ gate=json.loads((B/'graph_gate.json').read_text());assert gate['graph_passed'] and gate['max_abs_difference']==0
++ cpu=json.loads((B/'cpu_validation.json').read_text());assert cpu['strict_load'] and cpu['step']==237310
++ assert sha(B/'checkpoints/v0-video4-action4/policy.pt')==gate['checkpoint_sha256'],'Checkpoint changed after gate'
++ for path,info in json.loads((B/'runtime_manifest.json').read_text())['files'].items():
++  assert sha(path)==info['sha256'],f'Runtime asset drift: {path}'
++ workers=calibration['selected']['workers']
++ if (B/'launch.json').exists():
++  old=json.loads((B/'launch.json').read_text());assert old['workers']==workers,'Resume must keep selected workers'
++ env={**os.environ,'LOOPWAM_CUDA_GRAPH':'1','LOOPWAM_RUNTIME_MANIFEST':str(B/'runtime_manifest.json')};env.pop('LOOPWAM_CAPTURE_INPUTS',None)
++ cmd=[str(B/'env/bin/python'),str(ROOT/'scripts/evaluate_loopwam_robotwin.py'),'--checkpoint',str(B/'checkpoints/v0-video4-action4/policy.pt'),
++  '--output-dir',str(B/'results'),'--robotwin-root',str(ROOT/'third_party/RoboTwin'),'--data-dir',str(B/'checkpoints/v0-video4-action4'),
++  '--gpus','0','--per-gpu',str(workers),'--episodes','100','--seed','42','--max-attempts','3','--no-progress-timeout','1800']
++ state=dict(code_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),status='running',started_unix=time.time(),workers=workers,backend='cuda-graph',planned_episodes=10000,command=cmd)
++ def save():
++  tmp=B/'launch.json.tmp';tmp.write_text(json.dumps(state,indent=2));tmp.replace(B/'launch.json');update()
++ def stop(*args):raise KeyboardInterrupt
++ signal.signal(signal.SIGTERM,stop)
++ with (B/'evaluation.log').open('a') as log:proc=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
++ state['pid']=proc.pid;save()
++ try:
++  while proc.poll() is None:save();time.sleep(10)
++  if proc.returncode:raise RuntimeError(f'Evaluation exit {proc.returncode}; see evaluation.log')
++  assert (B/'results/COMPLETE.json').exists()
++  state.update(status='complete',finished_unix=time.time());save()
++ except BaseException:
++  if proc.poll() is None:
++   os.killpg(proc.pid,signal.SIGTERM)
++   try:proc.wait(60)
++   except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
++  state.update(status='error',error=traceback.format_exc(),stopped_unix=time.time());save();raise
++
++if __name__=='__main__':main()
+diff --git a/scripts/robotwin_local_report.py b/scripts/robotwin_local_report.py
+new file mode 100644
+index 0000000..8bf42bf
+--- /dev/null
++++ b/scripts/robotwin_local_report.py
+@@ -0,0 +1,34 @@
++"""Live readable report for the local FastWAM-protocol RoboTwin evaluation."""
++import json,re,time
++from pathlib import Path
++B=Path('/data14t/anhdh35/loopwam_robotwin_v0_20261030');R=Path('/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0')
++RX=re.compile(r'Success rate: (?:\x1b\[\d+m)?(\d+)/(\d+).*?current seed: (?:\x1b\[\d+m)?(\d+)')
++
++def update():
++ R.mkdir(parents=True,exist_ok=True);p=B/'results/summary.json';s=json.loads(p.read_text()) if p.exists() else dict(finished={},running={})
++ rows=[]
++ for task in json.loads((B/'checkpoints/v0-video4-action4/evaluation_protocol.json').read_text())['tasks']:
++  for setting in ['demo_clean','demo_randomized']:
++   key=f'{task}/{setting}';cell=s.get('finished',{}).get(key)
++   if cell:row=dict(task=task,setting=setting,status='complete',episodes=len(cell['episodes']),successes=cell['successes'])
++   elif key in s.get('running',{}):
++    logs=sorted((B/'results'/f'{task}__{setting}').glob('attempt_*/eval.log'));records=RX.findall(logs[-1].read_text(errors='replace')) if logs else []
++    row=dict(task=task,setting=setting,status='running',episodes=int(records[-1][1]) if records else 0,successes=int(records[-1][0]) if records else 0)
++   else:row=dict(task=task,setting=setting,status='failed' if key in s.get('failed',[]) else 'pending',episodes=0,successes=0)
++   rows.append(row)
++ progress=dict(updated_unix=time.time(),episodes=sum(x['episodes'] for x in rows),successes=sum(x['successes'] for x in rows),planned=10000,
++  completed_cells=sum(x['status']=='complete' for x in rows),running_cells=sum(x['status']=='running' for x in rows),failed=s.get('failed',[]),finished=(B/'results/COMPLETE.json').exists(),cells=rows)
++ if (B/'launch.json').exists():progress['launch']=json.loads((B/'launch.json').read_text())
++ tmp=R/'progress.json.tmp';tmp.write_text(json.dumps(progress,indent=2));tmp.replace(R/'progress.json')
++ lines=['# LoopWAM v0 RoboTwin evaluation','',f"Scored episodes: **{progress['episodes']}/10,000**; successes: **{progress['successes']}**; completed task/settings: **{progress['completed_cells']}/100**.",'',
++  'Seed42;50tasks;clean+randomized;100acceptedepisodes/task/setting;unseen instructions;NFE10;predict32/execute24;native4/4 checkpoint at epoch5. Smoke/calibration excluded. Partial SR is provisional.','',
++  '| Task | Setting | Status | Episodes | Successes | SR |','| --- | --- | --- | --- | --- | --- |']
++ for x in rows:
++  rate=f"{100*x['successes']/x['episodes']:.2f}%" if x['episodes'] else '—'
++  lines.append(f"| {x['task']} | {x['setting']} | {x['status']} | {x['episodes']}/100 | {x['successes']} | {rate} |")
++ lines+=['','[Detailed setup and comparability](setup_report.md) · [Progress JSON](progress.json)',
++ 'Rendering uses RT32/depth8/OIDN2.3.3 (Blackwell compatibility upgrade). Input preprocessing and instruction generation follow released FastWAM; these differ from the uploaded checkpoint’s H100 evaluation.']
++ tmp=R/'report.md.tmp';tmp.write_text('\n'.join(lines)+'\n');tmp.replace(R/'report.md')
++ return progress
++
++if __name__=='__main__':print(json.dumps({k:v for k,v in update().items() if k!='cells'},indent=2))
+diff --git a/tests/test_robotwin_local_input.py b/tests/test_robotwin_local_input.py
+new file mode 100644
+index 0000000..76d1eee
+--- /dev/null
++++ b/tests/test_robotwin_local_input.py
+@@ -0,0 +1,21 @@
++import ast
++from pathlib import Path
++import numpy as np
++import torch
++from PIL import Image
++
++def test_image_exactly_matches_released_fastwam():
++ from experiments.robotwin.loopwam_policy.deploy_policy import fastwam_image
++ ref=Path('/storage/anhdh35/FastWAM-eval/experiments/robotwin/fastwam_policy/deploy_policy.py')
++ tree=ast.parse(ref.read_text());resize=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='_resize_rgb')
++ cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='WorldActionRobotWinPolicy')
++ method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='_build_robotwin_image_tensor')
++ ns=dict(np=np,torch=torch,Image=Image,Dict=dict,Any=object)
++ exec(compile(ast.Module(body=[resize,method],type_ignores=[]),'reference','exec'),ns)
++ from types import SimpleNamespace
++ instance=SimpleNamespace(model=SimpleNamespace(device='cpu',torch_dtype=torch.bfloat16))
++ rng=np.random.default_rng(42)
++ for h,w in [(240,320),(480,640)]:
++  obs={'observation':{k:{'rgb':rng.integers(0,256,(h,w,3),dtype=np.uint8)} for k in ['head_camera','left_camera','right_camera']}}
++  actual=fastwam_image(obs,'cpu');expected=ns['_build_robotwin_image_tensor'](instance,obs)
++  assert torch.equal(actual,expected) and actual.dtype==torch.bfloat16
+diff --git a/third_party/RoboTwin/script/eval_policy.py b/third_party/RoboTwin/script/eval_policy.py
+index d77fa74..bada191 100644
+--- a/third_party/RoboTwin/script/eval_policy.py
++++ b/third_party/RoboTwin/script/eval_policy.py
+@@ -12,8 +12,6 @@ import numpy as np
+ from pathlib import Path
+ from collections import deque
+ import traceback
+-import random
+-import json
+ 
+ import yaml
+ from datetime import datetime
+@@ -126,9 +124,6 @@ def main(usr_args):
+     args['task_name'] = task_name
+     args["task_config"] = task_config
+     args["ckpt_setting"] = ckpt_setting
+-    # ChronoLoop: the instruction draw picks from up to `test_num` generated candidates; a split job passes the full
+-    # job's episode count so that its episodes draw from the same pool as the sequential job.
+-    args["instruction_pool"] = usr_args.get("instruction_pool")
+ 
+     embodiment_type = args.get("embodiment")
+     embodiment_config_path = os.path.join(CONFIGS_PATH, "_embodiment_config.yml")
+@@ -208,13 +203,6 @@ def main(usr_args):
+     seed = usr_args["seed"]
+ 
+     st_seed = 100000 * (1 + seed)
+-    if usr_args.get("st_seed") is not None:  # ChronoLoop: start a split job at a known accepted seed
+-        st_seed = int(usr_args["st_seed"])
+-    seed_list = None  # ChronoLoop: evaluate exactly these scene seeds, so every model is scored on the same scenes
+-    if usr_args.get("seed_list"):
+-        with open(usr_args["seed_list"]) as f:
+-            seed_list = [int(s) for s in json.load(f)]
+-        st_seed, eval_num_episodes = seed_list[0], len(seed_list)
+     suc_nums = []
+     test_num = eval_num_episodes
+     topk = 1
+@@ -228,8 +216,7 @@ def main(usr_args):
+                                    test_num=test_num,
+                                    video_size=video_size,
+                                    instruction_type=instruction_type,
+-                                   skip_get_obs_within_replan=skip_get_obs_within_replan,
+-                                   seed_list=seed_list)
++                                   skip_get_obs_within_replan=skip_get_obs_within_replan)
+     suc_nums.append(suc_num)
+ 
+     topk_success_rate = sorted(suc_nums, reverse=True)[:topk]
+@@ -254,8 +241,7 @@ def eval_policy(task_name,
+                 test_num=100,
+                 video_size=None,
+                 instruction_type=None,
+-                skip_get_obs_within_replan=False,
+-                seed_list=None):
++                skip_get_obs_within_replan=False):
+     print(f"\033[34mTask Name: {args['task_name']}\033[0m")
+     print(f"\033[34mPolicy Name: {args['policy_name']}\033[0m")
+ 
+@@ -272,72 +258,44 @@ def eval_policy(task_name,
+     reset_func = eval_function_decorator(policy_name, "reset_model")
+ 
+     now_seed = st_seed
+-    # ChronoLoop: with seed_list, walk only the listed seeds. A listed seed is evaluated even if the expert check
+-    # fails this time (it passed in the reference run; the expert run still supplies the episode info), and the
+-    # policy's noise index follows the position in the list. A seed whose scene cannot be built is skipped.
+-    position, episode_base = 0, getattr(model, "episode", None)
+-
+-    def next_seed(seed):
+-        nonlocal position
+-        if seed_list is None:
+-            return seed + 1
+-        position += 1
+-        return seed_list[position] if position < len(seed_list) else None
+-
+     task_total_reward = 0
+     clear_cache_freq = args["clear_cache_freq"]
+ 
+     args["eval_mode"] = True
+ 
+-    while succ_seed < test_num and now_seed is not None:
++    while succ_seed < test_num:
+         render_freq = args["render_freq"]
+         args["render_freq"] = 0
+ 
+         if expert_check:
+-            # ChronoLoop: the expert planner is not deterministic (open_microwave's can raise on a seed it solved
+-            # before). A listed seed's expert run only supplies the scene's episode info for the instruction, so
+-            # retry it a few times before skipping the seed. Unlisted walks keep the original single attempt.
+-            attempts = 5 if seed_list is not None else 1
+-            for attempt in range(attempts):
+-                try:
+-                    TASK_ENV.setup_demo(now_ep_num=now_id, seed=now_seed, is_test=True, **args)
+-                    episode_info = TASK_ENV.play_once()
+-                    TASK_ENV.close_env()
+-                    error = None
+-                    break
+-                except UnStableError as e:
+-                    # print(" -------------")
+-                    # print("Error: ", e)
+-                    # print(" -------------")
+-                    TASK_ENV.close_env()
+-                    error = e
+-                except Exception as e:
+-                    print(" -------------")
+-                    print("Error: ", e)
+-                    print("Stack Trace: ", traceback.format_exc())
+-                    print(" -------------")
+-                    TASK_ENV.close_env()
+-                    error = e
+-                if seed_list is not None:
+-                    print(f"ChronoLoop listed seed {now_seed} (#{position}): expert run attempt {attempt + 1} raised "
+-                          f"{type(error).__name__}")
+-            if error is not None:
+-                if seed_list is not None:
+-                    print(f"ChronoLoop listed seed {now_seed} (#{position}): skipped after {attempts} expert attempts")
+-                now_seed = next_seed(now_seed)
++            try:
++                TASK_ENV.setup_demo(now_ep_num=now_id, seed=now_seed, is_test=True, **args)
++                episode_info = TASK_ENV.play_once()
++                TASK_ENV.close_env()
++            except UnStableError as e:
++                # print(" -------------")
++                # print("Error: ", e)
++                # print(" -------------")
++                TASK_ENV.close_env()
++                now_seed += 1
++                args["render_freq"] = render_freq
++                continue
++            except Exception as e:
++                print(" -------------")
++                print("Error: ", e)
++                print("Stack Trace: ", traceback.format_exc())
++                print(" -------------")
++                TASK_ENV.close_env()
++                now_seed += 1
+                 args["render_freq"] = render_freq
+-                if not isinstance(error, UnStableError):
+-                    print("error occurs !")
++                print("error occurs !")
+                 continue
+ 
+-        expert_ok = TASK_ENV.plan_success and TASK_ENV.check_success()
+-        if seed_list is not None:
+-            print(f"ChronoLoop listed seed {now_seed} (#{position}): expert check {'passed' if expert_ok else 'FAILED'}")
+-        if (not expert_check) or expert_ok or seed_list is not None:
++        if (not expert_check) or (TASK_ENV.plan_success and TASK_ENV.check_success()):
+             succ_seed += 1
+             suc_test_seed_list.append(now_seed)
+         else:
+-            now_seed = next_seed(now_seed)
++            now_seed += 1
+             args["render_freq"] = render_freq
+             continue
+ 
+@@ -352,7 +310,7 @@ def eval_policy(task_name,
+             if len(suc_test_seed_list) > 0 and suc_test_seed_list[-1] == now_seed:
+                 suc_test_seed_list.pop()
+             TASK_ENV.close_env()
+-            now_seed = next_seed(now_seed)
++            now_seed += 1
+             continue
+         except Exception as e:
+             succ_seed -= 1
+@@ -363,14 +321,11 @@ def eval_policy(task_name,
+             print("Stack Trace: ", traceback.format_exc())
+             print(" -------------")
+             TASK_ENV.close_env()
+-            now_seed = next_seed(now_seed)
++            now_seed += 1
+             print("error occurs !")
+             continue
+         episode_info_list = [episode_info["info"]]
+-        random.seed(now_seed)  # ChronoLoop: the instruction draw uses Python `random`; seed it per episode so that
+-        # every policy gets the same (scene, instruction) pairs. Templates and the seen/unseen split are unchanged.
+-        results = generate_episode_descriptions(args["task_name"], episode_info_list,
+-                                                args.get("instruction_pool") or test_num)
++        results = generate_episode_descriptions(args["task_name"], episode_info_list, test_num)
+         instruction = np.random.choice(results[0][instruction_type])
+         TASK_ENV.set_instruction(instruction=instruction)  # set language instruction
+ 
+@@ -407,8 +362,6 @@ def eval_policy(task_name,
+             TASK_ENV._set_eval_video_ffmpeg(ffmpeg)
+ 
+         succ = False
+-        if seed_list is not None and episode_base is not None:
+-            model.episode = episode_base + position   # reset() advances it to this seed's index in the list
+         reset_func(model)
+         while TASK_ENV.take_action_cnt < TASK_ENV.step_lim:
+             need_obs = True
+@@ -453,7 +406,7 @@ def eval_policy(task_name,
+             f"Success rate: \033[96m{TASK_ENV.suc}/{TASK_ENV.test_num}\033[0m => \033[95m{round(TASK_ENV.suc/TASK_ENV.test_num*100, 1)}%\033[0m, current seed: \033[90m{now_seed}\033[0m\n"
+         )
+         # TASK_ENV._take_picture()
+-        now_seed = next_seed(now_seed)
++        now_seed += 1
+ 
+     return now_seed, TASK_ENV.suc
+ 
+diff --git a/third_party/RoboTwin/task_config/_camera_config.yml b/third_party/RoboTwin/task_config/_camera_config.yml
+new file mode 100644
+index 0000000..fc83ec6
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/_camera_config.yml
+@@ -0,0 +1,19 @@
++L515:
++  fovy: 45
++  w: 320
++  h: 180
++
++Large_L515:
++  fovy: 45
++  w: 640
++  h: 360
++
++D435:
++  fovy: 37
++  w: 320
++  h: 240
++
++Large_D435:
++  fovy: 37
++  w: 640
++  h: 480
+\ No newline at end of file
+diff --git a/third_party/RoboTwin/task_config/_config_template.yml b/third_party/RoboTwin/task_config/_config_template.yml
+new file mode 100644
+index 0000000..de2ddc5
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/_config_template.yml
+@@ -0,0 +1,35 @@
++render_freq: 0
++episode_num: 50
++use_seed: false
++save_freq: 15
++embodiment:
++- aloha-agilex
++language_num: 100
++domain_randomization:
++  random_background: false
++  cluttered_table: false
++  clean_background_rate: 0
++  random_head_camera_dis: 0
++  random_table_height: 0
++  random_light: false
++  crazy_random_light_rate: 0
++camera:
++  head_camera_type: D435
++  wrist_camera_type: D435
++  collect_head_camera: true
++  collect_wrist_camera: true
++data_type:
++  rgb: true
++  third_view: false
++  depth: false
++  pointcloud: false
++  endpose: true
++  qpos: true
++  mesh_segmentation: false
++  actor_segmentation: false
++pcd_down_sample_num: 1024
++pcd_crop: true
++save_path: ./data
++clear_cache_freq: 1
++collect_data: true
++eval_video_log: true
+diff --git a/third_party/RoboTwin/task_config/_embodiment_config.yml b/third_party/RoboTwin/task_config/_embodiment_config.yml
+new file mode 100644
+index 0000000..672c88e
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/_embodiment_config.yml
+@@ -0,0 +1,14 @@
++aloha-agilex:
++  file_path: "./assets/embodiments/aloha-agilex/"
++
++piper:
++  file_path: "./assets/embodiments/piper"
++
++franka-panda:
++  file_path: "./assets/embodiments/franka-panda/"
++
++ARX-X5:
++  file_path: "./assets/embodiments/ARX-X5"
++
++ur5-wsg:
++  file_path: "./assets/embodiments/ur5-wsg"
+diff --git a/third_party/RoboTwin/task_config/_eval_step_limit.yml b/third_party/RoboTwin/task_config/_eval_step_limit.yml
+new file mode 100644
+index 0000000..afd0153
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/_eval_step_limit.yml
+@@ -0,0 +1,50 @@
++adjust_bottle: 400
++beat_block_hammer: 400
++blocks_ranking_rgb: 1200
++blocks_ranking_size: 1200
++click_alarmclock: 400
++click_bell: 400
++dump_bin_bigbin: 600
++grab_roller: 400
++handover_block: 800
++handover_mic: 600
++lift_pot: 400
++move_can_pot: 400
++move_playingcard_away: 400
++move_stapler_pad: 400
++hanging_mug: 900
++open_laptop: 700
++open_microwave: 1500
++pick_diverse_bottles: 400
++pick_dual_bottles: 400
++place_a2b_left: 400
++place_a2b_right: 400
++place_bread_basket: 700
++place_bread_skillet: 500
++place_can_basket: 700
++place_cans_plasticbox: 800
++place_container_plate: 400
++place_dual_shoes: 600
++place_empty_cup: 500
++place_fan: 400
++place_burger_fries: 500
++place_mouse_pad: 400
++place_object_basket: 700
++place_object_scale: 400
++place_object_stand: 400
++place_phone_stand: 400
++move_pillbottle_pad: 400
++place_shoe: 500
++press_stapler: 400
++put_bottles_dustbin: 1700
++put_object_cabinet: 700
++rotate_qrcode: 400
++scan_object: 500
++shake_bottle: 700
++shake_bottle_horizontally: 700
++stack_blocks_three: 1200
++stack_blocks_two: 800
++stack_bowls_three: 1200
++stack_bowls_two: 900
++stamp_seal: 400
++turn_switch: 400
+diff --git a/third_party/RoboTwin/task_config/create_task_config.sh b/third_party/RoboTwin/task_config/create_task_config.sh
+new file mode 100644
+index 0000000..b345b27
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/create_task_config.sh
+@@ -0,0 +1,3 @@
++task_config_name=${1}
++
++cp task_config/_config_template.yml task_config/${task_config_name}.yml
+\ No newline at end of file
+diff --git a/third_party/RoboTwin/task_config/demo_clean.yml b/third_party/RoboTwin/task_config/demo_clean.yml
+new file mode 100644
+index 0000000..7e0de0a
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/demo_clean.yml
+@@ -0,0 +1,37 @@
++# if you want to modify the config, please check the following tutorial first:
++# https://robotwin-platform.github.io/doc/usage/configurations.html
++render_freq: 0
++episode_num: 50
++use_seed: false
++save_freq: 15
++embodiment: [aloha-agilex]
++language_num: 100
++domain_randomization:
++  random_background: false
++  cluttered_table: false
++  clean_background_rate: 1
++  random_head_camera_dis: 0
++  random_table_height: 0
++  random_light: false
++  crazy_random_light_rate: 0
++camera:
++  head_camera_type: D435
++  wrist_camera_type: D435
++  collect_head_camera: true
++  collect_wrist_camera: true
++data_type:
++  rgb: true
++  third_view: false
++  depth: false
++  pointcloud: false
++  observer: false
++  endpose: true
++  qpos: true
++  mesh_segmentation: false
++  actor_segmentation: false
++pcd_down_sample_num: 1024
++pcd_crop: true
++save_path: ./data
++clear_cache_freq: 5
++collect_data: true
++eval_video_log: true
+diff --git a/third_party/RoboTwin/task_config/demo_randomized.yml b/third_party/RoboTwin/task_config/demo_randomized.yml
+new file mode 100644
+index 0000000..d3fc5ed
+--- /dev/null
++++ b/third_party/RoboTwin/task_config/demo_randomized.yml
+@@ -0,0 +1,37 @@
++# if you want to modify the config, please check the following tutorial first:
++# https://robotwin-platform.github.io/doc/usage/configurations.html
++render_freq: 0
++episode_num: 50
++use_seed: false
++save_freq: 15
++embodiment: [aloha-agilex]
++language_num: 100
++domain_randomization:
++  random_background: true
++  cluttered_table: true
++  clean_background_rate: 0.02
++  random_head_camera_dis: 0
++  random_table_height: 0.03
++  random_light: true
++  crazy_random_light_rate: 0.02
++camera:
++  head_camera_type: D435
++  wrist_camera_type: D435
++  collect_head_camera: true
++  collect_wrist_camera: true
++data_type:
++  rgb: true
++  third_view: false
++  depth: false
++  pointcloud: false
++  observer: false
++  endpose: true
++  qpos: true
++  mesh_segmentation: false
++  actor_segmentation: false
++pcd_down_sample_num: 1024
++pcd_crop: true
++save_path: ./data
++clear_cache_freq: 5
++collect_data: true
++eval_video_log: true

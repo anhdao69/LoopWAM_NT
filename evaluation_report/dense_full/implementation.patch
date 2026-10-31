@@ -1,0 +1,760 @@
+diff --git a/docs/superpowers/plans/2026-10-27-dense-full.md b/docs/superpowers/plans/2026-10-27-dense-full.md
+new file mode 100644
+index 0000000..c0606bf
+--- /dev/null
++++ b/docs/superpowers/plans/2026-10-27-dense-full.md
+@@ -0,0 +1,32 @@
++# Dense full-suite evaluation queue implementation plan
++
++> **For agentic workers:** Use superpowers:executing-plans to implement this plan task-by-task.
++
++**Goal:** Append full-suite Dense-S12 then Dense-S30 to the current v0 evaluation campaign.
++**Architecture:** Independent pinned worktree and dependent controller wait for all five v0 conditions to finish. Adapt the audited matched rollout runner without changing any active v0 files. Each Dense model keeps its native one-pass architecture.
++**Tech Stack:** Python, PyTorch, LIBERO, tmux, Hugging Face pinned HTTPS downloads.
++**Spec:** User's two full-suite checkpoint URLs; inherited standard LIBERO protocol.
++
++## Global constraints
++- NFE10; seeds42,43,44; four suites; ten tasks/suite;50 episodes/task/seed;6000/model.
++- No GPU work until v0 finishes; do not change active source or interrupt other GPU users.
++- Verify download size, SHA256/LFS and Git blob hashes, full-scope epoch10 metadata and strict state dict.
++- Original normalization, text, VAE, images, settling30, predict32/execute10, caps400/700.
++- CUDA graph requires bit-exact real-observation and rollout parity; choose measured fastest safe worker count.
++- Preserve query traces, every video, resumable whole groups, atomic reports and fail-closed provenance.
++
++## Review focus
++- Missing/failed predecessor must never unlock Dense GPU jobs.
++- Dense architecture must never receive a v0 Ka override.
++- Dense-S30 memory headroom, fallback and resume consistency.
++- Wrong checkpoint/suite/seed/episode identity must fail accounting.
++- Frozen source and assets must include all new controllers and model-specific metadata.
++
++## Tasks
++- [ ] Download both revision-pinned releases, verify all objects and CPU checkpoint contracts.
++- [ ] Adapt dense_common/runner/gate/queue; implement dense_chain waiting for v0 completion and lock release.
++- [ ] Test dependency gating, model identities, episode accounting and profile selection; run CPU strict model loads.
++- [ ] Obtain independent review, address findings, freeze source, launch tmux waiter and verify status/report.
++
++## Execution decisions
++Proceed inline under the user's explicit request to append and run. A separate dependent queue is necessary because the active v0 queue freezes its source. GPU correctness/performance gates run automatically after the predecessor; CPU release checks run now.
+diff --git a/scripts/dense_chain.py b/scripts/dense_chain.py
+new file mode 100644
+index 0000000..444847e
+--- /dev/null
++++ b/scripts/dense_chain.py
+@@ -0,0 +1,93 @@
++"""Append two Dense models after the pinned five-condition v0 sweep."""
++import fcntl,json,os,signal,subprocess,time,traceback
++from pathlib import Path
++from scripts.dense_common import CAMPAIGN,ROOT,PYTHON,environment,write,sha
++PREDECESSOR=Path('/data14t/anhdh35/loopwam_v0_ka_sweep_20261027')
++REPORT=Path('/storage/anhdh35/LoopWAM_NT/evaluation_report/dense_full')
++V0_SHA='1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b'
++
++def predecessor_ready(state):
++    jobs=state.get('jobs',[])
++    return (bool(state.get('finished_unix')) and not state.get('active') and not state.get('error')
++        and [j.get('ka') for j in jobs]==[1,2,3,5,6]
++        and all(j.get('status')=='complete' and j.get('summary',{}).get('episodes')==6000
++            and j['summary'].get('checkpoint_sha256')==V0_SHA and j['summary'].get('action_loops')==j['ka'] for j in jobs))
++
++def publish(state):
++    state['updated_unix']=time.time();write(CAMPAIGN/'chain_status.json',state);write(REPORT/'queue_status.json',state)
++    lines=['# Full-suite Dense evaluation queue','',f"Queue status: **{state['status']}**.",'',
++        'Order: v0 Ka1 → Ka2 → Ka3 → Ka5 → Ka6 → Dense-S12 → Dense-S30.','',
++        'NFE10; seeds42/43/44; Spatial/Object/Goal/Long; 50 episodes/task/seed; 6,000/model (12,000 new episodes).','',
++        '| Model | Status | Episodes | Successes | SR |','| --- | --- | --- | --- | --- |']
++    for job in state['jobs']:
++        detail=job.get('detail',{}).get('jobs',[{}])[0]
++        progress=job.get('summary',detail.get('summary',detail.get('progress',{}) if detail.get('stage')=='scored' else {}))
++        n=progress.get('episodes',progress.get('completed',0));ok=progress.get('successes',0)
++        rate=f'{100*ok/n:.2f}%' if n else 'pending'
++        lines.append(f"| {job['model']} | {detail.get('status',job['status'])} | {n}/6000 | {ok} | {rate} |")
++    lines+=['','Calibration is excluded. Partial SR is provisional. GPU checks and speed calibration start only after v0 finishes.',
++        '[Detailed setup](setup_report.md) · [Live machine-readable status](queue_status.json)',
++        '[Dense-S12 report](dense-s12/report.md) · [Dense-S30 report](dense-s30/report.md)']
++    target=REPORT/'report.md';tmp=target.with_suffix('.md.tmp');tmp.write_text('\n'.join(lines)+'\n');tmp.replace(target)
++
++
++def main():
++    def terminate(signum,frame):raise SystemExit(128+signum)
++    signal.signal(signal.SIGTERM,terminate)
++    CAMPAIGN.mkdir(parents=True,exist_ok=True);REPORT.mkdir(parents=True,exist_ok=True)
++    lock=(CAMPAIGN/'chain.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++    state=dict(status='waiting_for_v0',order=['v0_Ka1','v0_Ka2','v0_Ka3','v0_Ka5','v0_Ka6','dense-s12','dense-s30'],
++        started_unix=time.time(),jobs=[dict(model=m,status='pending',episodes=6000) for m in ['dense-s12','dense-s30']])
++    publish(state)
++    try:
++        # Lock remains held until Dense completes, preventing the predecessor from restarting alongside us.
++        predecessor_lock=None
++        while predecessor_lock is None:
++            path=PREDECESSOR/'queue_state.json'
++            previous=json.loads(path.read_text()) if path.exists() else {}
++            state['predecessor_status']='error' if previous.get('error') else 'running_or_pending'
++            if predecessor_ready(previous):
++                candidate=(PREDECESSOR/'queue.lock').open('a')
++                try:fcntl.flock(candidate,fcntl.LOCK_EX|fcntl.LOCK_NB)
++                except BlockingIOError:candidate.close()
++                else:
++                    if predecessor_ready(json.loads(path.read_text())):
++                        predecessor_lock=candidate;break
++                    candidate.close()
++            publish(state);time.sleep(30)
++        # Verify completed predecessor artifacts independently of its queue status.
++        expected=json.loads((PREDECESSOR/'frozen.json').read_text())['checkpoint_sha256']
++        if expected!=V0_SHA:raise ValueError('Wrong predecessor checkpoint')
++        for k in [1,2,3,5,6]:
++            summary=json.loads((PREDECESSOR/f'results/ka{k}/summary.json').read_text())
++            if summary['episodes']!=6000 or summary['checkpoint_sha256']!=V0_SHA or summary['action_loops']!=k:
++                raise ValueError('Predecessor result mismatch')
++        state['status']='running';publish(state)
++        for job in state['jobs']:
++            job.update(status='running',started_unix=time.time());publish(state)
++            env=environment();env['DENSE_MODEL']=job['model']
++            inherited_locks=(lock.fileno(),predecessor_lock.fileno())
++            env['DENSE_LOCK_FDS']=','.join(map(str,inherited_locks))
++            with (CAMPAIGN/(job['model']+'_controller.log')).open('a') as log:
++                result=subprocess.Popen([PYTHON,'-m','scripts.dense_queue'],cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,
++                    start_new_session=True,pass_fds=inherited_locks)
++                state['active_pid']=result.pid;publish(state)
++                try:
++                    while result.poll() is None:
++                        progress_path=CAMPAIGN/job['model']/'queue_state.json'
++                        if progress_path.exists():job['detail']=json.loads(progress_path.read_text())
++                        publish(state);time.sleep(10)
++                except BaseException:
++                    if result.poll() is None:
++                        os.killpg(result.pid,signal.SIGTERM);result.wait(timeout=120)
++                    raise
++                finally:state['active_pid']=None
++            if result.returncode:raise RuntimeError(f"{job['model']} stopped; inspect controller log")
++            summary=json.loads((CAMPAIGN/job['model']/'results/ka1/summary.json').read_text())
++            if summary['episodes']!=6000:raise ValueError('Incomplete Dense result')
++            job.update(status='complete',summary=summary,finished_unix=time.time());publish(state)
++        state.update(status='complete',finished_unix=time.time());publish(state)
++    except BaseException:
++        state.update(status='error',error=traceback.format_exc());publish(state);raise
++
++if __name__=='__main__':main()
+diff --git a/scripts/dense_common.py b/scripts/dense_common.py
+new file mode 100644
+index 0000000..c482b94
+--- /dev/null
++++ b/scripts/dense_common.py
+@@ -0,0 +1,136 @@
++"""Frozen inputs and strict accounting for the native full-suite Dense campaign."""
++import hashlib, importlib.util, json, math, os
++from pathlib import Path
++
++ROOT=Path(__file__).resolve().parents[1]
++OLD=Path('/storage/anhdh35/LoopWAM_NT-eval')
++LIGHT=Path('/storage/anhdh35/Light-WAM')
++MODEL=os.environ.get('DENSE_MODEL','dense-s12')
++if MODEL not in ['dense-s12','dense-s30']:raise ValueError('Unknown dense model')
++CAMPAIGN=Path('/data14t/anhdh35/loopwam_dense_full_20261027')
++BULK=CAMPAIGN/MODEL
++REPORT=Path('/storage/anhdh35/LoopWAM_NT/evaluation_report/dense_full')/MODEL
++CHECKPOINT=CAMPAIGN/'checkpoints'/MODEL
++DIGEST={'dense-s12':'a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd',
++        'dense-s30':'9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34'}[MODEL]
++PYTHON='/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/bin/python'
++SUITES=['libero_10','libero_spatial','libero_object','libero_goal']
++DEPTHS=[1]
++
++def sha(path):
++    h=hashlib.sha256()
++    with Path(path).open('rb') as f:
++        for b in iter(lambda:f.read(8*1024*1024),b''):h.update(b)
++    return h.hexdigest()
++
++def write(path,obj):
++    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
++    tmp=path.with_name(path.name+f'.{os.getpid()}.tmp')
++    tmp.write_text(json.dumps(obj,indent=2,allow_nan=False)+'\n');tmp.replace(path)
++
++def module(name,path):
++    spec=importlib.util.spec_from_file_location(name,path)
++    obj=importlib.util.module_from_spec(spec);spec.loader.exec_module(obj);return obj
++
++def video_writer():
++    return module('ka_historical_video',OLD/'experiments/libero/libero_utils.py').save_rollout_video
++
++def trace_signature(rows):
++    traces=[]
++    for r in sorted(rows,key=lambda r:(r['id'],r['episode'])):
++        if sha(r['query_log'])!=r['query_sha256']:raise ValueError('Query trace hash mismatch')
++        qq=json.loads(Path(r['query_log']).read_text())
++        if len(qq)!=r['queries'] or [q['query'] for q in qq]!=list(range(r['queries'])):raise ValueError('Query sequence mismatch')
++        traces.append((r['id'],r['episode'],r['success'],r['policy_steps'],[q['action_sha256'] for q in qq]))
++    return hashlib.sha256(json.dumps(traces).encode()).hexdigest()
++
++def environment():
++    env=os.environ.copy()
++    env.update(PYTHONPATH=f'{ROOT}/src:{ROOT}:{LIGHT}/src:{LIGHT}:{LIGHT}/third_party/LIBERO',
++        LIBERO_CONFIG_PATH=str(LIGHT/'.libero'),DIFFSYNTH_MODEL_BASE_PATH=str(LIGHT/'checkpoints'),
++        MUJOCO_GL='egl',PYOPENGL_PLATFORM='egl',CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',
++        MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',NUMBA_NUM_THREADS='1',TOKENIZERS_PARALLELISM='false',
++        PYTHONNOUSERSITE='1',PYTHONUNBUFFERED='1',TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD='1',TQDM_DISABLE='1')
++    return env
++
++def groups(calibration=False):
++    return [dict(id=f'{s}_seed{seed}_task{t}',suite=s,seed=seed,task=t,episodes=2 if calibration else 50)
++        for s in SUITES for t in ([0,8] if calibration else range(10)) for seed in ([42] if calibration else [42,43,44])]
++
++def validate_rows(gg,rr,digest,k):
++    expected={(g['id'],e):g for g in gg for e in range(g['episodes'])};seen=set()
++    for r in rr:
++        key=(r['id'],r['episode']);g=expected.get(key)
++        if g is None or key in seen:raise ValueError('Unexpected/duplicate episode')
++        seen.add(key)
++        if (r['checkpoint_sha256']!=digest or r['action_loops']!=k or r['initial_state_index']!=r['episode']
++            or any(r[x]!=g[x] for x in ['suite','seed','task'])):raise ValueError('Condition/episode identity mismatch')
++        if (type(r['success']) is not bool or not 1<=r['policy_steps']<=(700 if g['suite']=='libero_10' else 400)
++            or r['queries']!=math.ceil(r['policy_steps']/10)):raise ValueError('Invalid result/horizon/query count')
++    if seen!=set(expected):raise ValueError('Incomplete group')
++    return dict(episodes=len(rr),successes=sum(r['success'] for r in rr),success_rate=sum(r['success'] for r in rr)/len(rr))
++
++def choose_profile(profiles):
++    base=next((p for p in profiles if p.get('backend')=='eager' and p.get('workers')==2 and p.get('signature') and not p.get('recovered_episodes',0)),None)
++    if base is None:raise ValueError('Missing native reference')
++    eligible=[p for p in profiles if p.get('signature')==base['signature'] and p.get('seconds',0)>0 and not p.get('recovered_episodes',0)]
++    return min(eligible,key=lambda p:p['seconds'])
++
++def source_hashes():
++    files=list((ROOT/'src/fastwam').rglob('*.py'))+list((ROOT/'scripts').glob('dense_*.py'))
++    files += [ROOT/'scripts/evaluate_loopwam_libero.py',OLD/'scripts/evaluate_matched_full41.py',OLD/'scripts/matched_cuda_graph.py',
++              LIGHT/'experiments/libero/eval_libero_single.py',ROOT/'experiments/libero/libero_utils.py',OLD/'experiments/libero/libero_utils.py']
++    files += list((LIGHT/'third_party/LIBERO/libero/libero').rglob('*.py'))
++    files += list((OLD/'src/fastwam').rglob('*.py'))
++    files += list((LIGHT/'src/lightwam').rglob('*.py'))
++    return {str(p):sha(p) for p in files}
++
++def freeze_inputs():
++    import numpy as np
++    from libero.libero import benchmark,get_libero_path
++    old=module('ka_release_validator',OLD/'scripts/evaluate_matched_full41.py')
++    verified=old.validate_release(CHECKPOINT,SUITES)
++    if verified['checkpoint_sha256']!=DIGEST or verified['video_loops']!=1 or verified['action_loops']!=1 or verified['training_scope']!='full_libero':
++        raise ValueError('Expected native full-suite Dense checkpoint')
++    export=json.loads((CHECKPOINT/'export.json').read_text())
++    if export['version']!=MODEL.replace('-','_') or export['epochs']!=10 or export['dataset_scope']!='full_libero':
++        raise ValueError('Wrong Dense version/epoch/scope')
++    tasks={};assets={str(old.VAE):verified['vae_sha256'],str(CHECKPOINT/'dataset_stats.json'):verified['normalization_sha256']}
++    for p in CHECKPOINT.glob('*.json'):assets[str(p)]=sha(p)
++    assets[str(OLD/'data/matched_text/provenance.json')]=sha(OLD/'data/matched_text/provenance.json')
++    for name,item in verified['text_provenance']['files'].items():assets[str(OLD/'data/matched_text'/name)]=item['sha256']
++    for s in SUITES:
++        suite=benchmark.get_benchmark_dict()[s]()
++        for t in range(10):
++            task=suite.get_task(t);states=suite.get_task_init_states(t)
++            if len(states)<50:raise ValueError('Missing states')
++            bddl=Path(get_libero_path('bddl_files'))/task.problem_folder/task.bddl_file
++            initial=Path(get_libero_path('init_states'))/task.problem_folder/task.init_states_file
++            tasks[f'{s}:{t}']=dict(name=task.name,description=task.language,states=[hashlib.sha256(np.asarray(x).tobytes()).hexdigest() for x in states[:50]])
++            assets[str(bddl)]=sha(bddl);assets[str(initial)]=sha(initial)
++    for p in Path(get_libero_path('assets')).rglob('*'):
++        if p.is_file():assets[str(p)]=sha(p)
++    assets[str(LIGHT/'.libero/config.yaml')]=sha(LIGHT/'.libero/config.yaml')
++    import robosuite
++    for p in Path(robosuite.__file__).parent.rglob('*'):
++        if p.is_file() and p.suffix in {'.py','.xml','.stl','.obj','.png','.jpg','.jpeg','.mtl'}:assets[str(p)]=sha(p)
++    receipt=CAMPAIGN/'download_receipt.json'
++    assets[str(receipt)]=sha(receipt)
++    frozen=dict(hf_revision=json.loads(receipt.read_text())['revision'],verified=verified,tasks=tasks,assets=assets,source=source_hashes(),
++                checkpoint=str(CHECKPOINT),checkpoint_sha256=DIGEST,model=MODEL,video_loops=1,trained_action_loops=1,
++                nfe=10,depths=DEPTHS,seeds=[42,43,44],groups=groups())
++    write(BULK/'frozen.json',frozen);write(REPORT/'protocol.json',frozen)
++    return frozen
++
++def verify_frozen():
++    frozen=json.loads((BULK/'frozen.json').read_text())
++    if frozen['model']!=MODEL or frozen['checkpoint_sha256']!=DIGEST or source_hashes()!=frozen['source']:raise ValueError('Frozen identity/source drift')
++    if sha(CHECKPOINT/'policy.pt')!=DIGEST:raise ValueError('Checkpoint drift')
++    for path,digest in frozen['assets'].items():
++        if sha(path)!=digest:raise ValueError(f'Asset drift: {path}')
++    return frozen
++
++def validate_gate(gate,frozen):
++    expected=dict(model=MODEL,checkpoint_sha256=DIGEST,ka=1,video_loops=1,trained_ka=1,nfe=10,native_finite=True,
++        source=frozen['source'],frozen_sha256=sha(BULK/'frozen.json'),inputs_sha256=sha(BULK/'gate_inputs.pt'))
++    if any(gate.get(k)!=v for k,v in expected.items()):raise ValueError('Gate identity/provenance mismatch')
+diff --git a/scripts/dense_gate.py b/scripts/dense_gate.py
+new file mode 100644
+index 0000000..4aa29d7
+--- /dev/null
++++ b/scripts/dense_gate.py
+@@ -0,0 +1,59 @@
++"""Real-observation native/graph checks and native Dense inference."""
++import argparse,json,sys,time
++from pathlib import Path
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from scripts.dense_common import *
++
++def main(args):
++    frozen=verify_frozen()
++    import numpy as np,torch
++    from fastwam.models.wan22.loopwam import create_loopwam
++    from scripts.evaluate_loopwam_libero import ObservationAdapter
++    torch.set_num_threads(2);torch.cuda.set_device(0)
++    old=module('ka_gate_reference',OLD/'scripts/evaluate_matched_full41.py')
++    model=create_loopwam(checkpoint_path=str(CHECKPOINT/'policy.pt'),vae_path=str(old.VAE),device='cuda:0',model_dtype=torch.float32).eval()
++    ip=BULK/'gate_inputs.pt'
++    if not ip.exists():
++        from libero.libero import benchmark
++        from experiments.libero.libero_utils import get_libero_env
++        adapter=ObservationAdapter(json.loads((CHECKPOINT/'dataset_stats.json').read_text()),OLD/'data/matched_text')
++        inputs=[]
++        for suite_name in SUITES:
++            suite=benchmark.get_benchmark_dict()[suite_name]();task=suite.get_task(0);states=suite.get_task_init_states(0)
++            env,_=get_libero_env(task,256,42)
++            try:
++                for ep in [0,1]:
++                    env.reset();obs=env.set_init_state(states[ep])
++                    for _ in range(30):obs,_,_,_=env.step([0.,0.,0.,0.,0.,0.,-1.])
++                    image,state=adapter.observation(obs);context,mask=adapter.text(task.language)
++                    inputs.append(dict(input_image=image,proprio=state,context=context,context_mask=mask,action_horizon=32,num_inference_steps=10,
++                        text_cfg_scale=1.,seed=42+len(inputs)%3,rand_device='cpu',compile_action_infer=False))
++            finally:env.close()
++        torch.save(inputs,ip)
++    inputs=torch.load(ip,weights_only=False)
++    def predict(kw):
++        with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
++            result=model.infer_action(**kw)['action'].float().cpu().clone()
++        if result.shape!=(32,7) or not torch.isfinite(result).all():raise ValueError('Invalid native action')
++        return result
++    if args.ka!=1 or model.mot.version!=MODEL.replace('-','_'):raise ValueError('Wrong dense architecture')
++    start=time.perf_counter();native=[predict(kw) for kw in inputs];native_s=(time.perf_counter()-start)/len(inputs)
++    report=dict(ka=args.ka,model=MODEL,video_loops=1,trained_ka=1,nfe=10,checkpoint_sha256=DIGEST,inputs_sha256=sha(ip),frozen_sha256=sha(BULK/'frozen.json'),
++                native_finite=True,native_query_seconds=native_s,graph_passed=False,source=source_hashes())
++    try:
++        module('ka_gate_graph',OLD/'scripts/matched_cuda_graph.py').enable_graphs(model)
++        differences=[]
++        for i in list(range(len(inputs)))+list(reversed(range(len(inputs)))):
++            actual=predict(inputs[i]);differences.append((actual-native[i]).abs().max().item())
++            torch.testing.assert_close(actual,native[i],atol=0,rtol=0)
++        start=time.perf_counter()
++        for kw in inputs:predict(kw)
++        report.update(graph_passed=True,max_abs_difference=max(differences),graph_query_seconds=(time.perf_counter()-start)/len(inputs))
++    except Exception as e:report['graph_error']=repr(e)
++    report['peak_reserved_mib']=torch.cuda.max_memory_reserved()/2**20
++    write(BULK/f'gate_ka{args.ka}.json',report)
++    print(json.dumps({k:v for k,v in report.items() if k!='source'},indent=2))
++
++if __name__=='__main__':
++    p=argparse.ArgumentParser();p.add_argument('--ka',type=int,required=True,choices=[1])
++    main(p.parse_args())
+diff --git a/scripts/dense_queue.py b/scripts/dense_queue.py
+new file mode 100644
+index 0000000..8a98fc3
+--- /dev/null
++++ b/scripts/dense_queue.py
+@@ -0,0 +1,117 @@
++"""Detached, locked, serial queue; fail closed on scientific/provenance errors."""
++import csv,fcntl,json,os,signal,subprocess,sys,time,traceback
++from pathlib import Path
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from scripts.dense_common import *
++
++def refresh(state):
++    state['model']=MODEL;state['updated_unix']=time.time()
++    write(BULK/'queue_state.json',state);write(REPORT/'queue_status.json',state)
++    lines=[f'# {MODEL}: full-suite evaluation','',
++        'Native Dense architecture (one pass); NFE10; seeds42/43/44; four suites × ten tasks × 50 episodes/seed = 6,000 scored episodes.','',
++        '| Status | Stage | Episodes | Successes | SR | Backend/workers |','| --- | --- | --- | --- | --- | --- |']
++    for j in state['jobs']:
++        progress=j.get('summary',j.get('progress',{}) if j.get('stage')=='scored' else {})
++        n=progress.get('episodes',progress.get('completed',0));ok=progress.get('successes',0);chosen=j.get('selected',{})
++        rate=f'{100*ok/n:.2f}%' if n else 'pending'
++        lines.append(f"| {j['status']} | {j.get('stage','pending')} | {n}/6000 | {ok} | {rate} | {chosen.get('backend','pending')}/{chosen.get('workers','pending')} |")
++    lines+=['','Calibration is excluded from SR. Partial SR is provisional. Errors stop this queue.',
++        '[Frozen protocol](protocol.json) · [Queue state](queue_status.json)',f'Bulk artifacts: `{BULK}`.',
++        'Every scored episode retains a video and hashed action-query trace. Resume replays incomplete task/seed groups to preserve RNG.']
++    (REPORT/'report.md').write_text('\n'.join(lines)+'\n')
++
++def execute(command,log,state,job=None,env=None):
++    log=Path(log);log.parent.mkdir(parents=True,exist_ok=True)
++    with log.open('a') as stream:
++        proc=subprocess.Popen(command,env=env or environment(),stdout=stream,stderr=subprocess.STDOUT,start_new_session=True,cwd=ROOT,pass_fds=tuple(int(x) for x in os.environ.get('DENSE_LOCK_FDS','').split(',') if x))
++    state['active']=dict(pid=proc.pid,command=command,log=str(log));refresh(state)
++    try:
++        while proc.poll() is None:
++            if job and job.get('current_output'):
++                progress=Path(job['current_output'])/'progress.json'
++                if progress.exists():job['progress']=json.loads(progress.read_text())
++            refresh(state);time.sleep(10)
++        if proc.returncode:raise RuntimeError(f'Command failed ({proc.returncode}); see {log}')
++    except BaseException:
++        try:os.killpg(proc.pid,signal.SIGTERM)
++        except ProcessLookupError:pass
++        if proc.poll() is None:proc.wait(timeout=60)
++        raise
++    state['active']=None;refresh(state)
++
++def run_profile(job,backend,workers,state):
++    out=BULK/'calibration'/f"ka{job['ka']}"/f'{backend}_w{workers}'
++    if (out/'manifest.json').exists() and not (out/'summary.json').exists():
++        out.rename(out.with_name(out.name+f'.interrupted_{time.time_ns()}'))
++    job.update(stage='calibration',current_output=str(out));refresh(state)
++    if not (out/'summary.json').exists():
++        execute([PYTHON,'-m','scripts.dense_runner','--ka',str(job['ka']),'--backend',backend,'--workers',str(workers),'--output',str(out),'--calibration'],out/'run.log',state,job)
++    result=json.loads((out/'summary.json').read_text())
++    if result['episodes']!=16 or result['checkpoint_sha256']!=DIGEST or result['action_loops']!=job['ka']:raise ValueError('Bad calibration identity')
++    manifest=json.loads((out/'manifest.json').read_text())
++    if (manifest['frozen_sha256']!=sha(BULK/'frozen.json') or manifest['backend']!=backend or manifest['workers']!=workers
++        or manifest['action_loops']!=job['ka'] or manifest['mode']!='calibration'):raise ValueError('Cached calibration provenance mismatch')
++    from scripts.dense_runner import load_rows
++    rows,_=load_rows(out,groups(True),job['ka']);validate_rows(groups(True),rows,DIGEST,job['ka'])
++    if trace_signature(rows)!=result['signature']:raise ValueError('Cached calibration signature mismatch')
++    return {**result,'output':str(out)}
++
++def main():
++    def terminate(signum,frame):raise SystemExit(128+signum)
++    signal.signal(signal.SIGTERM,terminate)
++    BULK.mkdir(parents=True,exist_ok=True);REPORT.mkdir(parents=True,exist_ok=True)
++    lock=(BULK/'queue.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++    os.environ['DENSE_LOCK_FDS']=','.join(filter(None,[os.environ.get('DENSE_LOCK_FDS',''),str(lock.fileno())]))
++    for p in Path('/proc').iterdir():
++        try:
++            cmd=(p/'cmdline').read_bytes().split(b'\0')
++            if b'scripts.dense_runner' in cmd:raise RuntimeError('Unmanaged existing runner; reconcile before resume')
++        except (FileNotFoundError,PermissionError,NotADirectoryError):pass
++    state=json.loads((BULK/'queue_state.json').read_text()) if (BULK/'queue_state.json').exists() else dict(started_unix=time.time(),jobs=[dict(ka=k,status='pending') for k in DEPTHS],active=None)
++    state.pop('error',None);refresh(state)
++    try:
++        if not (BULK/'frozen.json').exists():freeze_inputs()
++        frozen=json.loads((BULK/'frozen.json').read_text())
++        if source_hashes()!=frozen['source']:raise ValueError('Frozen source changed')
++        for job in state['jobs']:
++            if job['status']=='complete':continue
++            scored_output=BULK/'results'/f"ka{job['ka']}"
++            if (scored_output/'manifest.json').exists():
++                selected=job.get('selected')
++                previous=json.loads((scored_output/'manifest.json').read_text())
++                if (not selected or previous['backend']!=selected['backend'] or previous['workers']!=selected['workers']
++                    or previous['frozen_sha256']!=sha(BULK/'frozen.json')):raise ValueError('Scored resume requires pinned backend/workers/provenance')
++                job.update(status='running',stage='scored',current_output=str(scored_output));refresh(state)
++                execute([PYTHON,'-m','scripts.dense_runner','--ka',str(job['ka']),'--backend',selected['backend'],'--workers',str(selected['workers']),'--output',str(scored_output)],scored_output/'run.log',state,job)
++                summary=json.loads((scored_output/'summary.json').read_text())
++                if summary['episodes']!=6000:raise ValueError('Incomplete resumed job')
++                job.update(status='complete',summary=summary,finished_unix=time.time());refresh(state);continue
++            job.update(status='calibrating',stage='gate',started_unix=job.get('started_unix',time.time()));refresh(state)
++            gate_path=BULK/f"gate_ka{job['ka']}.json"
++            if not gate_path.exists():execute([PYTHON,str(ROOT/'scripts/dense_gate.py'),'--ka',str(job['ka'])],BULK/f"gate_ka{job['ka']}.log",state,job)
++            gate=json.loads(gate_path.read_text())
++            validate_gate(gate,frozen)
++            free=int(subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).strip())
++            if 2*(gate['peak_reserved_mib']+768)*1.15+2048>free:raise RuntimeError('Insufficient VRAM for native two-worker reference; retry when memory is free')
++            profiles=[run_profile(job,'eager',2,state)]
++            for backend in (['eager','cuda-graph'] if gate['graph_passed'] else ['eager']):
++                for workers in ([4,8] if backend=='eager' else [2,4,8]):
++                    free=int(subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).strip())
++                    if workers*(gate['peak_reserved_mib']+768)*1.15+2048>free:
++                        profiles.append(dict(backend=backend,workers=workers,skipped='VRAM headroom'));continue
++                    try:profiles.append(run_profile(job,backend,workers,state))
++                    except Exception:profiles.append(dict(backend=backend,workers=workers,error=traceback.format_exc()))
++            job['profiles']=profiles;selected=choose_profile(profiles);job['selected']=selected
++            job.update(status='running',stage='scored',current_output=str(BULK/'results'/f"ka{job['ka']}"));refresh(state)
++            execute([PYTHON,'-m','scripts.dense_runner','--ka',str(job['ka']),'--backend',selected['backend'],'--workers',str(selected['workers']),'--output',job['current_output']],Path(job['current_output'])/'run.log',state,job)
++            summary=json.loads((Path(job['current_output'])/'summary.json').read_text())
++            if summary['episodes']!=6000 or summary['action_loops']!=job['ka'] or summary['checkpoint_sha256']!=DIGEST:raise ValueError('Incomplete/wrong scored condition')
++            job.update(status='complete',summary=summary,finished_unix=time.time());refresh(state)
++        state['finished_unix']=time.time();refresh(state)
++    except BaseException:
++        state['error']=traceback.format_exc();state['active']=None
++        for j in state['jobs']:
++            if j['status'] in ['running','calibrating']:j['status']='error'
++        refresh(state);raise
++
++if __name__=='__main__':main()
+diff --git a/scripts/dense_runner.py b/scripts/dense_runner.py
+new file mode 100644
+index 0000000..0d20d97
+--- /dev/null
++++ b/scripts/dense_runner.py
+@@ -0,0 +1,136 @@
++"""Resumable Light-WAM-matched rollouts with native full-suite Dense weights."""
++import argparse,hashlib,json,multiprocessing as mp,os,queue,time,traceback,fcntl
++from pathlib import Path
++from scripts.dense_common import *
++
++def load_rows(out,gg,k):
++    rows=[];complete=set()
++    for g in gg:
++        p=out/'groups'/f"{g['id']}.json"
++        if p.exists():
++            rr=json.loads(p.read_text());validate_rows([g],rr,DIGEST,k)
++            for r in rr:
++                if sha(r['video'])!=r['video_sha256'] or sha(r['query_log'])!=r['query_sha256']:raise ValueError('Corrupt resumed artifacts')
++            rows+=rr;complete.add(g['id'])
++    return rows,complete
++
++def worker(index,args,jobs,events,barrier,frozen):
++    try:
++        import numpy as np,torch
++        from omegaconf import OmegaConf
++        from fastwam.models.wan22.loopwam import create_loopwam
++        from scripts.evaluate_loopwam_libero import ObservationAdapter
++        from libero.libero import benchmark
++        from experiments.libero.libero_utils import get_libero_env,get_libero_image
++        save_rollout_video=video_writer()
++        torch.set_num_threads(2);torch.cuda.set_device(0)
++        old=module('ka_reference_loader',OLD/'scripts/evaluate_matched_full41.py');ref=old.load_reference()
++        model=create_loopwam(checkpoint_path=str(CHECKPOINT/'policy.pt'),vae_path=str(old.VAE),device='cuda:0',model_dtype=torch.float32).eval()
++        if args.ka!=1 or model.mot.version!=MODEL.replace('-','_'):raise ValueError('Wrong dense architecture')
++        adapter=ObservationAdapter(json.loads((CHECKPOINT/'dataset_stats.json').read_text()),OLD/'data/matched_text',text_files=frozen['verified']['text_provenance']['files'])
++        if args.backend=='cuda-graph':module('ka_graph',OLD/'scripts/matched_cuda_graph.py').enable_graphs(model)
++        qlog=[]
++        def predict(**kw):
++            image,state=adapter.observation(kw['obs']);start=time.perf_counter()
++            with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
++                action=model.infer_action(input_image=image,proprio=state,context=kw['cached_prompt_context'],context_mask=kw['cached_prompt_context_mask'],
++                    action_horizon=32,num_inference_steps=10,text_cfg_scale=1.,seed=int(kw['cfg'].seed),rand_device='cpu',compile_action_infer=False)['action']
++            action=adapter.dataset.denormalize_action(action.float().cpu()).numpy().copy()
++            if action.shape!=(32,7) or not np.isfinite(action).all():raise ValueError('Invalid action')
++            action[:,-1]=np.sign(-(2*action[:,-1]-1))
++            qlog.append(dict(query=len(qlog),seconds=time.perf_counter()-start,action_sha256=hashlib.sha256(action.tobytes()).hexdigest()))
++            return action,get_libero_image(kw['obs']),None
++        ref._predict_action_chunk=predict
++        events.put(dict(event='ready',worker=index));barrier.wait()
++        while True:
++            g=jobs.get()
++            if g is None:break
++            ref.set_global_seed(g['seed'],get_worker_init_fn=False)
++            suite=benchmark.get_benchmark_dict()[g['suite']]();task=suite.get_task(g['task']);states=suite.get_task_init_states(g['task'])
++            spec=frozen['tasks'][f"{g['suite']}:{g['task']}"]
++            if task.name!=spec['name'] or task.language!=spec['description']:raise ValueError('Task changed')
++            for ep in range(g['episodes']):
++                if hashlib.sha256(np.asarray(states[ep]).tobytes()).hexdigest()!=spec['states'][ep]:raise ValueError('Initial state changed')
++            context,mask=adapter.text(task.language);context=context.to('cuda',dtype=torch.float32);mask=mask.to('cuda')
++            cfg=OmegaConf.create(dict(seed=g['seed'],data=dict(train=dict(num_frames=33,action_video_freq_ratio=4)),
++                EVALUATION=dict(task_suite_name=g['suite'],task_id=g['task'],num_steps_wait=30,replan_steps=10,visualize_future_video=False)))
++            env,description=get_libero_env(task,256,g['seed']);rr=[];out=Path(args.output)
++            try:
++                for ep in range(g['episodes']):
++                    qlog.clear();start=time.perf_counter()
++                    success,frames,_,_=ref.run_single_episode(env,states[ep],description,model,None,cfg,ep,action_horizon=32,input_w=448,input_h=224,
++                        model_device='cuda:0',cached_prompt_context=context,cached_prompt_context_mask=mask)
++                    rollout=time.perf_counter()-start
++                    vdir=out/'videos'/g['id'];vdir.mkdir(parents=True,exist_ok=True)
++                    video=save_rollout_video(vdir,frames,f'trial{ep}',success,description,encoding_threads=1)
++                    qp=out/'queries'/f"{g['id']}_{ep}.json";write(qp,qlog)
++                    row=dict(**g,episode=ep,initial_state_index=ep,initial_state_sha256=spec['states'][ep],success=bool(success),worker=index,
++                        checkpoint_sha256=DIGEST,action_loops=args.ka,model=MODEL,video_loops=1,nfe=10,backend=args.backend,description=description,
++                        policy_steps=len(frames),queries=len(qlog),query_seconds=sum(q['seconds'] for q in qlog),rollout_seconds=rollout,total_seconds=time.perf_counter()-start,
++                        video=str(video),video_sha256=sha(video),query_log=str(qp),query_sha256=sha(qp))
++                    write(out/'episodes'/f"{g['id']}_{ep}.json",row);rr.append(row);events.put(dict(event='episode',row=row))
++                validate_rows([g],rr,DIGEST,args.ka);write(out/'groups'/f"{g['id']}.json",rr)
++            finally:env.close()
++        events.put(dict(event='done',worker=index))
++    except BaseException:events.put(dict(event='error',error=traceback.format_exc()));raise
++
++def run(args):
++    out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
++    lock=(out/'run.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++    frozen=json.loads((BULK/'frozen.json').read_text())
++    if source_hashes()!=frozen['source']:raise ValueError('Source drift')
++    for p,h in frozen['assets'].items():
++        if sha(p)!=h:raise ValueError('Asset drift')
++    if sha(CHECKPOINT/'policy.pt')!=DIGEST:raise ValueError('Checkpoint drift')
++    gg=groups(args.calibration);manifest=dict(action_loops=args.ka,model=MODEL,video_loops=1,nfe=10,checkpoint_sha256=DIGEST,backend=args.backend,workers=args.workers,
++        groups=gg,frozen_sha256=sha(BULK/'frozen.json'),mode='calibration' if args.calibration else 'scored')
++    if (out/'manifest.json').exists() and json.loads((out/'manifest.json').read_text())!=manifest:raise ValueError('Resume condition mismatch')
++    write(out/'manifest.json',manifest);rr,complete=load_rows(out,gg,args.ka);pending=[g for g in gg if g['id'] not in complete]
++    recovered_episodes=len(rr)
++    ctx=mp.get_context('spawn');jobs=ctx.Queue();events=ctx.Queue();barrier=ctx.Event();children=[];ready=set();done=set();start=time.perf_counter();scored=None
++    workers=min(args.workers,len(pending))
++    for g in pending:jobs.put(g)
++    for _ in range(workers):jobs.put(None)
++    try:
++        for i in range(workers):
++            p=ctx.Process(target=worker,args=(i,args,jobs,events,barrier,frozen));p.start();children.append(p)
++        while len(done)<workers:
++            try:m=events.get(timeout=10)
++            except queue.Empty:
++                if any(p.exitcode not in (None,0) for p in children) or all(p.exitcode is not None for p in children):raise RuntimeError('Worker exited without completion')
++                continue
++            if m['event']=='error':raise RuntimeError(m['error'])
++            if m['event']=='ready':
++                ready.add(m['worker'])
++                if len(ready)==workers:scored=time.perf_counter();barrier.set()
++            if m['event']=='done':done.add(m['worker'])
++            if m['event']=='episode':rr.append(m['row'])
++            write(out/'progress.json',dict(completed=len(rr),planned=sum(g['episodes'] for g in gg),successes=sum(r['success'] for r in rr),
++                ready_workers=len(ready),workers=workers,elapsed_seconds=time.perf_counter()-start))
++        for p in children:
++            p.join(30)
++            if p.exitcode!=0:raise RuntimeError('Bad worker shutdown')
++        rr,_=load_rows(out,gg,args.ka);summary=validate_rows(gg,rr,DIGEST,args.ka)
++        summary.update(action_loops=args.ka,workers=args.workers,backend=args.backend,mode=manifest['mode'],checkpoint_sha256=DIGEST,
++            seconds=time.perf_counter()-scored if scored else 0,elapsed_seconds=time.perf_counter()-start,finished_unix=time.time(),
++            signature=trace_signature(rr),queries=sum(r['queries'] for r in rr),recovered_episodes=recovered_episodes)
++        summary.update(model=MODEL,per_suite={})
++        for suite in SUITES:
++            suite_rows=[r for r in rr if r['suite']==suite]
++            summary['per_suite'][suite]=dict(episodes=len(suite_rows),successes=sum(r['success'] for r in suite_rows),seeds={})
++            for seed in sorted({r['seed'] for r in suite_rows}):
++                seed_rows=[r for r in suite_rows if r['seed']==seed]
++                summary['per_suite'][suite]['seeds'][str(seed)]=dict(episodes=len(seed_rows),successes=sum(r['success'] for r in seed_rows),success_rate=sum(r['success'] for r in seed_rows)/len(seed_rows))
++            summary['per_suite'][suite]['success_rate']=sum(r['success'] for r in suite_rows)/len(suite_rows)
++        write(out/'summary.json',summary)
++        write(REPORT/('calibration_latest_summary.json' if args.calibration else 'summary.json'),summary)
++    except BaseException:write(out/'error.json',dict(error=traceback.format_exc(),completed=len(rr)));raise
++    finally:
++        for p in children:
++            if p.is_alive():p.terminate()
++        for p in children:p.join(30)
++
++if __name__=='__main__':
++    p=argparse.ArgumentParser();p.add_argument('--ka',required=True,type=int,choices=[1]);p.add_argument('--output',required=True)
++    p.add_argument('--workers',type=int,choices=range(1,9),default=4);p.add_argument('--backend',choices=['eager','cuda-graph'],default='eager');p.add_argument('--calibration',action='store_true')
++    run(p.parse_args())
+diff --git a/scripts/dense_validate.py b/scripts/dense_validate.py
+new file mode 100644
+index 0000000..986bd9f
+--- /dev/null
++++ b/scripts/dense_validate.py
+@@ -0,0 +1,30 @@
++"""CPU-only release/strict weight validation; freezes inputs before queue launch."""
++import json,time
++from scripts.dense_common import *
++
++def main():
++    import torch
++    from fastwam.models.wan22.loopwam import create_loopwam
++    torch.set_num_threads(2)
++    receipt=json.loads((CAMPAIGN/'download_receipt.json').read_text())
++    if not receipt.get('finished_unix'):raise ValueError('Download incomplete')
++    for entry in receipt['files']:
++        if Path(entry['path']).parent==CHECKPOINT:
++            if Path(entry['path']).stat().st_size!=entry['size'] or sha(entry['path'])!=entry['sha256']:raise ValueError('Downloaded artifact mismatch')
++    old=module('dense_cpu_validator',OLD/'scripts/evaluate_matched_full41.py')
++    verified=old.validate_release(CHECKPOINT,SUITES)
++    model=create_loopwam(checkpoint_path=str(CHECKPOINT/'policy.pt'),vae_path=str(old.VAE),device='cpu',model_dtype=torch.float32).eval()
++    payload=torch.load(CHECKPOINT/'policy.pt',map_location='cpu',mmap=True,weights_only=False)
++    export=json.loads((CHECKPOINT/'export.json').read_text())
++    count=sum(p.numel() for p in model.mot.parameters())+sum(p.numel() for p in model.proprio_encoder.parameters())
++    if model.version!=MODEL.replace('-','_') or model.mot.loops!=1 or model.mot.action_loops!=1:raise ValueError('Wrong native architecture')
++    if count!=export['parameters']:raise ValueError('Parameter count mismatch')
++    for section in ['mot','proprio_encoder']:
++        if any(not torch.isfinite(t).all() for t in payload[section].values() if t.is_floating_point()):raise ValueError('Nonfinite trained weights')
++    audit=dict(model=MODEL,revision=receipt['revision'],checkpoint_sha256=DIGEST,strict_load_passed=True,weights_finite=True,
++        version=payload['version'],parameters=count,architecture=payload['architecture'],step=payload['step'],training_state={k:v for k,v in payload['training_state'].items() if k!='rng'},
++        verified=verified,device='cpu',gpu_inference_test='pending_after_v0',validated_unix=time.time())
++    write(BULK/'cpu_validation.json',audit);write(REPORT/'cpu_validation.json',audit)
++    freeze_inputs();print(json.dumps({k:audit[k] for k in ['model','parameters','step','strict_load_passed','revision']}))
++
++if __name__=='__main__':main()
+diff --git a/scripts/launch_dense_chain.sh b/scripts/launch_dense_chain.sh
+new file mode 100755
+index 0000000..e85087c
+--- /dev/null
++++ b/scripts/launch_dense_chain.sh
+@@ -0,0 +1,8 @@
++#!/usr/bin/env bash
++set -euo pipefail
++cd /storage/anhdh35/LoopWAM-dense-eval
++exec /storage/anhdh35/miniconda3/envs/loopwam-libero-eval/bin/python - <<'PY'
++import os
++from scripts.dense_common import environment,PYTHON
++os.execve(PYTHON,[PYTHON,'-m','scripts.dense_chain'],environment())
++PY
+diff --git a/tests/test_dense_full_accounting.py b/tests/test_dense_full_accounting.py
+new file mode 100644
+index 0000000..01502b4
+--- /dev/null
++++ b/tests/test_dense_full_accounting.py
+@@ -0,0 +1,54 @@
++import copy
++import pytest
++from scripts.dense_common import groups, validate_rows, choose_profile
++
++
++def row(g, ep=0, k=1):
++    return dict(id=g['id'], episode=ep, seed=g['seed'], suite=g['suite'], task=g['task'],
++                initial_state_index=ep, success=False, action_loops=k, checkpoint_sha256='fixed',
++                policy_steps=10, queries=1)
++
++
++def test_queue_covers_6000_unique_episodes_per_depth():
++    gg=groups()
++    assert len(gg)==120
++    keys={(g['id'],e) for g in gg for e in range(g['episodes'])}
++    assert len(keys)==6000
++    assert {g['seed'] for g in gg}=={42,43,44}
++    assert {g['episodes'] for g in gg}=={50}
++
++
++def test_resume_rejects_partial_duplicate_wrong_depth_and_wrong_checkpoint():
++    g={**groups()[0], 'episodes':2};rr=[row(g,0),row(g,1)]
++    assert validate_rows([g],rr,'fixed',1)['episodes']==2
++    for broken in [rr[:1],rr+rr[:1],[{**rr[0],'action_loops':2},rr[1]],
++                   [{**rr[0],'checkpoint_sha256':'wrong'},rr[1]],
++                   [{**rr[0],'queries':2},rr[1]]]:
++        with pytest.raises(ValueError):validate_rows([g],broken,'fixed',1)
++
++
++def test_faster_profile_must_match_complete_action_trace():
++    baseline=dict(backend='eager',workers=2,seconds=10,signature='reference')
++    bad=dict(backend='cuda-graph',workers=8,seconds=1,signature='changed')
++    good=dict(backend='cuda-graph',workers=4,seconds=5,signature='reference')
++    assert choose_profile([baseline,bad,good])==good
++    with pytest.raises(ValueError):choose_profile([bad])
++
++
++def test_resumed_partial_calibration_is_not_a_full_workload_speed_measurement():
++    baseline=dict(backend='eager',workers=2,seconds=10,signature='reference',recovered_episodes=0)
++    partial=dict(backend='cuda-graph',workers=8,seconds=1,signature='reference',recovered_episodes=14)
++    assert choose_profile([baseline,partial])==baseline
++
++
++def test_real_rollout_video_accepts_bounded_encoding_threads(tmp_path):
++    import numpy as np
++    import imageio.v2 as imageio
++    from scripts.dense_common import video_writer
++    frames=[dict(image=np.zeros((32,32,3),dtype=np.uint8),wrist_image=np.full((32,32,3),120,dtype=np.uint8)) for _ in range(2)]
++    path=video_writer()(tmp_path,frames,'test',False,'audit video',encoding_threads=1)
++    reader=imageio.get_reader(path)
++    try:
++        assert reader.count_frames()==2
++        assert reader.get_data(0).shape==(32,64,3)
++    finally:reader.close()
+diff --git a/tests/test_dense_full_queue.py b/tests/test_dense_full_queue.py
+new file mode 100644
+index 0000000..725f22d
+--- /dev/null
++++ b/tests/test_dense_full_queue.py
+@@ -0,0 +1,35 @@
++import pytest
++from scripts.dense_chain import predecessor_ready
++from scripts.dense_common import groups, choose_profile, MODEL, DIGEST
++
++def state():
++ return dict(finished_unix=1,active=None,jobs=[dict(ka=k,status='complete',summary={'episodes':6000,'action_loops':k,'checkpoint_sha256':'1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b'}) for k in [1,2,3,5,6]])
++def test_predecessor_requires_all_five():
++ s=state(); assert predecessor_ready(s)
++ for key,value in [('finished_unix',None),('active',{'pid':1}),('error','failed')]:
++  bad={**s,key:value}; assert not predecessor_ready(bad)
++ s['jobs'].pop();assert not predecessor_ready(s)
++def test_predecessor_rejects_wrong_counts_and_identity():
++ for field,value in [('episodes',5999),('checkpoint_sha256','wrong'),('action_loops',2)]:
++  s=state();s['jobs'][0]['summary'][field]=value;assert not predecessor_ready(s)
++ s=state();s['jobs'][0]['status']='error';assert not predecessor_ready(s)
++def test_dense_protocol():
++ assert MODEL in ('dense-s12','dense-s30') and len(DIGEST)==64
++ gg=groups();assert len(gg)==120 and sum(g['episodes'] for g in gg)==6000
++ assert {g['seed'] for g in gg}=={42,43,44}
++def test_profile_requires_native_parity():
++ base=dict(backend='eager',workers=2,signature='a',seconds=20)
++ fast=dict(backend='cuda-graph',workers=4,signature='a',seconds=10)
++ bad=dict(backend='cuda-graph',workers=8,signature='b',seconds=1)
++ assert choose_profile([base,fast,bad])==fast
++ with pytest.raises(ValueError):choose_profile([fast])
++
++def test_gate_rejects_cross_model_and_frozen_input_drift(tmp_path,monkeypatch):
++ from scripts import dense_common as c
++ monkeypatch.setattr(c,'BULK',tmp_path)
++ (tmp_path/'gate_inputs.pt').write_bytes(b'inputs');(tmp_path/'frozen.json').write_text('{}')
++ gate=dict(model=c.MODEL,checkpoint_sha256=c.DIGEST,ka=1,video_loops=1,trained_ka=1,nfe=10,native_finite=True,source={'x':'y'},
++   frozen_sha256=c.sha(tmp_path/'frozen.json'),inputs_sha256=c.sha(tmp_path/'gate_inputs.pt'))
++ assert c.validate_gate(gate,{'source':{'x':'y'}}) is None
++ for field,value in [('model','wrong'),('checkpoint_sha256','wrong'),('ka',4),('nfe',5),('frozen_sha256','wrong'),('inputs_sha256','wrong')]:
++  with pytest.raises(ValueError):c.validate_gate({**gate,field:value},{'source':{'x':'y'}})

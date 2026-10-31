@@ -1,0 +1,26 @@
+{
+  "upstream_revision": "56e33285a82c6abe075565b3d60c26a5ba7a148f",
+  "evaluation_revision": "fa42937f35ba45ffa936f209d28d787ee2247a4b",
+  "worktree": "/storage/anhdh35/LoopWAM-v0-ka-eval",
+  "source_archive_sha256": "5dbeb257b0e2a94e8ce4148f4ea82dcdf9379a6fbaa3bffbc560e00651632e3c",
+  "tests": {
+    "new_passed": 19,
+    "project_passed": 319,
+    "project_skipped": 7,
+    "project_failed": [
+      "tests/test_dense_s30_eval.py::test_complete_dense30_and_partial_smoke"
+    ],
+    "failure_reproduced_on_unmodified_upstream": true
+  },
+  "review": "Independent read-only review; all four important issues corrected; no remaining launch blocker",
+  "report_backup": "/storage/anhdh35/LoopWAM_NT-backup-before-ka-sweep-20261027",
+  "review_findings_resolved": [
+    "Video helper encoding_threads API",
+    "Normalization/VAE/text/sidecar revalidation",
+    "Pinned scored resume backend/workers",
+    "Full-workload calibration timing",
+    "Cached calibration signature/artifact verification",
+    "Historical source freezing"
+  ],
+  "live_source_hashes_match_frozen": true
+}

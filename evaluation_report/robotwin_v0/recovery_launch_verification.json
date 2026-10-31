@@ -1,0 +1,31 @@
+{
+  "verified_unix": 1793448383.1234496,
+  "completed_pairs_revalidated": 95,
+  "preserved_results_unchanged": true,
+  "protocol_unchanged": true,
+  "active": {
+    "move_can_pot/demo_randomized": {
+      "episodes": 1,
+      "successes": 1,
+      "queries": 7
+    },
+    "pick_diverse_bottles/demo_randomized": {
+      "episodes": 1,
+      "successes": 1,
+      "queries": 5
+    },
+    "pick_dual_bottles/demo_clean": {
+      "episodes": 1,
+      "successes": 1,
+      "queries": 9
+    },
+    "place_bread_skillet/demo_randomized": {
+      "episodes": 2,
+      "successes": 2,
+      "queries": 12
+    }
+  },
+  "pending": 1,
+  "new_failure_files": [],
+  "gpu": "99 %, 51143 MiB, 97887 MiB"
+}

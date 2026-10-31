@@ -1,0 +1,16 @@
+{
+  "verified_unix": 1793452748.8452225,
+  "main_commit": "43ef539b4744ebfec1bb7b3864904f3d48465903",
+  "main_matches_fetched_remote": true,
+  "previous_main_commit": "56e33285a82c6abe075565b3d60c26a5ba7a148f",
+  "pull_changed_files": 126,
+  "pull_executable_code_changes": 0,
+  "existing_tracked_modifications_preserved": 9,
+  "backup": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/report_audit_20261031_201435",
+  "evaluated_commit": "0a0c6e57c56db40d3ff244b6857621874cbc38c9",
+  "episode_export_rows": 10000,
+  "task_export_rows": 100,
+  "task_markdown_rows": 50,
+  "local_report_links_valid": true,
+  "report_totals_match_episode_export": true
+}
