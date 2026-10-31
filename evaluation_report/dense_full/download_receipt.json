@@ -1,0 +1,103 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "0d1614d6fab2af31be6451816b6658fbc780cfec",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/README.md",
+      "remote": "libero-all-suites/dense-s12/README.md",
+      "size": 1487,
+      "sha256": "95ad20f783fbaba0dd2f305752f469124277c9e4eba28b1fc7f61849416c5389"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/data_manifest.json",
+      "remote": "libero-all-suites/dense-s12/data_manifest.json",
+      "size": 96913,
+      "sha256": "d903a7c6a25ab338d7b39c221d5c6ffb2bc71b1d9794cfc474ea10da13a48e0e"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/dataset_stats.json",
+      "remote": "libero-all-suites/dense-s12/dataset_stats.json",
+      "size": 973,
+      "sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/export.json",
+      "remote": "libero-all-suites/dense-s12/export.json",
+      "size": 1240,
+      "sha256": "f2cc7557ef110596fdfad3ca9cffdfa13ed934cdf393459cbea965c6685bcd8f"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/fairness.json",
+      "remote": "libero-all-suites/dense-s12/fairness.json",
+      "size": 1508,
+      "sha256": "ea5c9f5470c40f25f00d8235dce9436ae1344e1acd4ec4b0e87441413c488049"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/policy.pt",
+      "remote": "libero-all-suites/dense-s12/policy.pt",
+      "size": 2338643275,
+      "sha256": "a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/training_manifest.json",
+      "remote": "libero-all-suites/dense-s12/training_manifest.json",
+      "size": 549526,
+      "sha256": "fefd0fc59b7166f89029835574fe11beda321e6fcc5a89162fd82b379c8911a8"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s12/training_timing.json",
+      "remote": "libero-all-suites/dense-s12/training_timing.json",
+      "size": 1517,
+      "sha256": "34994876da2fcd90cc16e548a06cdacc506cff8c9d16c97c3b5a3d8475784cc0"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/README.md",
+      "remote": "libero-all-suites/dense-s30/README.md",
+      "size": 1482,
+      "sha256": "25b89d4bd3a04fd12ba8262f9b5400cc7fcf18fb5f597a21b9b802b54983d08d"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/data_manifest.json",
+      "remote": "libero-all-suites/dense-s30/data_manifest.json",
+      "size": 96913,
+      "sha256": "b8b793890fc200136e107e824f60d5f11f2f98891ef55db35e34c3f27d22fa86"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/dataset_stats.json",
+      "remote": "libero-all-suites/dense-s30/dataset_stats.json",
+      "size": 973,
+      "sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/export.json",
+      "remote": "libero-all-suites/dense-s30/export.json",
+      "size": 1242,
+      "sha256": "f2a18a55b13b05819618b09a5572a8181b6e90ea700c9687504202f3bd241f97"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/fairness.json",
+      "remote": "libero-all-suites/dense-s30/fairness.json",
+      "size": 1508,
+      "sha256": "94829c2adc31ee8cb2dcc3727b8fc38c432de2a3d39251dad5e6425a884791fb"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/policy.pt",
+      "remote": "libero-all-suites/dense-s30/policy.pt",
+      "size": 5665343810,
+      "sha256": "9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/training_manifest.json",
+      "remote": "libero-all-suites/dense-s30/training_manifest.json",
+      "size": 549704,
+      "sha256": "59e5f5330d8795a1db3844bd62bce7f6b0f36f010a4aa75a1d3bd03836b9e3e9"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_dense_full_20261027/checkpoints/dense-s30/training_timing.json",
+      "remote": "libero-all-suites/dense-s30/training_timing.json",
+      "size": 1527,
+      "sha256": "969e94af816033d31eed13cec383f09cf63c759d5be64f166b617bc7f314af44"
+    }
+  ],
+  "finished_unix": 1793041404.9865303
+}

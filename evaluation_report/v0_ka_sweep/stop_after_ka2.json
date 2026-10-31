@@ -1,0 +1,28 @@
+{
+  "request": "Finish existing Ka2; remove Ka3,5,6",
+  "changed_unix": 1793075941.3335216,
+  "old_controller_pid": 71117,
+  "preserved_runner_pid": 117914,
+  "removed_jobs": [
+    {
+      "ka": 3,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    },
+    {
+      "ka": 5,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    },
+    {
+      "ka": 6,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    }
+  ],
+  "retained_depths": [
+    1,
+    2
+  ],
+  "source_and_protocol_unchanged": true
+}
