@@ -1,0 +1,15 @@
+{
+  "code_commit": "0a0c6e57c56db40d3ff244b6857621874cbc38c9",
+  "tests_passed": 26,
+  "all_50_tasks_imported": true,
+  "fastwam_language_files_identical": 624,
+  "native_smoke_episodes": 4,
+  "native_smoke_successes": 4,
+  "smoke_excluded": true,
+  "graph_bit_exact": true,
+  "selected_workers": 8,
+  "nfe": 10,
+  "seed": 42,
+  "planned_episodes": 10000,
+  "verified_unix": 1793373553.4781287
+}

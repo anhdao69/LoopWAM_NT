@@ -1,0 +1,114 @@
+{
+  "server_snapshot_sha256": "a1285c32c7d57f0ba31b78f6365aaa85f0e27218da5a0b892d1c93e4206c588f",
+  "branches": [
+    [
+      "KV_concat",
+      "ecf7a63de3c314a2bc235255943d74b408e9b23f"
+    ],
+    [
+      "LoopWAM_NT",
+      "43ef539b4744ebfec1bb7b3864904f3d48465903"
+    ],
+    [
+      "chrono",
+      "a9f88d9d887025fb452bde91558c8f6af311d002"
+    ],
+    [
+      "elastic",
+      "c0feec78bf2d92734305a6f194b5bee86868b59b"
+    ],
+    [
+      "partition_grid_20261026",
+      "bfd3f74515be0b280ed10ae6b0e2f75a53da729e"
+    ],
+    [
+      "residual_trans",
+      "e3c9292d40ecb40112f4e1ceef8086de8cf9a386"
+    ],
+    [
+      "robotwin_eval_continue_20261030",
+      "dc5e75839f0e0fe0dd1f2c288be7dbf45ce2c3e1"
+    ],
+    [
+      "robotwin_full_v0_20261028",
+      "be03a371c828749185bdc7a6821f4566ea518a29"
+    ],
+    [
+      "scratch_init_v0",
+      "923fd2206bf4994bb526ef8816a8cd90b5148b10"
+    ],
+    [
+      "v0-init-variants",
+      "86472cf8231f739c91097ebeb28ab8576bd603bb"
+    ]
+  ],
+  "preserved_versions": [
+    {
+      "path": "evaluation_report/README.md",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/90618425e293eb8e/README.md",
+      "sha256": "90618425e293eb8e2fdb5a0f64438c7f7ffb28c218ae95449524f237abc079d8",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/detailed_results.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/5f6ce4cd8242be93/campaign/detailed_results.json",
+      "sha256": "5f6ce4cd8242be9397dc1079a26466d1095b938a6c272c7836acf18ec517db8a",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/queue_status.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/59cde2ddb896717a/campaign/queue_status.json",
+      "sha256": "59cde2ddb896717abf3cc6898e2685e5a0de67b5978d901aad118d4f3b147e31",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/current_results.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/a0ca4d1b1875b018/campaign/current_results.json",
+      "sha256": "a0ca4d1b1875b01877036119077df8a8bd67031556af5f5cf72cd7602d7b91d5",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/speed_tuning_status.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/e50515773ed658e5/campaign/speed_tuning_status.json",
+      "sha256": "e50515773ed658e5597f48e59697513ca9478b91bfd83bf21fc798dfbcd06dbc",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/completion_status.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/4a766e1898201ee8/campaign/completion_status.json",
+      "sha256": "4a766e1898201ee80a226fd6800beef6584e53e034c800cd05052d17c4efc296",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/latest_code_resume_audit.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/14acc7ec1404e4fa/campaign/latest_code_resume_audit.json",
+      "sha256": "14acc7ec1404e4fa8c13391d110252496b19cc70b4311aa9ded68778faf8737a",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/report.html",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/153de24d4c0d2727/campaign/report.html",
+      "sha256": "153de24d4c0d2727d36d01bef0f40230331ed55cddd3100b890e9a438001d9a9",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/detailed_report.html",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/3a0e49a9e580e9a9/campaign/detailed_report.html",
+      "sha256": "3a0e49a9e580e9a93be8cbccaae9b7c00cb9fb41dff5a021cba9e9a3a1306ee8",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/campaign/status.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/5e264b4f98c93362/campaign/status.json",
+      "sha256": "5e264b4f98c933628c41c975548af8634b47e229354c0c5b088090c4f1c4a7cb",
+      "replaced_by": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/branch_reports/index.json",
+      "preserved": "evaluation_report/preserved_versions/2026-10-31/bce663cbc1cf6ad6/branch_reports/index.json",
+      "sha256": "bce663cbc1cf6ad6d9c72df48fa1495e72bbdc101f4733f1381ef54e75fb6e38",
+      "replaced_by": "updated GitHub branches"
+    }
+  ],
+  "note": "Server files copied without deleting existing results. Differing prior versions retained. Branch report documents refreshed from fetched GitHub heads."
+}
