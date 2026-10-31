@@ -1,0 +1,15 @@
+{
+  "started_unix": 1793041502.4184537,
+  "jobs": [
+    {
+      "ka": 1,
+      "status": "removed_by_user",
+      "cancelled_unix": 1793072239.1342862
+    }
+  ],
+  "active": null,
+  "model": "dense-s12",
+  "updated_unix": 1793072239.1342862,
+  "status": "cancelled_by_user",
+  "cancelled_unix": 1793072239.1342862
+}

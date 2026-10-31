@@ -1,13 +1,11 @@
 {
   "base": {
     "branch": "LoopWAM_NT",
-    "commit": "56e33285a82c6abe075565b3d60c26a5ba7a148f"
+    "commit": "43ef539b4744ebfec1bb7b3864904f3d48465903"
   },
   "branches": {
     "KV_concat": {
-      "commit": "8484ec22440030fb35f429662edfbc79e3a41df5",
-      "date": "2026-10-16T09:04:00-04:00",
-      "subject": "Sync latest campaign and robustness evaluation reports across branches",
+      "commit": "ecf7a63de3c314a2bc235255943d74b408e9b23f",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -62,9 +60,7 @@
       ]
     },
     "chrono": {
-      "commit": "277c6350ed1bd0cda59911a09ea73b5f45561273",
-      "date": "2026-10-25T08:42:16-04:00",
-      "subject": "Add HiPerGator robotwin5cov 7-variant pipeline and same-scene RoboTwin evaluation",
+      "commit": "a9f88d9d887025fb452bde91558c8f6af311d002",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -94,9 +90,7 @@
       ]
     },
     "elastic": {
-      "commit": "e88defebbb4f412a9bc41710710edb78e62bf549",
-      "date": "2026-10-30T14:25:22-04:00",
-      "subject": "Remove LiLa-WAM LIBERO training and evaluation results; latency report covers the released models only",
+      "commit": "c0feec78bf2d92734305a6f194b5bee86868b59b",
       "documents": [
         {
           "path": "plans/LoopWAM_elastic.md",
@@ -186,9 +180,7 @@
       ]
     },
     "partition_grid_20261026": {
-      "commit": "a58463114ef13697065765b37c782d477dab4379",
-      "date": "2026-10-26T14:53:11-04:00",
-      "subject": "Record verified centered-donor launch, clean speed sweep and six smoke gates",
+      "commit": "bfd3f74515be0b280ed10ae6b0e2f75a53da729e",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -253,9 +245,7 @@
       ]
     },
     "residual_trans": {
-      "commit": "944a07f1e6f3d6ca8b96034370c5fc88e0cf9ac2",
-      "date": "2026-10-16T09:04:00-04:00",
-      "subject": "Sync latest campaign and robustness evaluation reports across branches",
+      "commit": "e3c9292d40ecb40112f4e1ceef8086de8cf9a386",
       "documents": [
         {
           "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
@@ -295,9 +285,7 @@
       ]
     },
     "robotwin_eval_continue_20261030": {
-      "commit": "0f9e49461f3f6546b9f3b36f567f6e0b0f07bae3",
-      "date": "2026-10-30T08:56:30-04:00",
-      "subject": "Record completed epoch5 training and repaired full evaluation launch",
+      "commit": "dc5e75839f0e0fe0dd1f2c288be7dbf45ce2c3e1",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -337,9 +325,7 @@
       ]
     },
     "robotwin_full_v0_20261028": {
-      "commit": "04ea0fa835a396d1fbecbaad1bbd2b8f4a8d8ae5",
-      "date": "2026-10-28T02:21:23-04:00",
-      "subject": "Record full RoboTwin v0 exact-batch gates, speed trials and production release",
+      "commit": "be03a371c828749185bdc7a6821f4566ea518a29",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -374,15 +360,11 @@
       ]
     },
     "scratch_init_v0": {
-      "commit": "9756ba165c4a4339c0f8a6d330340f88d5de66b8",
-      "date": "2026-10-28T15:24:50-04:00",
-      "subject": "Add no-video-pretraining (scratch) initialization for LoopWAM v0",
+      "commit": "923fd2206bf4994bb526ef8816a8cd90b5148b10",
       "documents": []
     },
     "v0-init-variants": {
-      "commit": "a808d1592005e0eb82e8b97469e9df1c323273b5",
-      "date": "2026-10-28T18:54:13-04:00",
-      "subject": "Add matched LIBERO results and H100 training records for the v0 init variants",
+      "commit": "86472cf8231f739c91097ebeb28ab8576bd603bb",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",

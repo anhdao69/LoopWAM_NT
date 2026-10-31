@@ -1,0 +1,420 @@
+{
+  "base": {
+    "branch": "LoopWAM_NT",
+    "commit": "56e33285a82c6abe075565b3d60c26a5ba7a148f"
+  },
+  "branches": {
+    "KV_concat": {
+      "commit": "8484ec22440030fb35f429662edfbc79e3a41df5",
+      "date": "2026-10-16T09:04:00-04:00",
+      "subject": "Sync latest campaign and robustness evaluation reports across branches",
+      "documents": [
+        {
+          "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
+          "blob": "e9ed42c05d742b1e19906f80bcada16828e2dbfb",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/rejected_episode_pool/README.md",
+          "blob": "ead3736f0a11aa72e7d2b317990cefcede32ee52",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/README.md",
+          "blob": "0601d6014d19523c279239e03268cbf52eed023d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/job4770/expanded_analysis/report.md",
+          "blob": "f54ea115e47361b2d18a4f256975a545ccaeb8ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/report.md",
+          "blob": "a4b03b9b60f53337625c1c5f41b2072a61b5b697",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Full_LIBERO_Loop_Ablations_20261008.md",
+          "blob": "15d3ca0dd122c1ff2548d5b4e3587aae9843071b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Full_Mix_20261010.md",
+          "blob": "9542deebe8156cd0668b6d96f59dcf4712a1249f",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Storage_Recovery_20261010.md",
+          "blob": "24a24ac02015f4c6471e00d14dd36d67964b0e1b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Training_Only_Continuation_20261009.md",
+          "blob": "b6ddd9a32d16d467dd89c32954ad740f4407a47b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_V4A1_KVconcat_20261008.md",
+          "blob": "050c5e36b8dbf30ffeff8e2f43fc0a2408df507a",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "chrono": {
+      "commit": "277c6350ed1bd0cda59911a09ea73b5f45561273",
+      "date": "2026-10-25T08:42:16-04:00",
+      "subject": "Add HiPerGator robotwin5cov 7-variant pipeline and same-scene RoboTwin evaluation",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "elastic": {
+      "commit": "e88defebbb4f412a9bc41710710edb78e62bf549",
+      "date": "2026-10-30T14:25:22-04:00",
+      "subject": "Remove LiLa-WAM LIBERO training and evaluation results; latency report covers the released models only",
+      "documents": [
+        {
+          "path": "plans/LoopWAM_elastic.md",
+          "blob": "74490ab730b682a90c8ab98623cab8deca23308b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/gates_full_grid.log.md",
+          "blob": "ac1bc97dd695b2ad5c67b7c4e9d01d11f24e5681",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/mps_parity_result.log.md",
+          "blob": "511b10e12e52092f8cd9219f3bc646d55a044fe6",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/parity_rt_result.log.md",
+          "blob": "b31d829cfb13262a8f02c50ba305662d9cefab1a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/eval/results.md",
+          "blob": "d80cb7ca800c9c76bf40eeb7353f0ed75e6abfcc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_All_Models_Latency_20261030.md",
+          "blob": "febd9f19558d4cf1f9961b0308ac07a7e813b8bf",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_elastic_campaign_20261028.md",
+          "blob": "1dec0e2e524c587ef468d0c10a12a62a5a42bee0",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Public_WAM_Latency_20261030.md",
+          "blob": "ebfcca5c09732787e70ab1e8cb03f091b9917f23",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+          "blob": "01323e48b72a318f351e81778c2a73c14d9b24d5",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Implementation.md",
+          "blob": "cfa9e5155491589a8d3679be92ebfd07b24621fe",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Launch_20261010.md",
+          "blob": "1ab4b265b916869c606bb33a75a79a3a26903680",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+          "blob": "b39cd40c9f672a9adda8be5d478b886decffa8f9",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Results.md",
+          "blob": "af452fd30ea6b66334f1b0f4f003c0aa5c0d28ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/official_fasterwam_script/latency_report.md",
+          "blob": "a98d6642987b531af0701b078a17c3628b061609",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/report_v2_template.md",
+          "blob": "0194a18c90c984e95e06f89b5cd48cb40f92894a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport.md",
+          "blob": "0d6e7dbe42875110b802de9b3da77c8075b78ddc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport_evidence/progress.md",
+          "blob": "8fa012ae271df74df2dfc7803d1f85f9814f7000",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "partition_grid_20261026": {
+      "commit": "a58463114ef13697065765b37c782d477dab4379",
+      "date": "2026-10-26T14:53:11-04:00",
+      "subject": "Record verified centered-donor launch, clean speed sweep and six smoke gates",
+      "documents": [
+        {
+          "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
+          "blob": "e9ed42c05d742b1e19906f80bcada16828e2dbfb",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/rejected_episode_pool/README.md",
+          "blob": "ead3736f0a11aa72e7d2b317990cefcede32ee52",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/README.md",
+          "blob": "0601d6014d19523c279239e03268cbf52eed023d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/job4770/expanded_analysis/report.md",
+          "blob": "f54ea115e47361b2d18a4f256975a545ccaeb8ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/evidence/kv_concat_20261008/results_20261009/job4770/long_analysis/report.md",
+          "blob": "a4b03b9b60f53337625c1c5f41b2072a61b5b697",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Full_LIBERO_Loop_Ablations_20261008.md",
+          "blob": "15d3ca0dd122c1ff2548d5b4e3587aae9843071b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Centered_Donor_Grid_20261026.md",
+          "blob": "44a43de125a0a80c1f53d3652d311381f6afe713",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Full_Mix_20261010.md",
+          "blob": "9542deebe8156cd0668b6d96f59dcf4712a1249f",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Partition_Grid_20261026.md",
+          "blob": "3f85339853f7314e55a3f31187f4645b5ca7f9d8",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Storage_Recovery_20261010.md",
+          "blob": "24a24ac02015f4c6471e00d14dd36d67964b0e1b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_Training_Only_Continuation_20261009.md",
+          "blob": "b6ddd9a32d16d467dd89c32954ad740f4407a47b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_V4A1_KVconcat_20261008.md",
+          "blob": "050c5e36b8dbf30ffeff8e2f43fc0a2408df507a",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "residual_trans": {
+      "commit": "944a07f1e6f3d6ca8b96034370c5fc88e0cf9ac2",
+      "date": "2026-10-16T09:04:00-04:00",
+      "subject": "Sync latest campaign and robustness evaluation reports across branches",
+      "documents": [
+        {
+          "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+          "blob": "01323e48b72a318f351e81778c2a73c14d9b24d5",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Implementation.md",
+          "blob": "cfa9e5155491589a8d3679be92ebfd07b24621fe",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Launch_20261010.md",
+          "blob": "1ab4b265b916869c606bb33a75a79a3a26903680",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+          "blob": "b39cd40c9f672a9adda8be5d478b886decffa8f9",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Results.md",
+          "blob": "af452fd30ea6b66334f1b0f4f003c0aa5c0d28ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport.md",
+          "blob": "0d6e7dbe42875110b802de9b3da77c8075b78ddc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport_evidence/progress.md",
+          "blob": "8fa012ae271df74df2dfc7803d1f85f9814f7000",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "robotwin_eval_continue_20261030": {
+      "commit": "0f9e49461f3f6546b9f3b36f567f6e0b0f07bae3",
+      "date": "2026-10-30T08:56:30-04:00",
+      "subject": "Record completed epoch5 training and repaired full evaluation launch",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_RoboTwin_Epoch5_Eval_Continue_20261030.md",
+          "blob": "0a2486949bed84ed77d4f6d57e02f33cfcb3c7fd",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "robotwin_full_v0_20261028": {
+      "commit": "04ea0fa835a396d1fbecbaad1bbd2b8f4a8d8ae5",
+      "date": "2026-10-28T02:21:23-04:00",
+      "subject": "Record full RoboTwin v0 exact-batch gates, speed trials and production release",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "scratch_init_v0": {
+      "commit": "9756ba165c4a4339c0f8a6d330340f88d5de66b8",
+      "date": "2026-10-28T15:24:50-04:00",
+      "subject": "Add no-video-pretraining (scratch) initialization for LoopWAM v0",
+      "documents": []
+    },
+    "v0-init-variants": {
+      "commit": "a808d1592005e0eb82e8b97469e9df1c323273b5",
+      "date": "2026-10-28T18:54:13-04:00",
+      "subject": "Add matched LIBERO results and H100 training records for the v0 init variants",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Init_Variants_Results_20261028.md",
+          "blob": "8a27217b34ca504ef620c5b582d2ea34ba39ce08",
+          "new_on_branch": true
+        }
+      ]
+    }
+  }
+}

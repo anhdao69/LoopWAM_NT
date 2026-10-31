@@ -1,0 +1,1021 @@
+{
+  "totals": {
+    "demo_clean": {
+      "successes": 4580,
+      "episodes": 5000,
+      "sr_percent": 91.6
+    },
+    "demo_randomized": {
+      "successes": 4593,
+      "episodes": 5000,
+      "sr_percent": 91.86
+    },
+    "combined": {
+      "successes": 9173,
+      "episodes": 10000,
+      "sr_percent": 91.73
+    }
+  },
+  "tasks": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4206.07804608345,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/adjust_bottle__demo_clean/attempt_02"
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4428.272208452225,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/adjust_bottle__demo_randomized/attempt_02"
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1136.5241277217865,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/beat_block_hammer__demo_clean/attempt_02"
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1287.6644732952118,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/beat_block_hammer__demo_randomized/attempt_02"
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 3812.8625564575195,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/blocks_ranking_rgb__demo_clean/attempt_02"
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4564.418838262558,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/blocks_ranking_rgb__demo_randomized/attempt_01"
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_clean",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4473.266862154007,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/blocks_ranking_size__demo_clean/attempt_01"
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4595.3988790512085,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/blocks_ranking_size__demo_randomized/attempt_01"
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 916.8461225032806,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/click_alarmclock__demo_clean/attempt_01"
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1077.9635887145996,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/click_alarmclock__demo_randomized/attempt_01"
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 710.8569285869598,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/click_bell__demo_clean/attempt_02"
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 923.7698664665222,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/click_bell__demo_randomized/attempt_01"
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2132.1619226932526,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/dump_bin_bigbin__demo_clean/attempt_01"
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2393.7426302433014,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/dump_bin_bigbin__demo_randomized/attempt_01"
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1524.8028116226196,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/grab_roller__demo_clean/attempt_01"
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1705.8991658687592,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/grab_roller__demo_randomized/attempt_01"
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3643.1989827156067,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/handover_block__demo_clean/attempt_01"
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3970.0412981510162,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/handover_block__demo_randomized/attempt_01"
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 7029.928396940231,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/handover_mic__demo_clean/attempt_01"
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 4958.90398478508,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/handover_mic__demo_randomized/attempt_03"
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "successes": 65,
+      "episodes": 100,
+      "sr_percent": 65,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 6140.325480222702,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/hanging_mug__demo_clean/attempt_01"
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "successes": 59,
+      "episodes": 100,
+      "sr_percent": 59,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 10672.843675374985,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/hanging_mug__demo_randomized/attempt_02"
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3811.846820116043,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/lift_pot__demo_clean/attempt_01"
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4020.233374595642,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/lift_pot__demo_randomized/attempt_02"
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_clean",
+      "successes": 88,
+      "episodes": 100,
+      "sr_percent": 88,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 7946.803194761276,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_can_pot__demo_clean/attempt_01"
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_04",
+      "attempt_seconds": 3385.580335855484,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_can_pot__demo_randomized/attempt_04"
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 7588.794615030289,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_pillbottle_pad__demo_clean/attempt_03"
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 7121.527859210968,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_pillbottle_pad__demo_randomized/attempt_03"
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1298.8437294960022,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_playingcard_away__demo_clean/attempt_01"
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1476.5016386508942,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_playingcard_away__demo_randomized/attempt_01"
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "successes": 85,
+      "episodes": 100,
+      "sr_percent": 85,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1681.5541627407074,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_stapler_pad__demo_clean/attempt_02"
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "successes": 77,
+      "episodes": 100,
+      "sr_percent": 77,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2052.695281267166,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/move_stapler_pad__demo_randomized/attempt_01"
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_clean",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2156.297556400299,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/open_laptop__demo_clean/attempt_02"
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 2548.792315721512,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/open_laptop__demo_randomized/attempt_03"
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "successes": 33,
+      "episodes": 100,
+      "sr_percent": 33,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 8653.228035211563,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/open_microwave__demo_clean/attempt_02"
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "successes": 41,
+      "episodes": 100,
+      "sr_percent": 41,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 9040.254760503769,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/open_microwave__demo_randomized/attempt_01"
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_clean",
+      "successes": 87,
+      "episodes": 100,
+      "sr_percent": 87,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 6181.124604225159,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/pick_diverse_bottles__demo_clean/attempt_02"
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_randomized",
+      "successes": 83,
+      "episodes": 100,
+      "sr_percent": 83,
+      "accepted_attempt": "attempt_04",
+      "attempt_seconds": 3349.215951681137,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/pick_diverse_bottles__demo_randomized/attempt_04"
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_04",
+      "attempt_seconds": 2558.400604724884,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/pick_dual_bottles__demo_clean/attempt_04"
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 7785.824428796768,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/pick_dual_bottles__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2140.4532256126404,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_a2b_left__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 2061.9626207351685,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_a2b_left__demo_randomized/attempt_03"
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_clean",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2226.8144171237946,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_a2b_right__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_randomized",
+      "successes": 89,
+      "episodes": 100,
+      "sr_percent": 89,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2223.2701454162598,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_a2b_right__demo_randomized/attempt_02"
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_clean",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 2756.4474000930786,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_bread_basket__demo_clean/attempt_03"
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 2629.037225008011,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_bread_basket__demo_randomized/attempt_03"
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_clean",
+      "successes": 89,
+      "episodes": 100,
+      "sr_percent": 89,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 3666.42573928833,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_bread_skillet__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_randomized",
+      "successes": 88,
+      "episodes": 100,
+      "sr_percent": 88,
+      "accepted_attempt": "attempt_04",
+      "attempt_seconds": 2112.1420164108276,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_bread_skillet__demo_randomized/attempt_04"
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_clean",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2403.1968216896057,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_burger_fries__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_04",
+      "attempt_seconds": 1588.4955797195435,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_burger_fries__demo_randomized/attempt_04"
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_clean",
+      "successes": 67,
+      "episodes": 100,
+      "sr_percent": 67,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 6266.785260438919,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_can_basket__demo_clean/attempt_03"
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_randomized",
+      "successes": 59,
+      "episodes": 100,
+      "sr_percent": 59,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 6702.726956129074,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_can_basket__demo_randomized/attempt_03"
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 8224.597578525543,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_cans_plasticbox__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_randomized",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 9096.26098227501,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_cans_plasticbox__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1317.9394438266754,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_container_plate__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1616.52836728096,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_container_plate__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_clean",
+      "successes": 88,
+      "episodes": 100,
+      "sr_percent": 88,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 3049.2049605846405,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_dual_shoes__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_randomized",
+      "successes": 82,
+      "episodes": 100,
+      "sr_percent": 82,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3713.072293281555,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_dual_shoes__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1546.6707558631897,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_empty_cup__demo_clean/attempt_01"
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1575.2898483276367,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_empty_cup__demo_randomized/attempt_02"
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2113.8645765781403,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_fan__demo_clean/attempt_01"
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_randomized",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 1742.3822350502014,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_fan__demo_randomized/attempt_03"
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_clean",
+      "successes": 91,
+      "episodes": 100,
+      "sr_percent": 91,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1685.2044467926025,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_mouse_pad__demo_clean/attempt_01"
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1660.193562746048,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_mouse_pad__demo_randomized/attempt_02"
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_clean",
+      "successes": 78,
+      "episodes": 100,
+      "sr_percent": 78,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4334.3047614097595,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_basket__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_randomized",
+      "successes": 77,
+      "episodes": 100,
+      "sr_percent": 77,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4848.201568841934,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_basket__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1706.5069270133972,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_scale__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1901.258822441101,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_scale__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_clean",
+      "successes": 91,
+      "episodes": 100,
+      "sr_percent": 91,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1635.0930757522583,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_stand__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1793.1048512458801,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_object_stand__demo_randomized/attempt_02"
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1546.1921527385712,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_phone_stand__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1618.7720305919647,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_phone_stand__demo_randomized/attempt_01"
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1622.0041015148163,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_shoe__demo_clean/attempt_02"
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1630.1739037036896,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/place_shoe__demo_randomized/attempt_01"
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1203.8426432609558,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/press_stapler__demo_clean/attempt_02"
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1358.1924738883972,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/press_stapler__demo_randomized/attempt_01"
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 14766.52811551094,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/put_bottles_dustbin__demo_clean/attempt_02"
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_randomized",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 15369.170261144638,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/put_bottles_dustbin__demo_randomized/attempt_01"
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_clean",
+      "successes": 86,
+      "episodes": 100,
+      "sr_percent": 86,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 14314.50220656395,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/put_object_cabinet__demo_clean/attempt_02"
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 11128.2123503685,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/put_object_cabinet__demo_randomized/attempt_02"
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_clean",
+      "successes": 85,
+      "episodes": 100,
+      "sr_percent": 85,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 1510.7555990219116,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/rotate_qrcode__demo_clean/attempt_01"
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_randomized",
+      "successes": 78,
+      "episodes": 100,
+      "sr_percent": 78,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 1778.0374121665955,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/rotate_qrcode__demo_randomized/attempt_02"
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "successes": 89,
+      "episodes": 100,
+      "sr_percent": 89,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 10003.188913583755,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/scan_object__demo_clean/attempt_02"
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "successes": 88,
+      "episodes": 100,
+      "sr_percent": 88,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 9012.537920236588,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/scan_object__demo_randomized/attempt_02"
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3714.21075463295,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/shake_bottle__demo_clean/attempt_01"
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4001.8085095882416,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/shake_bottle__demo_randomized/attempt_01"
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4124.79309797287,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/shake_bottle_horizontally__demo_clean/attempt_02"
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 4057.2546191215515,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/shake_bottle_horizontally__demo_randomized/attempt_01"
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_clean",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3829.2894418239594,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_blocks_three__demo_clean/attempt_01"
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 4526.959622621536,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_blocks_three__demo_randomized/attempt_02"
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2671.254472732544,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_blocks_two__demo_clean/attempt_01"
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 3088.7039580345154,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_blocks_two__demo_randomized/attempt_01"
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_clean",
+      "successes": 87,
+      "episodes": 100,
+      "sr_percent": 87,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 5094.038631677628,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_bowls_three__demo_clean/attempt_02"
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_randomized",
+      "successes": 86,
+      "episodes": 100,
+      "sr_percent": 86,
+      "accepted_attempt": "attempt_03",
+      "attempt_seconds": 3894.263258934021,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_bowls_three__demo_randomized/attempt_03"
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2801.271291732788,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_bowls_two__demo_clean/attempt_02"
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2902.7523725032806,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stack_bowls_two__demo_randomized/attempt_01"
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2712.540433883667,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stamp_seal__demo_clean/attempt_01"
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_02",
+      "attempt_seconds": 2607.911093235016,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/stamp_seal__demo_randomized/attempt_02"
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "successes": 58,
+      "episodes": 100,
+      "sr_percent": 58,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2172.9498777389526,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/turn_switch__demo_clean/attempt_01"
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "successes": 71,
+      "episodes": 100,
+      "sr_percent": 71,
+      "accepted_attempt": "attempt_01",
+      "attempt_seconds": 2391.165579557419,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/turn_switch__demo_randomized/attempt_01"
+    }
+  ]
+}

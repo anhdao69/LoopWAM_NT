@@ -1,0 +1,14 @@
+{
+  "verified_unix": 1793373648.4322937,
+  "live_pid": 1261186,
+  "tmux": "robotwin_v0_eval",
+  "source_commit": "0a0c6e57c56db40d3ff244b6857621874cbc38c9",
+  "protocol_verified": true,
+  "checkpoint_verified": true,
+  "source_hashes": 782,
+  "status": "running",
+  "nfe": 10,
+  "seed": 42,
+  "workers": 8,
+  "planned_episodes": 10000
+}

@@ -1,0 +1,7 @@
+{
+  "original_version": "2.0.1",
+  "installed_version": "2.3.3",
+  "reason": "Blackwell CUDA support required for original RT+OIDN rendering",
+  "archive_sha256": "3c385230d9e6f63527ba72f2229594dbac5051674219d72e0044b5d0b841796f",
+  "source": "https://github.com/RenderKit/oidn/releases/tag/v2.3.3"
+}
