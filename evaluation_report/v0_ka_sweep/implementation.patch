@@ -1,0 +1,627 @@
+diff --git a/docs/superpowers/plans/2026-10-27-v0-ka-sweep.md b/docs/superpowers/plans/2026-10-27-v0-ka-sweep.md
+new file mode 100644
+index 0000000..ad32670
+--- /dev/null
++++ b/docs/superpowers/plans/2026-10-27-v0-ka-sweep.md
+@@ -0,0 +1,18 @@
++# v0 trained-at-four action-depth sweep
++
++**Goal:** Automatically evaluate the same full-LIBERO v0 4/4 checkpoint at action depths 1, 2, 3, 5, 6, in that order; NFE 10; 6,000 episodes each.
++
++**Architecture:** Isolated checkout of upstream 56e3328. Strictly load and validate the original checkpoint before enabling a bounded inference-only action-depth override. Reuse the unchanged Light-WAM rollout and native v0 cached inference, including existing late-clamped video KV mapping. Persistent worker processes, resumable atomic task/seed groups, and a serial queue preserve simulator RNG order.
++
++**Protocol:** Four standard LIBERO suites; ten tasks; seeds 42,43,44; states 0..49; 30 settling steps; caps 400/400/400/700; predict32/execute10; FP32 weights/BF16 compute; exact native action conversion. Video depth remains4. Original K4 result remains a historical reference, with a fresh K4 compatibility gate. No separately trained K1/K2 checkpoints.
++
++**Review focus:** Wrong checkpoint or depth; changes to video KV alignment; missing/duplicate resumed episodes; different rollout or RNG rules; speed changes that alter actions or outcomes.
++
++- [ ] Add failing tests for inference depth bounds, training rejection, unchanged K4 outputs and physical action-block/KV schedules.
++- [ ] Add minimal explicit inference-only override; run relevant tests and repository CPU suite.
++- [ ] Freeze checkpoint/assets/source/task identities and prior K4 provenance.
++- [ ] Build resumable runner and serial queue with strict condition identity and episode validation; test accounting and recovery.
++- [ ] Verify every requested depth on real simulator inputs, including K4 comparison against previous code. Test CUDA graphs per depth and select fastest validated worker profile under available VRAM.
++- [ ] Launch detached queue, verify a scored episode, and record progress, logs, and measured ETA in evaluation_report/v0_ka_sweep.
++
++Bulk outputs: /data14t/anhdh35/loopwam_v0_ka_sweep_20261027. Queue and runner: isolated checkout scripts/v0_ka_*.py. Model weights are never rewritten. Local pre-pull reports are backed up separately and restored.
+diff --git a/scripts/launch_v0_ka_queue.sh b/scripts/launch_v0_ka_queue.sh
+new file mode 100644
+index 0000000..92ee653
+--- /dev/null
++++ b/scripts/launch_v0_ka_queue.sh
+@@ -0,0 +1,8 @@
++#!/usr/bin/env bash
++set -euo pipefail
++cd /storage/anhdh35/LoopWAM-v0-ka-eval
++exec /storage/anhdh35/miniconda3/envs/loopwam-libero-eval/bin/python - <<'PY'
++import os
++from scripts.v0_ka_common import environment,PYTHON,ROOT
++os.execve(PYTHON,[PYTHON,str(ROOT/'scripts/v0_ka_queue.py')],environment())
++PY
+diff --git a/scripts/v0_ka_common.py b/scripts/v0_ka_common.py
+new file mode 100644
+index 0000000..0184e29
+--- /dev/null
++++ b/scripts/v0_ka_common.py
+@@ -0,0 +1,111 @@
++"""Frozen inputs and strict accounting for the trained-at-four v0 sweep."""
++import hashlib, importlib.util, json, math, os
++from pathlib import Path
++
++ROOT=Path(__file__).resolve().parents[1]
++OLD=Path('/storage/anhdh35/LoopWAM_NT-eval')
++LIGHT=Path('/storage/anhdh35/Light-WAM')
++BULK=Path('/data14t/anhdh35/loopwam_v0_ka_sweep_20261027')
++REPORT=Path('/storage/anhdh35/LoopWAM_NT/evaluation_report/v0_ka_sweep')
++CHECKPOINT=OLD/'checkpoints/release/libero-all-suites/v0-video4-action4'
++DIGEST='1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b'
++PYTHON='/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/bin/python'
++SUITES=['libero_10','libero_spatial','libero_object','libero_goal']
++DEPTHS=[1,2,3,5,6]
++
++def sha(path):
++    h=hashlib.sha256()
++    with Path(path).open('rb') as f:
++        for b in iter(lambda:f.read(8*1024*1024),b''):h.update(b)
++    return h.hexdigest()
++
++def write(path,obj):
++    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
++    tmp=path.with_name(path.name+f'.{os.getpid()}.tmp')
++    tmp.write_text(json.dumps(obj,indent=2,allow_nan=False)+'\n');tmp.replace(path)
++
++def module(name,path):
++    spec=importlib.util.spec_from_file_location(name,path)
++    obj=importlib.util.module_from_spec(spec);spec.loader.exec_module(obj);return obj
++
++def video_writer():
++    return module('ka_historical_video',OLD/'experiments/libero/libero_utils.py').save_rollout_video
++
++def trace_signature(rows):
++    traces=[]
++    for r in sorted(rows,key=lambda r:(r['id'],r['episode'])):
++        if sha(r['query_log'])!=r['query_sha256']:raise ValueError('Query trace hash mismatch')
++        qq=json.loads(Path(r['query_log']).read_text())
++        if len(qq)!=r['queries'] or [q['query'] for q in qq]!=list(range(r['queries'])):raise ValueError('Query sequence mismatch')
++        traces.append((r['id'],r['episode'],r['success'],r['policy_steps'],[q['action_sha256'] for q in qq]))
++    return hashlib.sha256(json.dumps(traces).encode()).hexdigest()
++
++def environment():
++    env=os.environ.copy()
++    env.update(PYTHONPATH=f'{ROOT}/src:{ROOT}:{LIGHT}/src:{LIGHT}:{LIGHT}/third_party/LIBERO',
++        LIBERO_CONFIG_PATH=str(LIGHT/'.libero'),DIFFSYNTH_MODEL_BASE_PATH=str(LIGHT/'checkpoints'),
++        MUJOCO_GL='egl',PYOPENGL_PLATFORM='egl',CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',
++        MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',NUMBA_NUM_THREADS='1',TOKENIZERS_PARALLELISM='false',
++        PYTHONNOUSERSITE='1',PYTHONUNBUFFERED='1',TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD='1',TQDM_DISABLE='1')
++    return env
++
++def groups(calibration=False):
++    return [dict(id=f'{s}_seed{seed}_task{t}',suite=s,seed=seed,task=t,episodes=2 if calibration else 50)
++        for s in SUITES for t in ([0,8] if calibration else range(10)) for seed in ([42] if calibration else [42,43,44])]
++
++def validate_rows(gg,rr,digest,k):
++    expected={(g['id'],e):g for g in gg for e in range(g['episodes'])};seen=set()
++    for r in rr:
++        key=(r['id'],r['episode']);g=expected.get(key)
++        if g is None or key in seen:raise ValueError('Unexpected/duplicate episode')
++        seen.add(key)
++        if (r['checkpoint_sha256']!=digest or r['action_loops']!=k or r['initial_state_index']!=r['episode']
++            or any(r[x]!=g[x] for x in ['suite','seed','task'])):raise ValueError('Condition/episode identity mismatch')
++        if (type(r['success']) is not bool or not 1<=r['policy_steps']<=(700 if g['suite']=='libero_10' else 400)
++            or r['queries']!=math.ceil(r['policy_steps']/10)):raise ValueError('Invalid result/horizon/query count')
++    if seen!=set(expected):raise ValueError('Incomplete group')
++    return dict(episodes=len(rr),successes=sum(r['success'] for r in rr),success_rate=sum(r['success'] for r in rr)/len(rr))
++
++def choose_profile(profiles):
++    base=next((p for p in profiles if p.get('backend')=='eager' and p.get('workers')==4 and p.get('signature') and not p.get('recovered_episodes',0)),None)
++    if base is None:raise ValueError('Missing native reference')
++    eligible=[p for p in profiles if p.get('signature')==base['signature'] and p.get('seconds',0)>0 and not p.get('recovered_episodes',0)]
++    return min(eligible,key=lambda p:p['seconds'])
++
++def source_hashes():
++    files=list((ROOT/'src/fastwam').rglob('*.py'))+list((ROOT/'scripts').glob('v0_ka_*.py'))
++    files += [ROOT/'scripts/evaluate_loopwam_libero.py',OLD/'scripts/evaluate_matched_full41.py',OLD/'scripts/matched_cuda_graph.py',
++              LIGHT/'experiments/libero/eval_libero_single.py',ROOT/'experiments/libero/libero_utils.py',OLD/'experiments/libero/libero_utils.py']
++    files += list((LIGHT/'third_party/LIBERO/libero/libero').rglob('*.py'))
++    files += list((OLD/'src/fastwam').rglob('*.py'))
++    return {str(p):sha(p) for p in files}
++
++def freeze_inputs():
++    import numpy as np
++    from libero.libero import benchmark,get_libero_path
++    old=module('ka_release_validator',OLD/'scripts/evaluate_matched_full41.py')
++    verified=old.validate_release(CHECKPOINT,SUITES)
++    if verified['checkpoint_sha256']!=DIGEST or verified['video_loops']!=4 or verified['action_loops']!=4 or verified['training_scope']!='full_libero':
++        raise ValueError('Expected original full-suite v0 trained4/4')
++    tasks={};assets={str(old.VAE):verified['vae_sha256'],str(CHECKPOINT/'dataset_stats.json'):verified['normalization_sha256']}
++    for p in CHECKPOINT.glob('*.json'):assets[str(p)]=sha(p)
++    assets[str(OLD/'data/matched_text/provenance.json')]=sha(OLD/'data/matched_text/provenance.json')
++    for name,item in verified['text_provenance']['files'].items():assets[str(OLD/'data/matched_text'/name)]=item['sha256']
++    for s in SUITES:
++        suite=benchmark.get_benchmark_dict()[s]()
++        for t in range(10):
++            task=suite.get_task(t);states=suite.get_task_init_states(t)
++            if len(states)<50:raise ValueError('Missing states')
++            bddl=Path(get_libero_path('bddl_files'))/task.problem_folder/task.bddl_file
++            initial=Path(get_libero_path('init_states'))/task.problem_folder/task.init_states_file
++            tasks[f'{s}:{t}']=dict(name=task.name,description=task.language,states=[hashlib.sha256(np.asarray(x).tobytes()).hexdigest() for x in states[:50]])
++            assets[str(bddl)]=sha(bddl);assets[str(initial)]=sha(initial)
++    old_manifest=json.loads((OLD/'evaluate_results/matched_lightwam/01_full_4_4/manifest.json').read_text())
++    if old_manifest['verified']['checkpoint_sha256']!=DIGEST or old_manifest['reference_episode_loop_sha256']!=sha(LIGHT/'experiments/libero/eval_libero_single.py'):
++        raise ValueError('Previous K4 checkpoint/reference mismatch')
++    frozen=dict(verified=verified,tasks=tasks,assets=assets,source=source_hashes(),
++                checkpoint=str(CHECKPOINT),checkpoint_sha256=DIGEST,video_loops=4,trained_action_loops=4,
++                nfe=10,depths=DEPTHS,seeds=[42,43,44],groups=groups(),
++                old_k4_summary=json.loads((OLD/'evaluate_results/matched_lightwam/01_full_4_4/summary.json').read_text()))
++    write(BULK/'frozen.json',frozen);write(REPORT/'protocol.json',frozen)
++    return frozen
+diff --git a/scripts/v0_ka_gate.py b/scripts/v0_ka_gate.py
+new file mode 100644
+index 0000000..06d5dba
+--- /dev/null
++++ b/scripts/v0_ka_gate.py
+@@ -0,0 +1,66 @@
++"""Real-observation native/graph checks and historical K4 compatibility."""
++import argparse,json,sys,time
++from pathlib import Path
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from scripts.v0_ka_common import *
++
++def main(args):
++    import numpy as np,torch
++    from fastwam.models.wan22.loopwam import create_loopwam
++    from scripts.evaluate_loopwam_libero import ObservationAdapter
++    torch.set_num_threads(2);torch.cuda.set_device(0)
++    old=module('ka_gate_reference',OLD/'scripts/evaluate_matched_full41.py')
++    model=create_loopwam(checkpoint_path=str(CHECKPOINT/'policy.pt'),vae_path=str(old.VAE),device='cuda:0',model_dtype=torch.float32).eval()
++    ip=BULK/'gate_inputs.pt'
++    if not ip.exists():
++        if args.legacy:raise ValueError('Prepare inputs using current code first')
++        from libero.libero import benchmark
++        from experiments.libero.libero_utils import get_libero_env
++        adapter=ObservationAdapter(json.loads((CHECKPOINT/'dataset_stats.json').read_text()),OLD/'data/matched_text')
++        inputs=[]
++        for suite_name in SUITES:
++            suite=benchmark.get_benchmark_dict()[suite_name]();task=suite.get_task(0);states=suite.get_task_init_states(0)
++            env,_=get_libero_env(task,256,42)
++            try:
++                for ep in [0,1]:
++                    env.reset();obs=env.set_init_state(states[ep])
++                    for _ in range(30):obs,_,_,_=env.step([0.,0.,0.,0.,0.,0.,-1.])
++                    image,state=adapter.observation(obs);context,mask=adapter.text(task.language)
++                    inputs.append(dict(input_image=image,proprio=state,context=context,context_mask=mask,action_horizon=32,num_inference_steps=10,
++                        text_cfg_scale=1.,seed=42+len(inputs)%3,rand_device='cpu',compile_action_infer=False))
++            finally:env.close()
++        torch.save(inputs,ip)
++    inputs=torch.load(ip,weights_only=False)
++    def predict(kw):
++        with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
++            result=model.infer_action(**kw)['action'].float().cpu().clone()
++        if result.shape!=(32,7) or not torch.isfinite(result).all():raise ValueError('Invalid native action')
++        return result
++    if args.legacy:
++        torch.save([predict(kw) for kw in inputs],BULK/'legacy_k4_actions.pt');return
++    model.mot.set_inference_action_loops(args.ka)
++    start=time.perf_counter();native=[predict(kw) for kw in inputs];native_s=(time.perf_counter()-start)/len(inputs)
++    if args.prepare:
++        torch.save(native,BULK/'current_k4_actions.pt');return
++    if args.ka==4:
++        legacy=torch.load(BULK/'legacy_k4_actions.pt',weights_only=False)
++        for x,y in zip(native,legacy):torch.testing.assert_close(x,y,atol=0,rtol=0)
++    report=dict(ka=args.ka,video_loops=4,trained_ka=4,nfe=10,checkpoint_sha256=DIGEST,inputs_sha256=sha(ip),
++                native_finite=True,native_query_seconds=native_s,graph_passed=False,source=source_hashes())
++    try:
++        module('ka_gate_graph',OLD/'scripts/matched_cuda_graph.py').enable_graphs(model)
++        differences=[]
++        for i in list(range(len(inputs)))+list(reversed(range(len(inputs)))):
++            actual=predict(inputs[i]);differences.append((actual-native[i]).abs().max().item())
++            torch.testing.assert_close(actual,native[i],atol=0,rtol=0)
++        start=time.perf_counter()
++        for kw in inputs:predict(kw)
++        report.update(graph_passed=True,max_abs_difference=max(differences),graph_query_seconds=(time.perf_counter()-start)/len(inputs))
++    except Exception as e:report['graph_error']=repr(e)
++    report['peak_reserved_mib']=torch.cuda.max_memory_reserved()/2**20
++    write(BULK/f'gate_ka{args.ka}.json',report)
++    print(json.dumps({k:v for k,v in report.items() if k!='source'},indent=2))
++
++if __name__=='__main__':
++    p=argparse.ArgumentParser();p.add_argument('--ka',type=int,required=True,choices=range(1,7));p.add_argument('--legacy',action='store_true');p.add_argument('--prepare',action='store_true')
++    main(p.parse_args())
+diff --git a/scripts/v0_ka_queue.py b/scripts/v0_ka_queue.py
+new file mode 100644
+index 0000000..58e5fd7
+--- /dev/null
++++ b/scripts/v0_ka_queue.py
+@@ -0,0 +1,122 @@
++"""Detached, locked, serial queue; fail closed on scientific/provenance errors."""
++import csv,fcntl,json,os,signal,subprocess,sys,time,traceback
++from pathlib import Path
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from scripts.v0_ka_common import *
++
++def refresh(state):
++    state['updated_unix']=time.time();write(BULK/'queue_state.json',state);write(REPORT/'queue_status.json',state)
++    lines=['# v0 trained-at-four action-depth evaluation','',
++        'Same full-suite v0 checkpoint for every condition; Kv=4; NFE=10; seeds 42/43/44; four suites × ten tasks × 50 episodes/seed = 6,000 per condition. Queue order: Ka=1,2,3,5,6. Total: 30,000 new scored episodes.','',
++        'Native late alignment maps action core loop r to video core loop max(1,4−Ka+r). Thus Ka=5 uses [1,1,2,3,4] and Ka=6 uses [1,1,1,2,3,4]. Checkpoint weights/trained-depth metadata remain unchanged.','',
++        '| Ka | Status | Completed | Successes | SR | Backend/workers |','| --- | --- | --- | --- | --- | --- |']
++    for j in state['jobs']:
++        summary=j.get('summary',{});progress=j.get('progress',{}) if j.get('stage')=='scored' else {}
++        n=summary.get('episodes',progress.get('completed',0));ok=summary.get('successes',progress.get('successes',0))
++        rate=f'{100*ok/n:.2f}%' if n else '—';selected=j.get('selected',{})
++        lines.append(f"| {j['ka']} | {j['status']} | {n}/6000 | {ok} | {rate} | {selected.get('backend','—')}/{selected.get('workers','—')} |")
++    lines+=['','Calibration/smoke episodes are excluded. Partial SR is not a final estimate.','',
++        'Previous K4 is a historical reference (5,695/6,000 = 94.9167%); native K4 real-observation compatibility must pass before this queue starts. K4 is not a sixth scored job.','',
++        '[Protocol and frozen provenance](protocol.json) · [Queue state](queue_status.json) · [Preflight](preflight.json)','',
++        f"Bulk logs, episodes, query traces and videos: `{BULK}`.",
++        'Only completed task/seed groups are resumed; partial groups replay from episode 0 to preserve the RNG sequence. Model and environment processes are isolated; group seed set once, query seed fixed to that group seed. Settling30, predict32/execute10, caps400 (Long700). FP32 model/BF16 compute, original trained normalization and text cache, native gripper conversion.']
++    (REPORT/'report.md').write_text('\n'.join(lines)+'\n')
++
++def execute(command,log,state,job=None,env=None):
++    log=Path(log);log.parent.mkdir(parents=True,exist_ok=True)
++    with log.open('a') as stream:
++        proc=subprocess.Popen(command,env=env or environment(),stdout=stream,stderr=subprocess.STDOUT,start_new_session=True,cwd=ROOT)
++    state['active']=dict(pid=proc.pid,command=command,log=str(log));refresh(state)
++    try:
++        while proc.poll() is None:
++            if job and job.get('current_output'):
++                progress=Path(job['current_output'])/'progress.json'
++                if progress.exists():job['progress']=json.loads(progress.read_text())
++            refresh(state);time.sleep(10)
++        if proc.returncode:raise RuntimeError(f'Command failed ({proc.returncode}); see {log}')
++    except BaseException:
++        try:os.killpg(proc.pid,signal.SIGTERM)
++        except ProcessLookupError:pass
++        if proc.poll() is None:proc.wait(timeout=60)
++        raise
++    state['active']=None;refresh(state)
++
++def run_profile(job,backend,workers,state):
++    out=BULK/'calibration'/f"ka{job['ka']}"/f'{backend}_w{workers}'
++    if (out/'manifest.json').exists() and not (out/'summary.json').exists():
++        out.rename(out.with_name(out.name+f'.interrupted_{time.time_ns()}'))
++    job.update(stage='calibration',current_output=str(out));refresh(state)
++    if not (out/'summary.json').exists():
++        execute([PYTHON,'-m','scripts.v0_ka_runner','--ka',str(job['ka']),'--backend',backend,'--workers',str(workers),'--output',str(out),'--calibration'],out/'run.log',state,job)
++    result=json.loads((out/'summary.json').read_text())
++    if result['episodes']!=16 or result['checkpoint_sha256']!=DIGEST or result['action_loops']!=job['ka']:raise ValueError('Bad calibration identity')
++    manifest=json.loads((out/'manifest.json').read_text())
++    if (manifest['frozen_sha256']!=sha(BULK/'frozen.json') or manifest['backend']!=backend or manifest['workers']!=workers
++        or manifest['action_loops']!=job['ka'] or manifest['mode']!='calibration'):raise ValueError('Cached calibration provenance mismatch')
++    from scripts.v0_ka_runner import load_rows
++    rows,_=load_rows(out,groups(True),job['ka']);validate_rows(groups(True),rows,DIGEST,job['ka'])
++    if trace_signature(rows)!=result['signature']:raise ValueError('Cached calibration signature mismatch')
++    return {**result,'output':str(out)}
++
++def main():
++    BULK.mkdir(parents=True,exist_ok=True);REPORT.mkdir(parents=True,exist_ok=True)
++    lock=(BULK/'queue.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++    for p in Path('/proc').iterdir():
++        try:
++            cmd=(p/'cmdline').read_bytes().split(b'\0')
++            if b'scripts.v0_ka_runner' in cmd:raise RuntimeError('Unmanaged existing runner; reconcile before resume')
++        except (FileNotFoundError,PermissionError,NotADirectoryError):pass
++    state=json.loads((BULK/'queue_state.json').read_text()) if (BULK/'queue_state.json').exists() else dict(started_unix=time.time(),jobs=[dict(ka=k,status='pending') for k in DEPTHS],active=None)
++    state.pop('error',None);refresh(state)
++    try:
++        if not (BULK/'frozen.json').exists():freeze_inputs()
++        frozen=json.loads((BULK/'frozen.json').read_text())
++        if source_hashes()!=frozen['source']:raise ValueError('Frozen source changed')
++        if not (BULK/'gate_ka4.json').exists():
++            execute([PYTHON,str(ROOT/'scripts/v0_ka_gate.py'),'--ka','4','--prepare'],BULK/'prepare_inputs.log',state)
++            env=environment();env['PYTHONPATH']=f'{OLD}/src:{OLD}:{LIGHT}/src:{LIGHT}:{LIGHT}/third_party/LIBERO'
++            execute([PYTHON,str(ROOT/'scripts/v0_ka_gate.py'),'--ka','4','--legacy'],BULK/'legacy_k4.log',state,env=env)
++            execute([PYTHON,str(ROOT/'scripts/v0_ka_gate.py'),'--ka','4'],BULK/'gate_ka4.log',state)
++        gate=json.loads((BULK/'gate_ka4.json').read_text())
++        if not gate['native_finite'] or gate['source']!=frozen['source']:raise ValueError('Invalid K4 gate')
++        write(REPORT/'preflight.json',dict(k4_compatibility_passed=True,k4_gate=gate,checkpoint_sha256=DIGEST))
++        for job in state['jobs']:
++            if job['status']=='complete':continue
++            scored_output=BULK/'results'/f"ka{job['ka']}"
++            if (scored_output/'manifest.json').exists():
++                selected=job.get('selected')
++                previous=json.loads((scored_output/'manifest.json').read_text())
++                if (not selected or previous['backend']!=selected['backend'] or previous['workers']!=selected['workers']
++                    or previous['frozen_sha256']!=sha(BULK/'frozen.json')):raise ValueError('Scored resume requires pinned backend/workers/provenance')
++                job.update(status='running',stage='scored',current_output=str(scored_output));refresh(state)
++                execute([PYTHON,'-m','scripts.v0_ka_runner','--ka',str(job['ka']),'--backend',selected['backend'],'--workers',str(selected['workers']),'--output',str(scored_output)],scored_output/'run.log',state,job)
++                summary=json.loads((scored_output/'summary.json').read_text())
++                if summary['episodes']!=6000:raise ValueError('Incomplete resumed job')
++                job.update(status='complete',summary=summary,finished_unix=time.time());refresh(state);continue
++            job.update(status='calibrating',stage='gate',started_unix=job.get('started_unix',time.time()));refresh(state)
++            gate_path=BULK/f"gate_ka{job['ka']}.json"
++            if not gate_path.exists():execute([PYTHON,str(ROOT/'scripts/v0_ka_gate.py'),'--ka',str(job['ka'])],BULK/f"gate_ka{job['ka']}.log",state,job)
++            gate=json.loads(gate_path.read_text())
++            if gate['source']!=frozen['source'] or not gate['native_finite']:raise ValueError('Invalid depth gate')
++            profiles=[run_profile(job,'eager',4,state)]
++            if gate['graph_passed']:
++                for workers in [4,8]:
++                    free=int(subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).strip())
++                    if workers*(gate['peak_reserved_mib']+768)*1.15+2048>free:
++                        profiles.append(dict(backend='cuda-graph',workers=workers,skipped='VRAM headroom'));continue
++                    try:profiles.append(run_profile(job,'cuda-graph',workers,state))
++                    except Exception:profiles.append(dict(backend='cuda-graph',workers=workers,error=traceback.format_exc()))
++            job['profiles']=profiles;selected=choose_profile(profiles);job['selected']=selected
++            job.update(status='running',stage='scored',current_output=str(BULK/'results'/f"ka{job['ka']}"));refresh(state)
++            execute([PYTHON,'-m','scripts.v0_ka_runner','--ka',str(job['ka']),'--backend',selected['backend'],'--workers',str(selected['workers']),'--output',job['current_output']],Path(job['current_output'])/'run.log',state,job)
++            summary=json.loads((Path(job['current_output'])/'summary.json').read_text())
++            if summary['episodes']!=6000 or summary['action_loops']!=job['ka'] or summary['checkpoint_sha256']!=DIGEST:raise ValueError('Incomplete/wrong scored condition')
++            job.update(status='complete',summary=summary,finished_unix=time.time());refresh(state)
++        state['finished_unix']=time.time();refresh(state)
++    except BaseException:
++        state['error']=traceback.format_exc();state['active']=None
++        for j in state['jobs']:
++            if j['status'] in ['running','calibrating']:j['status']='error'
++        refresh(state);raise
++
++if __name__=='__main__':main()
+diff --git a/scripts/v0_ka_runner.py b/scripts/v0_ka_runner.py
+new file mode 100644
+index 0000000..4cbf160
+--- /dev/null
++++ b/scripts/v0_ka_runner.py
+@@ -0,0 +1,127 @@
++"""Resumable Light-WAM-matched rollouts with fixed v0 weights and variable Ka."""
++import argparse,hashlib,json,multiprocessing as mp,os,queue,time,traceback,fcntl
++from pathlib import Path
++from scripts.v0_ka_common import *
++
++def load_rows(out,gg,k):
++    rows=[];complete=set()
++    for g in gg:
++        p=out/'groups'/f"{g['id']}.json"
++        if p.exists():
++            rr=json.loads(p.read_text());validate_rows([g],rr,DIGEST,k)
++            for r in rr:
++                if sha(r['video'])!=r['video_sha256'] or sha(r['query_log'])!=r['query_sha256']:raise ValueError('Corrupt resumed artifacts')
++            rows+=rr;complete.add(g['id'])
++    return rows,complete
++
++def worker(index,args,jobs,events,barrier,frozen):
++    try:
++        import numpy as np,torch
++        from omegaconf import OmegaConf
++        from fastwam.models.wan22.loopwam import create_loopwam
++        from scripts.evaluate_loopwam_libero import ObservationAdapter
++        from libero.libero import benchmark
++        from experiments.libero.libero_utils import get_libero_env,get_libero_image
++        save_rollout_video=video_writer()
++        torch.set_num_threads(2);torch.cuda.set_device(0)
++        old=module('ka_reference_loader',OLD/'scripts/evaluate_matched_full41.py');ref=old.load_reference()
++        model=create_loopwam(checkpoint_path=str(CHECKPOINT/'policy.pt'),vae_path=str(old.VAE),device='cuda:0',model_dtype=torch.float32).eval()
++        model.mot.set_inference_action_loops(args.ka)
++        adapter=ObservationAdapter(json.loads((CHECKPOINT/'dataset_stats.json').read_text()),OLD/'data/matched_text',text_files=frozen['verified']['text_provenance']['files'])
++        if args.backend=='cuda-graph':module('ka_graph',OLD/'scripts/matched_cuda_graph.py').enable_graphs(model)
++        qlog=[]
++        def predict(**kw):
++            image,state=adapter.observation(kw['obs']);start=time.perf_counter()
++            with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
++                action=model.infer_action(input_image=image,proprio=state,context=kw['cached_prompt_context'],context_mask=kw['cached_prompt_context_mask'],
++                    action_horizon=32,num_inference_steps=10,text_cfg_scale=1.,seed=int(kw['cfg'].seed),rand_device='cpu',compile_action_infer=False)['action']
++            action=adapter.dataset.denormalize_action(action.float().cpu()).numpy().copy()
++            if action.shape!=(32,7) or not np.isfinite(action).all():raise ValueError('Invalid action')
++            action[:,-1]=np.sign(-(2*action[:,-1]-1))
++            qlog.append(dict(query=len(qlog),seconds=time.perf_counter()-start,action_sha256=hashlib.sha256(action.tobytes()).hexdigest()))
++            return action,get_libero_image(kw['obs']),None
++        ref._predict_action_chunk=predict
++        events.put(dict(event='ready',worker=index));barrier.wait()
++        while True:
++            g=jobs.get()
++            if g is None:break
++            ref.set_global_seed(g['seed'],get_worker_init_fn=False)
++            suite=benchmark.get_benchmark_dict()[g['suite']]();task=suite.get_task(g['task']);states=suite.get_task_init_states(g['task'])
++            spec=frozen['tasks'][f"{g['suite']}:{g['task']}"]
++            if task.name!=spec['name'] or task.language!=spec['description']:raise ValueError('Task changed')
++            for ep in range(g['episodes']):
++                if hashlib.sha256(np.asarray(states[ep]).tobytes()).hexdigest()!=spec['states'][ep]:raise ValueError('Initial state changed')
++            context,mask=adapter.text(task.language);context=context.to('cuda',dtype=torch.float32);mask=mask.to('cuda')
++            cfg=OmegaConf.create(dict(seed=g['seed'],data=dict(train=dict(num_frames=33,action_video_freq_ratio=4)),
++                EVALUATION=dict(task_suite_name=g['suite'],task_id=g['task'],num_steps_wait=30,replan_steps=10,visualize_future_video=False)))
++            env,description=get_libero_env(task,256,g['seed']);rr=[];out=Path(args.output)
++            try:
++                for ep in range(g['episodes']):
++                    qlog.clear();start=time.perf_counter()
++                    success,frames,_,_=ref.run_single_episode(env,states[ep],description,model,None,cfg,ep,action_horizon=32,input_w=448,input_h=224,
++                        model_device='cuda:0',cached_prompt_context=context,cached_prompt_context_mask=mask)
++                    rollout=time.perf_counter()-start
++                    vdir=out/'videos'/g['id'];vdir.mkdir(parents=True,exist_ok=True)
++                    video=save_rollout_video(vdir,frames,f'trial{ep}',success,description,encoding_threads=1)
++                    qp=out/'queries'/f"{g['id']}_{ep}.json";write(qp,qlog)
++                    row=dict(**g,episode=ep,initial_state_index=ep,initial_state_sha256=spec['states'][ep],success=bool(success),worker=index,
++                        checkpoint_sha256=DIGEST,action_loops=args.ka,video_loops=4,nfe=10,backend=args.backend,description=description,
++                        policy_steps=len(frames),queries=len(qlog),query_seconds=sum(q['seconds'] for q in qlog),rollout_seconds=rollout,total_seconds=time.perf_counter()-start,
++                        video=str(video),video_sha256=sha(video),query_log=str(qp),query_sha256=sha(qp))
++                    write(out/'episodes'/f"{g['id']}_{ep}.json",row);rr.append(row);events.put(dict(event='episode',row=row))
++                validate_rows([g],rr,DIGEST,args.ka);write(out/'groups'/f"{g['id']}.json",rr)
++            finally:env.close()
++        events.put(dict(event='done',worker=index))
++    except BaseException:events.put(dict(event='error',error=traceback.format_exc()));raise
++
++def run(args):
++    out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
++    lock=(out/'run.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
++    frozen=json.loads((BULK/'frozen.json').read_text())
++    if source_hashes()!=frozen['source']:raise ValueError('Source drift')
++    for p,h in frozen['assets'].items():
++        if sha(p)!=h:raise ValueError('Asset drift')
++    if sha(CHECKPOINT/'policy.pt')!=DIGEST:raise ValueError('Checkpoint drift')
++    gg=groups(args.calibration);manifest=dict(action_loops=args.ka,video_loops=4,nfe=10,checkpoint_sha256=DIGEST,backend=args.backend,workers=args.workers,
++        groups=gg,frozen_sha256=sha(BULK/'frozen.json'),mode='calibration' if args.calibration else 'scored')
++    if (out/'manifest.json').exists() and json.loads((out/'manifest.json').read_text())!=manifest:raise ValueError('Resume condition mismatch')
++    write(out/'manifest.json',manifest);rr,complete=load_rows(out,gg,args.ka);pending=[g for g in gg if g['id'] not in complete]
++    recovered_episodes=len(rr)
++    ctx=mp.get_context('spawn');jobs=ctx.Queue();events=ctx.Queue();barrier=ctx.Event();children=[];ready=set();done=set();start=time.perf_counter();scored=None
++    workers=min(args.workers,len(pending))
++    for g in pending:jobs.put(g)
++    for _ in range(workers):jobs.put(None)
++    try:
++        for i in range(workers):
++            p=ctx.Process(target=worker,args=(i,args,jobs,events,barrier,frozen));p.start();children.append(p)
++        while len(done)<workers:
++            try:m=events.get(timeout=10)
++            except queue.Empty:
++                if any(p.exitcode not in (None,0) for p in children) or all(p.exitcode is not None for p in children):raise RuntimeError('Worker exited without completion')
++                continue
++            if m['event']=='error':raise RuntimeError(m['error'])
++            if m['event']=='ready':
++                ready.add(m['worker'])
++                if len(ready)==workers:scored=time.perf_counter();barrier.set()
++            if m['event']=='done':done.add(m['worker'])
++            if m['event']=='episode':rr.append(m['row'])
++            write(out/'progress.json',dict(completed=len(rr),planned=sum(g['episodes'] for g in gg),successes=sum(r['success'] for r in rr),
++                ready_workers=len(ready),workers=workers,elapsed_seconds=time.perf_counter()-start))
++        for p in children:
++            p.join(30)
++            if p.exitcode!=0:raise RuntimeError('Bad worker shutdown')
++        rr,_=load_rows(out,gg,args.ka);summary=validate_rows(gg,rr,DIGEST,args.ka)
++        summary.update(action_loops=args.ka,workers=args.workers,backend=args.backend,mode=manifest['mode'],checkpoint_sha256=DIGEST,
++            seconds=time.perf_counter()-scored if scored else 0,elapsed_seconds=time.perf_counter()-start,finished_unix=time.time(),
++            signature=trace_signature(rr),queries=sum(r['queries'] for r in rr),recovered_episodes=recovered_episodes)
++        write(out/'summary.json',summary)
++    except BaseException:write(out/'error.json',dict(error=traceback.format_exc(),completed=len(rr)));raise
++    finally:
++        for p in children:
++            if p.is_alive():p.terminate()
++        for p in children:p.join(30)
++
++if __name__=='__main__':
++    p=argparse.ArgumentParser();p.add_argument('--ka',required=True,type=int,choices=range(1,7));p.add_argument('--output',required=True)
++    p.add_argument('--workers',type=int,choices=range(1,9),default=4);p.add_argument('--backend',choices=['eager','cuda-graph'],default='eager');p.add_argument('--calibration',action='store_true')
++    run(p.parse_args())
+diff --git a/src/fastwam/models/wan22/loop_mot.py b/src/fastwam/models/wan22/loop_mot.py
+index 2617739..20d5f2a 100644
+--- a/src/fastwam/models/wan22/loop_mot.py
++++ b/src/fastwam/models/wan22/loop_mot.py
+@@ -138,6 +138,19 @@ class LoopMoT(MoT):
+                         for r in range(1, self.action_loops+1) for j in range(self.core_depth))
+                 + tuple(slots[("coda", self.loops, j)] for j in range(self.post_depth)))
+ 
++    def set_inference_action_loops(self, value: int):
++        """Explicit evaluation-only v0 4/4 depth sweep, including extrapolation.
++
++        Call only after strict checkpoint loading and eval(). Training/constructor
++        depth validation stays unchanged. Reuse native late-clamped video KV;
++        no weights or checkpoint training metadata are modified.
++        """
++        if self.training or self.version != "v0" or self.loops != 4 or self.trained_max_loops != 4:
++            raise ValueError("Inference sweep requires eval-mode v0 with video/trained depth four")
++        if type(value) is not int or not 1 <= value <= 6:
++            raise ValueError("Inference action depth must be an integer in [1, 6]")
++        self._action_loops = value
++
+     def _video_only_block(self, physical_index, tokens, freqs, t_mod, context, context_mask,
+                           attention_mask, observed=None, return_cache=False):
+         expert = self.mixtures["video"]
+diff --git a/tests/test_v0_inference_depth.py b/tests/test_v0_inference_depth.py
+new file mode 100644
+index 0000000..26e2dd3
+--- /dev/null
++++ b/tests/test_v0_inference_depth.py
+@@ -0,0 +1,49 @@
++import pytest
++import torch
++from test_loop_mot import make_model, inputs
++
++
++@pytest.mark.parametrize('k', [1, 2, 3, 4, 5, 6])
++def test_inference_action_schedule_reuses_native_late_aligned_video_cache(k):
++    model = make_model().eval()
++    before = {n: p.detach().clone() for n, p in model.state_dict().items()}
++    model.set_inference_action_loops(k)
++    schedule = model.virtual_schedule()
++    slots = model.action_cache_slots()
++    assert model.loops == model.trained_max_loops == 4
++    assert model.action_loops == k
++    expected = [('pre', j) for j in range(3)]
++    expected += [('core', max(1, 4-k+r), j) for r in range(1, k+1) for j in range(6)]
++    expected += [('coda', 4, j) for j in range(3)]
++    assert [schedule[s][0] for s in slots] == expected
++    assert [schedule[s][1] for s in slots] == list(range(3)) + list(range(3,9))*k + list(range(9,12))
++    for n, p in model.state_dict().items():
++        torch.testing.assert_close(p, before[n], rtol=0, atol=0)
++
++
++def test_k4_override_leaves_numerical_output_identical():
++    model, data = make_model().eval(), inputs()
++    with torch.no_grad():
++        before = model.forward_joint_core(**data)
++        model.set_inference_action_loops(4)
++        after = model.forward_joint_core(**data)
++    for a, b in zip(before, after):
++        torch.testing.assert_close(a, b, rtol=0, atol=0)
++
++
++@pytest.mark.parametrize('k', [0, 7, True, 2.5, None])
++def test_invalid_inference_depth_is_rejected(k):
++    with pytest.raises(ValueError):
++        make_model().eval().set_inference_action_loops(k)
++
++
++def test_override_rejects_training_mode_and_other_architectures():
++    for model in [make_model(), make_model(version='v1').eval(), make_model(loops=3).eval()]:
++        with pytest.raises(ValueError):
++            model.set_inference_action_loops(5)
++
++
++def test_constructor_training_depth_guard_is_preserved():
++    model = make_model().eval()
++    with pytest.raises(ValueError):
++        model.action_loops = 5
+diff --git a/tests/test_v0_ka_queue.py b/tests/test_v0_ka_queue.py
+new file mode 100644
+index 0000000..1d513f6
+--- /dev/null
++++ b/tests/test_v0_ka_queue.py
+@@ -0,0 +1,54 @@
++import copy
++import pytest
++from scripts.v0_ka_common import groups, validate_rows, choose_profile
++
++
++def row(g, ep=0, k=1):
++    return dict(id=g['id'], episode=ep, seed=g['seed'], suite=g['suite'], task=g['task'],
++                initial_state_index=ep, success=False, action_loops=k, checkpoint_sha256='fixed',
++                policy_steps=10, queries=1)
++
++
++def test_queue_covers_6000_unique_episodes_per_depth():
++    gg=groups()
++    assert len(gg)==120
++    keys={(g['id'],e) for g in gg for e in range(g['episodes'])}
++    assert len(keys)==6000
++    assert {g['seed'] for g in gg}=={42,43,44}
++    assert {g['episodes'] for g in gg}=={50}
++
++
++def test_resume_rejects_partial_duplicate_wrong_depth_and_wrong_checkpoint():
++    g={**groups()[0], 'episodes':2};rr=[row(g,0),row(g,1)]
++    assert validate_rows([g],rr,'fixed',1)['episodes']==2
++    for broken in [rr[:1],rr+rr[:1],[{**rr[0],'action_loops':2},rr[1]],
++                   [{**rr[0],'checkpoint_sha256':'wrong'},rr[1]],
++                   [{**rr[0],'queries':2},rr[1]]]:
++        with pytest.raises(ValueError):validate_rows([g],broken,'fixed',1)
++
++
++def test_faster_profile_must_match_complete_action_trace():
++    baseline=dict(backend='eager',workers=4,seconds=10,signature='reference')
++    bad=dict(backend='cuda-graph',workers=8,seconds=1,signature='changed')
++    good=dict(backend='cuda-graph',workers=4,seconds=5,signature='reference')
++    assert choose_profile([baseline,bad,good])==good
++    with pytest.raises(ValueError):choose_profile([bad])
++
++
++def test_resumed_partial_calibration_is_not_a_full_workload_speed_measurement():
++    baseline=dict(backend='eager',workers=4,seconds=10,signature='reference',recovered_episodes=0)
++    partial=dict(backend='cuda-graph',workers=8,seconds=1,signature='reference',recovered_episodes=14)
++    assert choose_profile([baseline,partial])==baseline
++
++
++def test_real_rollout_video_accepts_bounded_encoding_threads(tmp_path):
++    import numpy as np
++    import imageio.v2 as imageio
++    from scripts.v0_ka_common import video_writer
++    frames=[dict(image=np.zeros((32,32,3),dtype=np.uint8),wrist_image=np.full((32,32,3),120,dtype=np.uint8)) for _ in range(2)]
++    path=video_writer()(tmp_path,frames,'test',False,'audit video',encoding_threads=1)
++    reader=imageio.get_reader(path)
++    try:
++        assert reader.count_frames()==2
++        assert reader.get_data(0).shape==(32,64,3)
++    finally:reader.close()

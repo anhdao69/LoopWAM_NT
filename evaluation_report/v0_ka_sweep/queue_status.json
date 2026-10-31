@@ -1,0 +1,236 @@
+{
+  "started_unix": 1793040417.8720527,
+  "jobs": [
+    {
+      "ka": 1,
+      "status": "complete",
+      "stage": "scored",
+      "started_unix": 1793040480.98456,
+      "current_output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/results/ka1",
+      "progress": {
+        "completed": 6000,
+        "planned": 6000,
+        "successes": 738,
+        "ready_workers": 8,
+        "workers": 8,
+        "elapsed_seconds": 19358.251046534977
+      },
+      "profiles": [
+        {
+          "episodes": 16,
+          "successes": 3,
+          "success_rate": 0.1875,
+          "action_loops": 1,
+          "workers": 4,
+          "backend": "eager",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 81.69093312398763,
+          "elapsed_seconds": 87.85690350900404,
+          "finished_unix": 1793040580.152601,
+          "signature": "c0adaa61e6b0bc60118cc7ae9a00127d01ce5d2ec5c93e424bf343b57971deef",
+          "queries": 735,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka1/eager_w4"
+        },
+        {
+          "episodes": 16,
+          "successes": 3,
+          "success_rate": 0.1875,
+          "action_loops": 1,
+          "workers": 4,
+          "backend": "cuda-graph",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 76.01060598198092,
+          "elapsed_seconds": 82.14640860198415,
+          "finished_unix": 1793040664.5533018,
+          "signature": "c0adaa61e6b0bc60118cc7ae9a00127d01ce5d2ec5c93e424bf343b57971deef",
+          "queries": 735,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka1/cuda-graph_w4"
+        },
+        {
+          "episodes": 16,
+          "successes": 3,
+          "success_rate": 0.1875,
+          "action_loops": 1,
+          "workers": 8,
+          "backend": "cuda-graph",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 67.50161106901942,
+          "elapsed_seconds": 74.85065832099644,
+          "finished_unix": 1793040747.3753753,
+          "signature": "c0adaa61e6b0bc60118cc7ae9a00127d01ce5d2ec5c93e424bf343b57971deef",
+          "queries": 735,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka1/cuda-graph_w8"
+        }
+      ],
+      "selected": {
+        "episodes": 16,
+        "successes": 3,
+        "success_rate": 0.1875,
+        "action_loops": 1,
+        "workers": 8,
+        "backend": "cuda-graph",
+        "mode": "calibration",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 67.50161106901942,
+        "elapsed_seconds": 74.85065832099644,
+        "finished_unix": 1793040747.3753753,
+        "signature": "c0adaa61e6b0bc60118cc7ae9a00127d01ce5d2ec5c93e424bf343b57971deef",
+        "queries": 735,
+        "recovered_episodes": 0,
+        "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka1/cuda-graph_w8"
+      },
+      "summary": {
+        "episodes": 6000,
+        "successes": 738,
+        "success_rate": 0.123,
+        "action_loops": 1,
+        "workers": 8,
+        "backend": "cuda-graph",
+        "mode": "scored",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 19353.531748593,
+        "elapsed_seconds": 19360.915558946,
+        "finished_unix": 1793060113.5411143,
+        "signature": "693cfcfe9f9a609e52714c4449d432920c1790dae654dad2eae9605748530fab",
+        "queries": 272041,
+        "recovered_episodes": 0
+      },
+      "finished_unix": 1793060122.0980368
+    },
+    {
+      "ka": 2,
+      "status": "complete",
+      "stage": "scored",
+      "started_unix": 1793060122.1089482,
+      "current_output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/results/ka2",
+      "progress": {
+        "completed": 6000,
+        "planned": 6000,
+        "successes": 3334,
+        "ready_workers": 4,
+        "workers": 4,
+        "elapsed_seconds": 21630.961271408974
+      },
+      "profiles": [
+        {
+          "episodes": 16,
+          "successes": 11,
+          "success_rate": 0.6875,
+          "action_loops": 2,
+          "workers": 4,
+          "backend": "eager",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 60.34018353599822,
+          "elapsed_seconds": 66.16088272200432,
+          "finished_unix": 1793060199.7270608,
+          "signature": "5e54743d8312af29b56aa519cd1314fbb98ac8c0fa153d09858a444db1c94440",
+          "queries": 508,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka2/eager_w4"
+        },
+        {
+          "episodes": 16,
+          "successes": 11,
+          "success_rate": 0.6875,
+          "action_loops": 2,
+          "workers": 4,
+          "backend": "cuda-graph",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 54.27967619500123,
+          "elapsed_seconds": 60.156618390989024,
+          "finished_unix": 1793060263.8267622,
+          "signature": "5e54743d8312af29b56aa519cd1314fbb98ac8c0fa153d09858a444db1c94440",
+          "queries": 508,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka2/cuda-graph_w4"
+        },
+        {
+          "episodes": 16,
+          "successes": 11,
+          "success_rate": 0.6875,
+          "action_loops": 2,
+          "workers": 8,
+          "backend": "cuda-graph",
+          "mode": "calibration",
+          "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+          "seconds": 55.589066860993626,
+          "elapsed_seconds": 62.48015412501991,
+          "finished_unix": 1793060336.2534738,
+          "signature": "5e54743d8312af29b56aa519cd1314fbb98ac8c0fa153d09858a444db1c94440",
+          "queries": 508,
+          "recovered_episodes": 0,
+          "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka2/cuda-graph_w8"
+        }
+      ],
+      "selected": {
+        "episodes": 16,
+        "successes": 11,
+        "success_rate": 0.6875,
+        "action_loops": 2,
+        "workers": 4,
+        "backend": "cuda-graph",
+        "mode": "calibration",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 54.27967619500123,
+        "elapsed_seconds": 60.156618390989024,
+        "finished_unix": 1793060263.8267622,
+        "signature": "5e54743d8312af29b56aa519cd1314fbb98ac8c0fa153d09858a444db1c94440",
+        "queries": 508,
+        "recovered_episodes": 0,
+        "output": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/calibration/ka2/cuda-graph_w4"
+      },
+      "summary": {
+        "episodes": 6000,
+        "successes": 3334,
+        "success_rate": 0.5556666666666666,
+        "action_loops": 2,
+        "workers": 4,
+        "backend": "cuda-graph",
+        "mode": "scored",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 21627.65895873698,
+        "elapsed_seconds": 21633.627740935975,
+        "finished_unix": 1793081977.486552,
+        "signature": "607dce7aec61f2ff56caa639dcb168c798c34ff7decad16ce914f3970074010d",
+        "queries": 202317,
+        "recovered_episodes": 0
+      },
+      "finished_unix": 1793081977.486552
+    }
+  ],
+  "active": null,
+  "updated_unix": 1793081987.236169,
+  "removed_jobs": [
+    {
+      "ka": 3,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    },
+    {
+      "ka": 5,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    },
+    {
+      "ka": 6,
+      "status": "removed_by_user",
+      "removed_unix": 1793075941.3335216
+    }
+  ],
+  "stop_after_ka": 2,
+  "controller": {
+    "kind": "finish_existing_ka2_only",
+    "pid": 182111,
+    "script": "/data14t/anhdh35/loopwam_v0_ka_sweep_20261027/finish_ka2_only.py"
+  },
+  "finished_unix": 1793081987.2361653,
+  "status": "complete"
+}

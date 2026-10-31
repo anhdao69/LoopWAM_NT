@@ -1,0 +1,20 @@
+{
+  "verified_unix": 1793041525.187005,
+  "code_commit": "9d150b916a95c9a34d4232a18d3bc18e0d3a7f82",
+  "tmux_session": "dense_full_eval",
+  "status": "waiting_for_v0",
+  "models": {
+    "dense-s12": {
+      "frozen_inputs_verified": true,
+      "cpu_strict_load_passed": true
+    },
+    "dense-s30": {
+      "frozen_inputs_verified": true,
+      "cpu_strict_load_passed": true
+    }
+  },
+  "tests": "10 passed",
+  "gpu_gates": "pending_after_v0",
+  "predecessor_source_unchanged": true,
+  "review": "Independent review completed; gate identity, simulator/source provenance, heartbeat and lifecycle findings addressed."
+}
