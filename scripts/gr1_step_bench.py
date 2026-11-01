@@ -62,6 +62,7 @@ def main():
     p.add_argument('--updates', type=int, default=6)
     p.add_argument('--profile', action='store_true')
     p.add_argument('--rope-check', action='store_true')
+    p.add_argument('--equivalence', action='store_true', help='one fwd/bwd: complex twice (noise floor) vs real, same inputs')
     p.add_argument('--out', default=None)
     a = p.parse_args()
     dev = torch.device('cuda')
@@ -95,6 +96,27 @@ def main():
         torch.nn.utils.clip_grad_norm_(params, 1., error_if_nonfinite=True); opt.step(); opt.zero_grad(set_to_none=True)
         return total / a.per_gpu
 
+    if a.equivalence:
+        sample, noise = batches[0]
+
+        def grads(rope):
+            mot_module.rope_apply = {'complex': rope_apply, 'real': rope_apply_real}[rope]
+            model.zero_grad(set_to_none=True)
+            with torch.autocast('cuda', dtype=torch.bfloat16):
+                loss, logs, _ = runner([dict(sample=sample, noise=noise)])
+            loss.backward()
+            return [float(loss), float(logs['video']), float(logs['action'])], torch.cat([x.grad.flatten() for x in params])
+
+        def compare(x, y):
+            return dict(loss_abs_diff=[abs(u - v) for u, v in zip(x[0], y[0])], grad_rel_l2=float((x[1] - y[1]).norm() / x[1].norm()),
+                        grad_cos=float(torch.nn.functional.cosine_similarity(x[1], y[1], dim=0)))
+        c1 = grads('complex'); c1 = (c1[0], c1[1].clone()); c2 = grads('complex'); r = grads('real')
+        out = dict(equivalence=dict(loss_complex=c1[0], loss_real=r[0], complex_vs_complex=compare(c1, c2), complex_vs_real=compare(c1, r)))
+        print(json.dumps(out), flush=True)
+        if a.out:
+            with open(a.out, 'w') as f:
+                json.dump(out, f, indent=2)
+        return
     report = dict(vars(a))
     try:
         t = time.time()
@@ -117,19 +139,23 @@ def main():
         from torch.profiler import ProfilerActivity, profile
         with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA]) as prof:
             update(); torch.cuda.synchronize()
-        events = [e for e in prof.key_averages() if e.device_type == torch.autograd.DeviceType.CUDA or e.self_device_time_total > 0]
+        # Kernels only (CPU ops also carry their kernels' device time, which would double count).
+        events = [e for e in prof.key_averages() if e.device_type == torch.autograd.DeviceType.CUDA and e.self_device_time_total > 0]
         total = sum(e.self_device_time_total for e in events)
         cats = {}
         for e in events:
             n = e.key.lower()
             c = ('attention' if any(k in n for k in ('flash', 'fmha', 'attention')) else
+                 'nccl' if 'nccl' in n else
                  'gemm' if any(k in n for k in ('gemm', 'cutlass', 'xmma', 'nvjet', 'sm90_', 'cublas')) else
                  'triton_fused' if 'triton' in n else
                  'complex_rope' if 'complex' in n else
+                 'eager_elementwise' if 'elementwise' in n or 'reduce_kernel' in n else
                  'optimizer' if any(k in n for k in ('adam', 'foreach', 'multi_tensor')) else
                  'copy' if any(k in n for k in ('copy', 'memcpy', 'memset')) else 'other_eager')
             cats[c] = cats.get(c, 0) + e.self_device_time_total
-        print(json.dumps(dict(gpu_busy_ms=round(total / 1e3, 1), categories_pct={k: round(100 * v / total, 1) for k, v in sorted(cats.items(), key=lambda x: -x[1])})), flush=True)
+        report['profile_gpu_busy_ms'] = round(total / 1e3, 1)
+        print(json.dumps(dict(gpu_busy_ms=round(total / 1e3, 1), wall_ms=round(1e3 * report['s_per_update_median'], 1), categories_pct={k: round(100 * v / total, 1) for k, v in sorted(cats.items(), key=lambda x: -x[1])})), flush=True)
         for e in sorted(events, key=lambda e: -e.self_device_time_total)[:25]:
             print(f'{100 * e.self_device_time_total / total:6.2f}% {e.self_device_time_total / 1e3:9.1f}ms {e.count:6d}  {e.key[:110]}', flush=True)
     if a.out:
