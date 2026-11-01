@@ -23,16 +23,22 @@ def source_hashes():
 
 
 def layout(token, rope, text_tokens, compile_mode='default'):
-    if token.endswith('a'):  # e.g. 16a: max-autotune-no-cudagraphs (inductor autotune cache is per rank on node-local /tmp)
-        token, compile_mode = token[:-1], 'max-autotune-no-cudagraphs'
+    # suffixes: a = max-autotune-no-cudagraphs (inductor autotune cache is per rank on node-local /tmp); g = manual GC every 200
+    manual_gc = 0
+    while token[-1] in 'ag':
+        if token[-1] == 'a':
+            compile_mode = 'max-autotune-no-cudagraphs'
+        else:
+            manual_gc = 200
+        token = token[:-1]
     micro, _, keep = token.partition('c')
     return dict(micro=int(micro), checkpoint_blocks=bool(_), keep_last=int(keep or 0), rope=rope, text_tokens=text_tokens,
-                compile_mode=compile_mode)
+                compile_mode=compile_mode, manual_gc=manual_gc)
 
 
 def tag(cfg):
     return f"m{cfg['micro']}" + (f"c{cfg['keep_last']}" if cfg.get('checkpoint_blocks') else '') + f"_{cfg.get('rope', 'complex')}" + (f"_t{cfg['text_tokens']}" if cfg.get('text_tokens', 128) < 128 else '') + \
-        ('_autotune' if cfg.get('compile_mode', 'default') != 'default' else '')
+        ('_autotune' if cfg.get('compile_mode', 'default') != 'default' else '') + (f"_gc{cfg['manual_gc']}" if cfg.get('manual_gc') else '')
 
 
 def base(cfg):
@@ -43,7 +49,7 @@ def base(cfg):
             '--lr-backbone', '0.0001', '--lr-robot-io', '0.0001', '--warmup-fraction', '0.05', '--save-epochs', '3,4,5',
             '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(cfg['micro']), *blocks,
             '--rope', cfg.get('rope', 'complex'), '--text-tokens', str(cfg.get('text_tokens', 128)), '--compile',
-            '--compile-mode', cfg.get('compile_mode', 'default')] + \
+            '--compile-mode', cfg.get('compile_mode', 'default'), '--manual-gc', str(cfg.get('manual_gc', 0))] + \
            (['--allow-partial-cache'] if a.phase != 'production' else [])
 
 

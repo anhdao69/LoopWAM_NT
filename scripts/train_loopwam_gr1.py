@@ -8,7 +8,7 @@ init, FP32 weights and Adam moments with BF16 autocast, AdamW lr 1e-4 (all param
 peak, seed 42, every window once per epoch in randperm(seed + epoch) order, per-window keyed noise.
 Only the global batch changes: 256 real windows per update (world x microbatch x accumulation).
 """
-import argparse, contextlib, hashlib, json, math, os, queue, random, subprocess, threading, time
+import argparse, contextlib, gc, hashlib, json, math, os, queue, random, subprocess, threading, time
 from pathlib import Path
 
 import numpy as np
@@ -139,6 +139,8 @@ def main():
                    help='real: the same float64 RoPE without complex tensors (bit-identical forward), fusable by inductor')
     p.add_argument('--text-tokens', type=int, default=128, help='drop masked text padding beyond this length (exact; batches '
                    'with longer prompts are refused)')
+    p.add_argument('--manual-gc', type=int, default=0, help='N>0: freeze setup objects, disable automatic Python GC and collect '
+                   'on every rank at the same update every N updates (no rank-at-a-time GC stalls in synchronous DDP)')
     p.add_argument('--profile-updates', default='', help='A:B -> rank-0 torch.profiler over updates A..B-1 (bounded no-save runs only)')
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=False)
     p.add_argument('--compile-mode', default='default', choices=('default', 'max-autotune-no-cudagraphs'))
@@ -252,14 +254,26 @@ def main():
             else:
                 (out / 'checkpoints').mkdir(exist_ok=True); model.save_robot(out / 'checkpoints' / f'epoch_{epoch:02d}.pt', step=update, training_state=state)
         dist.barrier()
+    gc_seconds = [0., 0]
+
+    def gc_timer(phase, info):  # GC holds the GIL: any collection (main or prefetch thread) stalls this rank's launches
+        if phase == 'start':
+            gc_seconds[1] = time.perf_counter()
+        else:
+            gc_seconds[0] += time.perf_counter() - gc_seconds[1]
+    gc.callbacks.append(gc_timer)
+    if a.manual_gc:
+        gc.collect(); gc.freeze(); gc.disable()
     status = 'running'; prof = None
     prof_range = [int(x) for x in a.profile_updates.split(':')] if a.profile_updates else None
-    events = [torch.cuda.Event(enable_timing=True) for _ in range(3)]
+    events = [torch.cuda.Event(enable_timing=True) for _ in range(4)]
     while True:
         t = time.time(); item = pref.get(); data_wait = time.time() - t
         if item is None:
             status = 'complete'; break
         epoch, batch, n, micros, build_seconds = item
+        if a.manual_gc and update and update % a.manual_gc == 0:
+            gc.collect()
         if rank == 0 and prof_range and update == prof_range[0]:
             prof = torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU, torch.profiler.ProfilerActivity.CUDA]); prof.__enter__()
             prof_start = time.time()
@@ -280,6 +294,8 @@ def main():
                 with torch.autocast('cuda', dtype=torch.bfloat16):
                     loss, logs, _ = runner([dict(sample=sample, noise=noise)])
                 (loss * (0. if dummy else world / n)).backward()
+            if mi == 0:
+                events[3].record()  # first microstep: pure compute (no_sync), comparable across ranks
             if not dummy:
                 sums += torch.stack([loss.detach(), logs['video'], logs['action'], torch.as_tensor(len(ids), device=device)])
         events[1].record(); issue_seconds = time.time() - t - data_wait
@@ -294,11 +310,15 @@ def main():
                 write(out / 'precision.json', dict(policy='float32', compute='bfloat16', optimizer_moment_dtypes=moments, all_gradients_present_and_finite=True))
         dist.all_reduce(sums); assert int(sums[3]) == n
         torch.cuda.synchronize(); seconds = time.time() - t; update += 1; windows_seen += n
+        diag = torch.tensor([events[0].elapsed_time(events[3]) / 1e3, issue_seconds, build_seconds, gc_seconds[0]], device=device)
+        gc_seconds[0] = 0.; ranks = torch.empty(world, 4, device=device); dist.all_gather_into_tensor(ranks, diag); ranks = ranks.tolist()
         done = (batch + 1 == per_epoch); next_epoch, next_batch = (epoch + 1, 0) if done else (epoch, batch + 1)
         if rank == 0:
             rec = dict(update=update, epoch=epoch + 1, epochs_complete=epoch + int(done), valid_windows=n, windows_seen=windows_seen, seconds=seconds,
                        data_wait_seconds=data_wait, prefetch_build_seconds=build_seconds, host_issue_seconds=issue_seconds,
                        gpu_micro_seconds=events[0].elapsed_time(events[1]) / 1e3, gpu_optimizer_seconds=events[1].elapsed_time(events[2]) / 1e3,
+                       rank_first_micro_seconds=[round(x[0], 4) for x in ranks], rank_host_issue_seconds=[round(x[1], 4) for x in ranks],
+                       rank_prefetch_build_seconds=[round(x[2], 4) for x in ranks], rank_gc_seconds=[round(x[3], 4) for x in ranks],
                        loss=float(sums[0] / n), loss_video=float(sums[1] / n), loss_action=float(sums[2] / n),
                        grad_norm=float(grad), lr_backbone=opt.param_groups[0]['lr'],
                        peak_allocated_gb=torch.cuda.max_memory_allocated() / 1e9, peak_reserved_gb=torch.cuda.max_memory_reserved() / 1e9)
