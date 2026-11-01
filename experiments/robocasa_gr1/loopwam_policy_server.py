@@ -104,8 +104,8 @@ class LoopWAMGR1Policy:
     def _chunk(self, frame, state29, instruction):
         if frame.shape != (*VIDEO_HW, 3) or frame.dtype != np.uint8:
             raise ValueError(f'Expected uint8 256x256x3 ego frame, got {frame.shape} {frame.dtype}')
-        image = preprocess_frames_gr1(torch.from_numpy(np.ascontiguousarray(frame)).permute(2, 0, 1)[None])[0]
-        proprio = self.normalizer['state'].forward(torch.from_numpy(state29)[None])[0]
+        image = preprocess_frames_gr1(torch.from_numpy(np.array(frame, dtype=np.uint8, copy=True)).permute(2, 0, 1)[None])[0]
+        proprio = self.normalizer['state'].forward(torch.tensor(state29, dtype=torch.float32)[None])[0]
         prompt = DEFAULT_PROMPT.format(task=instruction)
         hits, encoded = self.text.cache_hits, self.text.encoded
         context, mask = self.text(prompt)
