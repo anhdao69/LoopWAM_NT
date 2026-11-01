@@ -9,7 +9,7 @@ p = argparse.ArgumentParser()
 p.add_argument('--root', required=True); p.add_argument('--shared', required=True); p.add_argument('--latent-dir', required=True)
 p.add_argument('--phase', choices=['timing', 'gates', 'production'], required=True)
 p.add_argument('--micro', default='16', help='layouts: 16 = microbatch 16 without checkpointing; 32c20 = microbatch 32, '
-               'checkpointed blocks except the last 20 virtual layers')
+               'checkpointed blocks except the last 20 virtual layers; suffix a = max-autotune-no-cudagraphs')
 p.add_argument('--rope', choices=('complex', 'real'), default='real')
 p.add_argument('--text-tokens', type=int, default=48, help='longest training prompt is 41 T5 tokens')
 p.add_argument('--compile-mode', default='default', choices=('default', 'max-autotune-no-cudagraphs')); p.add_argument('--timing-updates', type=int, default=200)
@@ -23,6 +23,8 @@ def source_hashes():
 
 
 def layout(token, rope, text_tokens, compile_mode='default'):
+    if token.endswith('a'):  # e.g. 16a: max-autotune-no-cudagraphs (inductor autotune cache is per rank on node-local /tmp)
+        token, compile_mode = token[:-1], 'max-autotune-no-cudagraphs'
     micro, _, keep = token.partition('c')
     return dict(micro=int(micro), checkpoint_blocks=bool(_), keep_last=int(keep or 0), rope=rope, text_tokens=text_tokens,
                 compile_mode=compile_mode)
