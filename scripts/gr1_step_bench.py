@@ -59,6 +59,7 @@ def main():
     p.add_argument('--text-tokens', type=int, default=128)
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=True)
     p.add_argument('--compile-mode', default=None)
+    p.add_argument('--autocast', action=argparse.BooleanOptionalAction, default=True, help='--no-autocast: fp32 compute (equivalence)')
     p.add_argument('--warmup', type=int, default=3)
     p.add_argument('--updates', type=int, default=6)
     p.add_argument('--profile', action='store_true')
@@ -108,7 +109,7 @@ def main():
         def grads(rope, s=None):
             mot_module.rope_apply = {'complex': rope_apply, 'real': rope_apply_real}[rope]
             model.zero_grad(set_to_none=True)
-            with torch.autocast('cuda', dtype=torch.bfloat16):
+            with torch.autocast('cuda', dtype=torch.bfloat16, enabled=a.autocast):
                 loss, logs, _ = runner([dict(sample=s or full, noise=noise)])
             loss.backward()
             return [float(loss), float(logs['video']), float(logs['action'])], torch.cat([x.grad.flatten() for x in params])
@@ -118,7 +119,7 @@ def main():
                         grad_cos=float(torch.nn.functional.cosine_similarity(x[1], y[1], dim=0)))
         c1 = grads('complex'); c1 = (c1[0], c1[1].clone()); c2 = grads('complex'); c2 = (c2[0], c2[1].clone())
         r = grads('real'); r = (r[0], r[1].clone()); r2 = grads('real'); r2 = (r2[0], r2[1].clone()); rt = grads('real', sample)
-        out = dict(equivalence=dict(text_tokens=sample['context'].shape[1], loss_complex=c1[0], loss_real=r[0], loss_real_trimmed=rt[0],
+        out = dict(equivalence=dict(text_tokens=sample['context'].shape[1], autocast=a.autocast, compile=a.compile, loss_complex=c1[0], loss_real=r[0], loss_real_trimmed=rt[0],
                    complex_vs_complex=compare(c1, c2), complex_vs_real=compare(c1, r), real_vs_real=compare(r, r2),
                    real_vs_real_trimmed=compare(r, rt)))
         print(json.dumps(out), flush=True)

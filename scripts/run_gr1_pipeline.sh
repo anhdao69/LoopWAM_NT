@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
-# GR1 v0 unattended pipeline (one srun step holding the job's 4 GPUs), after the timing smoke selected the layout:
-#   1. native gates (10-update smoke, strict reload, resume to 12 + drift vs timing run, epoch-tail smoke)
-#   2. full frozen-VAE latent cache on node-local /tmp (resumable: valid windows are skipped)
-#   3. completeness check, then a rate-limited backup of the cache to /mnt/data (valid.uint8 copied last)
-#   4. production: 5 epochs, bounded auto-resume from latest.pt
+# GR1 v0 unattended tail of the pipeline (one srun step holding the job's 4 GPUs). Prerequisites, run before:
+#   run_loopwam_gr1.py --phase timing (selected.json) and --phase gates (gates_passed.json) on the smoke windows.
+#   1. full frozen-VAE latent cache on node-local /tmp (resumable: valid windows are skipped), VAE batch 64
+#   2. completeness check, then a rate-limited background backup of the cache to /mnt/data
+#   3. production: 5 epochs, bounded auto-resume from latest.pt (layout from gates_passed.json)
 set -euo pipefail
 RUN=${GR1_RUN:-/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101}
 source "$RUN/env.sh"
 LAT=/tmp/gr1_v0_${SLURM_JOB_ID:?run inside the slurm allocation}/latents
 stage() { echo "=== $(date -u +%FT%TZ) $*"; }
-
-stage gates
-[ -f "$RUN/train/gates_passed.json" ] || python scripts/run_loopwam_gr1.py --root "$RUN/train" --shared "$RUN/shared" --latent-dir "$LAT" --phase gates
+[ -f "$RUN/train/gates_passed.json" ] || { echo "gates have not passed"; exit 1; }
 
 stage latents
-torchrun --standalone --nproc_per_node=4 scripts/gr1_precompute_latents.py --shared-dir "$RUN/shared" --latent-dir "$LAT" --workers 6 \
+torchrun --standalone --nproc_per_node=4 scripts/gr1_precompute_latents.py --shared-dir "$RUN/shared" --latent-dir "$LAT" --workers 6 --batch 64 \
   >> "$RUN/logs/latents_full.log" 2>&1
 python - "$LAT" <<'EOF'
 import json, sys, numpy as np

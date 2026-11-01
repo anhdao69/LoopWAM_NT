@@ -11,7 +11,8 @@ p.add_argument('--phase', choices=['timing', 'gates', 'production'], required=Tr
 p.add_argument('--micro', default='16', help='layouts: 16 = microbatch 16 without checkpointing; 32c20 = microbatch 32, '
                'checkpointed blocks except the last 20 virtual layers')
 p.add_argument('--rope', choices=('complex', 'real'), default='real')
-p.add_argument('--text-tokens', type=int, default=48, help='longest training prompt is 41 T5 tokens'); p.add_argument('--timing-updates', type=int, default=200)
+p.add_argument('--text-tokens', type=int, default=48, help='longest training prompt is 41 T5 tokens')
+p.add_argument('--compile-mode', default='default', choices=('default', 'max-autotune-no-cudagraphs')); p.add_argument('--timing-updates', type=int, default=200)
 p.add_argument('--max-restarts', type=int, default=3)
 a = p.parse_args(); r = Path(a.root); r.mkdir(parents=True, exist_ok=True)
 read = lambda q: json.loads(Path(q).read_text())
@@ -21,13 +22,15 @@ def source_hashes():
     return {str(q): hashlib.sha256(q.read_bytes()).hexdigest() for root in ('src', 'scripts') for q in sorted(Path(root).rglob('*.py'))}
 
 
-def layout(token, rope, text_tokens):
+def layout(token, rope, text_tokens, compile_mode='default'):
     micro, _, keep = token.partition('c')
-    return dict(micro=int(micro), checkpoint_blocks=bool(_), keep_last=int(keep or 0), rope=rope, text_tokens=text_tokens)
+    return dict(micro=int(micro), checkpoint_blocks=bool(_), keep_last=int(keep or 0), rope=rope, text_tokens=text_tokens,
+                compile_mode=compile_mode)
 
 
 def tag(cfg):
-    return f"m{cfg['micro']}" + (f"c{cfg['keep_last']}" if cfg.get('checkpoint_blocks') else '') + f"_{cfg.get('rope', 'complex')}" + (f"_t{cfg['text_tokens']}" if cfg.get('text_tokens', 128) < 128 else '')
+    return f"m{cfg['micro']}" + (f"c{cfg['keep_last']}" if cfg.get('checkpoint_blocks') else '') + f"_{cfg.get('rope', 'complex')}" + (f"_t{cfg['text_tokens']}" if cfg.get('text_tokens', 128) < 128 else '') + \
+        ('_autotune' if cfg.get('compile_mode', 'default') != 'default' else '')
 
 
 def base(cfg):
@@ -37,7 +40,8 @@ def base(cfg):
             '--shared-dir', a.shared, '--latent-dir', a.latent_dir, '--epochs', '5', '--global-batch', '256', '--seed', '42',
             '--lr-backbone', '0.0001', '--lr-robot-io', '0.0001', '--warmup-fraction', '0.05', '--save-epochs', '3,4,5',
             '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(cfg['micro']), *blocks,
-            '--rope', cfg.get('rope', 'complex'), '--text-tokens', str(cfg.get('text_tokens', 128)), '--compile'] + \
+            '--rope', cfg.get('rope', 'complex'), '--text-tokens', str(cfg.get('text_tokens', 128)), '--compile',
+            '--compile-mode', cfg.get('compile_mode', 'default')] + \
            (['--allow-partial-cache'] if a.phase != 'production' else [])
 
 
@@ -61,7 +65,7 @@ if a.phase == 'timing':
     rows = {}
     cfgs = {}
     for token in a.micro.split(','):
-        cfg = layout(token, a.rope, a.text_tokens); m = tag(cfg); cfgs[m] = cfg
+        cfg = layout(token, a.rope, a.text_tokens, a.compile_mode); m = tag(cfg); cfgs[m] = cfg
         name = f'timing_{m}'
         code = run(name, base(cfg) + ['--output-dir', str(r / name), '--max-updates', str(a.timing_updates), '--no-save',
                                       '--profile-updates', '40:42'], check=False)

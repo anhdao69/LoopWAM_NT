@@ -141,6 +141,7 @@ def main():
                    'with longer prompts are refused)')
     p.add_argument('--profile-updates', default='', help='A:B -> rank-0 torch.profiler over updates A..B-1 (bounded no-save runs only)')
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=False)
+    p.add_argument('--compile-mode', default='default', choices=('default', 'max-autotune-no-cudagraphs'))
     p.add_argument('--smoke-tail', action='store_true', help='One no-save epoch-tail update for DDP/compile validation only')
     p.add_argument('--max-updates', type=int); p.add_argument('--no-save', action='store_true'); p.add_argument('--resume', action='store_true')
     p.add_argument('--allow-partial-cache', action='store_true', help='bounded smokes only; every batch still requires valid latents')
@@ -198,7 +199,8 @@ def main():
                     lr_backbone=a.lr_backbone, lr_robot_io=a.lr_robot_io, betas=[.9, .95], eps=1e-8, weight_decay=.01, clip=1.,
                     warmup_fraction=a.warmup_fraction, cosine_floor=.01,
                     precision='fp32 weights/moments, bf16 compute', save_epochs=a.save_epochs, checkpoint_every=a.checkpoint_every,
-                    kernels=dict(rope=a.rope, attention='structured', compile=a.compile, checkpoint_blocks=a.checkpoint_blocks, keep_last=a.keep_last,
+                    kernels=dict(rope=a.rope, attention='structured', compile=a.compile, compile_mode=a.compile_mode,
+                                 checkpoint_blocks=a.checkpoint_blocks, keep_last=a.keep_last,
                                  text_tokens=a.text_tokens),
                     smoke_tail=a.smoke_tail)
     mot_module.rope_apply = rope_apply_real if a.rope == 'real' else rope_apply
@@ -211,7 +213,7 @@ def main():
         torch._dynamo.config.cache_size_limit = 256; torch._dynamo.config.accumulated_cache_size_limit = 8192
         torch._inductor.config.comprehensive_padding = False
         for name in ('_joint_block', '_video_only_block'):
-            setattr(model.mot, name, torch.compile(getattr(model.mot, name)))
+            setattr(model.mot, name, torch.compile(getattr(model.mot, name), mode=a.compile_mode))
     params = model.policy_parameters(); assert sum(x.numel() for x in params) == PARAMETERS
     io_ids = {id(p) for layer in (model.action_expert.action_encoder, model.action_expert.head, model.proprio_encoder) for p in layer.parameters()}
     groups = [dict(params=[p for p in params if id(p) not in io_ids], lr=a.lr_backbone), dict(params=[p for p in params if id(p) in io_ids], lr=a.lr_robot_io)]
