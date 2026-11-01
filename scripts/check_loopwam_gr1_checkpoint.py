@@ -51,7 +51,7 @@ with torch.no_grad(), torch.autocast('cuda', dtype=torch.bfloat16):
               num_inference_steps=10, seed=42)
     first = model.infer_action(**kw)['action']; second = model.infer_action(**kw)['action']
     assert first.shape == (32, ROBOT_DIM) and torch.isfinite(first).all() and torch.equal(first, second)
-    mse = float(((first.float() - sample['action'][0].float()) ** 2).mean())
+    mse = float(((first.float().cpu() - sample['action'][0].float().cpu()) ** 2).mean())
 result = dict(passed=True, step=payload['step'], parameters=PARAMETERS, model='original LoopWAM v0 / LoopMoT (GR1 29-D)',
               policy_dtype='float32', optimizer_present=has_opt, optimizer_moments='float32' if has_opt else None,
               model_weights_restored_exact=True, loss_wrapper_exact=True, loss=float(wrapped), inference_shape=list(first.shape),
