@@ -22,12 +22,35 @@ from fastwam.datasets.loopwam_latent_cache import LoopWAMLatentCache
 from fastwam.datasets.loopwam_robot_batches import epoch_rank_batches, training_budget
 from fastwam.models.wan22.loopwam_gr1 import create_loopwam_gr1, RobotTrainForward, PARAMETERS, verify_optimizer_restore
 from fastwam.models.wan22.loopwam_init import sha256_file
+import fastwam.models.wan22.mot as mot_module
+from fastwam.models.wan22.wan_video_dit import rope_apply, rope_apply_real
 
 GLOBAL_BATCH = 256
 
 
 def write(path, payload):
     path = Path(path); tmp = path.with_suffix('.json.tmp'); tmp.write_text(json.dumps(payload, indent=2)); tmp.replace(path)
+
+
+def profile_summary(prof, wall_seconds, path):
+    """Kernel-only GPU time by category (CPU ops also carry their kernels' time, so they are excluded) plus top CPU ops."""
+    events = list(prof.key_averages())
+    kernels = [e for e in events if e.device_type == torch.autograd.DeviceType.CUDA and e.self_device_time_total > 0]
+    busy = sum(e.self_device_time_total for e in kernels); cats = {}
+    for e in kernels:
+        n = e.key.lower()
+        c = ('attention' if any(k in n for k in ('flash', 'fmha', 'attention')) else 'nccl' if 'nccl' in n else
+             'gemm' if any(k in n for k in ('gemm', 'cutlass', 'xmma', 'nvjet', 'sm90_', 'cublas')) else 'triton_fused' if 'triton' in n else
+             'complex' if 'complex' in n else 'eager_elementwise' if 'elementwise' in n or 'reduce_kernel' in n else
+             'optimizer' if any(k in n for k in ('adam', 'foreach', 'multi_tensor')) else 'copy' if any(k in n for k in ('copy', 'memcpy', 'memset')) else 'other')
+        cats[c] = cats.get(c, 0) + e.self_device_time_total
+    lines = [json.dumps(dict(wall_ms=round(1e3 * wall_seconds, 1), gpu_kernel_ms=round(busy / 1e3, 1),
+                             categories_pct={k: round(100 * v / busy, 1) for k, v in sorted(cats.items(), key=lambda x: -x[1])}))]
+    lines += [f'{100 * e.self_device_time_total / busy:6.2f}% {e.self_device_time_total / 1e3:9.1f}ms {e.count:6d} {e.key[:120]}'
+              for e in sorted(kernels, key=lambda e: -e.self_device_time_total)[:30]]
+    lines += ['--- top CPU ops by self CPU time'] + [f'{e.self_cpu_time_total / 1e3:9.1f}ms {e.count:6d} {e.key[:120]}'
+              for e in sorted(events, key=lambda e: -e.self_cpu_time_total)[:25]]
+    Path(path).write_text('\n'.join(lines) + '\n'); print(lines[0], flush=True)
 
 
 def lr_factor(step, total, warmup):
@@ -68,17 +91,24 @@ class Prefetcher:
                     first = start_batch if epoch == start_epoch else 0
                     for batch, ids in enumerate(epoch_rank_batches(len(w), GLOBAL_BATCH, world, rank, args.seed + epoch, first), first):
                         n = min(GLOBAL_BATCH, len(w) - batch * GLOBAL_BATCH)
-                        micros = []
+                        micros = []; built = time.perf_counter()
                         for lo in range(0, math.ceil(n / world), args.microbatch):
                             chosen = ids[lo:lo + args.microbatch]; dummy = not chosen; idx = chosen or [0]
                             w.warm_text([w.prompt(i) for i in idx]); f = [w.fields(i) for i in idx]
-                            sample = {k: torch.stack([x[k] for x in f]).pin_memory()
+                            sample = {k: torch.stack([x[k] for x in f])
                                       for k in ('action', 'proprio', 'action_is_pad', 'image_is_pad', 'context', 'context_mask')}
+                            if args.text_tokens < sample['context'].shape[1]:
+                                # Exact: every text consumer is masked (per-token MLP, position-free masked cross-attention).
+                                if sample['context_mask'][:, args.text_tokens:].any():
+                                    raise ValueError(f'Prompt longer than --text-tokens {args.text_tokens}')
+                                sample['context'] = sample['context'][:, :args.text_tokens].contiguous()
+                                sample['context_mask'] = sample['context_mask'][:, :args.text_tokens].contiguous()
+                            sample = {k: v.pin_memory() for k, v in sample.items()}
                             if not np.all(cache._valid[idx] == 1):
                                 raise ValueError('Latent cache miss')
                             sample['latents_bits'] = torch.from_numpy(np.array(cache._latents[idx]).view(np.int16)).pin_memory()
                             micros.append((sample, idx, dummy))
-                        self.q.put((epoch, batch, n, micros))
+                        self.q.put((epoch, batch, n, micros, time.perf_counter() - built))
                 self.q.put(None)
             except BaseException as e:
                 self.error = e; self.q.put(None)
@@ -104,6 +134,12 @@ def main():
     p.add_argument('--warmup-fraction', type=float, default=.05); p.add_argument('--save-epochs', default='3,4,5')
     p.add_argument('--checkpoint-every', type=int, default=1000); p.add_argument('--text-threads', type=int, default=4)
     p.add_argument('--checkpoint-blocks', action=argparse.BooleanOptionalAction, default=False)
+    p.add_argument('--keep-last', type=int, default=0, help='with --checkpoint-blocks: keep activations of the last N of 30 virtual layers')
+    p.add_argument('--rope', choices=('complex', 'real'), default='complex',
+                   help='real: the same float64 RoPE without complex tensors (bit-identical forward), fusable by inductor')
+    p.add_argument('--text-tokens', type=int, default=128, help='drop masked text padding beyond this length (exact; batches '
+                   'with longer prompts are refused)')
+    p.add_argument('--profile-updates', default='', help='A:B -> rank-0 torch.profiler over updates A..B-1 (bounded no-save runs only)')
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=False)
     p.add_argument('--smoke-tail', action='store_true', help='One no-save epoch-tail update for DDP/compile validation only')
     p.add_argument('--max-updates', type=int); p.add_argument('--no-save', action='store_true'); p.add_argument('--resume', action='store_true')
@@ -112,6 +148,12 @@ def main():
     if (a.dataset, a.epochs, a.seed, a.global_batch, a.memory_tokens, a.history_frame, a.lr_backbone, a.lr_robot_io, a.warmup_fraction) != \
             ('robocasa_gr1', 5, 42, GLOBAL_BATCH, 0, 0, 1e-4, 1e-4, .05):
         p.error('GR1 v0 recipe requires robocasa_gr1, 5 epochs, seed 42, batch 256, memory0/history0, lr 1e-4, warmup 5%')
+    if a.keep_last and not a.checkpoint_blocks or not 0 <= a.keep_last <= 30:
+        p.error('--keep-last requires --checkpoint-blocks and 0..30')
+    if not 1 <= a.text_tokens <= 128:
+        p.error('--text-tokens must be in 1..128')
+    if a.profile_updates and not (a.no_save and a.max_updates):
+        p.error('--profile-updates is for bounded no-save runs')
     if a.smoke_tail and (a.max_updates != 1 or not a.no_save or a.resume):
         p.error('Tail smoke requires max-updates1/no-save/fresh')
     rank, world, local = [int(os.getenv(k, d)) for k, d in [('RANK', 0), ('WORLD_SIZE', 1), ('LOCAL_RANK', 0)]]
@@ -156,11 +198,15 @@ def main():
                     lr_backbone=a.lr_backbone, lr_robot_io=a.lr_robot_io, betas=[.9, .95], eps=1e-8, weight_decay=.01, clip=1.,
                     warmup_fraction=a.warmup_fraction, cosine_floor=.01,
                     precision='fp32 weights/moments, bf16 compute', save_epochs=a.save_epochs, checkpoint_every=a.checkpoint_every,
+                    kernels=dict(rope=a.rope, attention='structured', compile=a.compile, checkpoint_blocks=a.checkpoint_blocks, keep_last=a.keep_last,
+                                 text_tokens=a.text_tokens),
                     smoke_tail=a.smoke_tail)
+    mot_module.rope_apply = rope_apply_real if a.rope == 'real' else rope_apply
     model, payload = create_loopwam_gr1(a.vae_path, init_artifact=a.init_artifact, checkpoint_path=resume if a.resume else None,
                                         device=device, checkpoint_blocks=a.checkpoint_blocks, seed=a.seed, artifact_sha256=hashes['init'])
     assert model.architecture_metadata['init_artifact_sha256'] == hashes['init']
     model.train(); model.mot.structured_attention = True; model.mot.structured_attention_observation_tokens = OBS_TOKENS
+    model.mot.uncheckpointed_virtual_layers = a.keep_last
     if a.compile:
         torch._dynamo.config.cache_size_limit = 256; torch._dynamo.config.accumulated_cache_size_limit = 8192
         torch._inductor.config.comprehensive_padding = False
@@ -204,12 +250,18 @@ def main():
             else:
                 (out / 'checkpoints').mkdir(exist_ok=True); model.save_robot(out / 'checkpoints' / f'epoch_{epoch:02d}.pt', step=update, training_state=state)
         dist.barrier()
-    status = 'running'
+    status = 'running'; prof = None
+    prof_range = [int(x) for x in a.profile_updates.split(':')] if a.profile_updates else None
+    events = [torch.cuda.Event(enable_timing=True) for _ in range(3)]
     while True:
         t = time.time(); item = pref.get(); data_wait = time.time() - t
         if item is None:
             status = 'complete'; break
-        epoch, batch, n, micros = item
+        epoch, batch, n, micros, build_seconds = item
+        if rank == 0 and prof_range and update == prof_range[0]:
+            prof = torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU, torch.profiler.ProfilerActivity.CUDA]); prof.__enter__()
+            prof_start = time.time()
+        events[0].record()
         if a.resume and epoch == start_epoch and batch == start_batch:
             assert [i for _, ids, dummy in micros if not dummy for i in ids] == resume_ids, 'Resumed data differs from expected next batch'
         factor = lr_factor(update, total, warmup)
@@ -228,9 +280,11 @@ def main():
                 (loss * (0. if dummy else world / n)).backward()
             if not dummy:
                 sums += torch.stack([loss.detach(), logs['video'], logs['action'], torch.as_tensor(len(ids), device=device)])
+        events[1].record(); issue_seconds = time.time() - t - data_wait
         if update == 0 and any(p.grad is None or not torch.isfinite(p.grad).all() for p in params):
             raise ValueError('Missing/nonfinite gradient')
         grad = torch.nn.utils.clip_grad_norm_(params, 1., error_if_nonfinite=True); opt.step(); opt.zero_grad(set_to_none=True)
+        events[2].record()
         if update == 0:
             moments = sorted({str(v.dtype) for state in opt.state.values() for k, v in state.items() if k in ('exp_avg', 'exp_avg_sq')})
             assert moments == ['torch.float32'] and all(p.dtype == torch.float32 for p in params)
@@ -241,7 +295,9 @@ def main():
         done = (batch + 1 == per_epoch); next_epoch, next_batch = (epoch + 1, 0) if done else (epoch, batch + 1)
         if rank == 0:
             rec = dict(update=update, epoch=epoch + 1, epochs_complete=epoch + int(done), valid_windows=n, windows_seen=windows_seen, seconds=seconds,
-                       data_wait_seconds=data_wait, loss=float(sums[0] / n), loss_video=float(sums[1] / n), loss_action=float(sums[2] / n),
+                       data_wait_seconds=data_wait, prefetch_build_seconds=build_seconds, host_issue_seconds=issue_seconds,
+                       gpu_micro_seconds=events[0].elapsed_time(events[1]) / 1e3, gpu_optimizer_seconds=events[1].elapsed_time(events[2]) / 1e3,
+                       loss=float(sums[0] / n), loss_video=float(sums[1] / n), loss_action=float(sums[2] / n),
                        grad_norm=float(grad), lr_backbone=opt.param_groups[0]['lr'],
                        peak_allocated_gb=torch.cuda.max_memory_allocated() / 1e9, peak_reserved_gb=torch.cuda.max_memory_reserved() / 1e9)
             log.write(json.dumps(rec) + '\n'); log.flush()
@@ -249,6 +305,9 @@ def main():
                 print(json.dumps(rec), flush=True)
             write(out / 'timing.json', dict(status='running', update=update, planned_updates=total, windows_seen=windows_seen,
                   elapsed_training_seconds=elapsed_prior + time.time() - start, last_update_seconds=seconds, heartbeat_unix=time.time()))
+        if prof is not None and update == prof_range[1]:
+            prof.__exit__(None, None, None)
+            profile_summary(prof, (time.time() - prof_start) / (prof_range[1] - prof_range[0]), out / f'profile_rank0_u{prof_range[0]}_{prof_range[1]}.txt'); prof = None
         if not a.no_save:
             if done and epoch + 1 in {int(v) for v in a.save_epochs.split(',')}:
                 save(epoch + 1)

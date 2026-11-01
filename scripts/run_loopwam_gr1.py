@@ -8,7 +8,10 @@ from pathlib import Path
 p = argparse.ArgumentParser()
 p.add_argument('--root', required=True); p.add_argument('--shared', required=True); p.add_argument('--latent-dir', required=True)
 p.add_argument('--phase', choices=['timing', 'gates', 'production'], required=True)
-p.add_argument('--micro', default='8,16'); p.add_argument('--timing-updates', type=int, default=200)
+p.add_argument('--micro', default='16', help='layouts: 16 = microbatch 16 without checkpointing; 32c20 = microbatch 32, '
+               'checkpointed blocks except the last 20 virtual layers')
+p.add_argument('--rope', choices=('complex', 'real'), default='real')
+p.add_argument('--text-tokens', type=int, default=48, help='longest training prompt is 41 T5 tokens'); p.add_argument('--timing-updates', type=int, default=200)
 p.add_argument('--max-restarts', type=int, default=3)
 a = p.parse_args(); r = Path(a.root); r.mkdir(parents=True, exist_ok=True)
 read = lambda q: json.loads(Path(q).read_text())
@@ -18,12 +21,23 @@ def source_hashes():
     return {str(q): hashlib.sha256(q.read_bytes()).hexdigest() for root in ('src', 'scripts') for q in sorted(Path(root).rglob('*.py'))}
 
 
-def base(micro):
+def layout(token, rope, text_tokens):
+    micro, _, keep = token.partition('c')
+    return dict(micro=int(micro), checkpoint_blocks=bool(_), keep_last=int(keep or 0), rope=rope, text_tokens=text_tokens)
+
+
+def tag(cfg):
+    return f"m{cfg['micro']}" + (f"c{cfg['keep_last']}" if cfg.get('checkpoint_blocks') else '') + f"_{cfg.get('rope', 'complex')}" + (f"_t{cfg['text_tokens']}" if cfg.get('text_tokens', 128) < 128 else '')
+
+
+def base(cfg):
+    blocks = ['--checkpoint-blocks', '--keep-last', str(cfg.get('keep_last', 0))] if cfg.get('checkpoint_blocks') else ['--no-checkpoint-blocks']
     return ['torchrun', '--standalone', '--nproc_per_node=4', 'scripts/train_loopwam_gr1.py', '--dataset', 'robocasa_gr1',
             '--run-name', 'LoopWAM-v0-RoboCasa-GR1', '--init-artifact', 'checkpoints/LoopWAM/wan21_compact_donors.pt',
             '--shared-dir', a.shared, '--latent-dir', a.latent_dir, '--epochs', '5', '--global-batch', '256', '--seed', '42',
             '--lr-backbone', '0.0001', '--lr-robot-io', '0.0001', '--warmup-fraction', '0.05', '--save-epochs', '3,4,5',
-            '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(micro), '--no-checkpoint-blocks', '--compile'] + \
+            '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(cfg['micro']), *blocks,
+            '--rope', cfg.get('rope', 'complex'), '--text-tokens', str(cfg.get('text_tokens', 128)), '--compile'] + \
            (['--allow-partial-cache'] if a.phase != 'production' else [])
 
 
@@ -45,9 +59,12 @@ sources = source_hashes()
 prep = read(Path(a.shared) / 'data/prepare_report.json')
 if a.phase == 'timing':
     rows = {}
-    for m in [int(x) for x in a.micro.split(',')]:
-        name = f'timing_micro{m}'
-        code = run(name, base(m) + ['--output-dir', str(r / name), '--max-updates', str(a.timing_updates), '--no-save'], check=False)
+    cfgs = {}
+    for token in a.micro.split(','):
+        cfg = layout(token, a.rope, a.text_tokens); m = tag(cfg); cfgs[m] = cfg
+        name = f'timing_{m}'
+        code = run(name, base(cfg) + ['--output-dir', str(r / name), '--max-updates', str(a.timing_updates), '--no-save',
+                                      '--profile-updates', '40:42'], check=False)
         got = metrics(r / name) if (r / name / 'metrics.jsonl').exists() else []
         steady = [x['seconds'] for x in got if x['update'] > 20]
         rows[m] = dict(exit_code=code, updates=len(got), complete=code == 0 and len(got) == a.timing_updates,
@@ -58,7 +75,10 @@ if a.phase == 'timing':
                        peak_allocated_gb=max((x['peak_allocated_gb'] for x in got), default=None),
                        peak_reserved_gb=max((x['peak_reserved_gb'] for x in got), default=None),
                        loss_first=got[0]['loss'] if got else None, loss_last=got[-1]['loss'] if got else None,
-                       action_loss_last=got[-1]['loss_action'] if got else None)
+                       action_loss_last=got[-1]['loss_action'] if got else None,
+                       **{f'median_{k}': statistics.median([x[k] for x in got if x['update'] > 20 and x['update'] not in (41, 42)])
+                          for k in ('gpu_micro_seconds', 'gpu_optimizer_seconds', 'host_issue_seconds', 'prefetch_build_seconds')
+                          if steady and k in got[-1]})
         if rows[m]['median_s_per_update']:
             s = rows[m]['median_s_per_update']
             rows[m]['projected_hours'] = round(s * prep['total_updates'] / 3600, 1)
@@ -67,11 +87,11 @@ if a.phase == 'timing':
     if not ok:
         raise SystemExit('No microbatch completed the timing smoke')
     pick = min(ok, key=lambda m: ok[m]['median_s_per_update'])
-    selected = dict(micro=pick, name=f'timing_micro{pick}', compile=True, checkpoint_blocks=False, rows=rows,
+    selected = dict(cfgs[pick], name=f'timing_{pick}', compile=True, rows=rows,
                     total_updates=prep['total_updates'], updates_per_epoch=prep['updates_per_epoch'])
     (r / 'selected.json').write_text(json.dumps(selected, indent=2)); print(json.dumps(dict(selected=pick)), flush=True)
 elif a.phase == 'gates':
-    selected = read(r / 'selected.json'); cmd = base(selected['micro'])
+    selected = read(r / 'selected.json'); cmd = base(selected)
     run('native_smoke', cmd + ['--output-dir', str(r / 'smoke'), '--max-updates', '10'])
     run('native_reload', [sys.executable, 'scripts/check_loopwam_gr1_checkpoint.py', '--checkpoint', str(r / 'smoke/latest.pt'),
                           '--shared', a.shared, '--latent-dir', a.latent_dir, '--output', str(r / 'reload_check.json')])
@@ -95,7 +115,7 @@ elif a.phase == 'gates':
     print(json.dumps(dict(gates='passed')), flush=True)
 else:
     gates = read(r / 'gates_passed.json'); assert gates['passed'] and gates['sources'] == sources, 'Sources changed since gates'
-    out = r / 'production'; cmd = base(gates['selected']['micro']) + ['--output-dir', str(out)]
+    out = r / 'production'; cmd = base(gates['selected']) + ['--output-dir', str(out)]
     code = run('production', cmd, check=False) if not out.exists() else 1
     restarts, last = 0, -1
     while code:

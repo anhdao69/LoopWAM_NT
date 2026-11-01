@@ -56,6 +56,7 @@ def main():
     p.add_argument('--checkpoint-blocks', action=argparse.BooleanOptionalAction, default=False)
     p.add_argument('--keep-last', type=int, default=0)
     p.add_argument('--rope', choices=('complex', 'real'), default='complex')
+    p.add_argument('--text-tokens', type=int, default=128)
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=True)
     p.add_argument('--compile-mode', default=None)
     p.add_argument('--warmup', type=int, default=3)
@@ -85,6 +86,9 @@ def main():
     assert a.per_gpu % a.micro == 0
     accum = a.per_gpu // a.micro
     batches = [synthetic(a.micro, dev, s) for s in range(min(accum, 4))]
+    for sample, _ in batches:
+        assert not sample['context_mask'][:, a.text_tokens:].any()
+        sample['context'] = sample['context'][:, :a.text_tokens].contiguous(); sample['context_mask'] = sample['context_mask'][:, :a.text_tokens].contiguous()
 
     def update():
         total = 0.
@@ -99,19 +103,24 @@ def main():
     if a.equivalence:
         sample, noise = batches[0]
 
-        def grads(rope):
+        full = synthetic(a.micro, dev, 0)[0]  # untrimmed 128-token context (batches[0] is trimmed to --text-tokens)
+
+        def grads(rope, s=None):
             mot_module.rope_apply = {'complex': rope_apply, 'real': rope_apply_real}[rope]
             model.zero_grad(set_to_none=True)
             with torch.autocast('cuda', dtype=torch.bfloat16):
-                loss, logs, _ = runner([dict(sample=sample, noise=noise)])
+                loss, logs, _ = runner([dict(sample=s or full, noise=noise)])
             loss.backward()
             return [float(loss), float(logs['video']), float(logs['action'])], torch.cat([x.grad.flatten() for x in params])
 
         def compare(x, y):
             return dict(loss_abs_diff=[abs(u - v) for u, v in zip(x[0], y[0])], grad_rel_l2=float((x[1] - y[1]).norm() / x[1].norm()),
                         grad_cos=float(torch.nn.functional.cosine_similarity(x[1], y[1], dim=0)))
-        c1 = grads('complex'); c1 = (c1[0], c1[1].clone()); c2 = grads('complex'); r = grads('real')
-        out = dict(equivalence=dict(loss_complex=c1[0], loss_real=r[0], complex_vs_complex=compare(c1, c2), complex_vs_real=compare(c1, r)))
+        c1 = grads('complex'); c1 = (c1[0], c1[1].clone()); c2 = grads('complex'); c2 = (c2[0], c2[1].clone())
+        r = grads('real'); r = (r[0], r[1].clone()); r2 = grads('real'); r2 = (r2[0], r2[1].clone()); rt = grads('real', sample)
+        out = dict(equivalence=dict(text_tokens=sample['context'].shape[1], loss_complex=c1[0], loss_real=r[0], loss_real_trimmed=rt[0],
+                   complex_vs_complex=compare(c1, c2), complex_vs_real=compare(c1, r), real_vs_real=compare(r, r2),
+                   real_vs_real_trimmed=compare(r, rt)))
         print(json.dumps(out), flush=True)
         if a.out:
             with open(a.out, 'w') as f:
