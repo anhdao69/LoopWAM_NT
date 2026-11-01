@@ -148,6 +148,8 @@ def _read_unique_prompts(dataset_dirs: list[str]) -> list[str]:
         len(dataset_dirs),
         len(prompts),
     )
+    for idx, prompt in enumerate(prompts):
+        logger.info("unique prompt [%d] sha256=%s: %s", idx, hashlib.sha256(prompt.encode("utf-8")).hexdigest(), prompt)
     return prompts
 
 
