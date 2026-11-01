@@ -23,7 +23,8 @@ def base(micro):
             '--run-name', 'LoopWAM-v0-RoboCasa-GR1', '--init-artifact', 'checkpoints/LoopWAM/wan21_compact_donors.pt',
             '--shared-dir', a.shared, '--latent-dir', a.latent_dir, '--epochs', '5', '--global-batch', '256', '--seed', '42',
             '--lr-backbone', '0.0001', '--lr-robot-io', '0.0001', '--warmup-fraction', '0.05', '--save-epochs', '3,4,5',
-            '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(micro), '--no-checkpoint-blocks', '--compile']
+            '--checkpoint-every', '1000', '--text-threads', '4', '--microbatch', str(micro), '--no-checkpoint-blocks', '--compile'] + \
+           (['--allow-partial-cache'] if a.phase != 'production' else [])
 
 
 def run(name, cmd, check=True):

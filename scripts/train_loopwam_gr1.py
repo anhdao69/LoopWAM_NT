@@ -107,6 +107,7 @@ def main():
     p.add_argument('--compile', action=argparse.BooleanOptionalAction, default=False)
     p.add_argument('--smoke-tail', action='store_true', help='One no-save epoch-tail update for DDP/compile validation only')
     p.add_argument('--max-updates', type=int); p.add_argument('--no-save', action='store_true'); p.add_argument('--resume', action='store_true')
+    p.add_argument('--allow-partial-cache', action='store_true', help='bounded smokes only; every batch still requires valid latents')
     a = p.parse_args()
     if (a.dataset, a.epochs, a.seed, a.global_batch, a.memory_tokens, a.history_frame, a.lr_backbone, a.lr_robot_io, a.warmup_fraction) != \
             ('robocasa_gr1', 5, 42, GLOBAL_BATCH, 0, 0, 1e-4, 1e-4, .05):
@@ -138,7 +139,11 @@ def main():
     hashes = [dict(init=sha256_file(a.init_artifact), vae=sha256_file(a.vae_path)) if rank == 0 else None]
     dist.broadcast_object_list(hashes, src=0); hashes = hashes[0]
     cache = LoopWAMLatentCache(Path(a.latent_dir), len(w), latent_provenance_gr1(w, hashes['vae']), latent_shape=LATENT_SHAPE)
-    assert np.all(cache._valid == 1), 'Incomplete latent cache'
+    if a.allow_partial_cache:
+        if not a.max_updates:
+            p.error('--allow-partial-cache is only for bounded smokes')
+    else:
+        assert np.all(cache._valid == 1), 'Incomplete latent cache'
     per_epoch, total, tail = training_budget(len(w), GLOBAL_BATCH, a.epochs)
     contract = dict(model='original LoopWAM v0', partition=[3, 6, 3], video_loops=4, action_loops=4, memory_tokens=0, history_frame=0,
                     robot_dim=ROBOT_DIM, latent_shape=list(LATENT_SHAPE), observation_tokens=OBS_TOKENS,
