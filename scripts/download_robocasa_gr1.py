@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import time
 from pathlib import Path
 
@@ -54,6 +55,54 @@ def verify_folder(root: Path) -> dict:
                 total_frames_info=info['total_frames'], tasks=sum(1 for l in (meta / 'tasks.jsonl').open() if l.strip()))
 
 
+def _retry(fn, what, attempts=50):
+    for attempt in range(1, attempts + 1):
+        try:
+            return fn()
+        except Exception as exc:                # network hiccups: retry with backoff
+            print(json.dumps(dict(event='retry', what=what, attempt=attempt, error=repr(exc)[:300])), flush=True)
+            time.sleep(min(60.0, random.uniform(1.0, 5.0) * attempt))
+    raise RuntimeError(f'giving up: {what}')
+
+
+def download(out: Path, workers: int):
+    """Per-folder tree listing + per-file download.
+
+    The repo is too large for repo_info().siblings (truncated), so snapshot_download silently
+    matches nothing; list each folder's tree instead (what starVLA's list_repo_files does).
+    Files already present with the expected size are skipped, so the script is resumable.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from huggingface_hub import HfApi, hf_hub_download
+    api = HfApi()
+    files = []
+    for folder in FOLDERS:
+        entries = _retry(lambda: list(api.list_repo_tree(REPO_ID, repo_type='dataset', revision=REVISION,
+                                                          path_in_repo=folder, recursive=True)), folder)
+        files += [(e.path, e.size) for e in entries if getattr(e, 'size', None) is not None
+                  and not hasattr(e, 'tree_id')]
+    if any(not path.startswith(FOLDERS) for path, _ in files):
+        raise RuntimeError('Listing returned a path outside the 24 folders')
+    total = sum(s for _, s in files)
+    todo = [(p, s) for p, s in files if not ((out / p).is_file() and (out / p).stat().st_size == s)]
+    print(json.dumps(dict(event='listing', files=len(files), gb=round(total / 1e9, 2), todo=len(todo))), flush=True)
+
+    def fetch(path, size):
+        _retry(lambda: hf_hub_download(REPO_ID, path, repo_type='dataset', revision=REVISION, local_dir=str(out)), path)
+        if (out / path).stat().st_size != size:
+            raise RuntimeError(f'size mismatch: {path}')
+        return path
+
+    started, done = time.time(), 0
+    with ThreadPoolExecutor(workers) as pool:
+        for future in as_completed([pool.submit(fetch, p, s) for p, s in todo]):
+            future.result()
+            done += 1
+            if done % 500 == 0 or done == len(todo):
+                print(json.dumps(dict(event='progress', done=done, of=len(todo),
+                                      minutes=round((time.time() - started) / 60, 1))), flush=True)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', required=True)
@@ -62,17 +111,7 @@ def main():
     a = p.parse_args()
     out = Path(a.out)
     if not a.verify_only:
-        from huggingface_hub import snapshot_download
-        for attempt in range(1, 31):
-            try:
-                snapshot_download(REPO_ID, repo_type='dataset', revision=REVISION, local_dir=str(out),
-                                  allow_patterns=[f'{f}/*' for f in FOLDERS], max_workers=a.workers)
-                break
-            except Exception as exc:            # network hiccups: resume (completed files are skipped)
-                print(json.dumps(dict(event='retry', attempt=attempt, error=repr(exc)[:300])), flush=True)
-                time.sleep(min(60, 5 * attempt))
-        else:
-            raise SystemExit('download failed after 30 attempts')
+        download(out, a.workers)
     present = sorted(d.name for d in out.iterdir() if d.is_dir() and not d.name.startswith('.'))
     unexpected = [d for d in present if d not in FOLDERS]
     if unexpected:
