@@ -12,7 +12,8 @@ stage() { echo "=== $(date -u +%FT%TZ) $*"; }
 [ -f "$RUN/train/gates_passed.json" ] || { echo "gates have not passed"; exit 1; }
 
 stage latents
-torchrun --standalone --nproc_per_node=4 scripts/gr1_precompute_latents.py --shared-dir "$RUN/shared" --latent-dir "$LAT" --workers 6 --batch 64 \
+# LATENT_SCRIPT=experiments/robocasa_gr1/precompute_latents_cl.py selects the channels_last_3d VAE wrapper (same arguments)
+torchrun --standalone --nproc_per_node=4 "${LATENT_SCRIPT:-scripts/gr1_precompute_latents.py}" --shared-dir "$RUN/shared" --latent-dir "$LAT" --workers 6 --batch 64 \
   >> "$RUN/logs/latents_full.log" 2>&1
 python - "$LAT" <<'EOF'
 import json, sys, numpy as np
