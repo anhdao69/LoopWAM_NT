@@ -60,6 +60,18 @@ def rope_apply(x, freqs, num_heads):
     return torch.view_as_real(x_out * freqs).flatten(2).to(x.dtype)
 
 
+def rope_apply_real(x, freqs, num_heads):
+    """``rope_apply`` without complex tensors: the same float64 rotation (ac - bd, ad + bc), which
+    TorchInductor can fuse (it cannot generate code for complex operators). Opt-in only."""
+    batch_size, seq_len, _ = x.shape
+    pairs = x.view(batch_size, seq_len, num_heads, -1, 2).to(torch.float64)
+    f = torch.view_as_real(freqs) if freqs.is_complex() else freqs
+    cos, sin = f[..., 0].to(torch.float64), f[..., 1].to(torch.float64)
+    real = pairs[..., 0] * cos - pairs[..., 1] * sin
+    imag = pairs[..., 0] * sin + pairs[..., 1] * cos
+    return torch.stack((real, imag), dim=-1).flatten(2).to(x.dtype)
+
+
 def create_group_causal_attn_mask(
     num_temporal_groups: int, num_query_per_group: int, num_key_per_group: int, mode: str = "causal"
 ) -> torch.Tensor:
