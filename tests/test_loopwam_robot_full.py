@@ -24,6 +24,7 @@ def test_fresh_interfaces_seed_and_dimensions():
 def test_v0_ddp_wrapper_returns_sample_sum():
     from fastwam.models.wan22.loopwam_robot import RobotTrainForward
     class Fake(nn.Module):
+        mot=type('Mot',(),{'loops':4})()
         def prepare_training_batch(self,sample,**kw):return sample
         def forward_exits(self,sample):return sample
         def reduce_flow_losses(self,outputs,noisy):

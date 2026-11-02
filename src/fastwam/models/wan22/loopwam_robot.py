@@ -1,4 +1,5 @@
-"""Original LoopWAM v0 with fresh 14-D robot interfaces and cached RoboTwin inputs.
+"""Original LoopWAM v0 (and its loop-depth / Dense variants) with fresh 14-D robot interfaces
+and cached RoboTwin inputs.
 
 No ChronoLoop modules, memory, recurrent state, or history tokens are instantiated.
 """
@@ -12,6 +13,31 @@ from .loopwam_init import (build_target_experts, load_init_artifact, load_wan21_
 
 FORMAT = 'loopwam-s-robot-v1'
 PARAMETERS = 584567886
+# Released LIBERO model family, by Hugging Face folder name: (LoopMoT version, video loops, action loops).
+# v0 variants use aligned (late) action KV; Dense controls run their physical blocks once.
+VARIANTS = {
+    'v0-video4-action4': ('v0', 4, 4),
+    'v0-video4-action2': ('v0', 4, 2),
+    'v0-video4-action1': ('v0', 4, 1),
+    'v0-video2-action2': ('v0', 2, 2),
+    'v0-video1-action4': ('v0', 1, 4),
+    'dense-s12': ('dense_s12', 1, 1),
+    'dense-s30': ('dense_s30', 1, 1),
+}
+# 14-D robot interfaces add 31,751 parameters to each LIBERO count (584,536,135 / 1,416,114,247).
+VERSION_PARAMETERS = {'v0': PARAMETERS, 'dense_s12': PARAMETERS, 'dense_s30': 1416145998}
+
+
+def robot_parameter_count(variant):
+    return VERSION_PARAMETERS[VARIANTS[variant][0]]
+
+
+def payload_variant(p):
+    key = (p.get('version'), p.get('video_loops'), p.get('action_loops'))
+    for name, value in VARIANTS.items():
+        if value == key:
+            return name
+    raise ValueError(f'Unsupported robot checkpoint depth {key}')
 
 class RobotLoopWAM(LoopWAM):
     def _encode_training_video(self, sample, input_video, tiled=False):
@@ -23,8 +49,9 @@ class RobotLoopWAM(LoopWAM):
     def save_robot(self,path,optimizer=None,step=None,training_state=None):
         from pathlib import Path
         path=Path(path)
-        payload=dict(format_version=FORMAT,version='v0',video_loops=4,action_loops=4,
-            inference_loops=4,trained_max_loops=4,exit_weight_scale=1.,memory_tokens=0,history_frame=0,
+        payload=dict(format_version=FORMAT,version=self.version,video_loops=self.mot.loops,action_loops=self.mot.action_loops,
+            inference_loops=self.mot.loops,trained_max_loops=self.mot.trained_max_loops,exit_weight_scale=1.,memory_tokens=0,history_frame=0,
+            loop_alignment='late',action_kv_mode='aligned',
             architecture=self.architecture_metadata,mot=self.mot.state_dict(),
             proprio_encoder=self.proprio_encoder.state_dict(),step=step,training_state=training_state)
         if optimizer is not None:payload['optimizer']=optimizer.state_dict()
@@ -42,33 +69,41 @@ def fresh_robot_interfaces(model,seed):
     model.proprio_encoder=prop.to(device=ref.device,dtype=ref.dtype)
     model.action_expert.action_dim=14;model.proprio_dim=14
 
-def validate_robot_payload(p):
-    expected=dict(format_version=FORMAT,version='v0',video_loops=4,action_loops=4,memory_tokens=0,history_frame=0,inference_loops=4,trained_max_loops=4,exit_weight_scale=1.)
-    if any(p.get(k)!=v for k,v in expected.items()):raise ValueError('Not an original v0 4/4 robot checkpoint')
-    v,a=target_configs(12);a['action_dim']=14
+def validate_robot_payload(p,variant=None):
+    name=payload_variant(p)
+    if variant is not None and name!=variant:raise ValueError(f'Robot checkpoint is {name}, expected {variant}')
+    version,video_loops,_=VARIANTS[name];dense=version!='v0'
+    expected=dict(format_version=FORMAT,memory_tokens=0,history_frame=0,inference_loops=video_loops,trained_max_loops=1 if dense else 4,exit_weight_scale=1.)
+    if any(p.get(k)!=v for k,v in expected.items()):raise ValueError(f'Not an original {name} robot checkpoint')
+    v,a=target_configs(30 if version=='dense_s30' else 12);a['action_dim']=14
+    donors=list(range(30)) if version=='dense_s30' else list(DONOR_INDICES)
     m=p['architecture']
-    if m['target_video_config']!=v or m['target_action_config']!=a or m.get('robot_proprio_dim')!=14 or m.get('donor_indices')!=list(DONOR_INDICES):
+    if m['target_video_config']!=v or m['target_action_config']!=a or m.get('robot_proprio_dim')!=14 or m.get('donor_indices')!=donors:
         raise ValueError('Robot checkpoint architecture/donor mismatch')
     if m.get('initialization_mode')!='fresh_wan_donors_no_embodied_pretraining':raise ValueError('Robot initialization provenance mismatch')
 
-def create_loopwam_robot(vae_path,*,init_artifact=None,checkpoint_path=None,device='cpu',checkpoint_blocks=True,seed=42,artifact_sha256=None):
+def create_loopwam_robot(vae_path,*,init_artifact=None,checkpoint_path=None,device='cpu',checkpoint_blocks=True,seed=42,artifact_sha256=None,variant=None):
+    """Fresh donors (``variant`` defaults to v0 4/4) or a robot checkpoint (its stored variant)."""
     if checkpoint_path:
-        p=torch.load(checkpoint_path,map_location='cpu',mmap=True,weights_only=False);validate_robot_payload(p)
+        p=torch.load(checkpoint_path,map_location='cpu',mmap=True,weights_only=False);validate_robot_payload(p,variant)
+        variant=payload_variant(p)
         from .wan_video_dit import WanVideoDiT
         from .action_dit import ActionDiT
         m=copy.deepcopy(p['architecture']);video=WanVideoDiT(**m['target_video_config']);action=ActionDiT(**m['target_action_config'])
     else:
         if init_artifact is None:raise ValueError('Canonical Wan donor artifact required; trained parents are not accepted')
+        variant=variant or 'v0-video4-action4'
         artifact=load_init_artifact(init_artifact)
-        video,action,_=build_target_experts(artifact,device=device,dtype=torch.float32)
-        m=architecture_metadata_for_version(artifact['metadata'],'v0')
+        video,action,_=build_target_experts(artifact,device=device,dtype=torch.float32,dense30=VARIANTS[variant][0]=='dense_s30')
+        m=architecture_metadata_for_version(artifact['metadata'],VARIANTS[variant][0])
         m.update(initialization_mode='fresh_wan_donors_no_embodied_pretraining',init_artifact_sha256=artifact_sha256 or sha256_file(init_artifact),robot_interface_seed=seed,robot_proprio_dim=14)
         p=None
+    version,video_loops,action_loops=VARIANTS[variant]
     video=video.to(device=device,dtype=torch.float32);action=action.to(device=device,dtype=torch.float32)
     vae=load_wan21_vae(vae_path,device=device,dtype=torch.bfloat16 if str(device).startswith('cuda') else torch.float32)
-    mot=LoopMoT({'video':video,'action':action},loops=4,version='v0',checkpoint_blocks=checkpoint_blocks)
+    mot=LoopMoT({'video':video,'action':action},loops=video_loops,version=version,checkpoint_blocks=checkpoint_blocks,action_loops=action_loops)
     model=RobotLoopWAM(video_expert=video,action_expert=action,mot=mot,vae=vae,text_dim=4096,
-        proprio_dim=14 if p else 8,device=device,torch_dtype=torch.float32,version='v0',exit_weight_scale=1.,architecture_metadata=m,
+        proprio_dim=14 if p else 8,device=device,torch_dtype=torch.float32,version=version,exit_weight_scale=1.,architecture_metadata=m,
         video_train_shift=5.,video_infer_shift=5.,action_train_shift=1.,action_infer_shift=1.)
     if p:
         model.mot.load_state_dict(p['mot'],strict=True);model.proprio_encoder.load_state_dict(p['proprio_encoder'],strict=True)
@@ -77,15 +112,15 @@ def create_loopwam_robot(vae_path,*,init_artifact=None,checkpoint_path=None,devi
     return model,p
 
 class RobotTrainForward(nn.Module):
-    """DDP entry point: preserve original v0 losses, convert per-window mean to sum."""
+    """DDP entry point: preserve original v0 losses (final exit only), convert per-window mean to sum."""
     def __init__(self,model):super().__init__();self.model=model
     def forward(self,segment,state=None,sequential=False):
         if sequential or state is not None or len(segment)!=1:raise ValueError('Original v0 is stateless')
         sample=segment[0]['sample'];n=segment[0]['noise']
         noisy=self.model.prepare_training_batch(sample,noise_video=n['video'],noise_action=n['action'],timestep_video=n['t_video'],timestep_action=n['t_action'])
         loss,logs=self.model.reduce_flow_losses(self.model.forward_exits(noisy),noisy)
-        b=sample['action'].shape[0]
-        return loss*b,{name:logs[key]*b for name,key in [('video','loss_video'),('action','loss_action'),('video_raw','exit4/video_raw'),('action_raw','exit4/action_raw')]},None
+        b=sample['action'].shape[0];k=self.model.mot.loops
+        return loss*b,{name:logs[key]*b for name,key in [('video','loss_video'),('action','loss_action'),('video_raw',f'exit{k}/video_raw'),('action_raw',f'exit{k}/action_raw')]},None
 
 def verify_optimizer_restore(optimizer,expected):
     actual=optimizer.state_dict()

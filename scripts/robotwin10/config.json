@@ -1,0 +1,70 @@
+{
+  "pool": [
+    "1117138",
+    "1117139",
+    "1117140",
+    "1117142",
+    "1117217"
+  ],
+  "code": "/lustre/fs1/home/an221229/code/LoopWAM_rt10_run",
+  "min_remaining_minutes": 45,
+  "variants": {
+    "dense-s30": {
+      "gpu_sec_per_update": 6.0,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "v0-video4-action4": {
+      "gpu_sec_per_update": 5.6,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "v0-video4-action2": {
+      "gpu_sec_per_update": 5.5,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "v0-video4-action1": {
+      "gpu_sec_per_update": 5.4,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "v0-video2-action2": {
+      "gpu_sec_per_update": 3.6,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "v0-video1-action4": {
+      "gpu_sec_per_update": 2.5,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    },
+    "dense-s12": {
+      "gpu_sec_per_update": 2.3,
+      "microbatch": {
+        "1": 8,
+        "2": 8,
+        "4": 8
+      }
+    }
+  },
+  "gpus_per_run": 4
+}
