@@ -118,7 +118,68 @@ def pack(g, allocs, current, sticky=True):
     return placement
 
 
-def whole_allocation_plan(ready, incomplete, work, current, previous, jobs):
+STARTUP = 300.          # seconds from launch to the first update (load + compile)
+STOP_MARGIN = 900.      # trainers stop this long before their allocation ends
+
+
+def simulate(order, t0, allocs, rem, running):
+    """Makespan of non-preemptive list scheduling (one run per allocation).
+
+    allocs: job -> dict(start, end) (start = when it can take a run; Slurm's estimate for pending jobs).
+    rem: run -> remaining 4-GPU seconds. running: run -> job it occupies now.
+    A free allocation takes the first released waiting run in `order`; a run reaching its allocation's stop moves
+    back to waiting with its remaining work. Returns (makespan, finish times)."""
+    import heapq
+    rem = dict(rem); release, done = {}, {}
+    avail = {j: max(t0, a['start']) for j, a in allocs.items()}
+    stop = {j: a['end'] - STOP_MARGIN for j, a in allocs.items()}
+    last = {j: a['end'] - 2700 for j, a in allocs.items()}
+    for v, j in running.items():
+        if j in allocs and t0 + rem[v] <= stop[j]:
+            done[v] = t0 + rem[v]; avail[j] = done[v]
+        elif j in allocs:
+            rem[v] -= max(0., stop[j] - t0); release[v] = stop[j]; avail[j] = float('inf')
+        else:
+            release[v] = t0
+    for v in order:
+        if v not in running:
+            release[v] = t0
+    heap = [(t, j) for j, t in avail.items() if t <= last[j]]; heapq.heapify(heap)
+    while heap and release:
+        t, j = heapq.heappop(heap)
+        ready = [v for v in order if v in release and release[v] <= t]
+        if not ready:
+            nxt = min(release.values())
+            if nxt <= last[j]:
+                heapq.heappush(heap, (nxt, j))
+            continue
+        v = ready[0]; del release[v]
+        begin = t + STARTUP
+        if begin + rem[v] <= stop[j]:
+            done[v] = begin + rem[v]
+            if done[v] <= last[j]:
+                heapq.heappush(heap, (done[v], j))
+        else:
+            rem[v] -= max(0., stop[j] - begin); release[v] = stop[j]
+    if release:   # runs that never finish with the known allocations
+        return float('inf'), done
+    return max(done.values(), default=t0), done
+
+
+def best_order(t0, allocs, rem, running, lpt):
+    """Order of runs minimizing the simulated makespan; keeps largest-remaining-first unless another order
+    finishes at least 30 minutes earlier (start estimates are noisy)."""
+    from itertools import permutations
+    base, _ = simulate(lpt, t0, allocs, rem, running)
+    best, best_t = lpt, base
+    for perm in permutations(lpt):
+        t, _ = simulate(list(perm), t0, allocs, rem, running)
+        if t < best_t - 1800 or (best is not lpt and t < best_t):
+            best, best_t = list(perm), t
+    return best, base, best_t
+
+
+def whole_allocation_plan(ready, incomplete, work, current, previous, jobs, order=None):
     placement, used = {}, set()
     def keep(v, j):
         if v in incomplete and v not in placement and j in ready and j not in used:
@@ -129,7 +190,7 @@ def whole_allocation_plan(ready, incomplete, work, current, previous, jobs):
     for v, (j, _) in previous.items():
         keep(v, j)
     free = sorted((j for j in ready if j not in used), key=lambda j: -(jobs[j]['end'] or 0))
-    waiting = sorted((v for v in incomplete if v not in placement), key=lambda v: -work[v])
+    waiting = [v for v in (order or sorted(incomplete, key=lambda v: -work[v])) if v in incomplete and v not in placement]
     for j, v in zip(free, waiting):
         placement[v] = (j, list(range(GPUS_PER_JOB)))
     return placement
@@ -139,6 +200,30 @@ class Dispatcher:
     def __init__(self):
         self.signature = None
         self.plan = {}         # variant -> (job, gpus)
+
+    def choose_order(self, cfg, jobs, ready, incomplete, work, current):
+        """Simulate the remaining campaign on known and pending allocations and pick the run order."""
+        try:
+            t0 = now()
+            allocs = {}
+            for j in [str(x) for x in cfg['pool']]:
+                info = jobs.get(j)
+                if not info or not info.get('end'):
+                    continue
+                if info['state'] == 'RUNNING':
+                    allocs[j] = dict(start=t0 if j in ready else t0 + 300, end=info['end'])
+                elif info['state'] == 'PENDING' and info.get('start'):
+                    allocs[j] = dict(start=info['start'] + 300, end=info['start'] + (info['end'] - info['start']))
+            rem = {v: work[v] / GPUS_PER_JOB * 1.03 for v in incomplete}
+            running = {v: c['job'] for v, c in current.items() if v in incomplete and not c['stopping']}
+            lpt = sorted(incomplete, key=lambda v: -work[v])
+            order, base, best = best_order(t0, allocs, rem, running, lpt)
+            fmt = lambda t: 'never' if t == float('inf') else stamp(t)
+            log(f'order {order} (simulated finish {fmt(best)}; largest-first {fmt(base)})')
+            return order
+        except Exception as e:
+            log(f'order search failed ({type(e).__name__}: {e}); using largest-first')
+            return None
 
     def config(self):
         return read_json(CONTROL / 'config.json')
@@ -197,7 +282,8 @@ class Dispatcher:
             (CONTROL / 'REPLAN').unlink(missing_ok=True)
             work = {v: (TOTAL_UPDATES - runs[v]['update']) * cfg['variants'][v]['gpu_sec_per_update'] for v in incomplete}
             if cfg.get('gpus_per_run') == GPUS_PER_JOB:
-                placement = whole_allocation_plan(ready, incomplete, work, current, self.plan, jobs)
+                order = self.choose_order(cfg, jobs, ready, incomplete, work, current)
+                placement = whole_allocation_plan(ready, incomplete, work, current, self.plan, jobs, order)
             else:
                 g = water_fill(work, GPUS_PER_JOB * len(ready))
                 placement = pack(g, ready, {v: c for v, c in current.items() if not c['stopping']})
