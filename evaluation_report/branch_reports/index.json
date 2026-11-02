@@ -1,11 +1,13 @@
 {
   "base": {
     "branch": "LoopWAM_NT",
-    "commit": "43ef539b4744ebfec1bb7b3864904f3d48465903"
+    "commit": "5a249fc82313dadf792c4f26e17458dffc6aeb7c"
   },
   "branches": {
     "KV_concat": {
-      "commit": "ecf7a63de3c314a2bc235255943d74b408e9b23f",
+      "commit": "8b0342cc1babad57c38603338e55bd7e4a07273f",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -60,7 +62,9 @@
       ]
     },
     "chrono": {
-      "commit": "a9f88d9d887025fb452bde91558c8f6af311d002",
+      "commit": "39d3e7662637021e03fb40ad3de713b914607458",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -90,7 +94,9 @@
       ]
     },
     "elastic": {
-      "commit": "c0feec78bf2d92734305a6f194b5bee86868b59b",
+      "commit": "6ec140152cb8979fb083818efe893c0bc3a1291f",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/LoopWAM_elastic.md",
@@ -180,7 +186,9 @@
       ]
     },
     "partition_grid_20261026": {
-      "commit": "bfd3f74515be0b280ed10ae6b0e2f75a53da729e",
+      "commit": "3a000d42825f1dfb96b2a18d66ea9b1aeb52914c",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -245,7 +253,9 @@
       ]
     },
     "residual_trans": {
-      "commit": "e3c9292d40ecb40112f4e1ceef8086de8cf9a386",
+      "commit": "c81804ed01ab1080ed897edfd58a4a3b56406e8e",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
@@ -284,8 +294,52 @@
         }
       ]
     },
+    "robotwin10_training_20261101": {
+      "commit": "3080145b75278d019e523369a6fed0a057f9382f",
+      "date": "2026-11-02T09:12:44-05:00",
+      "subject": "Add RoboTwin-10 seven-model training, orchestration and HF publishing",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_RoboTwin_Epoch5_Eval_Continue_20261030.md",
+          "blob": "0a2486949bed84ed77d4f6d57e02f33cfcb3c7fd",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
     "robotwin_eval_continue_20261030": {
-      "commit": "dc5e75839f0e0fe0dd1f2c288be7dbf45ce2c3e1",
+      "commit": "bea472670ea52bb375ae75ba5380cd88087d2c30",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -325,7 +379,9 @@
       ]
     },
     "robotwin_full_v0_20261028": {
-      "commit": "be03a371c828749185bdc7a6821f4566ea518a29",
+      "commit": "254055623502e13c58e1736cfd606ecb45f14b1e",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -360,11 +416,15 @@
       ]
     },
     "scratch_init_v0": {
-      "commit": "923fd2206bf4994bb526ef8816a8cd90b5148b10",
+      "commit": "0cc35554787408a21f9d763b44016c6885c37e08",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": []
     },
     "v0-init-variants": {
-      "commit": "86472cf8231f739c91097ebeb28ab8576bd603bb",
+      "commit": "88bd77f249c78c0c98a88647a9a08d7505628532",
+      "date": "2026-10-31T09:41:29-04:00",
+      "subject": "Sync all current evaluation reports and preserve prior results",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
