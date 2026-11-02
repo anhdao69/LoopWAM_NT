@@ -19,7 +19,11 @@ _load = loopwam_init.load_wan21_vae
 
 def load_channels_last(*args, **kwargs):
     vae = _load(*args, **kwargs)
-    vae.model.to(memory_format=torch.channels_last_3d)
+    converted = 0
+    for module in vae.model.modules():  # only 5-D Conv3d weights (the VAE also holds 2-D convs and norm vectors)
+        if isinstance(module, torch.nn.Conv3d):
+            module.weight.data = module.weight.data.contiguous(memory_format=torch.channels_last_3d); converted += 1
+    print(f'channels_last_3d conv3d weights: {converted}', flush=True)
     return vae
 
 
