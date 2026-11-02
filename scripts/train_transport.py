@@ -103,8 +103,8 @@ def bf16_frozen(model):
     feeds the same BF16 operands to the same kernels. Student modules (the trainable action copy, step condition,
     transport) and every non-Linear tensor (norms, modulation tables, convolutions) stay FP32.
     """
-    student={id(m) for m in (model.student.mixtures["action"],model.transport,model.step_condition) if m is not None
-             for m in m.modules()}
+    owners=[o for o in (model.student.mixtures["action"],model.transport,model.step_condition) if o is not None]
+    student={id(m) for o in owners for m in o.modules()}
     converted=0
     for m in model.parent.modules():
         if isinstance(m,torch.nn.Linear) and id(m) not in student and m.weight.dtype==torch.float32:
