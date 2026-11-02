@@ -10,11 +10,83 @@ from .residual_transport import (ResidualTransport, StepCondition, TransportHist
     install_core_lora, merge_lora, cache_text_kv, action_core, teacher_target,
     detach_boundary, endpoint_losses)
 
+class TeacherVelocityGraph:
+    """CUDA-graph replay of one frozen-teacher velocity evaluation (no gradients, fixed shapes).
+
+    The teacher is frozen, so replaying the captured kernels on copied-in inputs repeats the eager operations
+    (bit equality is checked by preflight, not assumed). Per micro-batch, `load` copies the prefill cache and
+    teacher conditioning into static buffers that keep the eager strides; the policy then reads the static cache
+    for its student pass as well, so the cache is not held twice. A static buffer is overwritten only by the next
+    micro-batch's `load`, which training issues after the previous backward has finished. Every output is cloned
+    before it leaves, so no autograd-saved tensor aliases a buffer that a later replay rewrites.
+    """
+
+    def __init__(self, run, warmup=2):
+        self.run, self.warmup, self.graph, self.signature = run, warmup, None, None
+        self.captures = 0
+
+    @staticmethod
+    def _flatten(condition, cache):
+        embedded, mask, text_kv = condition
+        keys, values, attention = cache
+        # conditioning() expands the [B,L] text mask to [B,32,L] with a zero stride; bind its base row so the
+        # static copy is writable, and re-expand it identically in _unflatten.
+        base = mask[:, 0, :] if mask.dim() == 3 else mask
+        return [embedded, base] + [t for kv in text_kv for t in kv] + list(keys) + list(values) + [attention]
+
+    def _unflatten(self, flat):
+        n_text, n_cache = self.layout
+        embedded, mask = flat[0], flat[1]
+        text = flat[2:2 + 2 * n_text]
+        keys = flat[2 + 2 * n_text:2 + 2 * n_text + n_cache]
+        values = flat[2 + 2 * n_text + n_cache:2 + 2 * n_text + 2 * n_cache]
+        condition = (embedded, mask[:, None, :].expand(-1, 32, -1), [(text[2 * i], text[2 * i + 1]) for i in range(n_text)])
+        return condition, (keys, values, flat[-1])
+
+    @torch.no_grad()
+    def load(self, z, tau, condition, cache):
+        """Bind this micro-batch's (base-mask) conditioning and cache; returns the static cache to read from."""
+        flat = self._flatten(condition, cache)
+        signature = tuple((tuple(t.shape), tuple(t.stride()), t.dtype, t.device) for t in flat + [z, tau])
+        if signature != self.signature:
+            self.layout = (len(condition[2]), len(cache[0]))
+            self.graph = None
+            self.static = [torch.empty_strided(t.shape, t.stride(), dtype=t.dtype, device=t.device) for t in flat]
+            for dst, src in zip(self.static, flat): dst.copy_(src)
+            self.z, self.tau = z.detach().clone(), tau.detach().clone()
+            static_condition, static_cache = self._unflatten(self.static)
+            fn = lambda: self.run(self.z, self.tau, static_condition, static_cache)
+            stream = torch.cuda.Stream()
+            stream.wait_stream(torch.cuda.current_stream())
+            with torch.cuda.stream(stream), torch.autocast("cuda", dtype=torch.bfloat16, cache_enabled=False):
+                for _ in range(self.warmup): fn()
+            torch.cuda.current_stream().wait_stream(stream)
+            graph = torch.cuda.CUDAGraph()
+            # thread_local: the DataLoader pin-memory thread and the NCCL watchdog keep issuing CUDA calls.
+            with torch.cuda.graph(graph, capture_error_mode="thread_local"), \
+                    torch.autocast("cuda", dtype=torch.bfloat16, cache_enabled=False):
+                self.out = fn()
+            self.graph, self.signature = graph, signature
+            self.captures += 1
+        else:
+            for dst, src in zip(self.static, flat): dst.copy_(src)
+        return self._unflatten(self.static)[1]
+
+    @torch.no_grad()
+    def __call__(self, z, tau):
+        self.z.copy_(z); self.tau.copy_(tau)
+        self.graph.replay()
+        return self.out.clone()
+
+
 class TransportPolicy(nn.Module):
     def __init__(self,parent,*,kind="T4",scope="pb",step_cond=False,regime="fu",
                  anchor=True,checkpoint_blocks=True,loss_weights=None,
-                 reuse_teacher_prefix=False,collect_diagnostics=False):
+                 reuse_teacher_prefix=False,collect_diagnostics=False,teacher_graph=False):
         super().__init__()
+        # Speed option, default off: CUDA-graph replay of the frozen teacher (see TeacherVelocityGraph).
+        self.teacher_graph=teacher_graph
+        self._teacher_graph=None
         if scope not in {"pa","pb","pc"} or regime not in {"fu","tf"}:
             raise ValueError("Invalid RT parameter scope or training regime")
         self.parent=parent.requires_grad_(False).eval()
@@ -121,9 +193,23 @@ class TransportPolicy(nn.Module):
         cache=(keys,values,attention)
         with torch.no_grad():
             teacher_condition=self.conditioning(self.parent.action_expert,context,mask)
+        if self.teacher_graph:
+            if self._teacher_graph is None:
+                def run(z,t,condition,static_cache):
+                    return self.velocity(z,t,condition,static_cache,teacher=True)[0]
+                self._teacher_graph=TeacherVelocityGraph(run)
+            passes=self.teacher_passes
+            # The student reads the same (static) cache; the eager prefill tensors are released.
+            cache=self._teacher_graph.load(noise,noise.new_ones(len(noise)),teacher_condition,cache)
+            self.teacher_passes=passes  # warmup/capture evaluations are not training work
+            del keys,values,attention,teacher_condition
+            def teacher(z,t):
+                self.teacher_passes+=1
+                return self._teacher_graph(z,t)
+        else:
+            def teacher(z,t):
+                return self.velocity(z,t,teacher_condition,cache,teacher=True)[0]
         student_condition=self.conditioning(self.student.mixtures["action"],context,mask)
-        def teacher(z,t):
-            return self.velocity(z,t,teacher_condition,cache,teacher=True)[0]
         # One deployed parent trajectory, shared endpoint and TF states.
         teacher_states=[]; teacher_velocities=[]; endpoint=noise.detach()
         grid=torch.linspace(1.,0.,11,device=noise.device,dtype=noise.dtype)

@@ -60,6 +60,8 @@ for attempt in 1 2 3; do
           --hf-folder "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/libero-all-suites/Elastic/$ELASTIC_RUN")
     if [[ -n "${ELASTIC_CKPT_MIN_BLOCKS:-}" ]]; then args+=(--checkpoint-min-blocks "$ELASTIC_CKPT_MIN_BLOCKS"); fi
     if [[ -n "${ELASTIC_MAX_UPDATES:-}" ]]; then args+=(--max-updates "$ELASTIC_MAX_UPDATES"); fi
+    # Validated speed options, e.g. "--bf16-frozen --teacher-graph --gc-freeze" (bound into the resume contract).
+    if [[ -n "${ELASTIC_SPEED_ARGS:-}" ]]; then read -r -a speed <<< "$ELASTIC_SPEED_ARGS"; args+=("${speed[@]}"); fi
     if [[ -f "$ELASTIC_OUTPUT/latest.pt" ]]; then args+=(--resume); fi
     echo "{\"event\":\"launch\",\"run\":\"$ELASTIC_RUN\",\"attempt\":$attempt,\"time\":\"$(date -Is)\",\"gpus\":\"${CUDA_VISIBLE_DEVICES:-}\",\"job\":\"${SLURM_JOB_ID:-}\",\"host\":\"$(hostname)\",\"lane\":\"${ELASTIC_LANE:-}\",\"revision\":\"$revision\"}" >> "$ELASTIC_OUTPUT/launches.jsonl"
     torchrun --standalone --nproc_per_node="$ELASTIC_WORLD" scripts/train_transport.py "${args[@]}" >> "$ELASTIC_OUTPUT/train.log" 2>&1 &

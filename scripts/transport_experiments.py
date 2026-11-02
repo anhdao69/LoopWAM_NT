@@ -48,6 +48,16 @@ ELASTIC={
     "RT-A2-replay":elastic("T4",scope="pb",schedules=("S1","S2","S5","S6","S7","S8"),
                            sampler="legacy_choice",init="rt_a2_legacy_v1",verification_only=True),
 }
+# CL-0 campaign (plan section 16.1): the E0/E1/E2 recipes unchanged, with the memoryless ChronoLoop CL-0
+# (anhdao69/ChronoLoop CL-0_no-memory_a4: LoopWAM v0 4/4, BASE10 fine-tuned ten more LIBERO epochs) as both the
+# frozen teacher and the student initializer. The teacher file is its loopwam-s-v1 re-wrap
+# (scripts/convert_chronoloop_parent.py); the campaign tag stays "elastic-v1" so evaluation applies the same rules.
+CL0_PARENT=dict(name="CL-0_no-memory_a4",repository="anhdao69/ChronoLoop",file="CL-0_no-memory_a4/epoch_10/policy.pt",
+                chronoloop_sha256="137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+                grandparent_sha256="1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b")
+for _name in ("E0","E1","E2"):
+    ELASTIC[f"CL0-{_name}"]=dict(ELASTIC[_name],parent=CL0_PARENT)
+del _name
 
 def eligible(name,evidence):
     gate=EXPERIMENTS[name].get("gate")

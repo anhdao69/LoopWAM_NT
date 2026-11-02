@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Full-LIBERO RT training: explicit one/two GPU layout and exact recovery."""
+"""Full-LIBERO RT training: explicit one/two/four GPU layout and exact recovery."""
 from __future__ import annotations
 import argparse
 import contextlib
 import copy
+import gc
 import hashlib
 import json
 import math
@@ -76,12 +77,13 @@ def export_epoch(model,out,epoch,config,update,contract,early=False):
     parent=model.parent
     # A native parent-compatible backbone with merged LoRA plus RT-specific metadata.
     action=merge_lora(copy.deepcopy(model.student.mixtures["action"]).cpu())
-    mot={k:v.detach().cpu() for k,v in parent.mot.state_dict().items()}
+    fp32=getattr(model,"parent_export_state",None)
+    mot=dict(fp32["mot"]) if fp32 else {k:v.detach().cpu() for k,v in parent.mot.state_dict().items()}
     for k,v in action.state_dict().items(): mot["mixtures.action."+k]=v
     payload=dict(format_version="loopwam-s-v1",version="v0",architecture=parent.architecture_metadata,
         video_loops=4,action_loops=4,loop_alignment="late",trained_max_loops=4,inference_loops=4,
         exit_weight_scale=parent.exit_weight_scale,mot=mot,
-        proprio_encoder={k:v.cpu() for k,v in parent.proprio_encoder.state_dict().items()},
+        proprio_encoder=dict(fp32["proprio_encoder"]) if fp32 else {k:v.cpu() for k,v in parent.proprio_encoder.state_dict().items()},
         step=update,transport_config=config,
         student_action={k:v.detach().cpu() for k,v in model.student.mixtures["action"].state_dict().items()},
         inference_action_format="unmerged-exact",transport={k:v.detach().cpu() for k,v in model.transport.state_dict().items()},
@@ -92,6 +94,24 @@ def export_epoch(model,out,epoch,config,update,contract,early=False):
     atomic_save(payload,path)
     # Durable pending files are discovered/retried by uploader and job wrapper.
     (out/(path.name+".upload_pending")).touch()
+
+def bf16_frozen(model):
+    """Cast the frozen parent's FP32 nn.Linear weights (teacher action expert, video expert, proprio encoder) to BF16.
+
+    Every parent Linear runs under BF16 autocast, which casts a frozen FP32 weight to BF16 (round to nearest even)
+    on every call, because the autocast cache only keeps casts of leaves that require grad. Storing the cast once
+    feeds the same BF16 operands to the same kernels. Student modules (the trainable action copy, step condition,
+    transport) and every non-Linear tensor (norms, modulation tables, convolutions) stay FP32.
+    """
+    student={id(m) for m in (model.student.mixtures["action"],model.transport,model.step_condition) if m is not None
+             for m in m.modules()}
+    converted=0
+    for m in model.parent.modules():
+        if isinstance(m,torch.nn.Linear) and id(m) not in student and m.weight.dtype==torch.float32:
+            if m.weight.requires_grad or (m.bias is not None and m.bias.requires_grad):
+                raise ValueError("Only frozen Linear layers may be cast")
+            m.to(torch.bfloat16); converted+=1
+    return converted
 
 def validate_stacked_checkpoint(payload):
     config=payload.get("transport_config",{})
@@ -128,7 +148,7 @@ def main():
     p.add_argument("--latent-dir",default=str(PARENT_RUN/"latents"))
     p.add_argument("--init-checkpoint")
     p.add_argument("--microbatch",type=int,default=8)
-    p.add_argument("--expected-gpus",type=int,choices=(1,2),default=2)
+    p.add_argument("--expected-gpus",type=int,choices=(1,2,4),default=2)
     p.add_argument("--workers",type=int,default=4)
     p.add_argument("--global-batch",type=int,default=128)
     p.add_argument("--epochs",type=int,default=10)
@@ -137,6 +157,11 @@ def main():
     p.add_argument("--resume",action="store_true")
     p.add_argument("--no-checkpoint-blocks",action="store_true")
     p.add_argument("--smoke",action="store_true")
+    # Speed options (default off; preflight_cl0.py checks each against the eager path bit for bit).
+    p.add_argument("--bf16-frozen",action="store_true",
+        help="Store the frozen parent's nn.Linear weights in BF16 (the cast BF16 autocast performs on every call)")
+    p.add_argument("--teacher-graph",action="store_true",help="CUDA-graph replay of the frozen teacher velocity")
+    p.add_argument("--gc-freeze",action="store_true",help="gc.freeze() after setup; collect only at saves")
     a=p.parse_args()
     rank=int(os.getenv("RANK","0")); world=int(os.getenv("WORLD_SIZE","1"))
     local=int(os.getenv("LOCAL_RANK","0"))
@@ -167,7 +192,7 @@ def main():
     model=TransportPolicy(parent,**{k:config[k] for k in ("kind","scope","step_cond","regime","anchor")},
         checkpoint_blocks=not a.no_checkpoint_blocks,loss_weights=config.get("loss_weights"),
         reuse_teacher_prefix=config.get("reuse_teacher_prefix",False),
-        collect_diagnostics=config.get("collect_diagnostics",False)).to(device)
+        collect_diagnostics=config.get("collect_diagnostics",False),teacher_graph=a.teacher_graph).to(device)
     from fastwam.models.wan22.loopwam_init import sha256_file
     identities=[None]
     if rank==0:
@@ -179,6 +204,11 @@ def main():
         validate_stacked_checkpoint(initial)
         initialize_stacked(model,initial,device)
     init_parts=load_elastic_init(model,config,a.init_artifact,identities[0]["teacher"]) if elastic else None
+    if a.bf16_frozen:
+        # Exports keep the exact FP32 parent tensors; only the in-memory frozen compute copy is BF16.
+        model.parent_export_state=dict(mot={k:v.detach().cpu().clone() for k,v in parent.mot.state_dict().items()},
+            proprio_encoder={k:v.detach().cpu().clone() for k,v in parent.proprio_encoder.state_dict().items()}) if rank==0 else None
+        bf16_frozen(model)
     params=[p for p in model.parameters() if p.requires_grad]
     opt=torch.optim.AdamW(model.optimizer_groups(),betas=(.9,.95),eps=1e-8,fused=True)
     runner=DDP(model,device_ids=[local],broadcast_buffers=False,gradient_as_bucket_view=True,
@@ -192,6 +222,8 @@ def main():
         global_batch=a.global_batch,epochs=a.epochs,planned_updates=total,teacher=str(Path(a.teacher).resolve()),
         normalization_sha256=data.manifest["normalization_sha256"],
         checkpoint_blocks=not a.no_checkpoint_blocks,deterministic_algorithms=True)
+    speed=dict(bf16_frozen=a.bf16_frozen,teacher_graph=a.teacher_graph,gc_freeze=a.gc_freeze)
+    if any(speed.values()): contract["speed_options"]=speed
     sequence=None
     if elastic:
         sequence=schedule_sequence(config,total)
@@ -243,6 +275,8 @@ def main():
     signal.signal(signal.SIGUSR1,lambda *_: stop_requested.__setitem__(0,True))
     model.train(); opt.zero_grad(set_to_none=True)
     log=(out/"metrics.jsonl").open("a") if rank==0 else None
+    if a.gc_freeze:
+        gc.collect(); gc.freeze(); gc.disable()
     for epoch in range(epoch_start,a.epochs):
         sampler.epoch=epoch; sampler.start_batch=micro_start if epoch==epoch_start else 0
         started=time.perf_counter(); logs={}; schedule=None
@@ -306,6 +340,7 @@ def main():
                     status="complete" if epoch_done and epoch+1==a.epochs else "running",
                     scheduler=dict(step=update,total=total,warmup=math.ceil(.03*total)))
                 save_recovery(model,opt,ema,out,state,rank,world)
+                if a.gc_freeze: gc.collect()
             if update==2000 and rank==0:
                 export_epoch(model,out,epoch,config,update,contract,early=True)
                 import shutil
