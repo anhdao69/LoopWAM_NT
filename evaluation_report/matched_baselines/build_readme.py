@@ -51,13 +51,26 @@ for line in section.splitlines():
     elif re.fullmatch(r'\d+\.\d+', sr):
         external.append((float(sr), label, group))
 
+# The 2026-11-01 batch on the same host and protocol (report, gates and per-episode data in ../matched_pro6000_20261101).
+BATCH = [('v0 4/2', 'LoopWAM v0 4/2 (video 4 / action 2 export)'),
+         ('E0 [3]x10', 'elastic E0 flat_k3_n10 [3]x10'),
+         ('E0 [5]x10', 'elastic E0 flat_k5_n10 [5]x10'),
+         ('E0 [6]x10', 'elastic E0 flat_k6_n10 [6]x10'),
+         ('Z10 [4,4]', 'LoopWAM v0 4/4 without distillation, [4,4] (NFE 2)'),
+         ('Z10 [4]x5', 'LoopWAM v0 4/4 without distillation, [4]x5 (NFE 5)'),
+         ('Z10 [1,1]', 'LoopWAM v0 4/4 without distillation, [1,1] (NFE 2)')]
+batch = json.loads((HERE.parent / 'matched_pro6000_20261101' / 'results.json').read_text())['conditions']
+assert all(batch[n]['episodes'] == 6000 for n, _ in BATCH)
+BATCH_SRC = '2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101)'
+
 rows = [(ver[r]['success_rate'], label, 'this evaluation (local RTX PRO 6000 Blackwell)') for r, label, _ in RUNS]
+rows += [(100 * batch[n]['success_rate'], label, BATCH_SRC) for n, label in BATCH]
 rows += [(sr, label, f'H100, branch `elastic` all-models report ({group})') for sr, label, group in external]
 rows.sort(key=lambda x: -x[0])
 
 L = []
 w = L.append
-w('# Matched LIBERO evaluation: public WAM baselines and LoopWAM exports (updated 2026-10-30)')
+w('# Matched LIBERO evaluation: public WAM baselines and LoopWAM exports (updated 2026-11-02)')
 w('')
 w('Every number here uses the campaign protocol `lightwam_20261009_matched`: 4 suites x 10 tasks x official initial '
   'states 0-49 x evaluation seeds 42/43/44 = **6,000 episodes per model** (1,500 per suite, 2,000 per seed).')
@@ -66,6 +79,10 @@ w('- **This evaluation:** 14 models evaluated on a local 2x RTX PRO 6000 Blackwe
   'each re-verified on 2026-10-30 against its full 6,000-episode grid (Section 5). This is where FasterWAM, Light-WAM, '
   'Dense-S12/S30, the v0 test-time action-depth sweep, the six centered partition-grid exports and the `core16_21` '
   'initialization variant were scored.')
+w('- **2026-11-01 batch:** seven more conditions on the same host and protocol: the v0 4/2 export, elastic E0 at '
+  'test-time action depths 3, 5 and 6 (NFE 10), and the base v0 4/4 export without distillation at [4,4] (NFE 2), '
+  '[4]x5 (NFE 5) and [1,1]. Per-suite rates, contrasts, gates and every episode are in '
+  '[`../matched_pro6000_20261101`](../matched_pro6000_20261101).')
 w('- **Other branches (pulled 2026-10-30):** every four-suite matched result reported on the other branches '
   '(Elastic, Residual Transport, ChronoLoop, init variants, campaign rows), as reported there; the '
   'documents themselves are in [`../branch_reports`](../branch_reports).')
@@ -76,10 +93,10 @@ w('')
 w('| # | Model | Success % | Evaluated |')
 w('|---:|---|---:|---|')
 for i, (sr, label, src) in enumerate(rows, 1):
-    bold = '**' if 'this evaluation' in src else ''
+    bold = '**' if 'local RTX PRO 6000' in src else ''
     w(f'| {i} | {bold}{label}{bold} | {bold}{pct(sr)}{bold} | {src} |')
 w('')
-w('Bold rows are this evaluation. With 6,000 episodes the binomial 95% interval is about +/-0.6 points for a model '
+w('Bold rows were scored on the local RTX PRO 6000 host (this evaluation and the 2026-11-01 batch). With 6,000 episodes the binomial 95% interval is about +/-0.6 points for a model '
   'near 95% success (+/-0.8 near 90%); episodes within a task/seed group share the seed, so treat it as a lower '
   'bound. Rows from other branches are copied from their reports and were not re-verified here.')
 w('')
@@ -106,6 +123,7 @@ w('')
 w('The `elastic` all-models latency report (copied in `../branch_reports/elastic/plans/performance/`) lists these '
   'models as "not evaluated"; their matched results are now:')
 w('')
+batch_fills = {'all-suites v0 4/2': 'v0 4/2'}
 fills = {'all-suites Dense-S12': 'loopwam_dense_s12', 'all-suites Dense-S30': 'loopwam_dense_s30',
          'partition p0c6s6_k4': 'loopwam_partition_p0c6s6', 'partition p1c6s5_k4': 'loopwam_partition_p1c6s5',
          'partition p5c6s1_k4': 'loopwam_partition_p5c6s1', 'partition p6c6s0_k4': 'loopwam_partition_p6c6s0',
@@ -117,6 +135,10 @@ for name in not_evaluated:
     r = fills.get(name)
     if r:
         w(f"| {name} | {pct(ver[r]['success_rate'])} | {ver[r]['suites']['libero_10']['rate']:.2f} |")
+    elif name in batch_fills:
+        c = batch[batch_fills[name]]
+        w(f"| {name} | {pct(100 * c['success_rate'])} (2026-11-01 batch) "
+          f"| {100 * c['per_suite']['libero_10']['success_rate']:.2f} |")
     else:
         w(f'| {name} | not evaluated | |')
 w('')
