@@ -35,7 +35,7 @@ if [ "${SKIP_ROBOCASA:-0}" != 1 ]; then
   # opencv 5.x requires numpy>=2; robocasa pins numpy 1.26.4, so use the last numpy-1 compatible headless wheel.
   "$E/bin/pip" uninstall -q -y opencv-python opencv-python-headless 2>/dev/null || true
   "$E/bin/pip" install -q numpy==1.26.4 mujoco==3.2.6 gymnasium==1.2.2 websockets==16.0 msgpack av matplotlib mediapy \
-      opencv-python-headless==4.10.0.84 pydantic tyro typing_extensions websocket-client
+      opencv-python-headless==4.10.0.84 pydantic tyro typing_extensions websocket-client pyarrow==17.0.0
   (cd "$TP/robocasa-gr1-tabletop-tasks" && "$E/bin/python" robocasa/scripts/download_tabletop_assets.py -y)
   "$E/bin/pip" freeze > "$ROOT/envs/robocasa.freeze.txt"
 fi
