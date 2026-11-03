@@ -26,8 +26,8 @@ Names: "Z10" is the base v0 4/4 checkpoint without distillation; "base v0 KaN" i
 
 - **Same host:** this machine with the same regenerated prompt cache (the base-v0 K_a references are the local runs of
   2026-10-27/28 in `../matched_baselines`).
-- **Same hardware (campaign):** the campaign records in [`../final`](../final) were scored on the same hardware model
-  (RTX PRO 6000 Blackwell Max-Q, Threadripper 9960X; NVIDIA driver 580.178.04 then, 580.105.08 now). The plan listed
+- **Same hardware (campaign):** the campaign records in [`../final`](../final) were scored on another machine of the same
+  hardware model (RTX PRO 6000 Blackwell Max-Q, Threadripper 9960X; NVIDIA driver 580.178.04 then, 580.105.08 here). The plan listed
   these contrasts as cross-host; they are labelled separately here because gate G4 reproduced the campaign's v0 4/4
   trajectories 100/100 on this machine.
 - **Cross host (H100):** the elastic branch's H100 evaluation, which also read the training prompt-cache bytes rather
@@ -89,13 +89,17 @@ The report script (`matched_eval_elastic/report_20261101.py`) checks every group
 (backend, clean source tree, EGL, zero-shot kind, test-time flag, prompt cache, E0 depths, every protocol field), and,
 once written, the runner's own `summary.json` against the records.
 
-**Interruptions** (no scored record was affected; an interrupted group reruns from episode 0 with the same seed, which
-is deterministic — e.g. v0 4/2 episode 4801 reproduced its 223-step success after a restart):
+**Interruptions** (no scored record was affected: a group record is written only when all 50 episodes finish, and an
+interrupted group reruns from episode 0 with the same seed):
 
-- v0 4/2: interrupted four times — a CUDA MPS fault at 06:49 UTC when one of our elastic lanes was stopped (fixed by a
-  graceful SIGTERM handler, commit `93beb6d`), a RAM-guard pause at 09:18, then "device busy" at 09:22 and a CUDA OOM at
-  09:24 while another user's jobs filled both GPUs (three runtime errors in its `events.jsonl`, all in attempts that
-  wrote no record). 306 episodes from interrupted groups were discarded and rerun.
+- v0 4/2: interrupted five times (times UTC on 2026-11-01) — a CUDA MPS fault at 06:49 when one of our elastic lanes
+  was stopped (fixed by a graceful SIGTERM handler, commit `93beb6d`); a restart by hand at 07:11 to go from 4 to 3
+  workers (host RAM); a RAM-guard pause at 09:18; then "device busy" at 09:22 and a CUDA OOM at 09:24 while other
+  users' jobs filled the GPUs. Its `events.jsonl` holds the three runtime errors; none touched a written record.
+  306 episode runs (301 distinct episodes) from interrupted groups were discarded and rerun. Every one had been logged
+  before it was discarded: all 306 had the same outcome as the scored rerun, 303 also the same step count and action
+  digest, and 3 (Long, seed 42, task 8) the same step count but different actions — the episode-level nondeterminism
+  described in `../matched_baselines`.
 - Elastic lanes (lane0 started by hand, l1-l18 by the scheduler): 13 were paused by our RAM guard when host RAM fell
   below its threshold (lane0, l2, l3, l5, l7, l8, l9, l10, l11, l13, l14, l15, l16) and three were stopped by hand (l1
   before the SIGTERM fix had a CUDA context, l4 after a CUDA OOM at build, l12 at 00:29 UTC on 2026-11-02 when host RAM
@@ -104,10 +108,13 @@ is deterministic — e.g. v0 4/2 episode 4801 reproduced its 223-step success af
 ## 5. Caveats
 
 - **Shared host.** Other users' training and inference jobs shared both GPUs and most of the 62 GB of host RAM
-  throughout; host RAM, not GPU, limited us to 1-4 concurrent workers (each worker holds about 4 GB, most of it the
-  MuJoCo/EGL renderer). CUDA MPS was used to share each GPU between our workers. Throughput (about 35-60 groups per hour
-  with 3-5 workers) is a property of this shared host, not model latency. The batch ran from 06:16 UTC on 2026-11-01
-  (analysis plan) to 06:21 UTC on 2026-11-02 (last group).
+  throughout, so host RAM, not GPU, limited concurrency. A running worker holds about 3 GB of host RAM (about 1.8 GB of
+  it the MuJoCo/EGL renderer), about 4 GB while it builds its model. The v0 4/2 harness ran 4 workers, then 3
+  (06:20-10:54 UTC on 2026-11-01). From the elastic group records, 1-4 groups were in progress at once: 3 for 13.0 h,
+  4 for 3.8 h, 1-2 for 4.8 h and none for 1.5 h (model builds, pauses and restarts). CUDA MPS shared each GPU between our
+  workers. The elastic runner completed 22-63 groups per clock hour from 11:00 UTC on 2026-11-01; throughput is a
+  property of this shared host, not model latency. The batch ran from 06:16 UTC on 2026-11-01 (analysis plan) to
+  06:20 UTC on 2026-11-02 (last group).
 - **Prompt cache.** The six elastic conditions read a prompt cache regenerated on this host (names and valid tokens
   checked against the training manifest; bytes differ from the training cache). The same cache was used for the local
   base-v0 K_a references, so same-host contrasts are unaffected; the H100 rows read the training bytes.
@@ -121,13 +128,17 @@ is deterministic — e.g. v0 4/2 episode 4801 reproduced its 223-step success af
 ## 6. Project status at the start of this batch
 
 Read from `evaluation_report/` at `5a249fc` (pulled from GitHub on 2026-11-01 05:54 UTC; still the latest commit when
-re-fetched at 00:33 UTC on 2026-11-02).
+re-fetched at 00:33 UTC on 2026-11-02). Re-fetched on 2026-11-03: the only commits since are this report's
+own sync and the new branch in the last bullet.
 
 - **Matched LIBERO table** (`../matched_baselines`, updated 2026-10-30): 88 models on this protocol. FasterWAM 98.72 (public
-  release) and FastWAM 96.63 lead; the ChronoLoop variants score 95.9-96.2, Light-WAM 95.77. Best LoopWAM-family rows:
-  elastic F0-PB [4,4] 95.88, F0-PB [4]x5 95.75, Dense-S30 95.63, E0 [4]x5 95.45; the base v0 4/4 scores 94.92. The
-  lowest rows are Dense-S12 89.98, base v0 at K_a 3 (89.47) and K_a 6 (89.20), and two init variants (85.65, 82.20).
-  Rows from other branches were run on H100 and copied, not re-verified; the 14 local rows were each re-verified.
+  release) and FastWAM 96.63 lead; the five ChronoLoop runs at action depth 4 score 95.90-96.18 (95.70 and 95.33 at
+  depth 1), Light-WAM 95.77. Best other LoopWAM rows: elastic F0-PB [4,4] 95.88, F0-PB [4]x5 95.75, E1 [4]x5 95.65,
+  Dense-S30 95.63; the base v0 4/4 scores 94.92. The lowest rows are Dense-S12 89.98, base v0 at K_a 3 (89.47) and
+  K_a 6 (89.20), and two init variants (85.65, 82.20). Rows from other branches were copied, not re-verified: the remote
+  campaign scored FastWAM, the campaign v0 exports, ChronoLoop and part of Residual Transport on its RTX PRO 6000 host,
+  and the rest were scored on H100 (the table had labelled them all H100; corrected 2026-11-03). The 14 local rows
+  were each re-verified.
   The report listed v0 4/2 as "not evaluated"; this batch fills that gap. LiLa-WAM has no matched result (its only
   public weights are for RoboTwin).
 - **RoboTwin v0** (`../robotwin_v0`, completed 2026-10-31): 91.73% over all 50 tasks and 10,000 episodes (91.60% clean,
@@ -136,6 +147,10 @@ re-fetched at 00:33 UTC on 2026-11-02).
   Pro about 7% (position perturbations almost always fail, task perturbations 13-15%).
 - `../dense_full` records that Dense-S12/S30 were removed from an earlier queue on 2026-10-27; both were later scored on
   the matched harness (89.98 and 95.63).
+- **New branch since the batch started:** `robotwin10_training_20261101` (commits of 2026-11-02 and 2026-11-03) holds the
+  code to train seven variants (v0 4/4, 4/2, 4/1, 2/2, 1/4, Dense-12 and Dense-30) on the LiLa-WAM 10-task RoboTwin
+  subset with the full-RoboTwin v0 recipe (5 epochs, seed 42), with a Slurm dispatcher and Hugging Face publishing.
+  It has no evaluation results yet.
 
 ## 7. Files
 
