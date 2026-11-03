@@ -4,7 +4,11 @@
 python experiments/robocasa_gr1/run_eval.py --checkpoint CK --stats S --out OUT --steps 8,12,16,24 --episodes 10 --seed 0
 Each (n_action_steps, task) cell writes OUT/n{steps}/{task}.json via sim_client.py; existing cells are skipped.
 Servers serve any n_action_steps (sent per request). Thread caps follow the THAW-VLA GR1 runner
-(SERVER_THREADS=8, SIM_THREADS=2, osmesa, NUMBA_DISABLE_JIT=1, MUJOCO_EGL_DEVICE_ID unset).
+(SERVER_THREADS=8, SIM_THREADS=2, NUMBA_DISABLE_JIT=1). Rendering: --render osmesa (CPU; MUJOCO_EGL_DEVICE_ID unset)
+or --render egl (GPU; each sim client renders on the GPU of the policy server it talks to; --egl-libs DIR prepends
+a directory of NVIDIA EGL user-space libs for hosts whose container lacks them).
+Official starVLA Robocasa_tabletop protocol (batch_eval_args.sh): --steps 12 --episodes 50 --n-envs 1
+--max-episode-steps 720 --video, all 24 tasks.
 """
 from __future__ import annotations
 
@@ -42,11 +46,18 @@ def port_open(port):
         return s.connect_ex(('127.0.0.1', port)) == 0
 
 
-def sim_env(threads):
-    env = dict(os.environ, MUJOCO_GL='osmesa', PYOPENGL_PLATFORM='osmesa', NUMBA_DISABLE_JIT='1', PYTHONPATH=STARVLA,
-               OMP_NUM_THREADS=str(threads), MKL_NUM_THREADS=str(threads), OPENBLAS_NUM_THREADS=str(threads),
-               LD_LIBRARY_PATH=f'{OSMESA_LIB}:{os.getenv("LD_LIBRARY_PATH", "")}', CUDA_VISIBLE_DEVICES='')
-    env.pop('MUJOCO_EGL_DEVICE_ID', None)
+def sim_env(threads, render='osmesa', gpu=None, egl_libs=None):
+    env = dict(os.environ, NUMBA_DISABLE_JIT='1', PYTHONPATH=STARVLA,
+               OMP_NUM_THREADS=str(threads), MKL_NUM_THREADS=str(threads), OPENBLAS_NUM_THREADS=str(threads))
+    if render == 'osmesa':
+        env.update(MUJOCO_GL='osmesa', PYOPENGL_PLATFORM='osmesa', CUDA_VISIBLE_DEVICES='',
+                   LD_LIBRARY_PATH=f'{OSMESA_LIB}:{os.getenv("LD_LIBRARY_PATH", "")}')
+        env.pop('MUJOCO_EGL_DEVICE_ID', None)
+    else:
+        env.update(MUJOCO_GL='egl', PYOPENGL_PLATFORM='egl', CUDA_VISIBLE_DEVICES=str(gpu), MUJOCO_EGL_DEVICE_ID=str(gpu))
+        if egl_libs:
+            env.update(LD_LIBRARY_PATH=f'{egl_libs}:{os.getenv("LD_LIBRARY_PATH", "")}',
+                       __EGL_VENDOR_LIBRARY_FILENAMES=str(Path(egl_libs) / '10_nvidia.json'))
     return env
 
 
@@ -60,6 +71,10 @@ def main():
     p.add_argument('--n-envs', type=int, default=1); p.add_argument('--max-episode-steps', type=int, default=720)
     p.add_argument('--server-threads', type=int, default=8); p.add_argument('--sim-threads', type=int, default=2)
     p.add_argument('--video', action='store_true'); p.add_argument('--expected-step', type=int, default=None)
+    p.add_argument('--render', choices=('osmesa', 'egl'), default='osmesa'); p.add_argument('--egl-libs', default=None)
+    p.add_argument('--vae-path', default=None, help='server --vae-path (default: <code>/checkpoints/...)')
+    p.add_argument('--max-gpu-memory-gb', type=float, default=None, help='server PyTorch allocator cap (shared GPUs)')
+    p.add_argument('--no-t5-fallback', action='store_true', help='server: a prompt-cache miss fails instead of loading T5')
     a = p.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True); (out / 'logs').mkdir(exist_ok=True)
     tasks = a.tasks.split(',') if a.tasks else list(GR1_ENV_NAMES)
@@ -78,6 +93,8 @@ def main():
                    OMP_NUM_THREADS=str(a.server_threads), PYTHONPATH=f'{EVAL_ROOT}/pydeps_fastwam:{STARVLA}:{CODE}/src:{CODE}')
         cmd = [FASTWAM_PY, str(CODE / 'experiments/robocasa_gr1/loopwam_policy_server.py'), '--checkpoint', a.checkpoint,
                '--stats', a.stats, '--port', str(port)] + (['--expected-step', str(a.expected_step)] if a.expected_step else [])
+        cmd += (['--vae-path', a.vae_path] if a.vae_path else []) + (['--no-t5-fallback'] if a.no_t5_fallback else [])
+        cmd += ['--max-gpu-memory-gb', str(a.max_gpu_memory_gb)] if a.max_gpu_memory_gb else []
         servers.append(subprocess.Popen(cmd, env=env, stdout=open(out / 'logs' / f'server_{port}.log', 'a'), stderr=subprocess.STDOUT))
     try:
         deadline = time.time() + 900
@@ -91,7 +108,7 @@ def main():
         running, k, started = [], 0, time.time()
         while cells or running:
             while cells and len(running) < a.parallel:
-                s, t = cells.pop(0); name = t.split('/')[-1]; port = ports[k % len(ports)]; k += 1
+                s, t = cells.pop(0); name = t.split('/')[-1]; port = ports[k % len(ports)]; gpu = gpus[(k % len(ports)) % len(gpus)]; k += 1
                 res = out / f'n{s}' / f'{name}.json'; res.parent.mkdir(exist_ok=True)
                 cmd = [ROBOCASA_PY, str(CODE / 'experiments/robocasa_gr1/sim_client.py'), '--env-name', t, '--port', str(port),
                        '--n-episodes', str(a.episodes), '--n-envs', str(a.n_envs), '--n-action-steps', str(s),
@@ -99,7 +116,8 @@ def main():
                 if a.video:
                     cmd += ['--video-dir', str(out / 'videos' / f'n{s}' / name)]
                 log = open(out / 'logs' / f'n{s}_{name}.log', 'a')
-                running.append((subprocess.Popen(cmd, env=sim_env(a.sim_threads), stdout=log, stderr=subprocess.STDOUT, cwd=STARVLA), s, t))
+                running.append((subprocess.Popen(cmd, env=sim_env(a.sim_threads, a.render, gpu, a.egl_libs), stdout=log,
+                                                 stderr=subprocess.STDOUT, cwd=STARVLA), s, t))
             time.sleep(10)
             for item in list(running):
                 code = item[0].poll()

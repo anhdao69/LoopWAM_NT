@@ -155,11 +155,23 @@ def main():
     p.add_argument('--t5-server', default=None)
     p.add_argument('--video-key', default=VIDEO_KEY)
     p.add_argument('--idle-timeout', type=int, default=-1)
+    p.add_argument('--max-gpu-memory-gb', type=float, default=None,
+                   help='cap this process\'s PyTorch allocator (GPU shared with other jobs); exceeding it raises here')
+    p.add_argument('--no-t5-fallback', action='store_true',
+                   help='a prompt-cache miss raises instead of loading the T5 encoder on the GPU')
     a = p.parse_args()
     logging.basicConfig(level=logging.INFO, force=True, format='%(asctime)s %(levelname)s %(message)s')
+    if a.max_gpu_memory_gb:
+        total = torch.cuda.get_device_properties(0).total_memory
+        torch.cuda.set_per_process_memory_fraction(min(1.0, a.max_gpu_memory_gb * 2**30 / total), 0)
+        logging.info('PyTorch allocator capped at %.1f GiB of %.1f GiB', a.max_gpu_memory_gb, total / 2**30)
     from deployment.model_server.tools.websocket_policy_server import WebsocketPolicyServer
     policy = LoopWAMGR1Policy(a.checkpoint, a.stats, a.vae_path, a.text_cache_dir, seed=a.seed, n_action_steps=a.n_action_steps,
                               expected_step=a.expected_step, t5_server=a.t5_server, video_key=a.video_key)
+    if a.no_t5_fallback:
+        def no_encoder():
+            raise RuntimeError('prompt not in the training text cache and --no-t5-fallback is set')
+        policy.text._load_encoder = no_encoder
     meta = dict(policy.metadata, host=socket.gethostname(), port=a.port)
     logging.info('serving %s', json.dumps(meta))
     WebsocketPolicyServer(policy=policy, host=a.host, port=a.port, idle_timeout=a.idle_timeout, metadata=meta).serve_forever()

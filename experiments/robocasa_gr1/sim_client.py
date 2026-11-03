@@ -135,7 +135,8 @@ def main():
                   client=dict(queries=getattr(model, 'calls', None),
                               mean_roundtrip_s=float(np.mean(model.latency)) if getattr(model, 'latency', None) else None,
                               instructions=sorted(getattr(model, 'instructions', []))),
-                  env=dict(MUJOCO_GL=os.getenv('MUJOCO_GL'), NUMBA_DISABLE_JIT=os.getenv('NUMBA_DISABLE_JIT')))
+                  env=dict(MUJOCO_GL=os.getenv('MUJOCO_GL'), MUJOCO_EGL_DEVICE_ID=os.getenv('MUJOCO_EGL_DEVICE_ID'),
+                           NUMBA_DISABLE_JIT=os.getenv('NUMBA_DISABLE_JIT')))
     out.write_text(json.dumps(result, indent=2))
     print(json.dumps({k: result[k] for k in ('env_name', 'policy', 'n_action_steps', 'success_rate', 'successes_first_n',
                                              'n_episodes', 'wall_seconds')}), flush=True)
