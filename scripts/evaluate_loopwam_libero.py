@@ -140,8 +140,9 @@ def validate_transport_checkpoint(payload,data,stats_hash):
         raise ValueError("RT evaluation requires a retained v0 epoch 8/9/10")
     if data.get("dataset_scope")!="full_libero" or set(data.get("suites",[]))!=set(LIBERO_SUITES):
         raise ValueError("RT must cover all four LIBERO suites")
+    # World 4 (CL0-E*): 4 GPUs x microbatch 32 = the same global batch 128; the divisibility check below still applies.
     if (contract.get("windows")!=data.get("train_windows") or contract.get("epochs")!=10
-            or contract.get("global_batch")!=128 or contract.get("world") not in (1,2)
+            or contract.get("global_batch")!=128 or contract.get("world") not in (1,2,4)
             or not isinstance(contract.get("microbatch"),int) or contract["microbatch"]<1
             or 128%(contract["world"]*contract["microbatch"])!=0
             or contract.get("config")!=payload.get("transport_config")
