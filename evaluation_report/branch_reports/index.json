@@ -1,13 +1,13 @@
 {
   "base": {
     "branch": "LoopWAM_NT",
-    "commit": "5a249fc82313dadf792c4f26e17458dffc6aeb7c"
+    "commit": "0e3a8d6d2254f4f5ff27c91ed92c74a8b43f05be"
   },
   "branches": {
     "KV_concat": {
-      "commit": "8b0342cc1babad57c38603338e55bd7e4a07273f",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "55374b4d743a2d261f6025abd0b9f9d4ba49702f",
+      "date": "2026-11-02T20:04:19+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -62,9 +62,9 @@
       ]
     },
     "chrono": {
-      "commit": "39d3e7662637021e03fb40ad3de713b914607458",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "ce2ea13cd7d109993f6b45333ffec5ecb38df322",
+      "date": "2026-11-02T20:04:19+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -94,9 +94,9 @@
       ]
     },
     "elastic": {
-      "commit": "6ec140152cb8979fb083818efe893c0bc3a1291f",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "af577f372f156e1101f16f6e84036f8041cf95cf",
+      "date": "2026-11-02T20:04:19+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/LoopWAM_elastic.md",
@@ -186,9 +186,9 @@
       ]
     },
     "partition_grid_20261026": {
-      "commit": "3a000d42825f1dfb96b2a18d66ea9b1aeb52914c",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "52b3e4e6c7426afa132a24f2540f4a7422cddef9",
+      "date": "2026-11-02T20:04:20+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -253,9 +253,9 @@
       ]
     },
     "residual_trans": {
-      "commit": "c81804ed01ab1080ed897edfd58a4a3b56406e8e",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "18013dffb1fe61ba0a55a543ab17617e0ade7c6a",
+      "date": "2026-11-02T20:04:20+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
@@ -295,9 +295,9 @@
       ]
     },
     "robotwin10_training_20261101": {
-      "commit": "3080145b75278d019e523369a6fed0a057f9382f",
-      "date": "2026-11-02T09:12:44-05:00",
-      "subject": "Add RoboTwin-10 seven-model training, orchestration and HF publishing",
+      "commit": "c8db891a773ae1ad8e81e2aa7b3a965d1c4b2a6e",
+      "date": "2026-11-03T08:33:10-05:00",
+      "subject": "robotwin10: quieter event watcher",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -337,9 +337,9 @@
       ]
     },
     "robotwin_eval_continue_20261030": {
-      "commit": "bea472670ea52bb375ae75ba5380cd88087d2c30",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "fe06cf8ccea69278489afde86728326f29f824bf",
+      "date": "2026-11-02T20:04:20+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -379,9 +379,9 @@
       ]
     },
     "robotwin_full_v0_20261028": {
-      "commit": "254055623502e13c58e1736cfd606ecb45f14b1e",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "15cfa12fbb214e7b82057a10c76635e39721ac31",
+      "date": "2026-11-02T20:04:21+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -416,15 +416,15 @@
       ]
     },
     "scratch_init_v0": {
-      "commit": "0cc35554787408a21f9d763b44016c6885c37e08",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "c2502b2815631cf82b73177bf76be1f799c284de",
+      "date": "2026-11-02T20:04:21+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": []
     },
     "v0-init-variants": {
-      "commit": "88bd77f249c78c0c98a88647a9a08d7505628532",
-      "date": "2026-10-31T09:41:29-04:00",
-      "subject": "Sync all current evaluation reports and preserve prior results",
+      "commit": "e21a20b9cbb744ca486e76ac81a77e8582b4e048",
+      "date": "2026-11-02T20:04:22+00:00",
+      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
