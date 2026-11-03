@@ -19,12 +19,15 @@ export EVAL_TEXT=/mnt/data/vmo-ai-task/anhdh35/FastWAM/data/text_embeds_cache/li
 export EVAL_RUNS=$CL0_WORK/runs
 # epoch_10.pt sha256 of each run, pinned from the pre-evaluation audit (validation/eval_exports_audit.json).
 export EVAL_EXPECTED_SHA="CL0-E0=1d47ff90a279570401f5036ea6f8c2ac32a5bd88394a32598f5fa0e8f70ea4b8,CL0-E1=d2f192e4ed62986fe07852cbb85e062f99c1209f5a0e40b35f9032d5c21edae6,CL0-E2=8e235d15cfa23410acd83165e2466e3b3781ee2a8d98a186a86a4fec79a2d8db"
-# Conditions RUN:SCHEDULE:GATE in queue order. Run-major (all nine flat schedules of CL0-E0, then CL0-E1, then
-# CL0-E2) so each worker loads a new checkpoint only three times; within a run, ascending action calls (24, 36, 60,
-# 60, 90, 120, 150, 180, 300). Queue order never changes per-group seeding. One gate per run covers its nine schedules.
+# Conditions RUN:SCHEDULE:GATE in queue order: schedule-major in ascending action calls (24, 36, 60, 60, 90, 120,
+# 150, 180, 300), CL0-E0, CL0-E1, CL0-E2 at each schedule (as the reference grid tier), so paired contrasts complete
+# schedule by schedule. A worker reloads its checkpoint at every condition switch, which releases the previous
+# schedule's CUDA graph: ~5.4 GB per worker instead of ~8.5 GB with all nine graphs resident (run-major order),
+# which is what lets 12 workers share one 80 GB GPU. Queue order never changes per-group seeding. One gate per run
+# covers its nine schedules.
 EVAL_CONDITIONS=""
-for r in CL0-E0 CL0-E1 CL0-E2; do
-  for s in flat_k1_n2 flat_k2_n2 flat_k1_n5 flat_k4_n2 flat_k2_n5 flat_k1_n10 flat_k4_n5 flat_k2_n10 flat_k4_n10; do
+for s in flat_k1_n2 flat_k2_n2 flat_k1_n5 flat_k4_n2 flat_k2_n5 flat_k1_n10 flat_k4_n5 flat_k2_n10 flat_k4_n10; do
+  for r in CL0-E0 CL0-E1 CL0-E2; do
     EVAL_CONDITIONS="$EVAL_CONDITIONS $r:$s:$r"
   done
 done
