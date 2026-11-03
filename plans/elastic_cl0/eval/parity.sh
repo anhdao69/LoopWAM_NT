@@ -6,6 +6,10 @@
 #   E0 [1,1]   libero_10 seed 42 task 0, libero_spatial seed 42 task 0   (GPUs 0, 1)
 #   E0 [4]x10  libero_goal seed 44 task 5                                (GPU 2)
 # Scored output goes to $EVAL_OUT/parity (tag parity_repro), never into final_rollout.
+# Prompt cache: E0 was trained and scored on the other cluster with a regenerated cache (same files and valid tokens,
+# different bytes; setup_eval.json), which is not available here. So --verify-text-hash is off for this run only and
+# E0 reads this cluster's training cache (the BASE10 parent's bytes). An exact result therefore establishes the whole
+# stack; an inexact one measures this cluster + prompt bytes together, as the RTX PRO 6000 batch's gate G4 did.
 set -uo pipefail
 TOOLS=/mnt/data/vmo-ai-task/anhdh35/LoopWAM_elastic_cl0/plans/elastic_cl0/eval
 source $TOOLS/eval_env.sh
@@ -21,7 +25,7 @@ export CUDA_MPS_PIPE_DIRECTORY=$M/pipe CUDA_MPS_LOG_DIRECTORY=$M/log
 ( unset CUDA_VISIBLE_DEVICES; nvidia-cuda-mps-control -d ) && echo "[$(date -Is)] parity: MPS daemon started"
 common=(--tag parity_repro --key-prefix elastic --expected-sha "E0=$E0SHA" --output-root "$EVAL_OUT/parity"
         --weights-root "$EVAL_OUT/reference_runs" --vae-path "$ELASTIC_VAE" --text-cache-dir "$EVAL_TEXT"
-        --verify-text-hash --workers-per-gpu 1 --no-videos)
+        --workers-per-gpu 1 --no-videos)
 CUDA_VISIBLE_DEVICES=0 python scripts/evaluate_rt_matched.py "${common[@]}" --conditions E0:flat_k1_n2:cuda-graph \
   --suites libero_10,libero_spatial --tasks 0 --seeds 42 --gpus 0,1 > "$EVAL_OUT/logs/parity_k1n2.log" 2>&1 &
 p1=$!
