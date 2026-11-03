@@ -34,10 +34,10 @@ decision taken during the runs are in [`harness/README_MATCHED_EVAL.md`](harness
 - **Per-run records:** [`runs/<model>/`](runs) holds each run's manifest (protocol, source hashes, code revisions),
   summary and first build report per suite.
 
-## 8. Agreement with the H100 campaign
+## 8. Agreement with the campaign
 
 The harness was validated on the released v0 4/4 export (`1c659a7c…`, campaign "LoopWAM full 4/4") before any new
-model was scored:
+model was scored, against the remote campaign's records (scored on its own RTX PRO 6000 Blackwell host, `../final`):
 
 - Gate on 40 campaign episodes: 40/40 outcomes agree, 39/40 trajectories identical
   (`evidence/gates/gate_loopwam_v0_full44_libero_spatial.json`).
@@ -46,7 +46,9 @@ model was scored:
 - The partition-code and init-variant-code controls reproduced the v0 gate (all successes identical); the only
   differences lie in episodes where the same code varies between reruns on this host (next section).
 
-So the local results and the H100 results above are directly comparable at the success-rate level.
+So the local results and the campaign's results are directly comparable at the success-rate level. No such gate was
+run against the H100 evaluations; for E0, the 2026-11-01 batch found 94/100 and 88/100 outcome agreement with the
+elastic branch's H100 records (gate G4 in [`../matched_pro6000_20261101`](../matched_pro6000_20261101)).
 
 ## 9. Caveats and run history
 
