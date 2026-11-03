@@ -11,6 +11,9 @@ export EVAL_OUT=$CL0_WORK/eval
 # Private LIBERO config (setup_eval.sh writes it): without one, importing libero prompts on stdin and hangs.
 export LIBERO_CONFIG_PATH=$EVAL_OUT/libero_config
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
+# NVIDIA 570.158.01 EGL/GL user-space libs (egl_libs.sh); the container has only the compute part of the driver.
+export LD_LIBRARY_PATH=$EVAL_OUT/egl_libs${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export __EGL_VENDOR_LIBRARY_FILENAMES=$EVAL_OUT/egl_libs/10_nvidia.json
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
 export EVAL_TEXT=/mnt/data/vmo-ai-task/anhdh35/FastWAM/data/text_embeds_cache/libero
 export EVAL_RUNS=$CL0_WORK/runs
