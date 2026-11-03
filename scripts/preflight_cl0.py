@@ -22,6 +22,7 @@ def main():
     p.add_argument("--common-init", required=True); p.add_argument("--microbatch", type=int, default=8)
     p.add_argument("--runs", default="CL0-E0,CL0-E2")
     p.add_argument("--schedules", default="flat_k1_n2,flat_k2_n5,flat_k4_n10,flat_k1_n10")
+    p.add_argument("--options", default="bf16_frozen,teacher_graph,no_fill,all")
     p.add_argument("--out", required=True)
     a = p.parse_args()
     torch.use_deterministic_algorithms(True)
@@ -108,13 +109,15 @@ def main():
     torch.cuda.empty_cache()
 
     schedules = a.schedules.split(",")
-    options = dict(bf16_frozen=dict(bf16=True, graph=False), teacher_graph=dict(bf16=False, graph=True),
-                   both=dict(bf16=True, graph=True))
+    options = dict(bf16_frozen=dict(bf16=True, graph=False, nofill=False), teacher_graph=dict(bf16=False, graph=True, nofill=False),
+                   no_fill=dict(bf16=False, graph=False, nofill=True), all=dict(bf16=True, graph=True, nofill=True))
+    options = {k: v for k, v in options.items() if k in a.options.split(",")}
     for run in a.runs.split(","):
         eager = build(eager_parent, run)
         expected = {(s, i): step(eager, s, batches[i]) for s in schedules for i in (0, 1)}
         del eager; torch.cuda.empty_cache()
         for option, flags in options.items():
+            torch.utils.deterministic.fill_uninitialized_memory = not flags["nofill"]
             fast_parent = parent_model()
             fast = build(fast_parent, run, teacher_graph=flags["graph"])
             converted = bf16_frozen(fast) if flags["bf16"] else 0
@@ -126,6 +129,7 @@ def main():
             check(f"speed_{option}_{run}", all(r["bit_equal"] and r["passes"][0] == r["passes"][1] for r in rows.values()),
                   converted_linear=converted, graph_captures=None if graph is None else graph.captures, paths=rows)
             del fast, fast_parent, graph; torch.cuda.empty_cache()
+            torch.utils.deterministic.fill_uninitialized_memory = True
         del expected
     report.update(finished=time.time(), passed=True)
     Path(a.out).write_text(json.dumps(report, indent=2, default=str))

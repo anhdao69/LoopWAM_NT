@@ -39,6 +39,7 @@ config = ELASTIC[a.run]
 schedules = list(FLAT9) if a.schedules == "all" else a.schedules.split(",")
 results = dict(args=vars(a), gpu=torch.cuda.get_device_name(), torch=torch.__version__, options={})
 for option in a.options.split(","):
+    torch.utils.deterministic.fill_uninitialized_memory = "nofill" not in option
     parent = create_loopwam(checkpoint_path=teacher, vae_path=os.environ["ELASTIC_VAE"], device=str(dev)).requires_grad_(False).eval()
     model = TransportPolicy(parent, **{k: config[k] for k in ("kind", "scope", "step_cond", "regime", "anchor")},
                             checkpoint_blocks=False, reuse_teacher_prefix=True, collect_diagnostics=True,

@@ -162,6 +162,8 @@ def main():
         help="Store the frozen parent's nn.Linear weights in BF16 (the cast BF16 autocast performs on every call)")
     p.add_argument("--teacher-graph",action="store_true",help="CUDA-graph replay of the frozen teacher velocity")
     p.add_argument("--gc-freeze",action="store_true",help="gc.freeze() after setup; collect only at saves")
+    p.add_argument("--no-fill-uninitialized",action="store_true",
+        help="Skip the NaN fill deterministic mode applies to every new uninitialized buffer (a debugging aid)")
     a=p.parse_args()
     rank=int(os.getenv("RANK","0")); world=int(os.getenv("WORLD_SIZE","1"))
     local=int(os.getenv("LOCAL_RANK","0"))
@@ -170,6 +172,7 @@ def main():
     if a.epochs!=10 and not a.smoke: p.error("Production training must cover ten epochs")
     if a.global_batch%(world*a.microbatch): p.error("Invalid accumulation layout")
     torch.use_deterministic_algorithms(True)
+    if a.no_fill_uninitialized: torch.utils.deterministic.fill_uninitialized_memory=False
     torch.cuda.set_device(local); torch.set_num_threads(4)
     if world>1: dist.init_process_group("nccl",device_id=torch.device("cuda",local))
     device=torch.device("cuda",local)
@@ -222,7 +225,8 @@ def main():
         global_batch=a.global_batch,epochs=a.epochs,planned_updates=total,teacher=str(Path(a.teacher).resolve()),
         normalization_sha256=data.manifest["normalization_sha256"],
         checkpoint_blocks=not a.no_checkpoint_blocks,deterministic_algorithms=True)
-    speed=dict(bf16_frozen=a.bf16_frozen,teacher_graph=a.teacher_graph,gc_freeze=a.gc_freeze)
+    speed=dict(bf16_frozen=a.bf16_frozen,teacher_graph=a.teacher_graph,gc_freeze=a.gc_freeze,
+               no_fill_uninitialized=a.no_fill_uninitialized)
     if any(speed.values()): contract["speed_options"]=speed
     sequence=None
     if elastic:
