@@ -3,7 +3,7 @@
 Inputs: verification/<run>.json (verify_run.py results), data/suite_results.csv (seed spread), runs/<run>/ (manifest,
 summary, build reports) and ../branch_reports (snapshots of the other branches' reports, see sync_branch_reports.py).
 """
-import csv, json, pathlib, re
+import collections, csv, json, pathlib, re
 
 HERE = pathlib.Path(__file__).resolve().parent
 BR = HERE.parent / 'branch_reports'
@@ -65,7 +65,48 @@ BATCH_SRC = '2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matche
 
 rows = [(ver[r]['success_rate'], label, 'this evaluation (local RTX PRO 6000 Blackwell)') for r, label, _ in RUNS]
 rows += [(100 * batch[n]['success_rate'], label, BATCH_SRC) for n, label in BATCH]
-rows += [(sr, label, f'H100, branch `elastic` all-models report ({group})') for sr, label, group in external]
+
+# Where each copied row was scored. The elastic report carries success rates only. The remote campaign (../campaign,
+# ../final) scored FastWAM, the campaign v0 exports, the ChronoLoop runs and part of Residual Transport on its own
+# RTX PRO 6000 Blackwell host, and imported the other Residual Transport rows from their H100 evaluation; the elastic
+# and init-variant rows were scored on H100 on their branches. Each campaign attribution is checked against the
+# campaign's own success count.
+campaign = {}
+for c in json.loads((HERE.parent / 'campaign' / 'detailed_results.json').read_text())['conditions']:
+    if c['status'] in ('complete', 'external_complete'):
+        campaign[c['results']['model']] = (c['status'], c['results']['successes'], c['results']['episodes'])
+final = collections.defaultdict(lambda: [0, 0])
+for row in csv.DictReader(open(HERE.parent / 'final' / 'suite_results.csv')):
+    final[row['model']][0] += int(row['successes'])
+    final[row['model']][1] += int(row['episodes'])
+FINAL_NAME = {'FastWAM (released, libero_uncond_2cam224)': 'Fast-WAM original all suites',
+              'all-suites v0 4/4': 'LoopWAM full 4/4', 'all-suites v0 4/1': 'LoopWAM full video4/action1',
+              'all-suites v0 2/2': 'LoopWAM full video2/action2', 'all-suites v0 1/4': 'LoopWAM full video1/action4',
+              'all-suites v0 4/1 kv-mix': 'LoopWAM full KV mix 4/1'}
+CL_NAME = {'CL-A_mem16-learned-loopwrite_a4': 'CL-A', 'CL-0_no-memory_a4': 'CL-0',
+           'CL-W2_mem16-learned-external-updater_a4': 'CL-W2', 'CL-REG_mem16-reset-registers_a4': 'CL-REG',
+           'CL-FRAME_history-frame-k3_a4': 'CL-FRAME', 'CL-0-at1_no-memory_a1': 'CL-0@1',
+           'CL-A-at1_mem16-learned-loopwrite_a1': 'CL-A@1'}
+
+
+def scored_where(sr, label, group):
+    via = f'branch `elastic` all-models report ({group})'
+    if label in FINAL_NAME:
+        s, n = final[FINAL_NAME[label]]
+        assert n == 6000 and pct(100 * s / n) == pct(sr), label
+        return f'RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); {via}'
+    if group in ('elastic', 'init-variants'):
+        return f'H100, {via}'
+    assert group in ('chronoloop', 'residual-transport'), (label, group)
+    key = CL_NAME[label.split(' ', 1)[1]] if group == 'chronoloop' else ' '.join(label.split()[:2])
+    status, s, n = campaign[key]
+    assert n == 6000 and pct(100 * s / n) == pct(sr), (label, s, sr)
+    if status == 'complete':
+        return f'RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); {via}'
+    return f'H100 (imported by the campaign); {via}'
+
+
+rows += [(sr, label, scored_where(sr, label, group)) for sr, label, group in external]
 rows.sort(key=lambda x: -x[0])
 
 L = []
@@ -98,7 +139,10 @@ for i, (sr, label, src) in enumerate(rows, 1):
 w('')
 w('Bold rows were scored on the local RTX PRO 6000 host (this evaluation and the 2026-11-01 batch). With 6,000 episodes the binomial 95% interval is about +/-0.6 points for a model '
   'near 95% success (+/-0.8 near 90%); episodes within a task/seed group share the seed, so treat it as a lower '
-  'bound. Rows from other branches are copied from their reports and were not re-verified here.')
+  'bound. Rows from other branches are copied from their reports and were not re-verified here. The remote '
+  'campaign scored FastWAM, the campaign v0 exports, the ChronoLoop runs and part of Residual Transport on its own RTX '
+  'PRO 6000 Blackwell host (a different machine of the same GPU and CPU model as this one); the other copied rows were '
+  'scored on H100.')
 w('')
 w('## 2. This evaluation, per suite')
 w('')

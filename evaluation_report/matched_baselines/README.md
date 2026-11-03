@@ -12,31 +12,31 @@ Every number here uses the campaign protocol `lightwam_20261009_matched`: 4 suit
 | # | Model | Success % | Evaluated |
 |---:|---|---:|---|
 | 1 | **FasterWAM** | **98.72** | this evaluation (local RTX PRO 6000 Blackwell) |
-| 2 | FastWAM (released, libero_uncond_2cam224) | 96.63 | H100, branch `elastic` all-models report (baseline) |
-| 3 | ChronoLoop CL-A_mem16-learned-loopwrite_a4 | 96.18 | H100, branch `elastic` all-models report (chronoloop) |
-| 4 | ChronoLoop CL-0_no-memory_a4 | 96.10 | H100, branch `elastic` all-models report (chronoloop) |
-| 5 | ChronoLoop CL-W2_mem16-learned-external-updater_a4 | 96.02 | H100, branch `elastic` all-models report (chronoloop) |
-| 6 | ChronoLoop CL-REG_mem16-reset-registers_a4 | 95.97 | H100, branch `elastic` all-models report (chronoloop) |
-| 7 | ChronoLoop CL-FRAME_history-frame-k3_a4 | 95.90 | H100, branch `elastic` all-models report (chronoloop) |
+| 2 | FastWAM (released, libero_uncond_2cam224) | 96.63 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (baseline) |
+| 3 | ChronoLoop CL-A_mem16-learned-loopwrite_a4 | 96.18 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
+| 4 | ChronoLoop CL-0_no-memory_a4 | 96.10 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
+| 5 | ChronoLoop CL-W2_mem16-learned-external-updater_a4 | 96.02 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
+| 6 | ChronoLoop CL-REG_mem16-reset-registers_a4 | 95.97 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
+| 7 | ChronoLoop CL-FRAME_history-frame-k3_a4 | 95.90 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
 | 8 | elastic F0-PB parent2 [4,4] | 95.88 | H100, branch `elastic` all-models report (elastic) |
 | 9 | **LoopWAM v0 4/4 without distillation, [4,4] (NFE 2)** | **95.78** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
 | 10 | **Light-WAM** | **95.77** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 11 | elastic F0-PB parent5 [4]x5 | 95.75 | H100, branch `elastic` all-models report (elastic) |
 | 12 | **LoopWAM v0 4/4 without distillation, [4]x5 (NFE 5)** | **95.73** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
-| 13 | ChronoLoop CL-0-at1_no-memory_a1 | 95.70 | H100, branch `elastic` all-models report (chronoloop) |
+| 13 | ChronoLoop CL-0-at1_no-memory_a1 | 95.70 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
 | 14 | elastic E1 flat_k4_n5 [4]x5 | 95.65 | H100, branch `elastic` all-models report (elastic) |
 | 15 | **LoopWAM Dense-S30** | **95.63** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 16 | elastic E0 flat_k4_n5 [4]x5 | 95.45 | H100, branch `elastic` all-models report (elastic) |
-| 17 | ChronoLoop CL-A-at1_mem16-learned-loopwrite_a1 | 95.33 | H100, branch `elastic` all-models report (chronoloop) |
+| 17 | ChronoLoop CL-A-at1_mem16-learned-loopwrite_a1 | 95.33 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (chronoloop) |
 | 18 | elastic E2 flat_k4_n5 [4]x5 | 95.28 | H100, branch `elastic` all-models report (elastic) |
 | 19 | elastic E2 flat_k4_n2 [4,4] | 95.27 | H100, branch `elastic` all-models report (elastic) |
 | 20 | elastic E1 flat_k4_n2 [4,4] | 95.22 | H100, branch `elastic` all-models report (elastic) |
 | 21 | elastic E2 flat_k2_n5 [2]x5 | 95.07 | H100, branch `elastic` all-models report (elastic) |
 | 22 | **elastic E0 flat_k5_n10 [5]x10** | **95.03** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
-| 23 | RT-A2 S5 [4,2,2,2,2] | 94.98 | H100, branch `elastic` all-models report (residual-transport) |
+| 23 | RT-A2 S5 [4,2,2,2,2] | 94.98 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 24 | elastic E0 flat_k4_n2 [4,4] | 94.97 | H100, branch `elastic` all-models report (elastic) |
-| 25 | RT-A2 S7 [4,2] | 94.93 | H100, branch `elastic` all-models report (residual-transport) |
-| 26 | all-suites v0 4/4 | 94.92 | H100, branch `elastic` all-models report (all-suites) |
+| 25 | RT-A2 S7 [4,2] | 94.93 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
+| 26 | all-suites v0 4/4 | 94.92 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (all-suites) |
 | 27 | elastic E0 flat_k4_n10 [4]x10 | 94.87 | H100, branch `elastic` all-models report (elastic) |
 | 28 | elastic E0 flat_k2_n5 [2]x5 | 94.85 | H100, branch `elastic` all-models report (elastic) |
 | 29 | **elastic E0 flat_k6_n10 [6]x10** | **94.78** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
@@ -46,38 +46,38 @@ Every number here uses the campaign protocol `lightwam_20261009_matched`: 4 suit
 | 33 | elastic F0-PB parent10 [4]x10 | 94.68 | H100, branch `elastic` all-models report (elastic) |
 | 34 | **LoopWAM v0 Ka5** | **94.60** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 35 | elastic E1 flat_k2_n2 [2,2] | 94.58 | H100, branch `elastic` all-models report (elastic) |
-| 36 | RT-B2a parent2 [4,4] | 94.57 | H100, branch `elastic` all-models report (residual-transport) |
-| 37 | RT-T1ft S1 [4]+[2]x9 | 94.57 | H100, branch `elastic` all-models report (residual-transport) |
+| 36 | RT-B2a parent2 [4,4] | 94.57 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
+| 37 | RT-T1ft S1 [4]+[2]x9 | 94.57 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 38 | **LoopWAM v0 4/2 (video 4 / action 2 export)** | **94.53** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
 | 39 | elastic E0 flat_k1_n5 [1]x5 | 94.53 | H100, branch `elastic` all-models report (elastic) |
 | 40 | elastic E0 flat_k2_n2 [2,2] | 94.53 | H100, branch `elastic` all-models report (elastic) |
-| 41 | RT-A2 S8 [4,1] | 94.53 | H100, branch `elastic` all-models report (residual-transport) |
+| 41 | RT-A2 S8 [4,1] | 94.53 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 42 | elastic E1 flat_k2_n5 [2]x5 | 94.52 | H100, branch `elastic` all-models report (elastic) |
 | 43 | elastic F0-PB S8 [4,1] | 94.50 | H100, branch `elastic` all-models report (elastic) |
-| 44 | RT-A2 S6 [4,1,1,1,1] | 94.48 | H100, branch `elastic` all-models report (residual-transport) |
-| 45 | RT-A S1 [4]+[2]x9 | 94.47 | H100, branch `elastic` all-models report (residual-transport) |
+| 44 | RT-A2 S6 [4,1,1,1,1] | 94.48 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
+| 45 | RT-A S1 [4]+[2]x9 | 94.47 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
 | 46 | elastic E1 flat_k4_n10 [4]x10 | 94.45 | H100, branch `elastic` all-models report (elastic) |
-| 47 | all-suites v0 4/1 kv-mix | 94.45 | H100, branch `elastic` all-models report (all-suites) |
-| 48 | RT-TF S1 [4]+[2]x9 | 94.42 | H100, branch `elastic` all-models report (residual-transport) |
+| 47 | all-suites v0 4/1 kv-mix | 94.45 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (all-suites) |
+| 48 | RT-TF S1 [4]+[2]x9 | 94.42 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 49 | **LoopWAM v0 partition 0/6/6** | **94.42** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 50 | elastic E0 flat_k1_n2 [1,1] | 94.33 | H100, branch `elastic` all-models report (elastic) |
-| 51 | RT-B4 S1 [4]+[2]x9 | 94.32 | H100, branch `elastic` all-models report (residual-transport) |
+| 51 | RT-B4 S1 [4]+[2]x9 | 94.32 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
 | 52 | elastic E1 flat_k1_n5 [1]x5 | 94.30 | H100, branch `elastic` all-models report (elastic) |
 | 53 | elastic E2 flat_k1_n5 [1]x5 | 94.25 | H100, branch `elastic` all-models report (elastic) |
 | 54 | elastic F0-PB S5 [4,2,2,2,2] | 94.25 | H100, branch `elastic` all-models report (elastic) |
-| 55 | RT-T1ft S2 [4]+[1]x9 | 94.18 | H100, branch `elastic` all-models report (residual-transport) |
+| 55 | RT-T1ft S2 [4]+[1]x9 | 94.18 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 56 | **elastic E0 flat_k3_n10 [3]x10** | **94.15** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
-| 57 | RT-TF S2 [4]+[1]x9 | 94.13 | H100, branch `elastic` all-models report (residual-transport) |
-| 58 | RT-A S2 [4]+[1]x9 | 94.12 | H100, branch `elastic` all-models report (residual-transport) |
-| 59 | RT-A2 S1 [4]+[2]x9 | 94.10 | H100, branch `elastic` all-models report (residual-transport) |
+| 57 | RT-TF S2 [4]+[1]x9 | 94.13 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
+| 58 | RT-A S2 [4]+[1]x9 | 94.12 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
+| 59 | RT-A2 S1 [4]+[2]x9 | 94.10 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 60 | elastic E2 flat_k1_n2 [1,1] | 94.07 | H100, branch `elastic` all-models report (elastic) |
 | 61 | elastic E2 flat_k2_n10 [2]x10 | 94.07 | H100, branch `elastic` all-models report (elastic) |
-| 62 | RT-A S3 [4,3,2,2,2,1,1,1,1,1] | 94.05 | H100, branch `elastic` all-models report (residual-transport) |
+| 62 | RT-A S3 [4,3,2,2,2,1,1,1,1,1] | 94.05 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
 | 63 | elastic E1 flat_k2_n10 [2]x10 | 94.00 | H100, branch `elastic` all-models report (elastic) |
 | 64 | elastic E2 flat_k1_n10 [1]x10 | 94.00 | H100, branch `elastic` all-models report (elastic) |
-| 65 | all-suites v0 4/1 | 94.00 | H100, branch `elastic` all-models report (all-suites) |
-| 66 | RT-Pa S1 [4]+[2]x9 | 93.95 | H100, branch `elastic` all-models report (residual-transport) |
-| 67 | RT-A S4 [4,4,1,1,1,1,1,1,1,1] | 93.87 | H100, branch `elastic` all-models report (residual-transport) |
+| 65 | all-suites v0 4/1 | 94.00 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (all-suites) |
+| 66 | RT-Pa S1 [4]+[2]x9 | 93.95 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
+| 67 | RT-A S4 [4,4,1,1,1,1,1,1,1,1] | 93.87 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 68 | elastic E0 flat_k2_n10 [2]x10 | 93.83 | H100, branch `elastic` all-models report (elastic) |
 | 69 | elastic SP11 flat_k1_n2 [1,1] | 93.77 | H100, branch `elastic` all-models report (elastic) |
 | 70 | elastic F0-PB S6 [4,1,1,1,1] | 93.75 | H100, branch `elastic` all-models report (elastic) |
@@ -86,17 +86,17 @@ Every number here uses the campaign protocol `lightwam_20261009_matched`: 4 suit
 | 73 | **LoopWAM v0 partition 1/6/5** | **93.67** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 74 | elastic E1 flat_k1_n10 [1]x10 | 93.48 | H100, branch `elastic` all-models report (elastic) |
 | 75 | elastic F0-PB S1 [4]+[2]x9 | 93.38 | H100, branch `elastic` all-models report (elastic) |
-| 76 | RT-A2 S2 [4]+[1]x9 | 93.22 | H100, branch `elastic` all-models report (residual-transport) |
+| 76 | RT-A2 S2 [4]+[1]x9 | 93.22 | H100 (imported by the campaign); branch `elastic` all-models report (residual-transport) |
 | 77 | **LoopWAM v0 partition 5/6/1** | **93.17** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 78 | **LoopWAM v0 init core16_21** | **93.12** | this evaluation (local RTX PRO 6000 Blackwell) |
-| 79 | RT-Pa S2 [4]+[1]x9 | 92.92 | H100, branch `elastic` all-models report (residual-transport) |
+| 79 | RT-Pa S2 [4]+[1]x9 | 92.92 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
 | 80 | init variant core_mean | 92.82 | H100, branch `elastic` all-models report (init-variants) |
-| 81 | RT-B4 S2 [4]+[1]x9 | 92.77 | H100, branch `elastic` all-models report (residual-transport) |
-| 82 | all-suites v0 2/2 | 92.45 | H100, branch `elastic` all-models report (all-suites) |
+| 81 | RT-B4 S2 [4]+[1]x9 | 92.77 | RTX PRO 6000 Blackwell, campaign ([`../campaign`](../campaign)); branch `elastic` all-models report (residual-transport) |
+| 82 | all-suites v0 2/2 | 92.45 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (all-suites) |
 | 83 | init variant ffn_magnitude | 92.12 | H100, branch `elastic` all-models report (init-variants) |
 | 84 | elastic F0-PB S2 [4]+[1]x9 | 92.05 | H100, branch `elastic` all-models report (elastic) |
 | 85 | **LoopWAM v0 partition 1/9/2 k3** | **91.78** | this evaluation (local RTX PRO 6000 Blackwell) |
-| 86 | all-suites v0 1/4 | 91.68 | H100, branch `elastic` all-models report (all-suites) |
+| 86 | all-suites v0 1/4 | 91.68 | RTX PRO 6000 Blackwell, campaign ([`../final`](../final)); branch `elastic` all-models report (all-suites) |
 | 87 | init variant stepwise | 91.47 | H100, branch `elastic` all-models report (init-variants) |
 | 88 | **LoopWAM v0 partition 4/3/5 k7** | **90.75** | this evaluation (local RTX PRO 6000 Blackwell) |
 | 89 | **LoopWAM v0 partition 6/6/0** | **90.27** | this evaluation (local RTX PRO 6000 Blackwell) |
@@ -107,7 +107,7 @@ Every number here uses the campaign protocol `lightwam_20261009_matched`: 4 suit
 | 94 | init variant core_random | 82.20 | H100, branch `elastic` all-models report (init-variants) |
 | 95 | **LoopWAM v0 4/4 without distillation, [1,1] (NFE 2)** | **11.92** | 2026-11-01 batch (local RTX PRO 6000 Blackwell), [report](../matched_pro6000_20261101) |
 
-Bold rows were scored on the local RTX PRO 6000 host (this evaluation and the 2026-11-01 batch). With 6,000 episodes the binomial 95% interval is about +/-0.6 points for a model near 95% success (+/-0.8 near 90%); episodes within a task/seed group share the seed, so treat it as a lower bound. Rows from other branches are copied from their reports and were not re-verified here.
+Bold rows were scored on the local RTX PRO 6000 host (this evaluation and the 2026-11-01 batch). With 6,000 episodes the binomial 95% interval is about +/-0.6 points for a model near 95% success (+/-0.8 near 90%); episodes within a task/seed group share the seed, so treat it as a lower bound. Rows from other branches are copied from their reports and were not re-verified here. The remote campaign scored FastWAM, the campaign v0 exports, the ChronoLoop runs and part of Residual Transport on its own RTX PRO 6000 Blackwell host (a different machine of the same GPU and CPU model as this one); the other copied rows were scored on H100.
 
 ## 2. This evaluation, per suite
 
@@ -214,10 +214,10 @@ decision taken during the runs are in [`harness/README_MATCHED_EVAL.md`](harness
 - **Per-run records:** [`runs/<model>/`](runs) holds each run's manifest (protocol, source hashes, code revisions),
   summary and first build report per suite.
 
-## 8. Agreement with the H100 campaign
+## 8. Agreement with the campaign
 
 The harness was validated on the released v0 4/4 export (`1c659a7c…`, campaign "LoopWAM full 4/4") before any new
-model was scored:
+model was scored, against the remote campaign's records (scored on its own RTX PRO 6000 Blackwell host, `../final`):
 
 - Gate on 40 campaign episodes: 40/40 outcomes agree, 39/40 trajectories identical
   (`evidence/gates/gate_loopwam_v0_full44_libero_spatial.json`).
@@ -226,7 +226,9 @@ model was scored:
 - The partition-code and init-variant-code controls reproduced the v0 gate (all successes identical); the only
   differences lie in episodes where the same code varies between reruns on this host (next section).
 
-So the local results and the H100 results above are directly comparable at the success-rate level.
+So the local results and the campaign's results are directly comparable at the success-rate level. No such gate was
+run against the H100 evaluations; for E0, the 2026-11-01 batch found 94/100 and 88/100 outcome agreement with the
+elastic branch's H100 records (gate G4 in [`../matched_pro6000_20261101`](../matched_pro6000_20261101)).
 
 ## 9. Caveats and run history
 
