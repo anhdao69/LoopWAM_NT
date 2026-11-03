@@ -14,7 +14,9 @@ export ELASTIC_TEACHER=$CL0_WORK/assets/CL-0_loopwam/policy.pt          # conver
 export ELASTIC_VAE=$ASSETS/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
 export ELASTIC_MANIFEST=$PARENT_RUN/train/data/data_manifest.json
 export ELASTIC_NFS_LATENTS=$PARENT_RUN/latents
-export ELASTIC_LATENTS=${ELASTIC_LATENTS:-/dev/shm/elastic_cl0_latents}  # node-local copy (stage_latents.py)
+# Node-local RAM copy (stage_latents.py). Not /dev/shm: it is a 64 GB tmpfs that the GR1 job's DataLoader workers
+# (job 5624, same node) need for batch transfer; worker-2 /tmp is a large RAM-backed tmpfs.
+export ELASTIC_LATENTS=${ELASTIC_LATENTS:-/tmp/elastic_cl0_latents}
 export ELASTIC_INIT=$CL0_WORK/init/cl0_common_init_v1.pt
 # Publishing to anhdao69/LoopWAM_NT (public) is opt-in: set ELASTIC_HF_TOKEN_FILE=$HOME/.cache/huggingface/token
 # to upload checkpoints to libero-all-suites/Elastic/<run> while training (scripts/upload_elastic.py).
