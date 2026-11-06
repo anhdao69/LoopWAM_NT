@@ -1,0 +1,4 @@
+preflight_core rc=0
+preflight_speed_E1 rc=0
+preflight_speed_E0 rc=0
+preflight_speed_E2 rc=0

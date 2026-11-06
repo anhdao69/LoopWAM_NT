@@ -1,0 +1,23 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt",
+  "stats": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/data/dataset_stats_29d.json",
+  "out": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/smoke_epoch04_e2e",
+  "steps": "12",
+  "episodes": 2,
+  "seed": 0,
+  "tasks": [
+    "gr1_unified/PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env",
+    "gr1_unified/PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env"
+  ],
+  "gpus": "3",
+  "servers_per_gpu": 1,
+  "base_port": 6700,
+  "parallel": 2,
+  "n_envs": 1,
+  "max_episode_steps": 720,
+  "server_threads": 8,
+  "sim_threads": 2,
+  "video": true,
+  "expected_step": 94064,
+  "pending": 2
+}

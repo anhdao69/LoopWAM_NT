@@ -1,0 +1,15 @@
+Fetching 0 files: 0it [00:00, ?it/s]Fetching 0 files: 0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/scripts/download_robocasa_gr1.py", line 88, in <module>
+    main()
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/scripts/download_robocasa_gr1.py", line 80, in main
+    rows = [verify_folder(out / f) for f in FOLDERS]
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/scripts/download_robocasa_gr1.py", line 80, in <listcomp>
+    rows = [verify_folder(out / f) for f in FOLDERS]
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/scripts/download_robocasa_gr1.py", line 40, in verify_folder
+    info = json.loads((meta / 'info.json').read_text())
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data/vmo-ai-task/anhdh35/datasets/robocasa_gr1/gr1_unified.PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_1000/meta/info.json'

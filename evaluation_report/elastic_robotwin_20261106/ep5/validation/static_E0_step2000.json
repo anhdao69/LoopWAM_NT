@@ -1,0 +1,43 @@
+{
+  "started": 1793981634.1343243,
+  "args": {
+    "run_dir": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/ep5/runs/RT50-ep5-E0",
+    "pairs": "step_00002000.pt:step_00002000_recovery.pt",
+    "write_export": null,
+    "padding_check": false,
+    "static_only": true,
+    "windows": 3,
+    "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/ep5/validation/static_E0_step2000.json"
+  },
+  "pairs": {
+    "step_00002000.pt": {
+      "recovery": "step_00002000_recovery.pt",
+      "passed": true,
+      "checks": {
+        "format": true,
+        "metadata_equal_teacher": true,
+        "frozen_mot_equal_fp32_teacher": true,
+        "proprio_equal_teacher": true,
+        "frozen_all_fp32": true,
+        "mot_action_equals_student": true,
+        "student_equals_recovery": true,
+        "student_fp32": true,
+        "student_trained": true,
+        "step_condition_equals_recovery": true,
+        "transport_trainable_equals_recovery": true,
+        "transport_config": true,
+        "training_state": true,
+        "recovery_is_update_2000": true
+      },
+      "frozen": "339 tensors bit-equal",
+      "student_tensors_changed": "338/338",
+      "update": 2000,
+      "epoch": 0,
+      "kind": "T0",
+      "static_only": true,
+      "export_sha256": "5b2e1cb106b3349b67b3fc28e21cc559d959e35c1fb719e90fefdf51754fc1b2"
+    }
+  },
+  "passed": true,
+  "finished": 1793981641.0974128
+}
