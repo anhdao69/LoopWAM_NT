@@ -1,0 +1,11 @@
+[2026-11-03T01:20:21+00:00] lane cl0: start on worker-2 job 5623 gpus 0,1,2,3 world 4 mb 32 speed '--bf16-frozen --teacher-graph --gc-freeze --no-fill-uninitialized' queue 'CL0-E0 CL0-E1 CL0-E2'
+[2026-11-03T01:20:21+00:00] lane cl0: starting CL0-E0
+[2026-11-03T07:02:03+00:00] lane cl0: CL0-E0 exited rc=0
+[2026-11-03T07:02:16+00:00] lane cl0: CL0-E0 finalized
+[2026-11-03T07:02:16+00:00] lane cl0: starting CL0-E1
+[2026-11-03T12:46:01+00:00] lane cl0: CL0-E1 exited rc=0
+[2026-11-03T12:46:14+00:00] lane cl0: CL0-E1 finalized
+[2026-11-03T12:46:14+00:00] lane cl0: starting CL0-E2
+[2026-11-03T18:30:41+00:00] lane cl0: CL0-E2 exited rc=0
+[2026-11-03T18:30:55+00:00] lane cl0: CL0-E2 finalized
+[2026-11-03T18:30:55+00:00] lane cl0: lane done (stop=0)

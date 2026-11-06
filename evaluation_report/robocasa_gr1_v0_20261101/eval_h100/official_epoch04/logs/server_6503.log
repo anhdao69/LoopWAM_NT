@@ -1,0 +1,62 @@
+2026-11-03 23:27:29,512 INFO Initialized MoT with experts: ['video', 'action'], num_layers=12
+2026-11-03 23:27:29,513 INFO   Expert 'video': num_params=0.48 B
+2026-11-03 23:27:29,514 INFO   Expert 'action': num_params=0.11 B
+2026-11-03 23:27:30,115 INFO serving {"policy": "LoopWAM v0 4/4 (3/6/3) RoboCasa-GR1", "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt", "step": 94064, "checkpoint_contract_sha256": "4562b6d1994423447c4c40f32955518b360760b96260d69fde4e1cd0bbdc9890", "normalization_sha256": "bad54856a2835c9a65c5b6288cd6c8e55660df2d3990777009f22842197be9eb", "normalization_mode": "min/max", "action_chunk_size": 32, "n_action_steps": 16, "num_inference_steps": 10, "cfg_scale": 1.0, "noise_seed": 42, "action_keys": ["action.left_arm", "action.right_arm", "action.left_hand", "action.right_hand", "action.waist"], "state_keys": ["state.left_arm", "state.right_arm", "state.left_hand", "state.right_hand", "state.waist"], "video_key": "video.ego_view", "training_obs_image_size": [256, 256], "action_dims": {"left_arm": 7, "right_arm": 7, "left_hand": 6, "right_hand": 6, "waist": 3}, "absolute_actions": true, "host": "worker-2", "port": 6503}
+2026-11-03 23:27:30,116 INFO server listening on 0.0.0.0:6503
+2026-11-03 23:27:31,030 ERROR opening handshake failed
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+2026-11-03 23:27:35,408 INFO connection open
+2026-11-03 23:27:35,408 INFO Connection from ('127.0.0.1', 54814) opened
+2026-11-03 23:27:35,570 INFO connection open
+2026-11-03 23:27:35,570 INFO Connection from ('127.0.0.1', 54828) opened
+2026-11-03 23:27:35,793 INFO connection open
+2026-11-03 23:27:35,794 INFO Connection from ('127.0.0.1', 54842) opened
+2026-11-03 23:27:49,539 INFO prompt 'unlocked_waist: pick the can from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:27:55,345 INFO prompt 'unlocked_waist: pick up the milk, place it into the microwave and close the microwave' -> cache
+2026-11-03 23:27:57,390 INFO prompt 'unlocked_waist: pick the tomato from the placemat and place it in the basket' -> cache
+2026-11-03 23:30:01,260 INFO prompt 'unlocked_waist: pick the squash from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:30:10,013 INFO prompt 'unlocked_waist: pick the sweet potato from the placemat and place it in the basket' -> cache
+2026-11-03 23:32:31,397 INFO prompt 'unlocked_waist: pick the pear from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:33:00,262 INFO prompt 'unlocked_waist: pick the pear from the placemat and place it in the basket' -> cache
+2026-11-03 23:37:36,100 INFO prompt 'unlocked_waist: pick the bell pepper from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:38:15,050 INFO prompt 'unlocked_waist: pick the bell pepper from the placemat and place it in the basket' -> cache
+2026-11-03 23:40:16,115 INFO prompt 'unlocked_waist: pick the sweet potato from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:40:54,953 INFO prompt 'unlocked_waist: pick the squash from the placemat and place it in the basket' -> cache
+2026-11-03 23:42:47,264 INFO prompt 'unlocked_waist: pick the lemon from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:45:21,493 INFO prompt 'unlocked_waist: pick the tomato from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:50:00,128 INFO prompt 'unlocked_waist: pick the cupcake from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:52:15,168 INFO prompt 'unlocked_waist: pick the eggplant from the tray and place it in the cardboard box' -> cache
+2026-11-03 23:55:53,563 INFO prompt 'unlocked_waist: pick the croissant from the placemat and place it in the basket' -> cache
+2026-11-04 00:00:30,043 INFO prompt 'unlocked_waist: pick the cupcake from the placemat and place it in the basket' -> cache
+2026-11-04 00:05:08,067 INFO prompt 'unlocked_waist: pick the lemon from the placemat and place it in the basket' -> cache
+2026-11-04 00:16:28,419 INFO prompt 'unlocked_waist: pick the can from the placemat and place it in the basket' -> cache
+2026-11-04 00:16:29,155 INFO prompt 'unlocked_waist: pick the croissant from the tray and place it in the cardboard box' -> cache
+2026-11-04 01:02:16,965 INFO prompt 'unlocked_waist: pick the eggplant from the placemat and place it in the basket' -> cache
+2026-11-04 01:21:00,505 INFO Connection from ('127.0.0.1', 54842) closed
+2026-11-04 01:22:53,388 INFO Connection from ('127.0.0.1', 54828) closed
+2026-11-04 01:23:32,314 INFO Connection from ('127.0.0.1', 54814) closed

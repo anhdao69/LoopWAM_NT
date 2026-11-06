@@ -1,0 +1,22 @@
+{
+  "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/init/cl0_common_init_v1.pt",
+  "sha256": "47c534d87c194f35cd926cca5c1faaf9892cb20d2557ba039b8a4c95a44cbec4",
+  "recipe": "common_v1",
+  "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+  "tensor_sha256": {
+    "student_action": "14c2a15f7cc74155735b2795fdd09fb5cd73d29656b35185cfa2492a33951b1f",
+    "step_condition": "4f1ee8d82e4c4edcb6851f2008325289bf53a0a02107e1e41216cc37642da3f2",
+    "transport_T4": "1d17f592ff4a5d938b6b04ccd4eb9a7a4f9e97587d4e786a4f1ea313b200cadf"
+  },
+  "metadata": {
+    "format": "elastic-init-v1",
+    "recipe": "common_v1",
+    "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+    "seed": 42,
+    "generator_seeds": {
+      "step_condition": 822402053239782360,
+      "T4": 616937575533862284
+    },
+    "generator": "torch CPU default generator, fork_rng + manual_seed(label_seed)"
+  }
+}
