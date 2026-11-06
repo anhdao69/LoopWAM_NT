@@ -1,0 +1,97 @@
+{
+ "passed": true,
+ "runs": {
+  "ws ep3": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 392,
+   "mean_percent": 32.6667,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "H100 ep4": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 529,
+   "mean_percent": 44.0833,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "H100 ep5": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 535,
+   "mean_percent": 44.5833,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "ws ep4": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 555,
+   "mean_percent": 46.25,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "ws ep5": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 534,
+   "mean_percent": 44.5,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "n 8": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 506,
+   "mean_percent": 42.1667,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "n 16": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 541,
+   "mean_percent": 45.0833,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "n 24": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 505,
+   "mean_percent": 42.0833,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "n 32": {
+   "tasks": 24,
+   "episodes": 1200,
+   "successes": 517,
+   "mean_percent": 43.0833,
+   "summary_json_equal": true,
+   "table_tasks_equal": true,
+   "table_average_equal": true,
+   "passed": true
+  },
+  "sweep n 12 = ws ep4": true
+ },
+ "checks": "9 runs x 24 tasks x 50 episodes: per-episode successes == summary.json == official_results_all.md / sweep_epoch04_report.md task cells and averages; the sweep's n 12 column == the official ws epoch-4 run"
+}

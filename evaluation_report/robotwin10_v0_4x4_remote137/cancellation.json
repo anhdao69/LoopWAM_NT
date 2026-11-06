@@ -1,0 +1,98 @@
+{
+  "stage": "cancelled",
+  "status": "cancelled",
+  "updated_unix": 1793733425.6192818,
+  "queue_pid": 1706423,
+  "reason": "User requested stopping the waiting duplicate after replacement evaluation started on 10.148.183.189",
+  "previous_state": {
+    "stage": "waiting_for_calibration_memory",
+    "updated_unix": 1793733423.754537,
+    "queue_pid": 1706423,
+    "required_free_mib": 30000,
+    "stable_samples": 0,
+    "gpu": {
+      "total_mib": 97887,
+      "used_mib": 80119,
+      "free_mib": 17126,
+      "utilization": 0
+    }
+  },
+  "scored_episodes": 0,
+  "files_preserved": true,
+  "replacement_host": "10.148.183.189",
+  "replacement_evidence": {
+    "launch": {
+      "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "status": "running",
+      "started_unix": 1793733040.0652285,
+      "workers": 2,
+      "backend": "cuda-graph",
+      "planned_episodes": 2000,
+      "command": [
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/env/bin/python",
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/repo/scripts/evaluate_loopwam_robotwin.py",
+        "--checkpoint",
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/checkpoint/policy.pt",
+        "--output-dir",
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/results",
+        "--robotwin-root",
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin",
+        "--data-dir",
+        "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/checkpoint",
+        "--gpus",
+        "0",
+        "--per-gpu",
+        "2",
+        "--episodes",
+        "100",
+        "--seed",
+        "42",
+        "--expected-step",
+        "45445",
+        "--tasks",
+        "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+        "--max-attempts",
+        "3",
+        "--no-progress-timeout",
+        "1800"
+      ],
+      "pid": 495043,
+      "variant": "v0-video4-action4",
+      "epoch": 5,
+      "expected_step": 45445,
+      "hf_revision": "df3d575d3f3fde3cf1b8d5f609fab93dc6a95649"
+    },
+    "progress": {
+      "updated_unix": 1793733190.229223,
+      "episodes": 0,
+      "successes": 0,
+      "planned": 2000,
+      "completed_cells": 0,
+      "running_cells": 2,
+      "failed": [],
+      "finished": false
+    },
+    "manifest_protocol": {
+      "seed": 42,
+      "episodes": 100,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "settings": [
+        "demo_clean",
+        "demo_randomized"
+      ],
+      "num_inference_steps": 10,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127"
+    }
+  }
+}

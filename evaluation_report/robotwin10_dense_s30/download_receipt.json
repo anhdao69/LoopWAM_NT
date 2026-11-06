@@ -1,0 +1,67 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "cdf71976208ade41a93465f6b8166b5e6b7170ca",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/README.md",
+      "remote": "robotwin-10/dense-s30/README.md",
+      "sha256": "930be18e1b111b3bc88558728083b02c5b32b9ca9c91fc65299654994c51aa44",
+      "size": 2870
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/SHA256SUMS",
+      "remote": "robotwin-10/dense-s30/SHA256SUMS",
+      "sha256": "ac4153d7997cede4cea0615ab1799cd91bda51c65178b4585f457ffe23ecc6ff",
+      "size": 762
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/checkpoint_provenance.json",
+      "remote": "robotwin-10/dense-s30/checkpoint_provenance.json",
+      "sha256": "2d2029f0561065af070d8266b0c23910467d40ef48a064b2b351f12c77a154f5",
+      "size": 382
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/config.json",
+      "remote": "robotwin-10/dense-s30/config.json",
+      "sha256": "212bdeb4be48fe6405dde7994177ee98b6dc2e96f3a3e80228c48e7fa31a145c",
+      "size": 3815
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/data_provenance.json",
+      "remote": "robotwin-10/dense-s30/data_provenance.json",
+      "sha256": "a3abdb2248af37705024e0ee1603f03552a045c294e13aa3a833a14c74e976e1",
+      "size": 1560
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/dataset_stats.json",
+      "remote": "robotwin-10/dense-s30/dataset_stats.json",
+      "sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+      "size": 88716
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin-10/dense-s30/training_metrics.jsonl.gz",
+      "sha256": "a91deb51b408c647ae852642a7ba9bf6a097eccb0fddf44acfa9bf65feadbbb7",
+      "size": 3207045
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/training_summary.json",
+      "remote": "robotwin-10/dense-s30/training_summary.json",
+      "sha256": "b218f85d53d04217c48c5635bc29f03b40552cbbf44eb5eaf3b06ddea8d93ee5",
+      "size": 1019
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/training_timing.json",
+      "remote": "robotwin-10/dense-s30/training_timing.json",
+      "sha256": "61d6a18dbb4ccc8952c47558775918ae72cc416e8acfe2cc97139e65dcfd8fd1",
+      "size": 660
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/policy.pt",
+      "remote": "robotwin-10/dense-s30/policy.pt",
+      "sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "size": 5665462576
+    }
+  ],
+  "finished_unix": 1793628617.1321871
+}

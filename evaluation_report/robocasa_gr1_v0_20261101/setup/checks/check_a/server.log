@@ -1,0 +1,62 @@
+11/02 [01:02:57] WARNING  | >>  DataConfig for                    registry.py:70
+                          robot_type='ur5_robochallenge' has no                 
+                          `embodiment_tag` classvar; defaulting                 
+                          to EmbodimentTag.NEW_EMBODIMENT.                      
+                 WARNING  | >>  DataConfig for                    registry.py:70
+                          robot_type='arx5_robochallenge' has no                
+                          `embodiment_tag` classvar; defaulting                 
+                          to EmbodimentTag.NEW_EMBODIMENT.                      
+                 WARNING  | >>  DataConfig for                    registry.py:70
+                          robot_type='dosw1_robochallenge' has no               
+                          `embodiment_tag` classvar; defaulting                 
+                          to EmbodimentTag.NEW_EMBODIMENT.                      
+INFO:root:Applying config override keys: ['framework.qwenvl.base_vlm']
+INFO:root:PolicyServerWrapper: loading framework from /mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt
+INFO:starVLA.model.framework.share_tools:[*] Loading from local checkpoint path `/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt`
+INFO:starVLA.model.framework.share_tools:[*] [apply_config_compat] normalised config from version_id=None to '0.21'
+WARNING:starVLA.model.framework.base_framework:[*] [StarVLA] Reproducibility notice: this repository is under active development. The latest code may not exactly reproduce every previously released HF checkpoint because code, configs, preprocessing, and evaluation behavior can change over time. For exact reproduction, checkout the repository revision from the checkpoint's release/training time and use its own config.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.40it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.53it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.64it/s]
+INFO:starVLA.model.framework.share_tools:[*] Loading from local checkpoint path `/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt`
+INFO:starVLA.model.framework.share_tools:[*] [apply_config_compat] normalised config from version_id=None to '0.21'
+INFO:starVLA.model.framework.share_tools:[*] Loading from local checkpoint path `/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt`
+INFO:starVLA.model.framework.share_tools:[*] [apply_config_compat] normalised config from version_id=None to '0.21'
+INFO:deployment.model_server.policy_norm_processor:PolicyNormProcessor ready: robot_type=fourier_gr1_arms_waist, unnorm_key=gr1, action_keys=['action.left_arm', 'action.right_arm', 'action.left_hand', 'action.right_hand', 'action.waist'] (dims=[7, 7, 6, 6, 3]), state_keys=['state.left_arm', 'state.right_arm', 'state.left_hand', 'state.right_hand', 'state.waist']
+INFO:root:PolicyServerWrapper ready: action_chunk_size=16, default_unnorm_key=gr1, available_unnorm_keys=['gr1'], action_keys=['action.left_arm', 'action.right_arm', 'action.left_hand', 'action.right_hand', 'action.waist'], state_keys=['state.left_arm', 'state.right_arm', 'state.left_hand', 'state.right_hand', 'state.waist']
+INFO:root:Creating server (host: worker-2, ip: 100.96.3.16)
+INFO:starVLA.model.framework.share_tools:[*] Loading from local checkpoint path `/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt`
+INFO:starVLA.model.framework.share_tools:[*] [apply_config_compat] normalised config from version_id=None to '0.21'
+INFO:deployment.model_server.policy_norm_processor:PolicyNormProcessor ready: robot_type=fourier_gr1_arms_waist, unnorm_key=gr1, action_keys=['action.left_arm', 'action.right_arm', 'action.left_hand', 'action.right_hand', 'action.waist'] (dims=[7, 7, 6, 6, 3]), state_keys=['state.left_arm', 'state.right_arm', 'state.left_hand', 'state.right_hand', 'state.waist']
+WARNING:root:[TRAIN/TEST CONSISTENCY CHECK] serving ckpt=/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt — verify eval observations (state / image size / image count / image order / action normalization) match the training config. metadata={'env': 'starvla_policy_server', 'ckpt_path': '/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt', 'action_chunk_size': 16, 'available_unnorm_keys': ['gr1'], 'default_unnorm_key': 'gr1', 'training_data_mix': 'fourier_gr1_unified_1000', 'training_obs_image_size': [224, 224], 'eval_image_contract': 'Eval clients must explicitly choose image count and order. The server does not infer or reorder camera views from training config.', 'action_keys': ['action.left_arm', 'action.right_arm', 'action.left_hand', 'action.right_hand', 'action.waist'], 'state_keys': ['state.left_arm', 'state.right_arm', 'state.left_hand', 'state.right_hand', 'state.waist']}
+INFO:root:server running ... metadata={'env': 'starvla_policy_server', 'ckpt_path': '/mnt/data/vmo-ai-task/anhdh35/gr1_eval/models/Qwen3-VL-OFT-Robocasa/checkpoints/steps_90000_pytorch_model.pt', 'action_chunk_size': 16, 'available_unnorm_keys': ['gr1'], 'default_unnorm_key': 'gr1', 'training_data_mix': 'fourier_gr1_unified_1000', 'training_obs_image_size': [224, 224], 'eval_image_contract': 'Eval clients must explicitly choose image count and order. The server does not infer or reorder camera views from training config.', 'action_keys': ['action.left_arm', 'action.right_arm', 'action.left_hand', 'action.right_hand', 'action.waist'], 'state_keys': ['state.left_arm', 'state.right_arm', 'state.left_hand', 'state.right_hand', 'state.waist'], 'seed': 42}
+INFO:websockets.server:server listening on 0.0.0.0:6600
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/http11.py", line 325, in parse_line
+    raise EOFError("line without CRLF")
+EOFError: line without CRLF
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/envs/starvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:root:Connection from ('127.0.0.1', 48188) opened
+INFO:websockets.server:connection open
+INFO:root:Connection from ('127.0.0.1', 48198) opened
+INFO:root:Connection from ('127.0.0.1', 48198) closed
+INFO:root:Connection from ('127.0.0.1', 48188) closed

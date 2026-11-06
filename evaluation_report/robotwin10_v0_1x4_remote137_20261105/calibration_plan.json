@@ -1,0 +1,17 @@
+{
+  "tasks": [
+    "adjust_bottle",
+    "grab_roller",
+    "hanging_mug",
+    "move_stapler_pad",
+    "open_microwave",
+    "press_stapler",
+    "scan_object",
+    "stack_blocks_two",
+    "stamp_seal",
+    "turn_switch"
+  ],
+  "episodes_per_cell": 1,
+  "profile_episodes": 20,
+  "max_workers": 12
+}

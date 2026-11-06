@@ -1,0 +1,27 @@
+/storage/anhdh35/robocasa_gr1_eval/results/official_epoch03  step 70548  tasks 24  mean success 32.67%  (392/1200 episodes)  summary mean 32.67%
+prompt sources: {'cache': 186}; server logs: 6; success still true at the final step: 302/392 any-step successes
+  PnPBottleToCabinetClose                                  5/50   10.0%   roundtrip 2.08s  wall 2.14h
+  PnPCanToDrawerClose                                     24/50   48.0%   roundtrip 2.02s  wall 2.09h
+  PnPCupToDrawerClose                                     12/50   24.0%   roundtrip 2.09s  wall 2.14h
+  PnPMilkToMicrowaveClose                                 21/50   42.0%   roundtrip 2.13s  wall 2.20h
+  PnPPotatoToMicrowaveClose                                8/50   16.0%   roundtrip 2.07s  wall 2.14h
+  PnPWineToCabinetClose                                   10/50   20.0%   roundtrip 2.13s  wall 2.16h
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA         24/50   48.0%   roundtrip 2.03s  wall 2.13h
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA   13/50   26.0%   roundtrip 2.02s  wall 2.09h
+  PosttrainPnPNovelFromCuttingboardToPanSplitA            23/50   46.0%   roundtrip 2.08s  wall 2.13h
+  PosttrainPnPNovelFromCuttingboardToPotSplitA            17/50   34.0%   roundtrip 2.16s  wall 2.20h
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA   17/50   34.0%   roundtrip 2.07s  wall 2.15h
+  PosttrainPnPNovelFromPlacematToBasketSplitA             18/50   36.0%   roundtrip 2.07s  wall 2.17h
+  PosttrainPnPNovelFromPlacematToBowlSplitA               14/50   28.0%   roundtrip 2.02s  wall 2.14h
+  PosttrainPnPNovelFromPlacematToPlateSplitA              22/50   44.0%   roundtrip 2.01s  wall 2.09h
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA        11/50   22.0%   roundtrip 2.02s  wall 2.14h
+  PosttrainPnPNovelFromPlateToBowlSplitA                  13/50   26.0%   roundtrip 2.10s  wall 2.21h
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA          14/50   28.0%   roundtrip 2.08s  wall 2.14h
+  PosttrainPnPNovelFromPlateToPanSplitA                   20/50   40.0%   roundtrip 2.11s  wall 2.16h
+  PosttrainPnPNovelFromPlateToPlateSplitA                 28/50   56.0%   roundtrip 2.08s  wall 2.12h
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA           18/50   36.0%   roundtrip 2.04s  wall 2.09h
+  PosttrainPnPNovelFromTrayToPlateSplitA                  22/50   44.0%   roundtrip 2.06s  wall 2.14h
+  PosttrainPnPNovelFromTrayToPotSplitA                    21/50   42.0%   roundtrip 2.17s  wall 2.20h
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA           11/50   22.0%   roundtrip 2.04s  wall 2.15h
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA             6/50   12.0%   roundtrip 2.06s  wall 2.17h
+VALID

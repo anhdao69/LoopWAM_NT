@@ -1,0 +1,74 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "cdf71976208ade41a93465f6b8166b5e6b7170ca",
+  "files": [
+    {
+      "name": "robotwin-10/dense-s30/README.md",
+      "size": 2870,
+      "blob_id": "62892f9e7077a78da8a85c9adbe1a9ed7ee6f921",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/SHA256SUMS",
+      "size": 762,
+      "blob_id": "2fdf9fd78f0ef668b886be5149f72cc41c847439",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/checkpoint_provenance.json",
+      "size": 382,
+      "blob_id": "2da1d035c9224a088be8e5ffa28d93d8127f0e07",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/config.json",
+      "size": 3815,
+      "blob_id": "6af628ec130210673207cdbcfb9d45917013b866",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/data_provenance.json",
+      "size": 1560,
+      "blob_id": "dc608ae6a2075d7fc6f38dd11b27c4676f045d60",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/dataset_stats.json",
+      "size": 88716,
+      "blob_id": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/policy.pt",
+      "size": 5665462576,
+      "blob_id": "924f18ccb01d2dd3a7e44ee502ff85220515a571",
+      "lfs": {
+        "size": 5665462576,
+        "sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+        "pointer_size": 135
+      }
+    },
+    {
+      "name": "robotwin-10/dense-s30/training_metrics.jsonl.gz",
+      "size": 3207045,
+      "blob_id": "a23ec2b7685a872e3d7de27d8d82a14f9c14a8d7",
+      "lfs": {
+        "size": 3207045,
+        "sha256": "a91deb51b408c647ae852642a7ba9bf6a097eccb0fddf44acfa9bf65feadbbb7",
+        "pointer_size": 132
+      }
+    },
+    {
+      "name": "robotwin-10/dense-s30/training_summary.json",
+      "size": 1019,
+      "blob_id": "2ee7db967905c3d2cfa36665bf170b573c50d083",
+      "lfs": null
+    },
+    {
+      "name": "robotwin-10/dense-s30/training_timing.json",
+      "size": 660,
+      "blob_id": "b6fc95e148b9e1eea65863fe858582cf056f1937",
+      "lfs": null
+    }
+  ]
+}

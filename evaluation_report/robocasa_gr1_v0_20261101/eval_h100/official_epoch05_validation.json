@@ -1,0 +1,105 @@
+{
+ "out": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch05",
+ "step": 117580,
+ "mean_success": 0.4458333333333333,
+ "valid": true,
+ "problems": [],
+ "per_task": {
+  "PnPBottleToCabinetClose": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PnPCanToDrawerClose": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PnPCupToDrawerClose": {
+   "successes": 16,
+   "success_rate": 0.32
+  },
+  "PnPMilkToMicrowaveClose": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PnPPotatoToMicrowaveClose": {
+   "successes": 16,
+   "success_rate": 0.32
+  },
+  "PnPWineToCabinetClose": {
+   "successes": 23,
+   "success_rate": 0.46
+  },
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA": {
+   "successes": 28,
+   "success_rate": 0.56
+  },
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA": {
+   "successes": 17,
+   "success_rate": 0.34
+  },
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA": {
+   "successes": 18,
+   "success_rate": 0.36
+  },
+  "PosttrainPnPNovelFromPlacematToBasketSplitA": {
+   "successes": 25,
+   "success_rate": 0.5
+  },
+  "PosttrainPnPNovelFromPlacematToBowlSplitA": {
+   "successes": 16,
+   "success_rate": 0.32
+  },
+  "PosttrainPnPNovelFromPlacematToPlateSplitA": {
+   "successes": 26,
+   "success_rate": 0.52
+  },
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA": {
+   "successes": 8,
+   "success_rate": 0.16
+  },
+  "PosttrainPnPNovelFromPlateToBowlSplitA": {
+   "successes": 21,
+   "success_rate": 0.42
+  },
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA": {
+   "successes": 21,
+   "success_rate": 0.42
+  },
+  "PosttrainPnPNovelFromPlateToPanSplitA": {
+   "successes": 23,
+   "success_rate": 0.46
+  },
+  "PosttrainPnPNovelFromPlateToPlateSplitA": {
+   "successes": 34,
+   "success_rate": 0.68
+  },
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromTrayToPlateSplitA": {
+   "successes": 26,
+   "success_rate": 0.52
+  },
+  "PosttrainPnPNovelFromTrayToPotSplitA": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA": {
+   "successes": 22,
+   "success_rate": 0.44
+  },
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA": {
+   "successes": 11,
+   "success_rate": 0.22
+  }
+ }
+}

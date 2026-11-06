@@ -1,0 +1,10 @@
+[2026-11-03T23:25:41Z] gr1-relaunch: cancelling 5624.60
+[2026-11-03T23:26:01Z] gr1-relaunch: after cancel: leftover procs + gpu MiB: 1
+0 0 0 0 
+[2026-11-03T23:26:01Z] gr1-relaunch: moved official_epoch04 -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: moved official_epoch05 -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: moved official_epoch04_driver.log -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: moved official_epoch05_driver.log -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: moved render_check/check_a_egl_job5624 -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: moved render_check/check_a_egl_job5624.log -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/aborted_20261103_timeslice/
+[2026-11-03T23:26:01Z] gr1-relaunch: started MPS eval step (srun pid 1984929)

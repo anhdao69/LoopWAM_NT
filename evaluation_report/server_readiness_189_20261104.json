@@ -1,0 +1,34 @@
+{
+  "checked_unix": 1793731331.1647573,
+  "host_alias": "vmo_aLinh",
+  "host": "10.148.183.189",
+  "ssh_user": "vm-perception-ws",
+  "hostname": "vmo-linhbn7-d",
+  "gpu": "NVIDIA RTX PRO 5000 Blackwell",
+  "gpu_total_mib": 48935,
+  "gpu_free_mib": 47738,
+  "driver": "570.211.01",
+  "cuda_toolkit": "12.8",
+  "compute_processes_at_check": 0,
+  "ram_available_gib": 54,
+  "storage": {
+    "path": "/media/newdisk",
+    "available": "2.5 TiB"
+  },
+  "internet_login_succeeded": true,
+  "https_hf_api": 200,
+  "https_github_raw": 200,
+  "https_checkpoint_head": 200,
+  "network_password_stored": false,
+  "gpu_probe": {
+    "torch": "2.11.0+cu128",
+    "bf16_matmul": true,
+    "cuda_graph_exact": true,
+    "peak_reserved_mib": 66
+  },
+  "expected_v0_workers": 2,
+  "worker_estimate_requires_calibration": true,
+  "roboTwin_environment_installed_by_this_check": false,
+  "evaluation_launched": false,
+  "notes": "Use a separate copy of the established PyTorch2.7.1+cu128 evaluation environment for comparability; existing Torch2.11 was used only for hardware readiness testing."
+}
