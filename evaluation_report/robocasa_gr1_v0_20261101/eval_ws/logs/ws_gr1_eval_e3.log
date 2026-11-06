@@ -1,0 +1,27 @@
+[2026-11-04T15:36:18Z] ws-gr1-e3: start pid 2321928
+0, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 25379 MiB, 97887 MiB, 96 %
+2295025, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12400 MiB
+2295023, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12896 MiB
+[2026-11-04T15:36:23Z] ws-gr1-e3: inputs verified (prompt cache 187/187, VAE, epoch_03.pt = HF receipt, code d937167)
+BENCH {"backend": "egl", "results": {"PnPCanToDrawerClose": {"reset_s": 2.7, "step_ms_mean": 19.2, "step_ms_p90": 21.2, "frame_shape": [256, 256, 3]}}}
+[2026-11-04T15:36:30Z] ws-gr1-e3: free GPU 71870 MiB, MemAvailable 168 GB -> parallel 24, policy servers 6
+[2026-11-04T15:36:30Z] ws-gr1-e3: MPS daemon started (/dev/shm/gr1_mps_anhdh35_ws_e3)
+[2026-11-04T15:36:30Z] ws-gr1-e3: epoch 3 attempt 1 -> /storage/anhdh35/robocasa_gr1_eval/results/official_epoch03
+[2026-11-04T15:46:30Z] ws-gr1-e3: gpu 72224 MiB, 98 %, 297.18 W, load 20.58 16.64 10.78, MemAvailable 54 GB
+[2026-11-04T15:56:30Z] ws-gr1-e3: gpu 68631 MiB, 99 %, 298.48 W, load 19.09 18.57 14.56, MemAvailable 46 GB
+[2026-11-04T16:06:30Z] ws-gr1-e3: gpu 68722 MiB, 99 %, 294.90 W, load 18.55 18.65 16.38, MemAvailable 44 GB
+[2026-11-04T16:16:30Z] ws-gr1-e3: gpu 69810 MiB, 99 %, 301.61 W, load 19.49 19.68 18.03, MemAvailable 40 GB
+[2026-11-04T16:26:30Z] ws-gr1-e3: gpu 68574 MiB, 99 %, 298.14 W, load 16.74 17.50 17.77, MemAvailable 40 GB
+[2026-11-04T16:36:30Z] ws-gr1-e3: gpu 69717 MiB, 100 %, 301.99 W, load 18.01 18.72 18.28, MemAvailable 39 GB
+[2026-11-04T16:46:30Z] ws-gr1-e3: gpu 69422 MiB, 99 %, 294.97 W, load 16.80 17.51 17.97, MemAvailable 38 GB
+[2026-11-04T16:56:30Z] ws-gr1-e3: gpu 70197 MiB, 99 %, 283.44 W, load 21.56 20.10 18.78, MemAvailable 37 GB
+[2026-11-04T17:06:30Z] ws-gr1-e3: gpu 69710 MiB, 99 %, 300.38 W, load 24.12 20.82 19.43, MemAvailable 37 GB
+[2026-11-04T17:16:30Z] ws-gr1-e3: gpu 70718 MiB, 99 %, 300.88 W, load 19.00 18.87 18.91, MemAvailable 35 GB
+[2026-11-04T17:26:30Z] ws-gr1-e3: gpu 69104 MiB, 99 %, 300.10 W, load 21.85 19.44 18.96, MemAvailable 38 GB
+[2026-11-04T17:36:30Z] ws-gr1-e3: gpu 70004 MiB, 99 %, 302.41 W, load 18.32 18.28 18.51, MemAvailable 37 GB
+[2026-11-04T17:46:30Z] ws-gr1-e3: gpu 56938 MiB, 97 %, 270.26 W, load 13.02 16.50 17.65, MemAvailable 128 GB
+[2026-11-04T17:49:07Z] ws-gr1-e3: epoch 3 attempt 1 rc=0
+{"tasks": 24, "mean": 0.32666666666666666}
+[2026-11-04T17:49:07Z] ws-gr1-e3: epoch 3 complete
+[2026-11-04T17:49:07Z] ws-gr1-e3: epoch 3 validation rc=0: /storage/anhdh35/robocasa_gr1_eval/results/official_epoch03  step 70548  tasks 24  mean success 32.67%  (392/1200 episodes)  summary mean 32.67% / VALID
+[2026-11-04T17:49:07Z] ws-gr1-e3: done

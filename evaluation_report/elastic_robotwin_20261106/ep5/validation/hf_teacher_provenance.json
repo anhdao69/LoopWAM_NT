@@ -1,0 +1,21 @@
+{
+ "robotwin/v0-video4-action4/policy.pt": {
+  "lfs_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "size": 2338751333
+ },
+ "robotwin/v0-video4-action4/epoch_10/policy.pt": {
+  "lfs_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+  "size": 2338751589
+ },
+ "robotwin/v0-video4-action4/checkpoint_provenance.json": {
+  "epoch": 5,
+  "step": 237310,
+  "sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "bytes": 2338751333,
+  "native_checkpoint_unmodified": true,
+  "evaluated_checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "optimizer_included": false,
+  "finite_fp32_tensors_verified": 679,
+  "created_utc": "2026-10-30T14:33:18.962276+00:00"
+ }
+}
