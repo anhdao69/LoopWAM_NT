@@ -4,7 +4,8 @@
 Usage: summarize_timing.py <timing dir> <out.json> [out.md]. Each run dir holds launch.json, config.json, metrics.jsonl.
 The balanced sampler makes every block of 9 updates a permutation of FLAT9, so the mean over whole blocks after the first
 (warm-up: CUDA-graph capture, allocator growth) is the exact FLAT9 average a full run converges to. 'wall' divides the
-time between the first and last measured update stamps by their distance, so it also counts logging and syncs.
+time between the first and last measured update stamps by their distance (minus the one recovery save at update 100),
+so it also counts logging and syncs; hours add that save once per 100 updates (the trainer's --save-every default).
 """
 import json, sys
 from pathlib import Path
@@ -18,30 +19,33 @@ def summarize(run):
     measured = rows[9:blocks * 9]
     if not measured: return dict(run=run.name, launch=launch, updates=n, error="fewer than two full FLAT9 blocks")
     sec = sum(r["seconds"] for r in measured) / len(measured)
-    wall = (measured[-1]["time"] - rows[8]["time"]) / len(measured)
+    # A recovery save (latest.pt, every --save-every=100 updates) runs between the stamps of updates 100 and 101.
+    save = (rows[100]["time"] - rows[99]["time"] - rows[100]["seconds"]) if n > 100 else 0.
+    wall = (measured[-1]["time"] - rows[8]["time"] - save) / len(measured)
     per = {}
     for r in measured: per.setdefault(r["schedule"], []).append(r["seconds"])
     return dict(run=run.name, tag=run.parent.name, launch=launch, updates=n, measured_updates=len(measured),
-        seconds_per_update=sec, wall_seconds_per_update=wall,
+        seconds_per_update=sec, wall_seconds_per_update=wall, save_seconds=save,
+        wall_with_saves_every_100=wall + save / 100,
         per_schedule={k: sum(v) / len(v) for k, v in sorted(per.items())},
         data_wait_max=max(r["data_wait_seconds"] for r in measured),
         data_wait_mean=sum(r["data_wait_seconds"] for r in measured) / len(measured),
         peak_allocated_gb=max(r["peak_allocated_gb"] for r in rows), grad_norm_max=max(r["grad_norm"] for r in rows),
         first_update={k: rows[0][k] for k in ("local", "end", "grip", "anchor", "grad_norm", "schedule")},
-        hours={k: wall * v / 3600 for k, v in BUDGETS.items()})
+        hours={k: (wall + save / 100) * v / 3600 for k, v in BUDGETS.items()})
 
 def main():
     root, out = Path(sys.argv[1]), Path(sys.argv[2])
     runs = sorted(p.parent for p in root.glob("*/*/metrics.jsonl"))
     result = [summarize(r) for r in runs]
     out.write_text(json.dumps(result, indent=2))
-    lines = ["| layout | run | GPUs | mb | s/update (wall) | data wait max | peak GB | 1 epoch h | 21,700 upd h | 10 epochs h |",
-             "|---|---|---|---|---|---|---|---|---|---|"]
+    lines = ["| layout | run | GPUs | mb | s/update (wall) | save s | data wait max | peak GB | 1 epoch h | 21,700 upd h | 10 epochs h |",
+             "|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in result:
         if "error" in r: lines.append(f"| {r['run']} | {r['error']} |"); continue
         h = list(r["hours"].values())
         lines.append(f"| {r['tag']} | {r['run']} | {r['launch']['gpus']} | {r['launch']['microbatch']} | "
-                     f"{r['seconds_per_update']:.3f} ({r['wall_seconds_per_update']:.3f}) | {r['data_wait_max']:.3f} | "
+                     f"{r['seconds_per_update']:.3f} ({r['wall_seconds_per_update']:.3f}) | {r['save_seconds']:.1f} | {r['data_wait_max']:.3f} | "
                      f"{r['peak_allocated_gb']:.1f} | {h[0]:.1f} | {h[1]:.1f} | {h[2]:.1f} |")
     text = "\n".join(lines); print(text)
     if len(sys.argv) > 3: Path(sys.argv[3]).write_text(text + "\n")
