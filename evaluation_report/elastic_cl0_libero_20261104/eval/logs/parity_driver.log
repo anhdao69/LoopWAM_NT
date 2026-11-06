@@ -1,0 +1,6 @@
+[2026-11-03T19:00:17+00:00] parity: MPS daemon started
+[2026-11-03T19:06:44+00:00] parity runners rc=0,0
+flat_k1_n2/libero_10_seed42_task0: 50/50 trajectory-identical, 50/50 same outcome, successes 45 vs reference 45, 362s
+flat_k1_n2/libero_spatial_seed42_task0: 50/50 trajectory-identical, 50/50 same outcome, successes 49 vs reference 49, 164s
+flat_k4_n10/libero_goal_seed44_task5: 50/50 trajectory-identical, 50/50 same outcome, successes 47 vs reference 47, 247s
+PARITY 150/150 trajectory-identical, 150/150 same outcome -> PASSED

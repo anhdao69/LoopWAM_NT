@@ -1,0 +1,80 @@
+[2026-11-03T23:12:00Z] gr1-eval: host worker-2 job 5624 step 60 CUDA_VISIBLE_DEVICES=0,1,2,3 code d937167
+0, NVIDIA H100 80GB HBM3, 0 MiB
+1, NVIDIA H100 80GB HBM3, 0 MiB
+2, NVIDIA H100 80GB HBM3, 0 MiB
+3, NVIDIA H100 80GB HBM3, 0 MiB
+[2026-11-03T23:12:01Z] gr1-eval: backup verified (552G); removing the RAM latent cache /tmp/gr1_v0_5624/latents
+[2026-11-03T23:12:55Z] gr1-eval: removed; /tmp now: tmpfs          1008G   91G  918G  10% /tmp
+[2026-11-03T23:12:55Z] gr1-eval: check (a) EGL started in the background (pid 87752)
+[2026-11-03T23:12:55Z] gr1-eval: epoch 4 attempt 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch04 (ports from 6500)
+[2026-11-03T23:14:55Z] gr1-eval: epoch 5 attempt 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_05.pt -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch05 (ports from 6520)
+[2026-11-03T23:17:55Z] gr1-eval: job mem 325/768 GiB, gpu 22048 MiB, 95 % 22301 MiB, 100 % 22113 MiB, 100 % 44113 MiB, 99 % 
+[2026-11-03T23:22:55Z] gr1-eval: job mem 372/768 GiB, gpu 21700 MiB, 100 % 21912 MiB, 94 % 21675 MiB, 99 % 43725 MiB, 100 % 
+slurmstepd: error: *** STEP 5624.60 ON worker-2 CANCELLED AT 2026-11-03T23:25:41 ***
+srun: error: worker-2: task 0: Killed
+srun: Force Terminated StepId=5624.60
+[2026-11-03T23:26:02Z] gr1-eval: host worker-2 job 5624 step 67 CUDA_VISIBLE_DEVICES=0,1,2,3 code d937167
+0, NVIDIA H100 80GB HBM3, 0 MiB
+1, NVIDIA H100 80GB HBM3, 0 MiB
+2, NVIDIA H100 80GB HBM3, 0 MiB
+3, NVIDIA H100 80GB HBM3, 0 MiB
+[2026-11-03T23:26:02Z] gr1-eval: MPS daemon started (/dev/shm/gr1_mps_5624)
+[2026-11-03T23:26:02Z] gr1-eval: check (a) EGL started in the background (pid 115887)
+[2026-11-03T23:26:02Z] gr1-eval: epoch 4 attempt 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch04 (ports from 6500)
+[2026-11-03T23:26:06Z] gr1-eval: epoch 4 attempt 1 rc=1
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch04/summary.json'
+[2026-11-03T23:27:06Z] gr1-eval: epoch 4 attempt 2: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch04 (ports from 6500)
+[2026-11-03T23:28:02Z] gr1-eval: epoch 5 attempt 1: /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_05.pt -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch05 (ports from 6520)
+[2026-11-03T23:30:02Z] gr1-eval: process table:
+|    0   N/A  N/A          117471    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    0   N/A  N/A          117475    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    0   N/A  N/A          117563      C   nvidia-cuda-mps-server                   60MiB |
+|    0   N/A  N/A          121143    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    0   N/A  N/A          121147    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    1   N/A  N/A          117472    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    1   N/A  N/A          117476    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    1   N/A  N/A          117563      C   nvidia-cuda-mps-server                   60MiB |
+|    1   N/A  N/A          121144    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    1   N/A  N/A          121148    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    2   N/A  N/A          117473    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    2   N/A  N/A          117477    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    2   N/A  N/A          117563      C   nvidia-cuda-mps-server                   60MiB |
+|    2   N/A  N/A          121145    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    2   N/A  N/A          121149    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    3   N/A  N/A          115901      C   ..._eval/envs/starvla/bin/python      10128MiB |
+|    3   N/A  N/A          117474    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    3   N/A  N/A          117478    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    3   N/A  N/A          117563      C   nvidia-cuda-mps-server                   60MiB |
+|    3   N/A  N/A          121146    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+|    3   N/A  N/A          121150    M+C   ...dh35/FastWAM/.venv/bin/python       4502MiB |
+[2026-11-03T23:31:03Z] gr1-eval: job mem 337/768 GiB, gpu 31130 MiB, 75 %, 160.31 W 31750 MiB, 81 %, 158.04 W 31420 MiB, 66 %, 153.58 W 52425 MiB, 78 %, 177.95 W 
+[2026-11-03T23:36:03Z] gr1-eval: job mem 384/768 GiB, gpu 31224 MiB, 74 %, 150.75 W 31991 MiB, 74 %, 160.05 W 31342 MiB, 77 %, 164.43 W 53774 MiB, 95 %, 177.38 W 
+[2026-11-03T23:41:04Z] gr1-eval: job mem 399/768 GiB, gpu 31051 MiB, 67 %, 153.53 W 30881 MiB, 85 %, 161.09 W 31382 MiB, 62 %, 158.15 W 50147 MiB, 85 %, 184.90 W 
+[2026-11-03T23:46:04Z] gr1-eval: job mem 407/768 GiB, gpu 29503 MiB, 70 %, 142.86 W 30548 MiB, 66 %, 170.91 W 31857 MiB, 61 %, 154.20 W 50987 MiB, 87 %, 174.98 W 
+[2026-11-03T23:51:05Z] gr1-eval: job mem 358/768 GiB, gpu 29025 MiB, 80 %, 157.12 W 29591 MiB, 85 %, 171.56 W 28245 MiB, 75 %, 156.90 W 29552 MiB, 54 %, 158.15 W 
+[2026-11-03T23:56:05Z] gr1-eval: job mem 360/768 GiB, gpu 30789 MiB, 84 %, 155.04 W 29214 MiB, 89 %, 172.12 W 29121 MiB, 68 %, 166.49 W 30627 MiB, 82 %, 175.55 W 
+[2026-11-04T00:01:06Z] gr1-eval: job mem 366/768 GiB, gpu 32805 MiB, 86 %, 161.10 W 30927 MiB, 79 %, 174.68 W 30432 MiB, 93 %, 173.36 W 29011 MiB, 73 %, 166.29 W 
+[2026-11-04T00:06:06Z] gr1-eval: job mem 364/768 GiB, gpu 30287 MiB, 86 %, 156.13 W 31035 MiB, 67 %, 176.49 W 31483 MiB, 92 %, 173.53 W 28496 MiB, 80 %, 165.63 W 
+[2026-11-04T00:11:07Z] gr1-eval: job mem 366/768 GiB, gpu 30374 MiB, 87 %, 158.83 W 27896 MiB, 76 %, 162.51 W 30161 MiB, 72 %, 165.36 W 30341 MiB, 71 %, 167.29 W 
+[2026-11-04T00:16:07Z] gr1-eval: job mem 365/768 GiB, gpu 28496 MiB, 79 %, 157.10 W 30163 MiB, 73 %, 166.49 W 31109 MiB, 76 %, 169.68 W 31022 MiB, 73 %, 166.96 W 
+[2026-11-04T00:21:08Z] gr1-eval: job mem 366/768 GiB, gpu 30285 MiB, 76 %, 160.26 W 29384 MiB, 66 %, 165.70 W 27793 MiB, 61 %, 157.83 W 30736 MiB, 79 %, 172.87 W 
+[2026-11-04T00:26:08Z] gr1-eval: job mem 370/768 GiB, gpu 29989 MiB, 83 %, 157.67 W 31158 MiB, 84 %, 173.12 W 32403 MiB, 76 %, 172.18 W 31710 MiB, 83 %, 172.36 W 
+[2026-11-04T00:31:09Z] gr1-eval: job mem 372/768 GiB, gpu 31023 MiB, 90 %, 167.82 W 32032 MiB, 73 %, 175.23 W 28991 MiB, 87 %, 176.36 W 31414 MiB, 77 %, 169.25 W 
+[2026-11-04T00:36:10Z] gr1-eval: job mem 374/768 GiB, gpu 31683 MiB, 80 %, 152.32 W 31459 MiB, 56 %, 162.14 W 32563 MiB, 89 %, 175.23 W 31740 MiB, 89 %, 169.77 W 
+[2026-11-04T00:41:10Z] gr1-eval: job mem 371/768 GiB, gpu 29355 MiB, 83 %, 152.71 W 29419 MiB, 77 %, 170.51 W 32611 MiB, 71 %, 163.35 W 30361 MiB, 74 %, 165.28 W 
+[2026-11-04T00:46:11Z] gr1-eval: job mem 372/768 GiB, gpu 30964 MiB, 86 %, 160.92 W 28833 MiB, 40 %, 169.18 W 28644 MiB, 72 %, 161.83 W 30389 MiB, 93 %, 171.80 W 
+[2026-11-04T00:51:11Z] gr1-eval: job mem 373/768 GiB, gpu 31513 MiB, 77 %, 154.23 W 31578 MiB, 88 %, 166.47 W 29803 MiB, 41 %, 161.01 W 30198 MiB, 83 %, 162.86 W 
+[2026-11-04T00:56:12Z] gr1-eval: job mem 375/768 GiB, gpu 32958 MiB, 85 %, 155.45 W 29804 MiB, 90 %, 168.63 W 31600 MiB, 82 %, 169.48 W 29085 MiB, 77 %, 162.00 W 
+[2026-11-04T01:01:12Z] gr1-eval: job mem 376/768 GiB, gpu 30955 MiB, 85 %, 163.09 W 31501 MiB, 88 %, 167.70 W 30602 MiB, 80 %, 173.30 W 30288 MiB, 57 %, 163.40 W 
+[2026-11-04T01:06:13Z] gr1-eval: job mem 377/768 GiB, gpu 31277 MiB, 93 %, 158.30 W 29074 MiB, 59 %, 164.93 W 31420 MiB, 81 %, 160.30 W 30583 MiB, 85 %, 169.72 W 
+[2026-11-04T01:11:14Z] gr1-eval: job mem 378/768 GiB, gpu 32130 MiB, 100 %, 162.17 W 31721 MiB, 95 %, 174.70 W 31246 MiB, 85 %, 171.23 W 30063 MiB, 77 %, 165.03 W 
+[2026-11-04T01:16:14Z] gr1-eval: job mem 380/768 GiB, gpu 31390 MiB, 83 %, 160.62 W 30402 MiB, 84 %, 167.90 W 30904 MiB, 53 %, 162.80 W 32880 MiB, 89 %, 161.08 W 
+[2026-11-04T01:21:15Z] gr1-eval: job mem 328/768 GiB, gpu 28921 MiB, 87 %, 164.59 W 24788 MiB, 80 %, 158.35 W 27143 MiB, 71 %, 165.41 W 30383 MiB, 83 %, 169.40 W 
+[2026-11-04T01:25:48Z] gr1-eval: epoch 4 attempt 2 rc=0
+{"tasks": 24, "mean": 0.44083333333333335}
+[2026-11-04T01:26:15Z] gr1-eval: job mem 161/768 GiB, gpu 9075 MiB, 0 %, 120.37 W 9075 MiB, 0 %, 128.47 W 9878 MiB, 3 %, 131.81 W 11308 MiB, 11 %, 147.25 W 
+[2026-11-04T01:26:39Z] gr1-eval: epoch 5 attempt 1 rc=0
+{"tasks": 24, "mean": 0.4458333333333333}
+[2026-11-04T01:26:39Z] gr1-eval: done: epoch 4 rc=0, epoch 5 rc=0

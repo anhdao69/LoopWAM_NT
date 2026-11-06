@@ -1,0 +1,111 @@
+2026-11-05 02:58:07,347 INFO Initialized MoT with experts: ['video', 'action'], num_layers=12
+2026-11-05 02:58:07,347 INFO   Expert 'video': num_params=0.48 B
+2026-11-05 02:58:07,348 INFO   Expert 'action': num_params=0.11 B
+2026-11-05 02:58:08,386 INFO serving {"policy": "LoopWAM v0 4/4 (3/6/3) RoboCasa-GR1", "checkpoint": "/storage/anhdh35/robocasa_gr1_eval/models/Robocasa-GR1/epoch_04.pt", "step": 94064, "checkpoint_contract_sha256": "4562b6d1994423447c4c40f32955518b360760b96260d69fde4e1cd0bbdc9890", "normalization_sha256": "bad54856a2835c9a65c5b6288cd6c8e55660df2d3990777009f22842197be9eb", "normalization_mode": "min/max", "action_chunk_size": 32, "n_action_steps": 16, "num_inference_steps": 10, "cfg_scale": 1.0, "noise_seed": 42, "action_keys": ["action.left_arm", "action.right_arm", "action.left_hand", "action.right_hand", "action.waist"], "state_keys": ["state.left_arm", "state.right_arm", "state.left_hand", "state.right_hand", "state.waist"], "video_key": "video.ego_view", "training_obs_image_size": [256, 256], "action_dims": {"left_arm": 7, "right_arm": 7, "left_hand": 6, "right_hand": 6, "waist": 3}, "absolute_actions": true, "host": "VMO-ANHDH35-D", "port": 6565}
+2026-11-05 02:58:08,387 INFO server listening on 0.0.0.0:6565
+2026-11-05 02:58:10,522 ERROR opening handshake failed
+Traceback (most recent call last):
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+2026-11-05 02:58:11,706 INFO connection open
+2026-11-05 02:58:11,706 INFO Connection from ('127.0.0.1', 56226) opened
+2026-11-05 02:58:11,710 INFO connection open
+2026-11-05 02:58:11,710 INFO Connection from ('127.0.0.1', 56240) opened
+2026-11-05 02:58:11,714 INFO connection open
+2026-11-05 02:58:11,714 INFO Connection from ('127.0.0.1', 56242) opened
+2026-11-05 02:58:11,973 INFO connection open
+2026-11-05 02:58:11,973 INFO Connection from ('127.0.0.1', 56248) opened
+2026-11-05 02:58:19,713 INFO prompt 'unlocked_waist: pick the croissant from the plate and place it in the pan' -> cache
+2026-11-05 02:58:21,771 INFO prompt 'unlocked_waist: pick the squash from the tray and place it in the tiered shelf' -> cache
+2026-11-05 02:58:22,624 INFO prompt 'unlocked_waist: pick up the wine, place it into the cabinet and close the cabinet' -> cache
+2026-11-05 02:58:24,535 INFO prompt 'unlocked_waist: pick the squash from the placemat and place it in the basket' -> cache
+2026-11-05 03:00:21,558 INFO prompt 'unlocked_waist: pick the squash from the plate and place it in the pan' -> cache
+2026-11-05 03:00:23,984 INFO prompt 'unlocked_waist: pick the cupcake from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:00:25,809 INFO prompt 'unlocked_waist: pick the sweet potato from the placemat and place it in the basket' -> cache
+2026-11-05 03:02:28,050 INFO prompt 'unlocked_waist: pick the lemon from the placemat and place it in the basket' -> cache
+2026-11-05 03:04:18,507 INFO prompt 'unlocked_waist: pick the can from the plate and place it in the pan' -> cache
+2026-11-05 03:04:27,220 INFO prompt 'unlocked_waist: pick the cupcake from the placemat and place it in the basket' -> cache
+2026-11-05 03:04:29,678 INFO prompt 'unlocked_waist: pick the eggplant from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:06:20,451 INFO prompt 'unlocked_waist: pick the lemon from the plate and place it in the pan' -> cache
+2026-11-05 03:06:31,510 INFO prompt 'unlocked_waist: pick the croissant from the placemat and place it in the basket' -> cache
+2026-11-05 03:06:34,525 INFO prompt 'unlocked_waist: pick the croissant from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:08:36,213 INFO prompt 'unlocked_waist: pick the can from the placemat and place it in the basket' -> cache
+2026-11-05 03:10:23,024 INFO prompt 'unlocked_waist: pick the sweet potato from the plate and place it in the pan' -> cache
+2026-11-05 03:16:28,471 INFO prompt 'unlocked_waist: pick the eggplant from the plate and place it in the pan' -> cache
+2026-11-05 03:18:46,801 INFO prompt 'unlocked_waist: pick the eggplant from the placemat and place it in the basket' -> cache
+2026-11-05 03:18:52,347 INFO prompt 'unlocked_waist: pick the bell pepper from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:22:39,443 INFO prompt 'unlocked_waist: pick the cupcake from the plate and place it in the pan' -> cache
+2026-11-05 03:23:02,126 INFO prompt 'unlocked_waist: pick the lemon from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:24:54,401 INFO prompt 'unlocked_waist: pick the tomato from the placemat and place it in the basket' -> cache
+2026-11-05 03:25:05,183 INFO prompt 'unlocked_waist: pick the tomato from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:28:45,264 INFO prompt 'unlocked_waist: pick the bell pepper from the plate and place it in the pan' -> cache
+2026-11-05 03:31:13,928 INFO prompt 'unlocked_waist: pick the sweet potato from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:34:47,688 INFO prompt 'unlocked_waist: pick the pear from the plate and place it in the pan' -> cache
+2026-11-05 03:35:01,702 INFO prompt 'unlocked_waist: pick the pear from the placemat and place it in the basket' -> cache
+2026-11-05 03:35:17,299 INFO prompt 'unlocked_waist: pick the can from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:45:10,035 INFO prompt 'unlocked_waist: pick the bell pepper from the placemat and place it in the basket' -> cache
+2026-11-05 03:45:12,664 INFO prompt 'unlocked_waist: pick the pear from the tray and place it in the tiered shelf' -> cache
+2026-11-05 03:52:46,797 INFO prompt 'unlocked_waist: pick the tomato from the plate and place it in the pan' -> cache
+2026-11-05 04:37:21,229 INFO connection open
+2026-11-05 04:37:21,229 INFO Connection from ('127.0.0.1', 35148) opened
+2026-11-05 04:38:37,276 INFO Connection from ('127.0.0.1', 56242) closed
+2026-11-05 04:38:41,724 INFO connection open
+2026-11-05 04:38:41,724 INFO Connection from ('127.0.0.1', 45608) opened
+2026-11-05 04:38:55,205 INFO Connection from ('127.0.0.1', 56226) closed
+2026-11-05 04:39:15,082 INFO Connection from ('127.0.0.1', 56240) closed
+2026-11-05 04:39:31,164 INFO Connection from ('127.0.0.1', 56248) closed
+2026-11-05 04:40:58,504 INFO connection open
+2026-11-05 04:40:58,504 INFO Connection from ('127.0.0.1', 56646) opened
+2026-11-05 04:43:10,383 INFO connection open
+2026-11-05 04:43:10,383 INFO Connection from ('127.0.0.1', 46780) opened
+2026-11-05 05:44:21,433 INFO Connection from ('127.0.0.1', 35148) closed
+2026-11-05 05:44:26,526 INFO connection open
+2026-11-05 05:44:26,526 INFO Connection from ('127.0.0.1', 43350) opened
+2026-11-05 05:46:38,418 INFO Connection from ('127.0.0.1', 45608) closed
+2026-11-05 05:47:19,089 INFO connection open
+2026-11-05 05:47:19,090 INFO Connection from ('127.0.0.1', 34234) opened
+2026-11-05 05:49:03,337 INFO Connection from ('127.0.0.1', 56646) closed
+2026-11-05 05:50:57,720 INFO connection open
+2026-11-05 05:50:57,720 INFO Connection from ('127.0.0.1', 55740) opened
+2026-11-05 05:52:40,849 INFO Connection from ('127.0.0.1', 46780) closed
+2026-11-05 05:55:30,295 INFO connection open
+2026-11-05 05:55:30,295 INFO Connection from ('127.0.0.1', 53126) opened
+2026-11-05 06:36:08,449 INFO Connection from ('127.0.0.1', 43350) closed
+2026-11-05 06:39:32,917 INFO connection open
+2026-11-05 06:39:32,918 INFO Connection from ('127.0.0.1', 44924) opened
+2026-11-05 06:41:05,275 INFO Connection from ('127.0.0.1', 34234) closed
+2026-11-05 06:43:33,082 INFO Connection from ('127.0.0.1', 55740) closed
+2026-11-05 06:43:43,146 INFO connection open
+2026-11-05 06:43:43,147 INFO Connection from ('127.0.0.1', 38650) opened
+2026-11-05 06:47:15,213 INFO connection open
+2026-11-05 06:47:15,214 INFO Connection from ('127.0.0.1', 45070) opened
+2026-11-05 06:50:57,707 INFO Connection from ('127.0.0.1', 53126) closed
+2026-11-05 06:53:57,336 INFO connection open
+2026-11-05 06:53:57,336 INFO Connection from ('127.0.0.1', 41044) opened
+2026-11-05 09:45:29,456 INFO Connection from ('127.0.0.1', 44924) closed
+2026-11-05 09:50:00,717 INFO Connection from ('127.0.0.1', 38650) closed
+2026-11-05 09:51:18,865 INFO Connection from ('127.0.0.1', 45070) closed
+2026-11-05 09:53:58,108 INFO Connection from ('127.0.0.1', 41044) closed
