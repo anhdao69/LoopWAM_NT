@@ -1,0 +1,41 @@
+{
+ "groups": {
+  "flat_k1_n2/libero_10_seed42_task0": {
+   "episodes": 50,
+   "identical": 50,
+   "same_outcome": 50,
+   "successes": 45,
+   "reference_successes": 45,
+   "backend": "cuda-graph",
+   "checkpoint_sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+   "elapsed_seconds": 362.10785465175286,
+   "mismatches": []
+  },
+  "flat_k1_n2/libero_spatial_seed42_task0": {
+   "episodes": 50,
+   "identical": 50,
+   "same_outcome": 50,
+   "successes": 49,
+   "reference_successes": 49,
+   "backend": "cuda-graph",
+   "checkpoint_sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+   "elapsed_seconds": 164.37875256082043,
+   "mismatches": []
+  },
+  "flat_k4_n10/libero_goal_seed44_task5": {
+   "episodes": 50,
+   "identical": 50,
+   "same_outcome": 50,
+   "successes": 47,
+   "reference_successes": 47,
+   "backend": "cuda-graph",
+   "checkpoint_sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+   "elapsed_seconds": 246.98089966922998,
+   "mismatches": []
+  }
+ },
+ "episodes": 150,
+ "identical": 150,
+ "same_outcome": 150,
+ "passed": true
+}

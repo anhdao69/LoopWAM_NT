@@ -1,0 +1,6 @@
+=== 2026-11-01T23:36:30Z gates
+{"gates": "passed"}
+=== 2026-11-01T23:42:07Z latents
+slurmstepd: error: *** STEP 5624.26 ON worker-2 CANCELLED AT 2026-11-01T23:53:24 ***
+srun: error: worker-2: task 0: Killed
+srun: Force Terminated StepId=5624.26

@@ -1,0 +1,94 @@
+{
+ "run": "E0",
+ "schedule": "flat_k4_n10",
+ "depths": [
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4
+ ],
+ "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/eval/reference_runs/E0/epoch_10.pt",
+ "sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+ "stats": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/eval/reference_runs/E0/dataset_stats.json",
+ "data_manifest": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/eval/reference_runs/E0/data/data_manifest.json",
+ "backend": "cuda-graph",
+ "output": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/eval/parity/parity_repro/elastic__E0__flat_k4_n10__5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+ "epoch": 10,
+ "transport_config": {
+  "kind": "T0",
+  "scope": "pc",
+  "regime": "fu",
+  "schedules": [
+   "flat_k1_n2",
+   "flat_k1_n5",
+   "flat_k1_n10",
+   "flat_k2_n2",
+   "flat_k2_n5",
+   "flat_k2_n10",
+   "flat_k4_n2",
+   "flat_k4_n5",
+   "flat_k4_n10"
+  ],
+  "step_cond": true,
+  "anchor": true,
+  "seed": 42,
+  "sampler": "balanced",
+  "init": "common_v1",
+  "reuse_teacher_prefix": true,
+  "collect_diagnostics": true,
+  "campaign": "elastic-v1"
+ },
+ "protocol": {
+  "suites": [
+   "libero_goal"
+  ],
+  "seeds": [
+   44
+  ],
+  "tasks": [
+   5
+  ],
+  "episodes": 50,
+  "max_policy_steps": {
+   "libero_spatial": 400,
+   "libero_object": 400,
+   "libero_goal": 400,
+   "libero_10": 700
+  },
+  "settling_steps": 30,
+  "settling_action": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   -1
+  ],
+  "settling_done": "ignored",
+  "replan_steps": 10,
+  "action_horizon": 32,
+  "seed_rule": "global seed once per task/seed group; env.seed(base) at construction, env reused for 50 sequential initial states; every query uses the base seed",
+  "success": "environment done flag",
+  "precision": "FP32 model, BF16 autocast",
+  "camera": 256,
+  "model_image": "2x224 horizontal",
+  "videos": false
+ },
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "contract_world": 2,
+ "runner_sha256": "e4e44ad2636eb2487d8eea756c87edb269c29fe8d213482ce5f5c5c1cd38cbe6",
+ "adapter_source_sha256": "36c1825d9592c866a17b095d11023c66bbdd8818da7465dca7eaf66f3338336c",
+ "text_cache_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/data/text_embeds_cache/libero",
+ "host": "worker-2",
+ "slurm_job_id": "5623",
+ "mujoco_gl": "egl",
+ "torch": "2.7.1+cu128",
+ "gpu": "NVIDIA H100 80GB HBM3"
+}
