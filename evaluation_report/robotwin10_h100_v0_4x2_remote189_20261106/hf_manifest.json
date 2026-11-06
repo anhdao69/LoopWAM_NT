@@ -1,0 +1,84 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "bd03a4e2fbe0b4c2d653977a8f13a62b18bda234",
+  "files": [
+    {
+      "type": "file",
+      "oid": "0194ab1b6818423aaa4d92fc5dc7ddbe93bbb681",
+      "size": 150,
+      "path": "robotwin-10-h100/v0-video4-action2/COMPLETE"
+    },
+    {
+      "type": "file",
+      "oid": "66f3ffe57382bd0b258ee01c6d225e5d934db0c4",
+      "size": 1607,
+      "path": "robotwin-10-h100/v0-video4-action2/README.md"
+    },
+    {
+      "type": "file",
+      "oid": "6610de5bcaababfc54aef8ba4f8d8d4f285f0007",
+      "size": 672,
+      "path": "robotwin-10-h100/v0-video4-action2/SHA256SUMS"
+    },
+    {
+      "type": "file",
+      "oid": "fdec447ae3d2e02b8cfd29315ce07b34825bd835",
+      "size": 176686,
+      "path": "robotwin-10-h100/v0-video4-action2/data_manifest.json"
+    },
+    {
+      "type": "file",
+      "oid": "f1652563d2dedbd7063c55bd8c2f4297ec648d45",
+      "size": 88715,
+      "path": "robotwin-10-h100/v0-video4-action2/dataset_stats.json"
+    },
+    {
+      "type": "file",
+      "oid": "84244164b7a8c8c9e777c4069b40caede3683e97",
+      "size": 2338751845,
+      "lfs": {
+        "oid": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+        "size": 2338751845,
+        "pointerSize": 135
+      },
+      "xetHash": "ab126fed6c7005def7a1c5b6a9a1392f1376cdf33ac0e139b99c49453e2fed18",
+      "path": "robotwin-10-h100/v0-video4-action2/epoch_05.pt"
+    },
+    {
+      "type": "file",
+      "oid": "4375bed045a2807548911a8cf469e0182145182f",
+      "size": 310,
+      "path": "robotwin-10-h100/v0-video4-action2/epoch_05.pt.uploaded.json"
+    },
+    {
+      "type": "file",
+      "oid": "a3f374493110b757adf6dfae51e55109ca6c5526",
+      "size": 150,
+      "path": "robotwin-10-h100/v0-video4-action2/precision.json"
+    },
+    {
+      "type": "file",
+      "oid": "0de81618ab6751abba96e707c0666b00ae828f39",
+      "size": 4118,
+      "path": "robotwin-10-h100/v0-video4-action2/training_manifest.json"
+    },
+    {
+      "type": "file",
+      "oid": "9dea1683d826fd288e68bac5d1a87212eb010182",
+      "size": 3238065,
+      "lfs": {
+        "oid": "7ff17a8541b645cec43f763e9f013b348ce9b42bcf2bffb539e923eb38eb6abc",
+        "size": 3238065,
+        "pointerSize": 132
+      },
+      "xetHash": "2912769550753d3bca8c1224db732e6e0b03424692512bf52b13d82c77f17650",
+      "path": "robotwin-10-h100/v0-video4-action2/training_metrics.jsonl.gz"
+    },
+    {
+      "type": "file",
+      "oid": "0194ab1b6818423aaa4d92fc5dc7ddbe93bbb681",
+      "size": 150,
+      "path": "robotwin-10-h100/v0-video4-action2/training_timing.json"
+    }
+  ]
+}

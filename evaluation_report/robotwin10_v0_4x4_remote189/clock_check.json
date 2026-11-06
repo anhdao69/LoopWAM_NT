@@ -1,0 +1,7 @@
+{
+  "checked_unix": 1793732247.9989367,
+  "remote_unix": 1793732037.060647,
+  "remote_minus_local_seconds": -210.9342007637024,
+  "round_trip_seconds": 0.008177995681762695,
+  "note": "Recorded only; no system clocks modified. Account for offset when comparing logs between hosts."
+}

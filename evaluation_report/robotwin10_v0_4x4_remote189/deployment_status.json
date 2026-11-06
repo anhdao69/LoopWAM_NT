@@ -1,0 +1,12 @@
+{
+  "updated_unix": 1793733206.347411,
+  "stage": "scored_evaluation_running",
+  "host": "10.148.183.189",
+  "planned_episodes": 2000,
+  "seed": 42,
+  "workers": 2,
+  "backend": "cuda-graph",
+  "tests_passed": 38,
+  "old_remote137_queue": "cancelled",
+  "handoff_evidence": "handoff.json"
+}

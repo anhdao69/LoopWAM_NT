@@ -1,0 +1,9 @@
+preflight_core rc=0
+bench_E0_mb16 rc=0
+bench_E2_mb16 rc=0
+bench_E0_mb32 rc=0
+bench_E2_mb32 rc=0
+preflight_speed_E1 rc=0
+preflight_speed_E0 rc=0
+preflight_speed_E2 rc=0
+GPU_CHECKS_DONE

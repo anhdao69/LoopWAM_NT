@@ -1,0 +1,114 @@
+<!-- results-reconciled-20261107 -->
+> **Complete:** 8985/10000 = **89.85%**. Clean **90.08%**, randomized **89.62%**. All100 task/settings complete; episode counts and successes reconciled. No saved final artifact audit was found; videos were not rehashed in this update. Updated 2026-11-07T02:51:27+07:00.
+
+# LoopWAM v0 epoch 6 RoboTwin evaluation
+
+Scored episodes: **10000/10,000**; successes: **8985**; completed task/settings: **100/100**.
+
+Seed42;50tasks;clean+randomized;100acceptedepisodes/task/setting;unseen instructions;NFE10;predict32/execute24;native4/4 checkpoint at epoch6. Smoke/calibration excluded. These results are complete.
+
+| Task | Setting | Status | Episodes | Successes | SR |
+| --- | --- | --- | --- | --- | --- |
+| adjust_bottle | demo_clean | complete | 100/100 | 100 | 100.00% |
+| adjust_bottle | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| beat_block_hammer | demo_clean | complete | 100/100 | 98 | 98.00% |
+| beat_block_hammer | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| blocks_ranking_rgb | demo_clean | complete | 100/100 | 100 | 100.00% |
+| blocks_ranking_rgb | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| blocks_ranking_size | demo_clean | complete | 100/100 | 95 | 95.00% |
+| blocks_ranking_size | demo_randomized | complete | 100/100 | 95 | 95.00% |
+| click_alarmclock | demo_clean | complete | 100/100 | 100 | 100.00% |
+| click_alarmclock | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| click_bell | demo_clean | complete | 100/100 | 100 | 100.00% |
+| click_bell | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| dump_bin_bigbin | demo_clean | complete | 100/100 | 99 | 99.00% |
+| dump_bin_bigbin | demo_randomized | complete | 100/100 | 96 | 96.00% |
+| grab_roller | demo_clean | complete | 100/100 | 100 | 100.00% |
+| grab_roller | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| handover_block | demo_clean | complete | 100/100 | 100 | 100.00% |
+| handover_block | demo_randomized | complete | 100/100 | 90 | 90.00% |
+| handover_mic | demo_clean | complete | 100/100 | 99 | 99.00% |
+| handover_mic | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| hanging_mug | demo_clean | complete | 100/100 | 44 | 44.00% |
+| hanging_mug | demo_randomized | complete | 100/100 | 38 | 38.00% |
+| lift_pot | demo_clean | complete | 100/100 | 100 | 100.00% |
+| lift_pot | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| move_can_pot | demo_clean | complete | 100/100 | 94 | 94.00% |
+| move_can_pot | demo_randomized | complete | 100/100 | 96 | 96.00% |
+| move_pillbottle_pad | demo_clean | complete | 100/100 | 98 | 98.00% |
+| move_pillbottle_pad | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| move_playingcard_away | demo_clean | complete | 100/100 | 100 | 100.00% |
+| move_playingcard_away | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| move_stapler_pad | demo_clean | complete | 100/100 | 82 | 82.00% |
+| move_stapler_pad | demo_randomized | complete | 100/100 | 68 | 68.00% |
+| open_laptop | demo_clean | complete | 100/100 | 98 | 98.00% |
+| open_laptop | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| open_microwave | demo_clean | complete | 100/100 | 39 | 39.00% |
+| open_microwave | demo_randomized | complete | 100/100 | 37 | 37.00% |
+| pick_diverse_bottles | demo_clean | complete | 100/100 | 86 | 86.00% |
+| pick_diverse_bottles | demo_randomized | complete | 100/100 | 89 | 89.00% |
+| pick_dual_bottles | demo_clean | complete | 100/100 | 100 | 100.00% |
+| pick_dual_bottles | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| place_a2b_left | demo_clean | complete | 100/100 | 94 | 94.00% |
+| place_a2b_left | demo_randomized | complete | 100/100 | 88 | 88.00% |
+| place_a2b_right | demo_clean | complete | 100/100 | 91 | 91.00% |
+| place_a2b_right | demo_randomized | complete | 100/100 | 89 | 89.00% |
+| place_bread_basket | demo_clean | complete | 100/100 | 94 | 94.00% |
+| place_bread_basket | demo_randomized | complete | 100/100 | 94 | 94.00% |
+| place_bread_skillet | demo_clean | complete | 100/100 | 92 | 92.00% |
+| place_bread_skillet | demo_randomized | complete | 100/100 | 89 | 89.00% |
+| place_burger_fries | demo_clean | complete | 100/100 | 97 | 97.00% |
+| place_burger_fries | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| place_can_basket | demo_clean | complete | 100/100 | 38 | 38.00% |
+| place_can_basket | demo_randomized | complete | 100/100 | 28 | 28.00% |
+| place_cans_plasticbox | demo_clean | complete | 100/100 | 97 | 97.00% |
+| place_cans_plasticbox | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| place_container_plate | demo_clean | complete | 100/100 | 97 | 97.00% |
+| place_container_plate | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| place_dual_shoes | demo_clean | complete | 100/100 | 86 | 86.00% |
+| place_dual_shoes | demo_randomized | complete | 100/100 | 89 | 89.00% |
+| place_empty_cup | demo_clean | complete | 100/100 | 100 | 100.00% |
+| place_empty_cup | demo_randomized | complete | 100/100 | 99 | 99.00% |
+| place_fan | demo_clean | complete | 100/100 | 94 | 94.00% |
+| place_fan | demo_randomized | complete | 100/100 | 96 | 96.00% |
+| place_mouse_pad | demo_clean | complete | 100/100 | 82 | 82.00% |
+| place_mouse_pad | demo_randomized | complete | 100/100 | 87 | 87.00% |
+| place_object_basket | demo_clean | complete | 100/100 | 77 | 77.00% |
+| place_object_basket | demo_randomized | complete | 100/100 | 81 | 81.00% |
+| place_object_scale | demo_clean | complete | 100/100 | 94 | 94.00% |
+| place_object_scale | demo_randomized | complete | 100/100 | 83 | 83.00% |
+| place_object_stand | demo_clean | complete | 100/100 | 89 | 89.00% |
+| place_object_stand | demo_randomized | complete | 100/100 | 94 | 94.00% |
+| place_phone_stand | demo_clean | complete | 100/100 | 97 | 97.00% |
+| place_phone_stand | demo_randomized | complete | 100/100 | 98 | 98.00% |
+| place_shoe | demo_clean | complete | 100/100 | 93 | 93.00% |
+| place_shoe | demo_randomized | complete | 100/100 | 96 | 96.00% |
+| press_stapler | demo_clean | complete | 100/100 | 94 | 94.00% |
+| press_stapler | demo_randomized | complete | 100/100 | 96 | 96.00% |
+| put_bottles_dustbin | demo_clean | complete | 100/100 | 92 | 92.00% |
+| put_bottles_dustbin | demo_randomized | complete | 100/100 | 93 | 93.00% |
+| put_object_cabinet | demo_clean | complete | 100/100 | 88 | 88.00% |
+| put_object_cabinet | demo_randomized | complete | 100/100 | 88 | 88.00% |
+| rotate_qrcode | demo_clean | complete | 100/100 | 80 | 80.00% |
+| rotate_qrcode | demo_randomized | complete | 100/100 | 80 | 80.00% |
+| scan_object | demo_clean | complete | 100/100 | 86 | 86.00% |
+| scan_object | demo_randomized | complete | 100/100 | 87 | 87.00% |
+| shake_bottle | demo_clean | complete | 100/100 | 100 | 100.00% |
+| shake_bottle | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| shake_bottle_horizontally | demo_clean | complete | 100/100 | 100 | 100.00% |
+| shake_bottle_horizontally | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| stack_blocks_three | demo_clean | complete | 100/100 | 94 | 94.00% |
+| stack_blocks_three | demo_randomized | complete | 100/100 | 97 | 97.00% |
+| stack_blocks_two | demo_clean | complete | 100/100 | 100 | 100.00% |
+| stack_blocks_two | demo_randomized | complete | 100/100 | 100 | 100.00% |
+| stack_bowls_three | demo_clean | complete | 100/100 | 80 | 80.00% |
+| stack_bowls_three | demo_randomized | complete | 100/100 | 88 | 88.00% |
+| stack_bowls_two | demo_clean | complete | 100/100 | 97 | 97.00% |
+| stack_bowls_two | demo_randomized | complete | 100/100 | 95 | 95.00% |
+| stamp_seal | demo_clean | complete | 100/100 | 94 | 94.00% |
+| stamp_seal | demo_randomized | complete | 100/100 | 95 | 95.00% |
+| turn_switch | demo_clean | complete | 100/100 | 55 | 55.00% |
+| turn_switch | demo_randomized | complete | 100/100 | 57 | 57.00% |
+
+[Detailed setup and comparability](setup_report.md) · [Progress JSON](progress.json)
+Rendering uses RT32/depth8/OIDN2.3.3 (Blackwell compatibility upgrade). Input preprocessing and instruction generation follow released FastWAM; these differ from the uploaded checkpoint’s H100 evaluation.

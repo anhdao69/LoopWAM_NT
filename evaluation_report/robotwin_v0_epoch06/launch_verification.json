@@ -1,0 +1,18 @@
+{
+  "verified_unix": 1793455231.7714884,
+  "status": "running",
+  "epoch": 6,
+  "checkpoint_sha256": "6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0",
+  "workers": 4,
+  "tests_passed": 18,
+  "smoke_episodes": 4,
+  "smoke_successes": 4,
+  "smoke_excluded": true,
+  "graph_bit_exact": true,
+  "same_epoch5_scoring_protocol": true,
+  "recorded_episodes": 8,
+  "recorded_successes": 8,
+  "failed": [],
+  "gpu": "10 %, 51511 MiB, 97887 MiB",
+  "tmux_session": "robotwin_epoch06"
+}

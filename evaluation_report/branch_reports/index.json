@@ -1,11 +1,11 @@
 {
   "base": {
     "branch": "LoopWAM_NT",
-    "commit": "43ef539b4744ebfec1bb7b3864904f3d48465903"
+    "commit": "2f073299fa9bfdf034a79a7cccf691a6be1a1b83"
   },
   "branches": {
     "KV_concat": {
-      "commit": "ecf7a63de3c314a2bc235255943d74b408e9b23f",
+      "commit": "401e103da75c395302daebe33e069ccd31332057",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -60,7 +60,7 @@
       ]
     },
     "chrono": {
-      "commit": "a9f88d9d887025fb452bde91558c8f6af311d002",
+      "commit": "0d0de884f5652f556d67abaa24c3680e2199b67e",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -90,7 +90,187 @@
       ]
     },
     "elastic": {
-      "commit": "c0feec78bf2d92734305a6f194b5bee86868b59b",
+      "commit": "a60f3bf242f20e9929a1eda7f6b141c6b6708001",
+      "documents": [
+        {
+          "path": "plans/LoopWAM_elastic.md",
+          "blob": "74490ab730b682a90c8ab98623cab8deca23308b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/gates_full_grid.log.md",
+          "blob": "ac1bc97dd695b2ad5c67b7c4e9d01d11f24e5681",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/mps_parity_result.log.md",
+          "blob": "511b10e12e52092f8cd9219f3bc646d55a044fe6",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/parity_rt_result.log.md",
+          "blob": "b31d829cfb13262a8f02c50ba305662d9cefab1a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/eval/results.md",
+          "blob": "d80cb7ca800c9c76bf40eeb7353f0ed75e6abfcc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_All_Models_Latency_20261030.md",
+          "blob": "febd9f19558d4cf1f9961b0308ac07a7e813b8bf",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_elastic_campaign_20261028.md",
+          "blob": "1dec0e2e524c587ef468d0c10a12a62a5a42bee0",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Public_WAM_Latency_20261030.md",
+          "blob": "ebfcca5c09732787e70ab1e8cb03f091b9917f23",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+          "blob": "01323e48b72a318f351e81778c2a73c14d9b24d5",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Implementation.md",
+          "blob": "cfa9e5155491589a8d3679be92ebfd07b24621fe",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Launch_20261010.md",
+          "blob": "1ab4b265b916869c606bb33a75a79a3a26903680",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+          "blob": "b39cd40c9f672a9adda8be5d478b886decffa8f9",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Results.md",
+          "blob": "af452fd30ea6b66334f1b0f4f003c0aa5c0d28ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/official_fasterwam_script/latency_report.md",
+          "blob": "a98d6642987b531af0701b078a17c3628b061609",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/report_v2_template.md",
+          "blob": "0194a18c90c984e95e06f89b5cd48cb40f92894a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport.md",
+          "blob": "0d6e7dbe42875110b802de9b3da77c8075b78ddc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport_evidence/progress.md",
+          "blob": "8fa012ae271df74df2dfc7803d1f85f9814f7000",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "elastic_cl0": {
+      "commit": "a0786a270b881d4cb0ff885d749719e0353274ef",
+      "documents": [
+        {
+          "path": "plans/LoopWAM_elastic.md",
+          "blob": "74490ab730b682a90c8ab98623cab8deca23308b",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/gates_full_grid.log.md",
+          "blob": "ac1bc97dd695b2ad5c67b7c4e9d01d11f24e5681",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/mps_parity_result.log.md",
+          "blob": "511b10e12e52092f8cd9219f3bc646d55a044fe6",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/campaign/parity_rt_result.log.md",
+          "blob": "b31d829cfb13262a8f02c50ba305662d9cefab1a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/elastic_evidence/eval/results.md",
+          "blob": "d80cb7ca800c9c76bf40eeb7353f0ed75e6abfcc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_All_Models_Latency_20261030.md",
+          "blob": "febd9f19558d4cf1f9961b0308ac07a7e813b8bf",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_elastic_campaign_20261028.md",
+          "blob": "1dec0e2e524c587ef468d0c10a12a62a5a42bee0",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Public_WAM_Latency_20261030.md",
+          "blob": "ebfcca5c09732787e70ab1e8cb03f091b9917f23",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+          "blob": "01323e48b72a318f351e81778c2a73c14d9b24d5",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Implementation.md",
+          "blob": "cfa9e5155491589a8d3679be92ebfd07b24621fe",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Launch_20261010.md",
+          "blob": "1ab4b265b916869c606bb33a75a79a3a26903680",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+          "blob": "b39cd40c9f672a9adda8be5d478b886decffa8f9",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/Residual_Transport_Results.md",
+          "blob": "af452fd30ea6b66334f1b0f4f003c0aa5c0d28ca",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/official_fasterwam_script/latency_report.md",
+          "blob": "a98d6642987b531af0701b078a17c3628b061609",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/public_wam_latency_20261030/report_v2_template.md",
+          "blob": "0194a18c90c984e95e06f89b5cd48cb40f92894a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport.md",
+          "blob": "0d6e7dbe42875110b802de9b3da77c8075b78ddc",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/residual_transport_evidence/progress.md",
+          "blob": "8fa012ae271df74df2dfc7803d1f85f9814f7000",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "elastic_robotwin": {
+      "commit": "2c78ff6f186c1d9073068b8eee5b328d19dba826",
       "documents": [
         {
           "path": "plans/LoopWAM_elastic.md",
@@ -180,7 +360,7 @@
       ]
     },
     "partition_grid_20261026": {
-      "commit": "bfd3f74515be0b280ed10ae6b0e2f75a53da729e",
+      "commit": "4655108f1383d030567d5eb4940866280ca62206",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -245,7 +425,7 @@
       ]
     },
     "residual_trans": {
-      "commit": "e3c9292d40ecb40112f4e1ceef8086de8cf9a386",
+      "commit": "e07aa825fe8bbfc246960529e8eb9e231e591f5f",
       "documents": [
         {
           "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
@@ -284,8 +464,118 @@
         }
       ]
     },
+    "robocasa_gr1_continuation_20261106": {
+      "commit": "b748d92cb8c8672869d9ae9a2d911e10613e3aba",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "robocasa_gr1_v0": {
+      "commit": "d937167ba61a0df4a9818d1917de6c7155400dff",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
+    "robotwin10_training_20261101": {
+      "commit": "9b6bac1251608931b7b644ebbe6b45f05d33bfb3",
+      "documents": [
+        {
+          "path": "plans/ChronoLoop.md",
+          "blob": "c0cbbc7eba250460a76b813ec6aaa89cd9a2b45a",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+          "blob": "7343d102918503ff613251062fdf4ca75f6a07ec",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Results_Template.md",
+          "blob": "3449740fa54d8855dbd3b88fb9585faeb9b83691",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+          "blob": "6409d872419be98f76f06002093b099fd7be1c5d",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+          "blob": "056f627254ed8810afc148d659d4d74297f1d42e",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_RoboTwin_Epoch5_Eval_Continue_20261030.md",
+          "blob": "0a2486949bed84ed77d4f6d57e02f33cfcb3c7fd",
+          "new_on_branch": true
+        },
+        {
+          "path": "plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+          "blob": "9b2d03904b983d4f3ac172e47d70f6dacd1c8f1f",
+          "new_on_branch": true
+        }
+      ]
+    },
     "robotwin_eval_continue_20261030": {
-      "commit": "dc5e75839f0e0fe0dd1f2c288be7dbf45ce2c3e1",
+      "commit": "08d742a783b494e9f09ecf10120b771b8316dce7",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -325,7 +615,7 @@
       ]
     },
     "robotwin_full_v0_20261028": {
-      "commit": "be03a371c828749185bdc7a6821f4566ea518a29",
+      "commit": "64c2f80b191710663f7d0994bc5d3b0e66a762e7",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -360,11 +650,11 @@
       ]
     },
     "scratch_init_v0": {
-      "commit": "923fd2206bf4994bb526ef8816a8cd90b5148b10",
+      "commit": "c8e58210c776d1a03e3420fa82df4aa7957e8d0d",
       "documents": []
     },
     "v0-init-variants": {
-      "commit": "86472cf8231f739c91097ebeb28ab8576bd603bb",
+      "commit": "57c1ae00266eb70796ad7a15f629cbf62c68cb41",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",

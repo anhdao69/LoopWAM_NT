@@ -1,0 +1,11 @@
+{
+  "bulk": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106",
+  "report": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/repo/evaluation_report/robotwin10_h100_v0_4x2_remote189_20261106",
+  "repo": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/repo",
+  "variant": "v0-video4-action2",
+  "workers": 2,
+  "vae": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+  "inherited_runtime": "/media/newdisk/loopwam_robotwin10_v0_4x1_20261105/runtime_manifest.json",
+  "baseline_variant": "v0_4x2",
+  "host": "10.148.183.189"
+}

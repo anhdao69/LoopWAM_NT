@@ -1,0 +1,166 @@
+{
+  "asset_sha256": {
+    "teacher": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+    "initial": null,
+    "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "elastic_init": "47c534d87c194f35cd926cca5c1faaf9892cb20d2557ba039b8a4c95a44cbec4"
+  },
+  "config": {
+    "kind": "T0",
+    "scope": "pc",
+    "regime": "fu",
+    "schedules": [
+      "flat_k1_n2",
+      "flat_k1_n5",
+      "flat_k1_n10",
+      "flat_k2_n2",
+      "flat_k2_n5",
+      "flat_k2_n10",
+      "flat_k4_n2",
+      "flat_k4_n5",
+      "flat_k4_n10"
+    ],
+    "step_cond": true,
+    "anchor": true,
+    "seed": 42,
+    "sampler": "balanced",
+    "init": "common_v1",
+    "reuse_teacher_prefix": true,
+    "collect_diagnostics": true,
+    "campaign": "elastic-v1",
+    "parent": {
+      "name": "CL-0_no-memory_a4",
+      "repository": "anhdao69/ChronoLoop",
+      "file": "CL-0_no-memory_a4/epoch_10/policy.pt",
+      "chronoloop_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "grandparent_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+    }
+  },
+  "windows": 277713,
+  "world": 4,
+  "microbatch": 32,
+  "global_batch": 128,
+  "epochs": 10,
+  "planned_updates": 21700,
+  "teacher": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/CL-0_loopwam/policy.pt",
+  "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+  "checkpoint_blocks": false,
+  "deterministic_algorithms": true,
+  "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "schedule_sequence_sha256": "37e93bb991623cb0a9d44757203307ee140abde4ea5833153ed86d146c8b9f39",
+  "checkpoint_min_blocks": null,
+  "init_parts": [
+    "student_action",
+    "step_condition"
+  ],
+  "latent_content_digest": "f2b1b21be72694ec8e3fb217fbda12c61e7cc44d2e3c33f5d28c5e226ea8b341",
+  "run": "CL0-E0",
+  "arguments": {
+    "run_name": "CL0-E0",
+    "init_artifact": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/init/cl0_common_init_v1.pt",
+    "checkpoint_min_blocks": null,
+    "hf_folder": null,
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/validation/smoke/C",
+    "teacher": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/CL-0_loopwam/policy.pt",
+    "vae_path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "manifest": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/loopwam_nt/v0_full_libero_job4659_20261006/train/data/data_manifest.json",
+    "latent_dir": "/tmp/elastic_cl0_latents",
+    "init_checkpoint": null,
+    "microbatch": 32,
+    "expected_gpus": 4,
+    "workers": 3,
+    "global_batch": 128,
+    "epochs": 10,
+    "save_every": 100,
+    "max_updates": 20,
+    "resume": false,
+    "no_checkpoint_blocks": true,
+    "smoke": false,
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "trainable_parameters": 105678471,
+  "slurm_job_id": "5623",
+  "git_revision": "a8edfd275f82c24b5985464dcd50bc4ef4b9ac1d",
+  "schedules": {
+    "flat_k1_n2": [
+      1,
+      1
+    ],
+    "flat_k1_n5": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k1_n10": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k2_n2": [
+      2,
+      2
+    ],
+    "flat_k2_n5": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k2_n10": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k4_n2": [
+      4,
+      4
+    ],
+    "flat_k4_n5": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "flat_k4_n10": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch_version": "2.7.1+cu128",
+  "hf_folder": "https://huggingface.co/anhdao69/ResidualTrans/tree/main/CL0-E0"
+}
