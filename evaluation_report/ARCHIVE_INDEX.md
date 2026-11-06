@@ -20,12 +20,19 @@ Copies are organized by preservation date and content hash. The date identifies 
 
 ## 2026-11-06
 
+- [1b37004f306d906b/branch_reports/index.json](preserved_versions/2026-11-06/1b37004f306d906b/branch_reports/index.json)
+- [1ddea65871bbeb06/README.md](preserved_versions/2026-11-06/1ddea65871bbeb06/README.md)
 - [2492edb31e02913f/v0_ka_sweep/report.md](preserved_versions/2026-11-06/2492edb31e02913f/v0_ka_sweep/report.md)
+- [37b24bc35128bb2c/sync_branch_reports.py](preserved_versions/2026-11-06/37b24bc35128bb2c/sync_branch_reports.py)
 - [68cd04aef9023acc/README.md](preserved_versions/2026-11-06/68cd04aef9023acc/README.md)
+- [72de7e0e83b48193/branch_reports/index.json](preserved_versions/2026-11-06/72de7e0e83b48193/branch_reports/index.json)
 - [78de2314ad179aba/matched_baselines/README.md](preserved_versions/2026-11-06/78de2314ad179aba/matched_baselines/README.md)
 - [92413d8e13d203e2/matched_baselines/README_body.md](preserved_versions/2026-11-06/92413d8e13d203e2/matched_baselines/README_body.md)
 - [b9f4497053e9ca7b/branch_reports/index.json](preserved_versions/2026-11-06/b9f4497053e9ca7b/branch_reports/index.json)
 - [bce663cbc1cf6ad6/branch_reports/index.json](preserved_versions/2026-11-06/bce663cbc1cf6ad6/branch_reports/index.json)
 - [d106d2ad372a9c48/dense_full/report.md](preserved_versions/2026-11-06/d106d2ad372a9c48/dense_full/report.md)
 - [d30bc8f6b61a6a4f/README.md](preserved_versions/2026-11-06/d30bc8f6b61a6a4f/README.md)
+- [daf98b90bc062fe6/README.md](preserved_versions/2026-11-06/daf98b90bc062fe6/README.md)
 - [dd6a0b805bc33afb/matched_baselines/build_readme.py](preserved_versions/2026-11-06/dd6a0b805bc33afb/matched_baselines/build_readme.py)
+- [f2108b291b7e73eb/ARCHIVE_INDEX.md](preserved_versions/2026-11-06/f2108b291b7e73eb/ARCHIVE_INDEX.md)
+- [f302f22885f2783c/FILE_INDEX.md](preserved_versions/2026-11-06/f302f22885f2783c/FILE_INDEX.md)

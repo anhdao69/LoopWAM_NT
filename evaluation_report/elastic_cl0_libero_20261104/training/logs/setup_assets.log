@@ -1,0 +1,77 @@
+{
+  "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/CL-0_loopwam/policy.pt",
+  "sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+  "source": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/CL-0_epoch_10/policy.pt",
+  "source_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+  "template": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/BASE10_v0-video4-action4/policy.pt",
+  "template_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+  "mot_tensors": 677,
+  "mot_tensors_changed_vs_parent": 677,
+  "proprio_tensors": 2,
+  "metadata": {
+    "format_version": "loopwam-s-v1",
+    "version": "v0",
+    "trained_max_loops": 4,
+    "inference_loops": 4,
+    "exit_weight_scale": 1.0,
+    "video_loops": 4,
+    "action_loops": 4,
+    "loop_alignment": "late",
+    "step": 23862,
+    "training_state": null,
+    "converted_from": {
+      "format": "chronoloop-v1",
+      "sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "chrono": {
+        "memory_tokens": 0,
+        "mem_source": "none",
+        "mem_write": "none",
+        "history_frame": 0,
+        "action_loops": 4,
+        "video_loops": 4,
+        "clamp_c": 3.0,
+        "lambda_logit_init": 2.2,
+        "oracle_labels": 64
+      },
+      "chrono_flags_sha256": "a177a00ca54a812e11bb4765bdc00de4dfbad7ea2352245c7bcba11e69d3e476",
+      "parent_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "step": 23862,
+      "template_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "template_metadata_keys": [
+        "action_loops",
+        "architecture",
+        "exit_weight_scale",
+        "format_version",
+        "inference_loops",
+        "loop_alignment",
+        "trained_max_loops",
+        "version",
+        "video_loops"
+      ]
+    }
+  },
+  "tensors_bit_equal_to_source": true
+}
+{
+  "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/init/cl0_common_init_v1.pt",
+  "sha256": "47c534d87c194f35cd926cca5c1faaf9892cb20d2557ba039b8a4c95a44cbec4",
+  "recipe": "common_v1",
+  "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+  "tensor_sha256": {
+    "student_action": "14c2a15f7cc74155735b2795fdd09fb5cd73d29656b35185cfa2492a33951b1f",
+    "step_condition": "4f1ee8d82e4c4edcb6851f2008325289bf53a0a02107e1e41216cc37642da3f2",
+    "transport_T4": "1d17f592ff4a5d938b6b04ccd4eb9a7a4f9e97587d4e786a4f1ea313b200cadf"
+  },
+  "metadata": {
+    "format": "elastic-init-v1",
+    "recipe": "common_v1",
+    "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+    "seed": 42,
+    "generator_seeds": {
+      "step_condition": 822402053239782360,
+      "T4": 616937575533862284
+    },
+    "generator": "torch CPU default generator, fork_rng + manual_seed(label_seed)"
+  }
+}
+SETUP_ASSETS_DONE

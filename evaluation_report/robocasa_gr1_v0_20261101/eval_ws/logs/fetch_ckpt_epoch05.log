@@ -1,0 +1,5 @@
+downloaded /storage/anhdh35/robocasa_gr1_eval/models/Robocasa-GR1/epoch_05.pt.uploaded.json
+downloaded /storage/anhdh35/robocasa_gr1_eval/models/Robocasa-GR1/dataset_stats.json
+downloaded /storage/anhdh35/robocasa_gr1_eval/models/Robocasa-GR1/manifest.json
+downloaded /storage/anhdh35/robocasa_gr1_eval/models/Robocasa-GR1/epoch_05.pt
+{"file": "epoch_05.pt", "sha256": "1597816e9cc1496bb9ca71a89ef02292edd80cde688198805cd978ba9949fbfa", "receipt_sha256": "1597816e9cc1496bb9ca71a89ef02292edd80cde688198805cd978ba9949fbfa", "match": true, "step": 117580}

@@ -1,0 +1,23 @@
+{
+  "folders": 24,
+  "rows": 18345,
+  "max_state_concat_err": 0.0,
+  "max_norm_roundtrip_err": {
+    "action": 1.1920928955078125e-07,
+    "state": 1.1920928955078125e-07
+  },
+  "normalized_range": {
+    "action": [
+      -1.0,
+      1.0
+    ],
+    "state": [
+      -0.9942827224731445,
+      0.9974697828292847
+    ]
+  },
+  "max_server_group_err": 1.7853896361330612e-07,
+  "max_proprio_err": 0.0,
+  "msgpack_bit_exact": true,
+  "passed": true
+}

@@ -1,0 +1,14 @@
+[2026-11-03T19:01:21+00:00] gate CL0-E1: CL0-E1 flat_k1_n2,flat_k2_n2,flat_k1_n5,flat_k4_n2,flat_k2_n5,flat_k1_n10,flat_k4_n5,flat_k2_n10,flat_k4_n10 on worker-2 GPU 3
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+{"run": "CL0-E1", "all_bit_exact": true, "n": 144, "eager_ms": 131.9774747826159, "graph_ms": 45.53758003748953}
