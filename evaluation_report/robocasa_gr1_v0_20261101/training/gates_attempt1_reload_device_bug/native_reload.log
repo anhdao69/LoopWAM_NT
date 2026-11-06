@@ -1,0 +1,5 @@
+=== 2026-11-01 23:35:04 native_reload
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/LoopWAM_NT/scripts/check_loopwam_gr1_checkpoint.py", line 54, in <module>
+    mse = float(((first.float() - sample['action'][0].float()) ** 2).mean())
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

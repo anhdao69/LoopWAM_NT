@@ -1,0 +1,416 @@
+{
+  "PnPCanToDrawerClose": {
+    "env_name": "gr1_unified/PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env",
+    "dataset_tasks": [
+      "",
+      "unlocked_waist: pick up the can, place it into the drawer and close the drawer"
+    ],
+    "sim_instruction": "unlocked_waist: pick up the can, place it into the drawer and close the drawer",
+    "instruction_in_dataset": true,
+    "action_space": {
+      "action.left_hand": [
+        6
+      ],
+      "action.right_hand": [
+        6
+      ],
+      "action.left_arm": [
+        7
+      ],
+      "action.right_arm": [
+        7
+      ],
+      "action.waist": [
+        3
+      ]
+    },
+    "observation_keys": [
+      "annotation.human.coarse_action",
+      "state.left_arm",
+      "state.left_hand",
+      "state.right_arm",
+      "state.right_hand",
+      "state.waist",
+      "video.ego_view_bg_crop_pad_res256_freq20",
+      "video.ego_view_pad_res256_freq20"
+    ],
+    "state_dims": {
+      "left_arm": 7,
+      "right_arm": 7,
+      "left_hand": 6,
+      "right_hand": 6,
+      "waist": 3
+    },
+    "dataset_border": [
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      }
+    ],
+    "views": {
+      "video.ego_view_bg_crop_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 43,
+          "bottom": 43,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 21.302566528320312,
+        "median_mean_abs_diff": 29.141794204711914,
+        "row_profile_corr": 0.9840086521681535
+      },
+      "video.ego_view_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 48,
+          "bottom": 48,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 42.4868049621582,
+        "median_mean_abs_diff": 49.96583557128906,
+        "row_profile_corr": 0.8818849232774761
+      }
+    },
+    "action_dims_match": true,
+    "state_dims_match": true,
+    "state": {
+      "sim": [
+        -0.02170107141137123,
+        0.08655796945095062,
+        0.02955751121044159,
+        -2.0999999046325684,
+        0.003431319957599044,
+        0.029004178941249847,
+        0.011291085742413998,
+        0.010304340161383152,
+        -0.10037104040384293,
+        -0.025828726589679718,
+        -2.0999999046325684,
+        0.015090247616171837,
+        0.0511772595345974,
+        -0.03308170288801193,
+        0.0003018081479240209,
+        0.00033700064523145556,
+        0.0003527402877807617,
+        0.00026641966542229056,
+        0.0016024712240323424,
+        0.0019685584120452404,
+        0.003520686412230134,
+        0.004055320285260677,
+        0.00458420068025589,
+        0.0037344361189752817,
+        0.01612892560660839,
+        0.028182413429021835,
+        0.022544076666235924,
+        0.009244379587471485,
+        -0.02688676305115223
+      ],
+      "nearest_dataset_ep": 18,
+      "nearest_max_abs": 0.03833511508343452,
+      "dataset_spread_max_abs": 0.08300633816868404
+    }
+  },
+  "PnPCupToDrawerClose": {
+    "env_name": "gr1_unified/PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env",
+    "dataset_tasks": [
+      "",
+      "unlocked_waist: pick up the cup, place it into the drawer and close the drawer"
+    ],
+    "sim_instruction": "unlocked_waist: pick up the cup, place it into the drawer and close the drawer",
+    "instruction_in_dataset": true,
+    "action_space": {
+      "action.left_hand": [
+        6
+      ],
+      "action.right_hand": [
+        6
+      ],
+      "action.left_arm": [
+        7
+      ],
+      "action.right_arm": [
+        7
+      ],
+      "action.waist": [
+        3
+      ]
+    },
+    "observation_keys": [
+      "annotation.human.coarse_action",
+      "state.left_arm",
+      "state.left_hand",
+      "state.right_arm",
+      "state.right_hand",
+      "state.waist",
+      "video.ego_view_bg_crop_pad_res256_freq20",
+      "video.ego_view_pad_res256_freq20"
+    ],
+    "state_dims": {
+      "left_arm": 7,
+      "right_arm": 7,
+      "left_hand": 6,
+      "right_hand": 6,
+      "waist": 3
+    },
+    "dataset_border": [
+      {
+        "top": 40,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      }
+    ],
+    "views": {
+      "video.ego_view_bg_crop_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 43,
+          "bottom": 43,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 19.994049072265625,
+        "median_mean_abs_diff": 39.34971618652344,
+        "row_profile_corr": 0.9468981459973673
+      },
+      "video.ego_view_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 48,
+          "bottom": 48,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 46.36647415161133,
+        "median_mean_abs_diff": 51.826904296875,
+        "row_profile_corr": 0.8778066161979893
+      }
+    },
+    "action_dims_match": true,
+    "state_dims_match": true,
+    "state": {
+      "sim": [
+        -0.010207513347268105,
+        0.10834458470344543,
+        0.04574248939752579,
+        -2.0999999046325684,
+        0.022401046007871628,
+        0.027216849848628044,
+        -0.006384667474776506,
+        -0.017598722130060196,
+        -0.09583175182342529,
+        -0.019418878480792046,
+        -2.0999999046325684,
+        -0.021518303081393242,
+        0.006865254603326321,
+        0.011816945858299732,
+        0.00038805915392003953,
+        0.00043473875848576427,
+        0.00046524382196366787,
+        0.0003644269600044936,
+        0.0012438992271199822,
+        0.0026525729335844517,
+        0.0020892764441668987,
+        0.0023276330903172493,
+        0.0024914934765547514,
+        0.001992445671930909,
+        0.0053162891417741776,
+        0.016770532354712486,
+        -0.061705317348241806,
+        -0.0279040839523077,
+        -0.009362217970192432
+      ],
+      "nearest_dataset_ep": 15,
+      "nearest_max_abs": 0.038806716962496,
+      "dataset_spread_max_abs": 0.07476414623242544
+    }
+  },
+  "PosttrainPnPNovelFromPlateToPanSplitA": {
+    "env_name": "gr1_unified/PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env",
+    "dataset_tasks": [
+      "",
+      "unlocked_waist: pick the tomato from the plate and place it in the pan",
+      "unlocked_waist: pick the lemon from the plate and place it in the pan",
+      "unlocked_waist: pick the can from the plate and place it in the pan",
+      "unlocked_waist: pick the squash from the plate and place it in the pan",
+      "unlocked_waist: pick the bell pepper from the plate and place it in the pan",
+      "unlocked_waist: pick the croissant from the plate and place it in the pan",
+      "unlocked_waist: pick the eggplant from the plate and place it in the pan",
+      "unlocked_waist: pick the cupcake from the plate and place it in the pan",
+      "unlocked_waist: pick the pear from the plate and place it in the pan",
+      "unlocked_waist: pick the sweet potato from the plate and place it in the pan"
+    ],
+    "sim_instruction": "unlocked_waist: pick the croissant from the plate and place it in the pan",
+    "instruction_in_dataset": true,
+    "action_space": {
+      "action.left_hand": [
+        6
+      ],
+      "action.right_hand": [
+        6
+      ],
+      "action.left_arm": [
+        7
+      ],
+      "action.right_arm": [
+        7
+      ],
+      "action.waist": [
+        3
+      ]
+    },
+    "observation_keys": [
+      "annotation.human.coarse_action",
+      "state.left_arm",
+      "state.left_hand",
+      "state.right_arm",
+      "state.right_hand",
+      "state.waist",
+      "video.ego_view_bg_crop_pad_res256_freq20",
+      "video.ego_view_pad_res256_freq20"
+    ],
+    "state_dims": {
+      "left_arm": 7,
+      "right_arm": 7,
+      "left_hand": 6,
+      "right_hand": 6,
+      "waist": 3
+    },
+    "dataset_border": [
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      },
+      {
+        "top": 42,
+        "bottom": 42,
+        "left": 0,
+        "right": 0
+      }
+    ],
+    "views": {
+      "video.ego_view_bg_crop_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 43,
+          "bottom": 43,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 23.312475204467773,
+        "median_mean_abs_diff": 51.66572570800781,
+        "row_profile_corr": 0.9932715167385471
+      },
+      "video.ego_view_pad_res256_freq20": {
+        "shape": [
+          256,
+          256,
+          3
+        ],
+        "border": {
+          "top": 48,
+          "bottom": 48,
+          "left": 0,
+          "right": 0
+        },
+        "nearest_mean_abs_diff": 41.986446380615234,
+        "median_mean_abs_diff": 57.653465270996094,
+        "row_profile_corr": 0.8953124333556167
+      }
+    },
+    "action_dims_match": true,
+    "state_dims_match": true,
+    "state": {
+      "sim": [
+        -0.0989227294921875,
+        0.4422944486141205,
+        -0.32425862550735474,
+        -1.289553165435791,
+        0.26447173953056335,
+        0.06440877169370651,
+        0.11736702919006348,
+        -0.1437903791666031,
+        -0.5168129205703735,
+        0.10182668268680573,
+        -1.3648228645324707,
+        -0.26521989703178406,
+        -0.04001184552907944,
+        -0.16785098612308502,
+        0.0004185914294794202,
+        0.00046175526222214103,
+        0.0004891091375611722,
+        0.00039167696377262473,
+        -1.1204117527086055e-06,
+        0.002995092887431383,
+        0.002831557532772422,
+        0.00318169011734426,
+        0.0034883255138993263,
+        0.0028550608549267054,
+        0.0034868281800299883,
+        0.023281430825591087,
+        -0.012694401666522026,
+        -0.026623057201504707,
+        -0.020833268761634827
+      ],
+      "nearest_dataset_ep": 2,
+      "nearest_max_abs": 0.18589831260716183,
+      "dataset_spread_max_abs": 0.3667368091245826
+    }
+  }
+}

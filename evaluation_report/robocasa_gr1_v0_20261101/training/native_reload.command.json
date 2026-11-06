@@ -1,0 +1,12 @@
+[
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/bin/python",
+  "scripts/check_loopwam_gr1_checkpoint.py",
+  "--checkpoint",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/smoke/latest.pt",
+  "--shared",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared",
+  "--latent-dir",
+  "/tmp/gr1_v0_5624/latents",
+  "--output",
+  "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/reload_check.json"
+]

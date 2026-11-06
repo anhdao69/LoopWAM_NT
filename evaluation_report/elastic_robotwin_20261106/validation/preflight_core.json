@@ -1,0 +1,98 @@
+{
+  "started": 1793971745.9455857,
+  "args": {
+    "common_init": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/init/rt50_common_init_v1.pt",
+    "microbatch": 8,
+    "checks": "identity,dataset,teacher,init",
+    "speed_runs": "",
+    "schedules": "flat_k1_n2,flat_k2_n5,flat_k4_n10,flat_k1_n10",
+    "options": "bf16_frozen,teacher_graph,no_fill,all",
+    "dataset_windows": 384,
+    "queries": 4,
+    "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/validation/preflight_core.json"
+  },
+  "checks": {
+    "teacher_identity": {
+      "passed": true,
+      "teacher_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "step": 474620,
+      "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981"
+    },
+    "data_identity": {
+      "passed": true,
+      "windows": 6075103,
+      "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+      "data_manifest_sha256": "ac26ba644a10ab81d99c24eed47b7fb070e2aea34f48cf2c28cd35de888f7ee9"
+    },
+    "dataset_equals_robotwin_trainer_fields": {
+      "passed": true,
+      "windows": 450,
+      "with_padding": 91,
+      "mismatches": []
+    },
+    "parameter_counts": {
+      "passed": true,
+      "base_policy": 584567886,
+      "action_expert": 105285134
+    },
+    "teacher_rollout_equals_deployed_infer_action": {
+      "passed": true,
+      "rows": [
+        {
+          "window": 5761156,
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "action_abs_mean": 0.7115334272384644
+        },
+        {
+          "window": 4397573,
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "action_abs_mean": 0.5978808999061584
+        },
+        {
+          "window": 2345072,
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "action_abs_mean": 0.8925650715827942
+        },
+        {
+          "window": 3077789,
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "action_abs_mean": 0.768476128578186
+        }
+      ]
+    },
+    "common_initialization_and_trainable_counts": {
+      "passed": true,
+      "trainable": {
+        "RT50-E0": 105685646,
+        "RT50-E1": 105685646,
+        "RT50-E2": 105762094
+      },
+      "action_expert": 105285134,
+      "parts": {
+        "RT50-E0": {
+          "step_condition": 400512,
+          "transport": 0
+        },
+        "RT50-E1": {
+          "step_condition": 400512,
+          "transport": 0
+        },
+        "RT50-E2": {
+          "step_condition": 400512,
+          "transport": 76448
+        }
+      },
+      "init_tensor_sha256": {
+        "student_action": "99bb31e4dd52541672877cafff8429568dec78b8dd3db1f6b717c37ea6197fd9",
+        "step_condition": "4f1ee8d82e4c4edcb6851f2008325289bf53a0a02107e1e41216cc37642da3f2",
+        "transport_T4": "1d17f592ff4a5d938b6b04ccd4eb9a7a4f9e97587d4e786a4f1ea313b200cadf"
+      }
+    }
+  },
+  "finished": 1793971770.0610962,
+  "passed": true
+}
