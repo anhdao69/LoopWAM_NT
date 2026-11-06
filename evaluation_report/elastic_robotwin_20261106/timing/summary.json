@@ -1,0 +1,402 @@
+[
+  {
+    "run": "RT50-E0",
+    "tag": "w4_mb32",
+    "launch": {
+      "run": "RT50-E0",
+      "gpus": "0,1,2,3",
+      "world": 4,
+      "microbatch": 32,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:39:48Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.975178208371455,
+    "wall_seconds_per_update": 0.9777875568698904,
+    "save_seconds": 2.013743440620601,
+    "wall_with_saves_every_100": 0.9979249912760964,
+    "per_schedule": {
+      "flat_k1_n10": 1.0235100038857623,
+      "flat_k1_n2": 0.6824305665425279,
+      "flat_k1_n5": 0.8474361582405188,
+      "flat_k2_n10": 1.1874976143325595,
+      "flat_k2_n2": 0.7165395299142058,
+      "flat_k2_n5": 0.9225401358509605,
+      "flat_k4_n10": 1.5202367606742138,
+      "flat_k4_n2": 0.7824877798133953,
+      "flat_k4_n5": 1.0939253260889514
+    },
+    "data_wait_max": 0.0005995389074087143,
+    "data_wait_mean": 0.0003197596530721645,
+    "peak_allocated_gb": 70.47099648,
+    "grad_norm_max": 3.0632731914520264,
+    "first_update": {
+      "local": 0.1435246467590332,
+      "end": 0.02157634310424328,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 1.4791113138198853,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 13.15653220442947,
+      "LIBERO-recipe update count (21,700)": 6.015270086303136,
+      "10 RoboTwin epochs (474,620 updates)": 131.56532204429467
+    }
+  },
+  {
+    "run": "RT50-E1",
+    "tag": "w4_mb32",
+    "launch": {
+      "run": "RT50-E1",
+      "gpus": "0,1,2,3",
+      "world": 4,
+      "microbatch": 32,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:42:05Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.9646401927251407,
+    "wall_seconds_per_update": 0.97015220446117,
+    "save_seconds": 1.8193073496222496,
+    "wall_with_saves_every_100": 0.9883452779573925,
+    "per_schedule": {
+      "flat_k1_n10": 1.0141401135955344,
+      "flat_k1_n2": 0.6795869433236393,
+      "flat_k1_n5": 0.8419030078009448,
+      "flat_k2_n10": 1.1746367577209391,
+      "flat_k2_n2": 0.7136917344971814,
+      "flat_k2_n5": 0.9167949688959528,
+      "flat_k4_n10": 1.4867610330693424,
+      "flat_k4_n2": 0.7798617346720262,
+      "flat_k4_n5": 1.0743854409507052
+    },
+    "data_wait_max": 0.0004907967522740364,
+    "data_wait_mean": 0.0003038833501062008,
+    "peak_allocated_gb": 70.47099648,
+    "grad_norm_max": 6.842588424682617,
+    "first_update": {
+      "local": 0.0661182701587677,
+      "end": 0.009678412228822708,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 0.8555298447608948,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 13.030234328448268,
+      "LIBERO-recipe update count (21,700)": 5.957525703243172,
+      "10 RoboTwin epochs (474,620 updates)": 130.30234328448267
+    }
+  },
+  {
+    "run": "RT50-E2",
+    "tag": "w4_mb32",
+    "launch": {
+      "run": "RT50-E2",
+      "gpus": "0,1,2,3",
+      "world": 4,
+      "microbatch": 32,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:44:19Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.984890954705388,
+    "wall_seconds_per_update": 0.9863237410106442,
+    "save_seconds": 2.3207138516008854,
+    "wall_with_saves_every_100": 1.009530879526653,
+    "per_schedule": {
+      "flat_k1_n10": 1.043068904980001,
+      "flat_k1_n2": 0.6867453230290927,
+      "flat_k1_n5": 0.8638334325514734,
+      "flat_k2_n10": 1.1987929550761527,
+      "flat_k2_n2": 0.7190954747440462,
+      "flat_k2_n5": 0.9351259891197763,
+      "flat_k4_n10": 1.5164566940035333,
+      "flat_k4_n2": 0.7913648871789601,
+      "flat_k4_n5": 1.1095349316654557
+    },
+    "data_wait_max": 0.00064439931884408,
+    "data_wait_mean": 0.00030537216801836034,
+    "peak_allocated_gb": 70.435082752,
+    "grad_norm_max": 4.256771087646484,
+    "first_update": {
+      "local": 0.05181664973497391,
+      "end": 0.0074698226526379585,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 0.7054225206375122,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 13.30954294558167,
+      "LIBERO-recipe update count (21,700)": 6.085227801591215,
+      "10 RoboTwin epochs (474,620 updates)": 133.09542945581669
+    }
+  },
+  {
+    "run": "RT50-E0",
+    "tag": "w4x2_mb32",
+    "launch": {
+      "run": "RT50-E0",
+      "gpus": "0,1,2,3",
+      "world": 4,
+      "microbatch": 32,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:46:37Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.9737831657056255,
+    "wall_seconds_per_update": 0.9755176827405588,
+    "save_seconds": 1.9055003738030791,
+    "wall_with_saves_every_100": 0.9945726864785897,
+    "per_schedule": {
+      "flat_k1_n10": 1.0228449063883587,
+      "flat_k1_n2": 0.684560812713409,
+      "flat_k1_n5": 0.8427298088896681,
+      "flat_k2_n10": 1.1885281561619856,
+      "flat_k2_n2": 0.7190105380829085,
+      "flat_k2_n5": 0.9221276333978907,
+      "flat_k4_n10": 1.509221233850853,
+      "flat_k4_n2": 0.7881476675075564,
+      "flat_k4_n5": 1.0868777343579992
+    },
+    "data_wait_max": 0.001002524048089981,
+    "data_wait_mean": 0.0003137740334778121,
+    "peak_allocated_gb": 70.51775488,
+    "grad_norm_max": 3.0632731914520264,
+    "first_update": {
+      "local": 0.1435246467590332,
+      "end": 0.02157634310424328,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 1.4791113138198853,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 13.11233579045745,
+      "LIBERO-recipe update count (21,700)": 5.995063137940388,
+      "10 RoboTwin epochs (474,620 updates)": 131.1233579045745
+    }
+  },
+  {
+    "run": "RT50-E1",
+    "tag": "w4x2_mb32",
+    "launch": {
+      "run": "RT50-E1",
+      "gpus": "4,5,6,7",
+      "world": 4,
+      "microbatch": 32,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:46:37Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.9696016071241988,
+    "wall_seconds_per_update": 0.9731466205216793,
+    "save_seconds": 2.105270018335432,
+    "wall_with_saves_every_100": 0.9941993207050337,
+    "per_schedule": {
+      "flat_k1_n10": 1.019979339600964,
+      "flat_k1_n2": 0.6825743531384929,
+      "flat_k1_n5": 0.8407739115963605,
+      "flat_k2_n10": 1.1816885320639068,
+      "flat_k2_n2": 0.7136560747907921,
+      "flat_k2_n5": 0.9178992441686039,
+      "flat_k4_n10": 1.51474975485524,
+      "flat_k4_n2": 0.7804319631223652,
+      "flat_k4_n5": 1.0746612907810644
+    },
+    "data_wait_max": 0.0005667330697178841,
+    "data_wait_mean": 0.0003034422465722368,
+    "peak_allocated_gb": 70.51775488,
+    "grad_norm_max": 6.842588424682617,
+    "first_update": {
+      "local": 0.0661182701587677,
+      "end": 0.009678412228822708,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 0.8555298447608948,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 13.107413377583974,
+      "LIBERO-recipe update count (21,700)": 5.992812572027565,
+      "10 RoboTwin epochs (474,620 updates)": 131.07413377583975
+    }
+  },
+  {
+    "run": "RT50-E0",
+    "tag": "w8_mb16",
+    "launch": {
+      "run": "RT50-E0",
+      "gpus": "0,1,2,3,4,5,6,7",
+      "world": 8,
+      "microbatch": 16,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:33:50Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.7485252936380078,
+    "wall_seconds_per_update": 0.7537633515188865,
+    "save_seconds": 2.201405908446759,
+    "wall_with_saves_every_100": 0.7757774106033541,
+    "per_schedule": {
+      "flat_k1_n10": 0.7770066340030595,
+      "flat_k1_n2": 0.4876258499412374,
+      "flat_k1_n5": 0.6215580344538797,
+      "flat_k2_n10": 0.9292200452394106,
+      "flat_k2_n2": 0.5190435714850371,
+      "flat_k2_n5": 0.6892634598030285,
+      "flat_k4_n10": 1.2601914053190162,
+      "flat_k4_n2": 0.5914741173725236,
+      "flat_k4_n5": 0.8613445251248777
+    },
+    "data_wait_max": 0.0006178333424031734,
+    "data_wait_mean": 0.0003899925934019113,
+    "peak_allocated_gb": 36.963853312,
+    "grad_norm_max": 3.0628957748413086,
+    "first_update": {
+      "local": 0.1435246467590332,
+      "end": 0.02157634310424328,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 1.478806734085083,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 10.227763183904553,
+      "LIBERO-recipe update count (21,700)": 4.676213836136884,
+      "10 RoboTwin epochs (474,620 updates)": 102.27763183904554
+    }
+  },
+  {
+    "run": "RT50-E1",
+    "tag": "w8_mb16",
+    "launch": {
+      "run": "RT50-E1",
+      "gpus": "0,1,2,3,4,5,6,7",
+      "world": 8,
+      "microbatch": 16,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:35:49Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.7595035416647943,
+    "wall_seconds_per_update": 0.7648108369115778,
+    "save_seconds": 1.7648103004321456,
+    "wall_with_saves_every_100": 0.7824589399158992,
+    "per_schedule": {
+      "flat_k1_n10": 0.786104728594761,
+      "flat_k1_n2": 0.49424925772473216,
+      "flat_k1_n5": 0.6253762556747957,
+      "flat_k2_n10": 0.9305401732298461,
+      "flat_k2_n2": 0.5196387585337189,
+      "flat_k2_n5": 0.7116393127732656,
+      "flat_k4_n10": 1.2917078191160478,
+      "flat_k4_n2": 0.5992177895016291,
+      "flat_k4_n5": 0.8770577798343517
+    },
+    "data_wait_max": 0.0015159300528466702,
+    "data_wait_mean": 0.0003901420377495915,
+    "peak_allocated_gb": 36.9634944,
+    "grad_norm_max": 6.845972537994385,
+    "first_update": {
+      "local": 0.0661182627081871,
+      "end": 0.009678411297500134,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 0.8557119965553284,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 10.315851723969002,
+      "LIBERO-recipe update count (21,700)": 4.716488610048614,
+      "10 RoboTwin epochs (474,620 updates)": 103.15851723969003
+    }
+  },
+  {
+    "run": "RT50-E2",
+    "tag": "w8_mb16",
+    "launch": {
+      "run": "RT50-E2",
+      "gpus": "0,1,2,3,4,5,6,7",
+      "world": 8,
+      "microbatch": 16,
+      "updates": 108,
+      "workers": 3,
+      "revision": "496aa51d3ffe537c03843cbe3079cb731f7a5760",
+      "host": "worker-2",
+      "job": "5758",
+      "start_utc": "2026-11-06T13:37:48Z"
+    },
+    "updates": 108,
+    "measured_updates": 99,
+    "seconds_per_update": 0.7668159435823033,
+    "wall_seconds_per_update": 0.7712163633356491,
+    "save_seconds": 2.200629023835063,
+    "wall_with_saves_every_100": 0.7932226535739998,
+    "per_schedule": {
+      "flat_k1_n10": 0.8128990042870018,
+      "flat_k1_n2": 0.49472085204483435,
+      "flat_k1_n5": 0.6326138764535162,
+      "flat_k2_n10": 0.9522032525221055,
+      "flat_k2_n2": 0.5278874967162582,
+      "flat_k2_n5": 0.7119705368849364,
+      "flat_k4_n10": 1.2941598779183219,
+      "flat_k4_n2": 0.6008342733098702,
+      "flat_k4_n5": 0.8740543221038851
+    },
+    "data_wait_max": 0.0006072600372135639,
+    "data_wait_mean": 0.00034819459166340156,
+    "peak_allocated_gb": 36.969923584,
+    "grad_norm_max": 4.2534661293029785,
+    "first_update": {
+      "local": 0.05181664973497391,
+      "end": 0.007469823118299246,
+      "grip": 0.0,
+      "anchor": 0.001298445975407958,
+      "grad_norm": 0.7055030465126038,
+      "schedule": "flat_k2_n5"
+    },
+    "hours": {
+      "1 RoboTwin epoch (47,462 updates)": 10.457759328869217,
+      "LIBERO-recipe update count (21,700)": 4.781369884043277,
+      "10 RoboTwin epochs (474,620 updates)": 104.57759328869217
+    }
+  }
+]

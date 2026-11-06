@@ -1,0 +1,189 @@
+{
+ "checks": {
+  "libero_config": {
+   "passed": true,
+   "config": {
+    "benchmark_root": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/libero",
+    "bddl_files": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/libero/bddl_files",
+    "init_states": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/libero/init_files",
+    "datasets": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets",
+    "assets": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/libero/assets"
+   }
+  },
+  "prompt_cache_bytes": {
+   "passed": true,
+   "files": 40,
+   "mismatched": []
+  },
+  "cl0_manifests_identical": {
+   "passed": true
+  },
+  "prompts_equal_reference_e0": {
+   "passed": true,
+   "reference_text_dir": "/lustre/fs1/groups/yshang/an221229/data/FastWAM/text_embeds_cache/libero",
+   "files_with_different_bytes": 40
+  },
+  "vae": {
+   "passed": true,
+   "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981"
+  },
+  "libero_suites": {
+   "passed": true,
+   "init_states": {
+    "libero_spatial": [
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50
+    ],
+    "libero_object": [
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50
+    ],
+    "libero_goal": [
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50
+    ],
+    "libero_10": [
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50,
+     50
+    ]
+   }
+  },
+  "gpu_isolation": {
+   "passed": true,
+   "dev_nvidia4_blocked": true,
+   "egl_devices": [
+    4,
+    4,
+    4,
+    4
+   ]
+  },
+  "simulator_smoke": {
+   "passed": true,
+   "per_gpu": {
+    "0": {
+     "gpu": "0",
+     "description": "put both the alphabet soup and the tomato sauce in the basket",
+     "image": [
+      3,
+      224,
+      448
+     ],
+     "image_min": -1.0,
+     "image_max": 0.9352701902389526,
+     "state": [
+      8
+     ],
+     "context": [
+      128,
+      4096
+     ],
+     "valid_tokens": 31,
+     "image_sum": -145101.31495934725,
+     "egl_devices": 4,
+     "mujoco_gl": "egl"
+    },
+    "1": {
+     "gpu": "1",
+     "description": "put both the alphabet soup and the tomato sauce in the basket",
+     "image": [
+      3,
+      224,
+      448
+     ],
+     "image_min": -1.0,
+     "image_max": 0.9352701902389526,
+     "state": [
+      8
+     ],
+     "context": [
+      128,
+      4096
+     ],
+     "valid_tokens": 31,
+     "image_sum": -145101.31495934725,
+     "egl_devices": 4,
+     "mujoco_gl": "egl"
+    },
+    "2": {
+     "gpu": "2",
+     "description": "put both the alphabet soup and the tomato sauce in the basket",
+     "image": [
+      3,
+      224,
+      448
+     ],
+     "image_min": -1.0,
+     "image_max": 0.9352701902389526,
+     "state": [
+      8
+     ],
+     "context": [
+      128,
+      4096
+     ],
+     "valid_tokens": 31,
+     "image_sum": -145101.31495934725,
+     "egl_devices": 4,
+     "mujoco_gl": "egl"
+    },
+    "3": {
+     "gpu": "3",
+     "description": "put both the alphabet soup and the tomato sauce in the basket",
+     "image": [
+      3,
+      224,
+      448
+     ],
+     "image_min": -1.0,
+     "image_max": 0.9352701902389526,
+     "state": [
+      8
+     ],
+     "context": [
+      128,
+      4096
+     ],
+     "valid_tokens": 31,
+     "image_sum": -145101.31495934725,
+     "egl_devices": 4,
+     "mujoco_gl": "egl"
+    }
+   },
+   "identical_render_across_gpus": true
+  }
+ },
+ "passed": true
+}

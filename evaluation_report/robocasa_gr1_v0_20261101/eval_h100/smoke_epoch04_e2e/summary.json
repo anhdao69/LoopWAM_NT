@@ -1,0 +1,24 @@
+{
+  "seed": 0,
+  "episodes": 2,
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_04.pt",
+  "by_n_action_steps": {
+    "12": {
+      "complete": true,
+      "tasks": 2,
+      "mean_success": 0.25,
+      "per_task": {
+        "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.5,
+          "successes": 1,
+          "episodes": 2
+        },
+        "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.0,
+          "successes": 0,
+          "episodes": 2
+        }
+      }
+    }
+  }
+}

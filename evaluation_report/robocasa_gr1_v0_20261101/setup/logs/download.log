@@ -1,0 +1,119 @@
+{"event": "listing", "files": 48120, "gb": 42.02, "todo": 48120}
+{"event": "progress", "done": 500, "of": 48120, "minutes": 0.5}
+{"event": "progress", "done": 1000, "of": 48120, "minutes": 1.0}
+{"event": "progress", "done": 1500, "of": 48120, "minutes": 1.6}
+{"event": "progress", "done": 2000, "of": 48120, "minutes": 2.1}
+{"event": "progress", "done": 2500, "of": 48120, "minutes": 2.6}
+{"event": "progress", "done": 3000, "of": 48120, "minutes": 3.1}
+{"event": "progress", "done": 3500, "of": 48120, "minutes": 3.6}
+{"event": "progress", "done": 4000, "of": 48120, "minutes": 4.2}
+{"event": "progress", "done": 4500, "of": 48120, "minutes": 4.6}
+{"event": "progress", "done": 5000, "of": 48120, "minutes": 5.1}
+{"event": "progress", "done": 5500, "of": 48120, "minutes": 5.7}
+{"event": "progress", "done": 6000, "of": 48120, "minutes": 6.2}
+Error while downloading from https://us.aws.cdn.hf.co/xet-bridge-us/67d97c4be2b27852325fd8e2/3d27c9fc33423605f0c11f85dbbcbfff516e5fdb6ffb5fbec5eca79fd30ac4e3?xip=oLaNjky63xw&user_id=687c5a49a565d4670d446743&X-Xet-Cas-Uid=687c5a49a565d4670d446743&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27episode_000002.parquet%3B+filename%3D%22episode_000002.parquet%22%3B&Expires=1793570907&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjdkOTdjNGJlMmIyNzg1MjMyNWZkOGUyLzNkMjdjOWZjMzM0MjM2MDVmMGMxMWY4NWRiYmNiZmZmNTE2ZTVmZGI2ZmZiNWZiZWM1ZWNhNzlmZDMwYWM0ZTNcXD94aXA9b0xhTmpreTYzeHcmdXNlcl9pZD02ODdjNWE0OWE1NjVkNDY3MGQ0NDY3NDMmWC1YZXQtQ2FzLVVpZD02ODdjNWE0OWE1NjVkNDY3MGQ0NDY3NDMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN2VwaXNvZGVfMDAwMDAyLnBhcnF1ZXQlM0IrZmlsZW5hbWUlM0QlMjJlcGlzb2RlXzAwMDAwMi5wYXJxdWV0JTIyJTNCIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJFcG9jaFRpbWUiOjE3OTM1NzA5MDd9fX1dfQ__&Signature=MEUCIGOxJN6RB1D8gfTt8S6fuNIxHl51rr2chOhokPXWOLp3AiEAvcwVhG1teUVc18mfWan969JTBC1usvaBwawFSMLlrAc_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
+Trying to resume download...
+{"event": "progress", "done": 6500, "of": 48120, "minutes": 6.7}
+{"event": "progress", "done": 7000, "of": 48120, "minutes": 7.2}
+{"event": "progress", "done": 7500, "of": 48120, "minutes": 7.7}
+{"event": "progress", "done": 8000, "of": 48120, "minutes": 8.3}
+{"event": "progress", "done": 8500, "of": 48120, "minutes": 8.8}
+{"event": "progress", "done": 9000, "of": 48120, "minutes": 9.3}
+{"event": "progress", "done": 9500, "of": 48120, "minutes": 9.8}
+{"event": "progress", "done": 10000, "of": 48120, "minutes": 10.4}
+{"event": "progress", "done": 10500, "of": 48120, "minutes": 10.9}
+{"event": "progress", "done": 11000, "of": 48120, "minutes": 11.4}
+{"event": "progress", "done": 11500, "of": 48120, "minutes": 11.9}
+{"event": "progress", "done": 12000, "of": 48120, "minutes": 12.5}
+{"event": "progress", "done": 12500, "of": 48120, "minutes": 13.0}
+{"event": "progress", "done": 13000, "of": 48120, "minutes": 13.5}
+{"event": "progress", "done": 13500, "of": 48120, "minutes": 14.1}
+{"event": "progress", "done": 14000, "of": 48120, "minutes": 14.6}
+{"event": "progress", "done": 14500, "of": 48120, "minutes": 15.1}
+{"event": "progress", "done": 15000, "of": 48120, "minutes": 15.6}
+{"event": "progress", "done": 15500, "of": 48120, "minutes": 16.1}
+{"event": "progress", "done": 16000, "of": 48120, "minutes": 16.6}
+{"event": "progress", "done": 16500, "of": 48120, "minutes": 17.1}
+{"event": "progress", "done": 17000, "of": 48120, "minutes": 17.6}
+{"event": "progress", "done": 17500, "of": 48120, "minutes": 18.1}
+{"event": "progress", "done": 18000, "of": 48120, "minutes": 18.7}
+{"event": "progress", "done": 18500, "of": 48120, "minutes": 19.1}
+{"event": "progress", "done": 19000, "of": 48120, "minutes": 19.6}
+{"event": "progress", "done": 19500, "of": 48120, "minutes": 20.2}
+{"event": "progress", "done": 20000, "of": 48120, "minutes": 20.7}
+{"event": "progress", "done": 20500, "of": 48120, "minutes": 21.2}
+{"event": "progress", "done": 21000, "of": 48120, "minutes": 21.7}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000057.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000058.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000059.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000060.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000061.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_1000/videos/chunk-000/observation.images.ego_view/episode_000062.mp4", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "progress", "done": 21500, "of": 48120, "minutes": 22.2}
+{"event": "progress", "done": 22000, "of": 48120, "minutes": 22.7}
+{"event": "progress", "done": 22500, "of": 48120, "minutes": 23.2}
+{"event": "progress", "done": 23000, "of": 48120, "minutes": 23.7}
+{"event": "progress", "done": 23500, "of": 48120, "minutes": 24.2}
+{"event": "progress", "done": 24000, "of": 48120, "minutes": 24.8}
+{"event": "progress", "done": 24500, "of": 48120, "minutes": 25.3}
+{"event": "progress", "done": 25000, "of": 48120, "minutes": 25.7}
+{"event": "progress", "done": 25500, "of": 48120, "minutes": 26.2}
+{"event": "progress", "done": 26000, "of": 48120, "minutes": 26.8}
+{"event": "progress", "done": 26500, "of": 48120, "minutes": 27.3}
+{"event": "progress", "done": 27000, "of": 48120, "minutes": 27.7}
+{"event": "progress", "done": 27500, "of": 48120, "minutes": 28.3}
+{"event": "progress", "done": 28000, "of": 48120, "minutes": 28.8}
+{"event": "progress", "done": 28500, "of": 48120, "minutes": 29.3}
+{"event": "progress", "done": 29000, "of": 48120, "minutes": 29.8}
+{"event": "progress", "done": 29500, "of": 48120, "minutes": 30.3}
+{"event": "progress", "done": 30000, "of": 48120, "minutes": 30.8}
+{"event": "progress", "done": 30500, "of": 48120, "minutes": 31.4}
+{"event": "progress", "done": 31000, "of": 48120, "minutes": 31.9}
+{"event": "progress", "done": 31500, "of": 48120, "minutes": 32.4}
+{"event": "progress", "done": 32000, "of": 48120, "minutes": 32.9}
+{"event": "progress", "done": 32500, "of": 48120, "minutes": 33.4}
+{"event": "progress", "done": 33000, "of": 48120, "minutes": 33.9}
+{"event": "progress", "done": 33500, "of": 48120, "minutes": 34.4}
+{"event": "progress", "done": 34000, "of": 48120, "minutes": 35.0}
+{"event": "progress", "done": 34500, "of": 48120, "minutes": 35.5}
+{"event": "progress", "done": 35000, "of": 48120, "minutes": 35.9}
+{"event": "progress", "done": 35500, "of": 48120, "minutes": 36.5}
+{"event": "progress", "done": 36000, "of": 48120, "minutes": 37.0}
+{"event": "progress", "done": 36500, "of": 48120, "minutes": 37.5}
+{"event": "progress", "done": 37000, "of": 48120, "minutes": 38.0}
+{"event": "progress", "done": 37500, "of": 48120, "minutes": 38.5}
+{"event": "progress", "done": 38000, "of": 48120, "minutes": 39.0}
+{"event": "progress", "done": 38500, "of": 48120, "minutes": 39.5}
+{"event": "progress", "done": 39000, "of": 48120, "minutes": 40.0}
+{"event": "progress", "done": 39500, "of": 48120, "minutes": 40.5}
+{"event": "progress", "done": 40000, "of": 48120, "minutes": 41.1}
+{"event": "progress", "done": 40500, "of": 48120, "minutes": 41.5}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000627.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000628.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000629.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000630.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000632.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000631.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000633.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000634.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000635.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000636.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000637.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "retry", "what": "gr1_unified.PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_1000/data/chunk-000/episode_000638.parquet", "attempt": 1, "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"}
+{"event": "progress", "done": 41000, "of": 48120, "minutes": 42.1}
+{"event": "progress", "done": 41500, "of": 48120, "minutes": 42.6}
+{"event": "progress", "done": 42000, "of": 48120, "minutes": 43.2}
+{"event": "progress", "done": 42500, "of": 48120, "minutes": 43.7}
+{"event": "progress", "done": 43000, "of": 48120, "minutes": 44.1}
+{"event": "progress", "done": 43500, "of": 48120, "minutes": 44.7}
+{"event": "progress", "done": 44000, "of": 48120, "minutes": 45.2}
+{"event": "progress", "done": 44500, "of": 48120, "minutes": 45.7}
+{"event": "progress", "done": 45000, "of": 48120, "minutes": 46.2}
+{"event": "progress", "done": 45500, "of": 48120, "minutes": 46.7}
+{"event": "progress", "done": 46000, "of": 48120, "minutes": 47.3}
+{"event": "progress", "done": 46500, "of": 48120, "minutes": 47.8}
+{"event": "progress", "done": 47000, "of": 48120, "minutes": 48.3}
+{"event": "progress", "done": 47500, "of": 48120, "minutes": 49.0}
+{"event": "progress", "done": 48000, "of": 48120, "minutes": 49.6}
+{"event": "progress", "done": 48120, "of": 48120, "minutes": 49.7}
+{"repo": "nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim", "revision": "ea7ac0b68f87da62f1e726771bba0fe74300802f", "folders": 24, "episodes": 24000, "frames": 6020058}
