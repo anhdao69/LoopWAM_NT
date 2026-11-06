@@ -1,0 +1,58 @@
+[2026-11-04T19:57:45Z] ws-gr1-sweep-e4: start pid 2402756, steps 16,24,32,8 -> /storage/anhdh35/robocasa_gr1_eval/results/sweep_epoch04
+0, NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 25379 MiB, 97887 MiB, 98 %
+2295025, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12400 MiB
+2295023, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12896 MiB
+[2026-11-04T19:57:50Z] ws-gr1-sweep-e4: inputs verified (prompt cache 187/187, VAE, epoch_04.pt, code d937167)
+BENCH {"backend": "egl", "results": {"PnPCanToDrawerClose": {"reset_s": 2.76, "step_ms_mean": 20.9, "step_ms_p90": 24.1, "frame_shape": [256, 256, 3]}}}
+[2026-11-04T19:57:58Z] ws-gr1-sweep-e4: free GPU 71870 MiB, MemAvailable 167 GB -> parallel 24, policy servers 6
+[2026-11-04T19:57:58Z] ws-gr1-sweep-e4: MPS daemon started (/dev/shm/gr1_mps_anhdh35_ws_sweep)
+[2026-11-04T19:57:58Z] ws-gr1-sweep-e4: attempt 1
+[2026-11-04T20:07:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69004 MiB, 98 %, 298.97 W, load 23.07 19.30 12.42, MemAvailable 52 GB
+[2026-11-04T20:17:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 68909 MiB, 99 %, 301.20 W, load 20.64 20.59 16.57, MemAvailable 44 GB
+[2026-11-04T20:27:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69255 MiB, 99 %, 297.35 W, load 21.26 21.41 18.95, MemAvailable 40 GB
+[2026-11-04T20:37:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69190 MiB, 100 %, 301.77 W, load 24.38 22.79 20.80, MemAvailable 41 GB
+[2026-11-04T20:47:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 70285 MiB, 100 %, 295.58 W, load 23.49 22.08 21.22, MemAvailable 38 GB
+[2026-11-04T20:57:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69167 MiB, 99 %, 300.51 W, load 20.51 21.34 21.13, MemAvailable 38 GB
+[2026-11-04T21:07:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69666 MiB, 99 %, 301.48 W, load 22.76 22.16 21.53, MemAvailable 38 GB
+[2026-11-04T21:17:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 69213 MiB, 99 %, 295.85 W, load 20.56 21.17 21.22, MemAvailable 35 GB
+[2026-11-04T21:27:58Z] ws-gr1-sweep-e4: cells done 0/96, gpu 70738 MiB, 99 %, 296.54 W, load 21.24 21.18 21.12, MemAvailable 35 GB
+[2026-11-04T21:37:58Z] ws-gr1-sweep-e4: cells done 9/96, gpu 70248 MiB, 99 %, 298.32 W, load 20.48 21.23 21.24, MemAvailable 50 GB
+[2026-11-04T21:47:58Z] ws-gr1-sweep-e4: cells done 24/96, gpu 69362 MiB, 99 %, 300.89 W, load 29.10 27.83 24.70, MemAvailable 48 GB
+[2026-11-04T21:57:58Z] ws-gr1-sweep-e4: cells done 24/96, gpu 69272 MiB, 100 %, 294.19 W, load 33.74 31.65 27.93, MemAvailable 41 GB
+[2026-11-04T22:07:58Z] ws-gr1-sweep-e4: cells done 24/96, gpu 68039 MiB, 99 %, 292.66 W, load 30.92 32.62 30.18, MemAvailable 39 GB
+[2026-11-04T22:17:59Z] ws-gr1-sweep-e4: cells done 24/96, gpu 69961 MiB, 100 %, 278.35 W, load 30.84 30.41 30.01, MemAvailable 37 GB
+[2026-11-04T22:27:59Z] ws-gr1-sweep-e4: cells done 24/96, gpu 70916 MiB, 99 %, 298.80 W, load 40.92 33.34 31.62, MemAvailable 36 GB
+[2026-11-04T22:37:59Z] ws-gr1-sweep-e4: cells done 25/96, gpu 69191 MiB, 99 %, 271.12 W, load 31.47 31.56 31.53, MemAvailable 36 GB
+[2026-11-04T22:47:59Z] ws-gr1-sweep-e4: cells done 36/96, gpu 70319 MiB, 99 %, 296.51 W, load 30.06 30.69 31.24, MemAvailable 49 GB
+[2026-11-04T22:57:59Z] ws-gr1-sweep-e4: cells done 48/96, gpu 69979 MiB, 98 %, 286.98 W, load 42.85 40.85 36.62, MemAvailable 46 GB
+[2026-11-04T23:07:59Z] ws-gr1-sweep-e4: cells done 48/96, gpu 70073 MiB, 98 %, 293.58 W, load 52.52 47.78 42.08, MemAvailable 40 GB
+[2026-11-04T23:17:59Z] ws-gr1-sweep-e4: cells done 48/96, gpu 69884 MiB, 99 %, 296.00 W, load 45.49 47.72 45.18, MemAvailable 38 GB
+[2026-11-04T23:27:59Z] ws-gr1-sweep-e4: cells done 48/96, gpu 67516 MiB, 98 %, 294.69 W, load 47.87 47.11 45.96, MemAvailable 38 GB
+[2026-11-04T23:37:59Z] ws-gr1-sweep-e4: cells done 53/96, gpu 71009 MiB, 98 %, 290.38 W, load 34.90 39.40 42.77, MemAvailable 45 GB
+[2026-11-04T23:47:59Z] ws-gr1-sweep-e4: cells done 67/96, gpu 68179 MiB, 99 %, 292.91 W, load 19.78 24.84 33.87, MemAvailable 66 GB
+[2026-11-04T23:57:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70718 MiB, 99 %, 297.67 W, load 17.26 17.39 25.43, MemAvailable 53 GB
+[2026-11-05T00:07:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 71408 MiB, 98 %, 301.08 W, load 15.99 15.91 20.86, MemAvailable 45 GB
+[2026-11-05T00:17:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 68688 MiB, 99 %, 301.13 W, load 16.42 15.99 18.47, MemAvailable 42 GB
+[2026-11-05T00:27:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69645 MiB, 99 %, 300.07 W, load 15.39 15.56 17.03, MemAvailable 41 GB
+[2026-11-05T00:37:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69174 MiB, 100 %, 295.17 W, load 14.27 15.13 16.23, MemAvailable 40 GB
+[2026-11-05T00:47:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69608 MiB, 99 %, 293.43 W, load 15.64 16.10 16.26, MemAvailable 39 GB
+[2026-11-05T00:57:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69968 MiB, 99 %, 301.24 W, load 16.36 16.16 16.09, MemAvailable 39 GB
+[2026-11-05T01:07:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70327 MiB, 98 %, 291.87 W, load 14.31 14.86 15.46, MemAvailable 37 GB
+[2026-11-05T01:17:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70804 MiB, 99 %, 300.71 W, load 14.19 15.12 15.39, MemAvailable 37 GB
+[2026-11-05T01:27:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70584 MiB, 99 %, 291.97 W, load 16.50 15.91 15.63, MemAvailable 36 GB
+[2026-11-05T01:37:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 68982 MiB, 99 %, 294.81 W, load 15.13 16.31 16.00, MemAvailable 38 GB
+[2026-11-05T01:47:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 68701 MiB, 99 %, 295.87 W, load 15.62 15.70 15.74, MemAvailable 38 GB
+[2026-11-05T01:57:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69627 MiB, 99 %, 302.04 W, load 14.74 15.38 15.55, MemAvailable 36 GB
+[2026-11-05T02:07:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70847 MiB, 99 %, 299.01 W, load 15.46 15.24 15.47, MemAvailable 35 GB
+[2026-11-05T02:17:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 70056 MiB, 99 %, 302.69 W, load 17.07 16.19 15.82, MemAvailable 36 GB
+[2026-11-05T02:27:59Z] ws-gr1-sweep-e4: cells done 72/96, gpu 69578 MiB, 99 %, 301.20 W, load 15.40 15.73 15.75, MemAvailable 34 GB
+[2026-11-05T02:37:59Z] ws-gr1-sweep-e4: cells done 76/96, gpu 65477 MiB, 100 %, 298.90 W, load 13.90 15.02 15.46, MemAvailable 57 GB
+[2026-11-05T02:47:59Z] ws-gr1-sweep-e4: cells done 85/96, gpu 58815 MiB, 99 %, 289.92 W, load 12.57 14.06 14.88, MemAvailable 104 GB
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: attempt 1 rc=0
+{"16": [24, 0.4508333333333334], "24": [24, 0.4208333333333332], "32": [24, 0.43083333333333335], "8": [24, 0.4216666666666667]}
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: all cells complete
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: n_action_steps 16 validation rc=0: mean success 45.08%  (541/1200 episodes)  summary mean 45.08% / VALID
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: n_action_steps 24 validation rc=0: mean success 42.08%  (505/1200 episodes)  summary mean 42.08% / VALID
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: n_action_steps 32 validation rc=0: mean success 43.08%  (517/1200 episodes)  summary mean 43.08% / VALID
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: n_action_steps 8 validation rc=0: mean success 42.17%  (506/1200 episodes)  summary mean 42.17% / VALID
+[2026-11-05T02:54:20Z] ws-gr1-sweep-e4: done

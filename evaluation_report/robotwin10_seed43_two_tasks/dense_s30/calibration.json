@@ -1,0 +1,45 @@
+{
+  "profiles": [
+    {
+      "name": "calibration_w2",
+      "workers": 2,
+      "backend": "cuda-graph",
+      "seconds": 217.50895047187805,
+      "passed": true,
+      "exit_code": 0,
+      "episodes": 8,
+      "peak_gpu_mib": 73840,
+      "peak_added_mib": 38198,
+      "minimum_free_mib": 23408,
+      "successes": 5
+    },
+    {
+      "name": "calibration_w3",
+      "workers": 3,
+      "backend": "cuda-graph",
+      "seconds": 199.41857147216797,
+      "passed": true,
+      "exit_code": 0,
+      "episodes": 8,
+      "peak_gpu_mib": 86212,
+      "peak_added_mib": 50570,
+      "minimum_free_mib": 11037,
+      "successes": 5
+    }
+  ],
+  "selected": {
+    "name": "calibration_w3",
+    "workers": 3,
+    "backend": "cuda-graph",
+    "seconds": 199.41857147216797,
+    "passed": true,
+    "exit_code": 0,
+    "episodes": 8,
+    "peak_gpu_mib": 86212,
+    "peak_added_mib": 50570,
+    "minimum_free_mib": 11037,
+    "successes": 5
+  },
+  "finished_unix": 1793720460.3059158,
+  "basis": "Fastest valid same-model/seed43/two-task 8-episode graph profile, >=8000MiB minimum free GPU memory; calibration excluded from scored results"
+}

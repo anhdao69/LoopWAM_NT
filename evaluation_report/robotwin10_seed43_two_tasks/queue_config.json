@@ -1,0 +1,39 @@
+{
+  "seed": 43,
+  "tasks": [
+    "open_microwave",
+    "move_stapler_pad"
+  ],
+  "settings": [
+    "demo_clean",
+    "demo_randomized"
+  ],
+  "episodes_per_pair": 100,
+  "planned_episodes": 800,
+  "order": [
+    "v0_4x4",
+    "dense_s30"
+  ],
+  "models": [
+    {
+      "key": "v0_4x4",
+      "variant": "v0-video4-action4",
+      "bulk": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4",
+      "report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/v0_4x4",
+      "prior_bulk": "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103",
+      "prior_report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4",
+      "max_workers": 4,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127"
+    },
+    {
+      "key": "dense_s30",
+      "variant": "dense-s30",
+      "bulk": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/dense_s30",
+      "report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/dense_s30",
+      "prior_bulk": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102",
+      "prior_report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s30",
+      "max_workers": 3,
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985"
+    }
+  ]
+}

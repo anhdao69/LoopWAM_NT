@@ -1,0 +1,330 @@
+{
+  "updated_at": "2026-11-07T02:51:27+07:00",
+  "status": "passed",
+  "robotwin_checks": [
+    {
+      "run": "robotwin10_dense_s30",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_dense_s12_20261105",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x4",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x4_remote189",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x4_remote137_20261105",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x2",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_2x2",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x1",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_4x1_local_20261105",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_v0_1x4_remote137_20261105",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_h100_v0_4x4_20261106",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_h100_v0_4x2_remote189_20261106",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin_v0",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin_v0_epoch10",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_seed43_two_tasks/dense_s30",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin10_seed43_two_tasks/v0_4x4",
+      "checks": "COMPLETE SHA256 matches saved audit; complete records/task coverage; per-episode success sums; unique scene seeds; final JSON arithmetic",
+      "passed": true
+    },
+    {
+      "run": "robotwin_v0_epoch06",
+      "checks": "100 complete cells;100 unique episode seeds each; per-episode success arithmetic; no failed/pending cells; no video hash re-audit",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "robotwin10_runs": 12,
+    "robotwin50_runs": 3,
+    "seed43_subset_runs": 2,
+    "libero_matched_rows": 26,
+    "cl_rt_completed_rows": 26,
+    "historical_unpublished": 29,
+    "robustness_jobs": 14,
+    "ka_conditions": 2
+  },
+  "source_files": {
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s30/final_results.json": {
+      "sha256": "16b7155a1ce3dac15f70ae16a8b18c07b1b6271a0ccf65060ac65bf9a7760706",
+      "bytes": 4799
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s30/final_audit.json": {
+      "sha256": "ea3bd9fc523a2e0e072170039bcb8feaa2f4f45a138d8363b3cb9270942eef52",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s30/COMPLETE.json": {
+      "sha256": "024075a198f5fc5231076f666073438c6fa6e527be999607ccb6328d56c5cf54",
+      "bytes": 1210614
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s12_20261105/final_results.json": {
+      "sha256": "d0e72e468e2bb274870367f27a3b29ce2911d85f583c97bd5ced4f892bf9870c",
+      "bytes": 4799
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s12_20261105/final_audit.json": {
+      "sha256": "2a53ba0dd8a316c6a7c5fdb8208d584b6a1fe9e678cb794d85b58772ff0b4896",
+      "bytes": 447
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s12_20261105/COMPLETE.json": {
+      "sha256": "05ec7d61ab346e6889b2fb634f98146feaf0d700dfa011852838bb1b614fe2e7",
+      "bytes": 1212225
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4/final_results.json": {
+      "sha256": "e9ca3c138b97b1a87e0b0681751d1ba8a3efdc406659d3b848e7b5619fb371b8",
+      "bytes": 4796
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4/final_audit.json": {
+      "sha256": "67281b93ffef7011c863ded802e34741285fa1269c89e14b79959160aa5f7434",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4/COMPLETE.json": {
+      "sha256": "5a077aa9a251ece6db9576424a92119869902639f4dc8ef198f6eb20ed94928b",
+      "bytes": 1204206
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote189/final_results.json": {
+      "sha256": "7df9515e07fe84bf6bb04fb42763848ec545582a5a9c05dda76bc89c170d4664",
+      "bytes": 4796
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote189/final_audit.json": {
+      "sha256": "a1683dd424c34672375caa2f252044ac3353de7f90d2aa4b3fb5e224c587e755",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote189/COMPLETE.json": {
+      "sha256": "676912f8e692af2a0910350375494d19631bd8902297813571a9f6dae8de33aa",
+      "bytes": 1200536
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote137_20261105/final_results.json": {
+      "sha256": "50a14f1d1986ca611808c84740ea5c410ef72168462dae9ec2bda16d12bbee63",
+      "bytes": 4799
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote137_20261105/final_audit.json": {
+      "sha256": "ebc61b95bd0911f2fd02c7d132b7fca6efb02ab32164d6f510ed03e102e2e388",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x4_remote137_20261105/COMPLETE.json": {
+      "sha256": "04a5efd0f5c6cda61d2286f6803ae0d913353290f5aa8b9142f68870ce1af862",
+      "bytes": 1245078
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x2/final_results.json": {
+      "sha256": "b4b9f8e00e74f3fa9d0f83c79286ca7ef3600812c36f59a3be3e42137c3b3fe2",
+      "bytes": 4795
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x2/final_audit.json": {
+      "sha256": "c6adabf3eefb9d5753f8957841939c20fe184938f77257e1ccbe3c21aace9e17",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x2/COMPLETE.json": {
+      "sha256": "b59fc00bf0535fc326ae93c23ea79c691676ae29d389a10dd8a5bdbe4d579a12",
+      "bytes": 1204490
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_2x2/final_results.json": {
+      "sha256": "2b1637011df6c0f8fa4d8267a40eddc4410225134f62967dc41998e48ec69ddb",
+      "bytes": 4800
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_2x2/final_audit.json": {
+      "sha256": "90579a3551c99002f945466193d1574f93f49fc39da1a2461fc45a6e0448b9a8",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_2x2/COMPLETE.json": {
+      "sha256": "28f88ec435da520aac4270fa306296f8ce9bf34f9553462610b6e9a10c02eadb",
+      "bytes": 1204537
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1/final_results.json": {
+      "sha256": "5b61e95d8ef55776158d04bee57866029d62dbc6dd59b42101dac672df48c2ab",
+      "bytes": 4798
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1/final_audit.json": {
+      "sha256": "70ae679c7ca032b9882fdb4fc55b75acbcdaeb04aea1ebd3770be442e62f6f33",
+      "bytes": 417
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1/COMPLETE.json": {
+      "sha256": "7b18f3833b9a58e50d8f9cd7b549e90971e161c73e99fb84360cf960f11ab448",
+      "bytes": 1200823
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1_local_20261105/final_results.json": {
+      "sha256": "434d035b88a6f77b8ffd8ea99b905b1f09cf73d41456ad52310943d636ba36cb",
+      "bytes": 4798
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1_local_20261105/final_audit.json": {
+      "sha256": "e898e4c7bec8e9474415538397722c8939109001ea1ac9cab7093914389e281a",
+      "bytes": 418
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_4x1_local_20261105/COMPLETE.json": {
+      "sha256": "add4f90619d77427843343001a97648c9de70175dab29a1f9e0456fba70c55d4",
+      "bytes": 1216810
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_1x4_remote137_20261105/final_results.json": {
+      "sha256": "bcb799dc96f439903ff84a36a9631bc184d664142fca63559da834a1264c962c",
+      "bytes": 4798
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_1x4_remote137_20261105/final_audit.json": {
+      "sha256": "90cb8cabe3bb09c943b86d7b8e8651f1515a06c484690eaa4dae8d69a52b2c37",
+      "bytes": 449
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_v0_1x4_remote137_20261105/COMPLETE.json": {
+      "sha256": "a0d4d45b240e3e9b2a82483621f59a717213ce7b156814d755545ce63d4f4832",
+      "bytes": 1245671
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x4_20261106/final_results.json": {
+      "sha256": "a15bd95878f0c16b4d5b4c43d665c68fffb0834c0ce3ea7f450c5901a222bbb3",
+      "bytes": 4793
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x4_20261106/final_audit.json": {
+      "sha256": "e7be36977b8ab806486be77bacb0869b8923f4e3073d360be3d338eee27de983",
+      "bytes": 449
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x4_20261106/COMPLETE.json": {
+      "sha256": "f12f3d7749ece9afb52db5e88314b8163bcc24c84e49d9da2e81132bfbc926ef",
+      "bytes": 1221044
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x2_remote189_20261106/final_results.json": {
+      "sha256": "7815e820df727bc1a65ba762fab0919f1ea8a01272cd37777c0a7bcb3fe3757c",
+      "bytes": 4802
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x2_remote189_20261106/final_audit.json": {
+      "sha256": "a8dcdc5b44d4c8a2b5178908f33da5be760b6a26ebeba0a11e862c90bd35507b",
+      "bytes": 449
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x2_remote189_20261106/COMPLETE.json": {
+      "sha256": "ce097727f794f212201c838ec46cabf1f093a47bd316ffd56688c60181b0cc3e",
+      "bytes": 1210630
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0/final_results.json": {
+      "sha256": "52dfd94ecb896ec0059c15fbfc3fdf4026e5cf6b5908fefb8d793e2fd5bdf46a",
+      "bytes": 35519
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0/final_audit.json": {
+      "sha256": "8f33929a672abb973ef1f270e8a0125243f7188bdfcec02840378100acb7c3b8",
+      "bytes": 2122
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0/COMPLETE.json": {
+      "sha256": "9d463a458a4f5c52adbfc6925cc48841c1e27c23fff6543d174dcf7c51216129",
+      "bytes": 6067459
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0_epoch10/final_results.json": {
+      "sha256": "ecb21ade45fb41d05193d41dcd5b048bb79967f8e3d4667fa874672f79705bab",
+      "bytes": 22930
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0_epoch10/final_audit.json": {
+      "sha256": "81aebe3227c7e823ff82a7c6ee19bdf8212dd60865411d79dfb264b224715a5e",
+      "bytes": 451
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_v0_epoch10/COMPLETE.json": {
+      "sha256": "aace1291bb33cc4c623d8a80f3ae9d8f463713e1ee1a29c6ee8037278372b3c2",
+      "bytes": 6146192
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/dense_s30/final_results.json": {
+      "sha256": "5772d56603f93821cc8807a9e6f97b8e575f7e68873b0b1284069e4ffbd146b6",
+      "bytes": 1237
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/dense_s30/final_audit.json": {
+      "sha256": "5d4b0c4b19b902fe76bf56ba34a8afbea99249435e717962dbefc75b1866f697",
+      "bytes": 416
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/dense_s30/COMPLETE.json": {
+      "sha256": "3c3642b26cdf7299678b1b0dadb32680a030478f36b1c4f9c3221389fc2d1caa",
+      "bytes": 246243
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/v0_4x4/final_results.json": {
+      "sha256": "e214001007fbe3e16ad3346d3cbeb2b8bee8a0d7b6243a6eec6598b4748627de",
+      "bytes": 1235
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/v0_4x4/final_audit.json": {
+      "sha256": "1e93c3809b6dcace1669e5efa4ca7e6ada6b3bd9b70e3165e07d0cf5b582b768",
+      "bytes": 416
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/v0_4x4/COMPLETE.json": {
+      "sha256": "b633af7b9f2cef3fd2915d7c9393afa8d0c12c51aa76f6b92afa16e9d41b4874",
+      "bytes": 244808
+    },
+    "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/results/COMPLETE.json": {
+      "sha256": "b3917d28d7dd28102f3c471cf178d809c9ad302be62f87d727454be46f090d9f",
+      "bytes": 6147731
+    },
+    "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/results/manifest.json": {
+      "sha256": "e6efa60c4fd1a631dcc14659964199f1fdc69e77c0a8901062836db6caf521b8",
+      "bytes": 145954
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/matched_baselines/data/results.json": {
+      "sha256": "a4ee287ee0a54e25ec0a4cf812ec1b0cddc16a542edb7262422e05aa3b0d08db",
+      "bytes": 71370
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/detailed_results.json": {
+      "sha256": "0f3c0f3bb83ac6a55f4cb510b6d848b57eadd70b2624aa5ec8ddede2e8d47e13",
+      "bytes": 1345015
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/current_results.json": {
+      "sha256": "782feb9e37281fd90a22ade3984d1e1c51a33bb08aad02becbbeb6301b63685c",
+      "bytes": 456324
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/campaign/run_summary.csv": {
+      "sha256": "1fca523b66b1a1e5b21934abb07f42cbad1371c26c2141b419de4ee8995dc4c2"
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/robustness/results.json": {
+      "sha256": "34df4507814d8d5e43bd4c0aa180fe6f877d0735a3e061603914305aef2d64a8",
+      "bytes": 32248
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/v0_ka_sweep/queue_status.json": {
+      "sha256": "a1c2f8fdcf2cc5a8eee6fbd76d9b5168e023b0bc9e2b13d3b760283f2e4ab5cb",
+      "bytes": 8490
+    },
+    "/storage/anhdh35/LoopWAM_NT/evaluation_report/matched_baselines/README.md": {
+      "sha256": "8f2fa0faefb4daea4eb82b772926ea774aee60d0607518f87944084b842e5dd6"
+    }
+  },
+  "scope": "Saved COMPLETE digests, episode outcome arithmetic and aggregate consistency; not a fresh video audit."
+}

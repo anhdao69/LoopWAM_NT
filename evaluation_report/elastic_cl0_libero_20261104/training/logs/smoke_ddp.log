@@ -1,0 +1,12 @@
+A rc=0
+B1 rc=0
+B2 rc=0
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "<stdin>", line 11, in <genexpr>
+KeyError: 'diag_transport_source_norm'
+C rc=0
+{"update": 18, "epoch": 1, "windows": 128, "windows_seen": 2304, "schedule": "flat_k1_n5", "seconds": 0.7786027821712196, "grad_norm": 1.5517019033432007, "peak_allocated_gb": 63.977310208, "teacher_passes_per_microbatch": 18.0, "student_forward_blocks_per_microbatch": 90.0, "measured_action_blocks"
+{"update": 19, "epoch": 1, "windows": 128, "windows_seen": 2432, "schedule": "flat_k1_n10", "seconds": 0.9561152309179306, "grad_norm": 1.2043651342391968, "peak_allocated_gb": 63.977310208, "teacher_passes_per_microbatch": 19.0, "student_forward_blocks_per_microbatch": 150.0, "measured_action_block
+{"update": 20, "epoch": 1, "windows": 128, "windows_seen": 2560, "schedule": "flat_k2_n5", "seconds": 0.8596709622070193, "grad_norm": 2.4171664714813232, "peak_allocated_gb": 63.977310208, "teacher_passes_per_microbatch": 18.0, "student_forward_blocks_per_microbatch": 120.0, "measured_action_blocks
+SMOKE_DONE

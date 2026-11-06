@@ -1,0 +1,101 @@
+{
+  "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+  "finished": {
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "9335c47c2dbd5cd9f9e445e9c19e7ccd9b25490e6c262ff35934d2ef642d3b0f",
+          "video_verified": true,
+          "instruction": "Use the left arm to grab the brown bottle head-up.",
+          "queries": 6,
+          "query_trace_sha256": "a451272ee9343fdc7f7bf93d59eb868d7f936f910f7e56d47d6fab48a18a2c70"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 85.21556568145752
+    },
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "5235c93f6ca22ad46843ba2493f80fdd32020b2947db2c1d519d5426d6241f4f",
+          "video_verified": true,
+          "instruction": "Pick up the brown bottle from the table head-up.",
+          "queries": 5,
+          "query_trace_sha256": "80230d9a38b06b29a9d532f4a074ac1a34dbc9785b14dc35065f7ebbe7ac7170"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 85.24692869186401
+    },
+    "open_microwave/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+      "task": "open_microwave",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/open_microwave__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "bb235101aa268c733cfe2e79b9a5c87100ab2259ef7f19394598e2c050c5264a",
+          "video_verified": true,
+          "instruction": "Move the left arm and open the medium-sized rectangular microwave with textured top.",
+          "queries": 18,
+          "query_trace_sha256": "95fe8bbc01b1a39634e667f7d729bea25b45fedac6eba3dfc4dc89e1e7910613"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/open_microwave__demo_clean/attempt_01",
+      "seconds": 52.085808992385864
+    },
+    "open_microwave/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+      "task": "open_microwave",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300004,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/open_microwave__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "f51de6e154bd7d46b77179d84c8f423a0e3a0f5c58dc73dba01de41e17b062f2",
+          "video_verified": true,
+          "instruction": "Use the left arm to pull the handle of the medium-sized rectangular microwave with textured top.",
+          "queries": 19,
+          "query_trace_sha256": "06513928522f6366d4fa45f2c4f7e66fdad0cef64c4536f89abedb0775b4db88"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin10_h100_v0_4x2_20261106/smoke_graph/open_microwave__demo_randomized/attempt_01",
+      "seconds": 77.15733790397644
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793971599.6192007,
+  "success_rates": {
+    "demo_clean": 1.0,
+    "demo_randomized": 1.0
+  }
+}

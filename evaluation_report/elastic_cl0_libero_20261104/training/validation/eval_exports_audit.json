@@ -1,0 +1,146 @@
+{
+ "teacher": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/assets/CL-0_loopwam/policy.pt",
+ "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "exports": {
+  "CL0-E0/epoch_10": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/runs/CL0-E0/epoch_10.pt",
+   "sha256": "1d47ff90a279570401f5036ea6f8c2ac32a5bd88394a32598f5fa0e8f70ea4b8",
+   "size": 2761409574,
+   "checks": {
+    "format": true,
+    "frozen_parent_equal_fp32_teacher": true,
+    "proprio_equal_teacher": true,
+    "parts": true,
+    "mot_action_equals_student": true,
+    "student_fp32": true,
+    "student_trained": true,
+    "transport_config_equals_config_json": true,
+    "flat9_schedules": true,
+    "parent_is_cl0": true,
+    "training_state": true,
+    "contract": true,
+    "vae_hash": true,
+    "stats_hash": true
+   },
+   "passed": true,
+   "parent_mot": "339 tensors bit-equal",
+   "parent_mot_dtypes": [
+    "torch.float32"
+   ],
+   "proprio": "2 tensors bit-equal",
+   "kind": "T0",
+   "scope": "pc",
+   "step_cond": true,
+   "epoch": 10,
+   "step": 21700,
+   "windows_seen": 2777130,
+   "next_micro": null,
+   "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+   },
+   "contract_world": 4,
+   "contract_microbatch": 32,
+   "student_tensors": 338,
+   "student_changed_vs_teacher": 338,
+   "transport_tensors": 0,
+   "transport_numel": 0
+  },
+  "CL0-E1/epoch_10": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/runs/CL0-E1/epoch_10.pt",
+   "sha256": "d2f192e4ed62986fe07852cbb85e062f99c1209f5a0e40b35f9032d5c21edae6",
+   "size": 2761409574,
+   "checks": {
+    "format": true,
+    "frozen_parent_equal_fp32_teacher": true,
+    "proprio_equal_teacher": true,
+    "parts": true,
+    "mot_action_equals_student": true,
+    "student_fp32": true,
+    "student_trained": true,
+    "transport_config_equals_config_json": true,
+    "flat9_schedules": true,
+    "parent_is_cl0": true,
+    "training_state": true,
+    "contract": true,
+    "vae_hash": true,
+    "stats_hash": true
+   },
+   "passed": true,
+   "parent_mot": "339 tensors bit-equal",
+   "parent_mot_dtypes": [
+    "torch.float32"
+   ],
+   "proprio": "2 tensors bit-equal",
+   "kind": "T1",
+   "scope": "pc",
+   "step_cond": true,
+   "epoch": 10,
+   "step": 21700,
+   "windows_seen": 2777130,
+   "next_micro": null,
+   "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+   },
+   "contract_world": 4,
+   "contract_microbatch": 32,
+   "student_tensors": 338,
+   "student_changed_vs_teacher": 338,
+   "transport_tensors": 0,
+   "transport_numel": 0
+  },
+  "CL0-E2/epoch_10": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/runs/CL0-E2/epoch_10.pt",
+   "sha256": "8e235d15cfa23410acd83165e2466e3b3781ee2a8d98a186a86a4fec79a2d8db",
+   "size": 2761718468,
+   "checks": {
+    "format": true,
+    "frozen_parent_equal_fp32_teacher": true,
+    "proprio_equal_teacher": true,
+    "parts": true,
+    "mot_action_equals_student": true,
+    "student_fp32": true,
+    "student_trained": true,
+    "transport_config_equals_config_json": true,
+    "flat9_schedules": true,
+    "parent_is_cl0": true,
+    "training_state": true,
+    "contract": true,
+    "vae_hash": true,
+    "stats_hash": true
+   },
+   "passed": true,
+   "parent_mot": "339 tensors bit-equal",
+   "parent_mot_dtypes": [
+    "torch.float32"
+   ],
+   "proprio": "2 tensors bit-equal",
+   "kind": "T4",
+   "scope": "pc",
+   "step_cond": true,
+   "epoch": 10,
+   "step": 21700,
+   "windows_seen": 2777130,
+   "next_micro": null,
+   "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+   },
+   "contract_world": 4,
+   "contract_microbatch": 32,
+   "student_tensors": 338,
+   "student_changed_vs_teacher": 338,
+   "transport_tensors": 10,
+   "transport_numel": 76448
+  }
+ },
+ "passed": true
+}

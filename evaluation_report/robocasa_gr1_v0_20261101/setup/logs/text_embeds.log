@@ -1,0 +1,2240 @@
+11/01 [21:55:38] INFO     | >> Discovered dataset  precompute_text_embeds.py:100
+                          node `data.train` with                                
+                          24 dataset_dirs.                                      
+                 INFO     | >> Loaded 210 task     precompute_text_embeds.py:145
+                          rows from 24 datasets,                                
+                          deduplicated to 187                                   
+                          prompts.                                              
+                 INFO     | >> unique prompt [0]   precompute_text_embeds.py:152
+                          sha256=09d4d0c24ac9bf874                              
+                          3ff17c733ea7cc5829df8a91                              
+                          3a1d66ee1d79a9fe0f4836d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                 INFO     | >> unique prompt [1]   precompute_text_embeds.py:152
+                          sha256=ec78c840de01a4563                              
+                          dbb3347582516a10072d36c9                              
+                          a86c1e99d19833fb6bd2237:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the bottled water, place                              
+                          it into the cabinet and                               
+                          close the cabinet                                     
+                 INFO     | >> unique prompt [2]   precompute_text_embeds.py:152
+                          sha256=5329a1511fc0543d0                              
+                          d0e9df6e99ccc963855c1c93                              
+                          89d72bbe5254202fc9ca69d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the can, place it into                                
+                          the drawer and close the                              
+                          drawer                                                
+                 INFO     | >> unique prompt [3]   precompute_text_embeds.py:152
+                          sha256=9485b61c4c3a0be4a                              
+                          719161fcb34df46c80e3a93e                              
+                          9ad8a6ab5eb566b87ccc19b:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the cup, place it into                                
+                          the drawer and close the                              
+                          drawer                                                
+                 INFO     | >> unique prompt [4]   precompute_text_embeds.py:152
+                          sha256=ba69820771df289eb                              
+                          c14c408af8b7b0233b02c840                              
+                          71c444f1f47619b078db460:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the milk, place it into                               
+                          the microwave and close                               
+                          the microwave                                         
+                 INFO     | >> unique prompt [5]   precompute_text_embeds.py:152
+                          sha256=f69f7b907d5af87a6                              
+                          624c78302ceb1c89dfa466d8                              
+                          90ab7c1773f0bc501e61f4c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the potato, place it                                  
+                          into the microwave and                                
+                          close the microwave                                   
+                 INFO     | >> unique prompt [6]   precompute_text_embeds.py:152
+                          sha256=18fdf95a64e5f5b1e                              
+                          1609e8b3617bc91eee943896                              
+                          b745f745edfd9402dff1c7b:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick up                               
+                          the wine, place it into                               
+                          the cabinet and close                                 
+                          the cabinet                                           
+                 INFO     | >> unique prompt [7]   precompute_text_embeds.py:152
+                          sha256=cffbb3e37dbf95819                              
+                          3c281836831be915abf9e9fe                              
+                          1339bfda76f2bdfafe34f63:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the cutting                                  
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [8]   precompute_text_embeds.py:152
+                          sha256=211b82870ddd6040f                              
+                          c64a8311bde03e66494c9529                              
+                          5901afcae8c24eaa317e84b:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          cutting board and place                               
+                          it in the basket                                      
+                 INFO     | >> unique prompt [9]   precompute_text_embeds.py:152
+                          sha256=7706257618a4eb3d6                              
+                          5aa137fea689f405b2cb2161                              
+                          c167d0d76f47c8914878a1e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the cutting                              
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [10]  precompute_text_embeds.py:152
+                          sha256=e2eb0e7ebde62fddc                              
+                          79f8d9fcb41354547f9082fe                              
+                          222c3e5b7e354a91ce77c72:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the cutting                               
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [11]  precompute_text_embeds.py:152
+                          sha256=0d6eb1d7e0d955db1                              
+                          0a84f995b101b1684c6be02d                              
+                          96ea188d5300f6f650e4836:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          cutting board and place                               
+                          it in the basket                                      
+                 INFO     | >> unique prompt [12]  precompute_text_embeds.py:152
+                          sha256=9dc0215b28a466dc2                              
+                          18465c0672c2e9083dbcd9a4                              
+                          63752010947a67675a81352:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the cutting                               
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [13]  precompute_text_embeds.py:152
+                          sha256=c1e9d87a4f22593d3                              
+                          092ebcb5ad16d5bf7484f408                              
+                          b2a4aa909e34e078a7f7af0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the cutting                                 
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [14]  precompute_text_embeds.py:152
+                          sha256=90a202c2f44d25040                              
+                          0f6467cca2e2d0ff3ce3ef29                              
+                          7e53e8fe01d833f57df48c0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          cutting board and place                               
+                          it in the basket                                      
+                 INFO     | >> unique prompt [15]  precompute_text_embeds.py:152
+                          sha256=54f0937c3dd89a6ad                              
+                          3ba372ef1179c1631dd64958                              
+                          47197ce22b6b2bf4b9f6c05:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the cutting                                
+                          board and place it in                                 
+                          the basket                                            
+                 INFO     | >> unique prompt [16]  precompute_text_embeds.py:152
+                          sha256=27649bf3298d8d070                              
+                          879ae1c26e947a29e7ccfe6c                              
+                          fecc71fc19581445742b919:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          cutting board and place                               
+                          it in the basket                                      
+                 INFO     | >> unique prompt [17]  precompute_text_embeds.py:152
+                          sha256=96cca2101070c2664                              
+                          8a12fea61ff31af077ae6c12                              
+                          8c82ab5db82992ef7d70338:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the cutting                                  
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [18]  precompute_text_embeds.py:152
+                          sha256=9c2ca88ed5ee54ce2                              
+                          1260363c010db69a3a5551f5                              
+                          0847ac21f389d99c395ba8f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the cutting                               
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [19]  precompute_text_embeds.py:152
+                          sha256=c46f8fdd7ec2341f6                              
+                          b02cb0b4c785ebbf34a580cd                              
+                          c6f213051563a30e92f28b7:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the cutting                                 
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [20]  precompute_text_embeds.py:152
+                          sha256=74e61850e6e19df52                              
+                          1954f20e0ab295fc8abd2d1f                              
+                          dbc5e571699aa1ffb4d97ca:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the cutting                              
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [21]  precompute_text_embeds.py:152
+                          sha256=8162c8f95165fd419                              
+                          e8214f0419c5d81ac13715b0                              
+                          6a34c04a73118ad284acd82:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the cutting                               
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [22]  precompute_text_embeds.py:152
+                          sha256=e8cc61b87c456a9f1                              
+                          c4142f707e0d75be15895847                              
+                          6698f67db16704bb20edebe:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the cutting                                
+                          board and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [23]  precompute_text_embeds.py:152
+                          sha256=235f5f2000e0b42ba                              
+                          64fe664adad5234a4c31d3e3                              
+                          eed0fc7c91a42aab866a364:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          cutting board and place                               
+                          it in the cardboard box                               
+                 INFO     | >> unique prompt [24]  precompute_text_embeds.py:152
+                          sha256=7ccf471430c9e6a6f                              
+                          316fed84992de188c048e139                              
+                          8e0e2421c9b202f988df413:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          cutting board and place                               
+                          it in the cardboard box                               
+                 INFO     | >> unique prompt [25]  precompute_text_embeds.py:152
+                          sha256=4bcd73afd3172154a                              
+                          45773524d0e6cfea063f9773                              
+                          98f3b30b9274985a1e0634a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          cutting board and place                               
+                          it in the cardboard box                               
+                 INFO     | >> unique prompt [26]  precompute_text_embeds.py:152
+                          sha256=983c23113b0c79b65                              
+                          dc2ee22f80f95b4b6647ebd1                              
+                          c6fcf549cd903e079de7f11:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          cutting board and place                               
+                          it in the cardboard box                               
+                 INFO     | >> unique prompt [27]  precompute_text_embeds.py:152
+                          sha256=4ece1b6e81ef979c1                              
+                          779ccd07aca33f0739ca686f                              
+                          8f4a58d4fb4cbc53b302b33:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          cutting board and place                               
+                          it in the pan                                         
+                 INFO     | >> unique prompt [28]  precompute_text_embeds.py:152
+                          sha256=483c1b27ede70c232                              
+                          e07107f8af97ce4abe4c7c06                              
+                          e99e5d5aad3e9cd6c74b9da:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the cutting                              
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [29]  precompute_text_embeds.py:152
+                          sha256=aaa48709db6057600                              
+                          045da7e5b3f1d0b665c5489c                              
+                          da4ce7744ec45ee04b5d23a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          cutting board and place                               
+                          it in the pan                                         
+                 INFO     | >> unique prompt [30]  precompute_text_embeds.py:152
+                          sha256=542502911204c2461                              
+                          2778e17ab29da49c565089e2                              
+                          d90a6d21997e6b468c91af3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the cutting                               
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [31]  precompute_text_embeds.py:152
+                          sha256=713a33516e521aa65                              
+                          ba0d8ef77e6e4348d94231bc                              
+                          86bb900e62058852b65085d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the cutting                                
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [32]  precompute_text_embeds.py:152
+                          sha256=583a6341656cbf66c                              
+                          cbd5bf3732ecd539824dcc83                              
+                          88370a2be8ca2190804eb05:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the cutting                                 
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [33]  precompute_text_embeds.py:152
+                          sha256=be2298c11955bf6da                              
+                          aa636f53fe1deedea523ac13                              
+                          0428ca2769c9b4979e9074f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the cutting                               
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [34]  precompute_text_embeds.py:152
+                          sha256=be82d197ee3f61b20                              
+                          6ccacfec3c2257128677cd17                              
+                          729dd174ab8b6327ae7a2e9:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the cutting                                  
+                          board and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [35]  precompute_text_embeds.py:152
+                          sha256=4a67b264666a5700b                              
+                          93e328d7fde55ef228f17f7e                              
+                          e23c3fcd67884a9bc265032:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          cutting board and place                               
+                          it in the pan                                         
+                 INFO     | >> unique prompt [36]  precompute_text_embeds.py:152
+                          sha256=371668c61d21d59c7                              
+                          88be363cc05bcd5012e882a4                              
+                          bc8f2f4450c7cbdaa4d5141:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          cutting board and place                               
+                          it in the pan                                         
+                 INFO     | >> unique prompt [37]  precompute_text_embeds.py:152
+                          sha256=b4f6a17fb0e820d0a                              
+                          572dd9b80f9b2f8e80b69c2d                              
+                          95a2e233a533b0be215e933:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          cutting board and place                               
+                          it in the pot                                         
+                 INFO     | >> unique prompt [38]  precompute_text_embeds.py:152
+                          sha256=5fc4843405440945c                              
+                          347215bd68960beda921b8f4                              
+                          def807739ff455c37965ccd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the cutting                               
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [39]  precompute_text_embeds.py:152
+                          sha256=ccec0869083b6799c                              
+                          725e2a2b3364bfa35446cf68                              
+                          c3ee3707441cbea37f85f2c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          cutting board and place                               
+                          it in the pot                                         
+                 INFO     | >> unique prompt [40]  precompute_text_embeds.py:152
+                          sha256=447841d6d3b0db50a                              
+                          3ed778a551db6ef8d0f9ed0b                              
+                          4d55c0310c6dd45924902c7:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the cutting                                 
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [41]  precompute_text_embeds.py:152
+                          sha256=c325ce10a729bbb49                              
+                          f861b680bb5a7985c26a160b                              
+                          ea49a725e8b28b5d1b2bd59:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the cutting                                
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [42]  precompute_text_embeds.py:152
+                          sha256=1dfec7f63b9692d47                              
+                          4a6635a7ff5ab775b789f914                              
+                          5ca5ee81fb397c8681d36d3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the cutting                               
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [43]  precompute_text_embeds.py:152
+                          sha256=9d8566549f2fda8a7                              
+                          85e24b75d342700bdaea57be                              
+                          c48c2e24b17abbf69f35197:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          cutting board and place                               
+                          it in the pot                                         
+                 INFO     | >> unique prompt [44]  precompute_text_embeds.py:152
+                          sha256=2c78a9f2d735fa581                              
+                          aeb8bfd4194ac615e38bddea                              
+                          276bee9e22be5326c101d6e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          cutting board and place                               
+                          it in the pot                                         
+                 INFO     | >> unique prompt [45]  precompute_text_embeds.py:152
+                          sha256=dec24094584844abf                              
+                          fa10e323bd072a613701acca                              
+                          023cea8f8617fc24b19b0f3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the cutting                              
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [46]  precompute_text_embeds.py:152
+                          sha256=92717f17c938d8d9e                              
+                          e71bbc0a3a55d601de02b50d                              
+                          f75cf7c9c9e6625fee45a0c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the cutting                                  
+                          board and place it in                                 
+                          the pot                                               
+                 INFO     | >> unique prompt [47]  precompute_text_embeds.py:152
+                          sha256=8d31ff5dba63f4b3e                              
+                          903bef72bc47c8dac4f0b4a4                              
+                          3d4daa26ab91738a0b93dca:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the cutting                               
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [48]  precompute_text_embeds.py:152
+                          sha256=02150a0dedd591f2c                              
+                          fc9e7fdb39f43d3bf9f8c019                              
+                          beac7034aa06bd1a323973d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          cutting board and place                               
+                          it in the tiered basket                               
+                 INFO     | >> unique prompt [49]  precompute_text_embeds.py:152
+                          sha256=c9e8fe5c23e6ba3af                              
+                          addb2fe5473dbbb73ea9d3d2                              
+                          4f15c32de86f9da75da02e7:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the cutting                               
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [50]  precompute_text_embeds.py:152
+                          sha256=99a39b36ff25379ff                              
+                          c834964446d7591d034d4a09                              
+                          3f7f14c58fefccc89b5490c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          cutting board and place                               
+                          it in the tiered basket                               
+                 INFO     | >> unique prompt [51]  precompute_text_embeds.py:152
+                          sha256=b95304f80c493dafc                              
+                          f0f25b3cb4db3728ecb456a4                              
+                          87f261bd7f40cfcc20ba51a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the cutting                                 
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [52]  precompute_text_embeds.py:152
+                          sha256=1b9a9bf2389f2e2ac                              
+                          dc9a742bf6d3aad338167ac7                              
+                          64aaff1a264b4e341789c5e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the cutting                                
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [53]  precompute_text_embeds.py:152
+                          sha256=54708d4e8ca87fe58                              
+                          ead56bb4b469ee4f9b66d36d                              
+                          0b3bf94d1cddd726175df18:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the cutting                                  
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [54]  precompute_text_embeds.py:152
+                          sha256=5c36cc22919d25667                              
+                          9529460d057d3749d9373d6c                              
+                          ec6c709a2ebd51915441d27:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          cutting board and place                               
+                          it in the tiered basket                               
+                 INFO     | >> unique prompt [55]  precompute_text_embeds.py:152
+                          sha256=782c0505c60d15969                              
+                          446064b98ea509c7fd5a0e4f                              
+                          a9c5a25014ca473af950cff:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the cutting                              
+                          board and place it in                                 
+                          the tiered basket                                     
+                 INFO     | >> unique prompt [56]  precompute_text_embeds.py:152
+                          sha256=531a55df16051a397                              
+                          fbc978c5ce680cbc7945e0bb                              
+                          b4736f5c76046e1643e3f3f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          cutting board and place                               
+                          it in the tiered basket                               
+                 INFO     | >> unique prompt [57]  precompute_text_embeds.py:152
+                          sha256=37d83822aab61957b                              
+                          5103624d2dc0b8704f5cda2d                              
+                          7ae9545102d64ff2604bf31:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          placemat and place it in                              
+                          the basket                                            
+                 INFO     | >> unique prompt [58]  precompute_text_embeds.py:152
+                          sha256=6b8afa18bd3baab9b                              
+                          dfe1fbe3401a70478a0bb59d                              
+                          fc463265f02c78672c29782:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the placemat                                 
+                          and place it in the                                   
+                          basket                                                
+                 INFO     | >> unique prompt [59]  precompute_text_embeds.py:152
+                          sha256=ffa7b52a425a935d2                              
+                          014fe557d90212f076572fb4                              
+                          f410c4d9d89c0c4b97cb979:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          placemat and place it in                              
+                          the basket                                            
+                 INFO     | >> unique prompt [60]  precompute_text_embeds.py:152
+                          sha256=ffd6c23dc04efdedb                              
+                          355990712b485ca63fc166a2                              
+                          96afed9b9b18bdc342835d1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          placemat and place it in                              
+                          the basket                                            
+                 INFO     | >> unique prompt [61]  precompute_text_embeds.py:152
+                          sha256=1402d740b9db53963                              
+                          1ed239a449d6912c20035d7d                              
+                          5391c09267c817d7a9a4d39:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the placemat                              
+                          and place it in the                                   
+                          basket                                                
+                 INFO     | >> unique prompt [62]  precompute_text_embeds.py:152
+                          sha256=331e81afb7a004e4e                              
+                          c0ef7df74cbcdcc9d9e7e366                              
+                          0b687b590b522d3ec1c7fb6:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the placemat                               
+                          and place it in the                                   
+                          basket                                                
+                 INFO     | >> unique prompt [63]  precompute_text_embeds.py:152
+                          sha256=3cab883734abc50be                              
+                          28bfeb1e3551df2177316257                              
+                          5fdf79200f900ef5b147f98:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the placemat                              
+                          and place it in the                                   
+                          basket                                                
+                 INFO     | >> unique prompt [64]  precompute_text_embeds.py:152
+                          sha256=c31edec53aadb98ba                              
+                          09b31759c3b3a03aad7c6793                              
+                          140a15281418c7945405c09:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          placemat and place it in                              
+                          the basket                                            
+                 INFO     | >> unique prompt [65]  precompute_text_embeds.py:152
+                          sha256=e4baa817ffab4cb19                              
+                          884909e6481cd3276c32125f                              
+                          75d0b3faa17d1e0c5a0aac9:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the                                      
+                          placemat and place it in                              
+                          the basket                                            
+                 INFO     | >> unique prompt [66]  precompute_text_embeds.py:152
+                          sha256=966e98d42e06297df                              
+                          3b7c120406180ed2603f79f5                              
+                          6657649b9d5720923427ce3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the placemat                                
+                          and place it in the                                   
+                          basket                                                
+                 INFO     | >> unique prompt [67]  precompute_text_embeds.py:152
+                          sha256=14be48ab35841ee04                              
+                          4cd76487fb21d74707351674                              
+                          1824bb2a5fcca111383b25f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the placemat                              
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [68]  precompute_text_embeds.py:152
+                          sha256=c8838111b147d61d1                              
+                          beed0be3bd61c94a7bd5d7a0                              
+                          bc6bcdeb2246d6bbcf3e9b3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the                                      
+                          placemat and place it in                              
+                          the bowl                                              
+                 INFO     | >> unique prompt [69]  precompute_text_embeds.py:152
+                          sha256=1e50e5da92fa4a020                              
+                          67d36b5929159371c8cb65f6                              
+                          219a0955d5e2f0d3d7504db:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          placemat and place it in                              
+                          the bowl                                              
+                 INFO     | >> unique prompt [70]  precompute_text_embeds.py:152
+                          sha256=39c6f30e9e6fdb437                              
+                          aebea06fa55fbb37f6f80a0f                              
+                          ed7d0535666355dde132eab:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the placemat                              
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [71]  precompute_text_embeds.py:152
+                          sha256=72fdd4fa111e54c76                              
+                          007cabe7aeea3924ff0e8e6a                              
+                          5b75e270542120941401085:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the placemat                               
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [72]  precompute_text_embeds.py:152
+                          sha256=ec09d5fd63101244c                              
+                          cd13a2abed13059365333cd5                              
+                          a49729661533ef36c4a5060:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          placemat and place it in                              
+                          the bowl                                              
+                 INFO     | >> unique prompt [73]  precompute_text_embeds.py:152
+                          sha256=4bf146a5f481f1e85                              
+                          b18275002b8ee9d3b5446e79                              
+                          429beaf1d91516eda19fa05:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          placemat and place it in                              
+                          the bowl                                              
+                 INFO     | >> unique prompt [74]  precompute_text_embeds.py:152
+                          sha256=1e9c6e01b36124ba8                              
+                          c7d2a772957b6056cffecdc4                              
+                          fb2a4edf5d31765c2d71396:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the placemat                                 
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [75]  precompute_text_embeds.py:152
+                          sha256=8678cb74750ca1060                              
+                          16ad56f6abdbe51cdb83dbed                              
+                          6c68984e5c0eca30580549f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          placemat and place it in                              
+                          the bowl                                              
+                 INFO     | >> unique prompt [76]  precompute_text_embeds.py:152
+                          sha256=7b947dde00d73b875                              
+                          64c80638331548dfd7273478                              
+                          5da4aa36465a6847f91c6eb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the placemat                                
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [77]  precompute_text_embeds.py:152
+                          sha256=15e6cc2428278427b                              
+                          5802705d1068b1118709b776                              
+                          5f25d770c906df6837a6b23:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          placemat and place it in                              
+                          the plate                                             
+                 INFO     | >> unique prompt [78]  precompute_text_embeds.py:152
+                          sha256=4cec42eaf555d4372                              
+                          e9fba3676180bf3031405aa7                              
+                          2e08682a2bb78df1225475a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          placemat and place it in                              
+                          the plate                                             
+                 INFO     | >> unique prompt [79]  precompute_text_embeds.py:152
+                          sha256=0f259ba32faa2fc00                              
+                          074ab23319e29c2da4a79dda                              
+                          721eaaced58c36b72d62b6b:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the placemat                              
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [80]  precompute_text_embeds.py:152
+                          sha256=f5b3839832dd58810                              
+                          4100165deb1d760fd0134c51                              
+                          0677307ad558cacce7148f1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the placemat                              
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [81]  precompute_text_embeds.py:152
+                          sha256=860d4b881b8a8260c                              
+                          04bb9bc73184a122d097c524                              
+                          6ce9e38f83c2879a4c92fa0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the placemat                                
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [82]  precompute_text_embeds.py:152
+                          sha256=364ae1de7b5f52ca7                              
+                          6e2a89471256d7f28356f934                              
+                          a53adce1547b435b6ba7c5d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the placemat                               
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [83]  precompute_text_embeds.py:152
+                          sha256=2089e8824268e41e6                              
+                          2813dbf57b72223de4542072                              
+                          4a23974b93502cd29afb26c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the                                      
+                          placemat and place it in                              
+                          the plate                                             
+                 INFO     | >> unique prompt [84]  precompute_text_embeds.py:152
+                          sha256=871679e4c3c4d3b47                              
+                          d9fbf5d372c3aa550b5cc97d                              
+                          9511b7a12ec9b955fa63d66:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          placemat and place it in                              
+                          the plate                                             
+                 INFO     | >> unique prompt [85]  precompute_text_embeds.py:152
+                          sha256=d3323b3c084f22f1b                              
+                          8c3815f6362d1cc770ee7a0f                              
+                          6b69edaa6c8bf860434dfa0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the placemat                                 
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [86]  precompute_text_embeds.py:152
+                          sha256=b93bcbd65248ce5eb                              
+                          74b42d509b9166e61fb92a5b                              
+                          e0dc9feddde2c2bb074cb53:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          placemat and place it in                              
+                          the plate                                             
+                 INFO     | >> unique prompt [87]  precompute_text_embeds.py:152
+                          sha256=82544da320585d1c2                              
+                          6a20596baa702ea4bf42b2cc                              
+                          65f5baf9b076b0cf0bae1e8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the placemat                              
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [88]  precompute_text_embeds.py:152
+                          sha256=7bd4bf4da5e47927a                              
+                          5ceb34247fffa04c48e3d069                              
+                          c516637691e4dd086e13fc4:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the placemat                               
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [89]  precompute_text_embeds.py:152
+                          sha256=c1fd7f4ab13089c0f                              
+                          205018715b57eede83556834                              
+                          0947128b78e920537ac76c0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          placemat and place it in                              
+                          the tiered shelf                                      
+                 INFO     | >> unique prompt [90]  precompute_text_embeds.py:152
+                          sha256=937e9f289bee7f9e7                              
+                          e482cde188884b495a0e3d05                              
+                          b509953c730308933e461e5:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the placemat                              
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [91]  precompute_text_embeds.py:152
+                          sha256=8809adfc2a2e3d4cc                              
+                          85ec78e8d7cc7aaa2eee939e                              
+                          dc9ef99fa06cc4f5ecdb14d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the                                    
+                          placemat and place it in                              
+                          the tiered shelf                                      
+                 INFO     | >> unique prompt [92]  precompute_text_embeds.py:152
+                          sha256=722f1d8117c93949f                              
+                          571830d1c97bb6ccb0b758df                              
+                          b5ba4c9aaa3bb77e545aad7:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          placemat and place it in                              
+                          the tiered shelf                                      
+                 INFO     | >> unique prompt [93]  precompute_text_embeds.py:152
+                          sha256=0c8c6dbc916b67c92                              
+                          85a4f9f6cd6e3366f70e04bd                              
+                          8a6329cad64b5f25ac54980:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the placemat                                
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [94]  precompute_text_embeds.py:152
+                          sha256=9f9749fa48e2223f3                              
+                          0b5d2a1d2302048174758706                              
+                          13303f520485f5078418849:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the                                      
+                          placemat and place it in                              
+                          the tiered shelf                                      
+                 INFO     | >> unique prompt [95]  precompute_text_embeds.py:152
+                          sha256=3ae37fc979de8ffd9                              
+                          48e09739d4ee875f6e5e7e99                              
+                          8a226ae771ac7b6aea96f6a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the                                     
+                          placemat and place it in                              
+                          the tiered shelf                                      
+                 INFO     | >> unique prompt [96]  precompute_text_embeds.py:152
+                          sha256=e52822c5045e0f09b                              
+                          87cd0cf05c44e5cae7d7ac86                              
+                          d0d597fb1ebb8f98acfbafe:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the placemat                                 
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [97]  precompute_text_embeds.py:152
+                          sha256=a2ec4c97091f4206a                              
+                          4835b781e5da4a9c5f8e192d                              
+                          367b5f447e5ac2a9f2b4514:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          plate and place it in                                 
+                          the bowl                                              
+                 INFO     | >> unique prompt [98]  precompute_text_embeds.py:152
+                          sha256=3f50995f0b92dfa05                              
+                          a87d4d7a93beae68d8f89e28                              
+                          ec0f1c1d9fccf7c288fbda1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the plate and                               
+                          place it in the bowl                                  
+                 INFO     | >> unique prompt [99]  precompute_text_embeds.py:152
+                          sha256=e78cd4ec7809ee48f                              
+                          7305bbed04593b1966e3a7cb                              
+                          2bd8186b0add57aaf53279e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the plate                                
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [100] precompute_text_embeds.py:152
+                          sha256=e225c46f8c188d81e                              
+                          b688062bf3a8b9c7f9cef55f                              
+                          2efbb417470aecbcfc1104d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the plate                                 
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [101] precompute_text_embeds.py:152
+                          sha256=024f901fe8facb345                              
+                          f8c2bb867423b7ce54edbd26                              
+                          f2b80f4240a3bb4fe319b53:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the plate                               
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [102] precompute_text_embeds.py:152
+                          sha256=0ef8d9d0587404191                              
+                          e931a59f20da7318291f9312                              
+                          0fbb6248d6d581b006e0e39:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the plate and                              
+                          place it in the bowl                                  
+                 INFO     | >> unique prompt [103] precompute_text_embeds.py:152
+                          sha256=c8ec13437c8a06d3a                              
+                          7f3495c44bd48630c2c492df                              
+                          b8b95373de58d701cfcacbd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the plate                                 
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [104] precompute_text_embeds.py:152
+                          sha256=c671a0422e37a3495                              
+                          decaabccbb33b5eed4da29b6                              
+                          2464f68ffd9296ad1946dc3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          plate and place it in                                 
+                          the bowl                                              
+                 INFO     | >> unique prompt [105] precompute_text_embeds.py:152
+                          sha256=40e879de3ef653d90                              
+                          2ac5df76de78c8f303cf035b                              
+                          2a647bdf6a4ac77b8e0d466:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the plate                              
+                          and place it in the bowl                              
+                 INFO     | >> unique prompt [106] precompute_text_embeds.py:152
+                          sha256=21c2e810f258a48e8                              
+                          3e950fe3acb4463ace211cea                              
+                          5b8070f786d9e164f353f22:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the plate and                                
+                          place it in the bowl                                  
+                 INFO     | >> unique prompt [107] precompute_text_embeds.py:152
+                          sha256=4c21690716da4a701                              
+                          721242a6717e495eb246fd30                              
+                          cea6f4a4b96b741fd6792be:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          plate and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [108] precompute_text_embeds.py:152
+                          sha256=aea8146b45df7381e                              
+                          419c1bba948eb737a2a114ef                              
+                          17b8998bc6226c7467f2626:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the plate and                              
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [109] precompute_text_embeds.py:152
+                          sha256=d8a4e728f12e14531                              
+                          4753639001d2b55f4ef4c340                              
+                          4d660c4565bd15a93402921:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the plate                                 
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [110] precompute_text_embeds.py:152
+                          sha256=61f81f52c7baf9cfd                              
+                          eefc89b6102dee207e7481a0                              
+                          89cd74ff39bf8d8e991f9ba:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the plate                                
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [111] precompute_text_embeds.py:152
+                          sha256=970d0c52d6f7f9bc6                              
+                          3de587fb9db17414f94653f5                              
+                          5a3fb88e2a199d48702dccb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the plate and                                
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [112] precompute_text_embeds.py:152
+                          sha256=71f56593a80c74566                              
+                          3758c722cd7319211230e0df                              
+                          3be2d2a9b5bb4d131c13c4d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the plate                              
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [113] precompute_text_embeds.py:152
+                          sha256=a0a0da97c439ba2bf                              
+                          284ef3625d05c542a2464170                              
+                          a76ed212e20e671e605afea:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the plate                               
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [114] precompute_text_embeds.py:152
+                          sha256=32bbadac3b5f553d7                              
+                          61c4ff709af1536d1fb40d53                              
+                          2a4b2fed9caecc34e9ebc84:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the plate                                 
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [115] precompute_text_embeds.py:152
+                          sha256=633b988a1cecb4da0                              
+                          5d4d46b8aaa460063b509052                              
+                          55ecf4a4c3c886712a190bb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the plate and                               
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [116] precompute_text_embeds.py:152
+                          sha256=359e55a784b1c6639                              
+                          7b1a054340f08003cf3a8f7b                              
+                          63a34c85eac1cbecd377a7b:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          plate and place it in                                 
+                          the cardboard box                                     
+                 INFO     | >> unique prompt [117] precompute_text_embeds.py:152
+                          sha256=456b44c35ab16720a                              
+                          57419478a1e1216b6bee2009                              
+                          7302754849e80ae1997a38e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the plate                                 
+                          and place it in the pan                               
+                 INFO     | >> unique prompt [118] precompute_text_embeds.py:152
+                          sha256=5350324d44dc460af                              
+                          1866cf4321182ea5b8537df2                              
+                          bb6e20546fe8a5f8d47127c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the plate and                              
+                          place it in the pan                                   
+                 INFO     | >> unique prompt [119] precompute_text_embeds.py:152
+                          sha256=73f6fdac0e2a18ad9                              
+                          eb5ed1e8eeed815067a36e58                              
+                          170a16331dafbcf7e84d410:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the plate and                                
+                          place it in the pan                                   
+                 INFO     | >> unique prompt [120] precompute_text_embeds.py:152
+                          sha256=1130bf31e08a6b6ba                              
+                          3dc40db8c94a9f9ce8e241d6                              
+                          219bd2fff515e0c45b38bfb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the plate                                 
+                          and place it in the pan                               
+                 INFO     | >> unique prompt [121] precompute_text_embeds.py:152
+                          sha256=756fb5eeaceb981e6                              
+                          1c2b6b6d4bf880c3ab9a9294                              
+                          7ff6db8232c491232a0ad02:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          plate and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [122] precompute_text_embeds.py:152
+                          sha256=b0e1f3e705464c8b8                              
+                          a49798ea78eb2384e7fc3b7a                              
+                          6d6513f473aee9efc8bab49:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the plate                              
+                          and place it in the pan                               
+                 INFO     | >> unique prompt [123] precompute_text_embeds.py:152
+                          sha256=c31945ccac481be40                              
+                          f10e2ff152e839df5c92ae07                              
+                          1f4f447c7aaee68bf3e8004:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the plate                               
+                          and place it in the pan                               
+11/01 [21:55:39] INFO     | >> unique prompt [124] precompute_text_embeds.py:152
+                          sha256=d13a5bca564126434                              
+                          0ec8ef763dd400125824195e                              
+                          180043626f297afc4cabe6f:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the plate                                
+                          and place it in the pan                               
+                 INFO     | >> unique prompt [125] precompute_text_embeds.py:152
+                          sha256=73c6c904c914d39b0                              
+                          a439fde17ec636274a2a9679                              
+                          1301e0e35e59a1e0afe4989:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the plate and                               
+                          place it in the pan                                   
+                 INFO     | >> unique prompt [126] precompute_text_embeds.py:152
+                          sha256=9da6b98f223a1126d                              
+                          00344580eb9233632e3c97ca                              
+                          70c2461d76e842a06aaecb8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          plate and place it in                                 
+                          the pan                                               
+                 INFO     | >> unique prompt [127] precompute_text_embeds.py:152
+                          sha256=23d9f429ffad2a5e7                              
+                          c43cbf5534d2b510022d7559                              
+                          5c62e27120cc5e48a474e2a:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          plate and place it in                                 
+                          the plate                                             
+                 INFO     | >> unique prompt [128] precompute_text_embeds.py:152
+                          sha256=7ca540762a96f04c9                              
+                          9529e563089011db0c85c325                              
+                          e19346e200076d1cafab5cf:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the plate                                 
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [129] precompute_text_embeds.py:152
+                          sha256=619259a72f8c74b93                              
+                          37e74b37fb3019abef31e83b                              
+                          f44a37915cb4005d8b3a52d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the plate                                
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [130] precompute_text_embeds.py:152
+                          sha256=77e06c7180db8e125                              
+                          03d005354dc9893b51b41dc1                              
+                          8ca455eb325a9aa687476ea:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the plate and                              
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [131] precompute_text_embeds.py:152
+                          sha256=e259558d4f0fad2d5                              
+                          0c35daa1fb28b216035a6a74                              
+                          9ccdc3244a55335d4d2c602:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the plate                                 
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [132] precompute_text_embeds.py:152
+                          sha256=08cc8e69016e69f52                              
+                          64d3892ed4683a8f3c14c0f3                              
+                          bb0618f81732ff3c9155de9:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the plate                              
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [133] precompute_text_embeds.py:152
+                          sha256=0b35849ec5d56ba66                              
+                          3cb6736a9219ec366223166f                              
+                          5ccb16a1db213071f18ee00:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the plate and                                
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [134] precompute_text_embeds.py:152
+                          sha256=117a1de5430139089                              
+                          b82266e1d0cba4d53a4d0cd4                              
+                          6f6d0b62937587ad0e6e8f8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the plate                               
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [135] precompute_text_embeds.py:152
+                          sha256=7ad46cc341ddb8ded                              
+                          7da7b013945303a315ecad5d                              
+                          0993b4407d734364b647ff1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          plate and place it in                                 
+                          the plate                                             
+                 INFO     | >> unique prompt [136] precompute_text_embeds.py:152
+                          sha256=0bded4bf211357126                              
+                          c3151b8631d3a05baa6def38                              
+                          563ee4e30077807bd10ab59:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the plate and                               
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [137] precompute_text_embeds.py:152
+                          sha256=25c0767971a78032d                              
+                          ba9928ee324c35e702dafe12                              
+                          e507328c24bf207d7519968:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the tray and                              
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [138] precompute_text_embeds.py:152
+                          sha256=dee818102d1a67b9e                              
+                          80360febdbbddf72110b21df                              
+                          d1090f983dde5151ea914a1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          tray and place it in the                              
+                          cardboard box                                         
+                 INFO     | >> unique prompt [139] precompute_text_embeds.py:152
+                          sha256=bf649103e5e3f00b0                              
+                          b54221c10296ff4cc7cd3a6f                              
+                          cb69d62ee6d8491a18c27e3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the tray and                                 
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [140] precompute_text_embeds.py:152
+                          sha256=b53b5447ee8b069f7                              
+                          75c426c64c611bb454adb078                              
+                          4e27e8a88d2431356935c42:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the tray                                
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [141] precompute_text_embeds.py:152
+                          sha256=26921a948e692481c                              
+                          27e124f09a8c4ecaf0086dd4                              
+                          0251cb6cb3dab6e27ba447c:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the tray and                              
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [142] precompute_text_embeds.py:152
+                          sha256=f75dba7273102d18b                              
+                          82670253f8be92fd7dd9cb07                              
+                          f96fee97d141911598d6a53:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the tray and                               
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [143] precompute_text_embeds.py:152
+                          sha256=578d731ccbdd29929                              
+                          4ccdf36682f0a452d86eb38c                              
+                          98c9847d0e9dee5a68927a0:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the tray                               
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [144] precompute_text_embeds.py:152
+                          sha256=69b2f04272b780673                              
+                          f184116b6df7a2ab569bc5ea                              
+                          297f65a86cb15d09ece52dd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the tray                                 
+                          and place it in the                                   
+                          cardboard box                                         
+                 INFO     | >> unique prompt [145] precompute_text_embeds.py:152
+                          sha256=8d64e1c279061df82                              
+                          1e7e31fc57e550e3333eb77d                              
+                          2daabdb53509d2a3de9996e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          tray and place it in the                              
+                          cardboard box                                         
+                 INFO     | >> unique prompt [146] precompute_text_embeds.py:152
+                          sha256=56b6d5397944f114d                              
+                          6cca152de198907a8e6ad68f                              
+                          ca84343889fa5d9b78aa4b8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the tray and                                
+                          place it in the                                       
+                          cardboard box                                         
+                 INFO     | >> unique prompt [147] precompute_text_embeds.py:152
+                          sha256=a910b53d0c9419b0d                              
+                          86ce4cfc284d7bd510d4f08e                              
+                          b3a27c6a12fcfd316df9cff:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the tray and                                
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [148] precompute_text_embeds.py:152
+                          sha256=e198f7a979cb632cd                              
+                          dbb60f7758fc9e27968d69ec                              
+                          4d254cf5f5905365b79e329:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the tray and                              
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [149] precompute_text_embeds.py:152
+                          sha256=8c85195396067a8b8                              
+                          b5d44bf073559deb6f6fbb61                              
+                          74a04001f243f73c739e85d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the tray and                              
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [150] precompute_text_embeds.py:152
+                          sha256=d1aa599f897ff2e66                              
+                          258f1183827f8c551d094786                              
+                          6bb70749bb16f03da6ae218:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the tray                                 
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [151] precompute_text_embeds.py:152
+                          sha256=182f5b654bba3da97                              
+                          485f6f5c44e44111234b7338                              
+                          5eb9478dfcb7abbeb8d0523:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the tray and                                 
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [152] precompute_text_embeds.py:152
+                          sha256=240362666e9a77ffb                              
+                          f545eb5cc3e73dc374e5a7f6                              
+                          904d5e28d2f808c577f4bbb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          tray and place it in the                              
+                          plate                                                 
+                 INFO     | >> unique prompt [153] precompute_text_embeds.py:152
+                          sha256=02dad5d7fe4b0138a                              
+                          b6f7a217830aa37443ccd009                              
+                          b7e49d6480f3fbc24d922dd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          tray and place it in the                              
+                          plate                                                 
+                 INFO     | >> unique prompt [154] precompute_text_embeds.py:152
+                          sha256=1905fd44ce2aabf44                              
+                          19a9ad1136c24ed6059a3706                              
+                          c16c1960b33c9bfdc1d3f73:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the tray and                               
+                          place it in the plate                                 
+                 INFO     | >> unique prompt [155] precompute_text_embeds.py:152
+                          sha256=d1f85681016191726                              
+                          9bb3807324b3acf4a13bb2d2                              
+                          03e2e1e4c11303c5843683d:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the tray                               
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [156] precompute_text_embeds.py:152
+                          sha256=3763020f5969e97d4                              
+                          1764d122cb54419849fd6b20                              
+                          82193983a25eb864a79e964:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the tray                                
+                          and place it in the                                   
+                          plate                                                 
+                 INFO     | >> unique prompt [157] precompute_text_embeds.py:152
+                          sha256=65bb0b54f6754e1da                              
+                          f5c7e738226d5c52fa6353db                              
+                          5cdba7a40079c1cce560949:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the tray and                               
+                          place it in the pot                                   
+                 INFO     | >> unique prompt [158] precompute_text_embeds.py:152
+                          sha256=f19cb3fef41348532                              
+                          3f8d35d9002b077810ea1c34                              
+                          5afec95765a3725aea0cfe1:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the tray and                              
+                          place it in the pot                                   
+                 INFO     | >> unique prompt [159] precompute_text_embeds.py:152
+                          sha256=61cd83f7aff817216                              
+                          073f1a24037ca1cdd003ae7b                              
+                          17e0e475edd5b66b0acd541:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the tray and                              
+                          place it in the pot                                   
+                 INFO     | >> unique prompt [160] precompute_text_embeds.py:152
+                          sha256=f8d2748610f7e1f4a                              
+                          c2ceb603dedbf75be55754d6                              
+                          48d60240bb13c2d7ca216e7:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the tray                                 
+                          and place it in the pot                               
+                 INFO     | >> unique prompt [161] precompute_text_embeds.py:152
+                          sha256=ec507e8d7c57e74c3                              
+                          3871d8728549e8034d05d68a                              
+                          8d30e297aa152737f667bc2:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the tray                                
+                          and place it in the pot                               
+                 INFO     | >> unique prompt [162] precompute_text_embeds.py:152
+                          sha256=6bbee25a898ccd97c                              
+                          96e27ddb5805867282b43418                              
+                          e273cf28028db8114b58fcd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          tray and place it in the                              
+                          pot                                                   
+                 INFO     | >> unique prompt [163] precompute_text_embeds.py:152
+                          sha256=f580d2cc737f02809                              
+                          cb4664de5e71840c79239f49                              
+                          bc149636b1a7c06445a39c2:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the tray                               
+                          and place it in the pot                               
+                 INFO     | >> unique prompt [164] precompute_text_embeds.py:152
+                          sha256=4754d501af652b834                              
+                          1645d6b73c035012b00c60ec                              
+                          4d6e930b9e4e5b3f1d4cd39:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          tray and place it in the                              
+                          pot                                                   
+                 INFO     | >> unique prompt [165] precompute_text_embeds.py:152
+                          sha256=ba8d867417904f826                              
+                          4afc424c42414bf853f267fc                              
+                          0cd2d4b699b556a3bda5557:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the tray and                                
+                          place it in the pot                                   
+                 INFO     | >> unique prompt [166] precompute_text_embeds.py:152
+                          sha256=cd5be319ce1635db2                              
+                          ca2919e149fb5e9c68088c9b                              
+                          fc059860d12d0ace8c691ac:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the tray and                                 
+                          place it in the pot                                   
+                 INFO     | >> unique prompt [167] precompute_text_embeds.py:152
+                          sha256=7fe639b7a68269cbf                              
+                          dadb0a62e913d509dd8e2526                              
+                          796823b8156f0edc40c79f3:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the tray                                
+                          and place it in the                                   
+                          tiered basket                                         
+                 INFO     | >> unique prompt [168] precompute_text_embeds.py:152
+                          sha256=1a54504fac9b61890                              
+                          f78300273682c91742f286bb                              
+                          7f904ef27c0411895a28b6e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          tray and place it in the                              
+                          tiered basket                                         
+                 INFO     | >> unique prompt [169] precompute_text_embeds.py:152
+                          sha256=cf80588f662de027b                              
+                          b147e772c9fc105f96ea4fd3                              
+                          e89aa000c9c176ed59f4ae6:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the tray                                 
+                          and place it in the                                   
+                          tiered basket                                         
+                 INFO     | >> unique prompt [170] precompute_text_embeds.py:152
+                          sha256=9147b25f9aa39ea4d                              
+                          b04a56c61da6d8119003f2db                              
+                          0b354adcfd670e20e2ef598:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the tray and                               
+                          place it in the tiered                                
+                          basket                                                
+                 INFO     | >> unique prompt [171] precompute_text_embeds.py:152
+                          sha256=353493bc65a808c19                              
+                          65b15a2e2b0ee635970b166a                              
+                          c97163dc446c23565686b11:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the tray and                                 
+                          place it in the tiered                                
+                          basket                                                
+                 INFO     | >> unique prompt [172] precompute_text_embeds.py:152
+                          sha256=3d8a4ca5f44c823c1                              
+                          f380d6bd94b5ce157c236a3a                              
+                          163c6f3e12e2bf8b32b3ff4:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the tray and                                
+                          place it in the tiered                                
+                          basket                                                
+                 INFO     | >> unique prompt [173] precompute_text_embeds.py:152
+                          sha256=97b32b9fc25358d3b                              
+                          dc05c68be7af2431b9414386                              
+                          03ce86b3204c1fc36c0666e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the tray                               
+                          and place it in the                                   
+                          tiered basket                                         
+                 INFO     | >> unique prompt [174] precompute_text_embeds.py:152
+                          sha256=98c3420355e1b85c3                              
+                          e3559738335fca8abba9ea7a                              
+                          50f2bf8927126915f37f2eb:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the tray and                              
+                          place it in the tiered                                
+                          basket                                                
+                 INFO     | >> unique prompt [175] precompute_text_embeds.py:152
+                          sha256=4c96c01229f733b50                              
+                          607cd337c3061c47712345b9                              
+                          b09f3ed068f01250e334199:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the tray and                              
+                          place it in the tiered                                
+                          basket                                                
+                 INFO     | >> unique prompt [176] precompute_text_embeds.py:152
+                          sha256=3a2e11a99dfeb975a                              
+                          68d9540442a6aecb4fee3944                              
+                          3b4244ec5aea91d4edfb749:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          tray and place it in the                              
+                          tiered basket                                         
+                 INFO     | >> unique prompt [177] precompute_text_embeds.py:152
+                          sha256=376f0c8b405fcd80c                              
+                          865a366bc21682e0ea3ac2c4                              
+                          405d3967b544048e86cdbc2:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          bell pepper from the                                  
+                          tray and place it in the                              
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [178] precompute_text_embeds.py:152
+                          sha256=ff745a647f595bcf4                              
+                          813052b59156a28236094ad6                              
+                          b2a374f7a4f36e4c70c5469:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          squash from the tray and                              
+                          place it in the tiered                                
+                          shelf                                                 
+                 INFO     | >> unique prompt [179] precompute_text_embeds.py:152
+                          sha256=8b42ee8933723476a                              
+                          df11d634c698fdd1755b3cba                              
+                          2777b3ab56413a49c88b9b8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          cupcake from the tray                                 
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [180] precompute_text_embeds.py:152
+                          sha256=924afdedfae1e419d                              
+                          e5623b03102ff2a970818abf                              
+                          e4969ea2e18a5fe37ba56e4:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          lemon from the tray and                               
+                          place it in the tiered                                
+                          shelf                                                 
+                 INFO     | >> unique prompt [181] precompute_text_embeds.py:152
+                          sha256=9a3ae853bc287494d                              
+                          afef2c2bd3baea03fb06a189                              
+                          71515ab1b8c5e0f4564cc1e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          tomato from the tray and                              
+                          place it in the tiered                                
+                          shelf                                                 
+                 INFO     | >> unique prompt [182] precompute_text_embeds.py:152
+                          sha256=bf711fd0cd4f08ce5                              
+                          4a5f9b4e72bf722437059d43                              
+                          0e04e20871b862d1ad96256:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          can from the tray and                                 
+                          place it in the tiered                                
+                          shelf                                                 
+                 INFO     | >> unique prompt [183] precompute_text_embeds.py:152
+                          sha256=b2e688be3f9e270e0                              
+                          10abe8b7fe7bfbaea1604cd4                              
+                          20c7bce1779535f4eb2a4c9:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          pear from the tray and                                
+                          place it in the tiered                                
+                          shelf                                                 
+                 INFO     | >> unique prompt [184] precompute_text_embeds.py:152
+                          sha256=2936f3e0e5b8873ea                              
+                          97d6ac50c6297250c96df772                              
+                          602dbbf9bcb59e064f1bbf8:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          croissant from the tray                               
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [185] precompute_text_embeds.py:152
+                          sha256=0f45dd4966f27d616                              
+                          d01abf75da17bce553f336ff                              
+                          9744bd9a287ab7902a0a72e:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          eggplant from the tray                                
+                          and place it in the                                   
+                          tiered shelf                                          
+                 INFO     | >> unique prompt [186] precompute_text_embeds.py:152
+                          sha256=221ea0550577dcfd8                              
+                          844353e81a762f60e6d46b7f                              
+                          14dfe5c1721b64db2307fcd:                              
+                           A video recorded from a                              
+                          robot's point of view                                 
+                          executing the following                               
+                          instruction:                                          
+                          unlocked_waist: pick the                              
+                          sweet potato from the                                 
+                          tray and place it in the                              
+                          tiered shelf                                          
+                 INFO     | >> Preparing text      precompute_text_embeds.py:225
+                          encoder with                                          
+                          model_id=Wan-AI/Wan2.2-T                              
+                          I2V-5B                                                
+                          tokenizer_model_id=Wan-A                              
+                          I/Wan2.1-T2V-1.3B                                     
+                          device=cuda                                           
+                          dtype=torch.bfloat16                                  
+                          context_len=128                                       
+                          overwrite=False                                       
+11/01 [21:56:28] INFO     | >> overwrite=false:    precompute_text_embeds.py:293
+                          fully cached prompts=0,                               
+                          prompts to encode=187                                 
+                 INFO     | >> Writing caches to 1 precompute_text_embeds.py:299
+                          directories.                                          
+Encoding prompts:   0%|          | 0/187 [00:00<?, ?prompt/s]Encoding prompts:   9%|▊         | 16/187 [00:00<00:05, 29.52prompt/s]Encoding prompts:  17%|█▋        | 32/187 [00:00<00:03, 51.34prompt/s]Encoding prompts:  26%|██▌       | 48/187 [00:00<00:02, 67.82prompt/s]Encoding prompts:  34%|███▍      | 64/187 [00:00<00:01, 78.91prompt/s]Encoding prompts:  43%|████▎     | 80/187 [00:01<00:01, 87.22prompt/s]Encoding prompts:  51%|█████▏    | 96/187 [00:01<00:00, 91.93prompt/s]Encoding prompts:  60%|█████▉    | 112/187 [00:01<00:00, 94.87prompt/s]Encoding prompts:  68%|██████▊   | 128/187 [00:01<00:00, 91.84prompt/s]Encoding prompts:  77%|███████▋  | 144/187 [00:01<00:00, 95.22prompt/s]Encoding prompts:  86%|████████▌ | 160/187 [00:01<00:00, 98.77prompt/s]Encoding prompts:  94%|█████████▍| 176/187 [00:02<00:00, 100.84prompt/s]Encoding prompts: 100%|██████████| 187/187 [00:02<00:00, 100.71prompt/s]Encoding prompts: 100%|██████████| 187/187 [00:02<00:00, 84.89prompt/s] 
+11/01 [21:56:31] INFO     | >> Finished            precompute_text_embeds.py:374
+                          precomputing text                                     
+                          embeddings.                                           
+                 INFO     | >> Over-length prompts precompute_text_embeds.py:375
+                          (mask all True, i.e. no                               
+                          padding after                                         
+                          truncation/max_length=12                              
+                          8): 0/187                                             
+                 INFO     | >> Cache dir:          precompute_text_embeds.py:383
+                          /mnt/data/vmo-ai-task/an                              
+                          hdh35/datasets/LoopWAM_N                              
+                          T/text_embeds_cache/robo                              
+                          casa_gr1 | new=187                                    
+                          overwrite=0 skip=0                                    

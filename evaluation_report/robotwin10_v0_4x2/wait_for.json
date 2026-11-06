@@ -1,0 +1,7 @@
+{
+  "processes": [],
+  "mode": "start_when_gpu_memory_allows",
+  "captured_unix": 1793727296.2797675,
+  "dense_complete": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/dense_s30/results/COMPLETE.json",
+  "dense_final_audit": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_seed43_two_tasks/dense_s30/final_audit.json"
+}

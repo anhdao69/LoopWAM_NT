@@ -1,0 +1,19 @@
+taskset: failed to set pid 443893's affinity: Invalid argument
+srun: error: worker-2: task 0: Exited with exit code 1
+taskset: failed to set pid 444125's affinity: Invalid argument
+srun: error: worker-2: task 0: Exited with exit code 1
+taskset: failed to set pid 444358's affinity: Invalid argument
+srun: error: worker-2: task 0: Exited with exit code 1
+{"event": "copy", "chunk": 1, "of": 2205, "gb_s": 0.02}
+{"event": "copy", "chunk": 201, "of": 2205, "gb_s": 1.56}
+{"event": "copy", "chunk": 401, "of": 2205, "gb_s": 1.94}
+{"event": "copy", "chunk": 601, "of": 2205, "gb_s": 2.14}
+{"event": "copy", "chunk": 801, "of": 2205, "gb_s": 2.26}
+{"event": "copy", "chunk": 1001, "of": 2205, "gb_s": 2.35}
+{"event": "copy", "chunk": 1201, "of": 2205, "gb_s": 2.41}
+{"event": "copy", "chunk": 1401, "of": 2205, "gb_s": 2.46}
+{"event": "copy", "chunk": 1601, "of": 2205, "gb_s": 2.49}
+{"event": "copy", "chunk": 1801, "of": 2205, "gb_s": 2.51}
+{"event": "copy", "chunk": 2001, "of": 2205, "gb_s": 2.53}
+{"event": "copy", "chunk": 2201, "of": 2205, "gb_s": 2.55}
+{"event": "done", "source": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/latents_backup", "destination": "/tmp/gr1_cont_latents_20261106/latents", "bytes": 591795781632, "windows": 6020058, "chunks": 2205, "chunk_bytes": 268435456, "metadata_sha256": "cfc9e61c0aadd56eff0b0a46c94f008f479a53d5676474b602f0fb1c0e494650", "chunk_sha256_verified": true, "valid_all_ones": true, "seconds": 283.5, "host": "worker-2", "finished_utc": "2026-11-06T13:00:26Z"}

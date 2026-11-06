@@ -1,0 +1,453 @@
+{
+  "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+  "finished": {
+    "grab_roller/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "grab_roller",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/grab_roller__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "5187c0bdbecd7e912bac9a7c87d286622d6fac116191964b5063ee90554e51ac",
+          "video_verified": true,
+          "instruction": "Hold the light brown cylindrical roller with both arms.",
+          "queries": 4,
+          "query_trace_sha256": "9ef087ed531745a39e56a0a3817980066fc7a2667bc1b0ee9afea9b4191fc453"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/grab_roller__demo_clean/attempt_01",
+      "seconds": 45.0531051158905
+    },
+    "grab_roller/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "grab_roller",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300002,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/grab_roller__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "dab7813d95afca7fcdbadb8c00ae72437f5a2b1e41a95f21c7e60d5854364554",
+          "video_verified": true,
+          "instruction": "Grab the light brown wooden roller with both arms.",
+          "queries": 4,
+          "query_trace_sha256": "5836cc31123f9abd2a4480108d4865d5ddae07214eb82de0fa8d2ec92dd4b73d"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/grab_roller__demo_randomized/attempt_01",
+      "seconds": 50.07020950317383
+    },
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "6008f68c0037a289b2fc0c125643961cd1af9d23d86d0ecde3ae2ff132f65cc5",
+          "video_verified": true,
+          "instruction": "Lift the bottle with red screw cap from the table using the left arm.",
+          "queries": 6,
+          "query_trace_sha256": "7f03f26099518e04eef251459c6c35b59b0ea5b5727e48662b032191eaa3d867"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 55.08401107788086
+    },
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "44bcf92be7ad3a2c89c387677d795ec988f0872c02b4efcdf832c9c8d7930d32",
+          "video_verified": true,
+          "instruction": "Pick up the bottle with red screw cap using the right arm in an upright position",
+          "queries": 5,
+          "query_trace_sha256": "bc7570d138cc1fdc2623fbd9d10f430bbf2b6dfcdeeb1785888ce1492d84ba74"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 55.09309768676758
+    },
+    "move_stapler_pad/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "move_stapler_pad",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/move_stapler_pad__demo_clean/attempt_01/episode0_randomized-false_success-false.mp4",
+          "video_sha256": "ca4b9bcfca8abf3dc8c6bf1d9d2b7991186bef2ff6c76de73ba6f7612e0ba486",
+          "video_verified": true,
+          "instruction": "Place the white stapler with metal tray on the Cyan colored mat.",
+          "queries": 17,
+          "query_trace_sha256": "63c327e037e56b6ddcc56857a7d2a34bcc1d643fa8ded4a1aca45ea763041ce7"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/move_stapler_pad__demo_clean/attempt_01",
+      "seconds": 55.06864285469055
+    },
+    "move_stapler_pad/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "move_stapler_pad",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/move_stapler_pad__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "bfe713f38f8d2ac09af9bd31e2ae237b7e658a4026dbc8242d96bdf241183664",
+          "video_verified": true,
+          "instruction": "Use the right arm to move the stapler with silver metal top to Black mat.",
+          "queries": 17,
+          "query_trace_sha256": "6840ce0407f50d30d79600e2b59ab6cf514de8161f95c536a687983edaa5e91d"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/move_stapler_pad__demo_randomized/attempt_01",
+      "seconds": 55.07902956008911
+    },
+    "hanging_mug/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "hanging_mug",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/hanging_mug__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "a2616fc2a9dc41027c3774996f175b520573175e45921c1b667f2562f18159dd",
+          "video_verified": true,
+          "instruction": "Grab the beige mug from the table, rotate it, and set it in the center. Then hang the beige mug on the dark gray rack with flat back.",
+          "queries": 38,
+          "query_trace_sha256": "6f898008a65136f28b895f4aa24e3a16b3470a78bbc5373f77a4bd9ec142d579"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/hanging_mug__demo_randomized/attempt_01",
+      "seconds": 70.12696099281311
+    },
+    "hanging_mug/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "hanging_mug",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300002,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/hanging_mug__demo_clean/attempt_01/episode0_randomized-false_success-false.mp4",
+          "video_sha256": "4118e2356553fee3ed22dfc33239e2a9d97fce5a51113339a11240231adbb10a",
+          "video_verified": true,
+          "instruction": "Pick the mug beige smooth cylinder shape from the table, rotate it, place it in the middle, and hang it onto the medium-sized rack.",
+          "queries": 38,
+          "query_trace_sha256": "2db17a4faf19e5557e77ac7fecd692606a4632716deb09f08c8d019d225940e8"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/hanging_mug__demo_clean/attempt_01",
+      "seconds": 85.16119170188904
+    },
+    "press_stapler/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "press_stapler",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/press_stapler__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "50cd4d2010b96d5eb29107bc449154a8e70489c808884741c36068230d5842d1",
+          "video_verified": true,
+          "instruction": "Press the stapler with smooth plastic body firmly using your arm.",
+          "queries": 4,
+          "query_trace_sha256": "9d5e23c5c3e564e20edfc96cebf8a3166d18b1ea02d73c310a54c616352a5a8f"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/press_stapler__demo_clean/attempt_01",
+      "seconds": 45.069557905197144
+    },
+    "open_microwave/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "open_microwave",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/open_microwave__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "7fa4dd9f8e552b0620bf4c7deb2b6d6a5685ea8e924bfc574e1afe24082fdeb0",
+          "video_verified": true,
+          "instruction": "Use the left arm to pull the handle of the medium-sized rectangular microwave with textured top.",
+          "queries": 14,
+          "query_trace_sha256": "8c37770f0bddf3b5adf82df8d46957d8567a2d6e2cbfd1cff73a39ccfcec202d"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/open_microwave__demo_clean/attempt_01",
+      "seconds": 60.1082079410553
+    },
+    "open_microwave/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "open_microwave",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/open_microwave__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "98f367fdd8e5257328cae11b13df0bc429a6c21d97940d94f0460c0b81e6cb0d",
+          "video_verified": true,
+          "instruction": "Pull the kitchen microwave with slanted shape open with the left arm.",
+          "queries": 63,
+          "query_trace_sha256": "f501d18994b7308d6a0af1a576f0fc8c7e0ba296c1b7bbd2db945661093a7586"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/open_microwave__demo_randomized/attempt_01",
+      "seconds": 80.14681792259216
+    },
+    "press_stapler/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "press_stapler",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/press_stapler__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "a42200c7c4a417f6e1667c79931dccca88580cb7e5de31987f152fb3f06ea7bd",
+          "video_verified": true,
+          "instruction": "Press down on the stapler with silver metal top firmly using the left arm.",
+          "queries": 17,
+          "query_trace_sha256": "c767ac22c0b3c1133541d3bc0892406a4004df332175a4b55a564bf3aeefbc27"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/press_stapler__demo_randomized/attempt_01",
+      "seconds": 60.113595962524414
+    },
+    "scan_object/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "scan_object",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300004,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/scan_object__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "507203039830475a5be3ea8fe82aed8fed012ea7a863fdd840d416a356941e76",
+          "video_verified": true,
+          "instruction": "Pick up the handheld scanner with blue activation trigger, then pick the cube tea box with shiny embossed patterns, and scan the cube tea box with shiny embossed patterns using the handheld scanner with blue activation trigger.",
+          "queries": 10,
+          "query_trace_sha256": "28c8d147732fc11fc4bdf3e3a2fd97318824c64ed57cf0c46cf592f7295adfaf"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/scan_object__demo_randomized/attempt_01",
+      "seconds": 75.12475919723511
+    },
+    "stack_blocks_two/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "stack_blocks_two",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stack_blocks_two__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "f96402c73edb46de905e4fd048d22bcf3bec4e5f8931603822dd58269922c0f0",
+          "video_verified": true,
+          "instruction": "Bring red block and green block to the center, then position green block above red block.",
+          "queries": 12,
+          "query_trace_sha256": "20bb5e99228104197ad785368c4964ba4477bb1cef65216ff4ea729fafcd842b"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stack_blocks_two__demo_clean/attempt_01",
+      "seconds": 55.085386753082275
+    },
+    "stack_blocks_two/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "stack_blocks_two",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stack_blocks_two__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "46f507e5a2c8a969f4c5752c934cd230d9e2c8d5bd27084cc15de8faa064f5a4",
+          "video_verified": true,
+          "instruction": "Take red block and green block, move them to the table's center, then stack green block on red block.",
+          "queries": 12,
+          "query_trace_sha256": "ec28a0b9e3ed2c54b1fc32b6ac6f6b7320a807a2f9b55338c9e32d830afe8c23"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stack_blocks_two__demo_randomized/attempt_01",
+      "seconds": 55.09310030937195
+    },
+    "scan_object/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "scan_object",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300007,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/scan_object__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "02a80dfe8f606a5e530e1db0132d623d9a0fc7af01993a8c674d868a653da597",
+          "video_verified": true,
+          "instruction": "Pick up the black scanner with ergonomic handle, then pick the cube tea box with shiny embossed patterns, and scan the cube tea box with shiny embossed patterns using the black scanner with ergonomic handle.",
+          "queries": 7,
+          "query_trace_sha256": "25a382fe06f0d536af2f9095ec5313cfca1745ed0410146ba469847340236b63"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/scan_object__demo_clean/attempt_01",
+      "seconds": 85.17842650413513
+    },
+    "stamp_seal/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "stamp_seal",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stamp_seal__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "b7005d97807f381b8bd59b075c579ff7181b64f7912b8319ed0165805538bbdd",
+          "video_verified": true,
+          "instruction": "Grab the small rectangular seal for stamping, press onto Silver",
+          "queries": 6,
+          "query_trace_sha256": "f907038a76bdf6caeba9290c885f806845c9bb4aa47524c9a6cc4db554945922"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stamp_seal__demo_clean/attempt_01",
+      "seconds": 50.08024787902832
+    },
+    "stamp_seal/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "stamp_seal",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stamp_seal__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "e12bcbd78935be26336fe6cbeef2e81d419a04171190448d87d76fc0247a1403",
+          "video_verified": true,
+          "instruction": "Use the right arm to grab the small slanted-edged brown seal, stamp Black.",
+          "queries": 17,
+          "query_trace_sha256": "f04f4e5c466a3aecfbc6914f5f6ce31d4c7979c29266c5779c074c3716434d1c"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/stamp_seal__demo_randomized/attempt_01",
+      "seconds": 50.090614557266235
+    },
+    "turn_switch/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "turn_switch",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/turn_switch__demo_clean/attempt_01/episode0_randomized-false_success-false.mp4",
+          "video_sha256": "0992bb67c6582d30c0e58b88a7074aa34fd163f601fdad9e9800d07b8ca1fe96",
+          "video_verified": true,
+          "instruction": "Click the hand-sized square electrical switch with the right arm",
+          "queries": 17,
+          "query_trace_sha256": "cd939b49d8ce07f58d2f7928814a5d96e621e342121a8fba6d647ddd6da9d7a4"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/turn_switch__demo_clean/attempt_01",
+      "seconds": 50.0979745388031
+    },
+    "turn_switch/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "task": "turn_switch",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/turn_switch__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "3aaf978797b7a8d203c855f1555add0b11e73c146ecc2328ca408dbeef4de851",
+          "video_verified": true,
+          "instruction": "Move and click the the small beige switch with angular sides",
+          "queries": 3,
+          "query_trace_sha256": "abaeb319a1e4a686f5b20ab222193a8002dd58a4a797e76f42b885526e3e34c8"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/speed_native_w4/turn_switch__demo_randomized/attempt_01",
+      "seconds": 45.090681076049805
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793883598.2445862,
+  "success_rates": {
+    "demo_clean": 0.7,
+    "demo_randomized": 0.5
+  }
+}

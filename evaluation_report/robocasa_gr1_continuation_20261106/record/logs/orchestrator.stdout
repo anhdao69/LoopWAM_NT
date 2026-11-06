@@ -1,0 +1,4 @@
+srun: error: worker-2: task 0: Exited with exit code 1
+slurmstepd: error: *** STEP 5758.53 ON worker-2 CANCELLED AT 2026-11-06T13:06:07 ***
+srun: error: worker-2: task 0: Killed
+srun: Force Terminated StepId=5758.53

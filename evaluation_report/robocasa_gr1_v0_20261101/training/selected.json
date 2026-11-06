@@ -1,0 +1,53 @@
+{
+  "micro": 16,
+  "checkpoint_blocks": false,
+  "keep_last": 0,
+  "rope": "real",
+  "text_tokens": 48,
+  "compile_mode": "default",
+  "manual_gc": 200,
+  "name": "timing_m16_real_t48_gc200",
+  "compile": true,
+  "rows": {
+    "m16_real_t48": {
+      "exit_code": 0,
+      "updates": 200,
+      "complete": true,
+      "median_s_per_update": 1.226041555404663,
+      "mean_s_per_update": 1.2400699019432069,
+      "first_update_s": 43.74640893936157,
+      "max_data_wait_s": 4.982948303222656e-05,
+      "peak_allocated_gb": 55.48247296,
+      "peak_reserved_gb": 55.58501376,
+      "loss_first": 2.3983819484710693,
+      "loss_last": 0.6543383598327637,
+      "action_loss_last": 0.4869927167892456,
+      "median_gpu_micro_seconds": 1.2104862060546875,
+      "median_gpu_optimizer_seconds": 0.014512479782104492,
+      "median_host_issue_seconds": 1.2106884717941284,
+      "median_prefetch_build_seconds": 0.0448254169896245,
+      "projected_hours": 40.0
+    },
+    "m16_real_t48_gc200": {
+      "exit_code": 0,
+      "updates": 200,
+      "complete": true,
+      "median_s_per_update": 1.2130143642425537,
+      "mean_s_per_update": 1.2024156292279562,
+      "first_update_s": 40.96631073951721,
+      "max_data_wait_s": 5.340576171875e-05,
+      "peak_allocated_gb": 55.48247296,
+      "peak_reserved_gb": 55.58501376,
+      "loss_first": 2.3983819484710693,
+      "loss_last": 0.6556280851364136,
+      "action_loss_last": 0.4882209300994873,
+      "median_gpu_micro_seconds": 1.1991539916992187,
+      "median_gpu_optimizer_seconds": 0.013237279891967773,
+      "median_host_issue_seconds": 1.1994420289993286,
+      "median_prefetch_build_seconds": 0.04354057856835425,
+      "projected_hours": 39.6
+    }
+  },
+  "total_updates": 117580,
+  "updates_per_epoch": 23516
+}

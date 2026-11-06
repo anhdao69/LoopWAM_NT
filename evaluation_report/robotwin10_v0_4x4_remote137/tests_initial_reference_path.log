@@ -1,0 +1,34 @@
+.................F....................                                   [100%]
+=================================== FAILURES ===================================
+_________________ test_image_exactly_matches_released_fastwam __________________
+
+    def test_image_exactly_matches_released_fastwam():
+     from experiments.robotwin.loopwam_policy.deploy_policy import fastwam_image
+     ref=Path('/storage/anhdh35/FastWAM-eval/experiments/robotwin/fastwam_policy/deploy_policy.py')
+>    tree=ast.parse(ref.read_text());resize=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='_resize_rgb')
+
+tests/test_robotwin_local_input.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../base_env/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/storage/anhdh35/FastWAM-eval/experiments/robotwin/fastwam_policy/deploy_policy.py')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/storage/anhdh35/FastWAM-eval/experiments/robotwin/fastwam_policy/deploy_policy.py'
+
+../base_env/lib/python3.10/pathlib.py:1119: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_robotwin_local_input.py::test_image_exactly_matches_released_fastwam
+1 failed, 37 passed in 3.39s

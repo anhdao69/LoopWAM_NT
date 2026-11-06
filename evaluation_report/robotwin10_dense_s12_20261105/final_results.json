@@ -1,0 +1,201 @@
+{
+  "totals": {
+    "demo_clean": {
+      "successes": 719,
+      "episodes": 1000,
+      "sr_percent": 71.9
+    },
+    "demo_randomized": {
+      "successes": 725,
+      "episodes": 1000,
+      "sr_percent": 72.5
+    },
+    "combined": {
+      "successes": 1444,
+      "episodes": 2000,
+      "sr_percent": 72.2
+    }
+  },
+  "tasks": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1759.6239442825317
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1915.7395906448364
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "seconds": 726.5855257511139
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "accepted_attempt": "attempt_01",
+      "seconds": 897.6653499603271
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "successes": 41,
+      "episodes": 100,
+      "sr_percent": 41,
+      "accepted_attempt": "attempt_01",
+      "seconds": 3515.611261844635
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "successes": 27,
+      "episodes": 100,
+      "sr_percent": 27,
+      "accepted_attempt": "attempt_01",
+      "seconds": 5401.318475246429
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "successes": 49,
+      "episodes": 100,
+      "sr_percent": 49,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1203.5804331302643
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "successes": 60,
+      "episodes": 100,
+      "sr_percent": 60,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1298.785212278366
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "successes": 39,
+      "episodes": 100,
+      "sr_percent": 39,
+      "accepted_attempt": "attempt_01",
+      "seconds": 4634.374838590622
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "successes": 44,
+      "episodes": 100,
+      "sr_percent": 44,
+      "accepted_attempt": "attempt_01",
+      "seconds": 4835.020222425461
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "successes": 85,
+      "episodes": 100,
+      "sr_percent": 85,
+      "accepted_attempt": "attempt_01",
+      "seconds": 767.1865990161896
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "successes": 81,
+      "episodes": 100,
+      "sr_percent": 81,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1028.0465562343597
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "successes": 78,
+      "episodes": 100,
+      "sr_percent": 78,
+      "accepted_attempt": "attempt_01",
+      "seconds": 4235.867392301559
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "successes": 77,
+      "episodes": 100,
+      "sr_percent": 77,
+      "accepted_attempt": "attempt_01",
+      "seconds": 3933.4007861614227
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1530.2433171272278
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1811.0067608356476
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "successes": 84,
+      "episodes": 100,
+      "sr_percent": 84,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1401.9506921768188
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "successes": 84,
+      "episodes": 100,
+      "sr_percent": 84,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1281.852791070938
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "successes": 45,
+      "episodes": 100,
+      "sr_percent": 45,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1066.2992677688599
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "successes": 58,
+      "episodes": 100,
+      "sr_percent": 58,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1166.7967269420624
+    }
+  ]
+}

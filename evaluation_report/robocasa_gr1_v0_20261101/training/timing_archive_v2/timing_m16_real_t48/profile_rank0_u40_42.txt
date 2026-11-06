@@ -1,0 +1,57 @@
+{"wall_ms": 1930.6, "gpu_kernel_ms": 3214.3, "categories_pct": {"other": 31.4, "gemm": 26.0, "triton_fused": 25.0, "attention": 9.4, "eager_elementwise": 4.7, "nccl": 2.3, "optimizer": 1.0, "copy": 0.2}}
+ 31.30%    1006.2ms      8 DistributedDataParallel.forward
+  8.18%     262.8ms   1944 nvjet_tst_192x192_64x3_2x1_v_bz_coopB_NNN
+  7.02%     225.6ms   1464 nvjet_tst_192x192_64x4_2x1_v_bz_coopB_bias_TNN
+  4.33%     139.1ms    488 nvjet_tst_192x192_64x3_2x1_v_bz_coopB_NTN
+  3.58%     115.2ms   1448 nvjet_tst_128x160_64x5_4x2_h_bz_NTT
+  3.39%     109.0ms    480 void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 128, 8, 2, 4, 2, false
+  2.31%      74.3ms    480 fmha_cutlassB_bf16_aligned_128x128_k128_sm80(PyTorchMemEffAttention::AttentionBackwardKernel<cutlass::arch::Sm80, cutlas
+  1.96%      62.9ms   1416 void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(i
+  1.95%      62.8ms  11922 void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::
+  1.78%      57.3ms    240 triton_red_fused__to_copy_add_div_mul_pow_sum_5
+  1.23%      39.4ms    240 triton_poi_fused_cat_1
+  1.19%      38.2ms    480 nvjet_tst_192x192_64x4_2x1_v_bz_coopB_TNN
+  1.17%      37.7ms    480 void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 128, 64, 4, false, false, cutlass::bfloat16_t, Flash_k
+  1.14%      36.7ms    480 triton_poi_fused_gelu_gelu_backward_0
+  1.13%      36.4ms    130 ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)
+  1.13%      36.4ms    130 nccl:all_reduce
+  1.11%      35.6ms    240 triton_poi_fused__to_copy_add_0
+  1.07%      34.5ms    480 triton_red_fused__to_copy_add_mean_pow_rsqrt_stack_3
+  0.96%      30.8ms   1920 triton_poi_fused__to_copy_0
+  0.90%      29.0ms    720 triton_red_fused_sum_2
+  0.84%      26.9ms    240 triton_red_fused__to_copy_add_mul_native_layer_norm_native_layer_norm_backward_0
+  0.82%      26.4ms    240 triton_red_fused__to_copy_add_mul_native_layer_norm_native_layer_norm_backward_5
+  0.77%      24.8ms    240 triton_poi_fused_gelu_3
+  0.75%      24.1ms   1680 triton_poi_fused__to_copy_4
+  0.74%      23.6ms    240 triton_red_fused__to_copy_add_mul_native_layer_norm_5
+  0.73%      23.6ms    480 fmha_cutlassF_bf16_aligned_64x128_rf_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm
+  0.68%      21.7ms   1440 triton_poi_fused__to_copy_3
+  0.67%      21.5ms    240 triton_red_fused__to_copy_add_mul_native_layer_norm_1
+  0.67%      21.4ms    240 triton_red_fused__to_copy_add_mul_native_layer_norm_12
+  0.52%      16.6ms    720 void pytorch_flash::flash_bwd_convert_dq_kernel<Flash_bwd_kernel_traits<128, 64, 128, 8, 2, 4, 2, false, false, cutlass:
+--- top CPU ops by self CPU time
+    431.8ms   1680 CompiledFunctionBackward
+    417.6ms   1680 CompiledFunction
+    325.1ms  46368 cuLaunchKernel
+    292.2ms   4766 Command Buffer Full
+    200.7ms     20 cudaStreamSynchronize
+    153.8ms  21464 cudaLaunchKernel
+    102.3ms  10752 aten::mm
+     83.4ms  14778 cuLaunchKernelEx
+     78.5ms    240 TorchDynamo Cache Lookup
+     65.7ms   3952 aten::addmm
+     40.6ms  13176 aten::empty
+     38.5ms   1680 autograd::engine::evaluate_function: CompiledFunctionBackward
+     32.2ms  13282 aten::add_
+     24.7ms   3968 cudaMemsetAsync
+     20.1ms   5432 autograd::engine::evaluate_function: torch::autograd::AccumulateGrad
+     19.6ms      8 DistributedDataParallel.forward
+     17.7ms   3360 triton_poi_fused__to_copy_1
+     14.5ms      9 Activity Buffer Request
+     14.0ms   1920 triton_poi_fused__to_copy_0
+     12.0ms     32 Torch-Compiled Region: 0/5
+     11.9ms     32 Torch-Compiled Region: 0/3
+     11.9ms     32 Torch-Compiled Region: 0/4
+     11.7ms     32 Torch-Compiled Region: 0/7
+     11.6ms     32 Torch-Compiled Region: 0/6
+     11.6ms     32 Torch-Compiled Region: 0/8

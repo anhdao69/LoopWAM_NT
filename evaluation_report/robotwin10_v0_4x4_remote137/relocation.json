@@ -1,0 +1,56 @@
+{
+  "relocated_unix": 1793728007.1643956,
+  "base_python": "3.10.22",
+  "path_only_asset_changes": [
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/ARX-X5/curobo.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/ARX-X5/curobo.yml",
+      "original_sha256": "79cdb71e97b6bf151a81654315430bcaa89b150a402f83033ec6bdd820204170",
+      "relocated_sha256": "e5133fac5d6361af3095ba05d4350e0fb745802ac44ae93446f2c0e7a3817c77",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/aloha-agilex/curobo_left.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/aloha-agilex/curobo_left.yml",
+      "original_sha256": "71f3710d3471804c61555bb5b97b273642515ebe03deb62203e3c44fb55b52eb",
+      "relocated_sha256": "d539ea7927a8de10c06531ede9190622255eab128a56f9e58d9e4acaba0d2f96",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/aloha-agilex/curobo_right.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/aloha-agilex/curobo_right.yml",
+      "original_sha256": "6a2ca29d30e58bc2e7e8e6f3a280af9a636df1b25bc9f77eaffb071f2142c34a",
+      "relocated_sha256": "eca0c5a792c164f611c0ea4baadbed96438cf6d4c884edf4c56ad264b634d457",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/franka-panda/curobo.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/franka-panda/curobo.yml",
+      "original_sha256": "5f83104729272257a4ac9d8a7f966ab650aab02db768b0eeb7e5155a93cec1d7",
+      "relocated_sha256": "c3072f159ef8d717fc68831c84201c3b4e886e84f02603373375df14ed2824cb",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/piper/curobo.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/piper/curobo.yml",
+      "original_sha256": "b8c8721ce0670ed3b85b29af9de2a6ddb52c7cedf7a6cb0adc1f3b7549a810f3",
+      "relocated_sha256": "8cfbf7623bb42288cdd2e045da23a2f738d5749ae81a5a04233e001c50036a64",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/ur5-wsg/curobo.yml",
+      "target": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/ur5-wsg/curobo.yml",
+      "original_sha256": "99847ea6ad7f19719b7989cf0345fa3c1e17e0ad944c5066d564e9339cd6392e",
+      "relocated_sha256": "8e352a65c32f568c9e93bfbfeaaf89ad8e6d59074578deaa19e9c158cce0cf34",
+      "old_prefix": "/storage/anhdh35/LoopWAM-robotwin-eval/third_party/RoboTwin/assets",
+      "new_prefix": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/repo/third_party/RoboTwin/assets"
+    }
+  ],
+  "original_environment_archive_sha256": "23ddf530593a12b96720dbde100fc127cc4fdb648c800afb3b3fbb19c70479dc",
+  "notes": "Packed base Python environment plus original RoboTwin venv overlay; absolute interpreter/editable paths relocated; model/harness source unchanged."
+}
