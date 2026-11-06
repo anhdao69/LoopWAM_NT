@@ -48,8 +48,10 @@ A, B = rows("A"), rows("B")
 skip = {"seconds", "time", "data_wait_seconds", "peak_allocated_gb"}   # wall clock and allocator high-water marks
 metrics_equal = len(A) == len(B) == 30 and all({k: v for k, v in a.items() if k not in skip} == {k: v for k, v in b.items() if k not in skip}
                                                for a, b in zip(A, B))
+import numpy as np
 def eq(x, y):
     if torch.is_tensor(x): return torch.is_tensor(y) and x.dtype == y.dtype and x.shape == y.shape and torch.equal(x, y)
+    if isinstance(x, np.ndarray): return isinstance(y, np.ndarray) and x.dtype == y.dtype and np.array_equal(x, y)   # numpy RNG state
     if isinstance(x, dict): return isinstance(y, dict) and x.keys() == y.keys() and all(eq(x[k], y[k]) for k in x)
     if isinstance(x, (list, tuple)): return type(x) == type(y) and len(x) == len(y) and all(eq(p, q) for p, q in zip(x, y))
     return x == y
