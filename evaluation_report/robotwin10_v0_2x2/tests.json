@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "count": 38,
+  "finished_unix": 1793741713.7203655,
+  "log": "/data14t/anhdh35/loopwam_robotwin10_v0_2x2_20261104/tests.log",
+  "cuda_visible_devices": "0",
+  "files": [
+    "test_robotwin_pipeline.py",
+    "test_loopwam_robot_eval.py",
+    "test_robotwin_local_input.py",
+    "test_loopwam_robotwin10.py",
+    "test_loopwam_robot_full.py"
+  ]
+}

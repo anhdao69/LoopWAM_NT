@@ -1,0 +1,7 @@
+{
+  "remote_host": "10.148.183.189",
+  "remote_minus_local_seconds": -215.76853704452515,
+  "round_trip_seconds": 0.1815626621246338,
+  "measured_local_unix": 1793971901.194848,
+  "note": "Use durations within each host; remote wall-clock timestamps have this offset relative to local. Combined report update timestamp is local Vietnam time."
+}

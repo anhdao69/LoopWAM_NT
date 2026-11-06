@@ -1,0 +1,41 @@
+SERVER CLEANUP — 2026-11-05
+
+Host: VMO-ANHDH35-D
+Approved scope: all projects; disposable caches and verified duplicates only. Remote servers were not cleaned.
+
+Net used-space reduction across the three filesystems: 110.64 GiB. This is measured while the evaluation continues writing output.
+
+Filesystem | Free before (GiB) | Free after (GiB) | Used-space reduction (GiB)
+/ | 0.00 | 49.04 | 73.33
+/storage | 174.79 | 209.95 | 35.15
+/data14t | 10050.53 | 10052.69 | 2.16
+
+Removed caches:
+- pip: Files removed: 4691 (36132.1 MB)
+- uv: dangling entries only, using uv cache prune without --force; Removed 11901 files (6.5GiB)
+- Conda: 16.92 GiB of downloaded archives, plus index cache/log cleanup. Installed environments and unpacked package directories retained.
+- Hugging Face Xet: 13.26 GiB of transfer chunks. Full unique model/dataset blobs retained.
+- Omniverse: 29.75 GiB of generated texture/shader cache, with no live process or protected evaluation reference.
+
+Verified duplicate checkpoint consolidation:
+- /storage/anhdh35/huggingface/hub/models--anhdao69--LoopWAM_NT/blobs/6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0
+  Now a symlink to retained original: /data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/checkpoint/policy.pt
+  SHA256: 6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0
+- /storage/anhdh35/huggingface/hub/models--anhdao69--LoopWAM_NT/blobs/cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985
+  Now a symlink to retained original: /data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/policy.pt
+  SHA256: cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985
+- /data14t/anhdh35/loopwam_robotwin10_v0_4x1_20261105/checkpoint/policy.pt
+  Now a symlink to retained original: /data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/checkpoint/policy.pt
+  SHA256: b0fd9da51d9ff5ab512d5729de6565e85d240a10f078ddf9f803733a77aa757d
+
+Each duplicate was compared using full SHA256, rechecked immediately before replacement, and replaced atomically with a symlink. All existing paths still resolve to identical bytes. Full metadata and retained-file mappings are in duplicate_consolidation_done.json. To restore an independent copy later, copy the retained file over the symlink using cp --remove-destination --preserve=mode,timestamps. The target path must remain available while the link is used.
+
+Preserved: unique checkpoints; all project code, Git history/worktrees and uncommitted changes; Conda/venv installations; datasets including ModelScope cached datasets; reports, videos and invalidated-run evidence; active evaluation weights, source and assets. No unique code checkout was established as a removable duplicate in this pass.
+
+Verification:
+- Rehashed 21,935 bound runtime/source/checkpoint files for the active local evaluation: all matched.
+- All three consolidated paths resolve to their retained copies.
+- Main repository tracked-change lists remain unchanged.
+- Dense-s12 evaluation continued without failed attempts during cleanup.
+
+Evidence directory: /data14t/anhdh35/server_cleanup_20261105

@@ -1,0 +1,62 @@
+{
+  "profiles": [
+    {
+      "name": "smoke_native",
+      "workers": 1,
+      "backend": "native",
+      "seconds": 251.07923674583435,
+      "peak_gpu_mib": 21630,
+      "baseline_gpu_mib": 918,
+      "peak_added_mib": 20712,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 27305
+    },
+    {
+      "name": "smoke_graph_w1",
+      "workers": 1,
+      "backend": "cuda-graph",
+      "seconds": 287.5022461414337,
+      "peak_gpu_mib": 21409,
+      "baseline_gpu_mib": 918,
+      "peak_added_mib": 20491,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 27526
+    },
+    {
+      "name": "smoke_graph_w2",
+      "workers": 2,
+      "backend": "cuda-graph",
+      "seconds": 169.53962349891663,
+      "peak_gpu_mib": 29937,
+      "baseline_gpu_mib": 918,
+      "peak_added_mib": 29019,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 18998
+    }
+  ],
+  "selected": {
+    "name": "smoke_graph_w2",
+    "workers": 2,
+    "backend": "cuda-graph",
+    "seconds": 169.53962349891663,
+    "peak_gpu_mib": 29937,
+    "baseline_gpu_mib": 918,
+    "peak_added_mib": 29019,
+    "exit_code": 0,
+    "passed": true,
+    "episodes": 8,
+    "successes": 8,
+    "memory_margin_mib": 18998
+  },
+  "finished_unix": 1793815138.9693274,
+  "basis": "Fastest successful same-checkpoint CUDA-graph 8-episode profile with >=8000MiB observed total-memory margin; max2 workers; native baseline is separate. Short calibration and competing workloads limit throughput prediction."
+}
