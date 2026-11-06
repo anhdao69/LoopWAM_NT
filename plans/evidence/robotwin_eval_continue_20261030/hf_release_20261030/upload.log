@@ -1,0 +1,4 @@
+{"stage": "validating_checkpoint", "updated_utc": "2026-10-30T14:33:15.748343+00:00", "repository_private": false}
+{"stage": "uploading", "updated_utc": "2026-10-30T14:33:20.723483+00:00", "files": 9, "bytes": 2338849081, "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"}
+{"stage": "verifying_hub", "updated_utc": "2026-10-30T14:35:27.254018+00:00", "revision": "33722db038eaf13676e80a2e0ad3846564abeafe"}
+{"stage": "complete", "updated_utc": "2026-10-30T14:35:27.945847+00:00", "url": "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/robotwin/v0-video4-action4", "revision": "33722db038eaf13676e80a2e0ad3846564abeafe", "epoch": 5, "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"}

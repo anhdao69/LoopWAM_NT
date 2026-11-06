@@ -1,0 +1,229 @@
+{
+  "rtx_snapshot_source": "User-provided 2026-10-31 03:58 Asia/Ho_Chi_Minh snapshot",
+  "hardware_confirmed_via_ssh": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "rtx_renderer": "rt, confirmed in manifest, process environment and renderer preflight",
+  "h100_renderer": "default raster; SAPIEN_DISABLE_RAY_TRACING=1",
+  "comparison_unit": "Same completed task/setting cells; matching individual scene seeds and instructions not verified",
+  "episodes_each": 2400,
+  "h100_successes": 1879,
+  "rtx_successes": 2238,
+  "rows": [
+    {
+      "task": "blocks_ranking_size",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 51,
+      "rtx_successes": 93,
+      "delta_percentage_points": 42
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 99,
+      "delta_percentage_points": -1
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 98,
+      "rtx_successes": 99,
+      "delta_percentage_points": 1
+    },
+    {
+      "task": "grab_roller",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "handover_block",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 54,
+      "rtx_successes": 97,
+      "delta_percentage_points": 43
+    },
+    {
+      "task": "handover_mic",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 42,
+      "rtx_successes": 65,
+      "delta_percentage_points": 23
+    },
+    {
+      "task": "lift_pot",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 93,
+      "rtx_successes": 100,
+      "delta_percentage_points": 7
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 88,
+      "rtx_successes": 88,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 99,
+      "rtx_successes": 100,
+      "delta_percentage_points": 1
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 98,
+      "rtx_successes": 100,
+      "delta_percentage_points": 2
+    },
+    {
+      "task": "place_fan",
+      "setting": "clean",
+      "episodes_each": 100,
+      "h100_successes": 88,
+      "rtx_successes": 97,
+      "delta_percentage_points": 9
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 7,
+      "rtx_successes": 99,
+      "delta_percentage_points": 92
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 48,
+      "rtx_successes": 97,
+      "delta_percentage_points": 49
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "click_bell",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 97,
+      "rtx_successes": 97,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "grab_roller",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "handover_block",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 73,
+      "rtx_successes": 94,
+      "delta_percentage_points": 21
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 42,
+      "rtx_successes": 77,
+      "delta_percentage_points": 35
+    },
+    {
+      "task": "open_microwave",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 3,
+      "rtx_successes": 41,
+      "delta_percentage_points": 38
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 96,
+      "delta_percentage_points": -4
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 100,
+      "rtx_successes": 100,
+      "delta_percentage_points": 0
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "randomized",
+      "episodes_each": 100,
+      "h100_successes": 98,
+      "rtx_successes": 99,
+      "delta_percentage_points": 1
+    }
+  ],
+  "checkpoint_file_sha256_verified": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "normalization_and_vae_hashes_match": true,
+  "differences": {
+    "renderer": [
+      "default raster",
+      "rt ray tracing"
+    ],
+    "image_preprocessing": [
+      "two-stage antialiased floating-point tensor resize",
+      "direct PIL bilinear uint8 resize and BF16 normalization"
+    ],
+    "instruction_rng": [
+      "explicit Python random.seed(scene_seed)",
+      "released harness without explicit Python random.seed"
+    ],
+    "action_execution": [
+      "native eager",
+      "CUDA graph replay; saved 8-input gate reports exact agreement with native"
+    ]
+  },
+  "model_code_hash_comparison": {
+    "h100_files": 23,
+    "rtx_files": 23,
+    "changed_shared_files": []
+  }
+}

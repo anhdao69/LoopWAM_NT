@@ -1,0 +1,49 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "folder": "robotwin/v0-video4-action4",
+  "revision": "33722db038eaf13676e80a2e0ad3846564abeafe",
+  "private": false,
+  "url": "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/robotwin/v0-video4-action4",
+  "epoch": 5,
+  "step": 237310,
+  "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+  "verified_files": {
+    "policy.pt": {
+      "bytes": 2338751333,
+      "sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"
+    },
+    "dataset_stats.json": {
+      "bytes": 88715,
+      "sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095"
+    },
+    "README.md": {
+      "bytes": 2765,
+      "sha256": "8737a2f833441f5f6d500fb0a4a664804587f1b3e687a1c726475d67880959f3"
+    },
+    "checkpoint_provenance.json": {
+      "bytes": 402,
+      "sha256": "cb1547bdcf31234ad314e16cf13e3e1f7517c328f2e608e1fcab5eafeaf6ca04"
+    },
+    "config.json": {
+      "bytes": 1997,
+      "sha256": "b3b6075d4d9b2074577d0b25eaa0065dd8cb666eef2d13fe5c3e8a2a32cc6cf7"
+    },
+    "data_provenance.json": {
+      "bytes": 897,
+      "sha256": "5252f46ad7aca3e0824a2d0f37ef66c802610404f49b7a50544f1472539b6e53"
+    },
+    "evaluation_protocol.json": {
+      "bytes": 2145,
+      "sha256": "7b057520e9dc130f314ed02b2f45f1c3a79f3106f4d2a06b0568d140f417239b"
+    },
+    "training_timing.json": {
+      "bytes": 154,
+      "sha256": "3ba9ce733903fb32bfb582628d1b0e1002db925e8dd45eaf128e26d39263a8f1"
+    },
+    "SHA256SUMS": {
+      "bytes": 673,
+      "sha256": "0a07a79aea17c0a75601c337124b6cfe24f6dbfa67b48f6b643a7701d58be41f"
+    }
+  },
+  "verified_utc": "2026-10-30T14:35:27.942813+00:00"
+}

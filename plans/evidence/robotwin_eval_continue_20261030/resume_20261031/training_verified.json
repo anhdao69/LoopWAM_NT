@@ -1,0 +1,78 @@
+{
+  "checked_unix": 1793419159.391596,
+  "job_id": "5489",
+  "step": "5489.97",
+  "resume_audit": {
+    "passed": true,
+    "optimizer_exact": true,
+    "next_epoch": 5,
+    "next_batch": 0,
+    "next_rank0_window_ids": [
+      1421015,
+      1059195,
+      5703513,
+      716407,
+      1215419,
+      902940,
+      2918686,
+      249910,
+      1593431,
+      3703607,
+      1848056,
+      4395158,
+      2425569,
+      4008352,
+      690704,
+      4137665
+    ],
+    "next_rank0_noise_seeds": [
+      3776987426865278510,
+      2566195370432042216,
+      8929002473870267613,
+      7335314448266047687,
+      158461705988387050,
+      1303045743895094812,
+      9151631545990054835,
+      4417367525333072850,
+      6829737636747155894,
+      8444492959446869709,
+      7412789402974257346,
+      571065107853069639,
+      2942994893852340250,
+      2147012130775461310,
+      8843104301880318976,
+      456979245481817161
+    ],
+    "next_lr": 3e-05
+  },
+  "timing": {
+    "status": "running",
+    "update": 237378,
+    "planned_updates": 474620,
+    "windows_seen": 30384219,
+    "elapsed_training_seconds": 88.14275336265564,
+    "last_update_seconds": 1.0821330547332764,
+    "heartbeat_unix": 1793419159.2726042
+  },
+  "metrics_count": 68,
+  "last_metric": {
+    "update": 237378,
+    "epoch": 6,
+    "epochs_complete": 5,
+    "valid_windows": 128,
+    "windows_seen": 30384219,
+    "seconds": 1.0821330547332764,
+    "loss": 0.04015506058931351,
+    "loss_video": 0.03778684139251709,
+    "loss_action": 0.0023682177998125553,
+    "grad_norm": 0.104637511074543,
+    "lr_backbone": 2.999999415859441e-05,
+    "peak_allocated_gb": 52.866627584
+  },
+  "warm_mean_update_seconds": 0.7293854475021362,
+  "finite_losses_gradients": true,
+  "all_observed_updates_global_batch_128": true,
+  "preserved_previous_output": [
+    "epochs06_10.incomplete.1793419029378072337"
+  ]
+}

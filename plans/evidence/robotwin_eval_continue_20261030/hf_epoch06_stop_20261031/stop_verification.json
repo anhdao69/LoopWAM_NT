@@ -1,0 +1,23 @@
+{
+  "stage": "stopped_by_user_after_epoch6_upload",
+  "updated_utc": "2026-10-31T13:44:36.032589+00:00",
+  "job_id": "5489",
+  "cancelled_steps": [
+    "5489.96",
+    "5489.97"
+  ],
+  "remaining_steps": {
+    "5489.0": "training"
+  },
+  "epoch6_upload": "https://huggingface.co/anhdao69/LoopWAM_NT/tree/main/robotwin/v0-video4-action4/epoch_06",
+  "upload_revision": "2fbf6b7d2bdf91bf03a0062d177f516fd02af08f",
+  "timing_at_stop": {
+    "status": "running",
+    "update": 285009,
+    "planned_updates": 474620,
+    "windows_seen": 36480954,
+    "elapsed_training_seconds": 35199.83256196976,
+    "last_update_seconds": 0.7282791137695312,
+    "heartbeat_unix": 1793454270.962412
+  }
+}
