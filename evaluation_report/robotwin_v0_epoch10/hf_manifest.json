@@ -1,0 +1,61 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "5d548173cdb550fb60acb668a01b182c5a8f3b98",
+  "prefix": "robotwin/v0-video4-action4/epoch_10",
+  "files": [
+    {
+      "type": "file",
+      "oid": "f9bc62a2f09c65c24b4392a951151c9efc3c0a46",
+      "size": 1641,
+      "path": "robotwin/v0-video4-action4/epoch_10/README.md"
+    },
+    {
+      "type": "file",
+      "oid": "431b7ad1c859d55cf1e4ca5e77b745f1fcb4bb50",
+      "size": 581,
+      "path": "robotwin/v0-video4-action4/epoch_10/SHA256SUMS"
+    },
+    {
+      "type": "file",
+      "oid": "e145374e8703cceb0b040c0718f45ee04605e843",
+      "size": 342,
+      "path": "robotwin/v0-video4-action4/epoch_10/checkpoint_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "f38db2eb17cf9791ca5574091538bb2d5f96f2d6",
+      "size": 2163,
+      "path": "robotwin/v0-video4-action4/epoch_10/config.json"
+    },
+    {
+      "type": "file",
+      "oid": "fa938c2399dcf33eac25be9f673fad975f283076",
+      "size": 898,
+      "path": "robotwin/v0-video4-action4/epoch_10/data_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "f1652563d2dedbd7063c55bd8c2f4297ec648d45",
+      "size": 88715,
+      "path": "robotwin/v0-video4-action4/epoch_10/dataset_stats.json"
+    },
+    {
+      "type": "file",
+      "oid": "a68693379b5089f948a7f0a7b9e7acfdf2e55125",
+      "size": 2338751589,
+      "lfs": {
+        "oid": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+        "size": 2338751589,
+        "pointerSize": 135
+      },
+      "xetHash": "0a062d6e03137e7a820ad5473090f28cd80204bde41bd46c184af4c66af592a5",
+      "path": "robotwin/v0-video4-action4/epoch_10/policy.pt"
+    },
+    {
+      "type": "file",
+      "oid": "bb3293f512e1095581b08445f473139266d1a3c1",
+      "size": 1498,
+      "path": "robotwin/v0-video4-action4/epoch_10/training_state.json"
+    }
+  ]
+}

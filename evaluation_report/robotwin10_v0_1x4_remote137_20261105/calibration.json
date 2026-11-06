@@ -1,0 +1,159 @@
+{
+  "profiles": [
+    {
+      "name": "speed_native_w4",
+      "workers": 4,
+      "backend": "native",
+      "seconds": 371.56630206108093,
+      "peak_gpu_mib": 42730,
+      "baseline_gpu_mib": 384,
+      "peak_added_mib": 42346,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 15,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 55157
+    },
+    {
+      "name": "speed_graph_w4",
+      "workers": 4,
+      "backend": "cuda-graph",
+      "seconds": 377.572500705719,
+      "peak_gpu_mib": 46239,
+      "baseline_gpu_mib": 384,
+      "peak_added_mib": 45855,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 16,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 51648
+    },
+    {
+      "name": "speed_graph_w8",
+      "workers": 8,
+      "backend": "cuda-graph",
+      "seconds": 272.0192768573761,
+      "peak_gpu_mib": 66552,
+      "baseline_gpu_mib": 384,
+      "peak_added_mib": 66168,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 14,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 31335
+    },
+    {
+      "name": "speed_graph_w10",
+      "workers": 10,
+      "backend": "cuda-graph",
+      "seconds": 266.0431580543518,
+      "peak_gpu_mib": 77444,
+      "baseline_gpu_mib": 384,
+      "peak_added_mib": 77060,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 13,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 20443
+    }
+  ],
+  "skipped": [
+    {
+      "name": "speed_graph_w12",
+      "reason": "Insufficient free GPU memory for measured projection plus reserve",
+      "required_mib": 99528,
+      "gpu": {
+        "total_mib": 97887,
+        "used_mib": 384,
+        "free_mib": 96861,
+        "utilization": 0
+      }
+    }
+  ],
+  "selected": {
+    "name": "speed_graph_w4",
+    "workers": 4,
+    "backend": "cuda-graph",
+    "seconds": 377.572500705719,
+    "peak_gpu_mib": 46239,
+    "baseline_gpu_mib": 384,
+    "peak_added_mib": 45855,
+    "exit_code": 0,
+    "passed": true,
+    "episodes": 20,
+    "successes": 16,
+    "tasks": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "episodes_per_cell": 1,
+    "memory_margin_mib": 51648
+  },
+  "finished_unix": 1793884755.5124142,
+  "basis": "Four-worker operational recovery after sustained ten-worker GPU/render failures; short-profile throughput no longer determines concurrency.",
+  "selection_override": {
+    "workers": 4,
+    "reason": "Ten-worker calibration underestimated sustained renderer/GPU memory. Full-run logs contain OOM and OIDN/Vulkan errors, including completed cells.",
+    "created_unix": 1793892667.8671699
+  }
+}
