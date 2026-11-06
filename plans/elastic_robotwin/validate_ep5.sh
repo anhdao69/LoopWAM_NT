@@ -17,12 +17,16 @@ one() { local gpu=$1 name=$2; shift 2
 ( while sleep 20; do echo "$(date -u +%T) $(free -g | awk '/Mem:/{print "used",$3,"avail",$7}') job_mem_GiB $(( $(cat /sys/fs/cgroup$(cut -d: -f3 /proc/self/cgroup | sed -E 's#(/job_[0-9]+).*#\1#')/memory.current) >> 30 ))"; done ) > "$V/memory.log" 2>&1 &
 MEM=$!
 : > "$V/validate.rc"
+# Wait on these PIDs only: a bare `wait` would also wait for the endless memory sampler.
+P=()
 one 0 preflight_core scripts/preflight_rt50.py --family RT50-ep5 --common-init "$ELASTIC_INIT" --checks identity,dataset,teacher,init --out "$V/preflight_core.json" &
+P+=($!)
 for i in 0 1 2; do
   one $((i + 1)) preflight_speed_E$i scripts/preflight_rt50.py --family RT50-ep5 --common-init "$ELASTIC_INIT" --checks "" \
     --speed-runs RT50-ep5-E$i --out "$V/preflight_speed_E$i.json" &
+  P+=($!)
 done
-wait
+wait "${P[@]}"
 train() {  # OUT MAX_UPDATES [--resume]
   CUDA_VISIBLE_DEVICES=0,1,2,3 BIND_LOG=$1.binding.log BIND_TAG=validate torchrun --standalone --nproc_per_node=4 --no-python \
     "$(dirname "$0")/bind_gpu.sh" scripts/train_transport.py --run-name RT50-ep5-E2 --output-dir "$1" --teacher "$ELASTIC_TEACHER" \
@@ -60,8 +64,10 @@ print(json.dumps(result, indent=1)); sys.exit(0 if result["passed"] else 1)
 PY
 one 0 verify_early scripts/verify_rt50_export.py --run-dir "$R/A" --pairs written:latest.pt --write-export early --padding-check \
   --out "$V/verify_early.json" &
+P=($!)
 one 1 verify_epoch scripts/verify_rt50_export.py --run-dir "$R/A" --pairs written:latest.pt --write-export epoch \
   --out "$V/verify_epoch.json" &
-wait
+P+=($!)
+wait "${P[@]}"
 kill $MEM 2>/dev/null
 echo VALIDATE_DONE >> "$V/validate.rc"
