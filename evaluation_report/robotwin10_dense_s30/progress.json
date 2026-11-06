@@ -1,0 +1,194 @@
+{
+  "updated_unix": 1793647750.46294,
+  "episodes": 2000,
+  "successes": 1672,
+  "planned": 2000,
+  "completed_cells": 20,
+  "running_cells": 0,
+  "failed": [],
+  "finished": true,
+  "cells": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 63
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 56
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 83
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 77
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 61
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 50
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 90
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 93
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 91
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 62
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 70
+    }
+  ],
+  "launch": {
+    "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+    "status": "complete",
+    "started_unix": 1793630121.8839002,
+    "workers": 2,
+    "backend": "cuda-graph",
+    "planned_episodes": 2000,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/env/bin/python",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint/policy.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/results",
+      "--robotwin-root",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "2",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "45445",
+      "--tasks",
+      "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "pid": 708904,
+    "variant": "dense-s30",
+    "epoch": 5,
+    "expected_step": 45445,
+    "hf_revision": "cdf71976208ade41a93465f6b8166b5e6b7170ca",
+    "finished_unix": 1793647750.459957
+  }
+}

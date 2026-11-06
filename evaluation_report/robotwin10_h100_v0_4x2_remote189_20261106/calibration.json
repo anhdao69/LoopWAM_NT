@@ -1,0 +1,19 @@
+{
+  "finished_unix": 1793970972.1194086,
+  "selected": {
+    "workers": 2,
+    "backend": "cuda-graph"
+  },
+  "profiles": [
+    {
+      "name": "smoke_graph",
+      "passed": true,
+      "tasks": [
+        "adjust_bottle",
+        "open_microwave"
+      ],
+      "episodes_per_cell": 1
+    }
+  ],
+  "selection_basis": "Previously sustained safe concurrency on this host; no new short calibration. Profile must be validated before launch."
+}

@@ -1,0 +1,15 @@
+{
+  "recorded_unix": 1793814284.1914196,
+  "hostname": "vmo-linhbn7-d",
+  "python": "3.10.22",
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "numpy": "1.26.4",
+    "Pillow": "12.0.0",
+    "sapien": "3.0.0b1",
+    "mplib": "0.2.1",
+    "transformers": "4.49.0",
+    "diffusers": null
+  },
+  "gpu": "name, uuid, driver_version, memory.total [MiB], memory.free [MiB]\nNVIDIA RTX PRO 5000 Blackwell, GPU-49d2dad8-56f0-6834-472b-640df1b43d87, 570.211.01, 48935 MiB, 47495 MiB\n"
+}

@@ -1,0 +1,159 @@
+{
+  "seed": 42,
+  "episodes_per_model": 2000,
+  "totals": {
+    "v0_1x4_remote137": {
+      "demo_clean": {
+        "successes": 739,
+        "episodes": 1000,
+        "sr_percent": 73.9
+      },
+      "demo_randomized": {
+        "successes": 724,
+        "episodes": 1000,
+        "sr_percent": 72.4
+      },
+      "combined": {
+        "successes": 1463,
+        "episodes": 2000,
+        "sr_percent": 73.15
+      }
+    },
+    "v0_2x2": {
+      "demo_clean": {
+        "successes": 745,
+        "episodes": 1000,
+        "sr_percent": 74.5
+      },
+      "demo_randomized": {
+        "successes": 721,
+        "episodes": 1000,
+        "sr_percent": 72.1
+      },
+      "combined": {
+        "successes": 1466,
+        "episodes": 2000,
+        "sr_percent": 73.3
+      }
+    },
+    "v0_4x4_remote189": {
+      "demo_clean": {
+        "successes": 784,
+        "episodes": 1000,
+        "sr_percent": 78.4
+      },
+      "demo_randomized": {
+        "successes": 780,
+        "episodes": 1000,
+        "sr_percent": 78.0
+      },
+      "combined": {
+        "successes": 1564,
+        "episodes": 2000,
+        "sr_percent": 78.2
+      }
+    },
+    "v0_4x2": {
+      "demo_clean": {
+        "successes": 804,
+        "episodes": 1000,
+        "sr_percent": 80.4
+      },
+      "demo_randomized": {
+        "successes": 795,
+        "episodes": 1000,
+        "sr_percent": 79.5
+      },
+      "combined": {
+        "successes": 1599,
+        "episodes": 2000,
+        "sr_percent": 79.95
+      }
+    },
+    "v0_4x4": {
+      "demo_clean": {
+        "successes": 774,
+        "episodes": 1000,
+        "sr_percent": 77.4
+      },
+      "demo_randomized": {
+        "successes": 803,
+        "episodes": 1000,
+        "sr_percent": 80.3
+      },
+      "combined": {
+        "successes": 1577,
+        "episodes": 2000,
+        "sr_percent": 78.85
+      }
+    },
+    "dense_s30": {
+      "demo_clean": {
+        "successes": 838,
+        "episodes": 1000,
+        "sr_percent": 83.8
+      },
+      "demo_randomized": {
+        "successes": 834,
+        "episodes": 1000,
+        "sr_percent": 83.4
+      },
+      "combined": {
+        "successes": 1672,
+        "episodes": 2000,
+        "sr_percent": 83.6
+      }
+    },
+    "v0_4x1_remote189": {
+      "demo_clean": {
+        "successes": 823,
+        "episodes": 1000,
+        "sr_percent": 82.3
+      },
+      "demo_randomized": {
+        "successes": 804,
+        "episodes": 1000,
+        "sr_percent": 80.4
+      },
+      "combined": {
+        "successes": 1627,
+        "episodes": 2000,
+        "sr_percent": 81.35
+      }
+    },
+    "v0_4x1_local": {
+      "demo_clean": {
+        "successes": 821,
+        "episodes": 1000,
+        "sr_percent": 82.1
+      },
+      "demo_randomized": {
+        "successes": 796,
+        "episodes": 1000,
+        "sr_percent": 79.6
+      },
+      "combined": {
+        "successes": 1617,
+        "episodes": 2000,
+        "sr_percent": 80.85
+      }
+    },
+    "v0_4x4_remote137": {
+      "demo_clean": {
+        "successes": 766,
+        "episodes": 1000,
+        "sr_percent": 76.6
+      },
+      "demo_randomized": {
+        "successes": 793,
+        "episodes": 1000,
+        "sr_percent": 79.3
+      },
+      "combined": {
+        "successes": 1559,
+        "episodes": 2000,
+        "sr_percent": 77.95
+      }
+    }
+  }
+}

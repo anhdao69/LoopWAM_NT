@@ -1,0 +1,100 @@
+{
+  "server_snapshot_sha256": "8c4fcc180127b352fe8e53b543aa9d472a3b6eaa02d353c125619d0967075fc9",
+  "branches": [
+    [
+      "KV_concat",
+      "fdfdec5d7773d0758881a4972f2748e2a8b33cdd"
+    ],
+    [
+      "LoopWAM_NT",
+      "b7efaf512776b15bbc2a1cbefd72f1a30439af68"
+    ],
+    [
+      "chrono",
+      "676c2c5ac01f3f6473a27e2de78b7d250f7ba9ed"
+    ],
+    [
+      "elastic",
+      "1645494dc25e1644631ad687a4ca18ad8e637e37"
+    ],
+    [
+      "partition_grid_20261026",
+      "8e41826787470c5dd1e60a759a11f566fc0b94d1"
+    ],
+    [
+      "residual_trans",
+      "56e07c8cb58de29bf18f10c11bd051355fb7bf85"
+    ],
+    [
+      "robotwin10_training_20261101",
+      "46e27fd3aa842e94344bf2893ce1c16b614a9a43"
+    ],
+    [
+      "robotwin_eval_continue_20261030",
+      "2ab7ea5206f1815903ffa206d34fc6ae611e5534"
+    ],
+    [
+      "robotwin_full_v0_20261028",
+      "a719b0b3818981e305346f89f8a0abd1ec89d954"
+    ],
+    [
+      "scratch_init_v0",
+      "6d7972c91e3ea8b79bd26d6c061a9cafeb6b4036"
+    ],
+    [
+      "v0-init-variants",
+      "4b68ad0eda5122ab349c3b185e705706fe8e999f"
+    ]
+  ],
+  "preserved_versions": [
+    {
+      "path": "evaluation_report/branch_reports/index.json",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/bce663cbc1cf6ad6/branch_reports/index.json",
+      "sha256": "bce663cbc1cf6ad6d9c72df48fa1495e72bbdc101f4733f1381ef54e75fb6e38",
+      "source": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/v0_ka_sweep/report.md",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/2492edb31e02913f/v0_ka_sweep/report.md",
+      "sha256": "2492edb31e02913fa7d24acf54b66cee6bfa6fcfa7f2a3a9969cbeb75a4799d2",
+      "source": "previous shared version"
+    },
+    {
+      "path": "evaluation_report/README.md",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/d30bc8f6b61a6a4f/README.md",
+      "sha256": "d30bc8f6b61a6a4face458c28f504363d52af6e9b96b931610dd6c84f637598a",
+      "source": "ws_anhdh35"
+    },
+    {
+      "path": "evaluation_report/dense_full/report.md",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/d106d2ad372a9c48/dense_full/report.md",
+      "sha256": "d106d2ad372a9c48a44508116f854ef744864265b6deaa2fee7b09552f807388",
+      "source": "previous shared version"
+    },
+    {
+      "path": "evaluation_report/matched_baselines/build_readme.py",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/dd6a0b805bc33afb/matched_baselines/build_readme.py",
+      "sha256": "dd6a0b805bc33afb4707c51dfb1a94f6d8e5bb0dbb6a3efd135e96243969bbe0",
+      "source": "previous shared version"
+    },
+    {
+      "path": "evaluation_report/matched_baselines/README_body.md",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/92413d8e13d203e2/matched_baselines/README_body.md",
+      "sha256": "92413d8e13d203e2c17c7f5cb4dc1bf47245ccdb704c1d983dffe4dc359c2828",
+      "source": "previous shared version"
+    },
+    {
+      "path": "evaluation_report/matched_baselines/README.md",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/78de2314ad179aba/matched_baselines/README.md",
+      "sha256": "78de2314ad179aba79564f83ff1a4d3719e0adbe80d9a42fe3d09429b9fb8c9f",
+      "source": "previous shared version"
+    },
+    {
+      "path": "evaluation_report/branch_reports/index.json",
+      "preserved": "evaluation_report/preserved_versions/2026-11-06/b9f4497053e9ca7b/branch_reports/index.json",
+      "sha256": "b9f4497053e9ca7b55cec44c6f791515f77b5eafcb8fe003ce64bc08ad09aac3",
+      "source": "previous shared version"
+    }
+  ],
+  "note": "Server reports copied without deleting existing results; prior versions retained. GitHub-maintained index and README retained, divergent server copies archived. Branch documents refreshed."
+}

@@ -1,0 +1,14 @@
+{
+  "checked_unix": 1793714563.346394,
+  "tests_passed": 38,
+  "command_seed": 43,
+  "tasks": [
+    "open_microwave",
+    "move_stapler_pad"
+  ],
+  "models": 2,
+  "planned_episodes_per_model": 400,
+  "planned_total": 800,
+  "initial_reports_verified": true,
+  "checkpoint_paths_reused_verified": true
+}

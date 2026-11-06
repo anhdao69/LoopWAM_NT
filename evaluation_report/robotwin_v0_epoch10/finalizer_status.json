@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "finished_unix": 1793964806.0597038,
+  "totals": {
+    "demo_clean": {
+      "successes": 4603,
+      "episodes": 5000,
+      "sr_percent": 92.06
+    },
+    "demo_randomized": {
+      "successes": 4584,
+      "episodes": 5000,
+      "sr_percent": 91.68
+    },
+    "combined": {
+      "successes": 9187,
+      "episodes": 10000,
+      "sr_percent": 91.87
+    }
+  }
+}
