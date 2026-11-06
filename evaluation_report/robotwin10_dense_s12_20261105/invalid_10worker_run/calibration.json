@@ -1,0 +1,154 @@
+{
+  "profiles": [
+    {
+      "name": "speed_native_w4",
+      "workers": 4,
+      "backend": "native",
+      "seconds": 353.5277454853058,
+      "peak_gpu_mib": 51010,
+      "baseline_gpu_mib": 50,
+      "peak_added_mib": 50960,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 12,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 46877
+    },
+    {
+      "name": "speed_graph_w4",
+      "workers": 4,
+      "backend": "cuda-graph",
+      "seconds": 356.50809240341187,
+      "peak_gpu_mib": 45262,
+      "baseline_gpu_mib": 50,
+      "peak_added_mib": 45212,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 14,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 52625
+    },
+    {
+      "name": "speed_graph_w8",
+      "workers": 8,
+      "backend": "cuda-graph",
+      "seconds": 278.04978799819946,
+      "peak_gpu_mib": 66489,
+      "baseline_gpu_mib": 50,
+      "peak_added_mib": 66439,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 11,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 31398
+    },
+    {
+      "name": "speed_graph_w10",
+      "workers": 10,
+      "backend": "cuda-graph",
+      "seconds": 266.18274450302124,
+      "peak_gpu_mib": 73850,
+      "baseline_gpu_mib": 50,
+      "peak_added_mib": 73800,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 20,
+      "successes": 12,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "hanging_mug",
+        "move_stapler_pad",
+        "open_microwave",
+        "press_stapler",
+        "scan_object",
+        "stack_blocks_two",
+        "stamp_seal",
+        "turn_switch"
+      ],
+      "episodes_per_cell": 1,
+      "memory_margin_mib": 24037
+    }
+  ],
+  "skipped": [
+    {
+      "name": "speed_graph_w12",
+      "reason": "Insufficient free GPU memory for measured projection plus reserve",
+      "required_mib": 100851,
+      "gpu": {
+        "total_mib": 97887,
+        "used_mib": 50,
+        "free_mib": 97198,
+        "utilization": 0
+      }
+    }
+  ],
+  "selected": {
+    "name": "speed_graph_w10",
+    "workers": 10,
+    "backend": "cuda-graph",
+    "seconds": 266.18274450302124,
+    "peak_gpu_mib": 73850,
+    "baseline_gpu_mib": 50,
+    "peak_added_mib": 73800,
+    "exit_code": 0,
+    "passed": true,
+    "episodes": 20,
+    "successes": 12,
+    "tasks": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "episodes_per_cell": 1,
+    "memory_margin_mib": 24037
+  },
+  "finished_unix": 1793884540.7595918,
+  "basis": "Fastest successful CUDA-graph wall time per episode across all ten tasks, both settings, one unscored episode per cell; native4 and graph4/8/12/10; higher counts require memory projections with reserve. Minimum selected-profile headroom 12000MiB; final admission must fit current free memory. Short profiles include startup and are not full-run time predictions."
+}

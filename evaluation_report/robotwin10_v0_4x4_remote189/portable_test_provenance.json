@@ -1,0 +1,6 @@
+{
+  "original_test_sha256": "15a7b21433b7bcaf601cf8d66d00eb93bee45ec9f8c190fc99646bd421bb623e",
+  "relocated_test_sha256": "5e19d51a7aa5c916c44d5260fb7e90086b108ebe5ebb765f3e6de3e72b9a9439",
+  "fastwam_reference_sha256": "57a34b527b6bc446a6f9e2e4a1b7098a449b7fc09275b20ee7e446e6ef0656ac",
+  "change": "Only the absolute path to the identical released FastWAM reference was relocated; assertions unchanged."
+}

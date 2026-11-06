@@ -1,0 +1,40 @@
+{
+  "expected_step": 45445,
+  "tasks": [
+    "adjust_bottle",
+    "grab_roller",
+    "hanging_mug",
+    "move_stapler_pad",
+    "open_microwave",
+    "press_stapler",
+    "scan_object",
+    "stack_blocks_two",
+    "stamp_seal",
+    "turn_switch"
+  ],
+  "settings": [
+    "demo_clean",
+    "demo_randomized"
+  ],
+  "episodes": 100,
+  "seed": 42,
+  "instruction_type": "unseen",
+  "num_inference_steps": 10,
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "noise_seed": "fixed seed for every query, FastWAM default",
+  "image_preprocessing": "released_fastwam_pil_uint8_bf16",
+  "instruction_rng": "released_fastwam_no_explicit_python_seed",
+  "cuda_graph": "1",
+  "compile_action_infer": false,
+  "renderer_shader": "rt",
+  "gpu_pci": {},
+  "stats_sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+  "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+  "epoch": 5,
+  "variant": "v0-video4-action2",
+  "parameters": 584567886,
+  "video_loops": 4,
+  "action_loops": 2,
+  "source": "Generated local protocol: same settings as completed local RoboTwin evaluations, restricted to release task list"
+}

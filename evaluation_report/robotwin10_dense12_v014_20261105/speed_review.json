@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checked_unix": 1793883197.1695125,
+  "reviewer": "speed_sweep_review",
+  "resolved": [
+    "Reject cached/partial sweep re-timing before any timing overwrite",
+    "Selected profile must have 12000MiB headroom and fit final memory admission"
+  ],
+  "tests": 11,
+  "scored_protocol_unchanged": true
+}

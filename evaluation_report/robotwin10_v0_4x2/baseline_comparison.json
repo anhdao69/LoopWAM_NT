@@ -1,0 +1,57 @@
+{
+  "seed": 42,
+  "episodes_per_model": 2000,
+  "totals": {
+    "v0_4x2": {
+      "demo_clean": {
+        "successes": 804,
+        "episodes": 1000,
+        "sr_percent": 80.4
+      },
+      "demo_randomized": {
+        "successes": 795,
+        "episodes": 1000,
+        "sr_percent": 79.5
+      },
+      "combined": {
+        "successes": 1599,
+        "episodes": 2000,
+        "sr_percent": 79.95
+      }
+    },
+    "v0_4x4": {
+      "demo_clean": {
+        "successes": 774,
+        "episodes": 1000,
+        "sr_percent": 77.4
+      },
+      "demo_randomized": {
+        "successes": 803,
+        "episodes": 1000,
+        "sr_percent": 80.3
+      },
+      "combined": {
+        "successes": 1577,
+        "episodes": 2000,
+        "sr_percent": 78.85
+      }
+    },
+    "dense_s30": {
+      "demo_clean": {
+        "successes": 838,
+        "episodes": 1000,
+        "sr_percent": 83.8
+      },
+      "demo_randomized": {
+        "successes": 834,
+        "episodes": 1000,
+        "sr_percent": 83.4
+      },
+      "combined": {
+        "successes": 1672,
+        "episodes": 2000,
+        "sr_percent": 83.6
+      }
+    }
+  }
+}

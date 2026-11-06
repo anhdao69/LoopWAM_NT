@@ -1,0 +1,23 @@
+export PYTHONPATH=/storage/anhdh35/LoopWAM-robotwin10-dense-eval/src:/storage/anhdh35/LoopWAM-robotwin10-dense-eval:/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts
+export DIFFSYNTH_MODEL_BASE_PATH=/storage/anhdh35/Light-WAM/checkpoints
+export DIFFSYNTH_SKIP_DOWNLOAD=true
+export PYTHONUNBUFFERED=1
+export PYTHONNOUSERSITE=1
+export OMP_NUM_THREADS=2
+export MKL_NUM_THREADS=2
+export OPENBLAS_NUM_THREADS=1
+export TOKENIZERS_PARALLELISM=false
+export CUDA_VISIBLE_DEVICES=0
+export CUDA_HOME=/usr/local/cuda-12.8
+export TORCH_CUDA_ARCH_LIST=12.0
+export MAX_JOBS=8
+export LOOPWAM_ROBOTWIN_SHADER=rt
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+export PATH=/data14t/anhdh35/loopwam_robotwin_v0_20261030/env/bin:/usr/local/cuda-12.8/bin:$PATH
+
+export TMPDIR=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/tmp
+export XDG_CACHE_HOME=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/cache
+export CUDA_CACHE_PATH=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/cache/cuda
+export TRITON_CACHE_DIR=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/cache/triton
+export TORCHINDUCTOR_CACHE_DIR=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/cache/inductor
+export __GL_SHADER_DISK_CACHE_PATH=/data14t/anhdh35/loopwam_robotwin10_v0_4x1_local_20261105/cache/shader

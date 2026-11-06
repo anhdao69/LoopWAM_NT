@@ -1,0 +1,30 @@
+{
+  "attempt_unix": 1793905520.8902018,
+  "remote_host": "10.148.182.137",
+  "returncode": 0,
+  "status": "synced",
+  "remote_queue": {
+    "stage": "complete",
+    "updated_unix": 1793905496.4053473,
+    "queue_pid": 3263613,
+    "status": "complete",
+    "finished_unix": 1793905496.4051766,
+    "results": {
+      "demo_clean": {
+        "successes": 739,
+        "episodes": 1000,
+        "sr_percent": 73.9
+      },
+      "demo_randomized": {
+        "successes": 724,
+        "episodes": 1000,
+        "sr_percent": 72.4
+      },
+      "combined": {
+        "successes": 1463,
+        "episodes": 2000,
+        "sr_percent": 73.15
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "epoch": 6,
+  "step": 284772,
+  "sha256": "6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0",
+  "bytes": 2338751589,
+  "native_checkpoint_unmodified": true,
+  "optimizer_included": false,
+  "finite_fp32_tensors_verified": 679,
+  "evaluation_status": "not_evaluated",
+  "created_utc": "2026-10-31T13:41:52.629114+00:00"
+}
