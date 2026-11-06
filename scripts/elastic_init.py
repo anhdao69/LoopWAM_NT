@@ -56,7 +56,12 @@ def save(payload, out):
 def common(a):
     from fastwam.models.wan22.loopwam import create_loopwam
     from fastwam.models.wan22.residual_transport import ResidualTransport, StepCondition
-    parent = create_loopwam(checkpoint_path=a.teacher, vae_path=a.vae_path, device="cpu")
+    if a.robot:
+        # RoboTwin teacher (loopwam-s-robot-v1); the common_v1 rule is unchanged.
+        from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
+        parent, _ = create_loopwam_robot(a.vae_path, checkpoint_path=a.teacher, device="cpu", checkpoint_blocks=False)
+    else:
+        parent = create_loopwam(checkpoint_path=a.teacher, vae_path=a.vae_path, device="cpu")
     action = {k: v.detach().clone() for k, v in parent.action_expert.state_dict().items()}
     seeds = dict(step_condition=label_seed(f"elastic-common-v1:step_condition:{a.seed}"),
                  T4=label_seed(f"elastic-common-v1:transport:T4:{a.seed}"))
@@ -100,7 +105,9 @@ def main():
     p.add_argument("--teacher", required=True); p.add_argument("--vae-path", required=True)
     p.add_argument("--manifest"); p.add_argument("--latent-dir")
     p.add_argument("--seed", type=int, default=42); p.add_argument("--out", required=True)
+    p.add_argument("--robot", action="store_true", help="Teacher is a RoboTwin loopwam-s-robot-v1 checkpoint")
     a = p.parse_args()
+    if a.robot and a.recipe != "common_v1": p.error("RoboTwin teachers use the common_v1 recipe")
     common(a) if a.recipe == "common_v1" else legacy(a)
 
 if __name__ == "__main__":

@@ -82,8 +82,11 @@ class TeacherVelocityGraph:
 class TransportPolicy(nn.Module):
     def __init__(self,parent,*,kind="T4",scope="pb",step_cond=False,regime="fu",
                  anchor=True,checkpoint_blocks=True,loss_weights=None,
-                 reuse_teacher_prefix=False,collect_diagnostics=False,teacher_graph=False):
+                 reuse_teacher_prefix=False,collect_diagnostics=False,teacher_graph=False,
+                 end_prefix=10,gripper_loss=True):
         super().__init__()
+        # Endpoint loss shape (residual_transport.endpoint_losses); the defaults are the LIBERO recipe.
+        self.end_prefix,self.gripper_loss=end_prefix,gripper_loss
         # Speed option, default off: CUDA-graph replay of the frozen teacher (see TeacherVelocityGraph).
         self.teacher_graph=teacher_graph
         self._teacher_graph=None
@@ -244,7 +247,8 @@ class TransportPolicy(nn.Module):
                 self.delta_encoder(delta) if self.transport.kind=="T5" else None)
             z=z+delta
             history=new_history
-        end,grip=endpoint_losses(z,endpoint,sample["action_scale"],sample["action_offset"])
+        end,grip=endpoint_losses(z,endpoint,sample["action_scale"],sample["action_offset"],
+                                 prefix=self.end_prefix,gripper=self.gripper_loss)
         anchor=z.new_zeros(len(z))
         if self.anchor:
             clean=sample["action"]

@@ -32,12 +32,13 @@ ROOT=Path(__file__).resolve().parents[1]
 ASSETS=Path("/mnt/data/vmo-ai-task/anhdh35/FastWAM")
 PARENT_RUN=ASSETS/"runs/loopwam_nt/v0_full_libero_job4659_20261006"
 
-def sample_noise(indices,epoch,seed):
+def sample_noise(indices,epoch,seed,dim=7):
+    # dim: action dimension (LIBERO 7, RoboTwin 14); the per-window generator stream is otherwise unchanged.
     noise=[]; anchor=[]; times=[]
     for index in indices:
         g=torch.Generator().manual_seed(seed+1000003*epoch+97*(max(int(index),0)+1))
-        noise.append(torch.randn(32,7,generator=g))
-        anchor.append(torch.randn(32,7,generator=g))
+        noise.append(torch.randn(32,dim,generator=g))
+        anchor.append(torch.randn(32,dim,generator=g))
         times.append(torch.rand(1,generator=g))
     return torch.stack(noise),torch.stack(anchor),torch.cat(times)
 
@@ -74,6 +75,9 @@ def load_elastic_init(model,config,path,teacher_sha256):
     return parts
 
 def export_epoch(model,out,epoch,config,update,contract,early=False):
+    if contract.get("dataset")=="robotwin50":
+        # The export below writes LIBERO's loopwam-s-v1 layout; a RoboTwin export format is not built or validated.
+        raise NotImplementedError("RoboTwin elastic exports are not implemented")
     parent=model.parent
     # A native parent-compatible backbone with merged LoRA plus RT-specific metadata.
     action=merge_lora(copy.deepcopy(model.student.mixtures["action"]).cpu())
@@ -148,7 +152,7 @@ def main():
     p.add_argument("--latent-dir",default=str(PARENT_RUN/"latents"))
     p.add_argument("--init-checkpoint")
     p.add_argument("--microbatch",type=int,default=8)
-    p.add_argument("--expected-gpus",type=int,choices=(1,2,4),default=2)
+    p.add_argument("--expected-gpus",type=int,choices=(1,2,4,8),default=2)
     p.add_argument("--workers",type=int,default=4)
     p.add_argument("--global-batch",type=int,default=128)
     p.add_argument("--epochs",type=int,default=10)
@@ -167,9 +171,12 @@ def main():
     a=p.parse_args()
     rank=int(os.getenv("RANK","0")); world=int(os.getenv("WORLD_SIZE","1"))
     local=int(os.getenv("LOCAL_RANK","0"))
+    robot=ELASTIC.get(a.run_name,{}).get("dataset","libero")=="robotwin50"
     if world!=a.expected_gpus and not a.smoke: p.error("WORLD_SIZE must match --expected-gpus")
     if a.global_batch!=128 and not a.smoke: p.error("Production global batch must be 128")
-    if a.epochs!=10 and not a.smoke: p.error("Production training must cover ten epochs")
+    if a.epochs!=10 and not a.smoke and not robot: p.error("Production training must cover ten epochs")
+    if robot and not a.smoke and (a.max_updates is None or a.max_updates>=2000):
+        p.error("RoboTwin elastic runs are timing/validation runs until a RoboTwin export exists: --max-updates <2000")
     if a.global_batch%(world*a.microbatch): p.error("Invalid accumulation layout")
     torch.use_deterministic_algorithms(True)
     if a.no_fill_uninitialized: torch.utils.deterministic.fill_uninitialized_memory=False
@@ -188,20 +195,37 @@ def main():
         raise ValueError("Run already exists; explicitly resume instead of overwriting")
     if config.get("init_run") and not a.init_checkpoint:
         raise ValueError("RT+B2 requires the final RT-B2a checkpoint")
-    data=TransportCachedDataset(a.manifest,a.latent_dir)
-    if len(data)!=277713: raise ValueError("Unexpected full LIBERO window count")
-    parent=create_loopwam(checkpoint_path=a.teacher,vae_path=a.vae_path,device=str(device))
+    from fastwam.models.wan22.loopwam_init import sha256_file
+    if robot:
+        from fastwam.datasets.transport_robotwin import TransportRobotWinDataset,WINDOWS
+        from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
+        vae_sha=[sha256_file(a.vae_path) if rank==0 else None]
+        if world>1: dist.broadcast_object_list(vae_sha,src=0)
+        data=TransportRobotWinDataset(a.manifest,a.latent_dir,vae_sha[0])
+        if len(data)!=WINDOWS: raise ValueError("Unexpected RoboTwin-50 window count")
+        parent,payload=create_loopwam_robot(a.vae_path,checkpoint_path=a.teacher,device=str(device),checkpoint_blocks=False)
+        teacher_contract=payload["training_state"]["contract"]
+        if (teacher_contract["normalization_sha256"],teacher_contract["vae_sha256"])!=(data.manifest["normalization_sha256"],vae_sha[0]):
+            raise ValueError("Teacher was trained with different normalization or VAE")
+        del payload
+    else:
+        data=TransportCachedDataset(a.manifest,a.latent_dir)
+        if len(data)!=277713: raise ValueError("Unexpected full LIBERO window count")
+        parent=create_loopwam(checkpoint_path=a.teacher,vae_path=a.vae_path,device=str(device))
     parent.requires_grad_(False).eval()
+    action_dim=parent.action_expert.action_dim
+    if action_dim!=(14 if robot else 7): raise ValueError("Teacher action dimension does not match the dataset")
     model=TransportPolicy(parent,**{k:config[k] for k in ("kind","scope","step_cond","regime","anchor")},
         checkpoint_blocks=not a.no_checkpoint_blocks,loss_weights=config.get("loss_weights"),
         reuse_teacher_prefix=config.get("reuse_teacher_prefix",False),
-        collect_diagnostics=config.get("collect_diagnostics",False),teacher_graph=a.teacher_graph).to(device)
-    from fastwam.models.wan22.loopwam_init import sha256_file
+        collect_diagnostics=config.get("collect_diagnostics",False),teacher_graph=a.teacher_graph,
+        end_prefix=config.get("end_prefix",10),gripper_loss=config.get("gripper_loss",True)).to(device)
     identities=[None]
     if rank==0:
         identities[0]=dict(teacher=sha256_file(a.teacher),initial=None if a.init_checkpoint is None else sha256_file(a.init_checkpoint),vae=sha256_file(a.vae_path))
         if elastic: identities[0]["elastic_init"]=sha256_file(a.init_artifact)
     if world>1: dist.broadcast_object_list(identities,src=0)
+    if robot and identities[0]["teacher"]!=config["parent"]["sha256"]: raise ValueError("Teacher file is not the recipe's parent")
     if a.init_checkpoint:
         initial=torch.load(a.init_checkpoint,map_location="cpu",weights_only=False)
         validate_stacked_checkpoint(initial)
@@ -225,6 +249,10 @@ def main():
         global_batch=a.global_batch,epochs=a.epochs,planned_updates=total,teacher=str(Path(a.teacher).resolve()),
         normalization_sha256=data.manifest["normalization_sha256"],
         checkpoint_blocks=not a.no_checkpoint_blocks,deterministic_algorithms=True)
+    if robot:
+        if data.data_manifest_sha256!=teacher_contract["data_manifest_sha256"]: raise ValueError("Teacher was trained on other data")
+        contract.update(dataset="robotwin50",data_manifest_sha256=data.data_manifest_sha256,action_dim=action_dim,
+                        latent_dir=str(Path(a.latent_dir).resolve()))
     speed=dict(bf16_frozen=a.bf16_frozen,teacher_graph=a.teacher_graph,gc_freeze=a.gc_freeze,
                no_fill_uninitialized=a.no_fill_uninitialized)
     if any(speed.values()): contract["speed_options"]=speed
@@ -284,7 +312,10 @@ def main():
     for epoch in range(epoch_start,a.epochs):
         sampler.epoch=epoch; sampler.start_batch=micro_start if epoch==epoch_start else 0
         started=time.perf_counter(); logs={}; schedule=None
+        # Seconds this rank waited for its DataLoader during the update (reported as the max over ranks).
+        data_wait=0.; mark=time.perf_counter()
         for micro,sample in enumerate(loader,start=sampler.start_batch):
+            data_wait+=time.perf_counter()-mark
             group=micro//accum
             count=min(a.global_batch,len(data)-group*a.global_batch)
             boundary=(micro+1)%accum==0 or micro+1==len(sampler)
@@ -299,7 +330,7 @@ def main():
                     model.checkpoint_blocks=block_calls(schedule)>=a.checkpoint_min_blocks
                 model.teacher_passes=0; model.student_block_calls=0
                 model.student.rt_measurement={"forward":0,"backward":0} if update<20 else None
-            noise,anchor_noise,anchor_tau=sample_noise(sample["training_index"].tolist(),epoch,seed)
+            noise,anchor_noise,anchor_tau=sample_noise(sample["training_index"].tolist(),epoch,seed,dim=action_dim)
             sample={k:v.to(device,non_blocking=True) if torch.is_tensor(v) else v for k,v in sample.items()}
             sample.update(action_scale=scale,action_offset=offset)
             sync=runner.no_sync() if world>1 and not boundary else contextlib.nullcontext()
@@ -309,7 +340,8 @@ def main():
                 if not torch.isfinite(loss): raise FloatingPointError("Nonfinite RT loss")
                 (loss*world/count).backward()
             for key,val in components.items(): logs[key]=logs.get(key,0)+val
-            if not boundary: continue
+            if not boundary:
+                mark=time.perf_counter(); continue
             grad=torch.nn.utils.clip_grad_norm_(params,1.,error_if_nonfinite=True)
             factor=lr_factor(update,total,math.ceil(.03*total))
             for group_ in opt.param_groups: group_["lr"]=group_["base_lr"]*factor
@@ -321,8 +353,11 @@ def main():
             torch.cuda.synchronize()
             reduced=torch.stack(list(logs.values()))
             if world>1: dist.all_reduce(reduced)
+            seconds=time.perf_counter()-started
+            waited=torch.tensor([data_wait],device=device,dtype=torch.float64)
+            if world>1: dist.all_reduce(waited,op=dist.ReduceOp.MAX)
             record=dict(update=update,epoch=epoch+1,windows=count,windows_seen=windows_seen,
-                schedule=schedule_name,seconds=time.perf_counter()-started,grad_norm=float(grad),
+                schedule=schedule_name,seconds=seconds,data_wait_seconds=float(waited),time=time.time(),grad_norm=float(grad),
                 peak_allocated_gb=torch.cuda.max_memory_allocated()/1e9,
                 teacher_passes_per_microbatch=model.teacher_passes/max(1,math.ceil(count/(world*a.microbatch))),
                 student_forward_blocks_per_microbatch=model.student_block_calls/max(1,math.ceil(count/(world*a.microbatch))),
@@ -357,7 +392,7 @@ def main():
                 if rank==0: print(json.dumps(dict(event="stopped",update=update,resume_ready=True)),flush=True)
                 if world>1: dist.destroy_process_group()
                 return
-            started=time.perf_counter(); logs={}
+            started=time.perf_counter(); logs={}; data_wait=0.; mark=time.perf_counter()
         micro_start=0
     if rank==0:
         print(json.dumps(dict(event="complete",updates=update,windows_seen=windows_seen)),flush=True)

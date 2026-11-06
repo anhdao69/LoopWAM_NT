@@ -57,6 +57,16 @@ CL0_PARENT=dict(name="CL-0_no-memory_a4",repository="anhdao69/ChronoLoop",file="
                 grandparent_sha256="1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b")
 for _name in ("E0","E1","E2"):
     ELASTIC[f"CL0-{_name}"]=dict(ELASTIC[_name],parent=CL0_PARENT)
+# RoboTwin-50 port (2026-11-06): the E0/E1/E2 recipes on the RoboTwin-50 v0 training data, with the full-RoboTwin
+# LoopWAM v0 4/4 epoch-10 checkpoint (loopwam-s-robot-v1, = HF robotwin/v0-video4-action4/epoch_10/policy.pt) as the
+# frozen teacher and the student initializer. Two embodiment adaptations of the endpoint loss: RoboTwin executes 24
+# actions per query (end over 24, LIBERO 10), and its grippers are continuous qpos targets, so LIBERO's binarized
+# gripper hinge does not apply (grip off). Everything else (losses, schedules, sampler, LRs, init rule) is unchanged.
+RT50_PARENT=dict(name="LoopWAM-v0-full-RoboTwin epoch 10",repository="anhdao69/LoopWAM_NT",
+                 file="robotwin/v0-video4-action4/epoch_10/policy.pt",format="loopwam-s-robot-v1",step=474620,
+                 sha256="70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea")
+for _name in ("E0","E1","E2"):
+    ELASTIC[f"RT50-{_name}"]=dict(ELASTIC[_name],parent=RT50_PARENT,dataset="robotwin50",end_prefix=24,gripper_loss=False)
 del _name
 
 def eligible(name,evidence):

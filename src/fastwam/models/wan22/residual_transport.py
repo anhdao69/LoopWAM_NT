@@ -216,9 +216,15 @@ def gripper_command(actions,scale,offset):
     raw=(actions[...,6]-offset[6])/scale[6]
     return 1-2*raw
 
-def endpoint_losses(student,teacher,scale,offset):
-    end=(student[:,:10].float()-teacher[:,:10].float()).square().mean((1,2))
-    target=gripper_command(teacher[:,:10],scale,offset)
+def endpoint_losses(student,teacher,scale,offset,prefix=10,gripper=True):
+    """Endpoint terms over the executed prefix of the chunk (LIBERO executes 10 actions per query, RoboTwin 24).
+
+    gripper=True adds LIBERO's hinge on the binarized gripper command. RoboTwin grippers are continuous qpos
+    targets with no deployment threshold, so RoboTwin recipes turn it off (grip is then exactly zero).
+    """
+    end=(student[:,:prefix].float()-teacher[:,:prefix].float()).square().mean((1,2))
+    if not gripper: return end,end.new_zeros(end.shape)
+    target=gripper_command(teacher[:,:prefix],scale,offset)
     sign=torch.where(target>=0,1.,-1.)  # deployed raw > .5 opens; equality closes
-    grip=F.softplus(-5*sign*gripper_command(student[:,:10],scale,offset)).mean(1)
+    grip=F.softplus(-5*sign*gripper_command(student[:,:prefix],scale,offset)).mean(1)
     return end,grip
