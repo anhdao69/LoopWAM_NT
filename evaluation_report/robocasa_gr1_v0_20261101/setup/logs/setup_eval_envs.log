@@ -1,0 +1,20 @@
+robosuite 51cc01785bab80ffeed20da15e67d7dd4140e76a
+robocasa-gr1-tabletop-tasks 4840e671596f93ca03651524b9f72ffb1aadfeff
+starVLA 13d8ad43eb4128554c57227507055ecf9c3a62a2
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+opencv-python 5.0.0.93 requires numpy>=2; python_version >= "3.9", but you have numpy 1.26.4 which is incompatible.
+Proceeding...
+Downloading environment textures
+Downloading to /mnt/data/vmo-ai-task/anhdh35/gr1_eval/third_party/robocasa-gr1-tabletop-tasks/robocasa/models/assets/textures.zip
+textures.zip: 0.00B [00:00, ?B/s]textures.zip: 0.00B [02:09, ?B/s]
+Error downloading after try #1
+Downloading to /mnt/data/vmo-ai-task/anhdh35/gr1_eval/third_party/robocasa-gr1-tabletop-tasks/robocasa/models/assets/textures.zip
+textures.zip: 0.00B [00:00, ?B/s]textures.zip: 0.00B [02:11, ?B/s]
+Error downloading after try #2
+Downloading to /mnt/data/vmo-ai-task/anhdh35/gr1_eval/third_party/robocasa-gr1-tabletop-tasks/robocasa/models/assets/textures.zip
+textures.zip: 0.00B [00:00, ?B/s]textures.zip: 0.00B [02:11, ?B/s]
+Error downloading after try #3
+Failed to download. Try again...
+Downloading fixtures
+Downloading to /mnt/data/vmo-ai-task/anhdh35/gr1_eval/third_party/robocasa-gr1-tabletop-tasks/robocasa/models/assets/fixtures.zip
+fixtures.zip: 0.00B [00:00, ?B/s]

@@ -1,0 +1,5 @@
+tasks gr1_unified/PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env,gr1_unified/PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env
+0, 52273 MiB, 100 %;1, 52453 MiB, 96 %;2, 52273 MiB, 96 %;3, 52273 MiB, 100 %;4, 51979 MiB, 100 %;5, 52139 MiB, 100 %;6, 52139 MiB, 95 %;7, 52119 MiB, 100 %;
+[2026-11-06T05:13:26Z] eval-e06-a1: checkpoint /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/production/checkpoints/epoch_05.pt step 117580 -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/continuation_20261106/gates/eval_smoke ports from 6790, cpus 32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125
+[2026-11-06T05:15:12Z] eval-e06-a1: run_eval rc=0
+{"tasks": 1, "complete": true, "mean": 0.0}

@@ -1,0 +1,265 @@
+{
+  "format": "elastic-run-manifest-v1",
+  "run": "CL0-E1",
+  "created_utc": 1793709974.949445,
+  "status": "complete",
+  "source": {
+    "git_revision": "a8edfd275f82c24b5985464dcd50bc4ef4b9ac1d",
+    "branch": "elastic",
+    "plan": "plans/LoopWAM_elastic.md"
+  },
+  "environment": {
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "torch": "2.7.1+cu128",
+    "slurm_job_id": "5623"
+  },
+  "contract": {
+    "asset_sha256": {
+      "teacher": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+      "initial": null,
+      "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+      "elastic_init": "47c534d87c194f35cd926cca5c1faaf9892cb20d2557ba039b8a4c95a44cbec4"
+    },
+    "config": {
+      "kind": "T1",
+      "scope": "pc",
+      "regime": "fu",
+      "schedules": [
+        "flat_k1_n2",
+        "flat_k1_n5",
+        "flat_k1_n10",
+        "flat_k2_n2",
+        "flat_k2_n5",
+        "flat_k2_n10",
+        "flat_k4_n2",
+        "flat_k4_n5",
+        "flat_k4_n10"
+      ],
+      "step_cond": true,
+      "anchor": true,
+      "seed": 42,
+      "sampler": "balanced",
+      "init": "common_v1",
+      "reuse_teacher_prefix": true,
+      "collect_diagnostics": true,
+      "campaign": "elastic-v1",
+      "parent": {
+        "name": "CL-0_no-memory_a4",
+        "repository": "anhdao69/ChronoLoop",
+        "file": "CL-0_no-memory_a4/epoch_10/policy.pt",
+        "chronoloop_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+        "grandparent_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+      }
+    },
+    "windows": 277713,
+    "world": 4,
+    "microbatch": 32,
+    "global_batch": 128,
+    "epochs": 10,
+    "planned_updates": 21700,
+    "normalization_sha256": "d5ad351eb3272f416d34082e8af5483ba1118ceca355a37d9f268fdb269fb3e4",
+    "checkpoint_blocks": false,
+    "deterministic_algorithms": true,
+    "schedule_sequence_sha256": "37e93bb991623cb0a9d44757203307ee140abde4ea5833153ed86d146c8b9f39",
+    "checkpoint_min_blocks": null,
+    "init_parts": [
+      "student_action",
+      "step_condition"
+    ],
+    "latent_content_digest": "f2b1b21be72694ec8e3fb217fbda12c61e7cc44d2e3c33f5d28c5e226ea8b341"
+  },
+  "transport": "T1",
+  "scope": "pc",
+  "supported_schedules": [
+    "flat_k1_n2",
+    "flat_k1_n5",
+    "flat_k1_n10",
+    "flat_k2_n2",
+    "flat_k2_n5",
+    "flat_k2_n10",
+    "flat_k4_n2",
+    "flat_k4_n5",
+    "flat_k4_n10"
+  ],
+  "sampler": "balanced",
+  "initialization": {
+    "recipe": "common_v1",
+    "artifact_sha256": "47c534d87c194f35cd926cca5c1faaf9892cb20d2557ba039b8a4c95a44cbec4",
+    "parts": [
+      "student_action",
+      "step_condition"
+    ]
+  },
+  "trainable_parameters": 105678471,
+  "optimizer": {
+    "type": "AdamW fused",
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-08,
+    "groups": {
+      "step_and_transport": {
+        "lr": 0.001,
+        "weight_decay": 0.0
+      },
+      "lora": {
+        "lr": 0.0002,
+        "weight_decay": 0.0
+      },
+      "action_expert": {
+        "lr": 3e-05,
+        "weight_decay": 0.01
+      }
+    },
+    "warmup_updates": 651,
+    "decay": "cosine to 1% (train_loopwam.lr_factor)",
+    "clip_global_norm": 1.0,
+    "fresh_optimizer": true,
+    "ema_decay": 0.999,
+    "exported_weights": "raw (EMA kept only in recovery)"
+  },
+  "precision": "FP32 weights/optimizer, BF16 autocast compute",
+  "seeds": {
+    "data_order": 42,
+    "noise": 42,
+    "schedule": 42
+  },
+  "loss_weights": {
+    "local": 1.0,
+    "end": 0.5,
+    "grip": 0.1,
+    "anchor": 0.5
+  },
+  "truncation": "detach z and transport history at the start of student step j when j <= N-3",
+  "teacher": "frozen BASE10 (v0-video4-action4), deployed 0.1 Euler grid; first local target reused bit-identically from the endpoint trajectory",
+  "schedule_sequence": {
+    "sha256": "37e93bb991623cb0a9d44757203307ee140abde4ea5833153ed86d146c8b9f39"
+  },
+  "totals": {
+    "updates": 21700,
+    "valid_windows": 2777130,
+    "train_seconds": 20075.1,
+    "gpu_hours": 22.31,
+    "peak_allocated_gb": 63.986052608
+  },
+  "per_configuration": {
+    "flat_k1_n10": {
+      "updates": 2411,
+      "valid_windows": 308561,
+      "seconds": 2348.3,
+      "mean_local": 0.014931164059252993,
+      "mean_end": 0.0041271344092469655,
+      "mean_grip": 0.034986209020172,
+      "mean_anchor": 0.010166298129964599,
+      "mean_total": 0.025576501248210544
+    },
+    "flat_k1_n2": {
+      "updates": 2411,
+      "valid_windows": 308608,
+      "seconds": 1532.5,
+      "mean_local": 0.011518715987231525,
+      "mean_end": 0.004081578270120029,
+      "mean_grip": 0.02426399206989864,
+      "mean_anchor": 0.010097302937952007,
+      "mean_total": 0.021034555885923793
+    },
+    "flat_k1_n5": {
+      "updates": 2411,
+      "valid_windows": 308561,
+      "seconds": 1903.4,
+      "mean_local": 0.012148477220610538,
+      "mean_end": 0.0036972485124290434,
+      "mean_grip": 0.029978903615875453,
+      "mean_anchor": 0.01006199299979503,
+      "mean_total": 0.02202598840709786
+    },
+    "flat_k2_n10": {
+      "updates": 2412,
+      "valid_windows": 308642,
+      "seconds": 2741.5,
+      "mean_local": 0.01691480675391976,
+      "mean_end": 0.003560246872868391,
+      "mean_grip": 0.029606814323697477,
+      "mean_anchor": 0.010101169860300976,
+      "mean_total": 0.02670619661546407
+    },
+    "flat_k2_n2": {
+      "updates": 2411,
+      "valid_windows": 308608,
+      "seconds": 1614.4,
+      "mean_local": 0.006505159880870923,
+      "mean_end": 0.0027036054851448652,
+      "mean_grip": 0.019089073117525744,
+      "mean_anchor": 0.01010826755159008,
+      "mean_total": 0.01482000375477105
+    },
+    "flat_k2_n5": {
+      "updates": 2411,
+      "valid_windows": 308514,
+      "seconds": 2104.4,
+      "mean_local": 0.008849106045057294,
+      "mean_end": 0.002854464384513967,
+      "mean_grip": 0.024424823133742852,
+      "mean_anchor": 0.010091543850644986,
+      "mean_total": 0.017764592518937493
+    },
+    "flat_k4_n10": {
+      "updates": 2411,
+      "valid_windows": 308561,
+      "seconds": 3528.0,
+      "mean_local": 0.0031459494107766005,
+      "mean_end": 0.001266050054428855,
+      "mean_grip": 0.016058541053248453,
+      "mean_anchor": 0.010131601452629261,
+      "mean_total": 0.010450629308239248
+    },
+    "flat_k4_n2": {
+      "updates": 2411,
+      "valid_windows": 308561,
+      "seconds": 1789.7,
+      "mean_local": 0.0026770340683091197,
+      "mean_end": 0.00126470791626717,
+      "mean_grip": 0.011814928946558308,
+      "mean_anchor": 0.01011633799542709,
+      "mean_total": 0.009549049947233384
+    },
+    "flat_k4_n5": {
+      "updates": 2411,
+      "valid_windows": 308514,
+      "seconds": 2512.9,
+      "mean_local": 0.002371453610250524,
+      "mean_end": 0.001173315836086472,
+      "mean_grip": 0.014778623690236973,
+      "mean_anchor": 0.010139348077144374,
+      "mean_total": 0.009505647960836184
+    }
+  },
+  "checkpoints": {
+    "step_00002000": {
+      "sha256": "d73d98657b493fb1bb35a05fd5b83c83ceef9a51f2fd89a67f8ec2a6eb518a39",
+      "bytes": 2761414709,
+      "hub_path": null,
+      "hub_revision": null
+    },
+    "epoch_08": {
+      "sha256": "fb61c7fc0a2d4adc92599fc4bb52d413c539efacb54638ffcb27a6bd33fc9a19",
+      "bytes": 2761409574,
+      "hub_path": null,
+      "hub_revision": null
+    },
+    "epoch_09": {
+      "sha256": "bfad3da85fa31fda5a6451579e65db6fc6876fbb9715c713ac3210c7f1c55b6c",
+      "bytes": 2761409574,
+      "hub_path": null,
+      "hub_revision": null
+    },
+    "epoch_10": {
+      "sha256": "d2f192e4ed62986fe07852cbb85e062f99c1209f5a0e40b35f9032d5c21edae6",
+      "bytes": 2761409574,
+      "hub_path": null,
+      "hub_revision": null
+    }
+  },
+  "selected_checkpoint": "epoch_10 (raw, predeclared)"
+}

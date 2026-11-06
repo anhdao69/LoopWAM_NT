@@ -1,0 +1,36 @@
+{
+ "run": "E0",
+ "schedule": "flat_k1_n2",
+ "checkpoint_sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+ "backend": "cuda-graph",
+ "episodes": 100,
+ "successes": 94,
+ "success_rate": 0.94,
+ "per_suite": {
+  "libero_spatial": {
+   "successes": 49,
+   "episodes": 50,
+   "success_rate": 0.98,
+   "seeds": {
+    "42": {
+     "successes": 49,
+     "episodes": 50,
+     "success_rate": 0.98
+    }
+   }
+  },
+  "libero_10": {
+   "successes": 45,
+   "episodes": 50,
+   "success_rate": 0.9,
+   "seeds": {
+    "42": {
+     "successes": 45,
+     "episodes": 50,
+     "success_rate": 0.9
+    }
+   }
+  }
+ },
+ "suite_mean_success_rate": 0.94
+}

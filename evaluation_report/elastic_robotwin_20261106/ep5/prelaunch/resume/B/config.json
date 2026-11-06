@@ -1,0 +1,176 @@
+{
+  "asset_sha256": {
+    "teacher": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+    "initial": null,
+    "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "elastic_init": "196c84abf3329adc80a0a394a410326f0150b3d6bf4c343607eec55c3f662484"
+  },
+  "config": {
+    "kind": "T4",
+    "scope": "pc",
+    "regime": "fu",
+    "schedules": [
+      "flat_k1_n2",
+      "flat_k1_n5",
+      "flat_k1_n10",
+      "flat_k2_n2",
+      "flat_k2_n5",
+      "flat_k2_n10",
+      "flat_k4_n2",
+      "flat_k4_n5",
+      "flat_k4_n10"
+    ],
+    "step_cond": true,
+    "anchor": true,
+    "seed": 42,
+    "sampler": "balanced",
+    "init": "common_v1",
+    "reuse_teacher_prefix": true,
+    "collect_diagnostics": true,
+    "campaign": "elastic-v1",
+    "find_unused_parameters": true,
+    "parent": {
+      "name": "LoopWAM-v0-full-RoboTwin epoch 5",
+      "repository": "anhdao69/LoopWAM_NT",
+      "file": "robotwin/v0-video4-action4/policy.pt",
+      "format": "loopwam-s-robot-v1",
+      "step": 237310,
+      "sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"
+    },
+    "dataset": "robotwin50",
+    "end_prefix": 24,
+    "gripper_loss": false
+  },
+  "windows": 6075103,
+  "world": 4,
+  "microbatch": 32,
+  "global_batch": 128,
+  "epochs": 1,
+  "planned_updates": 47462,
+  "teacher": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt",
+  "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "checkpoint_blocks": false,
+  "deterministic_algorithms": true,
+  "dataset": "robotwin50",
+  "data_manifest_sha256": "ac26ba644a10ab81d99c24eed47b7fb070e2aea34f48cf2c28cd35de888f7ee9",
+  "action_dim": 14,
+  "latent_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50/latents",
+  "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "schedule_sequence_sha256": "bebfaa7a3b0a01fb17d079e104f4fbeed41bf819dc45732f99b6981dbbc70ac2",
+  "checkpoint_min_blocks": null,
+  "init_parts": [
+    "student_action",
+    "step_condition",
+    "transport"
+  ],
+  "latent_content_digest": null,
+  "run": "RT50-ep5-E2",
+  "arguments": {
+    "run_name": "RT50-ep5-E2",
+    "init_artifact": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/init/rt50_ep5_common_init_v1.pt",
+    "checkpoint_min_blocks": null,
+    "hf_folder": "not-published",
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/ep5/prelaunch/resume/B",
+    "teacher": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt",
+    "vae_path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "manifest": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50/data/data_manifest.json",
+    "latent_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robotwin50_20261025/shared/robotwin50/latents",
+    "init_checkpoint": null,
+    "microbatch": 32,
+    "expected_gpus": 4,
+    "workers": 3,
+    "global_batch": 128,
+    "epochs": 1,
+    "save_every": 10,
+    "max_updates": 30,
+    "resume": true,
+    "no_checkpoint_blocks": true,
+    "smoke": false,
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "trainable_parameters": 105762094,
+  "slurm_job_id": "5758",
+  "git_revision": "85254cce727f4645c784d77868b8d7608d67a7a9",
+  "schedules": {
+    "flat_k1_n2": [
+      1,
+      1
+    ],
+    "flat_k1_n5": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k1_n10": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k2_n2": [
+      2,
+      2
+    ],
+    "flat_k2_n5": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k2_n10": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k4_n2": [
+      4,
+      4
+    ],
+    "flat_k4_n5": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "flat_k4_n10": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch_version": "2.7.1+cu128",
+  "hf_folder": "not-published"
+}
