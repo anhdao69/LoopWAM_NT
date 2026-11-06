@@ -65,8 +65,15 @@ for _name in ("E0","E1","E2"):
 RT50_PARENT=dict(name="LoopWAM-v0-full-RoboTwin epoch 10",repository="anhdao69/LoopWAM_NT",
                  file="robotwin/v0-video4-action4/epoch_10/policy.pt",format="loopwam-s-robot-v1",step=474620,
                  sha256="70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea")
+# RT50-ep5-*: the same recipes distilled from the same run's epoch 5 (identical data/normalization/VAE contract) =
+# HF robotwin/v0-video4-action4/policy.pt (its checkpoint_provenance.json: epoch 5, step 237310) = the cluster's
+# runs/robotwin_full_v0_20261028/release_v2/production/checkpoints/epoch_05.pt (same bytes).
+RT50_EP5_PARENT=dict(name="LoopWAM-v0-full-RoboTwin epoch 5",repository="anhdao69/LoopWAM_NT",
+                     file="robotwin/v0-video4-action4/policy.pt",format="loopwam-s-robot-v1",
+                     step=237310,sha256="38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51")
 for _name in ("E0","E1","E2"):
     ELASTIC[f"RT50-{_name}"]=dict(ELASTIC[_name],parent=RT50_PARENT,dataset="robotwin50",end_prefix=24,gripper_loss=False)
+    ELASTIC[f"RT50-ep5-{_name}"]=dict(ELASTIC[f"RT50-{_name}"],parent=RT50_EP5_PARENT)
 del _name
 
 def eligible(name,evidence):

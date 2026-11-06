@@ -2,7 +2,7 @@
 """Real-model preflight of the RoboTwin-50 elastic port (RT50-E0/E1/E2) on one GPU. Writes one JSON report.
 
 --checks (any of identity,dataset,teacher,init):
-  identity  teacher = HF robotwin/v0-video4-action4/epoch_10 (sha, format, step), VAE / normalization / data manifest =
+  identity  teacher = the --family recipes' parent (sha, format, step, next epoch), VAE / normalization / data manifest =
             the teacher's training contract, 6,075,103 windows, latent-cache provenance (read-only open);
   dataset   elastic samples = the RoboTwin v0 trainer's RobotWindows.fields() (its cached text path) and the raw cache
             bits, bit for bit, on random windows plus episode first/last windows;
@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-RT50_SHA = "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea"
+UPDATES_PER_EPOCH = 47462  # RoboTwin-50 at global batch 128
 
 
 def main():
@@ -28,6 +28,7 @@ def main():
     p.add_argument("--schedules", default="flat_k1_n2,flat_k2_n5,flat_k4_n10,flat_k1_n10")
     p.add_argument("--options", default="bf16_frozen,teacher_graph,no_fill,all")
     p.add_argument("--dataset-windows", type=int, default=384); p.add_argument("--queries", type=int, default=4)
+    p.add_argument("--family", default="RT50", help="recipe family: RT50 (epoch-10 teacher) or RT50-ep5 (epoch 5)")
     p.add_argument("--out", required=True)
     a = p.parse_args()
     torch.use_deterministic_algorithms(True)
@@ -54,9 +55,11 @@ def main():
     header = torch.load(teacher, map_location="cpu", mmap=True, weights_only=False)
     contract = header["training_state"]["contract"]
     if "identity" in checks:
-        check("teacher_identity", teacher_sha == RT50_SHA == ELASTIC["RT50-E0"]["parent"]["sha256"]
-              and header["format_version"] == "loopwam-s-robot-v1" and header["step"] == 474620
-              and header["training_state"]["next_epoch"] == 10 and vae_sha == contract["vae_sha256"],
+        parent_ = ELASTIC[f"{a.family}-E0"]["parent"]
+        check("teacher_identity", teacher_sha == parent_["sha256"]
+              and all(ELASTIC[f"{a.family}-{e}"]["parent"] == parent_ for e in ("E1", "E2"))
+              and header["format_version"] == parent_["format"] == "loopwam-s-robot-v1" and header["step"] == parent_["step"]
+              and header["training_state"]["next_epoch"] * UPDATES_PER_EPOCH == parent_["step"] and vae_sha == contract["vae_sha256"],
               teacher_sha256=teacher_sha, step=header["step"], vae_sha256=vae_sha)
     data = TransportRobotWinDataset(os.environ["ELASTIC_MANIFEST"], os.environ["ELASTIC_LATENTS"], vae_sha)
     if "identity" in checks:
@@ -140,18 +143,19 @@ def main():
         return model.train()
 
     if "init" in checks:
-        reference = build(parent, "RT50-E0").initial_state()
+        reference = build(parent, f"{a.family}-E0").initial_state()
         init_ok = all(torch.equal(reference["student_action"][k], v.cpu()) for k, v in parent.action_expert.state_dict().items())
         trainable = {}; parts = {}
-        for name in ("RT50-E0", "RT50-E1", "RT50-E2"):
+        for name in (f"{a.family}-E0", f"{a.family}-E1", f"{a.family}-E2"):
             m = build(parent, name); trainable[name] = sum(q.numel() for q in m.parameters() if q.requires_grad)
             state = m.initial_state()
             init_ok &= all(torch.equal(state[part][k], reference[part][k]) for part in ("student_action", "step_condition") for k in reference[part])
             parts[name] = dict(step_condition=count(m.step_condition), transport=sum(q.numel() for q in m.transport.parameters() if q.requires_grad))
             del m
         action = count(parent.action_expert)
-        counts_ok = (trainable["RT50-E0"] == trainable["RT50-E1"] == action + parts["RT50-E0"]["step_condition"]
-                     and trainable["RT50-E2"] == trainable["RT50-E0"] + parts["RT50-E2"]["transport"])
+        e0, e1, e2 = (f"{a.family}-{e}" for e in ("E0", "E1", "E2"))
+        counts_ok = (trainable[e0] == trainable[e1] == action + parts[e0]["step_condition"]
+                     and trainable[e2] == trainable[e0] + parts[e2]["transport"])
         artifact = json.loads(Path(a.common_init).with_suffix(".json").read_text())
         check("common_initialization_and_trainable_counts", init_ok and counts_ok and artifact["teacher_sha256"] == teacher_sha,
               trainable=trainable, action_expert=action, parts=parts, init_tensor_sha256=artifact["tensor_sha256"])

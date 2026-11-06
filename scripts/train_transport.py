@@ -74,10 +74,52 @@ def load_elastic_init(model,config,path,teacher_sha256):
     model.load_initial_state(state,parts)
     return parts
 
+def export_epochs(robot,epochs):
+    """Epoch ends that write epoch_EE.pt: LIBERO keeps its 8/9/10 protocol; RoboTwin-50 runs export every epoch."""
+    return set(range(1,epochs+1)) if robot else {8,9,10}
+
+ROBOT_EXPORT_FORMAT="loopwam-s-robot-rt-v1"
+ROBOT_METADATA=("version","video_loops","action_loops","inference_loops","trained_max_loops","exit_weight_scale",
+                "memory_tokens","history_frame","architecture")
+
+def export_robot(model,out,epoch,config,update,contract,early=False):
+    """RoboTwin-50 export: the teacher's FP32 loopwam-s-robot-v1 payload, read back from the verified teacher file (so
+    the in-memory --bf16-frozen copy cannot leak), with the trained student in mot["mixtures.action.*"] plus the
+    elastic fields (loaded by fastwam.models.wan22.transport_inference_robot.load_robot_transport)."""
+    from fastwam.models.wan22.loopwam_init import sha256_file
+    from fastwam.models.wan22.loopwam_robot import FORMAT
+    from fastwam.models.wan22.residual_transport import LoRALinear
+    action_module=model.student.mixtures["action"]
+    if config["scope"]!="pc" or any(isinstance(m,LoRALinear) for m in action_module.modules()):
+        raise ValueError("RoboTwin exports cover the full action-expert (P-c) recipes only")
+    if sha256_file(contract["teacher"])!=contract["asset_sha256"]["teacher"]:
+        raise ValueError("Teacher file changed since training started")
+    base=torch.load(contract["teacher"],map_location="cpu",weights_only=False,mmap=True)
+    if base.get("format_version")!=FORMAT: raise ValueError("Teacher is not a loopwam-s-robot-v1 checkpoint")
+    student={k:v.detach().cpu().clone() for k,v in action_module.state_dict().items()}
+    prefix="mixtures.action."
+    mot=dict(base["mot"])
+    if {k[len(prefix):] for k in mot if k.startswith(prefix)}!=set(student):
+        raise ValueError("Student action expert keys differ from the teacher's")
+    for k,v in student.items():
+        if (v.dtype,v.shape)!=(mot[prefix+k].dtype,mot[prefix+k].shape): raise ValueError(f"Student tensor {k} changed type")
+        mot[prefix+k]=v
+    payload={k:base[k] for k in ROBOT_METADATA}
+    payload.update(format_version=ROBOT_EXPORT_FORMAT,base_format_version=FORMAT,mot=mot,
+        proprio_encoder=dict(base["proprio_encoder"]),step=update,transport_config=config,student_action=student,
+        inference_action_format="unmerged-exact",transport={k:v.detach().cpu().clone() for k,v in model.transport.state_dict().items()},
+        step_condition=None if model.step_condition is None else {k:v.detach().cpu().clone() for k,v in model.step_condition.state_dict().items()},
+        training_state=dict(epoch=epoch,update=update,merged_lora=False,contract=contract,
+            windows_seen=update*contract["global_batch"] if early else epoch*contract["windows"],
+            parent_step=base.get("step"),parent_training_state=base.get("training_state")))
+    path=out/("step_00002000.pt" if early else f"epoch_{epoch:02d}.pt")
+    atomic_save(payload,path)
+    return path
+
 def export_epoch(model,out,epoch,config,update,contract,early=False):
     if contract.get("dataset")=="robotwin50":
-        # The export below writes LIBERO's loopwam-s-v1 layout; a RoboTwin export format is not built or validated.
-        raise NotImplementedError("RoboTwin elastic exports are not implemented")
+        # No upload marker: RoboTwin elastic exports are not published.
+        return export_robot(model,out,epoch,config,update,contract,early)
     parent=model.parent
     # A native parent-compatible backbone with merged LoRA plus RT-specific metadata.
     action=merge_lora(copy.deepcopy(model.student.mixtures["action"]).cpu())
@@ -175,8 +217,6 @@ def main():
     if world!=a.expected_gpus and not a.smoke: p.error("WORLD_SIZE must match --expected-gpus")
     if a.global_batch!=128 and not a.smoke: p.error("Production global batch must be 128")
     if a.epochs!=10 and not a.smoke and not robot: p.error("Production training must cover ten epochs")
-    if robot and not a.smoke and (a.max_updates is None or a.max_updates>=2000):
-        p.error("RoboTwin elastic runs are timing/validation runs until a RoboTwin export exists: --max-updates <2000")
     if a.global_batch%(world*a.microbatch): p.error("Invalid accumulation layout")
     torch.use_deterministic_algorithms(True)
     if a.no_fill_uninitialized: torch.utils.deterministic.fill_uninitialized_memory=False
@@ -284,9 +324,18 @@ def main():
         windows_seen=state["windows_seen"]
         rng=state["rng"][rank]; torch.set_rng_state(rng["cpu"]); torch.cuda.set_rng_state(rng["cuda"])
         random.setstate(rng["python"]); np.random.set_state(rng["numpy"])
-    if a.resume and epoch_start in (8,9,10) and micro_start==0:
+    if a.resume and epoch_start in export_epochs(robot,a.epochs) and micro_start==0:
         if rank==0 and not (out/f"epoch_{epoch_start:02d}.pt").exists():
             export_epoch(model,out,epoch_start,config,update,contract)
+        if world>1: dist.barrier()
+    if a.resume and robot and update==2000:
+        # Stopped between the update-2000 recovery save and its export/copy: latest.pt holds exactly those weights.
+        # The condition is rank-independent so every rank reaches the barrier; only rank 0 looks at the files.
+        if rank==0 and not ((out/"step_00002000.pt").exists() and (out/"step_00002000_recovery.pt").exists()):
+            import shutil
+            export_epoch(model,out,epoch_start,config,update,contract,early=True)
+            shutil.copyfile(out/"latest.pt",out/"step_00002000_recovery.pt.tmp")
+            os.replace(out/"step_00002000_recovery.pt.tmp",out/"step_00002000_recovery.pt")
         if world>1: dist.barrier()
     scale=data.transform.normalizer["action"].scale.to(device)
     offset=data.transform.normalizer["action"].offset.to(device)
@@ -385,7 +434,7 @@ def main():
                 import shutil
                 shutil.copyfile(out/"latest.pt",out/"step_00002000_recovery.pt.tmp")
                 os.replace(out/"step_00002000_recovery.pt.tmp",out/"step_00002000_recovery.pt")
-            if epoch_done and epoch+1 in (8,9,10) and rank==0:
+            if epoch_done and epoch+1 in export_epochs(robot,a.epochs) and rank==0:
                 export_epoch(model,out,epoch+1,config,update,contract)
             if world>1 and epoch_done: dist.barrier()
             if maxed or stopping.item():

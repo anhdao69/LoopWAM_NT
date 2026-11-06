@@ -51,9 +51,11 @@ def validate_robot_payload(p):
         raise ValueError('Robot checkpoint architecture/donor mismatch')
     if m.get('initialization_mode')!='fresh_wan_donors_no_embodied_pretraining':raise ValueError('Robot initialization provenance mismatch')
 
-def create_loopwam_robot(vae_path,*,init_artifact=None,checkpoint_path=None,device='cpu',checkpoint_blocks=True,seed=42,artifact_sha256=None):
-    if checkpoint_path:
-        p=torch.load(checkpoint_path,map_location='cpu',mmap=True,weights_only=False);validate_robot_payload(p)
+def create_loopwam_robot(vae_path,*,init_artifact=None,checkpoint_path=None,device='cpu',checkpoint_blocks=True,seed=42,artifact_sha256=None,payload=None):
+    # payload: an already loaded robot checkpoint dict (the RoboTwin elastic export loader); checkpoint_path is unchanged.
+    if payload is not None and checkpoint_path:raise ValueError('Pass checkpoint_path or payload, not both')
+    if checkpoint_path or payload is not None:
+        p=payload if payload is not None else torch.load(checkpoint_path,map_location='cpu',mmap=True,weights_only=False);validate_robot_payload(p)
         from .wan_video_dit import WanVideoDiT
         from .action_dit import ActionDiT
         m=copy.deepcopy(p['architecture']);video=WanVideoDiT(**m['target_video_config']);action=ActionDiT(**m['target_action_config'])
