@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "tests_passed": 38,
+  "source_hashes_match": 9,
+  "strict_load": true,
+  "graph_bit_exact": true,
+  "smoke_episodes": 16,
+  "smoke_successes": 16,
+  "smoke_excluded": true,
+  "workers": 2,
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10,
+  "variant": "dense-s30",
+  "step": 45445,
+  "verified_unix": 1793630104.2255604
+}

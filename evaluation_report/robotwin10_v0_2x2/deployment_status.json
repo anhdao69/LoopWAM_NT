@@ -1,0 +1,12 @@
+{
+  "stage": "scored_evaluation_running",
+  "updated_unix": 1793742867.1686676,
+  "tmux": "robotwin10_v0_2x2",
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10,
+  "workers": 4,
+  "backend": "cuda-graph",
+  "tests_passed": 38,
+  "smoke_episodes_passed": 32
+}

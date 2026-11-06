@@ -1,0 +1,141 @@
+{
+  "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+  "finished": {
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "5c1dc512d4338c564a84e24cdbd681bebf06b110794f67d1769fb2d525db022f",
+          "video_verified": true,
+          "instruction": "Pick up the plastic soda bottle carefully using the left arm",
+          "queries": 5,
+          "query_trace_sha256": "9b0bf761ecb68260ad5d5c239452bfca6df1c42c33dd63f3d481805fa22984cb"
+        },
+        {
+          "seed": 4300003,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_clean/attempt_01/episode1_randomized-false_success-true.mp4",
+          "video_sha256": "eabdf85da1393babd5bab2594b27c11966c3b0241e88e0d928af3dc98446fecd",
+          "video_verified": true,
+          "instruction": "Use the left arm to grab the brown bottle head-up.",
+          "queries": 5,
+          "query_trace_sha256": "be9aafdb8b911dfc63a9968d196281c303169153e4c5b176596f0c6e2ee5805e"
+        }
+      ],
+      "successes": 2,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 55.07966732978821
+    },
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "53c02e8e5e02af8563ffe65b0a03ac2483424a9a06480b1dfd76f7b452847233",
+          "video_verified": true,
+          "instruction": "Use the right arm to grab the bottle the bottle with red screw cap",
+          "queries": 5,
+          "query_trace_sha256": "e3564650c33380f61c3738fbe5481ff5446dc190207c9d291b45467895b49cc5"
+        },
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_randomized/attempt_01/episode1_randomized-true_success-true.mp4",
+          "video_sha256": "62618fb71d8f9c49c7baf38ff2098c12ba54525a685d1bc70206170f2fac44b7",
+          "video_verified": true,
+          "instruction": "Pick up the green plastic bottle with ridged bottom from the table head-up.",
+          "queries": 5,
+          "query_trace_sha256": "0b16760b4375b0347b3b371f7e80029ca9d74cc3268bbafe8d1abd267835824f"
+        }
+      ],
+      "successes": 2,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 55.08580231666565
+    },
+    "grab_roller/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "task": "grab_roller",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "55446fe42e06b296d5ffc6ddf1454608250b92c1ea131f046494a8b6cdc8d103",
+          "video_verified": true,
+          "instruction": "Reach and grab the smooth wooden roller with both arms",
+          "queries": 4,
+          "query_trace_sha256": "5e275ec32f4ffb8f7adfb01e32b8b85bee339d85509755b95b35dc61e6ca1412"
+        },
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_clean/attempt_01/episode1_randomized-false_success-true.mp4",
+          "video_sha256": "81cd1ef51d2308d056e3b8140b62bf078b0987aba73637dca5ff27893c135114",
+          "video_verified": true,
+          "instruction": "Reach and grab the roller with tapered tips with both arms",
+          "queries": 4,
+          "query_trace_sha256": "978d1e75f36a591ac0a8bc7616d33fc3808a5194dcdf00c3d69071036c2eda06"
+        }
+      ],
+      "successes": 2,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_clean/attempt_01",
+      "seconds": 45.06295442581177
+    },
+    "grab_roller/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "task": "grab_roller",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300002,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "f04aca94be071db2c55b2e06042759065301b6bcdc95005c34ed43ca9b2e8be9",
+          "video_verified": true,
+          "instruction": "Use arms to grab the light brown wooden roller.",
+          "queries": 4,
+          "query_trace_sha256": "d73bfd28f32cece653f3a35c2dec3640c05075d18470bbe42845ac3393ac7ddd"
+        },
+        {
+          "seed": 4300003,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_randomized/attempt_01/episode1_randomized-true_success-true.mp4",
+          "video_sha256": "1f91f93065be19e4867c52b4e4dbce040cf62f4640ede50c3fb9ce6047e606e8",
+          "video_verified": true,
+          "instruction": "Grab the wooden roller on the table with arms.",
+          "queries": 4,
+          "query_trace_sha256": "209c79d65416fd6b622cd6a6ba5d854df0c7d4df6cf8e9590405ffe32725fc78"
+        }
+      ],
+      "successes": 2,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/smoke_native/grab_roller__demo_randomized/attempt_01",
+      "seconds": 50.071715354919434
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793629932.2355556,
+  "success_rates": {
+    "demo_clean": 1.0,
+    "demo_randomized": 1.0
+  }
+}

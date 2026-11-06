@@ -1,0 +1,73 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "bd03a4e2fbe0b4c2d653977a8f13a62b18bda234",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/COMPLETE",
+      "remote": "robotwin-10-h100/v0-video4-action4/COMPLETE",
+      "sha256": "3a45fcdf2d2d7d5b21dd65758d0fb2e7b44da6289ad042134648e1995681996f",
+      "size": 149
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/README.md",
+      "remote": "robotwin-10-h100/v0-video4-action4/README.md",
+      "sha256": "f6aa7d018f99260f6bfc7eea42736fd5fc1c23066901a9b027577256a0f17bd1",
+      "size": 1607
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/SHA256SUMS",
+      "remote": "robotwin-10-h100/v0-video4-action4/SHA256SUMS",
+      "sha256": "09c53e0030c05092233a555a273c0a98d2bb4f182ef5aa81b6229d9fd958bee8",
+      "size": 672
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/data_manifest.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/data_manifest.json",
+      "sha256": "a26b2930579e14733da39a35aee8fc728456d6834b561d8e17e70a3c8e6c9ea4",
+      "size": 176686
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/dataset_stats.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/dataset_stats.json",
+      "sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+      "size": 88715
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/epoch_05.pt.uploaded.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/epoch_05.pt.uploaded.json",
+      "sha256": "7c3d2590413c7552b2e97b24611e77795aaf67fe8eab14f3aea576265b4bb939",
+      "size": 309
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/precision.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/precision.json",
+      "sha256": "c532df417c2e237c018d70b344507b556f459027a7ec66973dff768bdcc73182",
+      "size": 150
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/training_manifest.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/training_manifest.json",
+      "sha256": "09539d5ee5bc163194f87d1854065a3ed33fdd6cdafe249d81b5c71aff3a73d7",
+      "size": 4118
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin-10-h100/v0-video4-action4/training_metrics.jsonl.gz",
+      "sha256": "3d4d7ec1c8e35ce07b9e755d45d1c04c849fe7c6e12ef3da873b2ea2915acd84",
+      "size": 3239933
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/training_timing.json",
+      "remote": "robotwin-10-h100/v0-video4-action4/training_timing.json",
+      "sha256": "3a45fcdf2d2d7d5b21dd65758d0fb2e7b44da6289ad042134648e1995681996f",
+      "size": 149
+    },
+    {
+      "path": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/checkpoint/epoch_05.pt",
+      "remote": "robotwin-10-h100/v0-video4-action4/epoch_05.pt",
+      "sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "size": 2338751845
+    }
+  ],
+  "finished_unix": 1793970991.2593935
+}
