@@ -1,0 +1,9 @@
+model,task,setting,seed42_successes,seed43_successes,episodes_per_seed
+v0_4x4,open_microwave,demo_clean,26,33,100
+v0_4x4,open_microwave,demo_randomized,37,60,100
+v0_4x4,move_stapler_pad,demo_clean,65,59,100
+v0_4x4,move_stapler_pad,demo_randomized,71,65,100
+dense_s30,open_microwave,demo_clean,61,75,100
+dense_s30,open_microwave,demo_randomized,50,53,100
+dense_s30,move_stapler_pad,demo_clean,83,72,100
+dense_s30,move_stapler_pad,demo_randomized,77,74,100

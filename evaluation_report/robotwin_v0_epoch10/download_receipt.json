@@ -1,0 +1,55 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "5d548173cdb550fb60acb668a01b182c5a8f3b98",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/README.md",
+      "remote": "robotwin/v0-video4-action4/epoch_10/README.md",
+      "sha256": "0302d0202c9c38e1abdfe85b4511ab76d57956f4f4c0806f72b44eef03eaef59",
+      "size": 1641
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/SHA256SUMS",
+      "remote": "robotwin/v0-video4-action4/epoch_10/SHA256SUMS",
+      "sha256": "4c24da062693d5e513760bafd6511159d75ea4f470d8b8a6592a450d427bf46c",
+      "size": 581
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/checkpoint_provenance.json",
+      "remote": "robotwin/v0-video4-action4/epoch_10/checkpoint_provenance.json",
+      "sha256": "fab9e44a39946640993e526cbe78207730340f4a6d173874414a446cdf49e6f4",
+      "size": 342
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/config.json",
+      "remote": "robotwin/v0-video4-action4/epoch_10/config.json",
+      "sha256": "487388e9a7489aaaa253f7f5cc9d01c1084e68620cc1e7197573ece3e632d2c4",
+      "size": 2163
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/data_provenance.json",
+      "remote": "robotwin/v0-video4-action4/epoch_10/data_provenance.json",
+      "sha256": "954f41971fbec911ef2c843b190f4072f2148c2dffa65ab5e978d0b0ca8141c7",
+      "size": 898
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/dataset_stats.json",
+      "remote": "robotwin/v0-video4-action4/epoch_10/dataset_stats.json",
+      "sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+      "size": 88715
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/training_state.json",
+      "remote": "robotwin/v0-video4-action4/epoch_10/training_state.json",
+      "sha256": "43f2f1d822eb603e6ec3055d9a206cca54a14a7720a7b0e8b35212ac4c85008f",
+      "size": 1498
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/policy.pt",
+      "remote": "robotwin/v0-video4-action4/epoch_10/policy.pt",
+      "sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "size": 2338751589
+    }
+  ],
+  "finished_unix": 1793905068.9536726
+}

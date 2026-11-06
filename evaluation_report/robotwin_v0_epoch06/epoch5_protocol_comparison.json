@@ -1,0 +1,25 @@
+{
+  "checked_unix": 1793455157.8753278,
+  "epoch5_protocol": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/results/manifest.json",
+  "epoch6_protocol": "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/results/manifest.json",
+  "changed_fields": [
+    "checkpoint",
+    "checkpoint_sha256",
+    "expected_step",
+    "runtime_hashes"
+  ],
+  "allowed_changed_fields": [
+    "checkpoint",
+    "checkpoint_sha256",
+    "expected_step",
+    "runtime_hashes"
+  ],
+  "unchanged_common_source_files": 781,
+  "old_runtime_manifest_only": [
+    "/data14t/anhdh35/loopwam_robotwin_v0_20261030/runtime_manifest.json"
+  ],
+  "new_runtime_manifest_only": [
+    "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/runtime_manifest.json"
+  ],
+  "same_scoring_protocol": true
+}

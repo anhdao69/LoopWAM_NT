@@ -1,0 +1,61 @@
+{
+  "source": "https://huggingface.co/datasets/yuanty/robotwin2.0-fastwam",
+  "subset": "RoboTwin-10 (LiLa-WAM ablation subset, arXiv 2608.03701 Sec. 4.2)",
+  "tasks": [
+    "adjust_bottle",
+    "grab_roller",
+    "hanging_mug",
+    "move_stapler_pad",
+    "open_microwave",
+    "press_stapler",
+    "scan_object",
+    "stack_blocks_two",
+    "stamp_seal",
+    "turn_switch"
+  ],
+  "clean_demonstrations_per_task": 50,
+  "randomized_demonstrations_per_task": 500,
+  "total_demonstrations": 5500,
+  "windows_per_epoch": 1163351,
+  "group_windows": {
+    "adjust_bottle": 78411,
+    "grab_roller": 52549,
+    "hanging_mug": 185793,
+    "move_stapler_pad": 84526,
+    "open_microwave": 299877,
+    "press_stapler": 65110,
+    "scan_object": 92684,
+    "stack_blocks_two": 172027,
+    "stamp_seal": 78176,
+    "turn_switch": 54198
+  },
+  "epochs": 5,
+  "windows_presented": 5816755,
+  "global_batch": 128,
+  "held_out_training_subset": false,
+  "video_shape": [
+    9,
+    3,
+    384,
+    320
+  ],
+  "frame_offsets": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "action_horizon": 32,
+  "action_dim": 14,
+  "proprio_dim": 14,
+  "normalization": "published global z-score",
+  "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "dataset_stats_file_sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+  "data_manifest_sha256": "4db3a252025a04552364ee3cf0b8dad8c9facb39c66e1ef8eb16fb52941597af",
+  "latent_cache": "frozen Wan2.1 VAE, per-clip reset, exact BF16 bits"
+}

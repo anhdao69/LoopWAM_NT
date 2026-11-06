@@ -1,13 +1,11 @@
 {
   "base": {
     "branch": "LoopWAM_NT",
-    "commit": "0e3a8d6d2254f4f5ff27c91ed92c74a8b43f05be"
+    "commit": "b7efaf512776b15bbc2a1cbefd72f1a30439af68"
   },
   "branches": {
     "KV_concat": {
-      "commit": "55374b4d743a2d261f6025abd0b9f9d4ba49702f",
-      "date": "2026-11-02T20:04:19+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "fdfdec5d7773d0758881a4972f2748e2a8b33cdd",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -62,9 +60,7 @@
       ]
     },
     "chrono": {
-      "commit": "ce2ea13cd7d109993f6b45333ffec5ecb38df322",
-      "date": "2026-11-02T20:04:19+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "676c2c5ac01f3f6473a27e2de78b7d250f7ba9ed",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -94,9 +90,7 @@
       ]
     },
     "elastic": {
-      "commit": "af577f372f156e1101f16f6e84036f8041cf95cf",
-      "date": "2026-11-02T20:04:19+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "1645494dc25e1644631ad687a4ca18ad8e637e37",
       "documents": [
         {
           "path": "plans/LoopWAM_elastic.md",
@@ -186,9 +180,7 @@
       ]
     },
     "partition_grid_20261026": {
-      "commit": "52b3e4e6c7426afa132a24f2540f4a7422cddef9",
-      "date": "2026-11-02T20:04:20+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "8e41826787470c5dd1e60a759a11f566fc0b94d1",
       "documents": [
         {
           "path": "plans/evidence/kv_concat_20261008/campaign_3a89bfa/README.md",
@@ -253,9 +245,7 @@
       ]
     },
     "residual_trans": {
-      "commit": "18013dffb1fe61ba0a55a543ab17617e0ade7c6a",
-      "date": "2026-11-02T20:04:20+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "56e07c8cb58de29bf18f10c11bd051355fb7bf85",
       "documents": [
         {
           "path": "plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
@@ -295,9 +285,7 @@
       ]
     },
     "robotwin10_training_20261101": {
-      "commit": "c8db891a773ae1ad8e81e2aa7b3a965d1c4b2a6e",
-      "date": "2026-11-03T08:33:10-05:00",
-      "subject": "robotwin10: quieter event watcher",
+      "commit": "46e27fd3aa842e94344bf2893ce1c16b614a9a43",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -337,9 +325,7 @@
       ]
     },
     "robotwin_eval_continue_20261030": {
-      "commit": "fe06cf8ccea69278489afde86728326f29f824bf",
-      "date": "2026-11-02T20:04:20+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "2ab7ea5206f1815903ffa206d34fc6ae611e5534",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -379,9 +365,7 @@
       ]
     },
     "robotwin_full_v0_20261028": {
-      "commit": "15cfa12fbb214e7b82057a10c76635e39721ac31",
-      "date": "2026-11-02T20:04:21+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "a719b0b3818981e305346f89f8a0abd1ec89d954",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
@@ -416,15 +400,11 @@
       ]
     },
     "scratch_init_v0": {
-      "commit": "c2502b2815631cf82b73177bf76be1f799c284de",
-      "date": "2026-11-02T20:04:21+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "6d7972c91e3ea8b79bd26d6c061a9cafeb6b4036",
       "documents": []
     },
     "v0-init-variants": {
-      "commit": "e21a20b9cbb744ca486e76ac81a77e8582b4e048",
-      "date": "2026-11-02T20:04:22+00:00",
-      "subject": "Add 2026-11-01 matched batch report and sync evaluation reports across branches",
+      "commit": "4b68ad0eda5122ab349c3b185e705706fe8e999f",
       "documents": [
         {
           "path": "plans/ChronoLoop.md",
