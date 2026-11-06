@@ -1,0 +1,24 @@
+{"event": "plan", "conditions": ["elastic__E0__flat_k1_n2__5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8"], "pending_groups": 2, "total_groups": 2}
+{"event": "ready", "worker": 1, "gpu": "1"}
+{"event": "ready", "worker": 0, "gpu": "0"}
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+[Warning]: datasets path /mnt/data/vmo-ai-task/anhdh35/FastWAM/third_party/LIBERO/libero/datasets does not exist!
+{"event": "group", "condition": "elastic__E0__flat_k1_n2__5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8", "group": "libero_spatial_seed42_task0", "successes": 49, "episodes": 50, "worker": 0, "seconds": 164.37875256082043, "finished": 1, "pending": 1, "eps_per_hour": 1039}
+{"event": "group", "condition": "elastic__E0__flat_k1_n2__5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8", "group": "libero_10_seed42_task0", "successes": 45, "episodes": 50, "worker": 1, "seconds": 362.10785465175286, "finished": 2, "pending": 0, "eps_per_hour": 971}
+{"event": "summary", "condition": "elastic__E0__flat_k1_n2__5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8", "complete": true, "success_rate": 0.94, "episodes": 100}

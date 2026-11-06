@@ -1,0 +1,24 @@
+{
+ "run": "E0",
+ "schedule": "flat_k4_n10",
+ "checkpoint_sha256": "5569c47fa6c91e136a611d2b819a053c94f6b2956a7f602bbed4db23c69f60e8",
+ "backend": "cuda-graph",
+ "episodes": 50,
+ "successes": 47,
+ "success_rate": 0.94,
+ "per_suite": {
+  "libero_goal": {
+   "successes": 47,
+   "episodes": 50,
+   "success_rate": 0.94,
+   "seeds": {
+    "44": {
+     "successes": 47,
+     "episodes": 50,
+     "success_rate": 0.94
+    }
+   }
+  }
+ },
+ "suite_mean_success_rate": 0.94
+}

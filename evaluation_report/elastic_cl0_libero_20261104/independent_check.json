@@ -1,0 +1,276 @@
+{
+ "passed": true,
+ "conditions": {
+  "CL0-E0 flat_k1_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5720,
+   "sr": 95.3333,
+   "report_sr": 95.33,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k1_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5711,
+   "sr": 95.1833,
+   "report_sr": 95.18,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k1_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5714,
+   "sr": 95.2333,
+   "report_sr": 95.23,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k2_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5740,
+   "sr": 95.6667,
+   "report_sr": 95.67,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k2_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5759,
+   "sr": 95.9833,
+   "report_sr": 95.98,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k2_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5733,
+   "sr": 95.55,
+   "report_sr": 95.55,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k4_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5773,
+   "sr": 96.2167,
+   "report_sr": 96.22,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k4_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5738,
+   "sr": 95.6333,
+   "report_sr": 95.63,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E0 flat_k4_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5766,
+   "sr": 96.1,
+   "report_sr": 96.1,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k1_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5715,
+   "sr": 95.25,
+   "report_sr": 95.25,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k1_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5715,
+   "sr": 95.25,
+   "report_sr": 95.25,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k1_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5728,
+   "sr": 95.4667,
+   "report_sr": 95.47,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k2_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5735,
+   "sr": 95.5833,
+   "report_sr": 95.58,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k2_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5729,
+   "sr": 95.4833,
+   "report_sr": 95.48,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k2_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5764,
+   "sr": 96.0667,
+   "report_sr": 96.07,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k4_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5751,
+   "sr": 95.85,
+   "report_sr": 95.85,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k4_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5768,
+   "sr": 96.1333,
+   "report_sr": 96.13,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E1 flat_k4_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5747,
+   "sr": 95.7833,
+   "report_sr": 95.78,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k1_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5745,
+   "sr": 95.75,
+   "report_sr": 95.75,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k1_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5733,
+   "sr": 95.55,
+   "report_sr": 95.55,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k1_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5742,
+   "sr": 95.7,
+   "report_sr": 95.7,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k2_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5767,
+   "sr": 96.1167,
+   "report_sr": 96.12,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k2_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5743,
+   "sr": 95.7167,
+   "report_sr": 95.72,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k2_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5752,
+   "sr": 95.8667,
+   "report_sr": 95.87,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k4_n10": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5764,
+   "sr": 96.0667,
+   "report_sr": 96.07,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k4_n2": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5744,
+   "sr": 95.7333,
+   "report_sr": 95.73,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  },
+  "CL0-E2 flat_k4_n5": {
+   "episodes": 6000,
+   "unique": 6000,
+   "successes": 5757,
+   "sr": 95.95,
+   "report_sr": 95.95,
+   "groups": 120,
+   "csv_equals_rollout_json": true,
+   "passed": true
+  }
+ },
+ "checks": "27 conditions x 6,000 episodes: unique episode keys; per-episode CSV == per-group rollout JSON (final_rollout.tar.gz); overall, per-suite and per-seed success rates == cl0_eval_report.md"
+}

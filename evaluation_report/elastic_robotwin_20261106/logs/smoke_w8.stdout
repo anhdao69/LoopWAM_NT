@@ -1,0 +1,2 @@
+[2026-11-06T13:32:30Z] start smoke_w8/RT50-E0 gpus 0,1,2,3,4,5,6,7 mb 16 updates 12
+[2026-11-06T13:33:14Z] end smoke_w8/RT50-E0 rc=0

@@ -1,0 +1,211 @@
+{
+ "date": "2026-11-06",
+ "created_utc": "2026-11-06T21:00:28Z",
+ "server_snapshot": {
+  "source": "ws_anhdh35:/storage/anhdh35/LoopWAM_NT/evaluation_report",
+  "files": 1061,
+  "identical_to_github": 1059,
+  "differing": [
+   "README.md",
+   "branch_reports/index.json"
+  ],
+  "differing_note": "both GitHub-maintained; the ws copies were already preserved by the first 2026-11-06 sync (d30bc8f6..., bce663cb...)",
+  "sha256_of_sha256sum_listing": "be6afc417080c99a2ba61d72ece59b5daaa13feb0ca98d7f00a315a501f0efa5"
+ },
+ "additions": {
+  "evaluation_report/elastic_cl0_libero_20261104": {
+   "status": "complete",
+   "stored_files": 179,
+   "source_entries": 3801,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35"
+   ],
+   "live_snapshots": []
+  },
+  "evaluation_report/robocasa_gr1_v0_20261101": {
+   "status": "complete",
+   "stored_files": 813,
+   "source_entries": 809,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35",
+    "ws_anhdh35:/storage/anhdh35/robocasa_gr1_eval"
+   ],
+   "live_snapshots": []
+  },
+  "evaluation_report/robocasa_gr1_continuation_20261106": {
+   "status": "in progress at snapshot",
+   "stored_files": 75,
+   "source_entries": 73,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35"
+   ],
+   "live_snapshots": [
+    "FastWAM/runs/robocasa_gr1_v0_20261101/continuation_20261106/logs/train_e06_a1.log",
+    "FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/timing.json"
+   ]
+  },
+  "evaluation_report/elastic_robotwin_20261106": {
+   "status": "in progress at snapshot",
+   "stored_files": 194,
+   "source_entries": 192,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35"
+   ],
+   "live_snapshots": [
+    "elastic_robotwin/ep5/runs/RT50-ep5-E0/train.log"
+   ]
+  }
+ },
+ "independent_check": {
+  "elastic_cl0_libero_20261104": true,
+  "robocasa_gr1_v0_20261101": true
+ },
+ "branch_heads_before_sync": {
+  "KV_concat": "401e103da75c395302daebe33e069ccd31332057",
+  "LoopWAM_NT": "2f073299fa9bfdf034a79a7cccf691a6be1a1b83",
+  "chrono": "0d0de884f5652f556d67abaa24c3680e2199b67e",
+  "elastic": "a60f3bf242f20e9929a1eda7f6b141c6b6708001",
+  "partition_grid_20261026": "4655108f1383d030567d5eb4940866280ca62206",
+  "residual_trans": "e07aa825fe8bbfc246960529e8eb9e231e591f5f",
+  "robotwin10_training_20261101": "9b6bac1251608931b7b644ebbe6b45f05d33bfb3",
+  "robotwin_eval_continue_20261030": "08d742a783b494e9f09ecf10120b771b8316dce7",
+  "robotwin_full_v0_20261028": "64c2f80b191710663f7d0994bc5d3b0e66a762e7",
+  "scratch_init_v0": "c8e58210c776d1a03e3420fa82df4aa7957e8d0d",
+  "v0-init-variants": "57c1ae00266eb70796ad7a15f629cbf62c68cb41",
+  "elastic_cl0": "a0786a270b881d4cb0ff885d749719e0353274ef",
+  "elastic_robotwin": "2c78ff6f186c1d9073068b8eee5b328d19dba826",
+  "robocasa_gr1_v0": "d937167ba61a0df4a9818d1917de6c7155400dff",
+  "robocasa_gr1_continuation_20261106": "b748d92cb8c8672869d9ae9a2d911e10613e3aba"
+ },
+ "new_github_branches": [
+  "elastic_cl0",
+  "elastic_robotwin",
+  "robocasa_gr1_v0",
+  "robocasa_gr1_continuation_20261106"
+ ],
+ "new_github_branch_sources": {
+  "elastic_cl0": "local worktree (= server clone LoopWAM_elastic_cl0)",
+  "elastic_robotwin": "local worktree (= server clones LoopWAM_elastic_rt / LoopWAM_rt50ep5_20261106)",
+  "robocasa_gr1_v0": "local worktree (= server clone LoopWAM_gr1_eval_code; H100 checkout branch is its parent 45ee0c0)",
+  "robocasa_gr1_continuation_20261106": "fetched from server clone LoopWAM_gr1cont_20261106 branch gr1_cont_run"
+ },
+ "branch_commits_added": {
+  "robotwin_eval_continue_20261030": {
+   "commit": "08d742a783b494e9f09ecf10120b771b8316dce7",
+   "content": "12 evidence files that existed only in the local worktree, committed unchanged"
+  }
+ },
+ "branch_reports": {
+  "documents": {
+   "KV_concat": 10,
+   "chrono": 5,
+   "elastic": 17,
+   "elastic_cl0": 17,
+   "elastic_robotwin": 17,
+   "partition_grid_20261026": 12,
+   "residual_trans": 7,
+   "robocasa_gr1_continuation_20261106": 6,
+   "robocasa_gr1_v0": 6,
+   "robotwin10_training_20261101": 7,
+   "robotwin_eval_continue_20261030": 7,
+   "robotwin_full_v0_20261028": 6,
+   "scratch_init_v0": 0,
+   "v0-init-variants": 6
+  },
+  "added": [
+   "elastic_cl0/plans/LoopWAM_elastic.md",
+   "elastic_cl0/plans/elastic_evidence/campaign/gates_full_grid.log.md",
+   "elastic_cl0/plans/elastic_evidence/campaign/mps_parity_result.log.md",
+   "elastic_cl0/plans/elastic_evidence/campaign/parity_rt_result.log.md",
+   "elastic_cl0/plans/elastic_evidence/eval/results.md",
+   "elastic_cl0/plans/performance/LoopWAM_All_Models_Latency_20261030.md",
+   "elastic_cl0/plans/performance/LoopWAM_elastic_campaign_20261028.md",
+   "elastic_cl0/plans/performance/Public_WAM_Latency_20261030.md",
+   "elastic_cl0/plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+   "elastic_cl0/plans/performance/Residual_Transport_Implementation.md",
+   "elastic_cl0/plans/performance/Residual_Transport_Launch_20261010.md",
+   "elastic_cl0/plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+   "elastic_cl0/plans/performance/Residual_Transport_Results.md",
+   "elastic_cl0/plans/performance/public_wam_latency_20261030/official_fasterwam_script/latency_report.md",
+   "elastic_cl0/plans/performance/public_wam_latency_20261030/report_v2_template.md",
+   "elastic_cl0/plans/residual_transport.md",
+   "elastic_cl0/plans/residual_transport_evidence/progress.md",
+   "elastic_robotwin/plans/LoopWAM_elastic.md",
+   "elastic_robotwin/plans/elastic_evidence/campaign/gates_full_grid.log.md",
+   "elastic_robotwin/plans/elastic_evidence/campaign/mps_parity_result.log.md",
+   "elastic_robotwin/plans/elastic_evidence/campaign/parity_rt_result.log.md",
+   "elastic_robotwin/plans/elastic_evidence/eval/results.md",
+   "elastic_robotwin/plans/performance/LoopWAM_All_Models_Latency_20261030.md",
+   "elastic_robotwin/plans/performance/LoopWAM_elastic_campaign_20261028.md",
+   "elastic_robotwin/plans/performance/Public_WAM_Latency_20261030.md",
+   "elastic_robotwin/plans/performance/Residual_Transport_H100_Evaluation_20261013.md",
+   "elastic_robotwin/plans/performance/Residual_Transport_Implementation.md",
+   "elastic_robotwin/plans/performance/Residual_Transport_Launch_20261010.md",
+   "elastic_robotwin/plans/performance/Residual_Transport_Phase2_Launch_20261010.md",
+   "elastic_robotwin/plans/performance/Residual_Transport_Results.md",
+   "elastic_robotwin/plans/performance/public_wam_latency_20261030/official_fasterwam_script/latency_report.md",
+   "elastic_robotwin/plans/performance/public_wam_latency_20261030/report_v2_template.md",
+   "elastic_robotwin/plans/residual_transport.md",
+   "elastic_robotwin/plans/residual_transport_evidence/progress.md",
+   "robocasa_gr1_continuation_20261106/plans/ChronoLoop.md",
+   "robocasa_gr1_continuation_20261106/plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+   "robocasa_gr1_continuation_20261106/plans/performance/ChronoLoop_Results_Template.md",
+   "robocasa_gr1_continuation_20261106/plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+   "robocasa_gr1_continuation_20261106/plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+   "robocasa_gr1_continuation_20261106/plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md",
+   "robocasa_gr1_v0/plans/ChronoLoop.md",
+   "robocasa_gr1_v0/plans/performance/ChronoLoop_Implementation_and_Launch_20261010.md",
+   "robocasa_gr1_v0/plans/performance/ChronoLoop_Results_Template.md",
+   "robocasa_gr1_v0/plans/performance/ChronoLoop_Robot_Benchmark_20261015.md",
+   "robocasa_gr1_v0/plans/performance/ChronoLoop_Robotwin5hard_Epoch5_20261017.md",
+   "robocasa_gr1_v0/plans/performance/LoopWAM_v0_Full_RoboTwin_20261028.md"
+  ],
+  "updated": []
+ },
+ "preserved_versions": [
+  {
+   "path": "evaluation_report/README.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/daf98b90bc062fe6/README.md",
+   "sha256": "daf98b90bc062fe6945c3db6cb9c7c019646344c71ab7ce0f27cae7c0fe1039a",
+   "source": "previous shared version"
+  },
+  {
+   "path": "evaluation_report/sync_branch_reports.py",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/37b24bc35128bb2c/sync_branch_reports.py",
+   "sha256": "37b24bc35128bb2cb605da01f841e854ab702bb188808e9d421d6b9b590f7f28",
+   "source": "previous shared version"
+  },
+  {
+   "path": "evaluation_report/branch_reports/index.json",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/1b37004f306d906b/branch_reports/index.json",
+   "sha256": "1b37004f306d906b64534d9088b2a8df9d946f8e8dc0a1c90cc39f396d7b9e40",
+   "reason": "previous branch index",
+   "source": "previous shared version"
+  },
+  {
+   "path": "evaluation_report/FILE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/f302f22885f2783c/FILE_INDEX.md",
+   "sha256": "f302f22885f2783c93655bd08f3da44d491500f96e61d7a265852230c3efecc3",
+   "source": "previous shared version"
+  },
+  {
+   "path": "evaluation_report/ARCHIVE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/f2108b291b7e73eb/ARCHIVE_INDEX.md",
+   "sha256": "f2108b291b7e73ebb17a7e7de1bcfefb23e348fad025a30b02e47b75a79139ec",
+   "source": "previous shared version"
+  },
+  {
+   "path": "evaluation_report/README.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/1ddea65871bbeb06/README.md",
+   "sha256": "1ddea65871bbeb061396112a8938c21962bcdfc083128b62cb666678f62af408",
+   "source": "older shared version on robocasa_gr1_v0 and robocasa_gr1_continuation_20261106 (inherited from robotwin_full_v0_20261028 @2540556)"
+  },
+  {
+   "path": "evaluation_report/branch_reports/index.json",
+   "preserved": "evaluation_report/preserved_versions/2026-11-06/72de7e0e83b48193/branch_reports/index.json",
+   "sha256": "72de7e0e83b48193b01989ce206eb80411eab2b102af5a9793981ed829152e12",
+   "source": "older shared version on robocasa_gr1_v0 and robocasa_gr1_continuation_20261106 (inherited from robotwin_full_v0_20261028 @2540556)"
+  }
+ ],
+ "note": "Additions only: no existing result removed or overwritten. Prior versions of every changed shared file are retained in preserved_versions. Each new folder lists the source and original SHA-256 of every stored file in SOURCES.tsv. Checkpoints, videos and latent caches are not stored."
+}

@@ -1,0 +1,649 @@
+{
+  "started": 1793668109.9629583,
+  "checks": {
+    "asset_identity": {
+      "passed": true,
+      "teacher_sha256": "1c57b8d57961fb7024b4f159d102eb03b7c2c2b63d326ba85296508041bfea41",
+      "source_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae",
+      "mot_tensors_changed_vs_base10": 677
+    },
+    "data_identity": {
+      "passed": true,
+      "windows": 277713,
+      "staged": "f2b1b21be72694ec8e3fb217fbda12c61e7cc44d2e3c33f5d28c5e226ea8b341"
+    },
+    "parameter_counts": {
+      "passed": true,
+      "base_policy": 584536135,
+      "action_expert": 105277959
+    },
+    "common_initialization_and_trainable_counts": {
+      "passed": true,
+      "trainable": {
+        "CL0-E0": 105678471,
+        "CL0-E1": 105678471,
+        "CL0-E2": 105754919
+      }
+    },
+    "speed_bf16_frozen_CL0-E0": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": null,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.2701399326324463,
+            1.2701399326324463
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.7678561210632324,
+            2.7678561210632324
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.7104798555374146,
+            0.7104798555374146
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            2.3184759616851807,
+            2.3184759616851807
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            3.5361242294311523,
+            3.5361242294311523
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            4.198286056518555,
+            4.198286056518555
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    },
+    "speed_teacher_graph_CL0-E0": {
+      "passed": true,
+      "converted_linear": 0,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.2701399326324463,
+            1.2701399326324463
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.7678561210632324,
+            2.7678561210632324
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.7104798555374146,
+            0.7104798555374146
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            2.3184759616851807,
+            2.3184759616851807
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            3.5361242294311523,
+            3.5361242294311523
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            4.198286056518555,
+            4.198286056518555
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    },
+    "speed_both_CL0-E0": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.2701399326324463,
+            1.2701399326324463
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.7678561210632324,
+            2.7678561210632324
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.7104798555374146,
+            0.7104798555374146
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            2.3184759616851807,
+            2.3184759616851807
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            3.5361242294311523,
+            3.5361242294311523
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            4.198286056518555,
+            4.198286056518555
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    },
+    "speed_bf16_frozen_CL0-E2": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": null,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            0.6849896907806396,
+            0.6849896907806396
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.261248826980591,
+            2.261248826980591
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.775164008140564,
+            0.775164008140564
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.8887338638305664,
+            0.8887338638305664
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.0976438522338867,
+            1.0976438522338867
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.4943042993545532,
+            1.4943042993545532
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    },
+    "speed_teacher_graph_CL0-E2": {
+      "passed": true,
+      "converted_linear": 0,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            0.6849896907806396,
+            0.6849896907806396
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.261248826980591,
+            2.261248826980591
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.775164008140564,
+            0.775164008140564
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.8887338638305664,
+            0.8887338638305664
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.0976438522338867,
+            1.0976438522338867
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.4943042993545532,
+            1.4943042993545532
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    },
+    "speed_both_CL0-E2": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            0.6849896907806396,
+            0.6849896907806396
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.261248826980591,
+            2.261248826980591
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.775164008140564,
+            0.775164008140564
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.8887338638305664,
+            0.8887338638305664
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0354207381606102,
+            0.0354207381606102
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.013737695291638374,
+            0.013737695291638374
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.0976438522338867,
+            1.0976438522338867
+          ],
+          "max_grad_abs_diff": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.4943042993545532,
+            1.4943042993545532
+          ],
+          "max_grad_abs_diff": 0.0
+        }
+      }
+    }
+  },
+  "finished": 1793668217.8433578,
+  "passed": true
+}

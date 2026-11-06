@@ -1,0 +1,1 @@
+{"run":"RT50-E0","gpus":"0,1,2,3,4,5,6,7","world":8,"microbatch":16,"updates":12,"workers":3,"revision":"496aa51d3ffe537c03843cbe3079cb731f7a5760","host":"worker-2","job":"5758","start_utc":"2026-11-06T13:32:30Z"}
