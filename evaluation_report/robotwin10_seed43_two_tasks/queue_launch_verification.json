@@ -1,0 +1,15 @@
+{
+  "checked_unix": 1793714625.5070558,
+  "queue_alive": true,
+  "status": {
+    "stage": "calibrating",
+    "queue_pid": 1419475,
+    "updated_unix": 1793714619.3397179,
+    "model": "v0_4x4",
+    "workers": 2
+  },
+  "queue_script_sha256": "4edc4aba0f7a3634801eb51e080cbcd58491d17471cd1c60a4b4ce8c761d61de",
+  "preflight_passed": true,
+  "tests_passed": 38,
+  "plan": "800 scored episodes total, seed43"
+}

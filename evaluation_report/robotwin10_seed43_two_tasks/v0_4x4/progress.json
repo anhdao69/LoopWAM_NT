@@ -1,0 +1,82 @@
+{
+  "updated_unix": 1793720008.3707888,
+  "episodes": 400,
+  "successes": 217,
+  "planned": 400,
+  "completed_cells": 4,
+  "running_cells": 0,
+  "failed": [],
+  "finished": true,
+  "cells": [
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 33
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 60
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 59
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 65
+    }
+  ],
+  "launch": {
+    "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+    "status": "complete",
+    "started_unix": 1793715073.619767,
+    "workers": 4,
+    "backend": "cuda-graph",
+    "planned_episodes": 400,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/env/bin/python",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/checkpoint/policy.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/results",
+      "--robotwin-root",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "4",
+      "--episodes",
+      "100",
+      "--seed",
+      "43",
+      "--expected-step",
+      "45445",
+      "--tasks",
+      "open_microwave,move_stapler_pad",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "pid": 1423016,
+    "variant": "v0-video4-action4",
+    "epoch": 5,
+    "expected_step": 45445,
+    "hf_revision": "df3d575d3f3fde3cf1b8d5f609fab93dc6a95649",
+    "finished_unix": 1793720008.3697393
+  }
+}

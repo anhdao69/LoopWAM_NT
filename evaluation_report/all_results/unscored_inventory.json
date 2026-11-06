@@ -1,0 +1,162 @@
+{
+  "historical_unpublished_conditions": [
+    {
+      "model": "RT+B2",
+      "schedule": "S8",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT+B2",
+      "schedule": "S7",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S5",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S6",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S7",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-B4-2",
+      "schedule": "S8",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T3",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T3",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T5",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T5",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T6",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-T6",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-Pc",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-Pc",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-NFE1",
+      "schedule": "parent1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-local",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-local",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-end",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-end",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-grip",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-grip",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-anchor",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-no-anchor",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-A-seed43",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-A-seed43",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-A-seed44",
+      "schedule": "S1",
+      "status_at_snapshot": "not_published"
+    },
+    {
+      "model": "RT-A-seed44",
+      "schedule": "S2",
+      "status_at_snapshot": "not_published"
+    }
+  ],
+  "original_ka_removed": [
+    3,
+    5,
+    6
+  ],
+  "original_dense_queue_removed": [
+    "dense-s12",
+    "dense-s30"
+  ],
+  "invalidated_robotwin_attempts": [
+    "robotwin10_dense_s12_20261105/invalid_10worker_run",
+    "robotwin10_v0_1x4_remote137_20261105/invalid_10worker_run"
+  ]
+}

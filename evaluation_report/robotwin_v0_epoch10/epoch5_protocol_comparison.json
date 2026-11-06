@@ -1,0 +1,190 @@
+{
+  "tasks": {
+    "epoch5": [
+      "adjust_bottle",
+      "beat_block_hammer",
+      "blocks_ranking_rgb",
+      "blocks_ranking_size",
+      "click_alarmclock",
+      "click_bell",
+      "dump_bin_bigbin",
+      "grab_roller",
+      "handover_block",
+      "handover_mic",
+      "hanging_mug",
+      "lift_pot",
+      "move_can_pot",
+      "move_pillbottle_pad",
+      "move_playingcard_away",
+      "move_stapler_pad",
+      "open_laptop",
+      "open_microwave",
+      "pick_diverse_bottles",
+      "pick_dual_bottles",
+      "place_a2b_left",
+      "place_a2b_right",
+      "place_bread_basket",
+      "place_bread_skillet",
+      "place_burger_fries",
+      "place_can_basket",
+      "place_cans_plasticbox",
+      "place_container_plate",
+      "place_dual_shoes",
+      "place_empty_cup",
+      "place_fan",
+      "place_mouse_pad",
+      "place_object_basket",
+      "place_object_scale",
+      "place_object_stand",
+      "place_phone_stand",
+      "place_shoe",
+      "press_stapler",
+      "put_bottles_dustbin",
+      "put_object_cabinet",
+      "rotate_qrcode",
+      "scan_object",
+      "shake_bottle",
+      "shake_bottle_horizontally",
+      "stack_blocks_three",
+      "stack_blocks_two",
+      "stack_bowls_three",
+      "stack_bowls_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "epoch10": [
+      "adjust_bottle",
+      "beat_block_hammer",
+      "blocks_ranking_rgb",
+      "blocks_ranking_size",
+      "click_alarmclock",
+      "click_bell",
+      "dump_bin_bigbin",
+      "grab_roller",
+      "handover_block",
+      "handover_mic",
+      "hanging_mug",
+      "lift_pot",
+      "move_can_pot",
+      "move_pillbottle_pad",
+      "move_playingcard_away",
+      "move_stapler_pad",
+      "open_laptop",
+      "open_microwave",
+      "pick_diverse_bottles",
+      "pick_dual_bottles",
+      "place_a2b_left",
+      "place_a2b_right",
+      "place_bread_basket",
+      "place_bread_skillet",
+      "place_burger_fries",
+      "place_can_basket",
+      "place_cans_plasticbox",
+      "place_container_plate",
+      "place_dual_shoes",
+      "place_empty_cup",
+      "place_fan",
+      "place_mouse_pad",
+      "place_object_basket",
+      "place_object_scale",
+      "place_object_stand",
+      "place_phone_stand",
+      "place_shoe",
+      "press_stapler",
+      "put_bottles_dustbin",
+      "put_object_cabinet",
+      "rotate_qrcode",
+      "scan_object",
+      "shake_bottle",
+      "shake_bottle_horizontally",
+      "stack_blocks_three",
+      "stack_blocks_two",
+      "stack_bowls_three",
+      "stack_bowls_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "equal": true
+  },
+  "settings": {
+    "epoch5": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "epoch10": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "equal": true
+  },
+  "episodes": {
+    "epoch5": 100,
+    "epoch10": 100,
+    "equal": true
+  },
+  "seed": {
+    "epoch5": 42,
+    "epoch10": 42,
+    "equal": true
+  },
+  "instruction_type": {
+    "epoch5": "unseen",
+    "epoch10": "unseen",
+    "equal": true
+  },
+  "num_inference_steps": {
+    "epoch5": 10,
+    "epoch10": 10,
+    "equal": true
+  },
+  "action_horizon": {
+    "epoch5": 32,
+    "epoch10": 32,
+    "equal": true
+  },
+  "replan_steps": {
+    "epoch5": 24,
+    "epoch10": 24,
+    "equal": true
+  },
+  "noise_seed": {
+    "epoch5": "fixed seed for every query, FastWAM default",
+    "epoch10": "fixed seed for every query, FastWAM default",
+    "equal": true
+  },
+  "image_preprocessing": {
+    "epoch5": "released_fastwam_pil_uint8_bf16",
+    "epoch10": "released_fastwam_pil_uint8_bf16",
+    "equal": true
+  },
+  "instruction_rng": {
+    "epoch5": "released_fastwam_no_explicit_python_seed",
+    "epoch10": "released_fastwam_no_explicit_python_seed",
+    "equal": true
+  },
+  "cuda_graph": {
+    "epoch5": "1",
+    "epoch10": "1",
+    "equal": true
+  },
+  "compile_action_infer": {
+    "epoch5": false,
+    "epoch10": false,
+    "equal": true
+  },
+  "renderer_shader": {
+    "epoch5": "rt",
+    "epoch10": "rt",
+    "equal": true
+  },
+  "stats_sha256": {
+    "epoch5": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+    "epoch10": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+    "equal": true
+  },
+  "vae_sha256": {
+    "epoch5": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "epoch10": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "equal": true
+  }
+}

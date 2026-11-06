@@ -1,0 +1,18 @@
+{
+  "verified_unix": 1793630295.1947224,
+  "status": "running",
+  "workers": 2,
+  "active": [
+    "adjust_bottle/demo_clean",
+    "adjust_bottle/demo_randomized"
+  ],
+  "scored_episodes": 16,
+  "pending": 18,
+  "planned_episodes": 2000,
+  "tests_passed": 38,
+  "smoke_episodes": 16,
+  "smoke_excluded": true,
+  "source_hashes_match": 9,
+  "protocol_comparison_passed": true,
+  "variant": "dense-s30"
+}

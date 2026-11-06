@@ -1,0 +1,19 @@
+{
+  "detected_unix": 1793508319.5839632,
+  "last_summary_unix": 1793498353.1142666,
+  "completed_pairs": 76,
+  "interrupted_pairs": [
+    "put_bottles_dustbin/demo_clean",
+    "put_bottles_dustbin/demo_randomized",
+    "put_object_cabinet/demo_clean",
+    "put_object_cabinet/demo_randomized"
+  ],
+  "planned_resume_workers": 4,
+  "reason": "Evaluation processes absent after host reboot; no traceback recorded; exact shutdown cause unknown",
+  "archive": "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/resume_20261101_114519",
+  "original_started_unix": 1793455136.5937114,
+  "resumed_started_unix": 1793508494.508517,
+  "resumed_pid": 12545,
+  "preserved_result_hashes_unchanged": true,
+  "checked_unix": 1793508560.9512305
+}

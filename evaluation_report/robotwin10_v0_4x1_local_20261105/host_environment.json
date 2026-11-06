@@ -1,0 +1,6 @@
+{
+  "recorded_unix": 1793852453.69851,
+  "hostname": "VMO-ANHDH35-D",
+  "gpu": "name, uuid, driver_version, memory.total [MiB], memory.free [MiB], utilization.gpu [%]\nNVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-fa3af837-308e-d118-d6bf-9312fcc4c25f, 580.178.04, 97887 MiB, 71808 MiB, 99 %\n",
+  "other_compute_jobs": "pid, process_name, used_gpu_memory [MiB]\n2295025, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12460 MiB\n2295023, /storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3, 12896 MiB\n"
+}

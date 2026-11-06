@@ -1,0 +1,16 @@
+{
+  "host": "10.148.183.189",
+  "ssh_user": "vm-perception-ws",
+  "alias": "vmo_aLinh",
+  "remote_root": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104",
+  "models": [
+    "v0-video4-action4"
+  ],
+  "seed": 42,
+  "nfe": 10,
+  "episodes_per_task_setting": 100,
+  "planned_episodes": 2000,
+  "max_workers": 2,
+  "stop_remote137_after_scoring_starts": true,
+  "user_choice_recorded_unix": 1793731632.9738493
+}

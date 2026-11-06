@@ -1,0 +1,33 @@
+{
+  "validated_unix": 1793628688.436867,
+  "payload_contract_valid": true,
+  "finite_weights": true,
+  "policy_tensor_elements": 1416145998,
+  "policy_tensor_count": 1651,
+  "epoch": 5,
+  "step": 45445,
+  "normalization_matches": true,
+  "strict_model_load": false,
+  "strict_load_note": "Awaiting the published RoboTwin-10 variant loader; payload validation is not strict model loading",
+  "tasks": [
+    "adjust_bottle",
+    "grab_roller",
+    "hanging_mug",
+    "move_stapler_pad",
+    "open_microwave",
+    "press_stapler",
+    "scan_object",
+    "stack_blocks_two",
+    "stamp_seal",
+    "turn_switch"
+  ],
+  "training_state": {
+    "update": 45445,
+    "windows_seen": 5816755,
+    "next_epoch": 5,
+    "next_batch": 0,
+    "elapsed_training_seconds": 69875.78536009789,
+    "world_size": 4,
+    "microbatch": 8
+  }
+}
