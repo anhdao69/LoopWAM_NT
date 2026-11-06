@@ -1,0 +1,66 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "df3d575d3f3fde3cf1b8d5f609fab93dc6a95649",
+  "files": [
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/README.md",
+      "blobId": "53a99e2d339a1203bcbd69c393d7f81d294a6ac3",
+      "size": 2921
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/SHA256SUMS",
+      "blobId": "3fa4e0a8cc6f77d44b996cbc16b1c5a652a2dc6e",
+      "size": 762
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/checkpoint_provenance.json",
+      "blobId": "9f2e04016c6166cee1d463a210dabd87f5d416b1",
+      "size": 380
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/config.json",
+      "blobId": "48922ca2d557b070f9149fe33bd8af4be460f8cc",
+      "size": 3692
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/data_provenance.json",
+      "blobId": "dc608ae6a2075d7fc6f38dd11b27c4676f045d60",
+      "size": 1560
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/dataset_stats.json",
+      "blobId": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "size": 88716
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/policy.pt",
+      "blobId": "b2096ac4cece3a8562872aedfa9c26326811ab34",
+      "size": 2338751845,
+      "lfs": {
+        "sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+        "size": 2338751845,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/training_metrics.jsonl.gz",
+      "blobId": "50e8bdb82b887e808ce4fec3dfeb84faab99293c",
+      "size": 3191189,
+      "lfs": {
+        "sha256": "ea784c5066654f70e36dd980ad11765b2acfdc4b04fe6d85717c78f2013e4443",
+        "size": 3191189,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/training_summary.json",
+      "blobId": "459244c8df7f8a37161d2017917f86c1c44e19c3",
+      "size": 1016
+    },
+    {
+      "rfilename": "robotwin-10/v0-video4-action4/training_timing.json",
+      "blobId": "6e7c33ed22cbe1d6ad9a805751b27c8fceff1576",
+      "size": 660
+    }
+  ]
+}

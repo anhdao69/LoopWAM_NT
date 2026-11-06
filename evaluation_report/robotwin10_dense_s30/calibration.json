@@ -1,0 +1,29 @@
+{
+  "profiles": [
+    {
+      "name": "smoke_native",
+      "workers": 1,
+      "backend": "native",
+      "seconds": 256.79275822639465,
+      "episodes": 8,
+      "successes": 8,
+      "peak_gpu_mib": 62461,
+      "includes_other_gpu_processes": true
+    },
+    {
+      "name": "smoke_graph",
+      "workers": 2,
+      "backend": "cuda-graph",
+      "seconds": 166.20284724235535,
+      "episodes": 8,
+      "successes": 8,
+      "peak_gpu_mib": 73581,
+      "includes_other_gpu_processes": true
+    }
+  ],
+  "selected": {
+    "workers": 2
+  },
+  "finished_unix": 1793630104.2246218,
+  "basis": "Two-worker simulator gate plus measured memory headroom; profiles differ in both backend and concurrency, not an isolated concurrency speed comparison"
+}

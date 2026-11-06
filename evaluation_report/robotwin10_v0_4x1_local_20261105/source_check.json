@@ -1,0 +1,52 @@
+{
+  "checked_unix": 1793852378.0414054,
+  "all_match": true,
+  "files": {
+    "scripts/train_loopwam_robotwin10.py": {
+      "expected": "b5e7f3006c641a1bfb6ed16654495be9265a3d453cf92949f4083c842dbaeb89",
+      "actual": "b5e7f3006c641a1bfb6ed16654495be9265a3d453cf92949f4083c842dbaeb89",
+      "equal": true
+    },
+    "src/fastwam/models/wan22/loopwam_robot.py": {
+      "expected": "ed383b37ab1b1b994b3b3ce181b5ee9074ff43d604ac0c8cbe67e2f1ca7b23ab",
+      "actual": "ed383b37ab1b1b994b3b3ce181b5ee9074ff43d604ac0c8cbe67e2f1ca7b23ab",
+      "equal": true
+    },
+    "src/fastwam/models/wan22/loopwam.py": {
+      "expected": "c67d055f0d37549521661e6fe420f2910c3fb9016805c1b0a6109bdb52352598",
+      "actual": "c67d055f0d37549521661e6fe420f2910c3fb9016805c1b0a6109bdb52352598",
+      "equal": true
+    },
+    "src/fastwam/models/wan22/loop_mot.py": {
+      "expected": "bbce6b08418aedc8697159c81ef3bf95b0b85872e3ebd7334db818e7e61bb4b9",
+      "actual": "bbce6b08418aedc8697159c81ef3bf95b0b85872e3ebd7334db818e7e61bb4b9",
+      "equal": true
+    },
+    "src/fastwam/models/wan22/mot.py": {
+      "expected": "2383e4cfa00efa9cde889493e0b6c861bc7b17d24d731f5ff38d3ebf8ab7f541",
+      "actual": "2383e4cfa00efa9cde889493e0b6c861bc7b17d24d731f5ff38d3ebf8ab7f541",
+      "equal": true
+    },
+    "src/fastwam/models/wan22/loopwam_init.py": {
+      "expected": "fb70d4a59733af9f0b6206f5b409a566320d67a2b77a984f49c904bf51a19755",
+      "actual": "fb70d4a59733af9f0b6206f5b409a566320d67a2b77a984f49c904bf51a19755",
+      "equal": true
+    },
+    "src/fastwam/datasets/chronoloop_robot.py": {
+      "expected": "2bd3ac7d2bb1b61386e219bbfecb05a2f76ffcae548bba47f373396b998a900d",
+      "actual": "2bd3ac7d2bb1b61386e219bbfecb05a2f76ffcae548bba47f373396b998a900d",
+      "equal": true
+    },
+    "src/fastwam/datasets/loopwam_robot_batches.py": {
+      "expected": "3301b668a4eff98a8c8cb74b8b463beca9561005b8eb556582b5d71d7b866395",
+      "actual": "3301b668a4eff98a8c8cb74b8b463beca9561005b8eb556582b5d71d7b866395",
+      "equal": true
+    },
+    "src/fastwam/datasets/loopwam_latent_cache.py": {
+      "expected": "bec4493506fefea17f101756ff3cb1396543b9dc9ed41145971c3fd37f7aa1d2",
+      "actual": "bec4493506fefea17f101756ff3cb1396543b9dc9ed41145971c3fd37f7aa1d2",
+      "equal": true
+    }
+  },
+  "commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e"
+}

@@ -1,0 +1,57 @@
+{
+  "totals": {
+    "demo_clean": {
+      "successes": 92,
+      "episodes": 200,
+      "sr_percent": 46.0
+    },
+    "demo_randomized": {
+      "successes": 125,
+      "episodes": 200,
+      "sr_percent": 62.5
+    },
+    "combined": {
+      "successes": 217,
+      "episodes": 400,
+      "sr_percent": 54.25
+    }
+  },
+  "tasks": [
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "successes": 33,
+      "episodes": 100,
+      "sr_percent": 33,
+      "accepted_attempt": "attempt_01",
+      "seconds": 4858.631402015686
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "successes": 60,
+      "episodes": 100,
+      "sr_percent": 60,
+      "accepted_attempt": "attempt_01",
+      "seconds": 4894.716069221497
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "successes": 59,
+      "episodes": 100,
+      "sr_percent": 59,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1417.326340675354
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "successes": 65,
+      "episodes": 100,
+      "sr_percent": 65,
+      "accepted_attempt": "attempt_01",
+      "seconds": 1513.361494064331
+    }
+  ]
+}

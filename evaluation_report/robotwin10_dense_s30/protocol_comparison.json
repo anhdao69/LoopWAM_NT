@@ -1,0 +1,40 @@
+{
+  "checked_unix": 1793630295.1943278,
+  "same_evaluation_fields": [
+    "settings",
+    "episodes",
+    "seed",
+    "instruction_type",
+    "num_inference_steps",
+    "action_horizon",
+    "replan_steps",
+    "noise_seed",
+    "image_preprocessing",
+    "instruction_rng",
+    "cuda_graph",
+    "compile_action_infer",
+    "renderer_shader",
+    "gpu_pci",
+    "harness_sha256",
+    "policy_sha256",
+    "vae_sha256"
+  ],
+  "task_subset": [
+    "adjust_bottle",
+    "grab_roller",
+    "hanging_mug",
+    "move_stapler_pad",
+    "open_microwave",
+    "press_stapler",
+    "scan_object",
+    "stack_blocks_two",
+    "stamp_seal",
+    "turn_switch"
+  ],
+  "same_canonical_normalization": true,
+  "raw_stats_encoding_differs": true,
+  "checkpoint_variant": "dense-s30",
+  "native_loops": 1,
+  "total_planned": 2000,
+  "comparison_note": "Same evaluation protocol restricted to 10 tasks; dense training used 10 tasks whereas v0 used 50"
+}

@@ -1,0 +1,16 @@
+{
+  "processes": [],
+  "mode": "start_when_gpu_memory_allows",
+  "captured_unix": 1793684637.1402762,
+  "dense_complete": "/data14t/anhdh35/loopwam_robotwin10_dense_s30_20261102/results/COMPLETE.json",
+  "dense_final_audit": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_dense_s30/final_audit.json",
+  "original_processes": [
+    {
+      "pid": 1063670,
+      "start_ticks": "16952075",
+      "boot_id": "7d611a65-31d3-4277-b3c5-6d253dcbd166",
+      "cmdline": "/storage/anhdh35/miniconda3/envs/spatialstack_dagger/bin/python3 -u src/evaluation.py --model_path /storage/anhdh35/checkpoints/SF-omega-v7 --habitat_config_path /data14t/anhdh35/detap_zsNo4HB9uLZ_b2_20261103/SpatialForcing-VLN/config/vln_r2r_detap_remote_b2.yaml --eval_split val_unseen --output_path /data14t/anhdh35/detap_zsNo4HB9uLZ_b2_20261103/SpatialForcing-VLN/evaluation/detap_zsNo4HB9uLZ_r2r_val_unseen_20261103/b2 --ratio_start 0 --ratio_end 1 --max_steps 400 --episode_count 0 --max_subgoal_steps 0 --route_plans /data14t/anhdh35/detap_zsNo4HB9uLZ_b2_20261103/SpatialForcing-VLN/evaluation/detap_zsNo4HB9uLZ_r2r_val_unseen_20261103/plans.jsonl --detap_mode b2 --save_video --save_video_ratio 1.0 --scene_ids zsNo4HB9uLZ "
+    }
+  ],
+  "user_override_unix": 1793684723.360803
+}

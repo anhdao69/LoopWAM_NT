@@ -1,0 +1,56 @@
+{
+  "revision": "dbb527e8f83fbf00fcbbc017f886122d5f4ec4df",
+  "verified_unix": 1793892684.6273122,
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 2881,
+      "sha256": "1e39cc2a166446a4d6b069e400fc38209d2ac9b7b374f1e34f2b32efc4e647b3"
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 762,
+      "sha256": "c33a481c7e1a3226012071de4c38405e94072d447d60a2e815be1f977bf353c3"
+    },
+    {
+      "name": "checkpoint_provenance.json",
+      "bytes": 380,
+      "sha256": "748fdfe59eb3825c7fd359f4ecf39a82079e80d41d11f452cb6ebc7e71a05212"
+    },
+    {
+      "name": "config.json",
+      "bytes": 3674,
+      "sha256": "211402c77a31c17d4215096a6b2e9de68be1ca873a60942fe9125c544e9fb5e6"
+    },
+    {
+      "name": "data_provenance.json",
+      "bytes": 1560,
+      "sha256": "a3abdb2248af37705024e0ee1603f03552a045c294e13aa3a833a14c74e976e1"
+    },
+    {
+      "name": "dataset_stats.json",
+      "bytes": 88716,
+      "sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834"
+    },
+    {
+      "name": "policy.pt",
+      "bytes": 2338751909,
+      "sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064"
+    },
+    {
+      "name": "training_metrics.jsonl.gz",
+      "bytes": 3197791,
+      "sha256": "0335465f0c2e85c846fdf30ae2b35ef3fe0609e95079425930b37ec25f110282"
+    },
+    {
+      "name": "training_summary.json",
+      "bytes": 1021,
+      "sha256": "73ffefc2a3b66d76f000930232996b420e36842c692edbda6a6508a6b8422f14"
+    },
+    {
+      "name": "training_timing.json",
+      "bytes": 983,
+      "sha256": "cbd7711182f0a6c43f4c715ab0c4c8dad57febe9825499fa8e21af0038323e05"
+    }
+  ]
+}

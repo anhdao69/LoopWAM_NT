@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "timing": {
+    "status": "complete",
+    "update": 117580,
+    "planned_updates": 117580,
+    "windows_seen": 30100290,
+    "elapsed_training_seconds": 146065.91756033897
+  },
+  "restarts": 0,
+  "completed_unix": 1793747504.7582045
+}

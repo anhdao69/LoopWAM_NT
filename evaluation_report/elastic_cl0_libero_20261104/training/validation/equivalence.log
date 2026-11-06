@@ -1,0 +1,5 @@
+{"query": 0, "bit_equal": true, "max_abs_diff": 0.0, "action_abs_mean": 0.35733482241630554}
+{"query": 1, "bit_equal": true, "max_abs_diff": 0.0, "action_abs_mean": 0.2527550756931305}
+{"query": 2, "bit_equal": true, "max_abs_diff": 0.0, "action_abs_mean": 0.21762827038764954}
+{"query": 3, "bit_equal": true, "max_abs_diff": 0.0, "action_abs_mean": 0.2765178084373474}
+{"chrono": {"memory_tokens": 0, "mem_source": "none", "mem_write": "none", "history_frame": 0, "action_loops": 4, "video_loops": 4, "clamp_c": 3.0, "lambda_logit_init": 2.2, "oracle_labels": 64}, "mot_weights_equal": true, "all_bit_equal": true}

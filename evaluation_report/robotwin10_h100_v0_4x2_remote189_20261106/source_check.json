@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checked_source_files": {
+    "scripts/train_loopwam_robotwin10.py": "b5e7f3006c641a1bfb6ed16654495be9265a3d453cf92949f4083c842dbaeb89",
+    "src/fastwam/models/wan22/loopwam_robot.py": "ed383b37ab1b1b994b3b3ce181b5ee9074ff43d604ac0c8cbe67e2f1ca7b23ab",
+    "src/fastwam/models/wan22/loopwam.py": "c67d055f0d37549521661e6fe420f2910c3fb9016805c1b0a6109bdb52352598",
+    "src/fastwam/models/wan22/loop_mot.py": "bbce6b08418aedc8697159c81ef3bf95b0b85872e3ebd7334db818e7e61bb4b9",
+    "src/fastwam/models/wan22/mot.py": "2383e4cfa00efa9cde889493e0b6c861bc7b17d24d731f5ff38d3ebf8ab7f541",
+    "src/fastwam/models/wan22/loopwam_init.py": "fb70d4a59733af9f0b6206f5b409a566320d67a2b77a984f49c904bf51a19755",
+    "src/fastwam/datasets/chronoloop_robot.py": "2bd3ac7d2bb1b61386e219bbfecb05a2f76ffcae548bba47f373396b998a900d",
+    "src/fastwam/datasets/loopwam_robot_batches.py": "3301b668a4eff98a8c8cb74b8b463beca9561005b8eb556582b5d71d7b866395",
+    "src/fastwam/datasets/loopwam_latent_cache.py": "bec4493506fefea17f101756ff3cb1396543b9dc9ed41145971c3fd37f7aa1d2"
+  },
+  "normalization_json_equal": true,
+  "normalization_raw_hash_changed": true,
+  "training_contract_differences": {
+    "init_sha256": {
+      "current": "a3bf2097bafddac278148c1cb0321163f68cfe2b954e206436da0e3f0bd3c535",
+      "previous": "a990a5831c63e88ae5143689adad2f2aeb02cb1cd151d61ae0dd992990ac3296"
+    },
+    "data_manifest_sha256": {
+      "current": "68712d5429f20f99c953107c789f80ba7df82cc7c1128583b722068368b2d4f2",
+      "previous": "4db3a252025a04552364ee3cf0b8dad8c9facb39c66e1ef8eb16fb52941597af"
+    }
+  },
+  "checked_protocol_fields": [
+    "tasks",
+    "settings",
+    "episodes",
+    "seed",
+    "instruction_type",
+    "num_inference_steps",
+    "action_horizon",
+    "replan_steps",
+    "noise_seed",
+    "image_preprocessing",
+    "instruction_rng",
+    "cuda_graph",
+    "compile_action_infer",
+    "renderer_shader",
+    "vae_sha256"
+  ],
+  "inherited_runtime_files": 28196,
+  "verified_unix": 1793971296.8451858
+}

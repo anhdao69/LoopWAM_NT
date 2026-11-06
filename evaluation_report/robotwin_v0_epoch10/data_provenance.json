@@ -1,0 +1,36 @@
+{
+  "source": "https://huggingface.co/datasets/yuanty/robotwin2.0-fastwam",
+  "tasks": 50,
+  "clean_demonstrations_per_task": 50,
+  "randomized_demonstrations_per_task": 500,
+  "total_demonstrations": 27500,
+  "windows_per_epoch": 6075103,
+  "epochs": 10,
+  "windows_presented": 60751030,
+  "global_batch": 128,
+  "held_out_training_subset": false,
+  "video_shape": [
+    9,
+    3,
+    384,
+    320
+  ],
+  "frame_offsets": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "action_horizon": 32,
+  "action_dim": 14,
+  "proprio_dim": 14,
+  "normalization": "published global z-score",
+  "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "dataset_stats_file_sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+  "data_manifest_sha256": "ac26ba644a10ab81d99c24eed47b7fb070e2aea34f48cf2c28cd35de888f7ee9"
+}

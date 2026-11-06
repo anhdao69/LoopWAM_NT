@@ -1,0 +1,110 @@
+{
+  "tasks": {
+    "planned_v0": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "actual_dense": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "equal": true
+  },
+  "settings": {
+    "planned_v0": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "actual_dense": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "equal": true
+  },
+  "episodes": {
+    "planned_v0": 100,
+    "actual_dense": 100,
+    "equal": true
+  },
+  "seed": {
+    "planned_v0": 42,
+    "actual_dense": 42,
+    "equal": true
+  },
+  "instruction_type": {
+    "planned_v0": "unseen",
+    "actual_dense": "unseen",
+    "equal": true
+  },
+  "num_inference_steps": {
+    "planned_v0": 10,
+    "actual_dense": 10,
+    "equal": true
+  },
+  "action_horizon": {
+    "planned_v0": 32,
+    "actual_dense": 32,
+    "equal": true
+  },
+  "replan_steps": {
+    "planned_v0": 24,
+    "actual_dense": 24,
+    "equal": true
+  },
+  "noise_seed": {
+    "planned_v0": "fixed seed for every query, FastWAM default",
+    "actual_dense": "fixed seed for every query, FastWAM default",
+    "equal": true
+  },
+  "image_preprocessing": {
+    "planned_v0": "released_fastwam_pil_uint8_bf16",
+    "actual_dense": "released_fastwam_pil_uint8_bf16",
+    "equal": true
+  },
+  "instruction_rng": {
+    "planned_v0": "released_fastwam_no_explicit_python_seed",
+    "actual_dense": "released_fastwam_no_explicit_python_seed",
+    "equal": true
+  },
+  "cuda_graph": {
+    "planned_v0": "1",
+    "actual_dense": "1",
+    "equal": true
+  },
+  "compile_action_infer": {
+    "planned_v0": false,
+    "actual_dense": false,
+    "equal": true
+  },
+  "renderer_shader": {
+    "planned_v0": "rt",
+    "actual_dense": "rt",
+    "equal": true
+  },
+  "stats_sha256": {
+    "planned_v0": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "actual_dense": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "equal": true
+  },
+  "vae_sha256": {
+    "planned_v0": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "actual_dense": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "equal": true
+  }
+}

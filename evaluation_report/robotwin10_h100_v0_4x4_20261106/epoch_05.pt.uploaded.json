@@ -1,0 +1,9 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "path": "robotwin-10-h100/v0-video4-action4/epoch_05.pt",
+  "sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+  "size": 2338751845,
+  "step": 45445,
+  "revision": "3bc367157fe914c78413a5b70e33bd7576e7d1d6",
+  "verified_utc": 1793970055.951784
+}

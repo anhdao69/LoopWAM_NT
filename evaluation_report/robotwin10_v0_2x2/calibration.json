@@ -1,0 +1,76 @@
+{
+  "profiles": [
+    {
+      "name": "smoke_native",
+      "workers": 1,
+      "backend": "native",
+      "seconds": 235.6556420326233,
+      "peak_gpu_mib": 57625,
+      "baseline_gpu_mib": 35642,
+      "peak_added_mib": 21983,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 40262
+    },
+    {
+      "name": "smoke_graph_w1",
+      "workers": 1,
+      "backend": "cuda-graph",
+      "seconds": 235.6691117286682,
+      "peak_gpu_mib": 57365,
+      "baseline_gpu_mib": 35642,
+      "peak_added_mib": 21723,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 40522
+    },
+    {
+      "name": "smoke_graph_w2",
+      "workers": 2,
+      "backend": "cuda-graph",
+      "seconds": 151.116069316864,
+      "peak_gpu_mib": 66769,
+      "baseline_gpu_mib": 35642,
+      "peak_added_mib": 31127,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 31118
+    },
+    {
+      "name": "smoke_graph_w4",
+      "workers": 4,
+      "backend": "cuda-graph",
+      "seconds": 102.80740547180176,
+      "peak_gpu_mib": 81985,
+      "baseline_gpu_mib": 35642,
+      "peak_added_mib": 46343,
+      "exit_code": 0,
+      "passed": true,
+      "episodes": 8,
+      "successes": 8,
+      "memory_margin_mib": 15902
+    }
+  ],
+  "selected": {
+    "name": "smoke_graph_w4",
+    "workers": 4,
+    "backend": "cuda-graph",
+    "seconds": 102.80740547180176,
+    "peak_gpu_mib": 81985,
+    "baseline_gpu_mib": 35642,
+    "peak_added_mib": 46343,
+    "exit_code": 0,
+    "passed": true,
+    "episodes": 8,
+    "successes": 8,
+    "memory_margin_mib": 15902
+  },
+  "finished_unix": 1793742709.4812384,
+  "basis": "Fastest successful same-checkpoint CUDA-graph 8-episode profile with >=8000MiB observed total-memory margin; max4 workers; native baseline is separate. Short calibration and competing workloads limit throughput prediction."
+}

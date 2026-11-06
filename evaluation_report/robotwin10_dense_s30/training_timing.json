@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "update": 45445,
+  "planned_updates": 45445,
+  "windows_seen": 5816755,
+  "elapsed_training_seconds": 69898.21527791023,
+  "segments": [
+    {
+      "file": "manifest.json",
+      "start_update": 0,
+      "slurm_job_id": "1117138",
+      "hostname": "evc101",
+      "world_size": 4,
+      "microbatch": 8,
+      "gpu": "NVIDIA H100 80GB HBM3",
+      "git_revision": "bea472670ea52bb375ae75ba5380cd88087d2c30",
+      "git_dirty": true
+    }
+  ],
+  "first_update_utc": "2026-11-01T16:14:31+00:00",
+  "complete_utc": "2026-11-02T11:39:30+00:00",
+  "median_seconds_per_update": 1.4318935871124268,
+  "peak_allocated_gb": 69.498688512
+}
