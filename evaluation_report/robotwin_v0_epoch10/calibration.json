@@ -1,0 +1,7 @@
+{
+  "finished_unix": 1793905038.8898318,
+  "selected_workers": 4,
+  "backend": "cuda-graph",
+  "source": "Successful epoch-5 four-worker recovery; no new short calibration. Four-worker concurrency sustained in recent complete evaluations.",
+  "new_calibration": false
+}

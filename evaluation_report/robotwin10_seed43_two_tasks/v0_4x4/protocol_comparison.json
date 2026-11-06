@@ -1,0 +1,78 @@
+{
+  "settings": {
+    "baseline": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "rerun": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "equal": true
+  },
+  "episodes": {
+    "baseline": 100,
+    "rerun": 100,
+    "equal": true
+  },
+  "instruction_type": {
+    "baseline": "unseen",
+    "rerun": "unseen",
+    "equal": true
+  },
+  "num_inference_steps": {
+    "baseline": 10,
+    "rerun": 10,
+    "equal": true
+  },
+  "action_horizon": {
+    "baseline": 32,
+    "rerun": 32,
+    "equal": true
+  },
+  "replan_steps": {
+    "baseline": 24,
+    "rerun": 24,
+    "equal": true
+  },
+  "noise_seed": {
+    "baseline": "fixed seed for every query, FastWAM default",
+    "rerun": "fixed seed for every query, FastWAM default",
+    "equal": true
+  },
+  "image_preprocessing": {
+    "baseline": "released_fastwam_pil_uint8_bf16",
+    "rerun": "released_fastwam_pil_uint8_bf16",
+    "equal": true
+  },
+  "instruction_rng": {
+    "baseline": "released_fastwam_no_explicit_python_seed",
+    "rerun": "released_fastwam_no_explicit_python_seed",
+    "equal": true
+  },
+  "cuda_graph": {
+    "baseline": "1",
+    "rerun": "1",
+    "equal": true
+  },
+  "compile_action_infer": {
+    "baseline": false,
+    "rerun": false,
+    "equal": true
+  },
+  "renderer_shader": {
+    "baseline": "rt",
+    "rerun": "rt",
+    "equal": true
+  },
+  "stats_sha256": {
+    "baseline": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "rerun": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "equal": true
+  },
+  "vae_sha256": {
+    "baseline": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "rerun": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "equal": true
+  }
+}

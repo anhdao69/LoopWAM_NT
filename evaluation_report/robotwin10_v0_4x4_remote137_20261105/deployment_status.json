@@ -1,0 +1,10 @@
+{
+  "stage": "scored_evaluation_running",
+  "updated_unix": 1793817091.0925786,
+  "host": "10.148.182.137",
+  "workers": 4,
+  "backend": "cuda-graph",
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10
+}

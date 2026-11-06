@@ -1,0 +1,18 @@
+.............................F........                                   [100%]
+=================================== FAILURES ===================================
+_____________________ test_robotwin10_cursor_and_schedule ______________________
+
+    def test_robotwin10_cursor_and_schedule():
+>       from train_loopwam_robotwin10 import validate_cursor, lr_factor, UPDATES_PER_EPOCH, WINDOWS
+E       ModuleNotFoundError: No module named 'train_loopwam_robotwin10'
+
+tests/test_loopwam_robotwin10.py:71: ModuleNotFoundError
+=============================== warnings summary ===============================
+tests/test_loopwam_robot_eval.py::test_policy_rejects_vae_mismatch_before_model_construction
+  /storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/transformers/utils/hub.py:106: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_loopwam_robotwin10.py::test_robotwin10_cursor_and_schedule
+1 failed, 37 passed, 1 warning in 3.65s
