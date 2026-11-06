@@ -1,0 +1,127 @@
+{
+  "args": {
+    "run": "RT50-E2",
+    "common_init": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/init/rt50_common_init_v1.pt",
+    "microbatch": 32,
+    "ckpt_min_blocks": 1000000000,
+    "options": "bf16+graph+nofill",
+    "schedules": "all",
+    "iters": 3,
+    "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/validation/bench_E2_mb32.json",
+    "profile": null
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch": "2.7.1+cu128",
+  "options": {
+    "bf16+graph+nofill": {
+      "rows": [
+        {
+          "schedule": "flat_k1_n2",
+          "checkpoint": false,
+          "seconds": [
+            1.329721544869244,
+            0.7007035370916128,
+            0.7084321831353009
+          ],
+          "best": 0.7007035370916128,
+          "peak_gb": 18.840365056
+        },
+        {
+          "schedule": "flat_k1_n5",
+          "checkpoint": false,
+          "seconds": [
+            0.9143394599668682,
+            0.874883112963289,
+            0.8196716653183103
+          ],
+          "best": 0.8196716653183103,
+          "peak_gb": 25.474788864
+        },
+        {
+          "schedule": "flat_k1_n10",
+          "checkpoint": false,
+          "seconds": [
+            1.0592748248018324,
+            1.0224300529807806,
+            1.0154861072078347
+          ],
+          "best": 1.0154861072078347,
+          "peak_gb": 36.528134656
+        },
+        {
+          "schedule": "flat_k2_n2",
+          "checkpoint": false,
+          "seconds": [
+            0.7018006439320743,
+            0.6973624788224697,
+            0.6963285529054701
+          ],
+          "best": 0.6963285529054701,
+          "peak_gb": 21.051500544
+        },
+        {
+          "schedule": "flat_k2_n5",
+          "checkpoint": false,
+          "seconds": [
+            0.8992280410602689,
+            0.9040282177738845,
+            0.9031913108192384
+          ],
+          "best": 0.9031913108192384,
+          "peak_gb": 30.9559168
+        },
+        {
+          "schedule": "flat_k2_n10",
+          "checkpoint": false,
+          "seconds": [
+            1.2295046169310808,
+            1.1813444159924984,
+            1.1783144790679216
+          ],
+          "best": 1.1783144790679216,
+          "peak_gb": 47.532399104
+        },
+        {
+          "schedule": "flat_k4_n2",
+          "checkpoint": false,
+          "seconds": [
+            0.7783975978381932,
+            0.771118151023984,
+            0.7660550572909415
+          ],
+          "best": 0.7660550572909415,
+          "peak_gb": 25.390665728
+        },
+        {
+          "schedule": "flat_k4_n5",
+          "checkpoint": false,
+          "seconds": [
+            1.0612241281196475,
+            1.06934376899153,
+            1.088798763230443
+          ],
+          "best": 1.06934376899153,
+          "peak_gb": 41.908645376
+        },
+        {
+          "schedule": "flat_k4_n10",
+          "checkpoint": false,
+          "seconds": [
+            1.5799608468078077,
+            1.4948204667307436,
+            1.5124084614217281
+          ],
+          "best": 1.4948204667307436,
+          "peak_gb": 69.51762432
+        }
+      ],
+      "mean_seconds_per_microbatch": 0.9604349939359559,
+      "projected_seconds_per_update": {
+        "1": 3.8417399757438235,
+        "2": 1.9208699878719118,
+        "4": 0.9604349939359559
+      },
+      "max_peak_gb": 69.51762432
+    }
+  }
+}

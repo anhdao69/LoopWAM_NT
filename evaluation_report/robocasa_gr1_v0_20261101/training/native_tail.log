@@ -1,0 +1,11 @@
+=== 2026-11-01 23:39:30 native_tail
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+{"update": 1, "epoch": 1, "epochs_complete": 1, "valid_windows": 218, "windows_seen": 218, "seconds": 135.65660095214844, "data_wait_seconds": 0.10086655616760254, "prefetch_build_seconds": 0.10105987405404449, "host_issue_seconds": 135.43033719062805, "gpu_micro_seconds": 135.43046875, "gpu_optimizer_seconds": 0.10260419464111328, "rank_first_micro_seconds": [39.8946, 37.8906, 38.9136, 39.1368], "rank_host_issue_seconds": [135.4303, 135.467, 135.4536, 135.436], "rank_prefetch_build_seconds": [0.1011, 0.0875, 0.1004, 0.105], "rank_gc_seconds": [4.6991, 5.4386, 5.1279, 4.8408], "loss": 2.4136946201324463, "loss_video": 0.8321546316146851, "loss_action": 1.5815401077270508, "grad_norm": 23.79029083251953, "lr_backbone": 1.7009695526450075e-08, "peak_allocated_gb": 50.804965376, "peak_reserved_gb": 51.059359744}
+{"status": "max_updates", "update": 1, "planned_updates": 117580, "windows_seen": 218, "elapsed_training_seconds": 135.8380527496338}

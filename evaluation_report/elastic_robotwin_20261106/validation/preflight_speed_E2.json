@@ -1,0 +1,462 @@
+{
+  "started": 1793971745.9425533,
+  "args": {
+    "common_init": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/init/rt50_common_init_v1.pt",
+    "microbatch": 8,
+    "checks": "",
+    "speed_runs": "RT50-E2",
+    "schedules": "flat_k1_n2,flat_k2_n5,flat_k4_n10,flat_k1_n10",
+    "options": "bf16_frozen,teacher_graph,no_fill,all",
+    "dataset_windows": 384,
+    "queries": 4,
+    "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_robotwin/validation/preflight_speed_E2.json"
+  },
+  "checks": {
+    "speed_bf16_frozen_RT50-E2": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": null,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.6139414310455322,
+            1.6139414310455322
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.0567467212677,
+            2.0567467212677
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.40909430384635925,
+            0.40909430384635925
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.502740204334259,
+            0.502740204334259
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.003298712894320488,
+            0.003298712894320488
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0019436376169323921,
+            0.0019436376169323921
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.7202560901641846,
+            0.7202560901641846
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.1088881492614746,
+            1.1088881492614746
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        }
+      }
+    },
+    "speed_teacher_graph_RT50-E2": {
+      "passed": true,
+      "converted_linear": 0,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.6139414310455322,
+            1.6139414310455322
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.0567467212677,
+            2.0567467212677
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.40909430384635925,
+            0.40909430384635925
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.502740204334259,
+            0.502740204334259
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.003298712894320488,
+            0.003298712894320488
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0019436376169323921,
+            0.0019436376169323921
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.7202560901641846,
+            0.7202560901641846
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.1088881492614746,
+            1.1088881492614746
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        }
+      }
+    },
+    "speed_no_fill_RT50-E2": {
+      "passed": true,
+      "converted_linear": 0,
+      "graph_captures": null,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.6139414310455322,
+            1.6139414310455322
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.0567467212677,
+            2.0567467212677
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.40909430384635925,
+            0.40909430384635925
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.502740204334259,
+            0.502740204334259
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.003298712894320488,
+            0.003298712894320488
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0019436376169323921,
+            0.0019436376169323921
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.7202560901641846,
+            0.7202560901641846
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.1088881492614746,
+            1.1088881492614746
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        }
+      }
+    },
+    "speed_all_RT50-E2": {
+      "passed": true,
+      "converted_linear": 254,
+      "graph_captures": 1,
+      "paths": {
+        "flat_k1_n2/batch0": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            1.6139414310455322,
+            1.6139414310455322
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n2/batch1": {
+          "bit_equal": true,
+          "passes": [
+            15,
+            15
+          ],
+          "loss": [
+            2.0567467212677,
+            2.0567467212677
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch0": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.40909430384635925,
+            0.40909430384635925
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k2_n5/batch1": {
+          "bit_equal": true,
+          "passes": [
+            18,
+            18
+          ],
+          "loss": [
+            0.502740204334259,
+            0.502740204334259
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.003298712894320488,
+            0.003298712894320488
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k4_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.0019436376169323921,
+            0.0019436376169323921
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch0": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            0.7202560901641846,
+            0.7202560901641846
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        },
+        "flat_k1_n10/batch1": {
+          "bit_equal": true,
+          "passes": [
+            19,
+            19
+          ],
+          "loss": [
+            1.1088881492614746,
+            1.1088881492614746
+          ],
+          "max_grad_abs_diff": 0.0,
+          "grip": 0.0
+        }
+      }
+    }
+  },
+  "finished": 1793971819.9052682,
+  "passed": true
+}

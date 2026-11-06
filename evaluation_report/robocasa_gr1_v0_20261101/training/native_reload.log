@@ -1,0 +1,2 @@
+=== 2026-11-01 23:37:50 native_reload
+{"passed": true, "step": 10, "parameters": 584644701, "model": "original LoopWAM v0 / LoopMoT (GR1 29-D)", "policy_dtype": "float32", "optimizer_present": true, "optimizer_moments": "float32", "model_weights_restored_exact": true, "loss_wrapper_exact": true, "loss": 1.7103614807128906, "inference_shape": [32, 29], "inference_finite": true, "repeated_seed_exact": true, "window": 10, "normalized_action_mse_vs_ground_truth": 1.5628076791763306}

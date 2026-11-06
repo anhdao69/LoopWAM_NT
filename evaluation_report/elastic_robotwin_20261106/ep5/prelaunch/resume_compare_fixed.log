@@ -1,0 +1,26 @@
+{
+ "metrics_equal": true,
+ "updates": [
+  30,
+  30
+ ],
+ "parts": {
+  "weights": true,
+  "optimizer": true,
+  "ema": true,
+  "rng": true,
+  "contract": true,
+  "update": true,
+  "epoch": true,
+  "next_micro": true,
+  "windows_seen": true,
+  "status": true,
+  "scheduler": true
+ },
+ "tensors_changed_20_to_30": "352/352",
+ "resumed_launch": [
+  "stopped",
+  "stopped"
+ ],
+ "passed": true
+}

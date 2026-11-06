@@ -1,0 +1,5 @@
+{"servers": [6700], "cells": 2}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 1, "elapsed_min": 6.8}
+{"steps": 12, "task": "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 2, "elapsed_min": 7.8}
+{"12": [0.25, 2]}
+smoke rc=0

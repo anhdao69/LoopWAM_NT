@@ -1,0 +1,5 @@
+=== 2026-11-01T22:55:40Z timing
+{"m16_real_t48": {"exit_code": 0, "updates": 200, "complete": true, "median_s_per_update": 1.2202736139297485, "mean_s_per_update": 1.2479948679606119, "first_update_s": 53.96379375457764, "max_data_wait_s": 6.222724914550781e-05, "peak_allocated_gb": 55.482472448, "peak_reserved_gb": 55.58501376, "loss_first": 2.3983819484710693, "loss_last": 0.6521312594413757, "action_loss_last": 0.4850693345069885, "median_gpu_micro_seconds": 1.206158935546875, "median_gpu_optimizer_seconds": 0.013216256141662597, "median_host_issue_seconds": 1.206308364868164, "median_prefetch_build_seconds": 0.04285376542247832, "projected_hours": 39.9}}
+slurmstepd: error: *** STEP 5624.20 ON worker-2 CANCELLED AT 2026-11-01T23:21:46 ***
+srun: error: worker-2: task 0: Killed
+srun: Force Terminated StepId=5624.20
