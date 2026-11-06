@@ -1,0 +1,90 @@
+[
+  {
+    "model": "v0_4x4",
+    "seed": 42,
+    "task": "move_stapler_pad",
+    "setting": "demo_clean",
+    "successes": 65,
+    "episodes": 100,
+    "sr_percent": 65,
+    "accepted_attempt": "attempt_01",
+    "seconds": 1327.8971259593964
+  },
+  {
+    "model": "v0_4x4",
+    "seed": 42,
+    "task": "move_stapler_pad",
+    "setting": "demo_randomized",
+    "successes": 71,
+    "episodes": 100,
+    "sr_percent": 71,
+    "accepted_attempt": "attempt_01",
+    "seconds": 1173.8328416347504
+  },
+  {
+    "model": "v0_4x4",
+    "seed": 42,
+    "task": "open_microwave",
+    "setting": "demo_clean",
+    "successes": 26,
+    "episodes": 100,
+    "sr_percent": 26,
+    "accepted_attempt": "attempt_01",
+    "seconds": 4870.850533485413
+  },
+  {
+    "model": "v0_4x4",
+    "seed": 42,
+    "task": "open_microwave",
+    "setting": "demo_randomized",
+    "successes": 37,
+    "episodes": 100,
+    "sr_percent": 37,
+    "accepted_attempt": "attempt_01",
+    "seconds": 5021.401111125946
+  },
+  {
+    "model": "dense_s30",
+    "seed": 42,
+    "task": "move_stapler_pad",
+    "setting": "demo_clean",
+    "successes": 83,
+    "episodes": 100,
+    "sr_percent": 83,
+    "accepted_attempt": "attempt_01",
+    "seconds": 927.2554800510406
+  },
+  {
+    "model": "dense_s30",
+    "seed": 42,
+    "task": "move_stapler_pad",
+    "setting": "demo_randomized",
+    "successes": 77,
+    "episodes": 100,
+    "sr_percent": 77,
+    "accepted_attempt": "attempt_01",
+    "seconds": 1118.836086511612
+  },
+  {
+    "model": "dense_s30",
+    "seed": 42,
+    "task": "open_microwave",
+    "setting": "demo_clean",
+    "successes": 61,
+    "episodes": 100,
+    "sr_percent": 61,
+    "accepted_attempt": "attempt_01",
+    "seconds": 3909.2869925498962
+  },
+  {
+    "model": "dense_s30",
+    "seed": 42,
+    "task": "open_microwave",
+    "setting": "demo_randomized",
+    "successes": 50,
+    "episodes": 100,
+    "sr_percent": 50,
+    "accepted_attempt": "attempt_01",
+    "seconds": 4049.729300260544
+  }
+]

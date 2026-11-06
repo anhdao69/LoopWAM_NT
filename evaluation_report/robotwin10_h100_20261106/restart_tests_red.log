@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_completed_restart_finalizes_without_rerunning_evaluator (__main__.RestartTests.test_completed_restart_finalizes_without_rerunning_evaluator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data14t/anhdh35/robotwin10_h100_20261106/test_queue_restart.py", line 23, in test_completed_restart_finalizes_without_rerunning_evaluator
+    checks=[];self.assertTrue(m.reuse_completed(b,lambda *args:checks.append(args)))
+              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_preserve_bound_manifest_bytes_on_restart (__main__.RestartTests.test_preserve_bound_manifest_bytes_on_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data14t/anhdh35/robotwin10_h100_20261106/test_queue_restart.py", line 13, in test_preserve_bound_manifest_bytes_on_restart
+    self.assertEqual(before,p.read_bytes())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{\n[13 chars]ix": 10,\n  "files": {\n    "asset": {\n      [46 chars]"\n}' != b'{\n[13 chars]ix": 20,\n  "files": {\n    "asset": {\n      [46 chars]"\n}'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+FAILED (failures=2)

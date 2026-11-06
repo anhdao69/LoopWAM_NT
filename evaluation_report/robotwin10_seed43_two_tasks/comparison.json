@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "model": "v0_4x4",
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "seed42_successes": 26,
+      "seed43_successes": 33,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "v0_4x4",
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "seed42_successes": 37,
+      "seed43_successes": 60,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "v0_4x4",
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "seed42_successes": 65,
+      "seed43_successes": 59,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "v0_4x4",
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "seed42_successes": 71,
+      "seed43_successes": 65,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "dense_s30",
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "seed42_successes": 61,
+      "seed43_successes": 75,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "dense_s30",
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "seed42_successes": 50,
+      "seed43_successes": 53,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "dense_s30",
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "seed42_successes": 83,
+      "seed43_successes": 72,
+      "episodes_per_seed": 100
+    },
+    {
+      "model": "dense_s30",
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "seed42_successes": 77,
+      "seed43_successes": 74,
+      "episodes_per_seed": 100
+    }
+  ],
+  "seed43_total_episodes": 800,
+  "finished_unix": 1793725127.2925975
+}

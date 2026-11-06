@@ -1,0 +1,101 @@
+{
+  "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+  "finished": {
+    "click_bell/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "task": "click_bell",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/click_bell__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "c8f95632e7063f3d100a6452e253639e1f0017fa12d7d4852131099cceaa36e8",
+          "video_verified": true,
+          "instruction": "Use the right arm to press the blue bell with glossy finish's top center.",
+          "queries": 3,
+          "query_trace_sha256": "97bc18809b6f36b5f7f7da3fc2b3b114660a0b33d7529d16cefe6613a809fa44"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/click_bell__demo_clean/attempt_01",
+      "seconds": 45.06043100357056
+    },
+    "click_bell/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "task": "click_bell",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/click_bell__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "0066d21ee65469ae705bbbcbf81d7ff3088a96fc44c9c068974aea9ad1fd9ef7",
+          "video_verified": true,
+          "instruction": "Use the right arm to press the blue bell with glossy finish's top center.",
+          "queries": 3,
+          "query_trace_sha256": "6869f2691728935015115d32c64c90bfe8295fd44ef7e71fb461d8bb5d405fcd"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/click_bell__demo_randomized/attempt_01",
+      "seconds": 45.06997013092041
+    },
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "5122b495a1740bac09349ca886c6327575e7795cbee4165f25330117adf696bb",
+          "video_verified": true,
+          "instruction": "Pick up the brown bottle using the correct arm",
+          "queries": 5,
+          "query_trace_sha256": "9dca31b21b185514572babd88648271b987e21199b6297111bde76bd04ebea0f"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 50.08673071861267
+    },
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "eddc7b86528947d1288dd36ef8764ea9ef538207b40d14a5d6c8a866a87032b9",
+          "video_verified": true,
+          "instruction": "Use the left arm to grab the brown bottle head-up.",
+          "queries": 5,
+          "query_trace_sha256": "55c320733590476153530525eb683f2572afe4670c0975893745e830aaf497d1"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/smoke/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 55.10185122489929
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793905276.5569637,
+  "success_rates": {
+    "demo_clean": 1.0,
+    "demo_randomized": 1.0
+  }
+}

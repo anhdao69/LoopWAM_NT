@@ -1,0 +1,15 @@
+{
+  "checked_unix": 1793714599.1272547,
+  "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+  "seed": 43,
+  "graph_evidence_reused": true,
+  "graph_gate_seeds": [
+    42,
+    43,
+    44
+  ],
+  "strict_load_evidence_reused": true,
+  "source_runtime_verified": true,
+  "files": 21155,
+  "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e"
+}

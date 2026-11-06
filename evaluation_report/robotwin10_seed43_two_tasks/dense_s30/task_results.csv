@@ -1,0 +1,5 @@
+task,setting,successes,episodes,sr_percent,accepted_attempt,seconds
+open_microwave,demo_clean,75,100,75,attempt_01,4012.3115146160126
+open_microwave,demo_randomized,53,100,53,attempt_01,4574.142313718796
+move_stapler_pad,demo_clean,72,100,72,attempt_01,1162.0257987976074
+move_stapler_pad,demo_randomized,74,100,74,attempt_01,1307.462096452713

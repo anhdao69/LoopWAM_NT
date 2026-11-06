@@ -10,5 +10,7 @@ Kv=4; NFE10; seeds42/43/44; four suites × ten tasks × 50 episodes/seed = 6,000
 | 2 | complete | 6000/6000 | 3334 | 55.57% |
 
 Ka=3,5,6: removed at user request, without scored episodes. Dense-S12/S30 were also removed earlier.
-Partial SR is provisional. Original evaluator source, active runner, checkpoint and frozen protocol remain unchanged.
+The retained Ka1/Ka2 results are complete. Original evaluator source, active runner, checkpoint and frozen protocol remain unchanged.
 [Queue change record](stop_after_ka2.json) · [Live state](queue_status.json) · [Original frozen protocol](protocol.json)
+
+Updated index note (November7): separate later matched-baseline Ka3/5/6 results are listed in [the consolidated report](../all_results.md); removal from this original queue is not a claim that no other campaign evaluated them.

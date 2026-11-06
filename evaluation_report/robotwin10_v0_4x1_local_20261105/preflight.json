@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "tests_passed": 38,
+  "source_hashes_match": 9,
+  "strict_load": true,
+  "graph_bit_exact": true,
+  "smoke_episodes": 32,
+  "smoke_excluded": true,
+  "workers": 4,
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10,
+  "variant": "v0-video4-action1",
+  "step": 45445,
+  "verified_unix": 1793854028.138158
+}

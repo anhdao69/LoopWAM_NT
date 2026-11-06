@@ -1,0 +1,26 @@
+{
+  "verified_unix": 1793728321.641266,
+  "host": "10.148.182.137",
+  "queue_alive": true,
+  "queue_status": {
+    "stage": "waiting_for_calibration_memory",
+    "updated_unix": 1793728308.6252606,
+    "queue_pid": 1706423,
+    "required_free_mib": 30000,
+    "stable_samples": 0,
+    "gpu": {
+      "total_mib": 97887,
+      "used_mib": 80119,
+      "free_mib": 17126,
+      "utilization": 0
+    }
+  },
+  "strict_load_passed": true,
+  "graph_bit_exact": true,
+  "graph_query_seconds": 0.13077712012454867,
+  "native_query_seconds": 0.1651030878747406,
+  "runtime_files": 28196,
+  "portable_input_files": 28172,
+  "tests_passed": 38,
+  "scored_episodes_started": 0
+}
