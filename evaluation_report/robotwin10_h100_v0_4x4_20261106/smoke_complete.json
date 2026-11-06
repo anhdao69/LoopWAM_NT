@@ -1,0 +1,101 @@
+{
+  "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+  "finished": {
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "f7e4fc9e8a2ae5db9eb58bec546dcf6ee6a6564e8a0fa3aaa3d0dc3baaa835f9",
+          "video_verified": true,
+          "instruction": "Pick up the plastic soda bottle carefully using the right arm",
+          "queries": 5,
+          "query_trace_sha256": "57642f844e38dcec80d6b8335256d58eda4de530d74fcd48733cd3cb5ea5ae46"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 65.08242893218994
+    },
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "c6e983a83c547920939ce507a3c7232416f17c21de7a0533e30eadf96758d080",
+          "video_verified": true,
+          "instruction": "Use the left arm to grab the plastic soda bottle upright",
+          "queries": 6,
+          "query_trace_sha256": "1037b1d66bddea4577704a6f7b3337d24b8b62c66fd1903b517c33d6380fe31d"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 70.09923982620239
+    },
+    "open_microwave/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "task": "open_microwave",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/open_microwave__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "46e9eeb321139675751fb8083bf1f05abac1211454ebd69ea3301b3e918cd4a6",
+          "video_verified": true,
+          "instruction": "Move the left arm and open the medium-sized rectangular microwave with textured top.",
+          "queries": 15,
+          "query_trace_sha256": "2d1e2b3924562a33bb7a6ed4b8c7c9397e1ba8dc232551774cd01d84a9bad49d"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/open_microwave__demo_clean/attempt_01",
+      "seconds": 75.11328315734863
+    },
+    "open_microwave/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "task": "open_microwave",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/open_microwave__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "b6bfe1aa154e46fa43144677450d6d7869a1bdc73684ce24df332f0bd1bbbb1d",
+          "video_verified": true,
+          "instruction": "Pull the medium-sized microwave with angled walls open with the left arm.",
+          "queries": 63,
+          "query_trace_sha256": "e21c01eec8e2eb4d86144989e6973224038592ec2ff92f541e5f55317bc5d19f"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4/smoke_graph/open_microwave__demo_randomized/attempt_01",
+      "seconds": 100.1536922454834
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793971413.721717,
+  "success_rates": {
+    "demo_clean": 1.0,
+    "demo_randomized": 0.5
+  }
+}

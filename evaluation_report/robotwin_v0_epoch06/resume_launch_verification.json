@@ -1,0 +1,14 @@
+{
+  "verified_unix": 1793508623.1237566,
+  "resumed_pid": 12545,
+  "completed_pairs_revalidated": 76,
+  "workers": 4,
+  "pending_pairs": 20,
+  "active_pairs": [
+    "put_bottles_dustbin/demo_clean",
+    "put_bottles_dustbin/demo_randomized",
+    "put_object_cabinet/demo_clean",
+    "put_object_cabinet/demo_randomized"
+  ],
+  "status": "running"
+}

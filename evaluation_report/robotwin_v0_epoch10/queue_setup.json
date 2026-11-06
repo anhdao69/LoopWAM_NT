@@ -1,0 +1,22 @@
+{
+  "stage": "full_evaluation_running",
+  "tmux_session": "robotwin_v0_epoch10_20261106",
+  "host": "VMO-ANHDH35-D",
+  "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+  "epoch": 10,
+  "step": 474620,
+  "planned_episodes": 10000,
+  "seed": 42,
+  "workers": 4,
+  "backend": "cuda-graph",
+  "updated_unix": 1793905362.4922452,
+  "evaluator_pid": 20372,
+  "active_cells": [
+    "adjust_bottle/demo_clean",
+    "adjust_bottle/demo_randomized",
+    "beat_block_hammer/demo_clean",
+    "beat_block_hammer/demo_randomized"
+  ],
+  "smoke_successes": 4,
+  "smoke_episodes": 4
+}

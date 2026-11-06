@@ -1,0 +1,625 @@
+{
+  "totals": {
+    "demo_clean": {
+      "successes": 4504,
+      "episodes": 5000,
+      "sr_percent": 90.08
+    },
+    "demo_randomized": {
+      "successes": 4481,
+      "episodes": 5000,
+      "sr_percent": 89.62
+    },
+    "combined": {
+      "successes": 8985,
+      "episodes": 10000,
+      "sr_percent": 89.85
+    }
+  },
+  "tasks": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 95
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 95
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 90
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 44
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 38
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 82
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 68
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 39
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 37
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 86
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 89
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 91
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 89
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 92
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 89
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 38
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 28
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 86
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 89
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 82
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 87
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 77
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 81
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 83
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 89
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 93
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 96
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 92
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 93
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 80
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 80
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 86
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 87
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 80
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 97
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 95
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 94
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 95
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "episodes": 100,
+      "successes": 55
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "episodes": 100,
+      "successes": 57
+    }
+  ],
+  "audit_status": "completion records reconciled; no final_audit.json found",
+  "source_complete": "/data14t/anhdh35/loopwam_robotwin_v0_epoch06_20261031/results/COMPLETE.json",
+  "source_complete_sha256": "b3917d28d7dd28102f3c471cf178d809c9ad302be62f87d727454be46f090d9f",
+  "reconciled_at": "2026-11-07T02:51:27+07:00"
+}

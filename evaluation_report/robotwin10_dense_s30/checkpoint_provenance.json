@@ -1,0 +1,12 @@
+{
+  "epoch": 5,
+  "step": 45445,
+  "sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+  "bytes": 5665462576,
+  "native_checkpoint_unmodified": true,
+  "optimizer_included": false,
+  "finite_fp32_tensors_verified": 1651,
+  "policy_parameters": 1416145998,
+  "equal_to_final_recovery_checkpoint": true,
+  "created_utc": "2026-11-02T11:44:27.041413+00:00"
+}

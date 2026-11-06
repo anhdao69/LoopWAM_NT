@@ -1,0 +1,194 @@
+{
+  "updated_unix": 1793710105.6295528,
+  "episodes": 2000,
+  "successes": 1577,
+  "planned": 2000,
+  "completed_cells": 20,
+  "running_cells": 0,
+  "failed": [],
+  "finished": true,
+  "cells": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 99
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 50
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 52
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 65
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 71
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 26
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 37
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 90
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 92
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 88
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 87
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 98
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 92
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 95
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 63
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "status": "complete",
+      "episodes": 100,
+      "successes": 72
+    }
+  ],
+  "launch": {
+    "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+    "status": "complete",
+    "started_unix": 1793688743.0334644,
+    "workers": 2,
+    "backend": "cuda-graph",
+    "planned_episodes": 2000,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/env/bin/python",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/checkpoint/policy.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/results",
+      "--robotwin-root",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "2",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "45445",
+      "--tasks",
+      "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "pid": 1110197,
+    "variant": "v0-video4-action4",
+    "epoch": 5,
+    "expected_step": 45445,
+    "hf_revision": "df3d575d3f3fde3cf1b8d5f609fab93dc6a95649",
+    "finished_unix": 1793710105.6266627
+  }
+}
