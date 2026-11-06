@@ -1,0 +1,14 @@
+{
+  "recorded_unix": 1793815812.4280431,
+  "hostname": "VMO-VINHLD8-D",
+  "python": "3.10.22",
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "numpy": "1.26.4",
+    "Pillow": "12.0.0",
+    "sapien": "3.0.0b1",
+    "mplib": "0.2.1",
+    "transformers": "4.49.0"
+  },
+  "gpu": "name, uuid, driver_version, memory.total [MiB], memory.free [MiB]\nNVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, GPU-12b2ef2c-ca84-f2d3-a0b1-7c1da690a38e, 580.178.04, 97887 MiB, 97002 MiB\n"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "checked_unix": 1793892828.2732382,
+  "workers": 4,
+  "pid": 3903429,
+  "unchanged_fields": [
+    "checkpoint_sha256",
+    "expected_step",
+    "tasks",
+    "settings",
+    "episodes",
+    "seed",
+    "instruction_type",
+    "num_inference_steps",
+    "action_horizon",
+    "replan_steps",
+    "noise_seed",
+    "image_preprocessing",
+    "instruction_rng",
+    "cuda_graph",
+    "compile_action_infer",
+    "renderer_shader",
+    "harness_sha256",
+    "policy_sha256",
+    "stats_sha256",
+    "vae_sha256"
+  ],
+  "prior_results_excluded": true
+}

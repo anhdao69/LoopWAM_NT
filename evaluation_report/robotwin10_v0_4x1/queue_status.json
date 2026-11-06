@@ -1,0 +1,24 @@
+{
+  "stage": "complete",
+  "updated_unix": 1793832636.2808723,
+  "queue_pid": 1300958,
+  "status": "complete",
+  "finished_unix": 1793832636.2807872,
+  "results": {
+    "demo_clean": {
+      "successes": 823,
+      "episodes": 1000,
+      "sr_percent": 82.3
+    },
+    "demo_randomized": {
+      "successes": 804,
+      "episodes": 1000,
+      "sr_percent": 80.4
+    },
+    "combined": {
+      "successes": 1627,
+      "episodes": 2000,
+      "sr_percent": 81.35
+    }
+  }
+}

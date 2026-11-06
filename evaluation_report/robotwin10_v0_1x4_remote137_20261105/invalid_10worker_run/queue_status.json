@@ -1,0 +1,7 @@
+{
+  "stage": "error",
+  "updated_unix": 1793892452.8741276,
+  "queue_pid": 2632170,
+  "status": "error",
+  "error": "Traceback (most recent call last):\n  File \"/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_1x4_20261105/scripts/queue_pipeline.py\", line 188, in <module>\n    try:main()\n  File \"/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_1x4_20261105/scripts/queue_pipeline.py\", line 183, in main\n    with (B/'controller.log').open('a') as log:subprocess.run(['bash',str(B/'launch.sh')],cwd=W,stdout=log,stderr=subprocess.STDOUT,check=True)\n  File \"/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/base_env/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['bash', '/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_1x4_20261105/launch.sh']' returned non-zero exit status 1.\n"
+}

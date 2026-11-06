@@ -1,0 +1,43 @@
+{
+  "checked_unix": 1793684891.3884094,
+  "queue_alive": true,
+  "queue_status": {
+    "stage": "downloading",
+    "updated_unix": 1793684777.1045685,
+    "queue_pid": 1100512,
+    "file": "policy.pt",
+    "attempt": 1,
+    "revision": "df3d575d3f3fde3cf1b8d5f609fab93dc6a95649"
+  },
+  "tmux_session": "robotwin10_v0_4x4",
+  "tests_passed": 38,
+  "planned_protocol_fields_match": 16,
+  "source_hashes_match": 9,
+  "user_choice": "Start when GPU memory allows",
+  "snapshot_script_hashes": {
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/scripts/robotwin_local_report.py": "1017b9f36570b09de6f31d40e4ae0f4add7e736ac80ac13539596622e76c55f4",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/scripts/cpu_validate.py": "499f11c49c4d6058f53a196258d16e7fdf62c49850ecd8ca95fc372b065b029a",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/scripts/queue_pipeline.py": "b53e939e9d4caf876e32fee8594398cc34d462cd0e7b507eef27a20dac02af83",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/scripts/robotwin_local_queue.py": "38858d3d69f26e8cc415dcb917ce0e0af2877a5599f4ddf9c2a3ff5251d9f63d",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/scripts/graph_gate.py": "66071e362be04370c84c09db6b441e74e3d4adc200be83c71d0bdbb9347ae792",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/start_queue.sh": "c744418118d47203dd8407dde9cb805c51c0b1154e5766d48a22fc64af16c23e",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/launch.sh": "807e637838e81fe9d47ed1f1b53d60e6b9de8bcfb5baaa3cb5567659a0ed7631",
+    "/data14t/anhdh35/loopwam_robotwin10_v0_4x4_20261103/finalize_results.py": "1d566cdd320b237ca3efca5dc2a82e028368bf86e718410a2a69faa63a800d74"
+  },
+  "last_checked_unix": 1793684994.7480364,
+  "latest_queue_status": {
+    "stage": "waiting_for_calibration_memory",
+    "updated_unix": 1793684983.6665602,
+    "queue_pid": 1100512,
+    "required_free_mib": 30000,
+    "stable_samples": 0,
+    "gpu": {
+      "total_mib": 97887,
+      "used_mib": 78923,
+      "free_mib": 18964,
+      "utilization": 94
+    }
+  },
+  "download_verified": true,
+  "strict_load_passed": true
+}

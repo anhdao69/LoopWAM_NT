@@ -1,0 +1,64 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "dbb527e8f83fbf00fcbbc017f886122d5f4ec4df",
+  "files": [
+    {
+      "rfilename": "robotwin-10/dense-s12/README.md",
+      "blobId": "cf9ce79577159737c43f84d4853e359b1825f39f",
+      "size": 2881
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/SHA256SUMS",
+      "blobId": "63eb5b16c9acb1c12b0f80f61af00a371e47c497",
+      "size": 762
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/checkpoint_provenance.json",
+      "blobId": "6b327609e231c47a1f4d79f604171b8fe7c88626",
+      "size": 380
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/config.json",
+      "blobId": "c1804877cf8e3cc31da111522e9648355a2030d3",
+      "size": 3674
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/data_provenance.json",
+      "blobId": "dc608ae6a2075d7fc6f38dd11b27c4676f045d60",
+      "size": 1560
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/dataset_stats.json",
+      "blobId": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "size": 88716
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/policy.pt",
+      "blobId": "c5b700bea3e063fc23c753b91f055c34070c304b",
+      "size": 2338751909,
+      "lfs": {
+        "sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+        "size": 2338751909
+      }
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/training_metrics.jsonl.gz",
+      "blobId": "e622fa73766c4408ce339390c43b07fa137be7b0",
+      "size": 3197791,
+      "lfs": {
+        "sha256": "0335465f0c2e85c846fdf30ae2b35ef3fe0609e95079425930b37ec25f110282",
+        "size": 3197791
+      }
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/training_summary.json",
+      "blobId": "fa53c37be0b4e2b97e9afc47c8c4be5b3f506585",
+      "size": 1021
+    },
+    {
+      "rfilename": "robotwin-10/dense-s12/training_timing.json",
+      "blobId": "2ff2a0c39477011db6e66eba512d1e5b486282b2",
+      "size": 983
+    }
+  ]
+}
