@@ -74,6 +74,21 @@ RT50_EP5_PARENT=dict(name="LoopWAM-v0-full-RoboTwin epoch 5",repository="anhdao6
 for _name in ("E0","E1","E2"):
     ELASTIC[f"RT50-{_name}"]=dict(ELASTIC[_name],parent=RT50_PARENT,dataset="robotwin50",end_prefix=24,gripper_loss=False)
     ELASTIC[f"RT50-ep5-{_name}"]=dict(ELASTIC[f"RT50-{_name}"],parent=RT50_EP5_PARENT)
+# RoboCasa-GR1 port (2026-11-08): E0 on the RoboCasa-GR1 v0 training data (24 tasks, 6,020,058 windows), with the GR1
+# LoopWAM v0 4/4 continuation checkpoint (loopwam-s-gr1-v1) as the frozen teacher and the student initializer. The
+# teacher is chosen once by official success rate (rule below); the trainer receives the choice as a selection record
+# (scripts/select_gr1_teacher.py, --teacher-selection) whose teacher is checked against these candidates and whose
+# identity becomes config["parent"]. Embodiment adaptations of the endpoint loss: the official GR1 protocol executes
+# 12 actions per query (end over 12), and GR1's 29 targets are continuous joint positions (Fourier hands included), so
+# LIBERO's binarized gripper hinge does not apply (grip off). Everything else (losses, schedules, sampler, LRs, init
+# rule) is unchanged.
+GR1_CONTINUATION="/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints"
+GR1_PARENT=dict(name="LoopWAM-v0-RoboCasa-GR1 continuation",format="loopwam-s-gr1-v1",
+    rule="epoch 10 if its official success count (24 tasks x 50 episodes) is strictly greater than epoch 9's 626/1200, else epoch 9",
+    candidates={"9":dict(file=f"{GR1_CONTINUATION}/epoch_09.pt",step=211644,official_successes=626,
+                         sha256="694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748"),
+                "10":dict(file=f"{GR1_CONTINUATION}/epoch_10.pt",step=235160)})
+ELASTIC["GR1-E0"]=dict(ELASTIC["E0"],parent=GR1_PARENT,dataset="robocasa_gr1",end_prefix=12,gripper_loss=False)
 del _name
 
 def eligible(name,evidence):

@@ -56,7 +56,11 @@ def save(payload, out):
 def common(a):
     from fastwam.models.wan22.loopwam import create_loopwam
     from fastwam.models.wan22.residual_transport import ResidualTransport, StepCondition
-    if a.robot:
+    if a.gr1:
+        # RoboCasa-GR1 teacher (loopwam-s-gr1-v1); the common_v1 rule is unchanged.
+        from fastwam.models.wan22.loopwam_gr1 import create_loopwam_gr1
+        parent, _ = create_loopwam_gr1(a.vae_path, checkpoint_path=a.teacher, device="cpu", checkpoint_blocks=False)
+    elif a.robot:
         # RoboTwin teacher (loopwam-s-robot-v1); the common_v1 rule is unchanged.
         from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
         parent, _ = create_loopwam_robot(a.vae_path, checkpoint_path=a.teacher, device="cpu", checkpoint_blocks=False)
@@ -106,8 +110,10 @@ def main():
     p.add_argument("--manifest"); p.add_argument("--latent-dir")
     p.add_argument("--seed", type=int, default=42); p.add_argument("--out", required=True)
     p.add_argument("--robot", action="store_true", help="Teacher is a RoboTwin loopwam-s-robot-v1 checkpoint")
+    p.add_argument("--gr1", action="store_true", help="Teacher is a RoboCasa-GR1 loopwam-s-gr1-v1 checkpoint")
     a = p.parse_args()
-    if a.robot and a.recipe != "common_v1": p.error("RoboTwin teachers use the common_v1 recipe")
+    if (a.robot or a.gr1) and a.recipe != "common_v1": p.error("Robot teachers use the common_v1 recipe")
+    if a.robot and a.gr1: p.error("--robot and --gr1 are exclusive")
     common(a) if a.recipe == "common_v1" else legacy(a)
 
 if __name__ == "__main__":

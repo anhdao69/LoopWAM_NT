@@ -75,7 +75,8 @@ def load_elastic_init(model,config,path,teacher_sha256):
     return parts
 
 def export_epochs(robot,epochs):
-    """Epoch ends that write epoch_EE.pt: LIBERO keeps its 8/9/10 protocol; RoboTwin-50 runs export every epoch."""
+    """Epoch ends that write epoch_EE.pt: LIBERO keeps its 8/9/10 protocol; RoboTwin-50 and RoboCasa-GR1 runs export
+    every epoch."""
     return set(range(1,epochs+1)) if robot else {8,9,10}
 
 ROBOT_EXPORT_FORMAT="loopwam-s-robot-rt-v1"
@@ -116,7 +117,46 @@ def export_robot(model,out,epoch,config,update,contract,early=False):
     atomic_save(payload,path)
     return path
 
+GR1_EXPORT_FORMAT="loopwam-s-gr1-rt-v1"
+GR1_METADATA=ROBOT_METADATA+("robot_dim","latent_shape")
+
+def export_gr1(model,out,epoch,config,update,contract,early=False):
+    """RoboCasa-GR1 export: export_robot with the GR1 teacher format (loopwam-s-gr1-v1, robot_dim/latent_shape kept),
+    loaded by fastwam.models.wan22.transport_inference_gr1.load_gr1_transport."""
+    from fastwam.models.wan22.loopwam_init import sha256_file
+    from fastwam.models.wan22.loopwam_gr1 import FORMAT
+    from fastwam.models.wan22.residual_transport import LoRALinear
+    action_module=model.student.mixtures["action"]
+    if config["scope"]!="pc" or any(isinstance(m,LoRALinear) for m in action_module.modules()):
+        raise ValueError("GR1 exports cover the full action-expert (P-c) recipes only")
+    if sha256_file(contract["teacher"])!=contract["asset_sha256"]["teacher"]:
+        raise ValueError("Teacher file changed since training started")
+    base=torch.load(contract["teacher"],map_location="cpu",weights_only=False,mmap=True)
+    if base.get("format_version")!=FORMAT: raise ValueError("Teacher is not a loopwam-s-gr1-v1 checkpoint")
+    student={k:v.detach().cpu().clone() for k,v in action_module.state_dict().items()}
+    prefix="mixtures.action."
+    mot=dict(base["mot"])
+    if {k[len(prefix):] for k in mot if k.startswith(prefix)}!=set(student):
+        raise ValueError("Student action expert keys differ from the teacher's")
+    for k,v in student.items():
+        if (v.dtype,v.shape)!=(mot[prefix+k].dtype,mot[prefix+k].shape): raise ValueError(f"Student tensor {k} changed type")
+        mot[prefix+k]=v
+    payload={k:base[k] for k in GR1_METADATA}
+    payload.update(format_version=GR1_EXPORT_FORMAT,base_format_version=FORMAT,mot=mot,
+        proprio_encoder=dict(base["proprio_encoder"]),step=update,transport_config=config,student_action=student,
+        inference_action_format="unmerged-exact",transport={k:v.detach().cpu().clone() for k,v in model.transport.state_dict().items()},
+        step_condition=None if model.step_condition is None else {k:v.detach().cpu().clone() for k,v in model.step_condition.state_dict().items()},
+        training_state=dict(epoch=epoch,update=update,merged_lora=False,contract=contract,
+            windows_seen=update*contract["global_batch"] if early else epoch*contract["windows"],
+            parent_step=base.get("step"),parent_training_state=base.get("training_state")))
+    path=out/("step_00002000.pt" if early else f"epoch_{epoch:02d}.pt")
+    atomic_save(payload,path)
+    return path
+
 def export_epoch(model,out,epoch,config,update,contract,early=False):
+    if contract.get("dataset")=="robocasa_gr1":
+        # No upload marker: GR1 elastic exports are not published.
+        return export_gr1(model,out,epoch,config,update,contract,early)
     if contract.get("dataset")=="robotwin50":
         # No upload marker: RoboTwin elastic exports are not published.
         return export_robot(model,out,epoch,config,update,contract,early)
@@ -193,6 +233,7 @@ def main():
     p.add_argument("--manifest",default=str(PARENT_RUN/"train/data/data_manifest.json"))
     p.add_argument("--latent-dir",default=str(PARENT_RUN/"latents"))
     p.add_argument("--init-checkpoint")
+    p.add_argument("--teacher-selection",help="RoboCasa-GR1 recipes: the teacher selection record (select_gr1_teacher.py)")
     p.add_argument("--microbatch",type=int,default=8)
     p.add_argument("--expected-gpus",type=int,choices=(1,2,4,8),default=2)
     p.add_argument("--workers",type=int,default=4)
@@ -213,7 +254,10 @@ def main():
     a=p.parse_args()
     rank=int(os.getenv("RANK","0")); world=int(os.getenv("WORLD_SIZE","1"))
     local=int(os.getenv("LOCAL_RANK","0"))
-    robot=ELASTIC.get(a.run_name,{}).get("dataset","libero")=="robotwin50"
+    dataset_name=ELASTIC.get(a.run_name,{}).get("dataset","libero")
+    gr1=dataset_name=="robocasa_gr1"
+    robot=dataset_name in ("robotwin50","robocasa_gr1")   # robot embodiments: per-epoch exports, any epoch count
+    if gr1!=bool(a.teacher_selection): p.error("--teacher-selection is required by, and only by, RoboCasa-GR1 recipes")
     if world!=a.expected_gpus and not a.smoke: p.error("WORLD_SIZE must match --expected-gpus")
     if a.global_batch!=128 and not a.smoke: p.error("Production global batch must be 128")
     if a.epochs!=10 and not a.smoke and not robot: p.error("Production training must cover ten epochs")
@@ -236,7 +280,20 @@ def main():
     if config.get("init_run") and not a.init_checkpoint:
         raise ValueError("RT+B2 requires the final RT-B2a checkpoint")
     from fastwam.models.wan22.loopwam_init import sha256_file
-    if robot:
+    if gr1:
+        from fastwam.datasets.transport_gr1 import TransportGR1Dataset,WINDOWS
+        from fastwam.models.wan22.loopwam_gr1 import create_loopwam_gr1
+        vae_sha=[sha256_file(a.vae_path) if rank==0 else None]
+        if world>1: dist.broadcast_object_list(vae_sha,src=0)
+        data=TransportGR1Dataset(a.manifest,a.latent_dir,vae_sha[0])
+        if len(data)!=WINDOWS: raise ValueError("Unexpected RoboCasa-GR1 window count")
+        parent,payload=create_loopwam_gr1(a.vae_path,checkpoint_path=a.teacher,device=str(device),checkpoint_blocks=False)
+        teacher_contract=payload["training_state"]["contract"]
+        if (teacher_contract["normalization_sha256"],teacher_contract["vae_sha256"],teacher_contract["latent_cache_provenance_sha256"])!=(
+                data.manifest["normalization_sha256"],vae_sha[0],data.latent_cache_provenance_sha256):
+            raise ValueError("Teacher was trained with different normalization, VAE or latent cache")
+        del payload
+    elif robot:
         from fastwam.datasets.transport_robotwin import TransportRobotWinDataset,WINDOWS
         from fastwam.models.wan22.loopwam_robot import create_loopwam_robot
         vae_sha=[sha256_file(a.vae_path) if rank==0 else None]
@@ -254,7 +311,7 @@ def main():
         parent=create_loopwam(checkpoint_path=a.teacher,vae_path=a.vae_path,device=str(device))
     parent.requires_grad_(False).eval()
     action_dim=parent.action_expert.action_dim
-    if action_dim!=(14 if robot else 7): raise ValueError("Teacher action dimension does not match the dataset")
+    if action_dim!=(29 if gr1 else 14 if robot else 7): raise ValueError("Teacher action dimension does not match the dataset")
     model=TransportPolicy(parent,**{k:config[k] for k in ("kind","scope","step_cond","regime","anchor")},
         checkpoint_blocks=not a.no_checkpoint_blocks,loss_weights=config.get("loss_weights"),
         reuse_teacher_prefix=config.get("reuse_teacher_prefix",False),
@@ -265,7 +322,11 @@ def main():
         identities[0]=dict(teacher=sha256_file(a.teacher),initial=None if a.init_checkpoint is None else sha256_file(a.init_checkpoint),vae=sha256_file(a.vae_path))
         if elastic: identities[0]["elastic_init"]=sha256_file(a.init_artifact)
     if world>1: dist.broadcast_object_list(identities,src=0)
-    if robot and identities[0]["teacher"]!=config["parent"]["sha256"]: raise ValueError("Teacher file is not the recipe's parent")
+    if gr1:
+        # The selected teacher (record checked against the registry candidates and this file) becomes the parent.
+        from select_gr1_teacher import parent_from_selection
+        config["parent"]=parent_from_selection(a.teacher_selection,a.teacher,identities[0]["teacher"])
+    elif robot and identities[0]["teacher"]!=config["parent"]["sha256"]: raise ValueError("Teacher file is not the recipe's parent")
     if a.init_checkpoint:
         initial=torch.load(a.init_checkpoint,map_location="cpu",weights_only=False)
         validate_stacked_checkpoint(initial)
@@ -291,8 +352,9 @@ def main():
         checkpoint_blocks=not a.no_checkpoint_blocks,deterministic_algorithms=True)
     if robot:
         if data.data_manifest_sha256!=teacher_contract["data_manifest_sha256"]: raise ValueError("Teacher was trained on other data")
-        contract.update(dataset="robotwin50",data_manifest_sha256=data.data_manifest_sha256,action_dim=action_dim,
+        contract.update(dataset=dataset_name,data_manifest_sha256=data.data_manifest_sha256,action_dim=action_dim,
                         latent_dir=str(Path(a.latent_dir).resolve()))
+        if gr1: contract.update(latent_cache_provenance_sha256=data.latent_cache_provenance_sha256)
     speed=dict(bf16_frozen=a.bf16_frozen,teacher_graph=a.teacher_graph,gc_freeze=a.gc_freeze,
                no_fill_uninitialized=a.no_fill_uninitialized)
     if any(speed.values()): contract["speed_options"]=speed
