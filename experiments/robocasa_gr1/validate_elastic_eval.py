@@ -51,8 +51,11 @@ for f in cells:
     rows.append((task.replace('_GR1ArmsAndWaistFourierHands_Env', ''), sum(succ), d['success_rate'], c['mean_roundtrip_s'],
                  d['wall_seconds'], c['instructions']))
 logs = glob.glob(f'{a.out}/logs/server_*.log')
+# eval_gr1e.sh moves a failed attempt's server logs to partial_attempts/*/logs/ (its unfinished cells are rerun; its
+# finished cells are kept): server errors are checked in the final attempt's logs, prompt sources in every attempt's.
+old_logs = glob.glob(f'{a.out}/partial_attempts/*/logs/server_*.log')
 modes = {}
-for lf in logs:
+for lf in logs + old_logs:
     for mo in re.finditer(r"prompt .* -> (\w+)", open(lf, errors='replace').read()): modes[mo.group(1)] = modes.get(mo.group(1), 0) + 1
 if set(modes) - {'cache', 'memo'}: problems.append(f'prompt sources {modes}: some prompts were not from the training cache')
 for lf in logs:
@@ -62,7 +65,7 @@ for lf in logs:
 mean = sum(r[2] for r in rows) / max(1, len(rows))
 print(f'{a.out}  step {a.expected_step}  schedule {a.schedule}  tasks {len(rows)}  mean success {100 * mean:.2f}%  '
       f'({sum(r[1] for r in rows)}/{50 * len(rows)} episodes)  summary mean {100 * summ["mean_success"]:.2f}%')
-print(f'prompt sources: {modes}; server logs: {len(logs)}; success still true at the final step: '
+print(f'prompt sources: {modes}; server logs: {len(logs)} (+{len(old_logs)} of earlier attempts); success still true at the final step: '
       f'{sum(final_succ.values())}/{sum(r[1] for r in rows)} any-step successes')
 for r in sorted(rows):
     print(f'  {r[0]:<55} {r[1]:>2}/50  {100 * r[2]:5.1f}%   roundtrip {r[3]:.2f}s  wall {r[4] / 3600:.2f}h')

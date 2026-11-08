@@ -242,6 +242,9 @@ def main():
     p.add_argument("--save-every",type=int,default=100)
     p.add_argument("--max-updates",type=int)
     p.add_argument("--resume",action="store_true")
+    p.add_argument("--finalize-only",action="store_true",
+        help="With --resume: finish the exports pending at latest.pt (epoch end / update 2000) and rewrite status.json "
+             "from latest.pt, then exit without training (recovery from a stop between a save and its export)")
     p.add_argument("--no-checkpoint-blocks",action="store_true")
     p.add_argument("--smoke",action="store_true")
     # Speed options (default off; preflight_cl0.py checks each against the eager path bit for bit).
@@ -258,6 +261,7 @@ def main():
     gr1=dataset_name=="robocasa_gr1"
     robot=dataset_name in ("robotwin50","robocasa_gr1")   # robot embodiments: per-epoch exports, any epoch count
     if gr1!=bool(a.teacher_selection): p.error("--teacher-selection is required by, and only by, RoboCasa-GR1 recipes")
+    if a.finalize_only and not a.resume: p.error("--finalize-only needs --resume")
     if world!=a.expected_gpus and not a.smoke: p.error("WORLD_SIZE must match --expected-gpus")
     if a.global_batch!=128 and not a.smoke: p.error("Production global batch must be 128")
     if a.epochs!=10 and not a.smoke and not robot: p.error("Production training must cover ten epochs")
@@ -399,6 +403,18 @@ def main():
             shutil.copyfile(out/"latest.pt",out/"step_00002000_recovery.pt.tmp")
             os.replace(out/"step_00002000_recovery.pt.tmp",out/"step_00002000_recovery.pt")
         if world>1: dist.barrier()
+    if a.finalize_only:
+        # The pending exports were just written from latest.pt by the resume path above. save_recovery writes
+        # status.json after latest.pt, so rewrite it from latest.pt; train nothing (config.json is left as it was).
+        if rank==0:
+            st={k:v for k,v in state.items() if k not in ("format","weights","optimizer","ema","rng","contract")}
+            old=json.loads((out/"status.json").read_text()) if (out/"status.json").exists() else None
+            if old!=st:
+                (out/"status.json.tmp").write_text(json.dumps(st,indent=2)); os.replace(out/"status.json.tmp",out/"status.json")
+            print(json.dumps(dict(event="finalized",update=update,epoch=epoch_start,next_micro=micro_start,
+                                  status_rewritten=old!=st)),flush=True)
+        if world>1: dist.barrier(); dist.destroy_process_group()
+        return
     scale=data.transform.normalizer["action"].scale.to(device)
     offset=data.transform.normalizer["action"].offset.to(device)
     if rank==0:
