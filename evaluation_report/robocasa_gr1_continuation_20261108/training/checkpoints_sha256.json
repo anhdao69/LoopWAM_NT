@@ -1,0 +1,36 @@
+{
+ "note": "sha256sum of the continuation checkpoints on the H100 (not stored in this repository), computed 2026-11-08 ~16:55 UTC",
+ "host": "H100 login 10.254.152.73",
+ "checkpoints": {
+  "epoch_06.pt": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_06.pt",
+   "step": 141096,
+   "bytes": 2339059493,
+   "sha256": "0910b8406af49e9ea37933d75cf170cf84d750ec780bbd74bda08806eb14e7cb"
+  },
+  "epoch_07.pt": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_07.pt",
+   "step": 164612,
+   "bytes": 2339059493,
+   "sha256": "28ecabf5d4fb66f9e6163277c26c88fdf8caaf9e51aeee9f4af906e2159f7a51"
+  },
+  "epoch_08.pt": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_08.pt",
+   "step": 188128,
+   "bytes": 2339059493,
+   "sha256": "7d9ae9e7873865b56ea679a4ed85a0ba37d4f5ae91ceecef8996337f134060c8"
+  },
+  "epoch_09.pt": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+   "step": 211644,
+   "bytes": 2339059493,
+   "sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748"
+  },
+  "epoch_10.pt": {
+   "path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_10.pt",
+   "step": 235160,
+   "bytes": 2339059493,
+   "sha256": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679"
+  }
+ }
+}
