@@ -1,0 +1,125 @@
+{
+ "date": "2026-11-08",
+ "created_utc": "2026-11-08T17:02:38Z",
+ "scope": "RoboCasa-GR1 update: final results of the epochs 6-10 continuation (user request 2026-11-08: update the report with all the results of GR1 and push)",
+ "server_snapshot": {
+  "source": "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35",
+  "files": 398,
+  "tar_sha256": "64711fcbe67d8a8d70f64a04a82dfd9d341a979d4cf4134b15cad2f63e909988",
+  "sha256_of_sha256sum_listing": "db548ebbf7fe0cebd2c7562e5649dba5dc897327ac77d3fb53418f2c6565aef4",
+  "selection": "report_sync_20261108/select_h100.sh on the H100 (checkpoints, videos and latent caches excluded); every file changed under FastWAM/runs/robocasa_gr1_v0_20261101 since the 2026-11-06 copy is included",
+  "local_check": "all files re-hashed after transfer: identical to the server listing"
+ },
+ "additions": {
+  "evaluation_report/robocasa_gr1_continuation_20261108": {
+   "status": "complete",
+   "stored_files": 403,
+   "source_entries": 398,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35"
+   ],
+   "live_snapshots": [],
+   "gzip": [
+    "training/metrics.jsonl.gz"
+   ],
+   "media_not_stored": "eval/media_manifest.tsv: 6,000 rollout videos, 32.95 GB, kept on the H100"
+  },
+  "evaluation_report/verify_gr1_continuation_20261108.py": {
+   "status": "tool"
+  }
+ },
+ "results": {
+  "6": {
+   "step": 141096,
+   "successes": 568,
+   "episodes": 1200,
+   "percent": 47.33
+  },
+  "7": {
+   "step": 164612,
+   "successes": 558,
+   "episodes": 1200,
+   "percent": 46.5
+  },
+  "8": {
+   "step": 188128,
+   "successes": 582,
+   "episodes": 1200,
+   "percent": 48.5
+  },
+  "9": {
+   "step": 211644,
+   "successes": 626,
+   "episodes": 1200,
+   "percent": 52.17
+  },
+  "10": {
+   "step": 235160,
+   "successes": 620,
+   "episodes": 1200,
+   "percent": 51.67
+  }
+ },
+ "independent_check": {
+  "robocasa_gr1_continuation_20261108": true
+ },
+ "huggingface": {
+  "repo": "anhdao69/LoopWAM_NT",
+  "commit": "ebfa5c43c8ee353c8370811f95436b45cea3c3cd",
+  "files": [
+   "Robocasa-GR1/epoch_09.pt",
+   "Robocasa-GR1/epoch_10.pt"
+  ],
+  "receipts": "robocasa_gr1_continuation_20261108/hf/"
+ },
+ "branch_heads_before_sync": {
+  "KV_concat": "47e17f61aee272e64bf83ec1d4655df51d600b7b",
+  "LoopWAM_NT": "50d5bfe161348885258c8de083146a305210350e",
+  "chrono": "67e002343141e3e878d5ce9fa2e401cd2ca77e32",
+  "elastic": "e673d1e50f10af5275c26067681db455e66375fd",
+  "elastic_cl0": "35409cc09adf212b5e505354de72a5bbc831362a",
+  "elastic_robotwin": "94c7d5563592d1a7728d0f01e4782976e855164e",
+  "partition_grid_20261026": "6d2733915995d0318d34c651ca74239c32f3fe43",
+  "residual_trans": "1e7e2aeabb384a5a0f66bd99a23f39c513ab1775",
+  "robocasa_gr1_continuation_20261106": "a91c09ca9d9e0ed0a8af6926f1160d45a653f553",
+  "robocasa_gr1_v0": "25a04011b5c3196e43adf34330d988aa07da87ee",
+  "robotwin10_training_20261101": "3de6ecd1c13d9a13aff2c94f2b1697aae8d33cc4",
+  "robotwin_eval_continue_20261030": "543a06a2dd2be635500e4e18e12da7932021f986",
+  "robotwin_full_v0_20261028": "4f1d5f15d2900adfa2abe85ac7c534f035c72ec2",
+  "scratch_init_v0": "b7b0ece0e989670206aefb9adb67bfe02e1bd1ed",
+  "v0-init-variants": "265ec191182ff85f5b634f58f4f9051726866d0f"
+ },
+ "branch_heads_note": "all 15 heads are the commits of the second 2026-11-06 sync (evaluation_report tree f8c19f98, nothing else changed since)",
+ "new_github_branches": [],
+ "branch_reports": "unchanged: no branch has a commit after the 2026-11-06 sync, so branch_reports/ and index.json are current",
+ "changed_shared_files": [
+  "evaluation_report/README.md",
+  "evaluation_report/FILE_INDEX.md",
+  "evaluation_report/ARCHIVE_INDEX.md"
+ ],
+ "unchanged_previous_snapshots": [
+  "evaluation_report/robocasa_gr1_continuation_20261106",
+  "evaluation_report/robocasa_gr1_v0_20261101"
+ ],
+ "preserved_versions": [
+  {
+   "path": "evaluation_report/README.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-08/8840fb87f4ce632b/README.md",
+   "sha256": "8840fb87f4ce632bb5347b88f9bf3526c3063b18a70954fd20622017cbc4c516",
+   "source": "previous shared version (2026-11-06 sync, tree f8c19f98)"
+  },
+  {
+   "path": "evaluation_report/FILE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-08/b9e5d4e90bc6ed3f/FILE_INDEX.md",
+   "sha256": "b9e5d4e90bc6ed3f89d5e62a5ec2c412e08693b320c0fe7c0337b28b1a5741fb",
+   "source": "previous shared version (2026-11-06 sync, tree f8c19f98)"
+  },
+  {
+   "path": "evaluation_report/ARCHIVE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-08/b6028be7764c9be6/ARCHIVE_INDEX.md",
+   "sha256": "b6028be7764c9be62e0c51de5b5e4b53048502138a2370459d04922b8efeacd1",
+   "source": "previous shared version (2026-11-06 sync, tree f8c19f98)"
+  }
+ ],
+ "note": "Additions only: no existing result removed or overwritten. The previous versions of the three changed shared files are kept in preserved_versions/2026-11-08. The new folder lists the source and original SHA-256 of every stored file in SOURCES.tsv. Checkpoints, videos and latent caches are not stored."
+}
