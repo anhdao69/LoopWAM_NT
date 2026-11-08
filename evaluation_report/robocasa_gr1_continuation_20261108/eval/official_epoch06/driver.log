@@ -1,0 +1,26 @@
+{"servers": [6700, 6701, 6702, 6703, 6704, 6705, 6706, 6707], "cells": 24}
+{"steps": 12, "task": "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 1, "elapsed_min": 70.6}
+{"steps": 12, "task": "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 2, "elapsed_min": 70.7}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 3, "elapsed_min": 70.9}
+{"steps": 12, "task": "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 4, "elapsed_min": 71.1}
+{"steps": 12, "task": "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 5, "elapsed_min": 71.2}
+{"steps": 12, "task": "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 6, "elapsed_min": 71.2}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 7, "elapsed_min": 71.4}
+{"steps": 12, "task": "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 8, "elapsed_min": 71.6}
+{"steps": 12, "task": "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 9, "elapsed_min": 71.9}
+{"steps": 12, "task": "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 10, "elapsed_min": 71.9}
+{"steps": 12, "task": "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 11, "elapsed_min": 72.1}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 12, "elapsed_min": 72.1}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 13, "elapsed_min": 72.1}
+{"steps": 12, "task": "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 14, "elapsed_min": 72.4}
+{"steps": 12, "task": "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 15, "elapsed_min": 72.6}
+{"steps": 12, "task": "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 16, "elapsed_min": 73.1}
+{"steps": 12, "task": "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 17, "elapsed_min": 73.2}
+{"steps": 12, "task": "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 18, "elapsed_min": 73.9}
+{"steps": 12, "task": "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 19, "elapsed_min": 73.9}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 20, "elapsed_min": 74.4}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 21, "elapsed_min": 74.4}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 22, "elapsed_min": 74.9}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 23, "elapsed_min": 75.4}
+{"steps": 12, "task": "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 24, "elapsed_min": 75.4}
+{"12": [0.4733333333333334, 24]}
