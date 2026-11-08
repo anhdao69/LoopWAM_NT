@@ -1,0 +1,11 @@
+{
+  "phase": "complete",
+  "utc": "2026-11-08T14:56:40.062048+00:00",
+  "supervisor_pid": 1080416,
+  "host": "VMO-ANHDH35-D",
+  "epoch": 9,
+  "checkpoint_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+  "parallel": 24,
+  "servers": 6,
+  "validated": true
+}

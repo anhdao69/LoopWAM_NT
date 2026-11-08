@@ -1,0 +1,92 @@
+{
+  "source": "ws_anhdh35:/storage/anhdh35/LoopWAM_NT/evaluation_report/robocasa_gr1_epochs09_10_20261108",
+  "snapshot_sha256": "e114bc63515f874ff3e2da3c6d146c8c52cfac80b8f4df4a5e81df54f86a5c8c",
+  "source_branches": [
+    [
+      "KV_concat",
+      "8abe92e72d688545b27aa07899e5e6d3ff7770a6"
+    ],
+    [
+      "LoopWAM_NT",
+      "601a0da0049c9512d92fe3c7d52cd5060d6b5be8"
+    ],
+    [
+      "chrono",
+      "e113f2868ebad895d3549ddf61db20ab9f5d60d7"
+    ],
+    [
+      "elastic",
+      "ee06bb1f2f705da29568ef0bc8284645e2235422"
+    ],
+    [
+      "elastic_cl0",
+      "e82139ef875267ced30281cefaa2abcde33cbbaa"
+    ],
+    [
+      "elastic_robotwin",
+      "09aa02a9813f97b9cfa9dd096ac19c10a201d21e"
+    ],
+    [
+      "partition_grid_20261026",
+      "01387ca92b39adee7e77f371020136f6f6c4dff2"
+    ],
+    [
+      "residual_trans",
+      "0273b39c7c3b3e0d39844048ed38565fbfd5f5d0"
+    ],
+    [
+      "robocasa_gr1_continuation_20261106",
+      "d15fd144e4df6a39282b3cd88f6c8ba365521218"
+    ],
+    [
+      "robocasa_gr1_v0",
+      "9c946f92edefe73ca8f88f8a3c0a21b185674997"
+    ],
+    [
+      "robotwin10_training_20261101",
+      "025918d8203022b4a5e0f831856badc2d4eadbee"
+    ],
+    [
+      "robotwin_eval_continue_20261030",
+      "ed97a59520dbf3d4991853e6d857295da2223a99"
+    ],
+    [
+      "robotwin_full_v0_20261028",
+      "588a2cdfdec2e23a53153a084daf27e42365f401"
+    ],
+    [
+      "scratch_init_v0",
+      "e3f417fd3774133523957081feecfeefe9b1e04d"
+    ],
+    [
+      "v0-init-variants",
+      "06da90198418b30b1a45db1d8ea72669c426fc25"
+    ]
+  ],
+  "preserved_versions": [
+    "preserved_versions/2026-11-08/2b42d26221d8802b/robocasa_gr1_epochs09_10_20261108/README.md",
+    "preserved_versions/2026-11-08/515735847c11ea9a/README.md",
+    "preserved_versions/2026-11-08/5be26d63183a17a2/FILE_INDEX.md",
+    "preserved_versions/2026-11-08/c42f917688209e5f/ARCHIVE_INDEX.md"
+  ],
+  "results": [
+    {
+      "epoch": 9,
+      "host": "local",
+      "tasks": 24,
+      "episodes": 1200,
+      "successes": 628,
+      "success_rate_percent": 52.333333333333336,
+      "stored_validation_valid": true
+    },
+    {
+      "epoch": 10,
+      "host": "server189",
+      "tasks": 24,
+      "episodes": 1200,
+      "successes": 600,
+      "success_rate_percent": 50.0,
+      "stored_validation_valid": true
+    }
+  ]
+}
