@@ -1,0 +1,20 @@
+{
+  "epoch": 9,
+  "checkpoint": "/data14t/anhdh35/robocasa_gr1_epochs09_10_20261108/models/Robocasa-GR1/epoch_09.pt",
+  "checkpoint_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+  "code_revision": "d937167ba61a0df4a9818d1917de6c7155400dff",
+  "expected_step": 211644,
+  "episodes": 1,
+  "n_envs": 1,
+  "n_action_steps": 12,
+  "max_episode_steps": 720,
+  "env_seed": 0,
+  "noise_seed": 42,
+  "nfe": 10,
+  "cfg": 1.0,
+  "render": "egl",
+  "video": true,
+  "tasks": [
+    "gr1_unified/PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env"
+  ]
+}
