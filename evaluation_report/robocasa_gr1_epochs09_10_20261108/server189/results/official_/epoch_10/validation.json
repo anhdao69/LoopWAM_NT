@@ -1,0 +1,115 @@
+{
+ "out": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10",
+ "step": 235160,
+ "mean_success": 0.5,
+ "valid": true,
+ "problems": [],
+ "server_logs": [
+  "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10/logs/server_7701.log",
+  "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10/logs/server_7703.log",
+  "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10/logs/server_7702.log",
+  "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10/logs/server_7700.log"
+ ],
+ "prompt_sources": {
+  "cache": 186
+ },
+ "historical_errors": [],
+ "per_task": {
+  "PnPBottleToCabinetClose": {
+   "successes": 23,
+   "success_rate": 0.46
+  },
+  "PnPCanToDrawerClose": {
+   "successes": 32,
+   "success_rate": 0.64
+  },
+  "PnPCupToDrawerClose": {
+   "successes": 18,
+   "success_rate": 0.36
+  },
+  "PnPMilkToMicrowaveClose": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PnPPotatoToMicrowaveClose": {
+   "successes": 19,
+   "success_rate": 0.38
+  },
+  "PnPWineToCabinetClose": {
+   "successes": 18,
+   "success_rate": 0.36
+  },
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA": {
+   "successes": 21,
+   "success_rate": 0.42
+  },
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA": {
+   "successes": 37,
+   "success_rate": 0.74
+  },
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA": {
+   "successes": 26,
+   "success_rate": 0.52
+  },
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromPlacematToBasketSplitA": {
+   "successes": 25,
+   "success_rate": 0.5
+  },
+  "PosttrainPnPNovelFromPlacematToBowlSplitA": {
+   "successes": 26,
+   "success_rate": 0.52
+  },
+  "PosttrainPnPNovelFromPlacematToPlateSplitA": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA": {
+   "successes": 14,
+   "success_rate": 0.28
+  },
+  "PosttrainPnPNovelFromPlateToBowlSplitA": {
+   "successes": 30,
+   "success_rate": 0.6
+  },
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA": {
+   "successes": 19,
+   "success_rate": 0.38
+  },
+  "PosttrainPnPNovelFromPlateToPanSplitA": {
+   "successes": 22,
+   "success_rate": 0.44
+  },
+  "PosttrainPnPNovelFromPlateToPlateSplitA": {
+   "successes": 34,
+   "success_rate": 0.68
+  },
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA": {
+   "successes": 33,
+   "success_rate": 0.66
+  },
+  "PosttrainPnPNovelFromTrayToPlateSplitA": {
+   "successes": 33,
+   "success_rate": 0.66
+  },
+  "PosttrainPnPNovelFromTrayToPotSplitA": {
+   "successes": 32,
+   "success_rate": 0.64
+  },
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA": {
+   "successes": 10,
+   "success_rate": 0.2
+  }
+ }
+}
