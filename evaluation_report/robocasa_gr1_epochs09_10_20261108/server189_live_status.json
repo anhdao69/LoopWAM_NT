@@ -1,0 +1,34 @@
+[
+  {
+    "phase": "complete",
+    "utc": "2026-11-08T16:26:06.943572+00:00",
+    "supervisor_pid": 1697417,
+    "host": "vmo-linhbn7-d",
+    "epoch": 10,
+    "checkpoint_sha256": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679",
+    "parallel": 8,
+    "servers": 4,
+    "validated": true,
+    "out": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_10",
+    "supervisor_alive": false,
+    "finished_tasks": 24,
+    "finished_videos": 1200,
+    "latest_video_utc_seconds": 1794155151.1436024
+  },
+  {
+    "phase": "complete",
+    "utc": "2026-11-08T13:48:15.907978+00:00",
+    "supervisor_pid": 1697424,
+    "host": "vmo-linhbn7-d",
+    "epoch": 10,
+    "checkpoint_sha256": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679",
+    "parallel": 1,
+    "servers": 1,
+    "validated": true,
+    "out": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/smoke_/epoch_10",
+    "supervisor_alive": false,
+    "finished_tasks": 1,
+    "finished_videos": 1,
+    "latest_video_utc_seconds": 1794145677.3351398
+  }
+]

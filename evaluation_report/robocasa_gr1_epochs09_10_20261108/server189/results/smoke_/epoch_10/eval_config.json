@@ -1,0 +1,27 @@
+{
+  "checkpoint": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/models/Robocasa-GR1/epoch_10.pt",
+  "stats": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/models/Robocasa-GR1/dataset_stats.json",
+  "out": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/results/smoke_/epoch_10",
+  "steps": "12",
+  "episodes": 1,
+  "seed": 0,
+  "tasks": [
+    "gr1_unified/PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env"
+  ],
+  "gpus": "0",
+  "servers_per_gpu": 1,
+  "base_port": 7710,
+  "parallel": 1,
+  "n_envs": 1,
+  "max_episode_steps": 720,
+  "server_threads": 4,
+  "sim_threads": 2,
+  "video": true,
+  "expected_step": 235160,
+  "render": "egl",
+  "egl_libs": null,
+  "vae_path": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/models/vae/Wan2.1_VAE.pth",
+  "max_gpu_memory_gb": null,
+  "no_t5_fallback": true,
+  "pending": 1
+}
