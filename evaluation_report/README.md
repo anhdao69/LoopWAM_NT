@@ -4,6 +4,7 @@ Shared snapshot: **2026-11-08** (RoboCasa-GR1 update; previous snapshot 2026-11-
 
 ## Start here
 
+- Latest ws reevaluation: [RoboCasa-GR1 epochs 9 and 10](robocasa_gr1_epochs09_10_20261108/README.md), complete: **52.33% (628/1,200)** on local RTX PRO 6000 and **50.00% (600/1,200)** on server189 RTX PRO 5000. Earlier H100 evaluations are retained separately.
 - Consolidated exports: [LIBERO matched](all_results/libero_matched.csv), [RoboTwin](all_results/robotwin_results.csv), [robustness](all_results/robustness_results.csv), and [all results JSON](all_results/results.json).
 - Recent comparisons: [H100 retrains](robotwin10_h100_20261106/report.md) and [Dense-s12 versus v0 1/4](robotwin10_dense12_v014_20261105/report.md).
 - Added in the 2026-11-08 sync: [RoboCasa-GR1 epochs 6-10 continuation, final results](robocasa_gr1_continuation_20261108/README.md) (complete): official 24-task success 47.33 / 46.50 / 48.50 / **52.17** / 51.67% for epochs 6-10 (best: epoch 9, 626/1200; v0 epochs 3-5: 32.67-46.25%), with the table of all RoboCasa-GR1 v0 results, the Hugging Face publication of epochs 9 and 10, and an independent check. It supersedes the in-progress 2026-11-06 snapshot, which is kept unchanged.
@@ -26,6 +27,7 @@ Shared snapshot: **2026-11-08** (RoboCasa-GR1 update; previous snapshot 2026-11-
 | `matched_pro6000_20261101` | [README.md](matched_pro6000_20261101/README.md) · [results.json](matched_pro6000_20261101/results.json) | Matched LIBERO batch from November 1, including condition comparisons. |
 | `robocasa_gr1_continuation_20261106` | [README.md](robocasa_gr1_continuation_20261106/README.md) · [STATUS.json](robocasa_gr1_continuation_20261106/record/STATUS.json) | RoboCasa-GR1 epochs 6-10 continuation with per-epoch evaluation (in progress at snapshot; final results in `robocasa_gr1_continuation_20261108`). |
 | `robocasa_gr1_continuation_20261108` | [README.md](robocasa_gr1_continuation_20261108/README.md) · [official_results_continuation.md](robocasa_gr1_continuation_20261108/eval/official_results_continuation.md) | RoboCasa-GR1 epochs 6-10 continuation, final: official 24-task evaluation of every epoch (best epoch 9, 52.17%), all GR1 v0 results, Hugging Face epochs 9/10, independent check. |
+| `robocasa_gr1_epochs09_10_20261108` | [README.md](robocasa_gr1_epochs09_10_20261108/README.md) · [SUMMARY.md](robocasa_gr1_epochs09_10_20261108/SUMMARY.md) | Independent epoch-9/10 reevaluations, native task records and final validation evidence. |
 | `robocasa_gr1_v0_20261101` | [README.md](robocasa_gr1_v0_20261101/README.md) · [official_results_all.md](robocasa_gr1_v0_20261101/eval_ws/results/official_results_all.md) | RoboCasa-GR1 v0 training, official 24-task evaluation of epochs 3/4/5 on H100 and ws, epoch-4 action-step sweep. |
 | `robotwin10_dense12_v014_20261105` | [report.md](robotwin10_dense12_v014_20261105/report.md) | Run reports, status, and supporting evidence. |
 | `robotwin10_dense_s12_20261105` | [report.md](robotwin10_dense_s12_20261105/report.md) · [final_results.json](robotwin10_dense_s12_20261105/final_results.json) | Run reports, status, and supporting evidence. |
@@ -50,6 +52,8 @@ Shared snapshot: **2026-11-08** (RoboCasa-GR1 update; previous snapshot 2026-11-
 | `v0_ka_sweep` | [report.md](v0_ka_sweep/report.md) · [queue_status.json](v0_ka_sweep/queue_status.json) | v0 action-horizon sweep setup and status. |
 
 ## Evidence and history
+
+Latest reevaluation sync: [manifest](sync_manifest_20261108_ws.json) · [integrity inventory](integrity_inventory_20261108_ws.json). Earlier inventories below describe their original snapshots.
 
 - [Complete file index](FILE_INDEX.md): reports, exports, status files, scripts, logs, and provenance grouped by folder.
 - [Preserved versions](ARCHIVE_INDEX.md): previous or differing copies retained during synchronization and cleanup.

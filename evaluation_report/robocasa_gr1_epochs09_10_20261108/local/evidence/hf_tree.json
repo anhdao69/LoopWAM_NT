@@ -1,0 +1,126 @@
+[
+  {
+    "type": "directory",
+    "oid": "039f727412b401e798260c86f6787faf5dbb25d1",
+    "size": 0,
+    "path": "Robocasa-GR1/data"
+  },
+  {
+    "type": "directory",
+    "oid": "3dfa4f06f2377495a088c2d8f9ff8fd6cfef0337",
+    "size": 0,
+    "path": "Robocasa-GR1/eval"
+  },
+  {
+    "type": "file",
+    "oid": "11be0397682ca6c7c6d2ecc8f01e01c3c55e725a",
+    "size": 2820,
+    "path": "Robocasa-GR1/README.md"
+  },
+  {
+    "type": "file",
+    "oid": "d2cfb062c8d77de57cb5fc0ac4df03b903593ea4",
+    "size": 3384,
+    "path": "Robocasa-GR1/continuation_manifest.json"
+  },
+  {
+    "type": "file",
+    "oid": "a5e85832ed60ad1e09b486fd2d41a2ebc506c293",
+    "size": 11061,
+    "path": "Robocasa-GR1/dataset_stats.json"
+  },
+  {
+    "type": "file",
+    "oid": "83ea686bdbc571c2dc6a55ecf1adcee9c3794d4d",
+    "size": 2339059237,
+    "lfs": {
+      "oid": "a8d7ec33913d1b93a0205c14b3031ee1bb373a836e3385e3bd7f30994b2d76a6",
+      "size": 2339059237,
+      "pointerSize": 135
+    },
+    "xetHash": "e8d9150f823d63ff0a0e70e647dc269bae2dd0ca6d8c856a10be1558ac3529bf",
+    "path": "Robocasa-GR1/epoch_03.pt"
+  },
+  {
+    "type": "file",
+    "oid": "9990fe0c096f9492fba5dbfe0679a9e1080f013f",
+    "size": 288,
+    "path": "Robocasa-GR1/epoch_03.pt.uploaded.json"
+  },
+  {
+    "type": "file",
+    "oid": "30112e0658be9f937b4774a869832691e1ebea09",
+    "size": 2339059237,
+    "lfs": {
+      "oid": "b62483a91bcaec1fd5586e11ad36590043f276d6c82e5bd50c4fa55a6b018ba6",
+      "size": 2339059237,
+      "pointerSize": 135
+    },
+    "xetHash": "4e092a0f83c1262ccee98c723d2dca04fea58b59a7a3fb277786758782a20ccb",
+    "path": "Robocasa-GR1/epoch_04.pt"
+  },
+  {
+    "type": "file",
+    "oid": "fc0fc4ff264fc47c25900fd6de195a1134ebe744",
+    "size": 288,
+    "path": "Robocasa-GR1/epoch_04.pt.uploaded.json"
+  },
+  {
+    "type": "file",
+    "oid": "fa918126f3663d723b1bc06b8045faafc108d8f5",
+    "size": 2339059237,
+    "lfs": {
+      "oid": "1597816e9cc1496bb9ca71a89ef02292edd80cde688198805cd978ba9949fbfa",
+      "size": 2339059237,
+      "pointerSize": 135
+    },
+    "xetHash": "f9b4813326c264e7933b7a4567f66475afff75b3e7e1ab3065919a83c6ee08e3",
+    "path": "Robocasa-GR1/epoch_05.pt"
+  },
+  {
+    "type": "file",
+    "oid": "41b5f1266c4066f1582b0afb9078718f03d20bed",
+    "size": 289,
+    "path": "Robocasa-GR1/epoch_05.pt.uploaded.json"
+  },
+  {
+    "type": "file",
+    "oid": "78f62905d3e8c3c0916df1434b9a6ee952d19ac6",
+    "size": 2339059493,
+    "lfs": {
+      "oid": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+      "size": 2339059493,
+      "pointerSize": 135
+    },
+    "path": "Robocasa-GR1/epoch_09.pt"
+  },
+  {
+    "type": "file",
+    "oid": "f51608f45dae6128ec434c0bc8dee90f307bd301",
+    "size": 781,
+    "path": "Robocasa-GR1/epoch_09.pt.uploaded.json"
+  },
+  {
+    "type": "file",
+    "oid": "1fcacbd47ad3f6de0938f1ba7c2ba4241ae4ed31",
+    "size": 2339059493,
+    "lfs": {
+      "oid": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679",
+      "size": 2339059493,
+      "pointerSize": 135
+    },
+    "path": "Robocasa-GR1/epoch_10.pt"
+  },
+  {
+    "type": "file",
+    "oid": "81de0916db75522991c036cbc2a9a51b249835d2",
+    "size": 782,
+    "path": "Robocasa-GR1/epoch_10.pt.uploaded.json"
+  },
+  {
+    "type": "file",
+    "oid": "27c365bbd7d6108430593b4c6cf8b394b6835f61",
+    "size": 2972,
+    "path": "Robocasa-GR1/manifest.json"
+  }
+]
