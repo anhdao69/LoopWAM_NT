@@ -1,0 +1,17 @@
+{
+  "out": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/continuation_20261106/gates/cont_gate/train",
+  "last": 117600,
+  "passed": true,
+  "problems": [],
+  "rows": 20,
+  "loss_mean": 0.02877740329131484,
+  "loss_max": 0.03318573907017708,
+  "loss_video_mean": 0.025349005497992037,
+  "loss_action_mean": 0.0034283977467566727,
+  "grad_max": 0.10609222948551178,
+  "first_lr": 3e-05,
+  "median_seconds_after5": 1.157637596130371,
+  "data_wait_max": 0.12537932395935059,
+  "peak_allocated_gb": 55.48247296,
+  "resume_audit": null
+}

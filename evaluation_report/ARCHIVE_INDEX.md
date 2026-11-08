@@ -36,3 +36,9 @@ Copies are organized by preservation date and content hash. The date identifies 
 - [dd6a0b805bc33afb/matched_baselines/build_readme.py](preserved_versions/2026-11-06/dd6a0b805bc33afb/matched_baselines/build_readme.py)
 - [f2108b291b7e73eb/ARCHIVE_INDEX.md](preserved_versions/2026-11-06/f2108b291b7e73eb/ARCHIVE_INDEX.md)
 - [f302f22885f2783c/FILE_INDEX.md](preserved_versions/2026-11-06/f302f22885f2783c/FILE_INDEX.md)
+
+## 2026-11-08
+
+- [8840fb87f4ce632b/README.md](preserved_versions/2026-11-08/8840fb87f4ce632b/README.md)
+- [b6028be7764c9be6/ARCHIVE_INDEX.md](preserved_versions/2026-11-08/b6028be7764c9be6/ARCHIVE_INDEX.md)
+- [b9e5d4e90bc6ed3f/FILE_INDEX.md](preserved_versions/2026-11-08/b9e5d4e90bc6ed3f/FILE_INDEX.md)
