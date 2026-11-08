@@ -1,0 +1,11 @@
+{
+  "phase": "complete",
+  "utc": "2026-11-08T16:26:06.943572+00:00",
+  "supervisor_pid": 1697417,
+  "host": "vmo-linhbn7-d",
+  "epoch": 10,
+  "checkpoint_sha256": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679",
+  "parallel": 8,
+  "servers": 4,
+  "validated": true
+}
