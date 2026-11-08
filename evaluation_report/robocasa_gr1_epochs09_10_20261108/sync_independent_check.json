@@ -1,0 +1,23 @@
+{
+  "scope": "Recompute success totals from copied native task JSON; check protocol fields, checkpoint step and stored validation. Remote media were not downloaded or re-audited.",
+  "results": [
+    {
+      "epoch": 9,
+      "host": "local",
+      "tasks": 24,
+      "episodes": 1200,
+      "successes": 628,
+      "success_rate_percent": 52.333333333333336,
+      "stored_validation_valid": true
+    },
+    {
+      "epoch": 10,
+      "host": "server189",
+      "tasks": 24,
+      "episodes": 1200,
+      "successes": 600,
+      "success_rate_percent": 50.0,
+      "stored_validation_valid": true
+    }
+  ]
+}

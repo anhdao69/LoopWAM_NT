@@ -1,0 +1,34 @@
+[
+  {
+    "phase": "complete",
+    "utc": "2026-11-08T14:56:40.062048+00:00",
+    "supervisor_pid": 1080416,
+    "host": "VMO-ANHDH35-D",
+    "epoch": 9,
+    "checkpoint_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+    "parallel": 24,
+    "servers": 6,
+    "validated": true,
+    "out": "/data14t/anhdh35/robocasa_gr1_epochs09_10_20261108/results/official_/epoch_09",
+    "supervisor_alive": false,
+    "finished_tasks": 24,
+    "finished_videos": 1200,
+    "latest_video_utc_seconds": 1794149785.000266
+  },
+  {
+    "phase": "complete",
+    "utc": "2026-11-08T13:45:31.150008+00:00",
+    "supervisor_pid": 1080436,
+    "host": "VMO-ANHDH35-D",
+    "epoch": 9,
+    "checkpoint_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+    "parallel": 1,
+    "servers": 1,
+    "validated": true,
+    "out": "/data14t/anhdh35/robocasa_gr1_epochs09_10_20261108/results/smoke_/epoch_09",
+    "supervisor_alive": false,
+    "finished_tasks": 1,
+    "finished_videos": 1,
+    "latest_video_utc_seconds": 1794145519.6762278
+  }
+]

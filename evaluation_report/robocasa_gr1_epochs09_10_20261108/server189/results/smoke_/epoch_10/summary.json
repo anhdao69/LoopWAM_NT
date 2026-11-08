@@ -1,0 +1,19 @@
+{
+  "seed": 0,
+  "episodes": 1,
+  "checkpoint": "/media/newdisk/robocasa_gr1_epochs09_10_20261108/models/Robocasa-GR1/epoch_10.pt",
+  "by_n_action_steps": {
+    "12": {
+      "complete": true,
+      "tasks": 1,
+      "mean_success": 0.0,
+      "per_task": {
+        "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.0,
+          "successes": 0,
+          "episodes": 1
+        }
+      }
+    }
+  }
+}
