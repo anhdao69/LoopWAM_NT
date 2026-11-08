@@ -1,0 +1,4 @@
+0, 69369 MiB, 75 %;1, 69369 MiB, 74 %;2, 69369 MiB, 69 %;3, 69369 MiB, 72 %;4, 0 MiB, 0 %;5, 0 MiB, 0 %;6, 0 MiB, 0 %;7, 0 MiB, 0 %;
+[2026-11-06T21:44:32Z] eval-e06-a1: checkpoint /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_06.pt step 141096 -> /mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch06 ports from 6700, cpus 32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125
+[2026-11-06T23:00:22Z] eval-e06-a1: run_eval rc=0
+{"tasks": 24, "complete": true, "mean": 0.4733333333333334}
