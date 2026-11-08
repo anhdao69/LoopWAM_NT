@@ -1,0 +1,19 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "path": "Robocasa-GR1/epoch_10.pt",
+  "sha256": "cb7b9c1969037a7ab6f8a62d9f639dc4e4528ad7d65f2776da2fe94286d41679",
+  "size": 2339059493,
+  "step": 235160,
+  "source": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_10.pt",
+  "official_successes": 620,
+  "revision": "ebfa5c43c8ee353c8370811f95436b45cea3c3cd",
+  "files_verified": {
+    "Robocasa-GR1/epoch_09.pt": 2339059493,
+    "Robocasa-GR1/epoch_10.pt": 2339059493,
+    "Robocasa-GR1/continuation_manifest.json": 3384,
+    "Robocasa-GR1/README.md": 2820,
+    "Robocasa-GR1/eval/official_epoch09_validation.json": 2487,
+    "Robocasa-GR1/eval/official_epoch10_validation.json": 2484
+  },
+  "verified_utc": 1794144984.1675823
+}
