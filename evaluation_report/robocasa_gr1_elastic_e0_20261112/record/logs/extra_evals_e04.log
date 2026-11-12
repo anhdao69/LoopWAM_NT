@@ -1,0 +1,22 @@
+[2026-11-11T10:13:00Z] extra-e04: start: host login-1 pid 2496992; waiting for the epoch-5 orchestrator to finish
+[2026-11-11T10:13:00Z] extra-e04: EXTRA STATUS waiting: for the nine epoch-5 evaluations (orchestrate_gr1e_e5.sh) to finish
+[2026-11-11T13:19:04Z] extra-e04: epoch-5 orchestrator finished: { "phase": "done_with_problems", "detail": "GR1-E0 x5 trained and evaluated (epoch 5: nine FLAT9 schedules); epoch5/flat_k1_n5:eval (RESULTS.md)", "utc": "2026-11-11T13:15:42Z"}
+[2026-11-11T13:19:34Z] extra-e04: keeper: [2026-11-11T13:19:24Z] keeper: orchestrator done_with_problems: keeper exits
+[2026-11-11T13:19:41Z] extra-e04: epoch_04.pt sha256 1269f152bf669beabc6967073be0403a22666653e73611d26fdf5bfdcc0f3932 (same file as the four existing epoch-4 evaluations)
+[2026-11-11T13:19:41Z] extra-e04: EXTRA STATUS eval: epoch_04.pt (step 188128) schedule flat_k2_n5, attempt 1
+[2026-11-11T14:25:40Z] extra-e04: eval epoch 4 flat_k2_n5 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.5075000000000001}
+[2026-11-11T14:25:41Z] extra-e04: validation epoch 4 flat_k2_n5 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k2_n5  step 188128  schedule flat_k2_n5  tasks 24  mean success 50.75%  (609/1200 episodes)  summary mean 50.75% VALID
+[2026-11-11T14:25:41Z] extra-e04: EXTRA STATUS eval: epoch_04.pt (step 188128) schedule flat_k1_n5, attempt 1
+[2026-11-11T15:28:30Z] extra-e04: eval epoch 4 flat_k1_n5 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.4741666666666666}
+[2026-11-11T15:28:31Z] extra-e04: validation epoch 4 flat_k1_n5 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k1_n5  step 188128  schedule flat_k1_n5  tasks 24  mean success 47.42%  (569/1200 episodes)  summary mean 47.42% VALID
+[2026-11-11T15:28:31Z] extra-e04: EXTRA STATUS eval: epoch_04.pt (step 188128) schedule flat_k4_n10, attempt 1
+[2026-11-11T16:50:32Z] extra-e04: eval epoch 4 flat_k4_n10 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.5166666666666666}
+[2026-11-11T16:50:32Z] extra-e04: validation epoch 4 flat_k4_n10 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k4_n10  step 188128  schedule flat_k4_n10  tasks 24  mean success 51.67%  (620/1200 episodes)  summary mean 51.67% VALID
+[2026-11-11T16:50:33Z] extra-e04: EXTRA STATUS eval: epoch_04.pt (step 188128) schedule flat_k2_n10, attempt 1
+[2026-11-11T18:03:53Z] extra-e04: eval epoch 4 flat_k2_n10 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.5075}
+[2026-11-11T18:03:54Z] extra-e04: validation epoch 4 flat_k2_n10 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k2_n10  step 188128  schedule flat_k2_n10  tasks 24  mean success 50.75%  (609/1200 episodes)  summary mean 50.75% VALID
+[2026-11-11T18:03:54Z] extra-e04: EXTRA STATUS eval: epoch_04.pt (step 188128) schedule flat_k1_n10, attempt 1
+[2026-11-11T19:12:44Z] extra-e04: eval epoch 4 flat_k1_n10 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.4675}
+[2026-11-11T19:12:44Z] extra-e04: validation epoch 4 flat_k1_n10 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k1_n10  step 188128  schedule flat_k1_n10  tasks 24  mean success 46.75%  (561/1200 episodes)  summary mean 46.75% VALID
+[2026-11-11T19:12:45Z] extra-e04: EXTRA STATUS done: epoch 4 FLAT9 evaluations: flat_k1_n2 518/1200 valid=True; flat_k1_n5 569/1200 valid=True; flat_k1_n10 561/1200 valid=True; flat_k2_n2 619/1200 valid=True; flat_k2_n5 609/1200 valid=True; flat_k2_n10 609/1200 valid=True; flat_k4_n2 629/1200 valid=True; flat_k4_n5 642/1200 valid=True; flat_k4_n10 620/1200 valid=True; 
+[2026-11-11T19:12:45Z] extra-e04: done

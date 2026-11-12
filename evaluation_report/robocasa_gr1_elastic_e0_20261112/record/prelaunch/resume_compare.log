@@ -1,0 +1,35 @@
+{
+ "metrics_equal": true,
+ "updates": [
+  30,
+  30
+ ],
+ "parts": {
+  "weights": true,
+  "ema": true,
+  "rng": true,
+  "contract": true,
+  "update": true,
+  "epoch": true,
+  "next_micro": true,
+  "windows_seen": true,
+  "status": true,
+  "scheduler": true,
+  "optimizer": true
+ },
+ "optimizer": {
+  "param_groups": true,
+  "state_keys": true,
+  "state_tensors_exact": 956,
+  "moments_within_tolerance": 70,
+  "worst_relative": 5.828009155569263e-08,
+  "tolerance": 1e-06,
+  "out_of_tolerance": [],
+  "ok": true
+ },
+ "tensors_changed_20_to_30": "342/342",
+ "mean_seconds_per_update_6_30": 0.8933238249644637,
+ "max_data_wait_6_30": 0.000794488936662674,
+ "peak_allocated_gb": 54.44905472,
+ "passed": true
+}
