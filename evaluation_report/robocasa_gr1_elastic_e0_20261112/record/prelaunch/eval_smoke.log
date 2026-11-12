@@ -1,0 +1,4 @@
+0, 69369 MiB, 75 %;1, 69369 MiB, 78 %;2, 69369 MiB, 53 %;3, 69369 MiB, 66 %;4, 0 MiB, 0 %;5, 0 MiB, 0 %;6, 0 MiB, 0 %;7, 0 MiB, 0 %;
+[2026-11-08T11:47:10Z] eval-e00-flat_k1_n2-a1: checkpoint /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/resume/A/epoch_00.pt step 30 schedule flat_k1_n2 -> /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/eval_smoke ports from 7950, cpus 32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125, code 7c5a5db4d8b3879f3da5776d8f81baba3fa3ce00
+[2026-11-08T11:49:26Z] eval-e00-flat_k1_n2-a1: run_eval rc=0
+{"tasks": 2, "complete": true, "mean": 0.0}

@@ -1,0 +1,2 @@
+source /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/tools/env_gr1e.sh
+export EGR_WORK=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/work ELASTIC_SELECTION=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/sel.json ELASTIC_TEACHER=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/teacher.pt ELASTIC_INIT=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/init.pt TEST_X=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes PATH=/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/bin:$PATH
