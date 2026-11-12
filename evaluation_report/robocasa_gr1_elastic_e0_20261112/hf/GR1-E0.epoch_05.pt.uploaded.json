@@ -1,0 +1,30 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "path": "Robocasa-GR1/Elastic/E0/epoch_05.pt",
+  "sha256": "9429592750578a84896b7d6049b230d7e8cedc8c389286149cbd5c211aaf11f9",
+  "size": 2340640237,
+  "step": 235160,
+  "run": "GR1-E0 x5",
+  "evals_at_upload": {
+    "flat_k1_n2": 533
+  },
+  "revision": "c94c25e336ac4fb2c7fe74fa1304f40948d6dbd8",
+  "files_verified": {
+    "Robocasa-GR1/Elastic/E0/epoch_05.pt": 2340640237,
+    "Robocasa-GR1/Elastic/E0/training_config.json": 4884,
+    "Robocasa-GR1/Elastic/E0/dataset_stats.json": 11061,
+    "Robocasa-GR1/Elastic/E0/data_manifest.json": 35096,
+    "Robocasa-GR1/Elastic/E0/schedule_sequence.json": 3370773,
+    "Robocasa-GR1/Elastic/E0/training_metrics.jsonl.gz": 31354395,
+    "Robocasa-GR1/Elastic/E0/training_status.json": 189,
+    "Robocasa-GR1/Elastic/E0/launches.jsonl": 1415,
+    "Robocasa-GR1/Elastic/E0/export_verification.json": 12749,
+    "Robocasa-GR1/Elastic/E0/teacher_selection.json": 1407,
+    "Robocasa-GR1/Elastic/E0/teacher_provenance.json": 142,
+    "Robocasa-GR1/Elastic/E0/eval/e05_flat_k1_n2_validation.json": 2607,
+    "Robocasa-GR1/Elastic/E0/README.md": 4742,
+    "Robocasa-GR1/Elastic/E0/SHA256SUMS": 1132,
+    "Robocasa-GR1/README.md": 3203
+  },
+  "verified_utc": 1794371556.8078766
+}
