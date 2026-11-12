@@ -1,0 +1,2 @@
+{"event": "exported", "file": "epoch_00.pt", "seconds": 3.9400493972934783}
+{"epoch_00.pt": {"passed": true, "checks": {"format": true, "metadata_equal_teacher": true, "frozen_mot_equal_fp32_teacher": true, "proprio_equal_teacher": true, "frozen_all_fp32": true, "mot_action_equals_student": true, "student_equals_recovery": true, "student_fp32": true, "student_trained": true, "step_condition_equals_recovery": true, "transport_trainable_equals_recovery": true, "transport_config": true, "training_state": true, "rollout_export_equals_training_model": true}}}

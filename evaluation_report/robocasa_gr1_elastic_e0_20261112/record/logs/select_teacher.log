@@ -1,0 +1,38 @@
+{
+ "format": "gr1-teacher-selection-v1",
+ "rule": "epoch 10 if its official success count (24 tasks x 50 episodes) is strictly greater than epoch 9's 626/1200, else epoch 9",
+ "chosen_epoch": 9,
+ "reason": "epoch 10 620/1200 <= epoch 9 626/1200",
+ "teacher": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+ "teacher_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+ "step": 211644,
+ "evidence": {
+  "9": {
+   "validation": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch09_validation.json",
+   "present": true,
+   "validation_sha256": "dc80d4bb5505043eba0f7c04622d454efa770ceaf05bed5202888b0d1bb09fb6",
+   "valid": true,
+   "problems": [],
+   "step": 211644,
+   "expected_step": 211644,
+   "tasks": 24,
+   "successes": 626,
+   "episodes": 1200,
+   "mean_success": 0.5216666666666666
+  },
+  "10": {
+   "validation": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/eval/official_epoch10_validation.json",
+   "present": true,
+   "validation_sha256": "806ee0df71dbcd4151b2c24b6be7659dc22c2e6ae45dddf7424bc96d1e5392bd",
+   "valid": true,
+   "problems": [],
+   "step": 235160,
+   "expected_step": 235160,
+   "tasks": 24,
+   "successes": 620,
+   "episodes": 1200,
+   "mean_success": 0.5166666666666667
+  }
+ },
+ "created_utc": "2026-11-08T11:42:00Z"
+}
