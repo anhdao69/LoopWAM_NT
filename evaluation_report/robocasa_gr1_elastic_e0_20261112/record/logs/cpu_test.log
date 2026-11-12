@@ -1,0 +1,11 @@
+{"check": "recipe", "passed": true}
+{"check": "selection_epoch9_now", "passed": true, "reason": "no epoch 10 validation", "evidence10": false}
+{"check": "parent_from_selection", "passed": true}
+{"check": "parent_rejects_wrong_sha", "passed": true}
+{"check": "dataset_identity", "passed": true, "seconds": 28.842421770095825}
+{"check": "dataset_fields", "passed": true, "windows": 64, "bad": [], "padded": 11}
+{"check": "dataloader_workers", "passed": true}
+{"check": "elastic_init_gr1", "passed": true, "stderr": ""}
+{"check": "export_roundtrip_cpu", "passed": true, "parts": ["student_action", "step_condition"]}
+{"check": "trainer_requires_selection", "passed": true, "tail": "                   [--teacher-graph] [--gc-freeze]\n                          [--no-fill-uninitialized]\ntrain_transport.py: error: --teacher-selection is required by, and only by, RoboCasa-GR1 recipes\n"}
+{"event": "cpu_selftest_done", "fails": []}

@@ -1,0 +1,148 @@
+/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/eval  step 211644  schedule flat_k1_n2  tasks 24  mean success 52.17%  (626/1200 episodes)  summary mean 52.17%
+prompt sources: {'cache': 20, 't5': 1}; server logs: 1 (+1 of earlier attempts); success still true at the final step: 499/626 any-step successes
+  PnPBottleToCabinetClose                                 29/50   58.0%   roundtrip 0.48s  wall 1.18h
+  PnPCanToDrawerClose                                     34/50   68.0%   roundtrip 0.48s  wall 1.20h
+  PnPCupToDrawerClose                                     22/50   44.0%   roundtrip 0.48s  wall 1.19h
+  PnPMilkToMicrowaveClose                                 24/50   48.0%   roundtrip 0.47s  wall 1.21h
+  PnPPotatoToMicrowaveClose                               22/50   44.0%   roundtrip 0.48s  wall 1.20h
+  PnPWineToCabinetClose                                   27/50   54.0%   roundtrip 0.50s  wall 1.17h
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA         33/50   66.0%   roundtrip 0.47s  wall 1.23h
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA   19/50   38.0%   roundtrip 0.50s  wall 1.21h
+  PosttrainPnPNovelFromCuttingboardToPanSplitA            34/50   68.0%   roundtrip 0.48s  wall 1.19h
+  PosttrainPnPNovelFromCuttingboardToPotSplitA            28/50   56.0%   roundtrip 0.50s  wall 1.19h
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA   24/50   48.0%   roundtrip 0.48s  wall 1.19h
+  PosttrainPnPNovelFromPlacematToBasketSplitA             20/50   40.0%   roundtrip 0.47s  wall 1.23h
+  PosttrainPnPNovelFromPlacematToBowlSplitA               29/50   58.0%   roundtrip 0.45s  wall 1.23h
+  PosttrainPnPNovelFromPlacematToPlateSplitA              32/50   64.0%   roundtrip 0.47s  wall 1.19h
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA        12/50   24.0%   roundtrip 0.46s  wall 1.24h
+  PosttrainPnPNovelFromPlateToBowlSplitA                  29/50   58.0%   roundtrip 0.46s  wall 1.25h
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA          22/50   44.0%   roundtrip 0.48s  wall 1.18h
+  PosttrainPnPNovelFromPlateToPanSplitA                   24/50   48.0%   roundtrip 0.48s  wall 1.20h
+  PosttrainPnPNovelFromPlateToPlateSplitA                 40/50   80.0%   roundtrip 0.50s  wall 1.17h
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA           27/50   54.0%   roundtrip 0.51s  wall 1.18h
+  PosttrainPnPNovelFromTrayToPlateSplitA                  27/50   54.0%   roundtrip 0.50s  wall 1.20h
+  PosttrainPnPNovelFromTrayToPotSplitA                    28/50   56.0%   roundtrip 0.50s  wall 1.19h
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA           26/50   52.0%   roundtrip 0.48s  wall 1.23h
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA            14/50   28.0%   roundtrip 0.45s  wall 1.27h
+PROBLEMS:
+  PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0
+  prompt sources {'cache': 20, 't5': 1}: some prompts were not from the training cache
