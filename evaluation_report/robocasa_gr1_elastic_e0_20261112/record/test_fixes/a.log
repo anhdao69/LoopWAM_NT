@@ -1,0 +1,18 @@
+usage: train_transport.py [-h] --run-name
+                          {RT-A,RT-B4,RT-T1ft,RT-Pa,RT-TF,RT-A2,RT-B2a,RT+B2,RT-B4-2,RT-T3,RT-T5,RT-T6,RT-Pc,RT-NFE1,RT-no-local,RT-no-end,RT-no-grip,RT-no-anchor,RT-A-seed43,RT-A-seed44,E0,E1,E2,SP11,F0-PB,RT-A2-replay,CL0-E0,CL0-E1,CL0-E2,RT50-E0,RT50-ep5-E0,RT50-E1,RT50-ep5-E1,RT50-E2,RT50-ep5-E2,GR1-E0}
+                          [--init-artifact INIT_ARTIFACT]
+                          [--checkpoint-min-blocks CHECKPOINT_MIN_BLOCKS]
+                          [--hf-folder HF_FOLDER] --output-dir OUTPUT_DIR
+                          [--teacher TEACHER] [--vae-path VAE_PATH]
+                          [--manifest MANIFEST] [--latent-dir LATENT_DIR]
+                          [--init-checkpoint INIT_CHECKPOINT]
+                          [--teacher-selection TEACHER_SELECTION]
+                          [--microbatch MICROBATCH]
+                          [--expected-gpus {1,2,4,8}] [--workers WORKERS]
+                          [--global-batch GLOBAL_BATCH] [--epochs EPOCHS]
+                          [--save-every SAVE_EVERY]
+                          [--max-updates MAX_UPDATES] [--resume]
+                          [--finalize-only] [--no-checkpoint-blocks] [--smoke]
+                          [--bf16-frozen] [--teacher-graph] [--gc-freeze]
+                          [--no-fill-uninitialized]
+train_transport.py: error: --finalize-only needs --resume

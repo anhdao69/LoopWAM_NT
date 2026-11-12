@@ -1,0 +1,28 @@
+/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e05_flat_k1_n5  step 235160  schedule flat_k1_n5  tasks 24  mean success 46.50%  (558/1200 episodes)  summary mean 46.50%
+prompt sources: {'cache': 186}; server logs: 8 (+0 of earlier attempts); success still true at the final step: 429/558 any-step successes
+  PnPBottleToCabinetClose                                 26/50   52.0%   roundtrip 0.21s  wall 0.96h
+  PnPCanToDrawerClose                                     35/50   70.0%   roundtrip 0.21s  wall 0.97h
+  PnPCupToDrawerClose                                     16/50   32.0%   roundtrip 0.21s  wall 0.96h
+  PnPMilkToMicrowaveClose                                 27/50   54.0%   roundtrip 0.21s  wall 1.00h
+  PnPPotatoToMicrowaveClose                               13/50   26.0%   roundtrip 0.21s  wall 0.99h
+  PnPWineToCabinetClose                                   19/50   38.0%   roundtrip 0.21s  wall 0.93h
+  PosttrainPnPNovelFromCuttingboardToBasketSplitA         22/50   44.0%   roundtrip 0.21s  wall 1.01h
+  PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA   19/50   38.0%   roundtrip 0.21s  wall 0.98h
+  PosttrainPnPNovelFromCuttingboardToPanSplitA            32/50   64.0%   roundtrip 0.21s  wall 0.98h
+  PosttrainPnPNovelFromCuttingboardToPotSplitA            29/50   58.0%   roundtrip 0.21s  wall 0.94h
+  PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA   19/50   38.0%   roundtrip 0.21s  wall 0.98h
+  PosttrainPnPNovelFromPlacematToBasketSplitA             25/50   50.0%   roundtrip 0.21s  wall 1.01h
+  PosttrainPnPNovelFromPlacematToBowlSplitA               27/50   54.0%   roundtrip 0.20s  wall 1.03h
+  PosttrainPnPNovelFromPlacematToPlateSplitA              23/50   46.0%   roundtrip 0.21s  wall 0.97h
+  PosttrainPnPNovelFromPlacematToTieredshelfSplitA        12/50   24.0%   roundtrip 0.20s  wall 1.03h
+  PosttrainPnPNovelFromPlateToBowlSplitA                  19/50   38.0%   roundtrip 0.20s  wall 1.03h
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA          18/50   36.0%   roundtrip 0.21s  wall 0.97h
+  PosttrainPnPNovelFromPlateToPanSplitA                   27/50   54.0%   roundtrip 0.21s  wall 0.97h
+  PosttrainPnPNovelFromPlateToPlateSplitA                 31/50   62.0%   roundtrip 0.22s  wall 0.93h
+  PosttrainPnPNovelFromTrayToCardboardboxSplitA           28/50   56.0%   roundtrip 0.21s  wall 0.95h
+  PosttrainPnPNovelFromTrayToPlateSplitA                  33/50   66.0%   roundtrip 0.21s  wall 0.97h
+  PosttrainPnPNovelFromTrayToPotSplitA                    28/50   56.0%   roundtrip 0.21s  wall 0.96h
+  PosttrainPnPNovelFromTrayToTieredbasketSplitA           23/50   46.0%   roundtrip 0.20s  wall 1.01h
+  PosttrainPnPNovelFromTrayToTieredshelfSplitA             7/50   14.0%   roundtrip 0.20s  wall 1.05h
+PROBLEMS:
+  PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: a final-step-success video is not an any-step success in the JSON

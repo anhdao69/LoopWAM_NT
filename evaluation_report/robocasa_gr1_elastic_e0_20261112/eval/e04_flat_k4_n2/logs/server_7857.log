@@ -1,0 +1,74 @@
+2026-11-10 12:50:54,397 INFO Initialized MoT with experts: ['video', 'action'], num_layers=12
+2026-11-10 12:50:54,398 INFO   Expert 'video': num_params=0.48 B
+2026-11-10 12:50:54,399 INFO   Expert 'action': num_params=0.11 B
+2026-11-10 12:50:54,834 INFO Initialized MoT with experts: ['video', 'action'], num_layers=12
+2026-11-10 12:50:54,835 INFO   Expert 'video': num_params=0.48 B
+2026-11-10 12:50:54,835 INFO   Expert 'action': num_params=0.11 B
+2026-11-10 12:50:56,540 INFO serving {"policy": "LoopWAM elastic GR1-E0 (T0, P-c, step-conditioned student of the GR1 v0 4/4 teacher)", "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/runs/GR1-E0/epoch_04.pt", "step": 188128, "export_sha256": "1269f152bf669beabc6967073be0403a22666653e73611d26fdf5bfdcc0f3932", "checkpoint_contract_sha256": "92ae620f8ec83d59ae4705293052b7318df4432ee7e4bc6ea223f2da6b82e68e", "normalization_sha256": "bad54856a2835c9a65c5b6288cd6c8e55660df2d3990777009f22842197be9eb", "normalization_mode": "min/max", "schedule": "flat_k4_n2", "loops": [4, 4], "recipe": "elastic-v1", "transport_kind": "T0", "teacher_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748", "teacher_epoch": 9, "action_chunk_size": 32, "n_action_steps": 12, "num_inference_steps": 2, "cfg_scale": 1.0, "noise_seed": 42, "action_keys": ["action.left_arm", "action.right_arm", "action.left_hand", "action.right_hand", "action.waist"], "state_keys": ["state.left_arm", "state.right_arm", "state.left_hand", "state.right_hand", "state.waist"], "video_key": "video.ego_view", "training_obs_image_size": [256, 256], "action_dims": {"left_arm": 7, "right_arm": 7, "left_hand": 6, "right_hand": 6, "waist": 3}, "absolute_actions": true, "host": "worker-2", "port": 7857}
+2026-11-10 12:50:56,541 INFO server listening on 0.0.0.0:7857
+2026-11-10 12:51:00,259 ERROR opening handshake failed
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/mnt/data/vmo-ai-task/anhdh35/gr1_eval/pydeps_fastwam/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+2026-11-10 12:51:08,474 INFO connection open
+2026-11-10 12:51:08,474 INFO Connection from ('127.0.0.1', 58156) opened
+2026-11-10 12:51:08,475 INFO connection open
+2026-11-10 12:51:08,475 INFO Connection from ('127.0.0.1', 58164) opened
+2026-11-10 12:51:08,476 INFO connection open
+2026-11-10 12:51:08,476 INFO Connection from ('127.0.0.1', 58166) opened
+2026-11-10 12:51:21,478 INFO prompt 'unlocked_waist: pick the eggplant from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:51:23,221 INFO prompt 'unlocked_waist: pick the lemon from the plate and place it in the bowl' -> cache
+2026-11-10 12:51:25,191 INFO prompt 'unlocked_waist: pick the lemon from the tray and place it in the tiered shelf' -> cache
+2026-11-10 12:52:36,328 INFO prompt 'unlocked_waist: pick the pear from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:52:38,735 INFO prompt 'unlocked_waist: pick the can from the plate and place it in the bowl' -> cache
+2026-11-10 12:52:39,221 INFO prompt 'unlocked_waist: pick the pear from the tray and place it in the tiered shelf' -> cache
+2026-11-10 12:53:49,941 INFO prompt 'unlocked_waist: pick the bell pepper from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:53:54,595 INFO prompt 'unlocked_waist: pick the croissant from the tray and place it in the tiered shelf' -> cache
+2026-11-10 12:53:55,114 INFO prompt 'unlocked_waist: pick the cupcake from the plate and place it in the bowl' -> cache
+2026-11-10 12:55:05,579 INFO prompt 'unlocked_waist: pick the eggplant from the tray and place it in the tiered shelf' -> cache
+2026-11-10 12:55:05,743 INFO prompt 'unlocked_waist: pick the sweet potato from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:55:12,764 INFO prompt 'unlocked_waist: pick the bell pepper from the plate and place it in the bowl' -> cache
+2026-11-10 12:56:11,898 INFO prompt 'unlocked_waist: pick the tomato from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:57:46,038 INFO prompt 'unlocked_waist: pick the pear from the plate and place it in the bowl' -> cache
+2026-11-10 12:58:31,088 INFO prompt 'unlocked_waist: pick the can from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 12:58:56,311 INFO prompt 'unlocked_waist: pick the cupcake from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:00:15,324 INFO prompt 'unlocked_waist: pick the sweet potato from the plate and place it in the bowl' -> cache
+2026-11-10 13:00:20,498 INFO prompt 'unlocked_waist: pick the squash from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:01:33,476 INFO prompt 'unlocked_waist: pick the sweet potato from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:04:25,619 INFO prompt 'unlocked_waist: pick the squash from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 13:06:47,715 INFO prompt 'unlocked_waist: pick the croissant from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 13:08:49,208 INFO prompt 'unlocked_waist: pick the eggplant from the plate and place it in the bowl' -> cache
+2026-11-10 13:12:30,322 INFO prompt 'unlocked_waist: pick the croissant from the plate and place it in the bowl' -> cache
+2026-11-10 13:12:40,723 INFO prompt 'unlocked_waist: pick the cupcake from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 13:13:01,743 INFO prompt 'unlocked_waist: pick the can from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:21:30,142 INFO prompt 'unlocked_waist: pick the squash from the plate and place it in the bowl' -> cache
+2026-11-10 13:27:09,144 INFO prompt 'unlocked_waist: pick the lemon from the cutting board and place it in the cardboard box' -> cache
+2026-11-10 13:27:35,530 INFO prompt 'unlocked_waist: pick the tomato from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:34:09,368 INFO prompt 'unlocked_waist: pick the tomato from the plate and place it in the bowl' -> cache
+2026-11-10 13:39:38,917 INFO prompt 'unlocked_waist: pick the bell pepper from the tray and place it in the tiered shelf' -> cache
+2026-11-10 13:50:30,045 INFO Connection from ('127.0.0.1', 58164) closed
+2026-11-10 13:53:04,386 INFO Connection from ('127.0.0.1', 58166) closed
+2026-11-10 13:54:09,755 INFO Connection from ('127.0.0.1', 58156) closed

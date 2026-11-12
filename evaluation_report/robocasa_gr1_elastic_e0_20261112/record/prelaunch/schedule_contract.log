@@ -1,0 +1,36 @@
+{
+ "checks": {
+  "planned_updates": true,
+  "epochs": true,
+  "windows": true,
+  "scheduler": true,
+  "sequence": true,
+  "sequence_matches_metrics": true,
+  "lr_schedule": true,
+  "teacher": true,
+  "init": true,
+  "recipe": true,
+  "grip_zero": true,
+  "contract_in_recovery": true
+ },
+ "first_lr": [
+  1.4174344436569808e-07,
+  4.252303330970942e-09
+ ],
+ "last_lr": [
+  4.252303330970943e-06,
+  1.2756909992912826e-07
+ ],
+ "parent": {
+  "name": "LoopWAM-v0-RoboCasa-GR1 continuation",
+  "format": "loopwam-s-gr1-v1",
+  "rule": "epoch 10 if its official success count (24 tasks x 50 episodes) is strictly greater than epoch 9's 626/1200, else epoch 9",
+  "epoch": 9,
+  "file": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+  "step": 211644,
+  "sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+  "selection_sha256": "d6023b674ac853d034a30dd0b82779d117757c56101652ce74c1cd173d8990c7",
+  "selection_reason": "epoch 10 620/1200 <= epoch 9 626/1200"
+ },
+ "passed": true
+}
