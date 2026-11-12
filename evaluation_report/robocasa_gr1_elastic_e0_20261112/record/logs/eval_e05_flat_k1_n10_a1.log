@@ -1,0 +1,4 @@
+0, 70712 MiB, 99 %;1, 68292 MiB, 99 %;2, 65090 MiB, 100 %;3, 56110 MiB, 99 %;4, 0 MiB, 0 %;5, 0 MiB, 0 %;6, 0 MiB, 0 %;7, 0 MiB, 0 %;
+[2026-11-11T09:28:57Z] eval-e05-flat_k1_n10-a1: checkpoint /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/runs/GR1-E0/epoch_05.pt step 235160 schedule flat_k1_n10 -> /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e05_flat_k1_n10 ports from 8300, cpus 32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125, code 7c5a5db4d8b3879f3da5776d8f81baba3fa3ce00
+[2026-11-11T10:37:56Z] eval-e05-flat_k1_n10-a1: run_eval rc=0
+{"tasks": 24, "complete": true, "mean": 0.4941666666666666}

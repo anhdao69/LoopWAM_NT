@@ -1,0 +1,3 @@
+x
+RuntimeError: boom in an earlier attempt
+prompt pick up the can -> t5
