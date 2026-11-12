@@ -1,0 +1,7 @@
+{
+  "stage": "error",
+  "updated_unix": 1793892431.4849887,
+  "queue_pid": 3020233,
+  "status": "error",
+  "error": "Traceback (most recent call last):\n  File \"/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/scripts/queue_pipeline.py\", line 190, in <module>\n    try:main()\n  File \"/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/scripts/queue_pipeline.py\", line 185, in main\n    with (B/'controller.log').open('a') as log:subprocess.run(['bash',str(B/'launch.sh')],cwd=W,stdout=log,stderr=subprocess.STDOUT,check=True)\n  File \"/storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/subprocess.py\", line 526, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['bash', '/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/launch.sh']' returned non-zero exit status 1.\n"
+}

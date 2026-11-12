@@ -1,0 +1,11 @@
+{
+  "bulk": "/data14t/anhdh35/robotwin10_h100_20261106/v0-video4-action4",
+  "report": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_h100_v0_4x4_20261106",
+  "repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+  "variant": "v0-video4-action4",
+  "workers": 4,
+  "vae": "/storage/anhdh35/Light-WAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+  "inherited_runtime": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/runtime_manifest.json",
+  "baseline_variant": "v0_4x4",
+  "host": "local"
+}

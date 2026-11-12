@@ -1,0 +1,61 @@
+{
+ "updates": [
+  30,
+  30,
+  20
+ ],
+ "mismatches": [],
+ "metrics_bit_identical": true,
+ "weights_ema_bit_identical": true,
+ "optimizer_state_bit_identical": true,
+ "status": [
+  "running",
+  30,
+  30
+ ],
+ "median_seconds": {
+  "E2": 0.89251161320135,
+  "E0": 0.9561152309179306
+ },
+ "mean_seconds": {
+  "E2": 0.9591239711994098,
+  "E0": 0.9811369568273863
+ },
+ "peak_gb": {
+  "E2": 64.006995968,
+  "E0": 63.977310208
+ },
+ "finite": true,
+ "schedules_A": [
+  "k2_n5",
+  "k1_n5",
+  "k1_n2",
+  "k2_n2",
+  "k4_n2",
+  "k4_n10",
+  "k2_n10",
+  "k1_n10",
+  "k4_n5",
+  "k1_n10",
+  "k2_n2",
+  "k4_n5",
+  "k2_n10",
+  "k4_n2",
+  "k1_n2",
+  "k4_n10",
+  "k2_n5",
+  "k1_n5",
+  "k1_n10",
+  "k2_n5",
+  "k4_n5",
+  "k2_n10",
+  "k1_n2",
+  "k2_n2",
+  "k4_n2",
+  "k4_n10",
+  "k1_n5",
+  "k2_n5",
+  "k2_n2",
+  "k1_n10"
+ ]
+}

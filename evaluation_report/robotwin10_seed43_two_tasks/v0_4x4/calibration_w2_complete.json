@@ -1,0 +1,141 @@
+{
+  "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+  "finished": {
+    "open_microwave/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "task": "open_microwave",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4400000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_clean/attempt_01/episode0_randomized-false_success-false.mp4",
+          "video_sha256": "f7bf0b1d17a3197a4f4fc04dbe4eb63ad4eda840ae3b174a377c67f7943cc77c",
+          "video_verified": true,
+          "instruction": "Open the medium-sized microwave with angled walls by pulling its door handle.",
+          "queries": 63,
+          "query_trace_sha256": "01dea0a7087350cd68b4cb8dd5d7dcb4008d18cc937b7ee278f1e029304126aa"
+        },
+        {
+          "seed": 4400002,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_clean/attempt_01/episode1_randomized-false_success-true.mp4",
+          "video_sha256": "d3ddd4c9c057117e45f629e1eb8bc5e4bb9313a774dfc82a7b9a292c7f60b6d0",
+          "video_verified": true,
+          "instruction": "Use the left arm to open the gray and yellow rectangular microwave.",
+          "queries": 18,
+          "query_trace_sha256": "d9d3969a40075891423168c51eaec0bacea70f18709c230c44eb895d9786083a"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_clean/attempt_01",
+      "seconds": 120.15190768241882
+    },
+    "open_microwave/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "task": "open_microwave",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4400000,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "4216f8696f57b75cb112606a13cdfd1c512462590afa0043dcc796727037b9eb",
+          "video_verified": true,
+          "instruction": "Pull the dark gray microwave open with the left arm.",
+          "queries": 63,
+          "query_trace_sha256": "b7fa87bc9baef43bc2d8cc420578050b4f742437e33fc3647e515c27adbe67aa"
+        },
+        {
+          "seed": 4400001,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_randomized/attempt_01/episode1_randomized-true_success-false.mp4",
+          "video_sha256": "7b7cc2c11aa56eacf2934cda83235d5f4736f98c9e67c360838032e44bf1d443",
+          "video_verified": true,
+          "instruction": "Open the medium gray microwave with top vents by pulling its door handle.",
+          "queries": 63,
+          "query_trace_sha256": "d74e0e0f7dd45249260a511a4ff9cb85af914ca289e8ddcccd8f22b433ff9595"
+        }
+      ],
+      "successes": 0,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/open_microwave__demo_randomized/attempt_01",
+      "seconds": 130.1862986087799
+    },
+    "move_stapler_pad/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "task": "move_stapler_pad",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4400000,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "64c7f4c4ea14ff07fabd665c8df22acf0346b89dbdfc708ef2452c06e106dbdc",
+          "video_verified": true,
+          "instruction": "Move the small hand-sized stapler to the Red mat.",
+          "queries": 7,
+          "query_trace_sha256": "1296ed6a185bf8c3588fc3030e7a3c90176f79119f05383d9417ab78a99fdd75"
+        },
+        {
+          "seed": 4400001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_clean/attempt_01/episode1_randomized-false_success-true.mp4",
+          "video_sha256": "edf5dcb256ca2eba71b0c247bc9fc5eff8f5f7e9d9510cb27080535307dc137d",
+          "video_verified": true,
+          "instruction": "Use the right arm to move the stapler with smooth plastic body to the Green mat",
+          "queries": 7,
+          "query_trace_sha256": "f0ec60fc362ce278d2a83cb4b28b67c1d231bc7a1eb97ca2293f7cc90dc927a9"
+        }
+      ],
+      "successes": 2,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_clean/attempt_01",
+      "seconds": 45.09501552581787
+    },
+    "move_stapler_pad/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "task": "move_stapler_pad",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4400001,
+          "success": true,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "8763334789c5aca62cabf643b839e53258a6715db2cf2b5c53726f3af346acad",
+          "video_verified": true,
+          "instruction": "Use the right arm to move the paper stapler with curved handle to Blue mat.",
+          "queries": 7,
+          "query_trace_sha256": "fa88c64f8e4ee4be7a378609ee114712e7bd0260d9d9cb2e4394da42fc65bcd9"
+        },
+        {
+          "seed": 4400003,
+          "success": false,
+          "video": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_randomized/attempt_01/episode1_randomized-true_success-false.mp4",
+          "video_sha256": "cce89008a8d68cd745bdd3c4145fd961c9483e5bd582f1e8e8faadb9f05baf7d",
+          "video_verified": true,
+          "instruction": "Move the black stapler to the Green mat.",
+          "queries": 17,
+          "query_trace_sha256": "c61769b16d4015172583c616edac495ced8e97a0985da8a86101268ecbc499e3"
+        }
+      ],
+      "successes": 1,
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_seed43_two_tasks_20261103/v0_4x4/calibration_w2/move_stapler_pad__demo_randomized/attempt_01",
+      "seconds": 60.11168456077576
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1793714843.6948376,
+  "success_rates": {
+    "demo_clean": 0.75,
+    "demo_randomized": 0.25
+  }
+}

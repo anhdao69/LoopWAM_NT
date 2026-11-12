@@ -1,0 +1,58 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "2fbf6b7d2bdf91bf03a0062d177f516fd02af08f",
+  "files": [
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/README.md",
+      "size": 1330,
+      "blob_id": "d6960f20fbe33e0ace4012d154f09087cc297159",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/SHA256SUMS",
+      "size": 581,
+      "blob_id": "c97ee7cacfc08d67ff7ad165638721f5f0a32754",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/checkpoint_provenance.json",
+      "size": 341,
+      "blob_id": "311af041cdbb26f085bf493ea6c92244394ca890",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/config.json",
+      "size": 2162,
+      "blob_id": "ed197e917342225f84da4b6f8cfe26bff5fe8023",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/data_provenance.json",
+      "size": 897,
+      "blob_id": "1414adbc0a985e801c6faadedba943c795981f77",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/dataset_stats.json",
+      "size": 88715,
+      "blob_id": "f1652563d2dedbd7063c55bd8c2f4297ec648d45",
+      "lfs": null
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/policy.pt",
+      "size": 2338751589,
+      "blob_id": "d3330eeff914b5524bc35b38a8cb857493b0dc92",
+      "lfs": {
+        "size": 2338751589,
+        "sha256": "6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0",
+        "pointer_size": 135
+      }
+    },
+    {
+      "name": "robotwin/v0-video4-action4/epoch_06/training_state.json",
+      "size": 1496,
+      "blob_id": "72b2e7079d82198931f294203de39c2112332aee",
+      "lfs": null
+    }
+  ]
+}

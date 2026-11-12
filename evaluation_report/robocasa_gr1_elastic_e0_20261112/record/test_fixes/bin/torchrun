@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "TORCHRUN $*" >> "$TEST_X/torchrun.calls"

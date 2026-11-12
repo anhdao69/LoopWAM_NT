@@ -1,0 +1,10 @@
+{"option": "bf16+graph+nofill", "schedule": "flat_k1_n2", "checkpoint": false, "seconds": [1.0526976007968187, 0.5052216248586774, 0.5022363485768437], "best": 0.5022363485768437, "peak_gb": 10.95530752}
+{"option": "bf16+graph+nofill", "schedule": "flat_k1_n5", "checkpoint": false, "seconds": [0.7738741859793663, 0.6787114730104804, 0.6768396138213575], "best": 0.6768396138213575, "peak_gb": 14.243904512}
+{"option": "bf16+graph+nofill", "schedule": "flat_k1_n10", "checkpoint": false, "seconds": [0.9104547621682286, 0.7730983169749379, 0.7642249530181289], "best": 0.7642249530181289, "peak_gb": 19.727188992}
+{"option": "bf16+graph+nofill", "schedule": "flat_k2_n2", "checkpoint": false, "seconds": [0.5088986209593713, 0.5042122858576477, 0.4973000562749803], "best": 0.4973000562749803, "peak_gb": 12.05094656}
+{"option": "bf16+graph+nofill", "schedule": "flat_k2_n5", "checkpoint": false, "seconds": [0.6650606361217797, 0.6730004269629717, 0.6691462746821344], "best": 0.6691462746821344, "peak_gb": 16.979569664}
+{"option": "bf16+graph+nofill", "schedule": "flat_k2_n10", "checkpoint": false, "seconds": [0.9565414818935096, 0.9227891727350652, 0.9208534797653556], "best": 0.9208534797653556, "peak_gb": 25.195471872}
+{"option": "bf16+graph+nofill", "schedule": "flat_k4_n2", "checkpoint": false, "seconds": [0.5779737057164311, 0.5670808148570359, 0.5650587459094822], "best": 0.5650587459094822, "peak_gb": 14.238980608}
+{"option": "bf16+graph+nofill", "schedule": "flat_k4_n5", "checkpoint": false, "seconds": [0.8281371402554214, 0.8345137452706695, 0.8504014271311462], "best": 0.8345137452706695, "peak_gb": 22.444444672}
+{"option": "bf16+graph+nofill", "schedule": "flat_k4_n10", "checkpoint": false, "seconds": [1.3638042830862105, 1.254344881977886, 1.2572612427175045], "best": 1.254344881977886, "peak_gb": 36.121437696}
+{"option": "bf16+graph+nofill", "mean_seconds_per_microbatch": 0.7427242332552042, "projected_seconds_per_update": {"1": 5.941793866041634, "2": 2.970896933020817, "4": 1.4854484665104084, "8": 0.7427242332552042}, "max_peak_gb": 36.121437696}

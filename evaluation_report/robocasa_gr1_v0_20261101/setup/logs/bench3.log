@@ -1,0 +1,32 @@
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+{"equivalence": {"text_tokens": 48, "loss_complex": [387.73455810546875, 43.711063385009766, 344.02349853515625], "loss_real": [387.7078552246094, 43.71164321899414, 343.9962158203125], "loss_real_trimmed": [387.7374572753906, 43.71204376220703, 344.0254211425781], "complex_vs_complex": {"loss_abs_diff": [0.0, 0.0, 0.0], "grad_rel_l2": 0.0016991625307127833, "grad_cos": 0.9999985694885254}, "complex_vs_real": {"loss_abs_diff": [0.026702880859375, 0.000579833984375, 0.02728271484375], "grad_rel_l2": 0.004112050402909517, "grad_cos": 0.9999915361404419}, "real_vs_real": {"loss_abs_diff": [0.0, 0.0, 0.0], "grad_rel_l2": 0.0019249907927587628, "grad_cos": 0.9999980926513672}, "real_vs_real_trimmed": {"loss_abs_diff": [0.02960205078125, 0.000400543212890625, 0.029205322265625], "grad_rel_l2": 0.005375105421990156, "grad_cos": 0.9999855756759644}}}
+/mnt/data/vmo-ai-task/anhdh35/FastWAM/.venv/lib/python3.10/site-packages/torch/_inductor/lowering.py:1917: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+{"init_artifact": "checkpoints/LoopWAM/wan21_compact_donors.pt", "vae_path": "checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth", "micro": 16, "per_gpu": 64, "checkpoint_blocks": false, "keep_last": 0, "rope": "real", "text_tokens": 48, "compile": true, "compile_mode": null, "warmup": 3, "updates": 6, "profile": true, "rope_check": false, "equivalence": false, "out": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/bench/m16_real_t48.json", "warmup_s": 45.2, "status": "ok", "s_per_update_median": 1.0644, "s_per_update_min": 1.0616, "windows_per_s_per_gpu": 60.13, "loss_last": 6.65089476108551, "peak_allocated_gb": 54.36, "peak_reserved_gb": 54.4}
+{"gpu_busy_ms": 1017.7, "wall_ms": 1064.4, "categories_pct": {"gemm": 40.9, "triton_fused": 35.8, "attention": 14.7, "eager_elementwise": 6.7, "optimizer": 1.6, "copy": 0.2, "other_eager": 0.1}}
+ 12.78%     130.1ms    972  nvjet_tst_192x192_64x3_2x1_v_bz_coopB_NNN
+ 11.08%     112.8ms    732  nvjet_tst_192x192_64x4_2x1_v_bz_coopB_bias_TNN
+  6.83%      69.5ms    244  nvjet_tst_192x192_64x3_2x1_v_bz_coopB_NTN
+  5.59%      56.9ms    724  nvjet_tst_128x160_64x5_4x2_h_bz_NTT
+  5.35%      54.5ms    240  void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 128, 8, 2, 4
+  3.65%      37.2ms    240  fmha_cutlassB_bf16_aligned_128x128_k128_sm80(PyTorchMemEffAttention::AttentionBackwardKernel<cutlass::arch::Sm
+  3.39%      34.5ms    120  triton_poi_fused_cat_53
+  3.13%      31.8ms   5957  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >
+  2.93%      29.9ms    120  triton_red_fused__to_copy_add_div_mul_neg_pow_select_backward_sum_49
+  2.64%      26.9ms    468  void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*
+  2.14%      21.8ms    120  triton_red_fused__to_copy_add_mean_pow_rsqrt_stack_4
+  1.88%      19.1ms    240  nvjet_tst_192x192_64x4_2x1_v_bz_coopB_TNN
+  1.84%      18.7ms    240  void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 128, 64, 4, false, false, cutlass::bfloat16_
+  1.75%      17.8ms    120  triton_poi_fused__to_copy_add_0
+  1.71%      17.4ms    120  triton_poi_fused_gelu_gelu_backward_28
+  1.32%      13.4ms    120  triton_red_fused_sum_54
+  1.22%      12.4ms    120  triton_poi_fused_gelu_22
+  1.17%      12.0ms    120  triton_red_fused__to_copy_add_mul_native_layer_norm_19
+  1.15%      11.7ms    240  fmha_cutlassF_bf16_aligned_64x128_rf_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass
+  1.14%      11.6ms    120  triton_red_fused__to_copy_add_mul_native_layer_norm_native_layer_norm_backward_52
+  1.06%      10.7ms    120  triton_red_fused__to_copy_add_mul_native_layer_norm_15
+  0.99%      10.1ms    120  triton_red_fused__to_copy_add_mul_native_layer_norm_1
+  0.98%      10.0ms    720  triton_red_fused_sum_25
+  0.95%       9.7ms    120  triton_red_fused__to_copy_add_mul_native_layer_norm_native_layer_norm_backward_37
+  0.81%       8.3ms    360  void pytorch_flash::flash_bwd_convert_dq_kernel<Flash_bwd_kernel_traits<128, 64, 128, 8, 2, 4, 2, false, false

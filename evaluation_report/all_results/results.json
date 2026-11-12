@@ -1,0 +1,1161 @@
+{
+  "updated_at": "2026-11-07T02:51:27+07:00",
+  "robotwin": [
+    {
+      "run": "robotwin10_dense_s30",
+      "label": "Dense-S30 \u2014 local",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "report": "robotwin10_dense_s30/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 838,
+          "episodes": 1000,
+          "sr_percent": 83.8
+        },
+        "demo_randomized": {
+          "successes": 834,
+          "episodes": 1000,
+          "sr_percent": 83.4
+        },
+        "combined": {
+          "successes": 1672,
+          "episodes": 2000,
+          "sr_percent": 83.6
+        }
+      }
+    },
+    {
+      "run": "robotwin10_dense_s12_20261105",
+      "label": "Dense-S12 \u2014 local, valid four-worker rerun",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": true,
+      "checkpoint_sha256": "c0c0fbb7b4cc607c00f7ee783c1f0e43815daa9fa09b1141c0b456dec255d064",
+      "report": "robotwin10_dense_s12_20261105/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 719,
+          "episodes": 1000,
+          "sr_percent": 71.9
+        },
+        "demo_randomized": {
+          "successes": 725,
+          "episodes": 1000,
+          "sr_percent": 72.5
+        },
+        "combined": {
+          "successes": 1444,
+          "episodes": 2000,
+          "sr_percent": 72.2
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x4",
+      "label": "v0 4/4 \u2014 original local",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "report": "robotwin10_v0_4x4/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 774,
+          "episodes": 1000,
+          "sr_percent": 77.4
+        },
+        "demo_randomized": {
+          "successes": 803,
+          "episodes": 1000,
+          "sr_percent": 80.3
+        },
+        "combined": {
+          "successes": 1577,
+          "episodes": 2000,
+          "sr_percent": 78.85
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x4_remote189",
+      "label": "v0 4/4 \u2014 rerun server189",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "report": "robotwin10_v0_4x4_remote189/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 784,
+          "episodes": 1000,
+          "sr_percent": 78.4
+        },
+        "demo_randomized": {
+          "successes": 780,
+          "episodes": 1000,
+          "sr_percent": 78.0
+        },
+        "combined": {
+          "successes": 1564,
+          "episodes": 2000,
+          "sr_percent": 78.2
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x4_remote137_20261105",
+      "label": "v0 4/4 \u2014 rerun server137",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "report": "robotwin10_v0_4x4_remote137_20261105/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 766,
+          "episodes": 1000,
+          "sr_percent": 76.6
+        },
+        "demo_randomized": {
+          "successes": 793,
+          "episodes": 1000,
+          "sr_percent": 79.3
+        },
+        "combined": {
+          "successes": 1559,
+          "episodes": 2000,
+          "sr_percent": 77.95
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x2",
+      "label": "v0 4/2 \u2014 original local",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "fea2ce45c09197fe68df9345d1f60e520dab8193dd7ee9b5147001e64efc32c9",
+      "report": "robotwin10_v0_4x2/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 804,
+          "episodes": 1000,
+          "sr_percent": 80.4
+        },
+        "demo_randomized": {
+          "successes": 795,
+          "episodes": 1000,
+          "sr_percent": 79.5
+        },
+        "combined": {
+          "successes": 1599,
+          "episodes": 2000,
+          "sr_percent": 79.95
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_2x2",
+      "label": "v0 2/2 \u2014 local",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "aa835dce6898f92d49275bf6e6b4e8f9202d4a8025a1e810ae3158867369be59",
+      "report": "robotwin10_v0_2x2/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 745,
+          "episodes": 1000,
+          "sr_percent": 74.5
+        },
+        "demo_randomized": {
+          "successes": 721,
+          "episodes": 1000,
+          "sr_percent": 72.1
+        },
+        "combined": {
+          "successes": 1466,
+          "episodes": 2000,
+          "sr_percent": 73.3
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x1",
+      "label": "v0 4/1 \u2014 server189",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "b0fd9da51d9ff5ab512d5729de6565e85d240a10f078ddf9f803733a77aa757d",
+      "report": "robotwin10_v0_4x1/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 823,
+          "episodes": 1000,
+          "sr_percent": 82.3
+        },
+        "demo_randomized": {
+          "successes": 804,
+          "episodes": 1000,
+          "sr_percent": 80.4
+        },
+        "combined": {
+          "successes": 1627,
+          "episodes": 2000,
+          "sr_percent": 81.35
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_4x1_local_20261105",
+      "label": "v0 4/1 \u2014 local rerun",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "b0fd9da51d9ff5ab512d5729de6565e85d240a10f078ddf9f803733a77aa757d",
+      "report": "robotwin10_v0_4x1_local_20261105/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 821,
+          "episodes": 1000,
+          "sr_percent": 82.1
+        },
+        "demo_randomized": {
+          "successes": 796,
+          "episodes": 1000,
+          "sr_percent": 79.6
+        },
+        "combined": {
+          "successes": 1617,
+          "episodes": 2000,
+          "sr_percent": 80.85
+        }
+      }
+    },
+    {
+      "run": "robotwin10_v0_1x4_remote137_20261105",
+      "label": "v0 1/4 \u2014 server137, valid four-worker rerun",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": true,
+      "checkpoint_sha256": "f9b097164b1fb076a0440f7c42e6439ee87885fbcf21d88975ae3f2d44fd1daf",
+      "report": "robotwin10_v0_1x4_remote137_20261105/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 739,
+          "episodes": 1000,
+          "sr_percent": 73.9
+        },
+        "demo_randomized": {
+          "successes": 724,
+          "episodes": 1000,
+          "sr_percent": 72.4
+        },
+        "combined": {
+          "successes": 1463,
+          "episodes": 2000,
+          "sr_percent": 73.15
+        }
+      }
+    },
+    {
+      "run": "robotwin10_h100_v0_4x4_20261106",
+      "label": "v0 4/4 \u2014 H100 retrain, local evaluation",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": true,
+      "checkpoint_sha256": "cd02703769b9e71872927d3197837d67d109444aef132e62fcb0c30b54c9aa49",
+      "report": "robotwin10_h100_v0_4x4_20261106/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 799,
+          "episodes": 1000,
+          "sr_percent": 79.9
+        },
+        "demo_randomized": {
+          "successes": 774,
+          "episodes": 1000,
+          "sr_percent": 77.4
+        },
+        "combined": {
+          "successes": 1573,
+          "episodes": 2000,
+          "sr_percent": 78.65
+        }
+      }
+    },
+    {
+      "run": "robotwin10_h100_v0_4x2_remote189_20261106",
+      "label": "v0 4/2 \u2014 H100 retrain, server189 evaluation",
+      "benchmark": "RoboTwin10",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": true,
+      "checkpoint_sha256": "2fd2af56bae4cb8b0a74a13d555c36604cbb893295f0095205d9346c2f9f9bed",
+      "report": "robotwin10_h100_v0_4x2_remote189_20261106/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 801,
+          "episodes": 1000,
+          "sr_percent": 80.1
+        },
+        "demo_randomized": {
+          "successes": 815,
+          "episodes": 1000,
+          "sr_percent": 81.5
+        },
+        "combined": {
+          "successes": 1616,
+          "episodes": 2000,
+          "sr_percent": 80.8
+        }
+      }
+    },
+    {
+      "run": "robotwin_v0",
+      "label": "v0 4/4 \u2014 epoch5, full50 training",
+      "benchmark": "RoboTwin50",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51",
+      "report": "robotwin_v0/report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 4580,
+          "episodes": 5000,
+          "sr_percent": 91.6
+        },
+        "demo_randomized": {
+          "successes": 4593,
+          "episodes": 5000,
+          "sr_percent": 91.86
+        },
+        "combined": {
+          "successes": 9173,
+          "episodes": 10000,
+          "sr_percent": 91.73
+        }
+      }
+    },
+    {
+      "run": "robotwin_v0_epoch10",
+      "label": "v0 4/4 \u2014 epoch10, full50 training",
+      "benchmark": "RoboTwin50",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": true,
+      "checkpoint_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+      "report": "robotwin_v0_epoch10/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 4603,
+          "episodes": 5000,
+          "sr_percent": 92.06
+        },
+        "demo_randomized": {
+          "successes": 4584,
+          "episodes": 5000,
+          "sr_percent": 91.68
+        },
+        "combined": {
+          "successes": 9187,
+          "episodes": 10000,
+          "sr_percent": 91.87
+        }
+      }
+    },
+    {
+      "run": "robotwin10_seed43_two_tasks/dense_s30",
+      "label": "Dense-S30 \u2014 seed43, two tasks only",
+      "benchmark": "RoboTwin10_seed43_subset",
+      "seed": 43,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "cc549b65bb849198ab1d11fd78e2a14bd0d1682927665b24c5f82b3ee8b78985",
+      "report": "robotwin10_seed43_two_tasks/dense_s30/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 147,
+          "episodes": 200,
+          "sr_percent": 73.5
+        },
+        "demo_randomized": {
+          "successes": 127,
+          "episodes": 200,
+          "sr_percent": 63.5
+        },
+        "combined": {
+          "successes": 274,
+          "episodes": 400,
+          "sr_percent": 68.5
+        }
+      }
+    },
+    {
+      "run": "robotwin10_seed43_two_tasks/v0_4x4",
+      "label": "v0 4/4 \u2014 seed43, two tasks only",
+      "benchmark": "RoboTwin10_seed43_subset",
+      "seed": 43,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "saved final audit passed; COMPLETE digest and score arithmetic rechecked",
+      "renderer_guard": "not explicitly recorded in historical audit",
+      "checkpoint_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127",
+      "report": "robotwin10_seed43_two_tasks/v0_4x4/final_report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 92,
+          "episodes": 200,
+          "sr_percent": 46.0
+        },
+        "demo_randomized": {
+          "successes": 125,
+          "episodes": 200,
+          "sr_percent": 62.5
+        },
+        "combined": {
+          "successes": 217,
+          "episodes": 400,
+          "sr_percent": 54.25
+        }
+      }
+    },
+    {
+      "run": "robotwin_v0_epoch06",
+      "label": "v0 4/4 \u2014 epoch6, full50 training",
+      "benchmark": "RoboTwin50",
+      "seed": 42,
+      "nfe": 10,
+      "status": "complete",
+      "audit": "completion-record reconciliation only; no saved final artifact audit found",
+      "renderer_guard": "not independently re-audited",
+      "checkpoint_sha256": "6bf8ca2cfaf3d0f1f8ab012f25dba46298706f69ca8b553031410f9f450b14f0",
+      "report": "robotwin_v0_epoch06/report.md",
+      "totals": {
+        "demo_clean": {
+          "successes": 4504,
+          "episodes": 5000,
+          "sr_percent": 90.08
+        },
+        "demo_randomized": {
+          "successes": 4481,
+          "episodes": 5000,
+          "sr_percent": 89.62
+        },
+        "combined": {
+          "successes": 8985,
+          "episodes": 10000,
+          "sr_percent": 89.85
+        }
+      }
+    }
+  ],
+  "libero_matched": [
+    {
+      "model": "FasterWAM",
+      "episodes": 6000,
+      "successes": 5923,
+      "sr_percent": 98.71666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d\", \"libero_object\": \"01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d\", \"libero_goal\": \"01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d\", \"libero_10\": \"01be4efca565d1890fd8a7dc1507b01c00c8cc63c16ae252287492ba9ac7550d\"}",
+      "libero_spatial": 99.0,
+      "libero_object": 99.6,
+      "libero_goal": 98.2,
+      "libero_10": 98.06666666666666
+    },
+    {
+      "model": "Light-WAM",
+      "episodes": 6000,
+      "successes": 5746,
+      "sr_percent": 95.76666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"421e954b0a1af5e9e9fccc511d646fd76d25afe1848ebc0c6a8433ed718613b5\", \"libero_object\": \"57a83d3041299681bf27976ff978d9b7c18a38ae83e05367b0413b164771b0d4\", \"libero_goal\": \"0c40ca8159536308b04bd5b91463555ab3d4fca573a030db687c45d1ad09e01b\", \"libero_10\": \"93c816ed1e751271b52a8a6b12dbf8595c66bf99f41c6879372eb124417fb12e\"}",
+      "libero_spatial": 96.66666666666667,
+      "libero_object": 98.86666666666666,
+      "libero_goal": 96.6,
+      "libero_10": 90.93333333333334
+    },
+    {
+      "model": "LoopWAM Dense-S12",
+      "episodes": 6000,
+      "successes": 5399,
+      "sr_percent": 89.98333333333333,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd\", \"libero_object\": \"a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd\", \"libero_goal\": \"a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd\", \"libero_10\": \"a94f1839457abecc6ae756c2933c4ba639765f64be00618fd5089dee8531e5bd\"}",
+      "libero_spatial": 94.8,
+      "libero_object": 93.26666666666667,
+      "libero_goal": 92.13333333333334,
+      "libero_10": 79.73333333333333
+    },
+    {
+      "model": "LoopWAM Dense-S30",
+      "episodes": 6000,
+      "successes": 5738,
+      "sr_percent": 95.63333333333334,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34\", \"libero_object\": \"9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34\", \"libero_goal\": \"9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34\", \"libero_10\": \"9726eec3f4aafa74c532cf0f369f8cec9bb545af1e8d5126b65c35c1fc457b34\"}",
+      "libero_spatial": 97.26666666666667,
+      "libero_object": 98.6,
+      "libero_goal": 95.86666666666666,
+      "libero_10": 90.8
+    },
+    {
+      "model": "LoopWAM v0 Ka3",
+      "episodes": 6000,
+      "successes": 5368,
+      "sr_percent": 89.46666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_object\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_goal\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_10\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\"}",
+      "libero_spatial": 95.53333333333333,
+      "libero_object": 92.6,
+      "libero_goal": 92.93333333333334,
+      "libero_10": 76.8
+    },
+    {
+      "model": "LoopWAM v0 Ka5",
+      "episodes": 6000,
+      "successes": 5676,
+      "sr_percent": 94.6,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_object\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_goal\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_10\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\"}",
+      "libero_spatial": 94.46666666666667,
+      "libero_object": 98.86666666666666,
+      "libero_goal": 96.2,
+      "libero_10": 88.86666666666666
+    },
+    {
+      "model": "LoopWAM v0 Ka6",
+      "episodes": 6000,
+      "successes": 5352,
+      "sr_percent": 89.2,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_object\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_goal\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\", \"libero_10\": \"1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b\"}",
+      "libero_spatial": 88.13333333333334,
+      "libero_object": 96.93333333333334,
+      "libero_goal": 93.73333333333333,
+      "libero_10": 78.0
+    },
+    {
+      "model": "LoopWAM v0 partition 0/6/6",
+      "episodes": 6000,
+      "successes": 5665,
+      "sr_percent": 94.41666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78\", \"libero_object\": \"9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78\", \"libero_goal\": \"9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78\", \"libero_10\": \"9d6a754a894b0977b26b5130facdc04578e5a540d18afc5a11474bca021b4f78\"}",
+      "libero_spatial": 97.2,
+      "libero_object": 98.73333333333333,
+      "libero_goal": 95.26666666666667,
+      "libero_10": 86.46666666666667
+    },
+    {
+      "model": "LoopWAM v0 partition 1/6/5",
+      "episodes": 6000,
+      "successes": 5620,
+      "sr_percent": 93.66666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995\", \"libero_object\": \"26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995\", \"libero_goal\": \"26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995\", \"libero_10\": \"26992d6c0d2e788f7a00d140d2d8fa27b016035c00f2deb91eb5ffbf9122c995\"}",
+      "libero_spatial": 97.26666666666667,
+      "libero_object": 98.13333333333334,
+      "libero_goal": 95.93333333333334,
+      "libero_10": 83.33333333333333
+    },
+    {
+      "model": "LoopWAM v0 init core16_21",
+      "episodes": 6000,
+      "successes": 5587,
+      "sr_percent": 93.11666666666666,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2\", \"libero_object\": \"7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2\", \"libero_goal\": \"7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2\", \"libero_10\": \"7810a43430d3bd2845a216bb7db42d9266aefac741a599f3e9dfbda7453e60b2\"}",
+      "libero_spatial": 96.2,
+      "libero_object": 97.26666666666667,
+      "libero_goal": 94.6,
+      "libero_10": 84.4
+    },
+    {
+      "model": "LoopWAM v0 partition 5/6/1",
+      "episodes": 6000,
+      "successes": 5590,
+      "sr_percent": 93.16666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3\", \"libero_object\": \"2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3\", \"libero_goal\": \"2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3\", \"libero_10\": \"2fa44095e0ef4ead6e8ed35e4d831b8e3fe5c0e3fba65db33615181cf77accd3\"}",
+      "libero_spatial": 96.73333333333333,
+      "libero_object": 97.4,
+      "libero_goal": 93.6,
+      "libero_10": 84.93333333333334
+    },
+    {
+      "model": "LoopWAM v0 partition 6/6/0",
+      "episodes": 6000,
+      "successes": 5416,
+      "sr_percent": 90.26666666666667,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda\", \"libero_object\": \"2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda\", \"libero_goal\": \"2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda\", \"libero_10\": \"2dabf8e01924836ed5cb05deb92b734cef9601f3583cadc22b6e306266101eda\"}",
+      "libero_spatial": 95.06666666666666,
+      "libero_object": 92.66666666666667,
+      "libero_goal": 91.26666666666667,
+      "libero_10": 82.06666666666666
+    },
+    {
+      "model": "LoopWAM v0 partition 1/9/2 k3",
+      "episodes": 6000,
+      "successes": 5507,
+      "sr_percent": 91.78333333333333,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c\", \"libero_object\": \"4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c\", \"libero_goal\": \"4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c\", \"libero_10\": \"4f0dc3ac79201763a5116b985d7e9bf55346dbbbb3557553f35e7c2d50c1cc9c\"}",
+      "libero_spatial": 97.53333333333333,
+      "libero_object": 98.33333333333333,
+      "libero_goal": 93.46666666666667,
+      "libero_10": 77.8
+    },
+    {
+      "model": "LoopWAM v0 partition 4/3/5 k7",
+      "episodes": 6000,
+      "successes": 5445,
+      "sr_percent": 90.75,
+      "source": "this evaluation (local RTX PRO 6000 Blackwell)",
+      "checkpoint_sha256": "{\"libero_spatial\": \"39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f\", \"libero_object\": \"39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f\", \"libero_goal\": \"39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f\", \"libero_10\": \"39f574b8c35b0b52ff0d6a449ce4cc0a320a376680b01edfef153c282b139e7f\"}",
+      "libero_spatial": 93.33333333333333,
+      "libero_object": 97.86666666666666,
+      "libero_goal": 92.46666666666667,
+      "libero_10": 79.33333333333333
+    },
+    {
+      "model": "Light-WAM Long",
+      "episodes": 1500,
+      "successes": 1363,
+      "sr_percent": 90.86666666666666,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 90.86666666666666
+    },
+    {
+      "model": "LoopWAM full 4/4",
+      "episodes": 6000,
+      "successes": 5695,
+      "sr_percent": 94.91666666666667,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 96.93333333333334,
+      "libero_object": 98.73333333333333,
+      "libero_goal": 96.13333333333334,
+      "libero_10": 87.86666666666666
+    },
+    {
+      "model": "LoopWAM Long 4/4 original",
+      "episodes": 1500,
+      "successes": 1166,
+      "sr_percent": 77.73333333333333,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 77.73333333333333
+    },
+    {
+      "model": "LoopWAM Long 4/4 repeat",
+      "episodes": 1500,
+      "successes": 1192,
+      "sr_percent": 79.46666666666667,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 79.46666666666667
+    },
+    {
+      "model": "LoopWAM Long KV mix 4/1",
+      "episodes": 1500,
+      "successes": 1133,
+      "sr_percent": 75.53333333333333,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 75.53333333333333
+    },
+    {
+      "model": "LoopWAM Long aligned 4/1",
+      "episodes": 1500,
+      "successes": 1110,
+      "sr_percent": 74.0,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 74.0
+    },
+    {
+      "model": "LoopWAM Long KV concat 4/1",
+      "episodes": 1500,
+      "successes": 1118,
+      "sr_percent": 74.53333333333333,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_10": 74.53333333333333
+    },
+    {
+      "model": "Fast-WAM original all suites",
+      "episodes": 6000,
+      "successes": 5798,
+      "sr_percent": 96.63333333333334,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 97.46666666666667,
+      "libero_object": 99.26666666666667,
+      "libero_goal": 96.26666666666667,
+      "libero_10": 93.53333333333333
+    },
+    {
+      "model": "LoopWAM full video1/action4",
+      "episodes": 6000,
+      "successes": 5501,
+      "sr_percent": 91.68333333333334,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 96.0,
+      "libero_object": 97.8,
+      "libero_goal": 94.73333333333333,
+      "libero_10": 78.2
+    },
+    {
+      "model": "LoopWAM full video4/action1",
+      "episodes": 6000,
+      "successes": 5640,
+      "sr_percent": 94.0,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 96.26666666666667,
+      "libero_object": 98.06666666666666,
+      "libero_goal": 95.4,
+      "libero_10": 86.26666666666667
+    },
+    {
+      "model": "LoopWAM full video2/action2",
+      "episodes": 6000,
+      "successes": 5547,
+      "sr_percent": 92.45,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 96.93333333333334,
+      "libero_object": 96.53333333333333,
+      "libero_goal": 94.26666666666667,
+      "libero_10": 82.06666666666666
+    },
+    {
+      "model": "LoopWAM full KV mix 4/1",
+      "episodes": 6000,
+      "successes": 5667,
+      "sr_percent": 94.45,
+      "source": "LoopWAM campaign evaluation_report/final (same protocol)",
+      "checkpoint_sha256": "null",
+      "libero_spatial": 97.4,
+      "libero_object": 98.33333333333333,
+      "libero_goal": 96.93333333333334,
+      "libero_10": 85.13333333333334
+    }
+  ],
+  "cl_rt": [
+    {
+      "model": "CL-0",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5766,
+      "sr_percent": 96.1,
+      "checkpoint_sha256": "137f0a839b5a1e2363621420ab599cd36a5693000f784a04a11b9bea2bea2cae"
+    },
+    {
+      "model": "RT-A S1",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5668,
+      "sr_percent": 94.46666666666667,
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b"
+    },
+    {
+      "model": "RT-A S2",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5647,
+      "sr_percent": 94.11666666666666,
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b"
+    },
+    {
+      "model": "RT-A S3",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5643,
+      "sr_percent": 94.05,
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b"
+    },
+    {
+      "model": "RT-A S4",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5632,
+      "sr_percent": 93.86666666666666,
+      "checkpoint_sha256": "15ba0de18c94dfd98fc898a21f1ec74999e717f21db7ed5e365a83a98dd9d96b"
+    },
+    {
+      "model": "RT-B4 S1",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5659,
+      "sr_percent": 94.31666666666666,
+      "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+    },
+    {
+      "model": "RT-B4 S2",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5566,
+      "sr_percent": 92.76666666666667,
+      "checkpoint_sha256": "7ec1dedc34446b276321c9d6c120a57a3eaa833224e0a6aecdec31a0c44b6711"
+    },
+    {
+      "model": "CL-REG",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5758,
+      "sr_percent": 95.96666666666667,
+      "checkpoint_sha256": "6de1bbf80ab0566a52b3820738ddff35673c2476a6c811e638c9422b826f762d"
+    },
+    {
+      "model": "RT-T1ft S1",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5674,
+      "sr_percent": 94.56666666666666,
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1"
+    },
+    {
+      "model": "RT-T1ft S2",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5651,
+      "sr_percent": 94.18333333333334,
+      "checkpoint_sha256": "efb19b697478e4b8dbdcb06dfc755f71ab70f37079ba4f8a6d525ae3733da3d1"
+    },
+    {
+      "model": "RT-Pa S1",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5637,
+      "sr_percent": 93.95,
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3"
+    },
+    {
+      "model": "RT-Pa S2",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5575,
+      "sr_percent": 92.91666666666667,
+      "checkpoint_sha256": "17f089aed0a48756a1542a07a268417c13b7a3a1cb95c135ce7c8460013dfaa3"
+    },
+    {
+      "model": "CL-W2",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5761,
+      "sr_percent": 96.01666666666667,
+      "checkpoint_sha256": "d08096facd67779d4817a491a60c5ad07a33ef80b94eb1b64d64d2445a3d0032"
+    },
+    {
+      "model": "RT-A2 S1",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5646,
+      "sr_percent": 94.1,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "RT-A2 S2",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5593,
+      "sr_percent": 93.21666666666667,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "RT-A2 S5",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5699,
+      "sr_percent": 94.98333333333333,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "RT-A2 S6",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5669,
+      "sr_percent": 94.48333333333333,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "RT-A2 S7",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5696,
+      "sr_percent": 94.93333333333334,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "RT-A2 S8",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5672,
+      "sr_percent": 94.53333333333333,
+      "checkpoint_sha256": "25ad8ca4705e41c805464f9d7fe99e4a3c4264f192a9f205612078b75a208c3d"
+    },
+    {
+      "model": "CL-A",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5771,
+      "sr_percent": 96.18333333333334,
+      "checkpoint_sha256": "3b480febd1888712efbcaaa9b5d97641d96a6a088a505d86b6ae14c237fcee39"
+    },
+    {
+      "model": "CL-0@1",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5742,
+      "sr_percent": 95.7,
+      "checkpoint_sha256": "77cbd77a521686e968229357b3391241b394ce4ea16d938d03b3ae38e4256930"
+    },
+    {
+      "model": "RT-TF S1",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5665,
+      "sr_percent": 94.41666666666667,
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea"
+    },
+    {
+      "model": "RT-TF S2",
+      "family": "residual_trans",
+      "status": "external_complete",
+      "episodes": 6000,
+      "successes": 5648,
+      "sr_percent": 94.13333333333334,
+      "checkpoint_sha256": "c6cdba96a98a073fb0ee75db53ace86ef0e836ce32fe79f2441a39b5800c87ea"
+    },
+    {
+      "model": "RT-B2a parent2",
+      "family": "residual_trans",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5674,
+      "sr_percent": 94.56666666666666,
+      "checkpoint_sha256": "25175895948053e276eff17c1a46797372e708faf11d8f9db7a9b1a09a9ef0ac"
+    },
+    {
+      "model": "CL-A@1",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5720,
+      "sr_percent": 95.33333333333333,
+      "checkpoint_sha256": "391d3b59bcd2dc6d5f326fa4e4729b76ab31a6658bac7714cba39761d4234781"
+    },
+    {
+      "model": "CL-FRAME",
+      "family": "chrono",
+      "status": "complete",
+      "episodes": 6000,
+      "successes": 5754,
+      "sr_percent": 95.9,
+      "checkpoint_sha256": "b322ae52c8166dbe222aeafea03da7138d60b823df73ce0b09c2b6dfc2c27a8a"
+    }
+  ],
+  "robustness": [
+    {
+      "model": "CL-0",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 708,
+      "sr_percent": 47.01195219123506
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 719,
+      "sr_percent": 47.742363877822044
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 721,
+      "sr_percent": 47.875166002656044
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 729,
+      "sr_percent": 48.40637450199203
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 689,
+      "sr_percent": 45.75033200531208
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 693,
+      "sr_percent": 46.01593625498008
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "plus",
+      "seed": 42,
+      "episodes": 1506,
+      "successes": 719,
+      "sr_percent": 47.742363877822044
+    },
+    {
+      "model": "CL-0",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 58,
+      "sr_percent": 7.25
+    },
+    {
+      "model": "CL-A",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 60,
+      "sr_percent": 7.5
+    },
+    {
+      "model": "CL-REG",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 60,
+      "sr_percent": 7.5
+    },
+    {
+      "model": "CL-W2",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 53,
+      "sr_percent": 6.625
+    },
+    {
+      "model": "CL-0@1",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 56,
+      "sr_percent": 7.0
+    },
+    {
+      "model": "CL-A@1",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 60,
+      "sr_percent": 7.5
+    },
+    {
+      "model": "CL-FRAME",
+      "benchmark": "pro",
+      "seed": 42,
+      "episodes": 800,
+      "successes": 62,
+      "sr_percent": 7.75
+    }
+  ],
+  "ka_sweep": [
+    {
+      "action_loops": 1,
+      "episodes": 6000,
+      "successes": 738,
+      "sr_percent": 12.3,
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+    },
+    {
+      "action_loops": 2,
+      "episodes": 6000,
+      "successes": 3334,
+      "sr_percent": 55.56666666666667,
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b"
+    }
+  ],
+  "note": "Sections overlap; do not sum episode counts across ledgers. No new evaluation performed."
+}

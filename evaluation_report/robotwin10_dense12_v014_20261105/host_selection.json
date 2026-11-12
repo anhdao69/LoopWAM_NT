@@ -1,0 +1,25 @@
+{
+  "checked_unix": 1793882387.9377003,
+  "selected": {
+    "dense-s12": "local 96GB RTX PRO 6000",
+    "v0-video1-action4": "10.148.182.137 96GB RTX PRO 6000"
+  },
+  "initial_gpu": {
+    "local": {
+      "used_mib": 50,
+      "total_mib": 97887,
+      "utilization": 0
+    },
+    "10.148.182.137": {
+      "used_mib": 384,
+      "total_mib": 97887,
+      "utilization": 0
+    },
+    "10.148.183.189": {
+      "used_mib": 796,
+      "total_mib": 48935,
+      "utilization": 0
+    }
+  },
+  "reason": "Both 96GB devices idle with previously verified evaluator installations; independent hosts avoid model contention. 48GB server remains idle."
+}

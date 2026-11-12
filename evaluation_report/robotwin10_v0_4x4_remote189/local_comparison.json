@@ -1,0 +1,38 @@
+{
+  "original": {
+    "demo_clean": {
+      "successes": 774,
+      "episodes": 1000,
+      "sr_percent": 77.4
+    },
+    "demo_randomized": {
+      "successes": 803,
+      "episodes": 1000,
+      "sr_percent": 80.3
+    },
+    "combined": {
+      "successes": 1577,
+      "episodes": 2000,
+      "sr_percent": 78.85
+    }
+  },
+  "remote": {
+    "demo_clean": {
+      "successes": 784,
+      "episodes": 1000,
+      "sr_percent": 78.4
+    },
+    "demo_randomized": {
+      "successes": 780,
+      "episodes": 1000,
+      "sr_percent": 78.0
+    },
+    "combined": {
+      "successes": 1564,
+      "episodes": 2000,
+      "sr_percent": 78.2
+    }
+  },
+  "seed": 42,
+  "episodes_per_model": 2000
+}

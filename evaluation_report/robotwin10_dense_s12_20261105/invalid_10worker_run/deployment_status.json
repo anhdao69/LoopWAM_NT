@@ -1,0 +1,14 @@
+{
+  "recorded_unix": 1793883373.6296349,
+  "queue_stage": "speed_native_w4",
+  "bulk": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105",
+  "scored_protocol": {
+    "seed": 42,
+    "nfe": 10,
+    "episodes": 2000
+  },
+  "automatic_scoring_after_calibration": true,
+  "automatic_final_audit": true,
+  "workers_pending_calibration": true,
+  "graph_gate_passed": true
+}

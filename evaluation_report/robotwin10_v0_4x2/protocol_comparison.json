@@ -1,0 +1,120 @@
+{
+  "tasks": {
+    "v0": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "dense_s30": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "equal": true
+  },
+  "settings": {
+    "v0": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "dense_s30": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "equal": true
+  },
+  "episodes": {
+    "v0": 100,
+    "dense_s30": 100,
+    "equal": true
+  },
+  "seed": {
+    "v0": 42,
+    "dense_s30": 42,
+    "equal": true
+  },
+  "instruction_type": {
+    "v0": "unseen",
+    "dense_s30": "unseen",
+    "equal": true
+  },
+  "num_inference_steps": {
+    "v0": 10,
+    "dense_s30": 10,
+    "equal": true
+  },
+  "action_horizon": {
+    "v0": 32,
+    "dense_s30": 32,
+    "equal": true
+  },
+  "replan_steps": {
+    "v0": 24,
+    "dense_s30": 24,
+    "equal": true
+  },
+  "noise_seed": {
+    "v0": "fixed seed for every query, FastWAM default",
+    "dense_s30": "fixed seed for every query, FastWAM default",
+    "equal": true
+  },
+  "image_preprocessing": {
+    "v0": "released_fastwam_pil_uint8_bf16",
+    "dense_s30": "released_fastwam_pil_uint8_bf16",
+    "equal": true
+  },
+  "instruction_rng": {
+    "v0": "released_fastwam_no_explicit_python_seed",
+    "dense_s30": "released_fastwam_no_explicit_python_seed",
+    "equal": true
+  },
+  "cuda_graph": {
+    "v0": "1",
+    "dense_s30": "1",
+    "equal": true
+  },
+  "compile_action_infer": {
+    "v0": false,
+    "dense_s30": false,
+    "equal": true
+  },
+  "renderer_shader": {
+    "v0": "rt",
+    "dense_s30": "rt",
+    "equal": true
+  },
+  "harness_sha256": {
+    "v0": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+    "dense_s30": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+    "equal": true
+  },
+  "policy_sha256": {
+    "v0": "64d32d2b25a362a151e84377a4929367c543b6f23b43fc60010aae51d742475e",
+    "dense_s30": "64d32d2b25a362a151e84377a4929367c543b6f23b43fc60010aae51d742475e",
+    "equal": true
+  },
+  "stats_sha256": {
+    "v0": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "dense_s30": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "equal": true
+  },
+  "vae_sha256": {
+    "v0": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "dense_s30": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "equal": true
+  }
+}

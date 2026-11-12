@@ -1,0 +1,7 @@
+[2026-11-10T15:35:54Z] diag-k2: start: host login-1 pid 2433722
+[2026-11-10T15:36:09Z] diag-k2: epoch_04.pt sha256 1269f152bf669beabc6967073be0403a22666653e73611d26fdf5bfdcc0f3932 (same file as the [1,1], [4,4] and [4]x5 evaluations)
+[2026-11-10T15:36:09Z] diag-k2: STATUS diagnostic_eval: GR1-E0 stopped at update 191359 (epoch 5 partial, latest.pt resumable); evaluating epoch_04.pt schedule flat_k2_n2, attempt 1
+[2026-11-10T16:37:51Z] diag-k2: eval epoch 4 flat_k2_n2 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.5158333333333334}
+[2026-11-10T16:37:51Z] diag-k2: validation epoch 4 flat_k2_n2 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k2_n2  step 188128  schedule flat_k2_n2  tasks 24  mean success 51.58%  (619/1200 episodes)  summary mean 51.58% VALID
+[2026-11-10T16:37:51Z] diag-k2: STATUS stopped: GR1-E0 stopped by user at update 191359 (epoch 5 partial, latest.pt resumable); epoch 4 diagnostic evals done: flat_k1_n2 518/1200 valid=True; flat_k2_n2 619/1200 valid=True; flat_k4_n2 629/1200 valid=True; flat_k4_n5 642/1200 valid=True; 
+[2026-11-10T16:37:51Z] diag-k2: done

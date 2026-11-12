@@ -1,0 +1,4 @@
+{"servers": [7950, 7951, 7952, 7953, 7954, 7955, 7956, 7957], "cells": 2}
+{"steps": 12, "task": "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 1, "elapsed_min": 1.7}
+{"steps": 12, "task": "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env", "exit": 0, "done": 2, "elapsed_min": 1.8}
+{"12": [0.0, 2]}

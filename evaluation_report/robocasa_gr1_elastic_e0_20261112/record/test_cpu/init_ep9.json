@@ -1,0 +1,22 @@
+{
+  "path": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_cpu/init_ep9.pt",
+  "sha256": "3f1f04ef37de0cdb93f84d79882d7dbcc0db26d8b6a16ac52aca69a2a18cb7e2",
+  "recipe": "common_v1",
+  "teacher_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+  "tensor_sha256": {
+    "student_action": "0ccc1bd7fa122583b41805d5d0222d5ce4a70d93e8822ca9253cdac954f72df6",
+    "step_condition": "4f1ee8d82e4c4edcb6851f2008325289bf53a0a02107e1e41216cc37642da3f2",
+    "transport_T4": "1d17f592ff4a5d938b6b04ccd4eb9a7a4f9e97587d4e786a4f1ea313b200cadf"
+  },
+  "metadata": {
+    "format": "elastic-init-v1",
+    "recipe": "common_v1",
+    "teacher_sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+    "seed": 42,
+    "generator_seeds": {
+      "step_condition": 822402053239782360,
+      "T4": 616937575533862284
+    },
+    "generator": "torch CPU default generator, fork_rng + manual_seed(label_seed)"
+  }
+}

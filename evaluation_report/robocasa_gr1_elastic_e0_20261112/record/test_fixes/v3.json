@@ -1,0 +1,232 @@
+{
+ "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/test_fixes/eval",
+ "step": 211644,
+ "schedule": "flat_k1_n2",
+ "export_sha256": "abc",
+ "successes": 626,
+ "episodes": 1200,
+ "mean_success": 0.5216666666666666,
+ "valid": false,
+ "problems": [
+  "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server num_inference_steps=10 != 2",
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server schedule=None != flat_k1_n2",
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server loops=None != [1, 1]",
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server export_sha256=None != abc",
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env: server transport_kind=None != T0",
+  "prompt sources {'cache': 20, 't5': 1}: some prompts were not from the training cache",
+  "server_7000.log: ['RuntimeError: boom now']"
+ ],
+ "per_task": {
+  "PnPBottleToCabinetClose": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PnPCanToDrawerClose": {
+   "successes": 34,
+   "success_rate": 0.68
+  },
+  "PnPCupToDrawerClose": {
+   "successes": 22,
+   "success_rate": 0.44
+  },
+  "PnPMilkToMicrowaveClose": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PnPPotatoToMicrowaveClose": {
+   "successes": 22,
+   "success_rate": 0.44
+  },
+  "PnPWineToCabinetClose": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromCuttingboardToBasketSplitA": {
+   "successes": 33,
+   "success_rate": 0.66
+  },
+  "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA": {
+   "successes": 19,
+   "success_rate": 0.38
+  },
+  "PosttrainPnPNovelFromCuttingboardToPanSplitA": {
+   "successes": 34,
+   "success_rate": 0.68
+  },
+  "PosttrainPnPNovelFromCuttingboardToPotSplitA": {
+   "successes": 28,
+   "success_rate": 0.56
+  },
+  "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromPlacematToBasketSplitA": {
+   "successes": 20,
+   "success_rate": 0.4
+  },
+  "PosttrainPnPNovelFromPlacematToBowlSplitA": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PosttrainPnPNovelFromPlacematToPlateSplitA": {
+   "successes": 32,
+   "success_rate": 0.64
+  },
+  "PosttrainPnPNovelFromPlacematToTieredshelfSplitA": {
+   "successes": 12,
+   "success_rate": 0.24
+  },
+  "PosttrainPnPNovelFromPlateToBowlSplitA": {
+   "successes": 29,
+   "success_rate": 0.58
+  },
+  "PosttrainPnPNovelFromPlateToCardboardboxSplitA": {
+   "successes": 22,
+   "success_rate": 0.44
+  },
+  "PosttrainPnPNovelFromPlateToPanSplitA": {
+   "successes": 24,
+   "success_rate": 0.48
+  },
+  "PosttrainPnPNovelFromPlateToPlateSplitA": {
+   "successes": 40,
+   "success_rate": 0.8
+  },
+  "PosttrainPnPNovelFromTrayToCardboardboxSplitA": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromTrayToPlateSplitA": {
+   "successes": 27,
+   "success_rate": 0.54
+  },
+  "PosttrainPnPNovelFromTrayToPotSplitA": {
+   "successes": 28,
+   "success_rate": 0.56
+  },
+  "PosttrainPnPNovelFromTrayToTieredbasketSplitA": {
+   "successes": 26,
+   "success_rate": 0.52
+  },
+  "PosttrainPnPNovelFromTrayToTieredshelfSplitA": {
+   "successes": 14,
+   "success_rate": 0.28
+  }
+ }
+}

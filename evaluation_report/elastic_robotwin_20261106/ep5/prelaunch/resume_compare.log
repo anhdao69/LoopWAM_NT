@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "<stdin>", line 15, in <dictcomp>
+  File "<stdin>", line 12, in eq
+  File "<stdin>", line 12, in <genexpr>
+  File "<stdin>", line 11, in eq
+  File "<stdin>", line 11, in <genexpr>
+  File "<stdin>", line 12, in eq
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

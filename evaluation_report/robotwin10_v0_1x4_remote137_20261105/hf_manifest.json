@@ -1,0 +1,64 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "dbb527e8f83fbf00fcbbc017f886122d5f4ec4df",
+  "files": [
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/README.md",
+      "blobId": "afa6b17a402e1a35bf888826d44210113244a7be",
+      "size": 2921
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/SHA256SUMS",
+      "blobId": "90aeec85c5abe8266c808c66c76f51d8a34c39dd",
+      "size": 762
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/checkpoint_provenance.json",
+      "blobId": "7a52fd37bc7740bae44b4be9461bc06beed85f0b",
+      "size": 380
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/config.json",
+      "blobId": "fa2f602b20ee4d17ddb74b9cbb511edfd4a3a555",
+      "size": 3692
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/data_provenance.json",
+      "blobId": "dc608ae6a2075d7fc6f38dd11b27c4676f045d60",
+      "size": 1560
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/dataset_stats.json",
+      "blobId": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "size": 88716
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/policy.pt",
+      "blobId": "d385ac5983a70838b42ab07f328fa8fba33ee19e",
+      "size": 2338751909,
+      "lfs": {
+        "sha256": "f9b097164b1fb076a0440f7c42e6439ee87885fbcf21d88975ae3f2d44fd1daf",
+        "size": 2338751909
+      }
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/training_metrics.jsonl.gz",
+      "blobId": "e8cdc9e8f11cb74ba7b8f4225630b58a5713d6f8",
+      "size": 3215375,
+      "lfs": {
+        "sha256": "d65256d89d08f5157da219052f8956261b1a5a0e6231c3aa0ea5f7576a534f18",
+        "size": 3215375
+      }
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/training_summary.json",
+      "blobId": "125608f4be88c7219ea95470d6c30e1f4aaca1c6",
+      "size": 1022
+    },
+    {
+      "rfilename": "robotwin-10/v0-video1-action4/training_timing.json",
+      "blobId": "5e93e74aaf97f4aa45af5f7a84a2a28bd16c0d70",
+      "size": 983
+    }
+  ]
+}

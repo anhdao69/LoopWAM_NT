@@ -1,0 +1,73 @@
+.............F........................                                   [100%]
+=================================== FAILURES ===================================
+______________ test_original_policy_input_action_and_fixed_noise _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f035e8647c0>
+
+    def test_original_policy_input_action_and_fixed_noise(monkeypatch):
+        from experiments.robotwin.loopwam_policy import deploy_policy as d
+        calls=[]
+        class Norm:
+            def forward(self,x):return x+1
+            def backward(self,x):return x*2
+        def infer(**kwargs):calls.append(kwargs);return {'action':torch.ones(32,14)}
+        obj=object.__new__(d.LoopWAMRoboTwinPolicy)
+        obj.model=SimpleNamespace(infer_action=infer);obj.normalizer={'state':Norm(),'action':Norm()}
+        obj.text=lambda p:(torch.zeros(128,4096),torch.ones(128,dtype=torch.bool))
+        obj.seed=42;obj.compile_action_infer=False;obj.pending=deque();obj.queries=0;obj.episode=0;obj.latency=[]
+        monkeypatch.setattr(torch,'autocast',lambda *a,**k:contextlib.nullcontext())
+        monkeypatch.setattr(torch.cuda,'synchronize',lambda:None)
+        observation={'observation':{c:{'rgb':np.zeros((240,320,3),dtype=np.uint8)} for c in d.CAMERAS},'joint_action':{'vector':np.zeros(14)}}
+>       out=obj._query(observation,'lift pot')
+
+../LoopWAM-robotwin10-dense-eval/tests/test_loopwam_robot_eval.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../LoopWAM-robotwin10-dense-eval/experiments/robotwin/loopwam_policy/deploy_policy.py:61: in _query
+    image=fastwam_image(observation)[0]
+../LoopWAM-robotwin10-dense-eval/experiments/robotwin/loopwam_policy/deploy_policy.py:32: in fastwam_image
+    return torch.from_numpy(packed).permute(2,0,1).unsqueeze(0).to(device=device,dtype=torch.bfloat16)*(2.0/255.0)-1.0
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _lazy_init():
+        global _initialized, _queued_calls
+        if is_initialized() or hasattr(_tls, "is_initializing"):
+            return
+        with _initialization_lock:
+            # We be double-checked locking, boys!  This is OK because
+            # the above test was GIL protected anyway.  The inner test
+            # is for when a thread blocked on some other thread which was
+            # doing the initialization; when they get the lock, they will
+            # find there is nothing left to do.
+            if is_initialized():
+                return
+            # It is important to prevent other threads from entering _lazy_init
+            # immediately, while we are still guaranteed to have the GIL, because some
+            # of the C calls we make below will release the GIL
+            if _is_in_bad_fork():
+                raise RuntimeError(
+                    "Cannot re-initialize CUDA in forked subprocess. To use CUDA with "
+                    "multiprocessing, you must use the 'spawn' start method"
+                )
+            if not hasattr(torch._C, "_cuda_getDeviceCount"):
+                raise AssertionError("Torch not compiled with CUDA enabled")
+            if _cudart is None:
+                raise AssertionError(
+                    "libcudart functions unavailable. It looks like you have a broken build?"
+                )
+            # This function throws if there's a driver initialization error, no GPUs
+            # are found or any other error occurs
+            if "CUDA_MODULE_LOADING" not in os.environ:
+                os.environ["CUDA_MODULE_LOADING"] = "LAZY"
+>           torch._C._cuda_init()
+E           RuntimeError: No CUDA GPUs are available
+
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/torch/cuda/__init__.py:372: RuntimeError
+=============================== warnings summary ===============================
+tests/test_loopwam_robot_eval.py::test_policy_rejects_vae_mismatch_before_model_construction
+  /storage/anhdh35/miniconda3/envs/loopwam-libero-eval/lib/python3.10/site-packages/transformers/utils/hub.py:106: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../LoopWAM-robotwin10-dense-eval/tests/test_loopwam_robot_eval.py::test_original_policy_input_action_and_fixed_noise
+1 failed, 37 passed, 1 warning in 3.67s

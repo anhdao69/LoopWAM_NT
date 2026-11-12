@@ -1,0 +1,15 @@
+# GR1-E0 x5 (elastic E0 on RoboCasa-GR1) - official evaluation results
+
+Updated 2026-11-10 12:02 UTC. Protocol: 24 tasks x 50 episodes, n_action_steps 12, max 720 steps, seed 0, EGL (the GR1 v0 continuation protocol). Rates are any-step success over 1200 episodes.
+
+Teacher: GR1 v0 continuation epoch 9 (sha256 694a679b4c07934b...) - epoch 10 620/1200 <= epoch 9 626/1200.
+Teacher official results: epoch 9 626/1200, epoch 10 620/1200
+
+| epoch | update | schedule | NFE | success | rate | valid |
+|---|---|---|---|---|---|---|
+| 1 | 47032 | flat_k1_n2 [1, 1] | 2 | 474/1200 | 39.50% | PROBLEMS |
+| 2 | 94064 | flat_k1_n2 [1, 1] | 2 | 533/1200 | 44.42% | VALID |
+| 3 | 141096 | flat_k1_n2 [1, 1] | 2 | 505/1200 | 42.08% | VALID |
+| 4 | 188128 | flat_k1_n2 [1, 1] | 2 | 518/1200 | 43.17% | VALID |
+
+Status: eval - GR1-E0 epoch 4 (epoch_04.pt, step 188128) schedule flat_k1_n2, attempt 1 (2026-11-10T11:01:57Z)
