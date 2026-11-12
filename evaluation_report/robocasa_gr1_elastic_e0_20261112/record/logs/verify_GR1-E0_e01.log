@@ -1,0 +1,17 @@
+{"schedule": "flat_k1_n2", "query": 0, "bit_equal": true, "finite": true, "max_abs_diff": 0.0, "nfe": 2, "loops": [1, 1]}
+{"schedule": "flat_k1_n2", "query": 1, "bit_equal": true, "finite": true, "max_abs_diff": 0.0, "nfe": 2, "loops": [1, 1]}
+{"schedule": "flat_k1_n2", "query": 2, "bit_equal": true, "finite": true, "max_abs_diff": 0.0, "nfe": 2, "loops": [1, 1]}
+{"epoch_01.pt": {"passed": true, "checks": {"format": true, "metadata_equal_teacher": true, "frozen_mot_equal_fp32_teacher": true, "proprio_equal_teacher": true, "frozen_all_fp32": true, "mot_action_equals_student": true, "student_equals_recovery": true, "student_fp32": true, "student_trained": true, "step_condition_equals_recovery": true, "transport_trainable_equals_recovery": true, "transport_config": true, "training_state": true, "recovery_is_epoch_end": true, "rollout_export_equals_training_model": true, "eval_server_equals_loader_rollout": true}}}
+INFO:fastwam.models.wan22.mot:Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO:fastwam.models.wan22.mot:  Expert 'video': num_params=0.48 B
+INFO:fastwam.models.wan22.mot:  Expert 'action': num_params=0.11 B
+INFO:fastwam.models.wan22.mot:Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO:fastwam.models.wan22.mot:  Expert 'video': num_params=0.48 B
+INFO:fastwam.models.wan22.mot:  Expert 'action': num_params=0.11 B
+INFO:fastwam.models.wan22.mot:Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO:fastwam.models.wan22.mot:  Expert 'video': num_params=0.48 B
+INFO:fastwam.models.wan22.mot:  Expert 'action': num_params=0.11 B
+INFO:fastwam.models.wan22.mot:Initialized MoT with experts: ['video', 'action'], num_layers=12
+INFO:fastwam.models.wan22.mot:  Expert 'video': num_params=0.48 B
+INFO:fastwam.models.wan22.mot:  Expert 'action': num_params=0.11 B
+{"step_00002000.pt": {"passed": true, "checks": {"format": true, "metadata_equal_teacher": true, "frozen_mot_equal_fp32_teacher": true, "proprio_equal_teacher": true, "frozen_all_fp32": true, "mot_action_equals_student": true, "student_equals_recovery": true, "student_fp32": true, "student_trained": true, "step_condition_equals_recovery": true, "transport_trainable_equals_recovery": true, "transport_config": true, "training_state": true, "recovery_is_update_2000": true, "rollout_export_equals_training_model": true}}}

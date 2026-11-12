@@ -1,0 +1,10 @@
+[2026-11-10T12:50:27Z] diag: start: host login-1 pid 2412143
+[2026-11-10T12:50:35Z] diag: epoch_04.pt sha256 1269f152bf669beabc6967073be0403a22666653e73611d26fdf5bfdcc0f3932 (same file as the [1,1] evaluation)
+[2026-11-10T12:50:35Z] diag: STATUS diagnostic_eval: GR1-E0 stopped at update 191359 (epoch 5 partial, latest.pt resumable); evaluating epoch_04.pt schedule flat_k4_n2, attempt 1
+[2026-11-10T13:54:15Z] diag: eval epoch 4 flat_k4_n2 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.5241666666666667}
+[2026-11-10T13:54:15Z] diag: validation epoch 4 flat_k4_n2 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k4_n2  step 188128  schedule flat_k4_n2  tasks 24  mean success 52.42%  (629/1200 episodes)  summary mean 52.42% VALID
+[2026-11-10T13:54:15Z] diag: STATUS diagnostic_eval: GR1-E0 stopped at update 191359 (epoch 5 partial, latest.pt resumable); evaluating epoch_04.pt schedule flat_k4_n5, attempt 1
+[2026-11-10T15:05:20Z] diag: eval epoch 4 flat_k4_n5 attempt 1 rc=0: {"tasks": 24, "complete": true, "mean": 0.535}
+[2026-11-10T15:05:20Z] diag: validation epoch 4 flat_k4_n5 rc=0: /mnt/data/vmo-ai-task/anhdh35/elastic_gr1/eval/e04_flat_k4_n5  step 188128  schedule flat_k4_n5  tasks 24  mean success 53.50%  (642/1200 episodes)  summary mean 53.50% VALID
+[2026-11-10T15:05:20Z] diag: STATUS stopped: GR1-E0 stopped by user at update 191359 (epoch 5 partial, latest.pt resumable); epoch 4 diagnostic evals done: flat_k1_n2 518/1200 valid=True; flat_k4_n2 629/1200 valid=True; flat_k4_n5 642/1200 valid=True; 
+[2026-11-10T15:05:20Z] diag: done
