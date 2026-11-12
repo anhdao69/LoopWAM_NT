@@ -1,0 +1,5 @@
+{
+ "phase": "done",
+ "detail": "epochs 2 and 3 at [1,1], [2,2], [4,4]: e02 flat_k1_n2 533/1200 valid=True; e02 flat_k2_n2 627/1200 valid=True; e02 flat_k4_n2 577/1200 valid=True; e03 flat_k1_n2 505/1200 valid=True; e03 flat_k2_n2 608/1200 valid=True; e03 flat_k4_n2 586/1200 valid=True; ",
+ "utc": "2026-11-11T23:26:53Z"
+}

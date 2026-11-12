@@ -1,0 +1,134 @@
+{
+  "seed": 0,
+  "episodes": 50,
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/runs/GR1-E0/epoch_04.pt",
+  "by_n_action_steps": {
+    "12": {
+      "complete": true,
+      "tasks": 24,
+      "mean_success": 0.4316666666666667,
+      "per_task": {
+        "PnPBottleToCabinetClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.48,
+          "successes": 24,
+          "episodes": 50
+        },
+        "PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.36,
+          "successes": 18,
+          "episodes": 50
+        },
+        "PnPCupToDrawerClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.28,
+          "successes": 14,
+          "episodes": 50
+        },
+        "PnPMilkToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.42,
+          "successes": 21,
+          "episodes": 50
+        },
+        "PnPPotatoToMicrowaveClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.36,
+          "successes": 18,
+          "episodes": 50
+        },
+        "PnPWineToCabinetClose_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.46,
+          "successes": 23,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromCuttingboardToBasketSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.5,
+          "successes": 25,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromCuttingboardToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.28,
+          "successes": 14,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromCuttingboardToPanSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.48,
+          "successes": 24,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromCuttingboardToPotSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.64,
+          "successes": 32,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromCuttingboardToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.42,
+          "successes": 21,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlacematToBasketSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.34,
+          "successes": 17,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlacematToBowlSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.46,
+          "successes": 23,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlacematToPlateSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.56,
+          "successes": 28,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlacematToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.2,
+          "successes": 10,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlateToBowlSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.44,
+          "successes": 22,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlateToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.28,
+          "successes": 14,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.58,
+          "successes": 29,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromPlateToPlateSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.62,
+          "successes": 31,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromTrayToCardboardboxSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.48,
+          "successes": 24,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromTrayToPlateSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.54,
+          "successes": 27,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromTrayToPotSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.48,
+          "successes": 24,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromTrayToTieredbasketSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.38,
+          "successes": 19,
+          "episodes": 50
+        },
+        "PosttrainPnPNovelFromTrayToTieredshelfSplitA_GR1ArmsAndWaistFourierHands_Env": {
+          "success_rate": 0.32,
+          "successes": 16,
+          "episodes": 50
+        }
+      }
+    }
+  }
+}
