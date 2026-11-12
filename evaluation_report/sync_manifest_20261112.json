@@ -1,0 +1,496 @@
+{
+ "date": "2026-11-12",
+ "created_utc": "2026-11-12T06:33:03Z",
+ "scope": "RoboCasa-GR1 update: final results of the elastic student GR1-E0 (user request 2026-11-12: pull the latest code, update the report with everything about the RoboCasa result, push to GitHub, sync the report across all branches)",
+ "pull": {
+  "remote": "origin",
+  "fetched": "2026-11-12, with --prune",
+  "result": "15 branches; no commit newer than the 2026-11-08 ws reevaluation sync; local LoopWAM_NT equal to origin/LoopWAM_NT"
+ },
+ "server_snapshot": {
+  "source": "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35",
+  "files": 1736,
+  "tar_sha256": "50821bad779f0d60d06ea592333a7d46bbe95e45188a05efa023cd7ee00b2067",
+  "tar_gz_sha256": "44480599ac5020ee030350e0011304c4f9a309d7824c91f7276ec8dcdfaf52df",
+  "sha256_of_sha256sum_listing": "fa8537de0fd5250f08f01f11a322352fc62d0e91997d41bddee864e8ddcfbd92",
+  "selection": "report_sync_20261112/select_h100_12.sh on the H100: every file under elastic_gr1/ except model checkpoints (*.pt), rollout videos (*.mp4) and run.lock files",
+  "staged_utc": "2026-11-12T06:12:23Z to 06:14:05Z (report_sync_20261112/stage12.sh)",
+  "stability": "the sha256sum listing taken before and after the archive was made is identical",
+  "local_check": "all files re-hashed after transfer: identical to the server listing"
+ },
+ "additions": {
+  "evaluation_report/robocasa_gr1_elastic_e0_20261112": {
+   "status": "complete",
+   "stored_files": 1750,
+   "source_entries": 1736,
+   "hosts": [
+    "H100 login 10.254.152.73:/mnt/data/vmo-ai-task/anhdh35"
+   ],
+   "live_snapshots": [],
+   "gzip": [
+    "training/metrics.jsonl.gz",
+    "training/train.log.gz"
+   ],
+   "generated": [
+    "README.md",
+    "SOURCES.tsv",
+    "analysis/analysis.json",
+    "analysis/analyze_gr1_e0.py",
+    "analysis/per_task.md",
+    "analysis/per_task_successes.csv",
+    "analysis/results.md",
+    "analysis/training_curves.md",
+    "analysis/video_flag_check.py",
+    "analysis/video_flag_check_output.md",
+    "eval/media_manifest.tsv.gz",
+    "excluded_files.tsv",
+    "independent_check.json",
+    "training/checkpoints_sha256.json"
+   ],
+   "media_not_stored": "eval/media_manifest.tsv.gz: 30,004 rollout videos, 166.35 GB, kept on the H100",
+   "checkpoints_not_stored": "excluded_files.tsv and training/checkpoints_sha256.json list them with sizes and SHA-256"
+  },
+  "evaluation_report/verify_gr1_elastic_e0_20261112.py": {
+   "status": "tool"
+  }
+ },
+ "results": {
+  "protocol": "official RoboCasa-GR1 tabletop evaluation, 24 tasks x 50 episodes = 1200 episodes per evaluation",
+  "teacher": {
+   "epoch": 9,
+   "successes": 626,
+   "episodes": 1200,
+   "percent": 52.17
+  },
+  "student_evaluations": [
+   {
+    "epoch": 1,
+    "step": 47032,
+    "schedule": "flat_k1_n2",
+    "setting": "[1,1]",
+    "loops": 1,
+    "steps": 2,
+    "successes": 474,
+    "episodes": 1200,
+    "percent": 39.5,
+    "net_vs_teacher": -152,
+    "z_vs_teacher": -6.65,
+    "validator_valid": false
+   },
+   {
+    "epoch": 2,
+    "step": 94064,
+    "schedule": "flat_k1_n2",
+    "setting": "[1,1]",
+    "loops": 1,
+    "steps": 2,
+    "successes": 533,
+    "episodes": 1200,
+    "percent": 44.42,
+    "net_vs_teacher": -93,
+    "z_vs_teacher": -4.04,
+    "validator_valid": true
+   },
+   {
+    "epoch": 2,
+    "step": 94064,
+    "schedule": "flat_k2_n2",
+    "setting": "[2,2]",
+    "loops": 2,
+    "steps": 2,
+    "successes": 627,
+    "episodes": 1200,
+    "percent": 52.25,
+    "net_vs_teacher": 1,
+    "z_vs_teacher": 0.04,
+    "validator_valid": true
+   },
+   {
+    "epoch": 2,
+    "step": 94064,
+    "schedule": "flat_k4_n2",
+    "setting": "[4,4]",
+    "loops": 4,
+    "steps": 2,
+    "successes": 577,
+    "episodes": 1200,
+    "percent": 48.08,
+    "net_vs_teacher": -49,
+    "z_vs_teacher": -2.16,
+    "validator_valid": true
+   },
+   {
+    "epoch": 3,
+    "step": 141096,
+    "schedule": "flat_k1_n2",
+    "setting": "[1,1]",
+    "loops": 1,
+    "steps": 2,
+    "successes": 505,
+    "episodes": 1200,
+    "percent": 42.08,
+    "net_vs_teacher": -121,
+    "z_vs_teacher": -5.25,
+    "validator_valid": true
+   },
+   {
+    "epoch": 3,
+    "step": 141096,
+    "schedule": "flat_k2_n2",
+    "setting": "[2,2]",
+    "loops": 2,
+    "steps": 2,
+    "successes": 608,
+    "episodes": 1200,
+    "percent": 50.67,
+    "net_vs_teacher": -18,
+    "z_vs_teacher": -0.81,
+    "validator_valid": true
+   },
+   {
+    "epoch": 3,
+    "step": 141096,
+    "schedule": "flat_k4_n2",
+    "setting": "[4,4]",
+    "loops": 4,
+    "steps": 2,
+    "successes": 586,
+    "episodes": 1200,
+    "percent": 48.83,
+    "net_vs_teacher": -40,
+    "z_vs_teacher": -1.76,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k1_n2",
+    "setting": "[1,1]",
+    "loops": 1,
+    "steps": 2,
+    "successes": 518,
+    "episodes": 1200,
+    "percent": 43.17,
+    "net_vs_teacher": -108,
+    "z_vs_teacher": -4.69,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k1_n5",
+    "setting": "[1]x5",
+    "loops": 1,
+    "steps": 5,
+    "successes": 569,
+    "episodes": 1200,
+    "percent": 47.42,
+    "net_vs_teacher": -57,
+    "z_vs_teacher": -2.54,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k1_n10",
+    "setting": "[1]x10",
+    "loops": 1,
+    "steps": 10,
+    "successes": 561,
+    "episodes": 1200,
+    "percent": 46.75,
+    "net_vs_teacher": -65,
+    "z_vs_teacher": -2.83,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k2_n2",
+    "setting": "[2,2]",
+    "loops": 2,
+    "steps": 2,
+    "successes": 619,
+    "episodes": 1200,
+    "percent": 51.58,
+    "net_vs_teacher": -7,
+    "z_vs_teacher": -0.31,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k2_n5",
+    "setting": "[2]x5",
+    "loops": 2,
+    "steps": 5,
+    "successes": 609,
+    "episodes": 1200,
+    "percent": 50.75,
+    "net_vs_teacher": -17,
+    "z_vs_teacher": -0.75,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k2_n10",
+    "setting": "[2]x10",
+    "loops": 2,
+    "steps": 10,
+    "successes": 609,
+    "episodes": 1200,
+    "percent": 50.75,
+    "net_vs_teacher": -17,
+    "z_vs_teacher": -0.75,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k4_n2",
+    "setting": "[4,4]",
+    "loops": 4,
+    "steps": 2,
+    "successes": 629,
+    "episodes": 1200,
+    "percent": 52.42,
+    "net_vs_teacher": 3,
+    "z_vs_teacher": 0.13,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k4_n5",
+    "setting": "[4]x5",
+    "loops": 4,
+    "steps": 5,
+    "successes": 642,
+    "episodes": 1200,
+    "percent": 53.5,
+    "net_vs_teacher": 16,
+    "z_vs_teacher": 0.74,
+    "validator_valid": true
+   },
+   {
+    "epoch": 4,
+    "step": 188128,
+    "schedule": "flat_k4_n10",
+    "setting": "[4]x10",
+    "loops": 4,
+    "steps": 10,
+    "successes": 620,
+    "episodes": 1200,
+    "percent": 51.67,
+    "net_vs_teacher": -6,
+    "z_vs_teacher": -0.27,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k1_n2",
+    "setting": "[1,1]",
+    "loops": 1,
+    "steps": 2,
+    "successes": 533,
+    "episodes": 1200,
+    "percent": 44.42,
+    "net_vs_teacher": -93,
+    "z_vs_teacher": -4.17,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k1_n5",
+    "setting": "[1]x5",
+    "loops": 1,
+    "steps": 5,
+    "successes": 558,
+    "episodes": 1200,
+    "percent": 46.5,
+    "net_vs_teacher": -68,
+    "z_vs_teacher": -3.03,
+    "validator_valid": false
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k1_n10",
+    "setting": "[1]x10",
+    "loops": 1,
+    "steps": 10,
+    "successes": 593,
+    "episodes": 1200,
+    "percent": 49.42,
+    "net_vs_teacher": -33,
+    "z_vs_teacher": -1.45,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k2_n2",
+    "setting": "[2,2]",
+    "loops": 2,
+    "steps": 2,
+    "successes": 598,
+    "episodes": 1200,
+    "percent": 49.83,
+    "net_vs_teacher": -28,
+    "z_vs_teacher": -1.25,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k2_n5",
+    "setting": "[2]x5",
+    "loops": 2,
+    "steps": 5,
+    "successes": 618,
+    "episodes": 1200,
+    "percent": 51.5,
+    "net_vs_teacher": -8,
+    "z_vs_teacher": -0.36,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k2_n10",
+    "setting": "[2]x10",
+    "loops": 2,
+    "steps": 10,
+    "successes": 607,
+    "episodes": 1200,
+    "percent": 50.58,
+    "net_vs_teacher": -19,
+    "z_vs_teacher": -0.88,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k4_n2",
+    "setting": "[4,4]",
+    "loops": 4,
+    "steps": 2,
+    "successes": 621,
+    "episodes": 1200,
+    "percent": 51.75,
+    "net_vs_teacher": -5,
+    "z_vs_teacher": -0.23,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k4_n5",
+    "setting": "[4]x5",
+    "loops": 4,
+    "steps": 5,
+    "successes": 653,
+    "episodes": 1200,
+    "percent": 54.42,
+    "net_vs_teacher": 27,
+    "z_vs_teacher": 1.19,
+    "validator_valid": true
+   },
+   {
+    "epoch": 5,
+    "step": 235160,
+    "schedule": "flat_k4_n10",
+    "setting": "[4]x10",
+    "loops": 4,
+    "steps": 10,
+    "successes": 628,
+    "episodes": 1200,
+    "percent": 52.33,
+    "net_vs_teacher": 2,
+    "z_vs_teacher": 0.09,
+    "validator_valid": true
+   }
+  ],
+  "validator_flags": "epoch 1 [1,1] and epoch 5 [1]x5 are flagged by the run's validator for one episode each; the counts are the official evaluator's (see robocasa_gr1_elastic_e0_20261112/README.md, section 'Validator flags')"
+ },
+ "independent_check": {
+  "robocasa_gr1_elastic_e0_20261112": true,
+  "evaluations_passed": 25,
+  "checks": 20
+ },
+ "huggingface": {
+  "repo": "anhdao69/LoopWAM_NT",
+  "commit": "c94c25e336ac4fb2c7fe74fa1304f40948d6dbd8",
+  "files": [
+   "Robocasa-GR1/Elastic/E0/epoch_05.pt"
+  ],
+  "receipts": "robocasa_gr1_elastic_e0_20261112/hf/",
+  "note": "published on 2026-11-11, before this sync; nothing was uploaded to Hugging Face by this sync. The model card there lists the epoch-5 [1,1] result only; epochs 1-4 are not published"
+ },
+ "code": {
+  "branch": "elastic_gr1",
+  "revision": "7c5a5db4d8b3879f3da5776d8f81baba3fa3ce00",
+  "on_github": false,
+  "note": "not pushed by this sync"
+ },
+ "branch_heads_before_sync": {
+  "KV_concat": "a4faa81f6918766338dc20a02d18c00e54be8b02",
+  "LoopWAM_NT": "da99a1534652070c0bb9662a85cdcc173ab48731",
+  "chrono": "0715adfb3c5c02e96ffd32bf65885312e10a4938",
+  "elastic": "2d6a0c7651a4ca80595570090e258b4b7c40d879",
+  "elastic_cl0": "459696419fdc7e50123e76717ec38bc5a8b7aaed",
+  "elastic_robotwin": "36be254f861c4d8256a00ec1cb060b823a79cbe1",
+  "partition_grid_20261026": "7072c92b9a66338a4c341e3ea88cb28c72d1f2ce",
+  "residual_trans": "07423c078ef0b9bdd597ee3058359edba730b4c5",
+  "robocasa_gr1_continuation_20261106": "d371b5f5e7114e332d4d8dcf8c4e13245d78c60c",
+  "robocasa_gr1_v0": "689ee5c7da7668bed4a8cedd43d4fe0ec74a1982",
+  "robotwin10_training_20261101": "87c8385f592179f10233ba55bd622c18c756ffbb",
+  "robotwin_eval_continue_20261030": "64914f4a980b327fec4f4d0c3400ad10451575e9",
+  "robotwin_full_v0_20261028": "49c427964a1f434722f6914c04dbb9d246e0d424",
+  "scratch_init_v0": "d9e2a8ca11ad01f594ad30b3c7fae977b2ab760e",
+  "v0-init-variants": "c339296569f95c7c84e950db522d507757acb136"
+ },
+ "branch_heads_note": "all 15 heads are the commits of the 2026-11-08 ws reevaluation sync (evaluation_report tree f3b2bf58, nothing else changed since)",
+ "new_github_branches": [],
+ "branch_reports": "unchanged: no branch has a commit after the 2026-11-08 syncs, so branch_reports/ and index.json are current",
+ "changed_shared_files": [
+  "evaluation_report/README.md",
+  "evaluation_report/FILE_INDEX.md",
+  "evaluation_report/ARCHIVE_INDEX.md"
+ ],
+ "index_note": "FILE_INDEX.md and ARCHIVE_INDEX.md were regenerated from the tracked files in the format of the 2026-11-06 sync: every link of the previous versions is still present; the robocasa_gr1_epochs09_10_20261108 section is now in alphabetical position and its preserved versions are listed under their date 2026-11-08",
+ "unchanged_previous_snapshots": [
+  "evaluation_report/robocasa_gr1_v0_20261101",
+  "evaluation_report/robocasa_gr1_continuation_20261106",
+  "evaluation_report/robocasa_gr1_continuation_20261108",
+  "evaluation_report/robocasa_gr1_epochs09_10_20261108"
+ ],
+ "preserved_versions": [
+  {
+   "path": "evaluation_report/README.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-12/433200497aeed52a/README.md",
+   "sha256": "433200497aeed52ac62a9293dd44e94ad3b3dbe643435365040f0cce57e547a1",
+   "source": "previous shared version (2026-11-08 ws reevaluation sync, tree f3b2bf58)"
+  },
+  {
+   "path": "evaluation_report/FILE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-12/608c745ec152de41/FILE_INDEX.md",
+   "sha256": "608c745ec152de41314701ff5b0985a77a2b1f5af4f4ccb71146268b4eb27f22",
+   "source": "previous shared version (2026-11-08 ws reevaluation sync, tree f3b2bf58)"
+  },
+  {
+   "path": "evaluation_report/ARCHIVE_INDEX.md",
+   "preserved": "evaluation_report/preserved_versions/2026-11-12/8410ef9f59893a38/ARCHIVE_INDEX.md",
+   "sha256": "8410ef9f59893a386052dbfcd82f3c9b333503892c502b21d4f59e13e027eb63",
+   "source": "previous shared version (2026-11-08 ws reevaluation sync, tree f3b2bf58)"
+  }
+ ],
+ "not_in_this_sync": [
+  "evaluation_report/__pycache__ (2 ignored .pyc files from 2026-11-06, left on disk, not tracked)",
+  "RoboTwin elastic results finished after the 2026-11-06 snapshot (the request covers the RoboCasa result)"
+ ],
+ "note": "Additions only: no existing result removed or overwritten. The previous versions of the three changed shared files are kept in preserved_versions/2026-11-12. The new folder lists the source and original SHA-256 of every stored file in SOURCES.tsv. Checkpoints and videos are not stored."
+}
