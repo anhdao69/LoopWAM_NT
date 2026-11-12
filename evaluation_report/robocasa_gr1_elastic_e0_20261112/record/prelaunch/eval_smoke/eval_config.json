@@ -1,0 +1,29 @@
+{
+  "checkpoint": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/resume/A/epoch_00.pt",
+  "stats": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/data/dataset_stats_29d.json",
+  "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/eval_smoke",
+  "steps": "12",
+  "episodes": 2,
+  "seed": 0,
+  "tasks": [
+    "gr1_unified/PnPCanToDrawerClose_GR1ArmsAndWaistFourierHands_Env",
+    "gr1_unified/PosttrainPnPNovelFromPlateToPanSplitA_GR1ArmsAndWaistFourierHands_Env"
+  ],
+  "gpus": "4,5,6,7",
+  "servers_per_gpu": 2,
+  "base_port": 7950,
+  "parallel": 24,
+  "n_envs": 1,
+  "max_episode_steps": 720,
+  "server_threads": 4,
+  "sim_threads": 2,
+  "video": true,
+  "expected_step": 30,
+  "render": "egl",
+  "egl_libs": "/mnt/data/vmo-ai-task/anhdh35/elastic_cl0/eval/egl_libs",
+  "vae_path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+  "max_gpu_memory_gb": null,
+  "no_t5_fallback": false,
+  "elastic_schedule": "flat_k1_n2",
+  "pending": 2
+}

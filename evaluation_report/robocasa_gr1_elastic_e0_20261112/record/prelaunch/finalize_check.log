@@ -1,0 +1,23 @@
+{
+ "checks": {
+  "finalized_event": true,
+  "status_from_latest": true,
+  "latest_unchanged": true,
+  "export_written": true,
+  "nothing_trained": true,
+  "only_expected_checkpoints": true
+ },
+ "status": {
+  "epoch": 1,
+  "next_micro": 0,
+  "update": 47032,
+  "windows_seen": 3840,
+  "status": "running",
+  "scheduler": {
+   "step": 47032,
+   "total": 235160,
+   "warmup": 7055
+  }
+ },
+ "passed": true
+}

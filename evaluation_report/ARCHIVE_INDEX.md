@@ -39,13 +39,16 @@ Copies are organized by preservation date and content hash. The date identifies 
 
 ## 2026-11-08
 
+- [2b42d26221d8802b/robocasa_gr1_epochs09_10_20261108/README.md](preserved_versions/2026-11-08/2b42d26221d8802b/robocasa_gr1_epochs09_10_20261108/README.md)
+- [515735847c11ea9a/README.md](preserved_versions/2026-11-08/515735847c11ea9a/README.md)
+- [5be26d63183a17a2/FILE_INDEX.md](preserved_versions/2026-11-08/5be26d63183a17a2/FILE_INDEX.md)
 - [8840fb87f4ce632b/README.md](preserved_versions/2026-11-08/8840fb87f4ce632b/README.md)
 - [b6028be7764c9be6/ARCHIVE_INDEX.md](preserved_versions/2026-11-08/b6028be7764c9be6/ARCHIVE_INDEX.md)
 - [b9e5d4e90bc6ed3f/FILE_INDEX.md](preserved_versions/2026-11-08/b9e5d4e90bc6ed3f/FILE_INDEX.md)
+- [c42f917688209e5f/ARCHIVE_INDEX.md](preserved_versions/2026-11-08/c42f917688209e5f/ARCHIVE_INDEX.md)
 
-## RoboCasa reevaluation update, 2026-11-08
+## 2026-11-12
 
-- [preserved_versions/2026-11-08/2b42d26221d8802b/robocasa_gr1_epochs09_10_20261108/README.md](preserved_versions/2026-11-08/2b42d26221d8802b/robocasa_gr1_epochs09_10_20261108/README.md)
-- [preserved_versions/2026-11-08/515735847c11ea9a/README.md](preserved_versions/2026-11-08/515735847c11ea9a/README.md)
-- [preserved_versions/2026-11-08/5be26d63183a17a2/FILE_INDEX.md](preserved_versions/2026-11-08/5be26d63183a17a2/FILE_INDEX.md)
-- [preserved_versions/2026-11-08/c42f917688209e5f/ARCHIVE_INDEX.md](preserved_versions/2026-11-08/c42f917688209e5f/ARCHIVE_INDEX.md)
+- [433200497aeed52a/README.md](preserved_versions/2026-11-12/433200497aeed52a/README.md)
+- [608c745ec152de41/FILE_INDEX.md](preserved_versions/2026-11-12/608c745ec152de41/FILE_INDEX.md)
+- [8410ef9f59893a38/ARCHIVE_INDEX.md](preserved_versions/2026-11-12/8410ef9f59893a38/ARCHIVE_INDEX.md)
