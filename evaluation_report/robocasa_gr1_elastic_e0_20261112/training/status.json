@@ -1,0 +1,12 @@
+{
+  "epoch": 5,
+  "next_micro": 0,
+  "update": 235160,
+  "windows_seen": 30100290,
+  "status": "complete",
+  "scheduler": {
+    "step": 235160,
+    "total": 235160,
+    "warmup": 7055
+  }
+}
