@@ -1,0 +1,236 @@
+{
+  "started": 1794138375.829591,
+  "args": {
+    "run_dir": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/resume/A",
+    "pairs": "written:latest.pt",
+    "write_export": "epoch",
+    "padding_check": false,
+    "static_only": false,
+    "windows": 3,
+    "server_schedules": "",
+    "out": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/verify_epoch.json"
+  },
+  "pairs": {
+    "epoch_00.pt": {
+      "recovery": "latest.pt",
+      "passed": true,
+      "checks": {
+        "format": true,
+        "metadata_equal_teacher": true,
+        "frozen_mot_equal_fp32_teacher": true,
+        "proprio_equal_teacher": true,
+        "frozen_all_fp32": true,
+        "mot_action_equals_student": true,
+        "student_equals_recovery": true,
+        "student_fp32": true,
+        "student_trained": true,
+        "step_condition_equals_recovery": true,
+        "transport_trainable_equals_recovery": true,
+        "transport_config": true,
+        "training_state": true,
+        "rollout_export_equals_training_model": true
+      },
+      "frozen": "339 tensors bit-equal",
+      "student_tensors_changed": "338/338",
+      "update": 30,
+      "epoch": 0,
+      "run": "LoopWAM-v0-RoboCasa-GR1 continuation",
+      "kind": "T0",
+      "rollout": [
+        {
+          "window": 555644,
+          "schedule": "flat_k1_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k1_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k1_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k2_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k2_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k2_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k4_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k4_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 555644,
+          "schedule": "flat_k4_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k1_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k1_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k1_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k2_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k2_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k2_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k4_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k4_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5516273,
+          "schedule": "flat_k4_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k1_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k1_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k1_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k2_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k2_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k2_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k4_n2",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k4_n5",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        },
+        {
+          "window": 5684511,
+          "schedule": "flat_k4_n10",
+          "bit_equal": true,
+          "max_abs_diff": 0.0,
+          "finite": true
+        }
+      ],
+      "export_sha256": "74b9963e171bce4a724a1ca230f7415bbd35c330683462ae51f9f335bbf69d69"
+    }
+  },
+  "passed": true,
+  "export_seconds": 3.9400493972934783,
+  "finished": 1794138406.4268067
+}

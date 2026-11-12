@@ -1,0 +1,13 @@
+preflight_core rc=0
+preflight_speed_E0 rc=0
+resume_A rc=0
+resume_B1 rc=0
+resume_B2 rc=0
+resume_compare rc=0
+schedule_contract rc=0
+verify_epoch rc=0
+verify_early rc=0
+eval_smoke rc=0
+finalize rc=0
+verify_finalize rc=0
+VALIDATE_DONE
