@@ -1,0 +1,2 @@
+#!/bin/bash
+case "$*" in *memory.used,utilization*) echo "4, 0 MiB, 0 %";; *) for i in 1 2 3 4; do echo 0; done;; esac
