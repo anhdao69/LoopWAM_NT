@@ -1,0 +1,180 @@
+{
+  "asset_sha256": {
+    "teacher": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+    "initial": null,
+    "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "elastic_init": "877c1b7739ebf30d4572f83ff22b23edde102b4469d4aebfb0f2c16a5733bc1a"
+  },
+  "config": {
+    "kind": "T0",
+    "scope": "pc",
+    "regime": "fu",
+    "schedules": [
+      "flat_k1_n2",
+      "flat_k1_n5",
+      "flat_k1_n10",
+      "flat_k2_n2",
+      "flat_k2_n5",
+      "flat_k2_n10",
+      "flat_k4_n2",
+      "flat_k4_n5",
+      "flat_k4_n10"
+    ],
+    "step_cond": true,
+    "anchor": true,
+    "seed": 42,
+    "sampler": "balanced",
+    "init": "common_v1",
+    "reuse_teacher_prefix": true,
+    "collect_diagnostics": true,
+    "campaign": "elastic-v1",
+    "parent": {
+      "name": "LoopWAM-v0-RoboCasa-GR1 continuation",
+      "format": "loopwam-s-gr1-v1",
+      "rule": "epoch 10 if its official success count (24 tasks x 50 episodes) is strictly greater than epoch 9's 626/1200, else epoch 9",
+      "epoch": 9,
+      "file": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+      "step": 211644,
+      "sha256": "694a679b4c07934b57995dc3a2ab62e2f65357cea29108b109b30049531e2748",
+      "selection_sha256": "d6023b674ac853d034a30dd0b82779d117757c56101652ce74c1cd173d8990c7",
+      "selection_reason": "epoch 10 620/1200 <= epoch 9 626/1200"
+    },
+    "dataset": "robocasa_gr1",
+    "end_prefix": 12,
+    "gripper_loss": false
+  },
+  "windows": 6020058,
+  "world": 4,
+  "microbatch": 32,
+  "global_batch": 128,
+  "epochs": 5,
+  "planned_updates": 235160,
+  "teacher": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+  "normalization_sha256": "bad54856a2835c9a65c5b6288cd6c8e55660df2d3990777009f22842197be9eb",
+  "checkpoint_blocks": false,
+  "deterministic_algorithms": true,
+  "dataset": "robocasa_gr1",
+  "data_manifest_sha256": "34b195650bc0439beb20efe87afda94a4ed9defc99db95f850ecfc3a8c1cbd62",
+  "action_dim": 29,
+  "latent_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/latents_backup",
+  "latent_cache_provenance_sha256": "cfc9e61c0aadd56eff0b0a46c94f008f479a53d5676474b602f0fb1c0e494650",
+  "speed_options": {
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "schedule_sequence_sha256": "ba599bc9256f584093abef690f0173ba893dd39485478473e532544cf5ba2f14",
+  "checkpoint_min_blocks": null,
+  "init_parts": [
+    "student_action",
+    "step_condition"
+  ],
+  "latent_content_digest": null,
+  "run": "GR1-E0",
+  "arguments": {
+    "run_name": "GR1-E0",
+    "init_artifact": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/init/gr1_common_init_v1.pt",
+    "checkpoint_min_blocks": null,
+    "hf_folder": "not-published",
+    "output_dir": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/prelaunch/resume/B",
+    "teacher": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/train/continuation_e06_10/checkpoints/epoch_09.pt",
+    "vae_path": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/checkpoints/Wan-AI/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "manifest": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/data/data_manifest.json",
+    "latent_dir": "/mnt/data/vmo-ai-task/anhdh35/FastWAM/runs/robocasa_gr1_v0_20261101/shared/latents_backup",
+    "init_checkpoint": null,
+    "teacher_selection": "/mnt/data/vmo-ai-task/anhdh35/elastic_gr1/teacher_selection.json",
+    "microbatch": 32,
+    "expected_gpus": 4,
+    "workers": 3,
+    "global_batch": 128,
+    "epochs": 5,
+    "save_every": 10,
+    "max_updates": 30,
+    "resume": true,
+    "finalize_only": false,
+    "no_checkpoint_blocks": true,
+    "smoke": false,
+    "bf16_frozen": true,
+    "teacher_graph": true,
+    "gc_freeze": true,
+    "no_fill_uninitialized": true
+  },
+  "trainable_parameters": 105701021,
+  "slurm_job_id": "5758",
+  "git_revision": "7c5a5db4d8b3879f3da5776d8f81baba3fa3ce00",
+  "schedules": {
+    "flat_k1_n2": [
+      1,
+      1
+    ],
+    "flat_k1_n5": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k1_n10": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flat_k2_n2": [
+      2,
+      2
+    ],
+    "flat_k2_n5": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k2_n10": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "flat_k4_n2": [
+      4,
+      4
+    ],
+    "flat_k4_n5": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "flat_k4_n10": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch_version": "2.7.1+cu128",
+  "hf_folder": "not-published"
+}
