@@ -1,0 +1,85 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "files": [
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/README.md",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/README.md",
+      "sha256": "87ca74f21950dfd2240e4e57ac4d6c702846d6ddbbc9ba15117bd118b3a10f45",
+      "size": 3254
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/SHA256SUMS",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/SHA256SUMS",
+      "sha256": "8dfa7639bbe26410392dc6835035d3b1ce09bcaebe27e0798eaebd70991f5a1b",
+      "size": 941
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/data_manifest.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/data_manifest.json",
+      "sha256": "152033b1d67b9d34f0e17a91a5c6c34a7bd093be40d64f5ad354ba2a05c38399",
+      "size": 501696
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/dataset_stats.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/dataset_stats.json",
+      "sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+      "size": 88715
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/epoch_05.pt",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/epoch_05.pt",
+      "sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+      "size": 2340331885
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/epoch_05.pt.uploaded.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/epoch_05.pt.uploaded.json",
+      "sha256": "8b0b1244de5121045ece99e51365e8246dcca749c4109c832aa17e5323a4f6c1",
+      "size": 1279
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/export_verification.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/export_verification.json",
+      "sha256": "2a6ee2f874d9b749c77ee40d7ffdaf871557ea974dd0084b1b4043733c1b6f6b",
+      "size": 6082
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/launches.jsonl",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/launches.jsonl",
+      "sha256": "d81a52f3428a526701d4b873898099d64424062b15367b6a5b28ef8b083b73ae",
+      "size": 1074
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/schedule_sequence.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/schedule_sequence.json",
+      "sha256": "bcce213488a191f8136881ef168bb2d7743c75f1507a2618c276774e2fec99f1",
+      "size": 3401589
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/teacher_provenance.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/teacher_provenance.json",
+      "sha256": "565661c794581c8f9abcf6186ed1d757c812cdfeb10f578dc4b4b51575bcc77c",
+      "size": 163
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/training_config.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_config.json",
+      "sha256": "5fa9db1f3ca1df1333cb8fe766df647dc522824e79f0c36c19de5ddf768d4066",
+      "size": 4343
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_metrics.jsonl.gz",
+      "sha256": "f44ec7de00fef0d800ba6855a77471aa008f6374f1542075bbceaba85fb9a8e4",
+      "size": 31598811
+    },
+    {
+      "path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/training_status.json",
+      "remote": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_status.json",
+      "sha256": "73835ac3006d97e535ff526e985860d65c9fcf98455946e40244084ae9260a02",
+      "size": 189
+    }
+  ],
+  "finished_unix": 1794373280.4610908
+}
