@@ -52,3 +52,9 @@ Copies are organized by preservation date and content hash. The date identifies 
 - [433200497aeed52a/README.md](preserved_versions/2026-11-12/433200497aeed52a/README.md)
 - [608c745ec152de41/FILE_INDEX.md](preserved_versions/2026-11-12/608c745ec152de41/FILE_INDEX.md)
 - [8410ef9f59893a38/ARCHIVE_INDEX.md](preserved_versions/2026-11-12/8410ef9f59893a38/ARCHIVE_INDEX.md)
+
+## E0 final report sync, 2026-11-13
+
+- [preserved_versions/2026-11-13/320438ec32ee9c00/README.md](preserved_versions/2026-11-13/320438ec32ee9c00/README.md)
+- [preserved_versions/2026-11-13/99074e3e31b53463/FILE_INDEX.md](preserved_versions/2026-11-13/99074e3e31b53463/FILE_INDEX.md)
+- [preserved_versions/2026-11-13/d7db7fade9f85221/ARCHIVE_INDEX.md](preserved_versions/2026-11-13/d7db7fade9f85221/ARCHIVE_INDEX.md)

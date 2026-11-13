@@ -1,0 +1,50 @@
+{
+  "supervisor": {
+    "pid": 2055346,
+    "state": "S",
+    "start_ticks": "52391078",
+    "command": [
+      "python",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/scripts/queue_pipeline.py"
+    ]
+  },
+  "evaluator": {
+    "stage": "evaluation",
+    "pid": 2058639,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin_v0_20261030/env/bin/python",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/repo/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/epoch_01.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/runs/flat_k1_n2/results",
+      "--robotwin-root",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/repo/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "4",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "47462",
+      "--elastic-schedule",
+      "flat_k1_n2",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "status": "running",
+    "started_unix": 1794030149.7856662,
+    "start_ticks": "52433888"
+  },
+  "stage": "retired",
+  "created_unix": 1794071813.2796493,
+  "evaluator_preserved": true,
+  "finished_unix": 1794071813.2898443
+}

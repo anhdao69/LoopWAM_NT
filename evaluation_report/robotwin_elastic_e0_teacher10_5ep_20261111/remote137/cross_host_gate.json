@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checked_unix": 1794373688.5116231,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "hosts": [
+    "local RTX PRO6000",
+    "137 RTX PRO6000"
+  ],
+  "schedules": [
+    "flat_k1_n2",
+    "flat_k2_n2"
+  ],
+  "inputs_per_schedule": 8,
+  "action_output_pairs": 16,
+  "max_abs_difference": 0,
+  "local_reference_sha256": "cacb114f2ed083b6a7cbd02c30050855377e1687ffb0ff63a9ca985147e13b8e",
+  "remote_reference_sha256": "cacb114f2ed083b6a7cbd02c30050855377e1687ffb0ff63a9ca985147e13b8e"
+}

@@ -1,0 +1,15 @@
+{
+  "baseline": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/repo",
+  "training_revision": "2c78ff6f186c1d9073068b8eee5b328d19dba826",
+  "native_files_identical": 19,
+  "changed_files": [
+    "scripts/evaluate_loopwam_robotwin.py",
+    "tests/test_robot_elastic_eval.py",
+    "experiments/robotwin/loopwam_policy/elastic_inference.py",
+    "experiments/robotwin/loopwam_policy/deploy_policy.py",
+    "tests/test_robotwin_local_input.py",
+    "tests/fixtures/released_fastwam_deploy_policy.py"
+  ],
+  "reason": "Expose flat_k2_n2 and strictly validate student epoch5/update237310 with epoch10 teacher; add test coverage. Native rollout/math unchanged.",
+  "test_portability": "Copy byte-identical original FastWAM deploy source as test fixture instead of local-machine absolute reference; no production image preprocessing change."
+}

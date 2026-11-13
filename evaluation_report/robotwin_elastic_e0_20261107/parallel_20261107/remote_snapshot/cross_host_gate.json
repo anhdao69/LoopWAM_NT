@@ -1,0 +1,40 @@
+{
+  "passed": false,
+  "checked_unix": 1794068296.4141796,
+  "packages_identical": true,
+  "local": {
+    "host": "VMO-ANHDH35-D",
+    "torch_cuda": "12.8",
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "Pillow": "12.0.0",
+      "sapien": "3.0.0b1",
+      "mplib": "0.2.1",
+      "transformers": "4.49.0",
+      "diffusers": null,
+      "einops": "0.8.1",
+      "timm": null,
+      "safetensors": "0.5.3",
+      "triton": "3.3.1"
+    },
+    "python": "3.10.22",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 580.178.04",
+    "verified_unix": 1794068402.0064514,
+    "schedule": "flat_k4_n2",
+    "reference_sha256": "3cc93e81bb4f41310448067553b01ffd45c027e0019d991609072912c9d8b4ce"
+  },
+  "remote": {
+    "host": "vmo-linhbn7-d",
+    "gpu": "NVIDIA RTX PRO 5000 Blackwell, 570.211.01"
+  },
+  "model_outputs": [
+    {
+      "file": "1249996_q0.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.00848388671875
+    }
+  ],
+  "text_outputs": []
+}

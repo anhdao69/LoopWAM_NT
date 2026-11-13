@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "verified_unix": 1794374477.8769085,
+  "host": "local",
+  "schedule": "flat_k1_n2",
+  "queue_pid": 2400023,
+  "evaluator_pid": 2401718,
+  "seed": 42,
+  "nfe": 2,
+  "video_loops": 4,
+  "action_depths": [
+    1,
+    1
+  ],
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "tasks": 50,
+  "settings": 2,
+  "episodes_per_task_setting": 100,
+  "planned_episodes": 10000,
+  "smoke_episodes": 8,
+  "smoke_excluded": true,
+  "graph_bit_exact": true,
+  "cross_host_bit_exact": true,
+  "worker_queries": {
+    "adjust_bottle__demo_clean": 5,
+    "beat_block_hammer__demo_randomized": 15,
+    "beat_block_hammer__demo_clean": 34,
+    "adjust_bottle__demo_randomized": 5
+  },
+  "observed_scored": {
+    "successes": 5,
+    "episodes": 7,
+    "sr_percent": 71.42857142857143
+  },
+  "failed": []
+}

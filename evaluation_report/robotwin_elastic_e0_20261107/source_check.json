@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "native_model_files_equal_training_revision": 25,
+  "simulator_and_text_files_equal_epoch5": 704,
+  "normalization_json_equal": true,
+  "inherited_runtime_files": 21132,
+  "total_bound_files": 22066,
+  "verified_unix": 1794029733.0510664
+}

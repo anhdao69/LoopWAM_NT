@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "schedule": [
+        1,
+        1
+      ],
+      "episodes": 10000,
+      "successes": 8928,
+      "sr_percent": 89.28,
+      "completion_hash_matches_saved_passed_audit": true
+    },
+    {
+      "schedule": [
+        2,
+        2
+      ],
+      "episodes": 10000,
+      "successes": 9060,
+      "sr_percent": 90.6,
+      "completion_hash_matches_saved_passed_audit": true
+    },
+    {
+      "schedule": [
+        4,
+        4
+      ],
+      "episodes": 10000,
+      "successes": 9149,
+      "sr_percent": 91.49,
+      "completion_hash_matches_saved_passed_audit": true
+    }
+  ],
+  "scope": "Recomputed copied episode records, grid and protocol checks, report links and saved audit binding. No simulations, GPU gates or media re-audits performed."
+}
