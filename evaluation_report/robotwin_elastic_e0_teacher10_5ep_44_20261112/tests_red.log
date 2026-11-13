@@ -1,0 +1,148 @@
+FFFFFFFFFFFFFFFFFF                                                       [100%]
+=================================== FAILURES ===================================
+______________________ test_full_flat44_contract_accepted ______________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:20: in test_full_flat44_contract_accepted
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', flat44_contract(tmp_path))
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+__________ test_flat44_rejects_unfair_protocol[action_depths-value0] ___________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+__________ test_flat44_rejects_unfair_protocol[num_inference_steps-5] __________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+___________ test_flat44_rejects_unfair_protocol[step_condition-0.2] ____________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+_____________ test_flat44_rejects_unfair_protocol[replan_steps-12] _____________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+_________________ test_flat44_rejects_unfair_protocol[seed-43] _________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+____ test_flat44_rejects_unfair_protocol[checkpoint_sha256-another-release] ____
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+_______________ test_flat44_rejects_unfair_protocol[episodes-10] _______________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:32: in test_flat44_rejects_unfair_protocol
+    prerequisites.validate_run_contract(tmp_path, 'flat_k4_n2', manifest)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py:10: in validate_run_contract
+    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
+E   KeyError: 'flat_k4_n2'
+_________________ test_local_host_accepts_only_new_assignment __________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:37: in test_local_host_accepts_only_new_assignment
+    assert queue_pipeline.validate_host_assignment(config)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py:14: in validate_host_assignment
+    if config.get('schedules')!=schedules:raise ValueError('E0 teacher10 five-epoch queue differs from the revised user assignment')
+E   ValueError: E0 teacher10 five-epoch queue differs from the revised user assignment
+___________ test_dependency_waits_until_audit_and_queue_are_complete ___________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:62: in test_dependency_waits_until_audit_and_queue_are_complete
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+__ test_dependency_rejects_wrong_or_partial_evidence[audit-verified_pairs-99] __
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[audit-verified_videos-9999] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[audit-checkpoint_sha256-different] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[audit-complete_sha256-changed] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[queue-scored_episodes-9900] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[queue-final_audit_passed-False] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_dependency_rejects_wrong_or_partial_evidence[manifest-elastic_schedule-flat_k1_n2] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+_____ test_dependency_rejects_wrong_or_partial_evidence[manifest-seed-43] ______
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:77: in test_dependency_rejects_wrong_or_partial_evidence
+    ready = readiness()
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py:57: in readiness
+    assert callable(function), 'Dependency audit gate is missing'
+E   AssertionError: Dependency audit gate is missing
+E   assert False
+E    +  where False = callable(None)
+=========================== short test summary info ============================
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_full_flat44_contract_accepted
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[action_depths-value0]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[num_inference_steps-5]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[step_condition-0.2]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[replan_steps-12]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[seed-43]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[checkpoint_sha256-another-release]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_flat44_rejects_unfair_protocol[episodes-10]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_local_host_accepts_only_new_assignment
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_waits_until_audit_and_queue_are_complete
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[audit-verified_pairs-99]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[audit-verified_videos-9999]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[audit-checkpoint_sha256-different]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[audit-complete_sha256-changed]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[queue-scored_episodes-9900]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[queue-final_audit_passed-False]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[manifest-elastic_schedule-flat_k1_n2]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tests/test_continuation.py::test_dependency_rejects_wrong_or_partial_evidence[manifest-seed-43]
+18 failed in 1.70s

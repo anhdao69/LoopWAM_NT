@@ -1,0 +1,183 @@
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/dependency_snapshot.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/dependency_snapshot.py
+@@ -0,0 +1,19 @@
++"""Read a completed campaign's small receipts without emitting episode records."""
++import hashlib
++import json
++import sys
++from pathlib import Path
++
++
++def snapshot(base, schedule):
++    base=Path(base);run=base/'runs'/schedule
++    def read(path):
++        return json.loads(path.read_text()) if path.exists() else {}
++    complete=run/'results/COMPLETE.json'
++    return dict(queue=read(base/'queue_status.json'),audit=read(run/'final_audit.json'),
++                manifest=read(run/'results/manifest.json'),
++                complete_sha256=hashlib.sha256(complete.read_bytes()).hexdigest() if complete.exists() else None)
++
++
++if __name__=='__main__':
++    print(json.dumps(snapshot(sys.argv[1],sys.argv[2])))
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/graph_gate.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/graph_gate.py
+@@ -8,7 +8,7 @@
+ torch.set_num_threads(2)
+ paths=sorted((B/'gate_inputs').glob('*.pt'))[:8]
+ assert len(paths)==8
+-model=RobotElasticInference(B/'checkpoint/epoch_05.pt',VAE,'flat_k1_n2')
++model=RobotElasticInference(B/'checkpoint/epoch_05.pt',VAE,'flat_k4_n2')
+ p=model.payload;policy=model.policy
+ assert p['format_version']=='loopwam-s-robot-rt-v1' and p['step']==237310
+ assert p['training_state']['epoch']==5 and p['training_state']['parent_step']==474620
+@@ -34,7 +34,7 @@
+     with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
+         return model.infer_action(**kw)['action'].clone()
+ references={}
+-for name in ['flat_k1_n2','flat_k2_n2']:
++for name in ['flat_k4_n2']:
+     depths=SCHEDULES[name]
+     model.schedule=name;model.graph=None
+     for kw in inputs:kw['num_inference_steps']=len(depths)
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/prerequisites.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/prerequisites.py
+@@ -7,10 +7,26 @@
+ def validate_run_contract(base,name,manifest,episodes=100,tasks=None):
+     base=Path(base).resolve();config=json.loads((base/'host_config.json').read_text())
+     if name not in config['schedules']:raise ValueError('Schedule belongs to another host')
+-    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2]}[name]
++    depths={'flat_k1_n2':[1,1],'flat_k2_n2':[2,2],'flat_k4_n2':[4,4]}[name]
+     digest=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+     expected=dict(checkpoint=str(base/'checkpoint/epoch_05.pt'),checkpoint_sha256=config['checkpoint_sha256'],expected_step=237310,tasks=list(ROBOTWIN50_TASKS) if tasks is None else tasks,settings=['demo_clean','demo_randomized'],episodes=episodes,seed=42,instruction_type='unseen',elastic_schedule=name,action_depths=depths,video_loops=4,step_condition=1/len(depths),num_inference_steps=len(depths),action_horizon=32,replan_steps=24,noise_seed='fixed seed for every query, FastWAM default',image_preprocessing='released_fastwam_pil_uint8_bf16',instruction_rng='released_fastwam_no_explicit_python_seed',cuda_graph='1',compile_action_infer=False,renderer_shader='rt',stats_sha256=digest(base/'checkpoint/dataset_stats.json'),policy_sha256=digest(base/'repo/experiments/robotwin/loopwam_policy/deploy_policy.py'),harness_sha256=digest(base/'repo/third_party/RoboTwin/script/eval_policy.py'),vae_sha256='38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981')
+     for key,value in expected.items():
+         if manifest.get(key)!=value:raise ValueError(f'Wrong E0 teacher10 five-epoch run contract: {key}')
+     runtime=base/'runtime_manifest.json'
+     if manifest.get('runtime_hashes',{}).get(str(runtime))!=digest(runtime):raise ValueError('Result is not bound to the E0 teacher10 five-epoch runtime')
++
++def dependency_ready(snapshot, schedule, checkpoint_sha256):
++    queue=snapshot.get('queue',{});audit=snapshot.get('audit',{});manifest=snapshot.get('manifest',{})
++    if queue.get('stage')!='complete' or audit.get('status')!='passed':return False
++    expected=[
++        (queue,'final_audit_passed',True),(queue,'scored_episodes',10000),
++        (audit,'verified_pairs',100),(audit,'verified_videos',10000),
++        (audit,'checkpoint_sha256',checkpoint_sha256),
++        (manifest,'checkpoint_sha256',checkpoint_sha256),
++        (manifest,'elastic_schedule',schedule),(manifest,'seed',42),(manifest,'episodes',100),
++    ]
++    for record,key,value in expected:
++        if record.get(key)!=value:raise ValueError(f'Invalid completed predecessor {schedule}: {key}')
++    if not snapshot.get('complete_sha256') or audit.get('complete_sha256')!=snapshot['complete_sha256']:
++        raise ValueError('Predecessor COMPLETE.json differs from its final audit')
++    return True
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/queue_pipeline.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py
+@@ -8,7 +8,7 @@
+ from queue_safety import reuse_completed
+ OWNED=False
+ def validate_host_assignment(config):
+-    expected={'local':['flat_k1_n2'],'137':['flat_k2_n2']}
++    expected={'local':['flat_k4_n2']}
+     if config.get('host') not in expected:raise ValueError('Unknown E0 teacher10 five-epoch host')
+     schedules=expected[config['host']]
+     if config.get('schedules')!=schedules:raise ValueError('E0 teacher10 five-epoch queue differs from the revised user assignment')
+@@ -64,13 +64,20 @@
+     c=read(B/'host_config.json')
+     if not validate_host_assignment(c):
+         raise ValueError('Host has no assigned schedule')
+-    for gate in ['cpu_validation','graph_gate','cross_host_gate','review_gate']:assert read(B/(gate+'.json'))['passed'],gate
++    for gate in ['cpu_validation','cross_host_gate','review_gate']:assert read(B/(gate+'.json'))['passed'],gate
++    from wait_predecessors import wait_for_predecessors
++    wait_for_predecessors(status)
+     spec=importlib.util.spec_from_file_location('native_eval',W/'scripts/evaluate_loopwam_robotwin.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+     if not live_child():
+         while True:
+             free=gpu_free_after_orphan_cleanup(B,m.reap_recorded_children)
+             if free>=60000:break
+             status('waiting_for_gpu_memory',free_mib=free,required_mib=60000);time.sleep(30)
++    if not (B/'graph_gate.json').exists() or not read(B/'graph_gate.json').get('passed'):
++        run_process('graph_validation',[sys.executable,str(B/'scripts/graph_gate.py')],B/'graph_gate.log',schedule='flat_k4_n2')
++    graph=read(B/'graph_gate.json')
++    assert graph.get('passed') and graph['checkpoint_sha256']==c['checkpoint_sha256']
++    assert set(graph['schedules'])=={'flat_k4_n2'} and graph['schedules']['flat_k4_n2']['graph_passed']
+     status('runtime_verification');freeze()
+     os.environ['LOOPWAM_CUDA_GRAPH']='1';os.environ['LOOPWAM_RUNTIME_MANIFEST']=str(B/'runtime_manifest.json')
+     from fastwam.robotwin_pipeline import validate_eval_summary
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/report.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/report.py
+@@ -40,7 +40,7 @@
+         rows.append(dict(schedule=name,host=config['host'],status=stage,audit=audit,**data))
+     record=dict(updated_unix=time.time(),model='E0-teacher10-5ep',host=config['host'],queue=state,runs=rows)
+     write(R/'current_results.json',record);write(R/'queue_status.json',state)
+-    for name in ['source_check.json','source_provenance.json','source_manifest.json','cpu_validation.json','graph_gate.json','cross_host_gate.json','runtime_manifest.json','host_config.json','review_gate.json','download_receipt.json','hf_manifest.json','spec.md','plan.md']:
++    for name in ['source_check.json','source_provenance.json','source_manifest.json','cpu_validation.json','graph_gate.json','cross_host_gate.json','runtime_manifest.json','host_config.json','review_gate.json','download_receipt.json','hf_manifest.json','spec.md','plan.md','dependency_receipt.json']:
+         p=B/name
+         if p.exists() and (not (R/name).exists() or p.stat().st_mtime>(R/name).stat().st_mtime):shutil.copy2(p,R/name)
+     for p in B.glob('smoke_flat*.json'):shutil.copy2(p,R/p.name)
+@@ -48,5 +48,5 @@
+     for row in rows:
+         total=row['totals']['combined'];sr=total['sr_percent'];rate=f'{sr:.2f}%' if sr is not None else '—'
+         lines.append(f"| {row['schedule']} | {row['status']} | {total['successes']}/{total['episodes']} | {rate} | {row['verified_cells']}/100 |")
+-    lines += ['','All 50 tasks; clean and randomized; 100 episodes/task/setting; seed42; four workers. Assigned schedule [1,1] or [2,2], NFE2;4video loops;predict32/execute24. Scored work starts after memory and numerical gates. Each assigned schedule requires eight validated smoke episodes, excluded from scores. Live SR is provisional until the final full audit.','']
++    lines += ['','All 50 tasks; clean and randomized; 100 episodes/task/setting; seed42; four workers. Schedule [4,4], NFE2;4video loops;predict32/execute24. Starts after both previous [1,1]/[2,2] runs pass final audits, then memory and [4,4] numerical gates. Eight validated smoke episodes are excluded from scores. Live SR is provisional until the final full audit. The inherited cross-host gate covers [1,1]/[2,2] only; this [4,4] run uses the local GPU.','']
+     (R/'report.md').write_text('\n'.join(lines))
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/verify_runtime.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/verify_runtime.py
+@@ -27,6 +27,7 @@
+         assert json.loads((B/name).read_text())['passed'],name
+     paths=list((B/'scripts').glob('*.py'))+list(B.glob('*.sh'))+list((B/'checkpoint').glob('*'))+list((B/'gate_inputs').glob('*.pt'))
+     paths += [B/x for x in ['host_config.json','source_manifest.json','source_provenance.json','download_receipt.json','hf_manifest.json','cpu_validation.json','graph_gate.json','cross_host_gate.json','review_gate.json','spec.md','plan.md','native_training_source.json']]
++    paths += [B/'dependency_receipt.json']
+     files=dict(inherited['files']);files.update({str(W/p):v for p,v in source.items()})
+     for p in paths:files[str(p)]=dict(sha256=sha(p),bytes=p.stat().st_size)
+     publish_runtime(B/'runtime_manifest.json',dict(created_unix=time.time(),files=files,host=config['host'],model='E0-teacher10-5ep',hf_revision=receipt['revision'],inherited_manifest=str(old/'runtime_manifest.json')))
+--- /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/scripts/wait_predecessors.py
++++ /data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/wait_predecessors.py
+@@ -0,0 +1,47 @@
++"""Require both previous runs to finish and pass their audits before GPU work."""
++import json
++import shlex
++import subprocess
++import time
++from pathlib import Path
++from dependency_snapshot import snapshot
++from prerequisites import dependency_ready
++from report import B
++from queue_safety import publish_runtime
++
++LOCAL=Path('/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111')
++REMOTE='/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111'
++
++
++def publish_dependency_receipt(path,local,remote,sha):
++    if not dependency_ready(local,'flat_k1_n2',sha) or not dependency_ready(remote,'flat_k2_n2',sha):
++        raise ValueError('Cannot publish incomplete dependencies')
++    def stable(record):
++        return dict(queue={k:record['queue'][k] for k in ['stage','final_audit_passed','scored_episodes']},
++                    audit={k:record['audit'][k] for k in ['status','verified_pairs','verified_videos','checkpoint_sha256','complete_sha256']},
++                    manifest=record['manifest'],complete_sha256=record['complete_sha256'])
++    receipt=dict(local=stable(local),remote137=stable(remote),created_unix=time.time(),passed=True)
++    publish_runtime(path,receipt)
++    return json.loads(Path(path).read_text())
++
++
++def wait_for_predecessors(status):
++    sha=json.loads((B/'host_config.json').read_text())['checkpoint_sha256']
++    while True:
++        try:
++            local=snapshot(LOCAL,'flat_k1_n2')
++            command=['ssh','-S','/tmp/loopwam-remote-20261104/control','-o','BatchMode=yes',
++                     '-o','ConnectTimeout=8','anhdh35@10.148.182.137',
++                     shlex.join(['python3','-',REMOTE,'flat_k2_n2'])]
++            result=subprocess.run(command,input=(B/'scripts/dependency_snapshot.py').read_text(),
++                                  text=True,capture_output=True,timeout=25,check=True)
++            remote=json.loads(result.stdout)
++        except (OSError,subprocess.SubprocessError,json.JSONDecodeError) as exc:
++            status('waiting_for_predecessors',detail=f'Cannot verify predecessor yet: {type(exc).__name__}')
++            time.sleep(30);continue
++        ready_local=dependency_ready(local,'flat_k1_n2',sha)
++        ready_remote=dependency_ready(remote,'flat_k2_n2',sha)
++        if ready_local and ready_remote:
++            return publish_dependency_receipt(B/'dependency_receipt.json',local,remote,sha)
++        status('waiting_for_predecessors',local_complete=ready_local,remote_complete=ready_remote)
++        time.sleep(30)
