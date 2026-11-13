@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "verified_pairs": 100,
+  "verified_videos": 10000,
+  "renderer_logs_clean": true,
+  "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+  "complete_sha256": "d60e5da8e8e5e285d3faad9481b988ce7409f920be36d1fdb569474cd9bde9ec",
+  "audited_unix": 1794084264.713681,
+  "failed_attempts": 0,
+  "excluded_partial_episodes": 0
+}

@@ -1,0 +1,23 @@
+{
+  "host": "10.148.182.137",
+  "schedule": "flat_k4_n2",
+  "workers": 4,
+  "seed": 42,
+  "episodes_per_task_setting": 100,
+  "tasks": 50,
+  "settings": [
+    "demo_clean",
+    "demo_randomized"
+  ],
+  "nfe": 2,
+  "action_loops": [
+    4,
+    4
+  ],
+  "video_loops": 4,
+  "normalization": "training dataset_stats.json; identical to local",
+  "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+  "cross_host_numerical_differences": "none in tested8action outputs and4T5contexts; all bit-equal",
+  "scored_episodes": 10000,
+  "remote_clock_offset_seconds": -34.159913063049316
+}

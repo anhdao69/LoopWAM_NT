@@ -1,0 +1,102 @@
+{
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "strict_load": true,
+  "loaded_tensors_bit_equal": true,
+  "step": 237310,
+  "parent_step": 474620,
+  "normalization_verified": true,
+  "inputs": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1249996_q0.pt",
+      "sha256": "018d2b613974330172a978768a734aa1830837606c2e4cfcf94d6ffaf98935c7"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1249996_q1.pt",
+      "sha256": "0450f1a29958a45b7201db8cd50939527bb84f7b48bf1ee2febededb6d5a743f"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250248_q0.pt",
+      "sha256": "f59243033a7cf37cdd523c2d60219a572b7d84c67dfa8f08831d8c73848e3a40"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250248_q1.pt",
+      "sha256": "70a702325c970c542d558ef60000f41f65c8d2f5b68312c2e138fa25f49b9b90"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250552_q0.pt",
+      "sha256": "f4ec7f2cc5878df2e1a2b6cec76ba563895d03aea8f7b02eec6f3ba3cb6c78fe"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250552_q1.pt",
+      "sha256": "173a581c50c058163c840f78c0ff50781c7bd249eff58323d14acbcd525309b0"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250875_q0.pt",
+      "sha256": "7d1f0c895012e7739627670d54878c047b694caba979815c781c2ef381cbd14b"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/gate_inputs/1250875_q1.pt",
+      "sha256": "3d966e483b5d3156b66c825169de765c13251fd4fe364a48ddde0e3492fb4977"
+    }
+  ],
+  "schedules": {
+    "flat_k1_n2": {
+      "graph_passed": true,
+      "max_abs_difference": 0,
+      "nfe": 2,
+      "action_loops": [
+        1,
+        1
+      ],
+      "native_calls": [
+        {
+          "loops": 1,
+          "d": 0.5,
+          "t": [
+            1000.0
+          ]
+        },
+        {
+          "loops": 1,
+          "d": 0.5,
+          "t": [
+            500.0
+          ]
+        }
+      ],
+      "native_query_seconds": 0.04425358113076072,
+      "graph_query_seconds": 0.03834119200473651,
+      "peak_reserved_mib": 3910.0
+    },
+    "flat_k2_n2": {
+      "graph_passed": true,
+      "max_abs_difference": 0,
+      "nfe": 2,
+      "action_loops": [
+        2,
+        2
+      ],
+      "native_calls": [
+        {
+          "loops": 2,
+          "d": 0.5,
+          "t": [
+            1000.0
+          ]
+        },
+        {
+          "loops": 2,
+          "d": 0.5,
+          "t": [
+            500.0
+          ]
+        }
+      ],
+      "native_query_seconds": 0.050402550245053135,
+      "graph_query_seconds": 0.04153793811565265,
+      "peak_reserved_mib": 3970.0
+    }
+  },
+  "passed": true,
+  "verified_unix": 1794373583.0386357
+}
