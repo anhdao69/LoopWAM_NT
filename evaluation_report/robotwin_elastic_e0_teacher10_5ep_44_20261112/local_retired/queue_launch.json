@@ -1,0 +1,13 @@
+{
+  "pid": 3995961,
+  "start_ticks": "92465284",
+  "started_unix": 1794430463.7430773,
+  "host": "local",
+  "schedules": [
+    "flat_k4_n2"
+  ],
+  "command": [
+    "bash",
+    "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/start.sh"
+  ]
+}

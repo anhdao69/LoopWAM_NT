@@ -1,0 +1,16 @@
+{
+  "host": "local",
+  "predecessor": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107",
+  "schedules": [
+    "flat_k1_n2"
+  ],
+  "workers": 4,
+  "seed": 42,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "teacher_checkpoint": "/data14t/anhdh35/loopwam_robotwin_v0_epoch10_20261106/checkpoint/policy.pt",
+  "checkpoint_name": "epoch_05.pt",
+  "expected_step": 237310,
+  "teacher_step": 474620,
+  "student_epoch": 5,
+  "gpu_admission_mib": 60000
+}

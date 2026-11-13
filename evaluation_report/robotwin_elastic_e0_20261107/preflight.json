@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "schedules": [
+    "flat_k1_n2",
+    "flat_k4_n2",
+    "flat_k4_n5"
+  ],
+  "smoke_episodes": 12,
+  "smoke_excluded": true,
+  "workers": 4,
+  "seed": 42,
+  "planned_episodes": 30000,
+  "verified_unix": 1794030142.1479905
+}

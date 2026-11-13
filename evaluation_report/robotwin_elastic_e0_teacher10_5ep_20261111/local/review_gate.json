@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "reviewer": "e0_teacher10_review",
+  "critical_findings": 0,
+  "important_findings": 1,
+  "fixed_important_findings": 1,
+  "reporting_regression": "4 failing cases became passing; full scoped suite96passed",
+  "local_tests_passed": 96,
+  "remote_tests_passed": 96,
+  "deselected_training_tests": 7,
+  "reviewed_unix": 1794374068.326231,
+  "post_review_test_portability_fix": "Byte-identical FastWAM test fixture replaces unavailable local absolute path on remote; production unchanged"
+}

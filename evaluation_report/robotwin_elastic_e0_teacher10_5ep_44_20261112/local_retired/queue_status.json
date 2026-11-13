@@ -1,0 +1,8 @@
+{
+  "stage": "error",
+  "model": "E0-teacher10-5ep",
+  "host": "local",
+  "queue_pid": 3995961,
+  "updated_unix": 1794452016.207676,
+  "error": "Traceback (most recent call last):\n  File \"/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py\", line 111, in <module>\n    try:main()\n  File \"/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py\", line 75, in main\n    status('waiting_for_gpu_memory',free_mib=free,required_mib=60000);time.sleep(30)\n  File \"/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py\", line 63, in <lambda>\n    signal.signal(signal.SIGTERM,lambda *_:(_ for _ in ()).throw(KeyboardInterrupt()))\n  File \"/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/scripts/queue_pipeline.py\", line 63, in <genexpr>\n    signal.signal(signal.SIGTERM,lambda *_:(_ for _ in ()).throw(KeyboardInterrupt()))\nKeyboardInterrupt\n"
+}

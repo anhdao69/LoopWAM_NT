@@ -1,0 +1,107 @@
+{
+  "source": "ws_anhdh35:/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md",
+  "snapshot_sha256": "2964f7275e2a8e0a63695f97217443c609ca45aa70294c3a4e8d5036414fc8ba",
+  "branches": [
+    [
+      "KV_concat",
+      "457d1bf3bdec86db614c45cc286bb3e3fb3cbcb6"
+    ],
+    [
+      "LoopWAM_NT",
+      "ea9d181620bca656e35dc57410cc481b3a57a3f4"
+    ],
+    [
+      "chrono",
+      "7b4c66bfd2e1f9ec994ee6fb36c33e95ff7e0c80"
+    ],
+    [
+      "elastic",
+      "5ae6c9c6f56fad0b7dee1d368135aee65b6a072d"
+    ],
+    [
+      "elastic_cl0",
+      "33436c7022b6394e4bba0d5804f0f30968d7282f"
+    ],
+    [
+      "elastic_gr1",
+      "2646c6d2d1a660c731ae64e3b1779bcc62c0f890"
+    ],
+    [
+      "elastic_robotwin",
+      "97848dd115bfc446311b32c94758c3f3ed4fcbb2"
+    ],
+    [
+      "partition_grid_20261026",
+      "8f859616daf52b25eba782f2140cca93b0c8f0aa"
+    ],
+    [
+      "residual_trans",
+      "31235de2a17f0c8f2a2203859ee32b6b8e19bce9"
+    ],
+    [
+      "robocasa_gr1_continuation_20261106",
+      "123243b39eb460990436ecf693e5d418fed8ba23"
+    ],
+    [
+      "robocasa_gr1_v0",
+      "102f630dd8898beecf803ca13e51bf113ec657d8"
+    ],
+    [
+      "robotwin10_training_20261101",
+      "245d80bbef378ecb049ce03a194825e896d6b2fe"
+    ],
+    [
+      "robotwin_eval_continue_20261030",
+      "abb750d98c1cd347246bf72f4a59cc9438980ddb"
+    ],
+    [
+      "robotwin_full_v0_20261028",
+      "5eba111ebd0dfd76431c1c1e269b3a2d44955ca1"
+    ],
+    [
+      "scratch_init_v0",
+      "7e0e11e89f22d01017746d8f2eb7feb2d5f35df3"
+    ],
+    [
+      "v0-init-variants",
+      "fc961e0f51080b3bbc9dd630fb1b232d67a81a0f"
+    ]
+  ],
+  "preserved_versions": [
+    "preserved_versions/2026-11-13/320438ec32ee9c00/README.md",
+    "preserved_versions/2026-11-13/99074e3e31b53463/FILE_INDEX.md",
+    "preserved_versions/2026-11-13/d7db7fade9f85221/ARCHIVE_INDEX.md"
+  ],
+  "verification": [
+    {
+      "schedule": [
+        1,
+        1
+      ],
+      "episodes": 10000,
+      "successes": 8928,
+      "sr_percent": 89.28,
+      "completion_hash_matches_saved_passed_audit": true
+    },
+    {
+      "schedule": [
+        2,
+        2
+      ],
+      "episodes": 10000,
+      "successes": 9060,
+      "sr_percent": 90.6,
+      "completion_hash_matches_saved_passed_audit": true
+    },
+    {
+      "schedule": [
+        4,
+        4
+      ],
+      "episodes": 10000,
+      "successes": 9149,
+      "sr_percent": 91.49,
+      "completion_hash_matches_saved_passed_audit": true
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+FFFF.                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_user_report_never_hides_failed_or_unaudited_work[error-running-audit0-error] _
+
+tmp_path = PosixPath('/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tmp/pytest-of-anhdh35/pytest-6/test_user_report_never_hides_f0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7584dbb06d70>
+queue_stage = 'error', launch_status = 'running', audit = {}, expected = 'error'
+
+    @pytest.mark.parametrize('queue_stage,launch_status,audit,expected',[
+     ('error','running',{},'error'),
+     ('error','complete',{},'error'),
+     ('finalizing','complete',{},'finalizing'),
+     ('evaluation','complete',{},'awaiting final audit'),
+     ('complete','complete',{'status':'passed'},'complete; audited'),
+    ])
+    def test_user_report_never_hides_failed_or_unaudited_work(tmp_path,monkeypatch,queue_stage,launch_status,audit,expected):
+     monkeypatch.setattr(report,'B',tmp_path);monkeypatch.setattr(report,'R',tmp_path/'report')
+     (tmp_path/'host_config.json').write_text(json.dumps({'host':'local','schedules':['flat_k1_n2']}))
+     (tmp_path/'queue_status.json').write_text(json.dumps({'stage':queue_stage,'schedule':'flat_k1_n2'}))
+     run=tmp_path/'runs/flat_k1_n2';run.mkdir(parents=True);(run/'launch.json').write_text(json.dumps({'status':launch_status}))
+     if audit:(run/'final_audit.json').write_text(json.dumps(audit))
+     report.update()
+     actual=json.loads((tmp_path/'report/current_results.json').read_text())['runs'][0]['status']
+>    assert actual==expected
+E    AssertionError: assert 'running' == 'error'
+E      
+E      - error
+E      + running
+
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py:20: AssertionError
+_ test_user_report_never_hides_failed_or_unaudited_work[error-complete-audit1-error] _
+
+tmp_path = PosixPath('/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tmp/pytest-of-anhdh35/pytest-6/test_user_report_never_hides_f1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7584df1f9180>
+queue_stage = 'error', launch_status = 'complete', audit = {}
+expected = 'error'
+
+    @pytest.mark.parametrize('queue_stage,launch_status,audit,expected',[
+     ('error','running',{},'error'),
+     ('error','complete',{},'error'),
+     ('finalizing','complete',{},'finalizing'),
+     ('evaluation','complete',{},'awaiting final audit'),
+     ('complete','complete',{'status':'passed'},'complete; audited'),
+    ])
+    def test_user_report_never_hides_failed_or_unaudited_work(tmp_path,monkeypatch,queue_stage,launch_status,audit,expected):
+     monkeypatch.setattr(report,'B',tmp_path);monkeypatch.setattr(report,'R',tmp_path/'report')
+     (tmp_path/'host_config.json').write_text(json.dumps({'host':'local','schedules':['flat_k1_n2']}))
+     (tmp_path/'queue_status.json').write_text(json.dumps({'stage':queue_stage,'schedule':'flat_k1_n2'}))
+     run=tmp_path/'runs/flat_k1_n2';run.mkdir(parents=True);(run/'launch.json').write_text(json.dumps({'status':launch_status}))
+     if audit:(run/'final_audit.json').write_text(json.dumps(audit))
+     report.update()
+     actual=json.loads((tmp_path/'report/current_results.json').read_text())['runs'][0]['status']
+>    assert actual==expected
+E    AssertionError: assert 'complete' == 'error'
+E      
+E      - error
+E      + complete
+
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py:20: AssertionError
+_ test_user_report_never_hides_failed_or_unaudited_work[finalizing-complete-audit2-finalizing] _
+
+tmp_path = PosixPath('/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tmp/pytest-of-anhdh35/pytest-6/test_user_report_never_hides_f2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7584df1fb310>
+queue_stage = 'finalizing', launch_status = 'complete', audit = {}
+expected = 'finalizing'
+
+    @pytest.mark.parametrize('queue_stage,launch_status,audit,expected',[
+     ('error','running',{},'error'),
+     ('error','complete',{},'error'),
+     ('finalizing','complete',{},'finalizing'),
+     ('evaluation','complete',{},'awaiting final audit'),
+     ('complete','complete',{'status':'passed'},'complete; audited'),
+    ])
+    def test_user_report_never_hides_failed_or_unaudited_work(tmp_path,monkeypatch,queue_stage,launch_status,audit,expected):
+     monkeypatch.setattr(report,'B',tmp_path);monkeypatch.setattr(report,'R',tmp_path/'report')
+     (tmp_path/'host_config.json').write_text(json.dumps({'host':'local','schedules':['flat_k1_n2']}))
+     (tmp_path/'queue_status.json').write_text(json.dumps({'stage':queue_stage,'schedule':'flat_k1_n2'}))
+     run=tmp_path/'runs/flat_k1_n2';run.mkdir(parents=True);(run/'launch.json').write_text(json.dumps({'status':launch_status}))
+     if audit:(run/'final_audit.json').write_text(json.dumps(audit))
+     report.update()
+     actual=json.loads((tmp_path/'report/current_results.json').read_text())['runs'][0]['status']
+>    assert actual==expected
+E    AssertionError: assert 'complete' == 'finalizing'
+E      
+E      - finalizing
+E      + complete
+
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py:20: AssertionError
+_ test_user_report_never_hides_failed_or_unaudited_work[evaluation-complete-audit3-awaiting final audit] _
+
+tmp_path = PosixPath('/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tmp/pytest-of-anhdh35/pytest-6/test_user_report_never_hides_f3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7584df1f94e0>
+queue_stage = 'evaluation', launch_status = 'complete', audit = {}
+expected = 'awaiting final audit'
+
+    @pytest.mark.parametrize('queue_stage,launch_status,audit,expected',[
+     ('error','running',{},'error'),
+     ('error','complete',{},'error'),
+     ('finalizing','complete',{},'finalizing'),
+     ('evaluation','complete',{},'awaiting final audit'),
+     ('complete','complete',{'status':'passed'},'complete; audited'),
+    ])
+    def test_user_report_never_hides_failed_or_unaudited_work(tmp_path,monkeypatch,queue_stage,launch_status,audit,expected):
+     monkeypatch.setattr(report,'B',tmp_path);monkeypatch.setattr(report,'R',tmp_path/'report')
+     (tmp_path/'host_config.json').write_text(json.dumps({'host':'local','schedules':['flat_k1_n2']}))
+     (tmp_path/'queue_status.json').write_text(json.dumps({'stage':queue_stage,'schedule':'flat_k1_n2'}))
+     run=tmp_path/'runs/flat_k1_n2';run.mkdir(parents=True);(run/'launch.json').write_text(json.dumps({'status':launch_status}))
+     if audit:(run/'final_audit.json').write_text(json.dumps(audit))
+     report.update()
+     actual=json.loads((tmp_path/'report/current_results.json').read_text())['runs'][0]['status']
+>    assert actual==expected
+E    AssertionError: assert 'complete' == 'awaiting final audit'
+E      
+E      - awaiting final audit
+E      + complete
+
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py:20: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py::test_user_report_never_hides_failed_or_unaudited_work[error-running-audit0-error]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py::test_user_report_never_hides_failed_or_unaudited_work[error-complete-audit1-error]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py::test_user_report_never_hides_failed_or_unaudited_work[finalizing-complete-audit2-finalizing]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/tests/test_reporting_failures.py::test_user_report_never_hides_failed_or_unaudited_work[evaluation-complete-audit3-awaiting final audit]
+4 failed, 1 passed in 0.07s
