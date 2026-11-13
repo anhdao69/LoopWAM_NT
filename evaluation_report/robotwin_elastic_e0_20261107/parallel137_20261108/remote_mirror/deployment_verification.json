@@ -1,0 +1,92 @@
+{
+  "verified_unix": 1794072020.406635,
+  "host": "10.148.182.137",
+  "queue": {
+    "stage": "evaluation",
+    "schedule": "flat_k4_n2",
+    "host": "137",
+    "queue_pid": 429621,
+    "updated_unix": 1794071930.2844977,
+    "evaluator_pid": 429666
+  },
+  "evaluator": {
+    "pid": 429666,
+    "start_ticks": "13045038",
+    "command": [
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x4_20261104/env/bin/python",
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_20261108/repo/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_20261108/checkpoint/epoch_01.pt",
+      "--output-dir",
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_20261108/runs/flat_k4_n2/results",
+      "--robotwin-root",
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_20261108/repo/third_party/RoboTwin",
+      "--data-dir",
+      "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_20261108/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "4",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "47462",
+      "--elastic-schedule",
+      "flat_k4_n2",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "status": "running",
+    "started_unix": 1794071930.2844057
+  },
+  "tasks": 50,
+  "seed": 42,
+  "action_depths": [
+    4,
+    4
+  ],
+  "nfe": 2,
+  "episodes_per_cell": 100,
+  "running_cells": [
+    "adjust_bottle/demo_clean",
+    "adjust_bottle/demo_randomized",
+    "beat_block_hammer/demo_clean",
+    "beat_block_hammer/demo_randomized"
+  ],
+  "failed": [],
+  "cells": [
+    {
+      "cell": "adjust_bottle__demo_clean",
+      "policy_queries": 5,
+      "successes": 1,
+      "episodes": 1,
+      "resource_error": false
+    },
+    {
+      "cell": "adjust_bottle__demo_randomized",
+      "policy_queries": 5,
+      "successes": 1,
+      "episodes": 1,
+      "resource_error": false
+    },
+    {
+      "cell": "beat_block_hammer__demo_clean",
+      "policy_queries": 27,
+      "successes": 2,
+      "episodes": 3,
+      "resource_error": false
+    },
+    {
+      "cell": "beat_block_hammer__demo_randomized",
+      "policy_queries": 15,
+      "successes": 3,
+      "episodes": 3,
+      "resource_error": false
+    }
+  ],
+  "all_four_workers_inference_verified": true
+}

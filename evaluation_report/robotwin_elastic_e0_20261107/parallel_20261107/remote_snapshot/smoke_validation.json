@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "episodes": 4,
+  "settings": [
+    "demo_clean",
+    "demo_randomized"
+  ],
+  "schedule": "flat_k4_n2",
+  "successes": 2,
+  "episodes_excluded_from_score": true,
+  "renderer_logs_clean": true,
+  "source_hashes_bound": 784,
+  "verified_unix": 1794068929.8337185
+}
