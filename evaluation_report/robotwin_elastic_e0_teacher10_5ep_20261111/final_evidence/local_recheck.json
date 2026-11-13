@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "hostname": "VMO-ANHDH35-D",
+  "host": "local",
+  "checked_unix_host_clock": 1794583963.8460696,
+  "elapsed_seconds": 12.35088300704956,
+  "runs": [
+    {
+      "schedule": "flat_k1_n2",
+      "base": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111",
+      "status": "passed",
+      "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+      "source_files_rehashed": 984,
+      "cells_log_trace_verified": 100,
+      "episodes_log_trace_verified": 10000,
+      "videos_present": 10000,
+      "video_bytes": 2124650675,
+      "policy_queries": 110581,
+      "video_content_hashes_and_ffprobe_rerun": false,
+      "original_final_audit": {
+        "status": "passed",
+        "verified_pairs": 100,
+        "verified_videos": 10000,
+        "renderer_logs_clean": true,
+        "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+        "complete_sha256": "ac60093fbe9edde4d914ee29017ae706c730ee3113f386678550bb8e582532bc",
+        "audited_unix": 1794430465.7673354,
+        "failed_attempts": 0,
+        "excluded_partial_episodes": 0
+      },
+      "launch": {
+        "status": "complete",
+        "command": [
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/env/bin/python",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/scripts/evaluate_loopwam_robotwin.py",
+          "--checkpoint",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/epoch_05.pt",
+          "--output-dir",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/runs/flat_k1_n2/results",
+          "--robotwin-root",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/third_party/RoboTwin",
+          "--data-dir",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint",
+          "--gpus",
+          "0",
+          "--per-gpu",
+          "4",
+          "--episodes",
+          "100",
+          "--seed",
+          "42",
+          "--expected-step",
+          "237310",
+          "--elastic-schedule",
+          "flat_k1_n2",
+          "--max-attempts",
+          "3",
+          "--no-progress-timeout",
+          "1800"
+        ],
+        "schedule": "flat_k1_n2",
+        "host": "local",
+        "workers": 4,
+        "seed": 42,
+        "planned_episodes": 10000,
+        "started_unix": 1794374386.9728155,
+        "finished_unix": 1794430433.157603
+      },
+      "active_process_receipt": {
+        "pid": 2401718,
+        "start_ticks": "86857607",
+        "command": [
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/env/bin/python",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/scripts/evaluate_loopwam_robotwin.py",
+          "--checkpoint",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint/epoch_05.pt",
+          "--output-dir",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/runs/flat_k1_n2/results",
+          "--robotwin-root",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/third_party/RoboTwin",
+          "--data-dir",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/checkpoint",
+          "--gpus",
+          "0",
+          "--per-gpu",
+          "4",
+          "--episodes",
+          "100",
+          "--seed",
+          "42",
+          "--expected-step",
+          "237310",
+          "--elastic-schedule",
+          "flat_k1_n2",
+          "--max-attempts",
+          "3",
+          "--no-progress-timeout",
+          "1800"
+        ],
+        "status": "finished",
+        "started_unix": 1794374386.9748056,
+        "stage": "evaluation",
+        "exit_code": 0,
+        "finished_unix": 1794430433.1411388
+      },
+      "queue_launch": {
+        "pid": 2400023,
+        "start_ticks": "86837486",
+        "started_unix": 1794374185.7645106,
+        "host": "local",
+        "schedules": [
+          "flat_k1_n2"
+        ],
+        "command": [
+          "bash",
+          "/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/start.sh"
+        ]
+      },
+      "smoke": {
+        "passed": true,
+        "episodes": 8,
+        "excluded": true,
+        "schedule": "flat_k1_n2",
+        "verified_unix": 1794374379.0111718
+      },
+      "original_artifact_sha256": {
+        "results/COMPLETE.json": "ac60093fbe9edde4d914ee29017ae706c730ee3113f386678550bb8e582532bc",
+        "results/manifest.json": "7f4ca571e57a2286b333cba29848d75e7a51fb62d00c07d2cfdad7dae239cd4c",
+        "final_audit.json": "2d4c25f40491cc07c65b159209c946ad52fe303ac1ef835e9e5404458e659e40",
+        "final_results.json": "c8dbbd70588a97787b07b8e33eac869f77c19fc071b4baa32f1cc243be3b3aae"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "verified_unix": 1794453164.9991114,
+  "host": "137",
+  "evaluator_pid": 3098414,
+  "queue_pid": 3093141,
+  "schedule": "flat_k4_n2",
+  "tasks": 50,
+  "settings": [
+    "demo_clean",
+    "demo_randomized"
+  ],
+  "episodes_per_task_setting": 100,
+  "seed": 42,
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "smoke_episodes": 8,
+  "smoke_excluded": true,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+}
