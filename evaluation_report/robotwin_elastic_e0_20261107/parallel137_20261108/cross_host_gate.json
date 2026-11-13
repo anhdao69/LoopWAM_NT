@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "checked_unix": 1794071524.038494,
+  "packages_identical": true,
+  "local": {
+    "host": "VMO-ANHDH35-D",
+    "torch_cuda": "12.8",
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "Pillow": "12.0.0",
+      "sapien": "3.0.0b1",
+      "mplib": "0.2.1",
+      "transformers": "4.49.0",
+      "diffusers": null,
+      "einops": "0.8.1",
+      "timm": null,
+      "safetensors": "0.5.3",
+      "triton": "3.3.1"
+    },
+    "python": "3.10.22",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 580.178.04",
+    "verified_unix": 1794068402.0064514,
+    "schedule": "flat_k4_n2",
+    "reference_sha256": "3cc93e81bb4f41310448067553b01ffd45c027e0019d991609072912c9d8b4ce"
+  },
+  "remote": {
+    "host": "VMO-VINHLD8-D",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 580.178.04"
+  },
+  "model_outputs": [
+    {
+      "file": "1249996_q0.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1249996_q1.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250248_q0.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250248_q1.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250552_q0.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250552_q1.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250875_q0.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "file": "1250875_q1.pt",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    }
+  ],
+  "text_outputs": [
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Adjust the bottle to stand upright.",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Open the microwave door.",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Place the can inside the basket.",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Stack the blocks on top of each other.",
+      "bit_equal": true,
+      "max_abs_difference": 0.0
+    }
+  ],
+  "finished_unix": 1794071551.248047
+}

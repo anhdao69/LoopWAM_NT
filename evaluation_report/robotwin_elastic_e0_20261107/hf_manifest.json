@@ -1,0 +1,96 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "cf5bc4fd986bc6877d613c4adea7c3b293ae0075",
+  "files": [
+    {
+      "type": "file",
+      "oid": "61069e88be44316a9fbd767e808d1125c6c7fd06",
+      "size": 2732,
+      "path": "robotwin/Elastic/E0/README.md"
+    },
+    {
+      "type": "file",
+      "oid": "09ed6b5a4ce3c6ad2557d7ca172e2c5ea5850c9a",
+      "size": 941,
+      "path": "robotwin/Elastic/E0/SHA256SUMS"
+    },
+    {
+      "type": "file",
+      "oid": "8ee3058713aa90ce364551b19cb676e9601af786",
+      "size": 501696,
+      "path": "robotwin/Elastic/E0/data_manifest.json"
+    },
+    {
+      "type": "file",
+      "oid": "f1652563d2dedbd7063c55bd8c2f4297ec648d45",
+      "size": 88715,
+      "path": "robotwin/Elastic/E0/dataset_stats.json"
+    },
+    {
+      "type": "file",
+      "oid": "fd9811c31daced1196884a1438e40e60a399e25e",
+      "size": 2340331629,
+      "lfs": {
+        "oid": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+        "size": 2340331629,
+        "pointerSize": 135
+      },
+      "xetHash": "7ac73c5a9c08dbff0bad0bb3addbe13e01af5c1174e59ef0a2b2363e22f579b4",
+      "path": "robotwin/Elastic/E0/epoch_01.pt"
+    },
+    {
+      "type": "file",
+      "oid": "617f540cc4c2c8f495cfab3193e5e5330811430b",
+      "size": 1017,
+      "path": "robotwin/Elastic/E0/epoch_01.pt.uploaded.json"
+    },
+    {
+      "type": "file",
+      "oid": "451961b3c6b4d04a4314eb12293a9de7046e45da",
+      "size": 11740,
+      "path": "robotwin/Elastic/E0/export_verification.json"
+    },
+    {
+      "type": "file",
+      "oid": "ba99ec343897b26e032da1f9b16b8a69e6056cdc",
+      "size": 181,
+      "path": "robotwin/Elastic/E0/launches.jsonl"
+    },
+    {
+      "type": "file",
+      "oid": "33ff4900f76a5cb59907587fddcd75465db39e99",
+      "size": 680434,
+      "path": "robotwin/Elastic/E0/schedule_sequence.json"
+    },
+    {
+      "type": "file",
+      "oid": "1c5d59b536d212e99ba296d2f6bec4c9e7b0d4c5",
+      "size": 778,
+      "path": "robotwin/Elastic/E0/teacher_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "acc186d2f62d4ef10a6016ae7a4a5d87924c23f8",
+      "size": 4327,
+      "path": "robotwin/Elastic/E0/training_config.json"
+    },
+    {
+      "type": "file",
+      "oid": "42be1c8f4c51a681ddc7353605f2f92e396be253",
+      "size": 6337785,
+      "lfs": {
+        "oid": "0cb93c83c06f2827c634a5462213c1a0a491d67db372951f5547d935b02fd98f",
+        "size": 6337785,
+        "pointerSize": 132
+      },
+      "xetHash": "cf7cfd198e0b4b4286c24b0d2d2b92e5f8274687c838de29359ba2b45658690b",
+      "path": "robotwin/Elastic/E0/training_metrics.jsonl.gz"
+    },
+    {
+      "type": "file",
+      "oid": "685e4ce857bc813a764aac9ff7e7ae33b6de949d",
+      "size": 185,
+      "path": "robotwin/Elastic/E0/training_status.json"
+    }
+  ]
+}

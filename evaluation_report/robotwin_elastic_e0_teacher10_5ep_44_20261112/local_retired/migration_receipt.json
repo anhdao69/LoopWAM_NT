@@ -1,0 +1,9 @@
+{
+  "status": "retired_for_migration",
+  "destination": "anhdh35@10.148.182.137",
+  "pid": 3995961,
+  "start_ticks": "92465284",
+  "stopped_unix": 1794452016.7090394,
+  "scored_episodes": 0,
+  "active_evaluator": false
+}
