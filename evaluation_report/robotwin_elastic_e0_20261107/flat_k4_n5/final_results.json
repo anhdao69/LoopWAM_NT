@@ -1,0 +1,921 @@
+{
+  "totals": {
+    "demo_clean": {
+      "successes": 4563,
+      "episodes": 5000,
+      "sr_percent": 91.26
+    },
+    "demo_randomized": {
+      "successes": 4533,
+      "episodes": 5000,
+      "sr_percent": 90.66
+    },
+    "combined": {
+      "successes": 9096,
+      "episodes": 10000,
+      "sr_percent": 90.96
+    }
+  },
+  "tasks": [
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1704.5472574234009,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "adjust_bottle",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 1880.735060453415,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 716.5507256984711,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "beat_block_hammer",
+      "setting": "demo_randomized",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "seconds": 887.6562643051147,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 2246.6542921066284,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "blocks_ranking_rgb",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 2512.324281692505,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_clean",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "seconds": 2435.165095806122,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "blocks_ranking_size",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 2500.5092537403107,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 512.6882979869843,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "click_alarmclock",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 613.6553521156311,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 411.56009006500244,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "click_bell",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 529.7994196414948,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 1238.1278290748596,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "dump_bin_bigbin",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 1448.8093180656433,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 653.2624487876892,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "grab_roller",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 813.7036702632904,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_clean",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "seconds": 1938.530243396759,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "handover_block",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "seconds": 2139.140678882599,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 3041.728980064392,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "handover_mic",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 3658.783769607544,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "successes": 61,
+      "episodes": 100,
+      "sr_percent": 61,
+      "seconds": 3459.6195633411407,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "hanging_mug",
+      "setting": "demo_randomized",
+      "successes": 56,
+      "episodes": 100,
+      "sr_percent": 56,
+      "seconds": 5171.309896707535,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1757.13516330719,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "lift_pot",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 2069.106943845749,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_clean",
+      "successes": 91,
+      "episodes": 100,
+      "sr_percent": 91,
+      "seconds": 3605.2053718566895,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_can_pot",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 3555.284111738205,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 3400.750454187393,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_pillbottle_pad",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 2981.7333977222443,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 759.3782958984375,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_playingcard_away",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 900.8346018791199,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_clean",
+      "successes": 90,
+      "episodes": 100,
+      "sr_percent": 90,
+      "seconds": 1026.578742980957,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "move_stapler_pad",
+      "setting": "demo_randomized",
+      "successes": 81,
+      "episodes": 100,
+      "sr_percent": 81,
+      "seconds": 1203.5733234882355,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_clean",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "seconds": 1233.592798948288,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "open_laptop",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 1434.8107159137726,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_clean",
+      "successes": 20,
+      "episodes": 100,
+      "sr_percent": 20,
+      "seconds": 5399.879884719849,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "open_microwave",
+      "setting": "demo_randomized",
+      "successes": 23,
+      "episodes": 100,
+      "sr_percent": 23,
+      "seconds": 5441.2509779930115,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_clean",
+      "successes": 88,
+      "episodes": 100,
+      "sr_percent": 88,
+      "seconds": 2673.6769802570343,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "pick_diverse_bottles",
+      "setting": "demo_randomized",
+      "successes": 86,
+      "episodes": 100,
+      "sr_percent": 86,
+      "seconds": 3502.9089567661285,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 2474.480421066284,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "pick_dual_bottles",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 2579.068638086319,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_clean",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "seconds": 1193.491604566574,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_a2b_left",
+      "setting": "demo_randomized",
+      "successes": 90,
+      "episodes": 100,
+      "sr_percent": 90,
+      "seconds": 1224.6263551712036,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 1122.140566110611,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_a2b_right",
+      "setting": "demo_randomized",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "seconds": 1199.9506800174713,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_clean",
+      "successes": 87,
+      "episodes": 100,
+      "sr_percent": 87,
+      "seconds": 1607.381102323532,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_bread_basket",
+      "setting": "demo_randomized",
+      "successes": 86,
+      "episodes": 100,
+      "sr_percent": 86,
+      "seconds": 1712.9714126586914,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_clean",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "seconds": 1672.7333362102509,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_bread_skillet",
+      "setting": "demo_randomized",
+      "successes": 89,
+      "episodes": 100,
+      "sr_percent": 89,
+      "seconds": 1838.9029202461243,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 1426.7943856716156,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_burger_fries",
+      "setting": "demo_randomized",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 1602.8948860168457,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_clean",
+      "successes": 73,
+      "episodes": 100,
+      "sr_percent": 73,
+      "seconds": 4964.275443792343,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_can_basket",
+      "setting": "demo_randomized",
+      "successes": 52,
+      "episodes": 100,
+      "sr_percent": 52,
+      "seconds": 5223.077771663666,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 3965.683561563492,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_cans_plasticbox",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "seconds": 4072.376893043518,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 747.4452493190765,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_container_plate",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 879.4432256221771,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_clean",
+      "successes": 82,
+      "episodes": 100,
+      "sr_percent": 82,
+      "seconds": 1832.9452981948853,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_dual_shoes",
+      "setting": "demo_randomized",
+      "successes": 75,
+      "episodes": 100,
+      "sr_percent": 75,
+      "seconds": 2081.002168893814,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 812.4441206455231,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_empty_cup",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 948.4337487220764,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_clean",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "seconds": 974.5177457332611,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_fan",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "seconds": 1137.7006485462189,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_clean",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "seconds": 788.429648399353,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_mouse_pad",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "seconds": 925.7255344390869,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_clean",
+      "successes": 82,
+      "episodes": 100,
+      "sr_percent": 82,
+      "seconds": 2218.2751014232635,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_basket",
+      "setting": "demo_randomized",
+      "successes": 78,
+      "episodes": 100,
+      "sr_percent": 78,
+      "seconds": 2840.505260705948,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_clean",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 848.1920232772827,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_scale",
+      "setting": "demo_randomized",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "seconds": 989.4266314506531,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_clean",
+      "successes": 93,
+      "episodes": 100,
+      "sr_percent": 93,
+      "seconds": 808.0551314353943,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_object_stand",
+      "setting": "demo_randomized",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "seconds": 925.9074745178223,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 757.8639459609985,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_phone_stand",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 906.2306063175201,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_clean",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "seconds": 886.2176244258881,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "place_shoe",
+      "setting": "demo_randomized",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 1003.1535139083862,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_clean",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "seconds": 612.8692784309387,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "press_stapler",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 831.0208439826965,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_clean",
+      "successes": 91,
+      "episodes": 100,
+      "sr_percent": 91,
+      "seconds": 7246.605103254318,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "put_bottles_dustbin",
+      "setting": "demo_randomized",
+      "successes": 92,
+      "episodes": 100,
+      "sr_percent": 92,
+      "seconds": 7645.874030590057,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_clean",
+      "successes": 91,
+      "episodes": 100,
+      "sr_percent": 91,
+      "seconds": 6733.84009718895,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "put_object_cabinet",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "seconds": 13539.876901626587,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_clean",
+      "successes": 85,
+      "episodes": 100,
+      "sr_percent": 85,
+      "seconds": 957.436530828476,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "rotate_qrcode",
+      "setting": "demo_randomized",
+      "successes": 81,
+      "episodes": 100,
+      "sr_percent": 81,
+      "seconds": 1124.3443162441254,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_clean",
+      "successes": 85,
+      "episodes": 100,
+      "sr_percent": 85,
+      "seconds": 4379.79901766777,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "scan_object",
+      "setting": "demo_randomized",
+      "successes": 86,
+      "episodes": 100,
+      "sr_percent": 86,
+      "seconds": 4115.258934020996,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1801.6644785404205,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "shake_bottle",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1950.7188594341278,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_clean",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1626.5101568698883,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "shake_bottle_horizontally",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1809.8165550231934,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_clean",
+      "successes": 97,
+      "episodes": 100,
+      "sr_percent": 97,
+      "seconds": 2270.18314409256,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_blocks_three",
+      "setting": "demo_randomized",
+      "successes": 96,
+      "episodes": 100,
+      "sr_percent": 96,
+      "seconds": 2490.295087814331,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_clean",
+      "successes": 99,
+      "episodes": 100,
+      "sr_percent": 99,
+      "seconds": 1479.2852058410645,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_blocks_two",
+      "setting": "demo_randomized",
+      "successes": 100,
+      "episodes": 100,
+      "sr_percent": 100,
+      "seconds": 1667.5473101139069,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_clean",
+      "successes": 82,
+      "episodes": 100,
+      "sr_percent": 82,
+      "seconds": 2884.6937007904053,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_bowls_three",
+      "setting": "demo_randomized",
+      "successes": 81,
+      "episodes": 100,
+      "sr_percent": 81,
+      "seconds": 3094.915492773056,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_clean",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "seconds": 1596.4794187545776,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stack_bowls_two",
+      "setting": "demo_randomized",
+      "successes": 98,
+      "episodes": 100,
+      "sr_percent": 98,
+      "seconds": 1678.5437412261963,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_clean",
+      "successes": 95,
+      "episodes": 100,
+      "sr_percent": 95,
+      "seconds": 1263.5861353874207,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "stamp_seal",
+      "setting": "demo_randomized",
+      "successes": 94,
+      "episodes": 100,
+      "sr_percent": 94,
+      "seconds": 1269.6837041378021,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_clean",
+      "successes": 59,
+      "episodes": 100,
+      "sr_percent": 59,
+      "seconds": 1026.5948131084442,
+      "accepted_attempt": "attempt_01"
+    },
+    {
+      "task": "turn_switch",
+      "setting": "demo_randomized",
+      "successes": 63,
+      "episodes": 100,
+      "sr_percent": 63,
+      "seconds": 961.516343832016,
+      "accepted_attempt": "attempt_01"
+    }
+  ]
+}

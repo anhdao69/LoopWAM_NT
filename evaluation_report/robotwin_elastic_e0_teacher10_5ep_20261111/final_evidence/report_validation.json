@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-11-13T15:39:50.181682+00:00",
+  "new_episodes_reconciled": 30000,
+  "historical_baseline_episodes_reconciled": 20000,
+  "markdown_task_rows_checked": 50,
+  "csv_task_rows_checked": 50,
+  "local_links_checked": 51,
+  "missing_links": [],
+  "prior_report_backups_verified": 9,
+  "report_sha256": "35f2798d127aa2ae4ebfe78549afabca66738d811b2834111f7ae43f91a12b27",
+  "scope": "Final Markdown table/CSV/JSON consistency, evidence links, helper syntax, prior-report preservation; host evidence in separate receipts."
+}
