@@ -1,0 +1,108 @@
+{
+  "outputs": [
+    {
+      "file": "1249996_q0.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.00848388671875,
+      "mean_abs_difference": 0.0015879316488280892
+    },
+    {
+      "file": "1249996_q1.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.009765625,
+      "mean_abs_difference": 0.001738951657898724
+    },
+    {
+      "file": "1250248_q0.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.0093994140625,
+      "mean_abs_difference": 0.0014825037214905024
+    },
+    {
+      "file": "1250248_q1.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.0078125,
+      "mean_abs_difference": 0.0017098869429901242
+    },
+    {
+      "file": "1250552_q0.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.0078125,
+      "mean_abs_difference": 0.0014542341232299805
+    },
+    {
+      "file": "1250552_q1.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.009765625,
+      "mean_abs_difference": 0.0014183095190674067
+    },
+    {
+      "file": "1250875_q0.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.0078125,
+      "mean_abs_difference": 0.001225292682647705
+    },
+    {
+      "file": "1250875_q1.pt",
+      "bit_equal": false,
+      "max_abs_difference": 0.010498046875,
+      "mean_abs_difference": 0.0014162404695525765
+    }
+  ],
+  "cudnn_version": 90701,
+  "matmul_tf32": false,
+  "cudnn_tf32": true,
+  "cudnn_deterministic": false,
+  "vae_boundary": {
+    "bit_equal": true,
+    "max_abs_difference": 0.0,
+    "mean_abs_difference": 0.0
+  },
+  "action_with_identical_latents": {
+    "bit_equal": false,
+    "max_abs_difference": 0.00848388671875,
+    "mean_abs_difference": 0.0015879316488280892
+  },
+  "deterministic_cudnn": {
+    "action": {
+      "bit_equal": false,
+      "max_abs_difference": 0.0078125,
+      "mean_abs_difference": 0.0015602027997374535
+    },
+    "latents": {
+      "bit_equal": false,
+      "max_abs_difference": 0.03515625,
+      "mean_abs_difference": 0.0035523101687431335
+    }
+  },
+  "text_outputs": [
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Adjust the bottle to stand upright.",
+      "mask_equal": true,
+      "bit_equal": false,
+      "max_abs_difference": 1.6474609375,
+      "mean_abs_difference": 0.0009120330796577036
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Open the microwave door.",
+      "mask_equal": true,
+      "bit_equal": false,
+      "max_abs_difference": 1.51171875,
+      "mean_abs_difference": 0.0016839838353917003
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Place the can inside the basket.",
+      "mask_equal": true,
+      "bit_equal": false,
+      "max_abs_difference": 0.330078125,
+      "mean_abs_difference": 0.0007303521269932389
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Stack the blocks on top of each other.",
+      "mask_equal": true,
+      "bit_equal": false,
+      "max_abs_difference": 0.04296875,
+      "mean_abs_difference": 0.00033814588095992804
+    }
+  ]
+}

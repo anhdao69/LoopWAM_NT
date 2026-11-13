@@ -1,9 +1,10 @@
 # Evaluation reports
 
-Shared snapshot: **2026-11-12** (RoboCasa-GR1 elastic student GR1-E0 added; previous snapshot 2026-11-08). Report contents are synchronized across all GitHub branches. Each report retains its own run date and completion status.
+Shared snapshot: **2026-11-13** (RoboTwin-50 E0 final comparison added; previous snapshot 2026-11-12). Report contents are synchronized across all GitHub branches. Each report retains its own run date and completion status.
 
 ## Start here
 
+- Latest RoboTwin-50 E0 comparison: [five-epoch student distilled from the epoch-10 teacher](robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md). All three schedules complete: `[1,1]` **89.28%**, `[2,2]` **90.60%**, `[4,4]` **91.49%**, each over 10,000 scored episodes at NFE 2. Historical epoch-1 E0 results are kept separately.
 - Added in the 2026-11-12 sync: [RoboCasa-GR1 elastic student GR1-E0, final results](robocasa_gr1_elastic_e0_20261112/README.md) (complete): one student distilled from the epoch-9 teacher (52.17%, 626/1200), 5 epochs, 25 official 24-task evaluations. Epoch 5 at 2 / 5 / 10 steps: 4 loops 51.75 / **54.42** / 52.33% (teacher level), 2 loops 49.83 / 51.50 / 50.58%, 1 loop 44.42 / 46.50 / 49.42%. With all nine settings at epochs 4 and 5, `[1,1]` / `[2,2]` / `[4,4]` at epochs 2 and 3, paired statistics against the teacher, the training record, the Hugging Face publication of epoch 5, and an independent check. Not part of the consolidated `all_results` exports.
 - Latest ws reevaluation: [RoboCasa-GR1 epochs 9 and 10](robocasa_gr1_epochs09_10_20261108/README.md), complete: **52.33% (628/1,200)** on local RTX PRO 6000 and **50.00% (600/1,200)** on server189 RTX PRO 5000. Earlier H100 evaluations are retained separately.
 - Consolidated exports: [LIBERO matched](all_results/libero_matched.csv), [RoboTwin](all_results/robotwin_results.csv), [robustness](all_results/robustness_results.csv), and [all results JSON](all_results/results.json).
@@ -50,10 +51,13 @@ Shared snapshot: **2026-11-12** (RoboCasa-GR1 elastic student GR1-E0 added; prev
 | `robotwin_v0` | [report.md](robotwin_v0/report.md) · [final_results.json](robotwin_v0/final_results.json) | RoboTwin v0 results, task and episode exports, retries, and audits. |
 | `robotwin_v0_epoch06` | [report.md](robotwin_v0_epoch06/report.md) | Run reports, status, and supporting evidence. |
 | `robotwin_v0_epoch10` | [report.md](robotwin_v0_epoch10/report.md) · [final_results.json](robotwin_v0_epoch10/final_results.json) | Run reports, status, and supporting evidence. |
+| `robotwin_elastic_e0_teacher10_5ep_20261111` | [final_report.md](robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md) · [comparison data](robotwin_elastic_e0_teacher10_5ep_20261111/final_comparison.json) | Final three-schedule comparison, evidence and historical baseline links. |
 | `robustness` | [report.md](robustness/report.md) · [report.html](robustness/report.html) | LIBERO-Plus and LIBERO-Pro robustness results and provenance. |
 | `v0_ka_sweep` | [report.md](v0_ka_sweep/report.md) · [queue_status.json](v0_ka_sweep/queue_status.json) | v0 action-horizon sweep setup and status. |
 
 ## Evidence and history
+
+Latest E0 report sync: [manifest](sync_manifest_20261113.json) · [inventory](integrity_inventory_20261113.json). Older inventories describe their dated snapshots.
 
 Latest sync (2026-11-12, RoboCasa-GR1 elastic student): [manifest](sync_manifest_20261112.json) · [integrity inventory](integrity_inventory_20261112.json). Previous, ws reevaluation sync: [manifest](sync_manifest_20261108_ws.json) · [integrity inventory](integrity_inventory_20261108_ws.json). Earlier inventories below describe their original snapshots.
 

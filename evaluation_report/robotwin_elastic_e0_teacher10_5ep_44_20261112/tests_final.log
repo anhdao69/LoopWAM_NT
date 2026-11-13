@@ -1,0 +1,63 @@
+...........................................FF..FF...F..F                 [100%]
+=================================== FAILURES ===================================
+________________ test_continuation_budget_and_cosine_endpoints _________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:12: in test_continuation_budget_and_cosine_endpoints
+    c=continuation_contract(parent_contract(),'a'*64)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:8: in parent_contract
+    return json.loads((root/'plans/evidence/robotwin_full_v0_20261028/release_v2/smoke/manifest.json').read_text())['contract']
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/plans/evidence/robotwin_full_v0_20261028/release_v2/smoke/manifest.json'
+_______________ test_handoff_rejects_wrong_boundary_or_contract ________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:25: in test_handoff_rejects_wrong_boundary_or_contract
+    old=parent_contract();new=continuation_contract(old,'a'*64)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:8: in parent_contract
+    return json.loads((root/'plans/evidence/robotwin_full_v0_20261028/release_v2/smoke/manifest.json').read_text())['contract']
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/plans/evidence/robotwin_full_v0_20261028/release_v2/smoke/manifest.json'
+______ test_stage_survives_controller_detach_and_prevents_duplicate_child ______
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:70: in test_stage_survives_controller_detach_and_prevents_duplicate_child
+    assert json.loads(status.read_text())['state']=='running'
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+../miniconda3/envs/loopwam-libero-eval/lib/python3.10/pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/tmp/pytest-of-anhdh35/pytest-2/test_stage_survives_controller0/status.json'
+_______________________ test_stage_records_child_failure _______________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:81: in test_stage_records_child_failure
+    assert p.returncode==7 and json.loads(status.read_text())['exit_code']==7
+E   assert (2 == 7)
+E    +  where 2 = CompletedProcess(args=['/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/env/bin/python', '/data...botwin_elastic_e0_teacher10_5ep_20261111/repo/scripts/robotwin_queue_stage.py': [Errno 2] No such file or directory\n").returncode
+___ test_stage_resolves_python_after_environment_and_stops_on_source_failure ___
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:109: in test_stage_resolves_python_after_environment_and_stops_on_source_failure
+    spec=importlib.util.spec_from_file_location('queue_script',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/scripts/run_robotwin_posttrain_queue.py'
+_____ test_nested_slurm_launch_does_not_inherit_controller_resource_limits _____
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/tests/test_robotwin_pipeline.py:136: in test_nested_slurm_launch_does_not_inherit_controller_resource_limits
+    spec=importlib.util.spec_from_file_location('queue_script',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111/repo/scripts/run_robotwin_posttrain_queue.py'
+=========================== short test summary info ============================
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_continuation_budget_and_cosine_endpoints
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_handoff_rejects_wrong_boundary_or_contract
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_stage_survives_controller_detach_and_prevents_duplicate_child
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_stage_records_child_failure
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_stage_resolves_python_after_environment_and_stops_on_source_failure
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/repo/tests/test_robotwin_pipeline.py::test_nested_slurm_launch_does_not_inherit_controller_resource_limits
+6 failed, 50 passed in 7.00s

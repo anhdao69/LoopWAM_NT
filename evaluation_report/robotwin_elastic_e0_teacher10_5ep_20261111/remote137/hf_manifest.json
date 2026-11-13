@@ -1,0 +1,97 @@
+{
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "prefix": "robotwin/Elastic/E0-epoch10-teacher-5ep",
+  "files": [
+    {
+      "type": "file",
+      "oid": "5b8b93a918ca9c98910f5b58c114f20eee04a2ec",
+      "size": 3254,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/README.md"
+    },
+    {
+      "type": "file",
+      "oid": "3c205a8a3c91588bf552cdd04988a0645a2974c4",
+      "size": 941,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/SHA256SUMS"
+    },
+    {
+      "type": "file",
+      "oid": "8ee3058713aa90ce364551b19cb676e9601af786",
+      "size": 501696,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/data_manifest.json"
+    },
+    {
+      "type": "file",
+      "oid": "f1652563d2dedbd7063c55bd8c2f4297ec648d45",
+      "size": 88715,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/dataset_stats.json"
+    },
+    {
+      "type": "file",
+      "oid": "707da7c8c777d34a91292edbe62e6b766d2782ad",
+      "size": 2340331885,
+      "lfs": {
+        "oid": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+        "size": 2340331885,
+        "pointerSize": 135
+      },
+      "xetHash": "ad220e755b68d5ad1e464165889d5291a8bc956d47c17f2f89cb4ff4fda81c65",
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/epoch_05.pt"
+    },
+    {
+      "type": "file",
+      "oid": "09a65a3bdb2d2c7cc24c8da223bb1fa78f6bbdc6",
+      "size": 1279,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/epoch_05.pt.uploaded.json"
+    },
+    {
+      "type": "file",
+      "oid": "dc2555b462fc1f0048bbe49023c89dcf8a9456ab",
+      "size": 6082,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/export_verification.json"
+    },
+    {
+      "type": "file",
+      "oid": "bfdd69bb516215173a8e7d1f889b05feffbcfd9c",
+      "size": 1074,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/launches.jsonl"
+    },
+    {
+      "type": "file",
+      "oid": "874e6e0896d25683fcd653311858e76895980d18",
+      "size": 3401589,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/schedule_sequence.json"
+    },
+    {
+      "type": "file",
+      "oid": "c8337bee3764d3c67dbcd4ad9ca5b6b54a16a085",
+      "size": 163,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/teacher_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "db222ac481e0c355789513413fbf1fc7e1ad3d16",
+      "size": 4343,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_config.json"
+    },
+    {
+      "type": "file",
+      "oid": "b1c47656f228df51e9c84d8603c330fb9f598f19",
+      "size": 31598811,
+      "lfs": {
+        "oid": "f44ec7de00fef0d800ba6855a77471aa008f6374f1542075bbceaba85fb9a8e4",
+        "size": 31598811,
+        "pointerSize": 133
+      },
+      "xetHash": "960f6a6a5d03a45bca5abbf2bae5ee2e7157d53d7c11ed9b4def95c9e6f4933b",
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_metrics.jsonl.gz"
+    },
+    {
+      "type": "file",
+      "oid": "57c926589bed9686027dc9e327d5ba0ddfa68026",
+      "size": 189,
+      "path": "robotwin/Elastic/E0-epoch10-teacher-5ep/training_status.json"
+    }
+  ],
+  "repo": "anhdao69/LoopWAM_NT"
+}

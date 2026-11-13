@@ -1,0 +1,85 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "cf5bc4fd986bc6877d613c4adea7c3b293ae0075",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/README.md",
+      "remote": "robotwin/Elastic/E0/README.md",
+      "sha256": "8e8fb7e88aa3f1bb46df4135bddff34f7b395d0e692d86012a62a9c3a560581f",
+      "size": 2732
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/SHA256SUMS",
+      "remote": "robotwin/Elastic/E0/SHA256SUMS",
+      "sha256": "edc43d8fbd1bbc01d063d65d0a2512a4ccc3d3b0fd0d2185bcd935798b70dff8",
+      "size": 941
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/data_manifest.json",
+      "remote": "robotwin/Elastic/E0/data_manifest.json",
+      "sha256": "152033b1d67b9d34f0e17a91a5c6c34a7bd093be40d64f5ad354ba2a05c38399",
+      "size": 501696
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/dataset_stats.json",
+      "remote": "robotwin/Elastic/E0/dataset_stats.json",
+      "sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+      "size": 88715
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/epoch_01.pt.uploaded.json",
+      "remote": "robotwin/Elastic/E0/epoch_01.pt.uploaded.json",
+      "sha256": "ac78785173d3004f09c76ee5fb84ce37fcfd94b1503712c28a1ec9f436d8df31",
+      "size": 1017
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/export_verification.json",
+      "remote": "robotwin/Elastic/E0/export_verification.json",
+      "sha256": "a9753e62dd2640e3f69812498369ab080ebfa5c9054704c76aae63f5d05bfe98",
+      "size": 11740
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/launches.jsonl",
+      "remote": "robotwin/Elastic/E0/launches.jsonl",
+      "sha256": "d111b27184d39f379a020e9fadc4f6543c8be041fedaf870c57a44dd4b87b946",
+      "size": 181
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/schedule_sequence.json",
+      "remote": "robotwin/Elastic/E0/schedule_sequence.json",
+      "sha256": "b231e0885d28601f9dd5a9fe3dfd0709e9380b98585d5ae4b85f7f1c824e6512",
+      "size": 680434
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/teacher_provenance.json",
+      "remote": "robotwin/Elastic/E0/teacher_provenance.json",
+      "sha256": "56082cf6f47464eb1106454fefbf947050b48fae089f19295f968e7a5433bed3",
+      "size": 778
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/training_config.json",
+      "remote": "robotwin/Elastic/E0/training_config.json",
+      "sha256": "b2504f8e7bc99c6677974740516744227b54ef53cba37bf019615e8667ed947b",
+      "size": 4327
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin/Elastic/E0/training_metrics.jsonl.gz",
+      "sha256": "0cb93c83c06f2827c634a5462213c1a0a491d67db372951f5547d935b02fd98f",
+      "size": 6337785
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/training_status.json",
+      "remote": "robotwin/Elastic/E0/training_status.json",
+      "sha256": "a7b01f2417ba394ed4188fcd6889e561e6c62da76ae65a0ecf5e696a7e14f990",
+      "size": 185
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/checkpoint/epoch_01.pt",
+      "remote": "robotwin/Elastic/E0/epoch_01.pt",
+      "sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+      "size": 2340331629
+    }
+  ],
+  "finished_unix": 1794029135.8673582
+}

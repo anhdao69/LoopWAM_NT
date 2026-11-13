@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "reviewer": "/root/elastic_parallel_review",
+  "important_findings_fixed": 2,
+  "minor_findings_fixed": 1,
+  "tests_passed": 7,
+  "duplicate_lock_status_test_passed": true,
+  "verified_unix": 1794071398.9989316,
+  "target": "10.148.182.137"
+}
