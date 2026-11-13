@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checked_unix": 1794373606.7229822,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "step": 237310,
+  "epoch": 5,
+  "parent_step": 474620,
+  "teacher_sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+  "transport_kind": "T0",
+  "frozen_tensors_equal_teacher": 341,
+  "frozen_video_tensors": 339,
+  "frozen_proprio_tensors": 2,
+  "normalization_equal": true,
+  "normalization_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "fp32_finite_weights": true,
+  "student_equals_export_mot": true,
+  "teacher_validation": "same-checkpoint SHA256 and local tensor-comparison receipt"
+}

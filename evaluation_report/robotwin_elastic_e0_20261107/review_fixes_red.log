@@ -1,0 +1,90 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+__________________ test_shutdown_allows_nested_worker_cleanup __________________
+
+>   def interrupted():raise KeyboardInterrupt()
+E   KeyboardInterrupt
+
+test_queue_recovery.py:19: KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-13/test_shutdown_allows_nested_wo0')
+
+    def test_shutdown_allows_nested_worker_cleanup(tmp_path):
+        proc=StoppingProcess()
+        def interrupted():raise KeyboardInterrupt()
+        with patch.object(q,'B',tmp_path),patch.object(q,'status',lambda *a,**k:None),patch.object(q,'update',interrupted),patch.object(q.subprocess,'Popen',return_value=proc),patch.object(q.os,'killpg'),patch.object(Path,'read_text',return_value=' '.join(['0']*22)):
+>           with pytest.raises(KeyboardInterrupt):q.run_process('test',['dummy'],tmp_path/'test.log')
+
+test_queue_recovery.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/queue_pipeline.py:29: in run_process
+    try:proc.wait(45)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <test_queue_recovery.StoppingProcess object at 0x7a1d3b88d4b0>
+timeout = 45
+
+    def wait(self,timeout):
+>       assert timeout>=110, 'Must allow 4 worker and one T5 sequential 20-second shutdowns'
+E       AssertionError: Must allow 4 worker and one T5 sequential 20-second shutdowns
+E       assert 45 >= 110
+
+test_queue_recovery.py:14: AssertionError
+_________________ test_completed_report_uses_complete_evidence _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-13/test_completed_report_uses_com0')
+
+    def test_completed_report_uses_complete_evidence(tmp_path):
+        b=tmp_path/'bulk';r=tmp_path/'report';b.mkdir();r.mkdir()
+        d=b/'runs/flat_k1_n2';(d/'results').mkdir(parents=True)
+        complete=dict(finished={'test/demo_clean':dict(successes=1,episodes=[{}])},running={})
+        (d/'results/COMPLETE.json').write_text(json.dumps(complete))
+        (d/'results/summary.json').write_text(json.dumps(dict(finished={},running={'old':dict(episodes=1)})))
+        (d/'final_audit.json').write_text(json.dumps(dict(status='passed')))
+        with patch.object(report,'B',b),patch.object(report,'R',r):report.update()
+        row=json.loads((r/'current_results.json').read_text())['runs'][0]
+>       assert row['episodes']==1 and row['successes']==1 and row['active_attempt_episodes']==0
+E       assert (0 == 1)
+
+test_queue_recovery.py:32: AssertionError
+__________ test_concurrent_cleanup_of_real_sigterm_ignoring_children ___________
+
+    def test_concurrent_cleanup_of_real_sigterm_ignoring_children():
+        import time
+        m=load_evaluator();children=[stubborn_child() for _ in range(5)]
+        try:
+>           start=time.monotonic();m.terminate_all(children,timeout=.2)
+E           AttributeError: module 'elastic_eval' has no attribute 'terminate_all'. Did you mean: 'terminate'?
+
+test_queue_recovery.py:49: AttributeError
+_______________ test_recorded_orphan_cleanup_uses_start_identity _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-13/test_recorded_orphan_cleanup_u0')
+
+    def test_recorded_orphan_cleanup_uses_start_identity(tmp_path):
+        import os
+        m=load_evaluator();child=stubborn_child();path=tmp_path/'children.json'
+        try:
+            path.write_text(json.dumps([dict(pid=child.pid,start_ticks=Path(f'/proc/{child.pid}/stat').read_text().split()[21]),dict(pid=os.getpid(),start_ticks='wrong')]))
+>           m.reap_recorded_children(path,timeout=.1)
+E           AttributeError: module 'elastic_eval' has no attribute 'reap_recorded_children'
+
+test_queue_recovery.py:61: AttributeError
+_____________ test_failure_inventory_includes_interrupted_attempts _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-anhdh35/pytest-13/test_failure_inventory_include0')
+
+    def test_failure_inventory_includes_interrupted_attempts(tmp_path):
+>       from finalize import excluded_attempts
+E       ImportError: cannot import name 'excluded_attempts' from 'finalize' (/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/scripts/finalize.py)
+
+test_queue_recovery.py:68: ImportError
+=========================== short test summary info ============================
+FAILED test_queue_recovery.py::test_shutdown_allows_nested_worker_cleanup - A...
+FAILED test_queue_recovery.py::test_completed_report_uses_complete_evidence
+FAILED test_queue_recovery.py::test_concurrent_cleanup_of_real_sigterm_ignoring_children
+FAILED test_queue_recovery.py::test_recorded_orphan_cleanup_uses_start_identity
+FAILED test_queue_recovery.py::test_failure_inventory_includes_interrupted_attempts
+5 failed in 0.14s

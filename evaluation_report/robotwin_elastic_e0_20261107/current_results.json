@@ -1,0 +1,104 @@
+{
+  "updated_unix": 1794139796.2755392,
+  "queue": {
+    "stage": "complete",
+    "mode": "parallel",
+    "scored_episodes": 30000,
+    "updated_unix": 1794139796.2525878,
+    "all_hosts_complete": true
+  },
+  "sync": {
+    "checked_unix": 1794139796.1464472,
+    "ok": true,
+    "error": null
+  },
+  "runs": [
+    {
+      "schedule": "flat_k1_n2",
+      "host": "local",
+      "status": "complete; audited",
+      "totals": {
+        "demo_clean": {
+          "successes": 4348,
+          "episodes": 5000,
+          "sr_percent": 86.96
+        },
+        "demo_randomized": {
+          "successes": 4336,
+          "episodes": 5000,
+          "sr_percent": 86.72
+        },
+        "combined": {
+          "successes": 8684,
+          "episodes": 10000,
+          "sr_percent": 86.84
+        }
+      },
+      "successes": 8684,
+      "episodes": 10000,
+      "sr_percent": 86.84,
+      "verified_cells": 100,
+      "audit_passed": true,
+      "snapshot_age_seconds": null,
+      "snapshot_stale": false
+    },
+    {
+      "schedule": "flat_k4_n2",
+      "host": "137",
+      "status": "complete; audited",
+      "totals": {
+        "demo_clean": {
+          "successes": 4512,
+          "episodes": 5000,
+          "sr_percent": 90.24
+        },
+        "demo_randomized": {
+          "successes": 4513,
+          "episodes": 5000,
+          "sr_percent": 90.26
+        },
+        "combined": {
+          "successes": 9025,
+          "episodes": 10000,
+          "sr_percent": 90.25
+        }
+      },
+      "successes": 9025,
+      "episodes": 10000,
+      "sr_percent": 90.25,
+      "verified_cells": 100,
+      "audit_passed": true,
+      "snapshot_age_seconds": 10075.779718637466,
+      "snapshot_stale": false
+    },
+    {
+      "schedule": "flat_k4_n5",
+      "host": "local",
+      "status": "complete; audited",
+      "totals": {
+        "demo_clean": {
+          "successes": 4563,
+          "episodes": 5000,
+          "sr_percent": 91.26
+        },
+        "demo_randomized": {
+          "successes": 4533,
+          "episodes": 5000,
+          "sr_percent": 90.66
+        },
+        "combined": {
+          "successes": 9096,
+          "episodes": 10000,
+          "sr_percent": 90.96
+        }
+      },
+      "successes": 9096,
+      "episodes": 10000,
+      "sr_percent": 90.96,
+      "verified_cells": 100,
+      "audit_passed": true,
+      "snapshot_age_seconds": null,
+      "snapshot_stale": false
+    }
+  ]
+}

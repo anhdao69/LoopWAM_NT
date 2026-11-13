@@ -1,0 +1,9 @@
+{
+  "stage": "complete",
+  "model": "E0-teacher10-5ep",
+  "host": "137",
+  "queue_pid": 1123879,
+  "updated_unix": 1794430864.3355894,
+  "final_audit_passed": true,
+  "scored_episodes": 10000
+}
