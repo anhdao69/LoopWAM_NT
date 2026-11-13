@@ -1,0 +1,56 @@
+........F.......................FFFFF.....                               [100%]
+=================================== FAILURES ===================================
+_________________ test_remote_host_accepts_only_new_assignment _________________
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_continuation.py:38: in test_remote_host_accepts_only_new_assignment
+    assert queue_pipeline.validate_host_assignment(config)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/scripts/queue_pipeline.py:12: in validate_host_assignment
+    if config.get('host') not in expected:raise ValueError('Unknown E0 teacher10 five-epoch host')
+E   ValueError: Unknown E0 teacher10 five-epoch host
+_____ test_remote_gate_accepts_completed_predecessors_without_reverse_ssh ______
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:28: in test_remote_gate_accepts_completed_predecessors_without_reverse_ssh
+    assert gate()(tmp_path, config, remote)['passed']
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:11: in gate
+    assert callable(function), 'Transferred audited-predecessor gate is missing'
+E   AssertionError: Transferred audited-predecessor gate is missing
+E   assert False
+E    +  where False = callable(None)
+_____ test_remote_gate_rejects_corrupt_or_unverified_predecessor[receipt] ______
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:45: in test_remote_gate_rejects_corrupt_or_unverified_predecessor
+    gate()(tmp_path, config, remote)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:11: in gate
+    assert callable(function), 'Transferred audited-predecessor gate is missing'
+E   AssertionError: Transferred audited-predecessor gate is missing
+E   assert False
+E    +  where False = callable(None)
+___ test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_hash] ____
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:45: in test_remote_gate_rejects_corrupt_or_unverified_predecessor
+    gate()(tmp_path, config, remote)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:11: in gate
+    assert callable(function), 'Transferred audited-predecessor gate is missing'
+E   AssertionError: Transferred audited-predecessor gate is missing
+E   assert False
+E    +  where False = callable(None)
+___ test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_seed] ____
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:45: in test_remote_gate_rejects_corrupt_or_unverified_predecessor
+    gate()(tmp_path, config, remote)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:11: in gate
+    assert callable(function), 'Transferred audited-predecessor gate is missing'
+E   AssertionError: Transferred audited-predecessor gate is missing
+E   assert False
+E    +  where False = callable(None)
+_ test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_incomplete] _
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:45: in test_remote_gate_rejects_corrupt_or_unverified_predecessor
+    gate()(tmp_path, config, remote)
+/data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py:11: in gate
+    assert callable(function), 'Transferred audited-predecessor gate is missing'
+E   AssertionError: Transferred audited-predecessor gate is missing
+E   assert False
+E    +  where False = callable(None)
+=========================== short test summary info ============================
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_continuation.py::test_remote_host_accepts_only_new_assignment
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py::test_remote_gate_accepts_completed_predecessors_without_reverse_ssh
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py::test_remote_gate_rejects_corrupt_or_unverified_predecessor[receipt]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py::test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_hash]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py::test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_seed]
+FAILED ../../../data14t/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_44_20261112/migration137/tests/test_remote_handoff.py::test_remote_gate_rejects_corrupt_or_unverified_predecessor[remote_incomplete]
+6 failed, 36 passed in 1.87s

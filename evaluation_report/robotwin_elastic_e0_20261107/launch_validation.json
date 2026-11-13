@@ -1,0 +1,38 @@
+{
+  "verified_unix": 1794030238.9524627,
+  "queue_pid": 2055346,
+  "evaluator_pid": 2058639,
+  "stage": "evaluation",
+  "schedule": "flat_k1_n2",
+  "task_count": 50,
+  "episodes_per_task_setting": 100,
+  "seed": 42,
+  "observed": [
+    {
+      "cell": "adjust_bottle__demo_clean",
+      "episodes_started": 1,
+      "queries": 5,
+      "last_query_seconds": 0.03655372699722648
+    },
+    {
+      "cell": "beat_block_hammer__demo_randomized",
+      "episodes_started": 3,
+      "queries": 15,
+      "last_query_seconds": 0.07311899098567665
+    },
+    {
+      "cell": "beat_block_hammer__demo_clean",
+      "episodes_started": 4,
+      "queries": 20,
+      "last_query_seconds": 0.11969421792309731
+    },
+    {
+      "cell": "adjust_bottle__demo_randomized",
+      "episodes_started": 1,
+      "queries": 5,
+      "last_query_seconds": 0.036541839013807476
+    }
+  ],
+  "preflight_passed": true,
+  "main_commit": "50d5bfe161348885258c8de083146a305210350e"
+}

@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "new_episodes": 30000,
+  "baseline_episodes": 20000,
+  "totals": {
+    "flat_k1_n2": {
+      "demo_clean": {
+        "successes": 4476,
+        "episodes": 5000,
+        "sr_percent": 89.52
+      },
+      "demo_randomized": {
+        "successes": 4452,
+        "episodes": 5000,
+        "sr_percent": 89.04
+      },
+      "combined": {
+        "successes": 8928,
+        "episodes": 10000,
+        "sr_percent": 89.28
+      }
+    },
+    "flat_k2_n2": {
+      "demo_clean": {
+        "successes": 4529,
+        "episodes": 5000,
+        "sr_percent": 90.58
+      },
+      "demo_randomized": {
+        "successes": 4531,
+        "episodes": 5000,
+        "sr_percent": 90.62
+      },
+      "combined": {
+        "successes": 9060,
+        "episodes": 10000,
+        "sr_percent": 90.6
+      }
+    },
+    "flat_k4_n2": {
+      "demo_clean": {
+        "successes": 4567,
+        "episodes": 5000,
+        "sr_percent": 91.34
+      },
+      "demo_randomized": {
+        "successes": 4582,
+        "episodes": 5000,
+        "sr_percent": 91.64
+      },
+      "combined": {
+        "successes": 9149,
+        "episodes": 10000,
+        "sr_percent": 91.49
+      }
+    }
+  },
+  "comparisons": {
+    "flat_k2_n2_minus_flat_k1_n2": {
+      "task_wins": 30,
+      "task_ties": 12,
+      "task_losses": 8,
+      "same_episode_index_and_seed": 4553,
+      "same_episode_index_and_instruction": 246,
+      "same_episode_index_seed_and_instruction": 174,
+      "identical_seed_cells": 21,
+      "total_compared_episode_positions": 10000
+    },
+    "flat_k4_n2_minus_flat_k1_n2": {
+      "task_wins": 33,
+      "task_ties": 7,
+      "task_losses": 10,
+      "same_episode_index_and_seed": 4369,
+      "same_episode_index_and_instruction": 250,
+      "same_episode_index_seed_and_instruction": 174,
+      "identical_seed_cells": 19,
+      "total_compared_episode_positions": 10000
+    },
+    "flat_k4_n2_minus_flat_k2_n2": {
+      "task_wins": 24,
+      "task_ties": 11,
+      "task_losses": 15,
+      "same_episode_index_and_seed": 4496,
+      "same_episode_index_and_instruction": 287,
+      "same_episode_index_seed_and_instruction": 187,
+      "identical_seed_cells": 22,
+      "total_compared_episode_positions": 10000
+    }
+  }
+}
