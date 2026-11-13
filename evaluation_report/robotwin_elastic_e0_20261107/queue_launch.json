@@ -1,0 +1,8 @@
+{
+  "pid": 2055346,
+  "launched_unix": 1794029721.6880145,
+  "command": [
+    "bash",
+    "/data14t/anhdh35/loopwam_robotwin_elastic_e0_20261107/start_queue.sh"
+  ]
+}
