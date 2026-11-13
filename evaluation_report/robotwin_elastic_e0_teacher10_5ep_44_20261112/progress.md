@@ -1,0 +1,1 @@
+Preparation complete:50scopedchecks passed,7training-only deselected. Two independent-review restart findings fixed. Native source984files byte-identical. Queue launch follows; graph/smoke remain pending automatic dependency completion.

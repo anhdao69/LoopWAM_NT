@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "verified_unix": 1794068430.5275142,
+  "portable_runtime_files": 21127,
+  "identical_code_files": 908,
+  "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+  "path_relocations": [
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/ARX-X5/curobo.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/ARX-X5/curobo.yml",
+      "old_sha256": "79cdb71e97b6bf151a81654315430bcaa89b150a402f83033ec6bdd820204170",
+      "new_sha256": "08530d6a200dc3c5e989b363cf906754118b363b62f9f2660cc02b18188bb22f",
+      "change": "absolute asset root only"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/aloha-agilex/curobo_left.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/aloha-agilex/curobo_left.yml",
+      "old_sha256": "71f3710d3471804c61555bb5b97b273642515ebe03deb62203e3c44fb55b52eb",
+      "new_sha256": "b56f71151229d0a132c580910f18c9cd69214727865c9438851c74d7863cf986",
+      "change": "absolute asset root only"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/aloha-agilex/curobo_right.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/aloha-agilex/curobo_right.yml",
+      "old_sha256": "6a2ca29d30e58bc2e7e8e6f3a280af9a636df1b25bc9f77eaffb071f2142c34a",
+      "new_sha256": "6cc40a0173000d5049432a7aeda42298a3fb10030fb67e9099f2c03fa29cecc4",
+      "change": "absolute asset root only"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/franka-panda/curobo.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/franka-panda/curobo.yml",
+      "old_sha256": "5f83104729272257a4ac9d8a7f966ab650aab02db768b0eeb7e5155a93cec1d7",
+      "new_sha256": "7f561e8d5608bf80fee8cc8ca3acbf9abb5fba6958b35e0ff999b329297ddc29",
+      "change": "absolute asset root only"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/piper/curobo.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/piper/curobo.yml",
+      "old_sha256": "b8c8721ce0670ed3b85b29af9de2a6ddb52c7cedf7a6cb0adc1f3b7549a810f3",
+      "new_sha256": "e425b93b60a23a31b1d49ca979d489ea9b12ec24ac0c4d0a7fdc12b182ac4a71",
+      "change": "absolute asset root only"
+    },
+    {
+      "source": "/data14t/anhdh35/loopwam_robotwin_v0_20261030/assets/embodiments/ur5-wsg/curobo.yml",
+      "target": "/media/newdisk/loopwam_robotwin10_v0_4x4_20261104/assets/embodiments/ur5-wsg/curobo.yml",
+      "old_sha256": "99847ea6ad7f19719b7989cf0345fa3c1e17e0ad944c5066d564e9339cd6392e",
+      "new_sha256": "58d33c3c29379ee118ad9638a8e2da4a04cb6e577c8936a82ffad3cd6150a632",
+      "change": "absolute asset root only"
+    }
+  ]
+}
