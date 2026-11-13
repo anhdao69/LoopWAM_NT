@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "episodes": 4,
+  "cells": 4,
+  "successes": 2,
+  "excluded_from_scored_results": true,
+  "seed": 42,
+  "schedule": "flat_k4_n2",
+  "video_and_action_records_verified": true,
+  "renderer_logs_clean": true,
+  "verified_unix": 1794071842.060203
+}

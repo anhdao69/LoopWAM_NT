@@ -1,0 +1,101 @@
+{
+  "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+  "finished": {
+    "adjust_bottle/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+      "task": "adjust_bottle",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300001,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/adjust_bottle__demo_clean/attempt_01/episode0_randomized-false_success-true.mp4",
+          "video_sha256": "9e47e010b8c8c4ce3e6f040d499384d8b128d5fb6449fe3da2c429b25365abb4",
+          "video_verified": true,
+          "instruction": "Pick up the brown bottle from the table head-up.",
+          "queries": 5,
+          "query_trace_sha256": "5e21b5fc19eacb1b772eb9aaac68eb9a2546acbc2715bfb4de775a90e30e084e"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/adjust_bottle__demo_clean/attempt_01",
+      "seconds": 70.10499358177185
+    },
+    "adjust_bottle/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+      "task": "adjust_bottle",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": true,
+          "video": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/adjust_bottle__demo_randomized/attempt_01/episode0_randomized-true_success-true.mp4",
+          "video_sha256": "b028bf138701b2b5d774612695bde9c0567d5ad1cff2cbf94644a76b25126995",
+          "video_verified": true,
+          "instruction": "Grab the brown bottle on the table and raise it.",
+          "queries": 5,
+          "query_trace_sha256": "390981beb5e08f35d0beac7ef03e7a427f5e775c39312b471dab8a0e6d430105"
+        }
+      ],
+      "successes": 1,
+      "directory": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/adjust_bottle__demo_randomized/attempt_01",
+      "seconds": 70.12676620483398
+    },
+    "open_microwave/demo_clean": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+      "task": "open_microwave",
+      "config": "demo_clean",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/open_microwave__demo_clean/attempt_01/episode0_randomized-false_success-false.mp4",
+          "video_sha256": "b960eb79d3a86a034260cace054429975d3299363763b18a6963e3463d6eb25c",
+          "video_verified": true,
+          "instruction": "Use the left arm to open the medium-sized rectangular microwave with textured top.",
+          "queries": 63,
+          "query_trace_sha256": "242580c09f10c2fb5e9c586adcb76366ee510724793bf8229804c9330cb69d39"
+        }
+      ],
+      "successes": 0,
+      "directory": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/open_microwave__demo_clean/attempt_01",
+      "seconds": 71.14181685447693
+    },
+    "open_microwave/demo_randomized": {
+      "complete": true,
+      "exit_code": 0,
+      "checkpoint_sha256": "abc3c0075a6e1f3ce380be8d6c7b6b9d8bb697ac21cf3f2d40a93efb821b539a",
+      "task": "open_microwave",
+      "config": "demo_randomized",
+      "episodes": [
+        {
+          "seed": 4300000,
+          "success": false,
+          "video": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/open_microwave__demo_randomized/attempt_01/episode0_randomized-true_success-false.mp4",
+          "video_sha256": "aa06add990156411c8437bde6c496eceeca9741f51b52936276a2baa7b8d3d67",
+          "video_verified": true,
+          "instruction": "Open the dark gray microwave using the left arm.",
+          "queries": 63,
+          "query_trace_sha256": "7bf8b117ece061d275fe6f1c5eb130edf2877f3c8a9349db72d5ded64fafe67c"
+        }
+      ],
+      "successes": 0,
+      "directory": "/media/newdisk/loopwam_robotwin_elastic_e0_20261107/smoke_validation/open_microwave__demo_randomized/attempt_01",
+      "seconds": 75.14321231842041
+    }
+  },
+  "running": {},
+  "failed": [],
+  "pending": 0,
+  "updated": 1794068876.210981,
+  "success_rates": {
+    "demo_clean": 0.5,
+    "demo_randomized": 0.5
+  }
+}

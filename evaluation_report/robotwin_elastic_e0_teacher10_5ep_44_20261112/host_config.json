@@ -1,0 +1,17 @@
+{
+  "host": "137",
+  "predecessor": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin_elastic_e0_teacher10_5ep_20261111",
+  "schedules": [
+    "flat_k4_n2"
+  ],
+  "workers": 4,
+  "seed": 42,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "teacher_checkpoint": null,
+  "checkpoint_name": "epoch_05.pt",
+  "expected_step": 237310,
+  "teacher_step": 474620,
+  "student_epoch": 5,
+  "gpu_admission_mib": 60000,
+  "dependency_receipt_sha256": "408f4889cf2b552c83444512e6e7df3a39715c6f75df379f4558d3784644afce"
+}
