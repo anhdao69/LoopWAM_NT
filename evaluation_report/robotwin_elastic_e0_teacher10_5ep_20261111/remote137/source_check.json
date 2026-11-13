@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "verified_unix": 1794374226.0116653,
+  "native_code_files": 984,
+  "inherited_files": 22072,
+  "e0_adapter_difference": "Strict teacher-epoch10/student-epoch5 guard and flat_k2_n2 mapping only",
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+}
