@@ -1,0 +1,28 @@
+{
+  "status": "complete_verified",
+  "verified_unix_local": 1794635833.120281,
+  "queue_status": "complete",
+  "remote_host": "aLinh /10.148.183.189",
+  "remote_audits_passed": true,
+  "owned_evaluation_processes_remaining": 0,
+  "gpu_compute_processes_at_check": 0,
+  "local_remote_artifact_hashes_match": true,
+  "v0_1x4_totals": {
+    "demo_clean": {
+      "successes": 802,
+      "episodes": 1000,
+      "sr_percent": 80.2
+    },
+    "demo_randomized": {
+      "successes": 789,
+      "episodes": 1000,
+      "sr_percent": 78.9
+    },
+    "combined": {
+      "successes": 1591,
+      "episodes": 2000,
+      "sr_percent": 79.55
+    }
+  },
+  "interrupted_partial_episodes_excluded": 112
+}
