@@ -1,0 +1,61 @@
+run_id,model,primary_run,task,clean_successes,clean_episodes,clean_sr_percent,randomized_successes,randomized_episodes,randomized_sr_percent,combined_successes,combined_episodes,combined_sr_percent
+v0_4x2,v0 4/2,True,adjust_bottle,100,100,100.0,100,100,100.0,200,200,100.0
+v0_4x2,v0 4/2,True,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+v0_4x2,v0 4/2,True,hanging_mug,54,100,54.0,48,100,48.0,102,200,51.0
+v0_4x2,v0 4/2,True,move_stapler_pad,69,100,69.0,70,100,70.0,139,200,69.5
+v0_4x2,v0 4/2,True,open_microwave,80,100,80.0,75,100,75.0,155,200,77.5
+v0_4x2,v0 4/2,True,press_stapler,81,100,81.0,89,100,89.0,170,200,85.0
+v0_4x2,v0 4/2,True,scan_object,88,100,88.0,83,100,83.0,171,200,85.5
+v0_4x2,v0 4/2,True,stack_blocks_two,97,100,97.0,97,100,97.0,194,200,97.0
+v0_4x2,v0 4/2,True,stamp_seal,91,100,91.0,92,100,92.0,183,200,91.5
+v0_4x2,v0 4/2,True,turn_switch,65,100,65.0,69,100,69.0,134,200,67.0
+v0_4x1,v0 4/1,True,adjust_bottle,99,100,99.0,99,100,99.0,198,200,99.0
+v0_4x1,v0 4/1,True,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+v0_4x1,v0 4/1,True,hanging_mug,51,100,51.0,39,100,39.0,90,200,45.0
+v0_4x1,v0 4/1,True,move_stapler_pad,78,100,78.0,73,100,73.0,151,200,75.5
+v0_4x1,v0 4/1,True,open_microwave,71,100,71.0,70,100,70.0,141,200,70.5
+v0_4x1,v0 4/1,True,press_stapler,83,100,83.0,86,100,86.0,169,200,84.5
+v0_4x1,v0 4/1,True,scan_object,81,100,81.0,85,100,85.0,166,200,83.0
+v0_4x1,v0 4/1,True,stack_blocks_two,99,100,99.0,99,100,99.0,198,200,99.0
+v0_4x1,v0 4/1,True,stamp_seal,83,100,83.0,95,100,95.0,178,200,89.0
+v0_4x1,v0 4/1,True,turn_switch,55,100,55.0,73,100,73.0,128,200,64.0
+v0_2x2,v0 2/2,True,adjust_bottle,100,100,100.0,99,100,99.0,199,200,99.5
+v0_2x2,v0 2/2,True,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+v0_2x2,v0 2/2,True,hanging_mug,42,100,42.0,38,100,38.0,80,200,40.0
+v0_2x2,v0 2/2,True,move_stapler_pad,60,100,60.0,67,100,67.0,127,200,63.5
+v0_2x2,v0 2/2,True,open_microwave,55,100,55.0,61,100,61.0,116,200,58.0
+v0_2x2,v0 2/2,True,press_stapler,90,100,90.0,92,100,92.0,182,200,91.0
+v0_2x2,v0 2/2,True,scan_object,90,100,90.0,84,100,84.0,174,200,87.0
+v0_2x2,v0 2/2,True,stack_blocks_two,99,100,99.0,97,100,97.0,196,200,98.0
+v0_2x2,v0 2/2,True,stamp_seal,91,100,91.0,89,100,89.0,180,200,90.0
+v0_2x2,v0 2/2,True,turn_switch,59,100,59.0,65,100,65.0,124,200,62.0
+v0_1x4,v0 1/4,True,adjust_bottle,100,100,100.0,99,100,99.0,199,200,99.5
+v0_1x4,v0 1/4,True,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+v0_1x4,v0 1/4,True,hanging_mug,49,100,49.0,42,100,42.0,91,200,45.5
+v0_1x4,v0 1/4,True,move_stapler_pad,65,100,65.0,62,100,62.0,127,200,63.5
+v0_1x4,v0 1/4,True,open_microwave,74,100,74.0,73,100,73.0,147,200,73.5
+v0_1x4,v0 1/4,True,press_stapler,89,100,89.0,88,100,88.0,177,200,88.5
+v0_1x4,v0 1/4,True,scan_object,87,100,87.0,79,100,79.0,166,200,83.0
+v0_1x4,v0 1/4,True,stack_blocks_two,98,100,98.0,97,100,97.0,195,200,97.5
+v0_1x4,v0 1/4,True,stamp_seal,82,100,82.0,84,100,84.0,166,200,83.0
+v0_1x4,v0 1/4,True,turn_switch,58,100,58.0,65,100,65.0,123,200,61.5
+dense_s12_latest,Dense-12 — latest continuation,True,adjust_bottle,100,100,100.0,99,100,99.0,199,200,99.5
+dense_s12_latest,Dense-12 — latest continuation,True,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+dense_s12_latest,Dense-12 — latest continuation,True,hanging_mug,46,100,46.0,43,100,43.0,89,200,44.5
+dense_s12_latest,Dense-12 — latest continuation,True,move_stapler_pad,54,100,54.0,68,100,68.0,122,200,61.0
+dense_s12_latest,Dense-12 — latest continuation,True,open_microwave,64,100,64.0,42,100,42.0,106,200,53.0
+dense_s12_latest,Dense-12 — latest continuation,True,press_stapler,91,100,91.0,90,100,90.0,181,200,90.5
+dense_s12_latest,Dense-12 — latest continuation,True,scan_object,79,100,79.0,80,100,80.0,159,200,79.5
+dense_s12_latest,Dense-12 — latest continuation,True,stack_blocks_two,97,100,97.0,99,100,99.0,196,200,98.0
+dense_s12_latest,Dense-12 — latest continuation,True,stamp_seal,84,100,84.0,90,100,90.0,174,200,87.0
+dense_s12_latest,Dense-12 — latest continuation,True,turn_switch,54,100,54.0,65,100,65.0,119,200,59.5
+dense_s12_previous,Dense-12 — earlier local run,False,adjust_bottle,100,100,100.0,99,100,99.0,199,200,99.5
+dense_s12_previous,Dense-12 — earlier local run,False,grab_roller,100,100,100.0,100,100,100.0,200,200,100.0
+dense_s12_previous,Dense-12 — earlier local run,False,hanging_mug,45,100,45.0,43,100,43.0,88,200,44.0
+dense_s12_previous,Dense-12 — earlier local run,False,move_stapler_pad,53,100,53.0,58,100,58.0,111,200,55.5
+dense_s12_previous,Dense-12 — earlier local run,False,open_microwave,58,100,58.0,51,100,51.0,109,200,54.5
+dense_s12_previous,Dense-12 — earlier local run,False,press_stapler,91,100,91.0,90,100,90.0,181,200,90.5
+dense_s12_previous,Dense-12 — earlier local run,False,scan_object,72,100,72.0,77,100,77.0,149,200,74.5
+dense_s12_previous,Dense-12 — earlier local run,False,stack_blocks_two,97,100,97.0,97,100,97.0,194,200,97.0
+dense_s12_previous,Dense-12 — earlier local run,False,stamp_seal,86,100,86.0,86,100,86.0,172,200,86.0
+dense_s12_previous,Dense-12 — earlier local run,False,turn_switch,52,100,52.0,62,100,62.0,114,200,57.0

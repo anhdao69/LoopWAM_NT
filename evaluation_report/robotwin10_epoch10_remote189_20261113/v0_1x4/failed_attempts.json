@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/results/open_microwave__demo_clean/attempt_01",
+    "error": "Interrupted or abandoned attempt; no failure receipt",
+    "episodes": 72,
+    "exit_code": null
+  },
+  {
+    "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/results/open_microwave__demo_randomized/attempt_01",
+    "error": "Interrupted or abandoned attempt; no failure receipt",
+    "episodes": 40,
+    "exit_code": null
+  }
+]

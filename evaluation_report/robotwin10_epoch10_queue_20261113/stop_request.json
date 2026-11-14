@@ -1,0 +1,10 @@
+{
+  "requested_unix": 1794551515.2081196,
+  "reason": "User requested stop current running",
+  "campaign_pid": 642254,
+  "start_ticks": "104272386",
+  "stopped_model": "dense_s12",
+  "signal": "SIGTERM",
+  "scope": "Stop queue and owned evaluation processes; preserve results/logs; do not start pending models",
+  "history_directory": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/stop_history/20261113_133155"
+}

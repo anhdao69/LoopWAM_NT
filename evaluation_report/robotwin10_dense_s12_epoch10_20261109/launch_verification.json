@@ -1,0 +1,40 @@
+{
+  "verified_unix": 1794182826.6984732,
+  "queue_pid": 1574568,
+  "controller_pid": 1577840,
+  "evaluator_pid": 1577861,
+  "owned_processes_alive": true,
+  "epoch": 10,
+  "expected_step": 90890,
+  "variant": "dense-s12",
+  "workers": 4,
+  "protocol_matches_plan": true,
+  "graph_bit_exact": true,
+  "smoke_episodes": 16,
+  "smoke_excluded": true,
+  "failed_cells": [],
+  "scored_episodes_observed": 9,
+  "workers_observed": {
+    "adjust_bottle__demo_clean": {
+      "queries": 10,
+      "completed_episodes": 1,
+      "bytes": 2875
+    },
+    "adjust_bottle__demo_randomized": {
+      "queries": 7,
+      "completed_episodes": 1,
+      "bytes": 2503
+    },
+    "grab_roller__demo_clean": {
+      "queries": 17,
+      "completed_episodes": 4,
+      "bytes": 5871
+    },
+    "grab_roller__demo_randomized": {
+      "queries": 12,
+      "completed_episodes": 3,
+      "bytes": 3868
+    }
+  },
+  "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8"
+}

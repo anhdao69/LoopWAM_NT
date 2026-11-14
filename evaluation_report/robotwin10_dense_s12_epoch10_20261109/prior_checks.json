@@ -1,0 +1,14 @@
+{
+  "tests_passed": 38,
+  "launcher_tests_passed": 6,
+  "verified_unix": 1794182161.8600743,
+  "sha256": {
+    "cpu_validation.json": "eeeaa21c2bb38991f02f0ff3debe5acbd429d3c1d85e67e969bc8662135fdbd6",
+    "scripts/cpu_validate.py": "e839308110f1f63c939683d94883f049d69f8ec19d6933029913287f33f7b90a",
+    "tests.log": "e0933307a952c10242855dadb7a89048fc8c20b7a8beeacfc0c0792f4af97c4f",
+    "launcher_tests.log": "d5be81bbe49b412357ba177be7fae47b32ba70b563d2a01ec6ee15df362cc215",
+    "download_receipt.json": "b0900d13bcf69609be146600fbf8e45f80e46ca14db94c1716bf14d362b85fbe",
+    "hf_manifest.json": "03854a1cae682f76e1f35ed25b73fc34a09c915a1f6db97bf75c1334f35f10e1",
+    "planned_protocol.json": "deb4963f8b9f01fb14e555de6710b22527f0873da65fad52b8a0350070ac5c64"
+  }
+}

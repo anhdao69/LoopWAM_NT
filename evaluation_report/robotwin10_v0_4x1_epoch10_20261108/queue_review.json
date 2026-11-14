@@ -1,0 +1,27 @@
+{
+  "status": "clear",
+  "reviewed_unix": 1794157120.5398378,
+  "findings_resolved": [
+    "Resume unmeasured calibration using fresh outputs rather than cached cell timing",
+    "Fallback to verified four workers if eight-worker simulator validation fails",
+    "Report reads tasks from bound evaluation plan"
+  ],
+  "tests": {
+    "native": 38,
+    "calibration_regressions": 2,
+    "subprocess_cleanup": 2,
+    "renderer_guard": 2
+  },
+  "script_sha256": {
+    "scripts/test_calibration.py": "932aaca4ab7fa1fecc70292555f69baa6d801c46242b340f39dfed534f38d1de",
+    "scripts/robotwin_local_report.py": "988aa97560ed6ab432752208f061877e7340f8368440cf78115ebf79147d887a",
+    "scripts/calibrate.py": "ec9c2c2006c9320ab2a575c639473ad66ff2664c1e7aacfbefff353b6c1a65bb",
+    "scripts/test_renderer_guard.py": "c4bd91f61a84d619455899acb08f3d255f7cba4945bc01ca2fe43adf157edde5",
+    "scripts/test_queue_cleanup.py": "b6b839d8387dacabb629d9cebf2c732e8fe89b3052afe53e290919c7ea58db9c",
+    "scripts/cpu_validate.py": "0104695d454b9204b75447327ac0014be70dc937320c79a46e26e2e98fc38489",
+    "scripts/queue_pipeline.py": "aebdc073bc8c8fffc53464033edd295d258cb2981e70a0cf1dc60ec24dda96d4",
+    "scripts/robotwin_local_queue.py": "fd5241fa986920067680a06fac4a3116ac8319847a2e25872f2a2018029e1fc1",
+    "scripts/graph_gate.py": "7eee79d22b10b860927451ffffd0c562f84f7d422d1e7c2062588aca18b1ba5a",
+    "scripts/verify_runtime.py": "02c05fe385961e5fe498093549afeae2dfdaff506840ff5165a549d222380430"
+  }
+}
