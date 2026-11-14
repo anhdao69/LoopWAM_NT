@@ -1,0 +1,140 @@
+{
+ "source": "H100 cluster: /groups/yshang/an221229/checkpoints/LoopWAM_NT/robotwin10_elastic_eval/cells/v0-video4-action4-e10 (epoch 10) and /groups/yshang/an221229/checkpoints/LoopWAM_NT/robotwin10_eval/cells/v0-video4-action4 (epoch 5, same harness), exported by robotwin10_v0_4x4_epoch10_20261113/tools/build_report.py",
+ "sources_tsv_sha256": "0cceda476d2e543fa9ec87208236d6b09e064554a0b99a5a3222380e45e8b72b",
+ "results_json_sha256": "5e8454a0ebaf31943d17b6f0401661ed76013dc0b7b22d40601fbffe84c33cbd",
+ "added": [
+  "robotwin10_v0_4x4_epoch10_20261113/",
+  "verify_robotwin10_v0_4x4_epoch10_20261113.py",
+  "sync_manifest_20261114b.json",
+  "integrity_inventory_20261114b.json",
+  "preserved_versions/2026-11-14/04ec027808c09ff9/README.md",
+  "preserved_versions/2026-11-14/6c1fad6258024cd9/FILE_INDEX.md",
+  "preserved_versions/2026-11-14/f0293e4ddca59103/ARCHIVE_INDEX.md"
+ ],
+ "modified": [
+  "README.md",
+  "FILE_INDEX.md",
+  "ARCHIVE_INDEX.md"
+ ],
+ "branches": [
+  [
+   "KV_concat",
+   "bea5d6ddb7a10d8dcc9168cff9337079ed51f345"
+  ],
+  [
+   "LoopWAM_NT",
+   "ea7b0b7a6704835d94f03fbb68b105c292d7bebc"
+  ],
+  [
+   "chrono",
+   "016b12b62c68e4383509ef375682eea146647659"
+  ],
+  [
+   "elastic",
+   "08f503a9c9da401067da0bd10797f3430892c46e"
+  ],
+  [
+   "elastic_cl0",
+   "9e3be76f04ebb23a326fb8369f5d510f1b9ab8cc"
+  ],
+  [
+   "elastic_gr1",
+   "09602c0d89901e856d3a65386d7a2fba945f54bf"
+  ],
+  [
+   "elastic_robotwin",
+   "257d50d1a41d6b1f0021ebb40139126c9bae037a"
+  ],
+  [
+   "partition_grid_20261026",
+   "e1117b18d5383a7eee6bf6f0d1d6969295ef9504"
+  ],
+  [
+   "residual_trans",
+   "cea50a8ae1f3beda0b65122fc690256fab6721b9"
+  ],
+  [
+   "robocasa_gr1_continuation_20261106",
+   "ab48209be60cba02fd84cb6718f7e9d012a13657"
+  ],
+  [
+   "robocasa_gr1_v0",
+   "e1a793ed96a3990ef6ca62d873d171d8f403206c"
+  ],
+  [
+   "robotwin10_training_20261101",
+   "339bba182b33d20a25ee12774458f5f43418e7aa"
+  ],
+  [
+   "robotwin_eval_continue_20261030",
+   "6cb5343d2912a9768c025eaaad767f8504ed0eb4"
+  ],
+  [
+   "robotwin_full_v0_20261028",
+   "c59caece7e3d3b8e4317eda7cae19cc115c5c2ac"
+  ],
+  [
+   "scratch_init_v0",
+   "6e31717eb8ec087e39d677f33106f892275b0eeb"
+  ],
+  [
+   "v0-init-variants",
+   "5af37a09f294d13019b01d812bf27661a2235bd4"
+  ]
+ ],
+ "branches_note": "remote heads before this sync; every branch had evaluation_report tree 6aa7352 (identical)",
+ "preserved_versions": [
+  "preserved_versions/2026-11-14/04ec027808c09ff9/README.md",
+  "preserved_versions/2026-11-14/6c1fad6258024cd9/FILE_INDEX.md",
+  "preserved_versions/2026-11-14/f0293e4ddca59103/ARCHIVE_INDEX.md"
+ ],
+ "verification": {
+  "checkpoint_sha256": "b85ad555fa60f5aab61a35231f26d6ca9c01e32d6111d6893abb815db5b985b8",
+  "step": 90890,
+  "clean": {
+   "successes": 810,
+   "episodes": 1000,
+   "sr_percent": 81.0,
+   "wilson95": [
+    78.45,
+    83.31
+   ]
+  },
+  "randomized": {
+   "successes": 818,
+   "episodes": 1000,
+   "sr_percent": 81.8,
+   "wilson95": [
+    79.29,
+    84.07
+   ]
+  },
+  "combined": {
+   "successes": 1628,
+   "episodes": 2000,
+   "sr_percent": 81.4,
+   "wilson95": [
+    79.64,
+    83.04
+   ]
+  },
+  "epoch05_same_harness": {
+   "successes": 1562,
+   "episodes": 2000,
+   "sr_percent": 78.1,
+   "wilson95": [
+    76.23,
+    79.86
+   ]
+  },
+  "paired": {
+   "shared_seeds": 1882,
+   "epoch10_only": 140,
+   "epoch05_only": 83,
+   "difference_pp": 3.03,
+   "mcnemar_p": 0.0001640523149550963
+  }
+ },
+ "independent_check": "verify_robotwin10_v0_4x4_epoch10_20261113.py",
+ "note": "No existing report file is modified; only the three index files, whose previous versions are preserved."
+}
