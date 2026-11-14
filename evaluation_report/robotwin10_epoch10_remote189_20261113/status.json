@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "pid": 471623,
+  "started_unix": 1794593997.4230015,
+  "current": null,
+  "updated_unix": 1794606643.75754,
+  "models": [
+    {
+      "id": "dense_s12",
+      "variant": "dense-s12",
+      "status": "complete",
+      "final": true,
+      "episodes": 2000,
+      "successes": 1545,
+      "completed_cells": 20,
+      "error": null
+    },
+    {
+      "id": "v0_1x4",
+      "variant": "v0-video1-action4",
+      "status": "complete",
+      "final": true,
+      "episodes": 2000,
+      "successes": 1591,
+      "completed_cells": 20,
+      "error": null
+    }
+  ],
+  "finished_unix": 1794606643.749876
+}

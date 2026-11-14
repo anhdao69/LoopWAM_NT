@@ -79,3 +79,11 @@ Copies are organized by preservation date and content hash. The date identifies 
 - [preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md](preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md)
 - [preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md](preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md)
 - [preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py](preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py)
+
+## Selected RoboTwin-10 epoch-10 sync (fourth sync), 2026-11-14
+
+- [preserved_versions/2026-11-14/408ee40e4d510e09/README.md](preserved_versions/2026-11-14/408ee40e4d510e09/README.md)
+- [preserved_versions/2026-11-14/522e0fb5089c5560/all_results.md](preserved_versions/2026-11-14/522e0fb5089c5560/all_results.md)
+- [preserved_versions/2026-11-14/aec7268da94c760a/FILE_INDEX.md](preserved_versions/2026-11-14/aec7268da94c760a/FILE_INDEX.md)
+- [preserved_versions/2026-11-14/17fdddee9a845024/ARCHIVE_INDEX.md](preserved_versions/2026-11-14/17fdddee9a845024/ARCHIVE_INDEX.md)
+- [preserved_versions/2026-11-14/0f73a5c0482e502c/all_results/build_snapshot.py](preserved_versions/2026-11-14/0f73a5c0482e502c/all_results/build_snapshot.py)

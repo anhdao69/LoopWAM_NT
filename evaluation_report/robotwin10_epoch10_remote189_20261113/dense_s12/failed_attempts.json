@@ -1,0 +1,66 @@
+[
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/adjust_bottle__demo_clean/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 4,
+    "exit_code": null,
+    "log_sha256": "e9722f005328a6ca24368e613d09e1139e940064dc1b21e698474ce7481f3087"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/move_stapler_pad__demo_clean/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 84,
+    "exit_code": null,
+    "log_sha256": "14caf7454683576eabc39e12807ea5460b9f193b456d983ec3ab72d4bed9b0d1"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/hanging_mug__demo_clean/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 59,
+    "exit_code": null,
+    "log_sha256": "696e69566d46b507108db9938bd8161e1b127c9ebd5097e8d015227c34b1b401"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/move_stapler_pad__demo_randomized/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 63,
+    "exit_code": null,
+    "log_sha256": "e7675fcd107acfebefa0d92fecd206204a12c788bd89fbafd4e14aa47b4263d9"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/grab_roller__demo_clean/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 11,
+    "exit_code": null,
+    "log_sha256": "00c0186877935e42a8078e6ae665af60ef700ed1af9012d8a8d93ac1bf930f7a"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/hanging_mug__demo_randomized/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 32,
+    "exit_code": null,
+    "log_sha256": "ad1de0b74b60c60ea57c987c9d0614054c649ffe9fcc2c13248386713c366d76"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/grab_roller__demo_randomized/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 9,
+    "exit_code": null,
+    "log_sha256": "57ab9a994a6629424700171815c4dbc9537187e8d65589d03b89afc0b2db4088"
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/adjust_bottle__demo_randomized/attempt_01",
+    "source_host": "VMO-ANHDH35-D",
+    "error": "User-stopped local attempt; preserved locally and excluded",
+    "episodes": 4,
+    "exit_code": null,
+    "log_sha256": "f2869d30003b6f58d27dd27852bf569908376f32709082b5200437d886be75d8"
+  }
+]

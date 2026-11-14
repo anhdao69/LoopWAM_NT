@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "verified_unix": 1794552223.3802474,
+  "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8",
+  "imported_episodes": 400,
+  "cells": [
+    {
+      "cell": "grab_roller/demo_clean",
+      "original_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/origin/grab_roller__demo_clean.json",
+      "original_sha256": "143318bff7b8e21445a2be2a7bb5495a444b4d71ba00df66c4ceabdeae3d933d",
+      "relocated_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/grab_roller__demo_clean/result.json",
+      "relocated_sha256": "755a1cde1f73a074d13bd5b5b2c1ff9ef63da433f0d083b8441ee301d0fc0857",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "cell": "grab_roller/demo_randomized",
+      "original_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/origin/grab_roller__demo_randomized.json",
+      "original_sha256": "558cef664b05dbb2af56d2711ea08699014093806b6045ea09fe5776f0a04553",
+      "relocated_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/grab_roller__demo_randomized/result.json",
+      "relocated_sha256": "e5e9b60e834419e33ea84212f3978a8fcc7b2725ae5985e6b433ddacbc259350",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "cell": "adjust_bottle/demo_clean",
+      "original_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/origin/adjust_bottle__demo_clean.json",
+      "original_sha256": "8cad50a36036e42690beb67dd6a32f1d0a9f4d268e5a4d6ebe426f719aa2659f",
+      "relocated_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/adjust_bottle__demo_clean/result.json",
+      "relocated_sha256": "9f18a5fbcc813a105529037dcdad5e19ce0bf2cf2397ca3aa17a58e61b5ab7b0",
+      "episodes": 100,
+      "successes": 100
+    },
+    {
+      "cell": "adjust_bottle/demo_randomized",
+      "original_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/origin/adjust_bottle__demo_randomized.json",
+      "original_sha256": "abd451c9c1024a20361b895309f1dd0f62c0f14985cf6652a8ba8e8d8ada030b",
+      "relocated_result": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/results/adjust_bottle__demo_randomized/result.json",
+      "relocated_sha256": "258c0ea367d53f40b048a59d6ec7b462c7702e2fa9573065c408750e0f676a6f",
+      "episodes": 100,
+      "successes": 99
+    }
+  ],
+  "path_only_changes": true,
+  "source_host": "VMO-ANHDH35-D",
+  "destination_host": "aLinh / 10.148.183.189"
+}
