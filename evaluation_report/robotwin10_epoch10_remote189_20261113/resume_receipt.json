@@ -1,0 +1,22 @@
+{
+  "status": "launched",
+  "host": "aLinh /10.148.183.189",
+  "pid": 471623,
+  "start_ticks": "5273310",
+  "started_unix_remote": 1794593997.3995109,
+  "reason": "User explicitly requested continue evaluation on aLinh to completion",
+  "history_directory": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/resume_history/resume_20261114_1794593997176752191",
+  "model": "v0_1x4",
+  "epoch": 10,
+  "seed": 42,
+  "nfe": 10,
+  "workers": 2,
+  "resumable_complete_cells": 8,
+  "resumable_episodes": 800,
+  "resumable_successes": 617,
+  "interrupted_partial_episodes_preserved_excluded": 112,
+  "remaining_episodes_to_score": 1200,
+  "completed_dense_s12_unchanged": true,
+  "checkpoint_sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6",
+  "automatic_queue_stopped": false
+}

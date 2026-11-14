@@ -1,0 +1,14 @@
+{
+  "stopped_unix": 1794551821.4214363,
+  "status": "stopped_by_user",
+  "campaign_pid": 642254,
+  "stopped_model": "dense_s12",
+  "owned_descendants_remaining": [],
+  "pending_1x4_started": false,
+  "partial_progress": {
+    "episodes": 638,
+    "successes": 519,
+    "completed_cells": 4
+  },
+  "next_action": "Transfer to aLinh and wait for idle GPU under latest user authorization"
+}

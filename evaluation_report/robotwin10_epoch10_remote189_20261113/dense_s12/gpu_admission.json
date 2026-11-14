@@ -1,0 +1,7 @@
+{
+  "stage": "gpu_admitted",
+  "updated_unix": 1794553971.9358304,
+  "stable_seconds": 60.2528294950007,
+  "required_seconds": 60,
+  "memory_used_mib": 143
+}

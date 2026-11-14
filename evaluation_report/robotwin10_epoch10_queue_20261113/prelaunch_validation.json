@@ -1,0 +1,91 @@
+{
+  "checked_unix": 1794514688.5196242,
+  "models": [
+    {
+      "variant": "v0-video4-action2",
+      "epoch": 10,
+      "update": 90890,
+      "loops": [
+        4,
+        2
+      ],
+      "parameters": 584567886,
+      "strict_load": true,
+      "finite_fp32_weights": true,
+      "normalization_matches": true,
+      "vae_matches": true,
+      "source_verified": true,
+      "source_matches": 8,
+      "native_tests": 38,
+      "controller_tests": 8,
+      "renderer_guard_tests": 2,
+      "ownership_regression_tests": 2,
+      "checkpoint_sha256": "f36997a9de1a147a787960de9f5317964a03c45f54648ef343e63a2578ed2755"
+    },
+    {
+      "variant": "v0-video2-action2",
+      "epoch": 10,
+      "update": 90890,
+      "loops": [
+        2,
+        2
+      ],
+      "parameters": 584567886,
+      "strict_load": true,
+      "finite_fp32_weights": true,
+      "normalization_matches": true,
+      "vae_matches": true,
+      "source_verified": true,
+      "source_matches": 8,
+      "native_tests": 38,
+      "controller_tests": 8,
+      "renderer_guard_tests": 2,
+      "ownership_regression_tests": 2,
+      "checkpoint_sha256": "89a87a875e92a9e19ab255609116aca3a86a31f654d93b88a5dd63c630a09786"
+    },
+    {
+      "variant": "dense-s12",
+      "epoch": 10,
+      "update": 90890,
+      "loops": [
+        1,
+        1
+      ],
+      "parameters": 584567886,
+      "strict_load": true,
+      "finite_fp32_weights": true,
+      "normalization_matches": true,
+      "vae_matches": true,
+      "source_verified": true,
+      "source_matches": 8,
+      "native_tests": 38,
+      "controller_tests": 8,
+      "renderer_guard_tests": 2,
+      "ownership_regression_tests": 2,
+      "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8"
+    },
+    {
+      "variant": "v0-video1-action4",
+      "epoch": 10,
+      "update": 90890,
+      "loops": [
+        1,
+        4
+      ],
+      "parameters": 584567886,
+      "strict_load": true,
+      "finite_fp32_weights": true,
+      "normalization_matches": true,
+      "vae_matches": true,
+      "source_verified": true,
+      "source_matches": 8,
+      "native_tests": 38,
+      "controller_tests": 8,
+      "renderer_guard_tests": 2,
+      "ownership_regression_tests": 2,
+      "checkpoint_sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6"
+    }
+  ],
+  "campaign_ownership_tests": 7,
+  "note": "All four CPU and runtime checks passed. Each model must still pass its own GPU numerical and unscored smoke gates before official scoring."
+}

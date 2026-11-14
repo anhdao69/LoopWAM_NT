@@ -1,0 +1,39 @@
+{
+  "verified_unix_remote": 1794580759.4177296,
+  "status": "stopped_by_user",
+  "host": "aLinh /10.148.183.189",
+  "stopped_model": "v0_1x4",
+  "campaign_exited": true,
+  "owned_descendants_remaining": [],
+  "remaining_gpu_compute_pids": [],
+  "results_preserved": {
+    "dense_s12": {
+      "final": true,
+      "totals": {
+        "demo_clean": {
+          "successes": 769,
+          "episodes": 1000,
+          "sr_percent": 76.9
+        },
+        "demo_randomized": {
+          "successes": 776,
+          "episodes": 1000,
+          "sr_percent": 77.6
+        },
+        "combined": {
+          "successes": 1545,
+          "episodes": 2000,
+          "sr_percent": 77.25
+        }
+      }
+    },
+    "v0_1x4": {
+      "final": false,
+      "episodes_logged": 912,
+      "successes_logged": 697,
+      "completed_cells": 8
+    }
+  },
+  "automatic_queue_stopped": true,
+  "resume_requires_explicit_request": true
+}

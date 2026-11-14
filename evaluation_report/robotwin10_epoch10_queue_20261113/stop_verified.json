@@ -1,0 +1,28 @@
+{
+  "stopped_unix": 1794539660.2880952,
+  "status": "stopped_by_user",
+  "stopped_model": "dense_s12",
+  "campaign_exited": true,
+  "owned_descendants_remaining": [],
+  "gpu_compute_processes_remaining": 0,
+  "gpu_memory_used_mib": 52,
+  "pending_1x4_started": false,
+  "pending_1x4_auto_start_disabled": true,
+  "completed_results_preserved": {
+    "v0_4x2": {
+      "successes": 1648,
+      "episodes": 2000,
+      "sr_percent": 82.4
+    },
+    "v0_2x2": {
+      "successes": 1578,
+      "episodes": 2000,
+      "sr_percent": 78.9
+    }
+  },
+  "dense_s12_partial_episodes_logged": 28,
+  "dense_s12_partial_successes_logged": 28,
+  "dense_s12_partial_is_final_score": false,
+  "all_existing_logs_and_videos_preserved": true,
+  "resume_requires_explicit_new_request": true
+}

@@ -1,0 +1,76 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "files": [
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/README.md",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/README.md",
+      "sha256": "ee61d218e088e32339ee196d17a2e68ac5ba7c8c9f80f47af37d9103d3e74163",
+      "size": 3285
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/SHA256SUMS",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/SHA256SUMS",
+      "sha256": "135f68e1bf32cc35103050da543f48213b75b576bc5f79382ae55d1cfd7b7d1e",
+      "size": 848
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/checkpoint_provenance.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/checkpoint_provenance.json",
+      "sha256": "db615545e9608fbfe44c4870e8694bbf210dc82184282e889690121f928a3b18",
+      "size": 762
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/config.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/config.json",
+      "sha256": "c6c4e448b4de9beaf6b6b26ccce1d583667efad1ec6de6eca3ad000d2ab4eaa2",
+      "size": 3858
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/data_provenance.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/data_provenance.json",
+      "sha256": "5a1dce0a31014e99145cf3366179b76cea18c4d274754ee35da22127c3ad7a7a",
+      "size": 1707
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/dataset_stats.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/dataset_stats.json",
+      "sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+      "size": 88716
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/policy.pt",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/policy.pt",
+      "sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6",
+      "size": 2338752101
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/training_metrics.jsonl.gz",
+      "sha256": "25bc3cca06353c7eba25fb7874ae2d3509fcc2c77ea85246e809b0124fe8d8d7",
+      "size": 3208694
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/training_state.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/training_state.json",
+      "sha256": "fe2ad127f145463b1debf8daf5a9053c1a4a58714feba8017515f298fddecf5c",
+      "size": 1954
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/training_summary.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/training_summary.json",
+      "sha256": "5167a025e2cb69def505239017b690b67c08d149ca8e581cabb3e995fdbb469f",
+      "size": 1227
+    },
+    {
+      "path": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/runs/v0_1x4/checkpoint/training_timing.json",
+      "remote": "robotwin-10/v0-video1-action4/epoch_10/training_timing.json",
+      "sha256": "1f3c11a9dc1da56d6d4fc70d7c747a741ebfc7a338d442260c5e7c7ce8860fda",
+      "size": 1114
+    }
+  ],
+  "verified_https_via_remote137": true,
+  "verified_local_unix": 1794514190.9301946,
+  "published_sha256sums_passed": true,
+  "dense_checkpoint_reused": false
+}
