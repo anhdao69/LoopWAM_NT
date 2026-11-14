@@ -1,0 +1,86 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "prefix": "robotwin-10/dense-s12/epoch_10",
+  "files": [
+    {
+      "type": "file",
+      "oid": "48d0577ad459636ca715fd128e7dc9a3c0849399",
+      "size": 3238,
+      "path": "robotwin-10/dense-s12/epoch_10/README.md"
+    },
+    {
+      "type": "file",
+      "oid": "67dc35f3a4798401f958c049a025a381a954f553",
+      "size": 848,
+      "path": "robotwin-10/dense-s12/epoch_10/SHA256SUMS"
+    },
+    {
+      "type": "file",
+      "oid": "61efba14dea015807df905f304bc61616ff3fe4f",
+      "size": 754,
+      "path": "robotwin-10/dense-s12/epoch_10/checkpoint_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "f3ef4819755d55a2e4b3616e92428470abc5ee43",
+      "size": 3840,
+      "path": "robotwin-10/dense-s12/epoch_10/config.json"
+    },
+    {
+      "type": "file",
+      "oid": "fa258c13a59334afa7e55e33f953ed6ced6720f3",
+      "size": 1707,
+      "path": "robotwin-10/dense-s12/epoch_10/data_provenance.json"
+    },
+    {
+      "type": "file",
+      "oid": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "size": 88716,
+      "path": "robotwin-10/dense-s12/epoch_10/dataset_stats.json"
+    },
+    {
+      "type": "file",
+      "oid": "2f68118b7c99183bdcb5dd39f3523e8c48dba6ba",
+      "size": 2338752101,
+      "lfs": {
+        "oid": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8",
+        "size": 2338752101,
+        "pointerSize": 135
+      },
+      "xetHash": "1a36fd756b315ad3fd52d5c7146f61219eccf412b3f4d87a4b3e265571e48d55",
+      "path": "robotwin-10/dense-s12/epoch_10/policy.pt"
+    },
+    {
+      "type": "file",
+      "oid": "7f5e3752e23587a0871dbd0c6a2863299d32b497",
+      "size": 3203873,
+      "lfs": {
+        "oid": "be26ed4fb020af44d3d978173209a16332ae3b45eb538dd0a7378486892d6a47",
+        "size": 3203873,
+        "pointerSize": 132
+      },
+      "xetHash": "b3a495cd93f1fe0a11e4a984e55f4177ab7605daa9b9da4f16cf3119091e9a9f",
+      "path": "robotwin-10/dense-s12/epoch_10/training_metrics.jsonl.gz"
+    },
+    {
+      "type": "file",
+      "oid": "5ef473b3ae71a041c800db5dd98ccd94326005d7",
+      "size": 1945,
+      "path": "robotwin-10/dense-s12/epoch_10/training_state.json"
+    },
+    {
+      "type": "file",
+      "oid": "3424d2a28c406fa3520d036c0ef4ea85e60d0dd1",
+      "size": 1226,
+      "path": "robotwin-10/dense-s12/epoch_10/training_summary.json"
+    },
+    {
+      "type": "file",
+      "oid": "2d70e11afd56c69b4233185d064c05ded42df4ba",
+      "size": 793,
+      "path": "robotwin-10/dense-s12/epoch_10/training_timing.json"
+    }
+  ],
+  "pinned_unix": 1794513881.844426
+}

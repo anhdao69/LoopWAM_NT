@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "epoch": 10,
+  "step": 90890,
+  "variant": "dense-s12",
+  "video_loops": 1,
+  "action_loops": 1,
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10,
+  "graph_bit_exact": true,
+  "smoke_episodes": 16,
+  "smoke_excluded": true,
+  "workers": 4
+}

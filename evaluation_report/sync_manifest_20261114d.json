@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-14",
+  "sync": "fourth sync: selected RoboTwin-10 epoch-10 results",
+  "source_host": "ws_anhdh35",
+  "source_repo": "/storage/anhdh35/LoopWAM_NT",
+  "source_archive_sha256": "cc228418cffdd482cf439a7b4548379008f75a11c606723e8db3718a7be9f728",
+  "source_files": 278,
+  "source_manifest": "robotwin10_epoch10_results_20261115/evidence/sync_source_manifest.json",
+  "base_commit": "7ddf2cbb77c5b232234b319f14f216b3fb9b84fd",
+  "branches_before": {
+    "KV_concat": "e2ddb6c8f2e82b3f1f63a9d4cd02eba37dd82727",
+    "LoopWAM_NT": "7ddf2cbb77c5b232234b319f14f216b3fb9b84fd",
+    "chrono": "bc9d66a625206c8cc276141a1abc982cdea40e7d",
+    "elastic": "3e52aa6f55c7a64a522d06d96785f881da216089",
+    "elastic_cl0": "462844bc4786d17a72feb78a775fe5e58d73d9df",
+    "elastic_gr1": "a214cc5809674ba436bae5cf85ab04df76e3278f",
+    "elastic_robotwin": "3b8ac73351d6b3eff60fdf06833c6ce140d0e3d4",
+    "partition_grid_20261026": "75d8f19674594dcf93d0d0c262613ca3e2761ff7",
+    "residual_trans": "f55aef1946e550f4fed4fe749ecca238323d1714",
+    "robocasa_gr1_continuation_20261106": "e2e2d2435ca6a89d3088d48f067b89cd8e8378fb",
+    "robocasa_gr1_v0": "0c79fdfa6aa22fcd63ee32ef6cbeb7491db220ee",
+    "robotwin10_training_20261101": "d0b5dcbf1d8c8d237fe51dc4dd335b59ac886378",
+    "robotwin_eval_continue_20261030": "6ddd360ed1e303857d5603fc2896b7b280da7a3e",
+    "robotwin_full_v0_20261028": "f4bd526cac71bec483f95a33d270b4df2844d252",
+    "scratch_init_v0": "e791a8817f70ba39990618f1cf0004d15ab7c44f",
+    "v0-init-variants": "51629a3df23a45bf34997c13978a31e64885e30c"
+  },
+  "new_directories": [
+    "robotwin10_dense_s12_epoch10_20261109",
+    "robotwin10_epoch10_queue_20261113",
+    "robotwin10_epoch10_remote189_20261113",
+    "robotwin10_epoch10_results_20261115",
+    "robotwin10_v0_4x1_epoch10_20261108"
+  ],
+  "preserved_versions": [
+    {
+      "file": "README.md",
+      "sha256": "408ee40e4d510e098156ed5857c28b779c75ecffbae7b35d7809ade4d74937e3",
+      "preserved": "preserved_versions/2026-11-14/408ee40e4d510e09/README.md"
+    },
+    {
+      "file": "all_results.md",
+      "sha256": "522e0fb5089c55605e12e0b8ae4860c90086420a44698c55e4919eb78f0f58f0",
+      "preserved": "preserved_versions/2026-11-14/522e0fb5089c5560/all_results.md"
+    },
+    {
+      "file": "FILE_INDEX.md",
+      "sha256": "aec7268da94c760a7290e484c0d573056d4681d197507b35337ee36cde463ae2",
+      "preserved": "preserved_versions/2026-11-14/aec7268da94c760a/FILE_INDEX.md"
+    },
+    {
+      "file": "ARCHIVE_INDEX.md",
+      "sha256": "17fdddee9a845024fad934b8916a54eb49e94abaaf28657a26ff6232617b1192",
+      "preserved": "preserved_versions/2026-11-14/17fdddee9a845024/ARCHIVE_INDEX.md"
+    },
+    {
+      "file": "all_results/build_snapshot.py",
+      "sha256": "0f73a5c0482e502cca89f57e559c7210e502aa0335c0f4cd04fac3f60f03572a",
+      "preserved": "preserved_versions/2026-11-14/0f73a5c0482e502c/all_results/build_snapshot.py"
+    }
+  ],
+  "verification": "verify_robotwin10_epoch10_sync_20261114.py",
+  "scope": "Six completed evaluations, 12000 accepted episodes; partial/interrupted attempts retained separately. No inference or fresh video audit. Original server report files copied unchanged; current GitHub catalogues merged additively. All previous v0 4/4 files preserved.",
+  "source_verifier_note": "The copied source verify_report.py expects the server historical catalogue and its protected v0 4/4 directory; use the shared independent sync verifier for this merged GitHub snapshot."
+}
