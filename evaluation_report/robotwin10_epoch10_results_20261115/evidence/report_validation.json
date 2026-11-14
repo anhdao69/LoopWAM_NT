@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-14T19:26:33.045973+00:00",
+  "selected_runs": 6,
+  "primary_models": 5,
+  "reconciled_episode_records": 12000,
+  "detailed_task_rows_checked": 60,
+  "task_comparison_rows_checked": 10,
+  "source_files_unchanged": 54,
+  "protected_v0_4x4_files_unchanged": 28,
+  "existing_v0_4x4_catalogue_lines_unchanged": true,
+  "local_links_checked": 81,
+  "prior_report_backups_verified": 8,
+  "simulations_run": false,
+  "output_sha256": {
+    "README.md": "5685ab78a5a2470e34d5e972c0916f651568662490e3f06516b0732e14daae97",
+    "results.json": "b5c7a1d249729cab223e9587817da78cba6f47a7a982096cc877c1e9e1227ba8",
+    "summary.csv": "eb9a18469d3d6e54a9e0192810cabeb04d6dc75ff54404f0635c20fafaeb3d46",
+    "task_results.csv": "0de2cf7cb39086924090dd12cf120984748d347fedf8e6851b6669279a0c0d08",
+    "task_comparison.csv": "a7054a6ffa448310f5dec55e55368f0bda9b134ab3d2624e5772fea5c362b5d0"
+  }
+}
