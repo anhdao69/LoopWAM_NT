@@ -58,3 +58,9 @@ Copies are organized by preservation date and content hash. The date identifies 
 - [preserved_versions/2026-11-13/320438ec32ee9c00/README.md](preserved_versions/2026-11-13/320438ec32ee9c00/README.md)
 - [preserved_versions/2026-11-13/99074e3e31b53463/FILE_INDEX.md](preserved_versions/2026-11-13/99074e3e31b53463/FILE_INDEX.md)
 - [preserved_versions/2026-11-13/d7db7fade9f85221/ARCHIVE_INDEX.md](preserved_versions/2026-11-13/d7db7fade9f85221/ARCHIVE_INDEX.md)
+
+## sn4622128794 RoboTwin-50 elastic sync, 2026-11-14
+
+- [preserved_versions/2026-11-14/f0eb91b0bc2fafbf/README.md](preserved_versions/2026-11-14/f0eb91b0bc2fafbf/README.md)
+- [preserved_versions/2026-11-14/0bc26df5109c6241/FILE_INDEX.md](preserved_versions/2026-11-14/0bc26df5109c6241/FILE_INDEX.md)
+- [preserved_versions/2026-11-14/f0b5f20ff90c43ea/ARCHIVE_INDEX.md](preserved_versions/2026-11-14/f0b5f20ff90c43ea/ARCHIVE_INDEX.md)

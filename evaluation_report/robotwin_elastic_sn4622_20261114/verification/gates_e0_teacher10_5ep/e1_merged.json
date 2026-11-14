@@ -1,0 +1,331 @@
+{
+  "trained_schedules": [
+    "flat_k1_n2",
+    "flat_k1_n5",
+    "flat_k1_n10",
+    "flat_k2_n2",
+    "flat_k2_n5",
+    "flat_k2_n10",
+    "flat_k4_n2",
+    "flat_k4_n5",
+    "flat_k4_n10"
+  ],
+  "kind": "T0",
+  "step": 237310,
+  "inputs_equal_v0": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "schedules": {
+    "flat_k1_n5": {
+      "depths": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6271465420722961
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6368706822395325
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6114330887794495
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6421168446540833
+        }
+      }
+    },
+    "flat_k1_n10": {
+      "depths": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6275083422660828
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6369662284851074
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6123486757278442
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6416831612586975
+        }
+      }
+    },
+    "flat_k2_n5": {
+      "depths": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6247326731681824
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6361433267593384
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6136972308158875
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6407131552696228
+        }
+      }
+    },
+    "flat_k2_n10": {
+      "depths": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6248369216918945
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6365633606910706
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6138499975204468
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6402526497840881
+        }
+      }
+    },
+    "flat_k4_n5": {
+      "depths": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6230579018592834
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6364652514457703
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6126648783683777
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.643986165523529
+        }
+      }
+    },
+    "flat_k4_n10": {
+      "depths": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6227692365646362
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.636247992515564
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6122491955757141
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6432274580001831
+        }
+      }
+    }
+  },
+  "checkpoint": "/data/anh/robotwin_eval/checkpoints/E0-epoch10-teacher-5ep/epoch_05.pt",
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "teacher": "/data/anh/robotwin_eval/checkpoints/v0-video4-action4-epoch10/policy.pt",
+  "cuda_graph": {
+    "adjust_bottle__demo_clean/ep0": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_clean/ep1": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_randomized/ep0": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_randomized/ep1": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ]
+  },
+  "peak_gib": 3.3959484100341797,
+  "phase": "e1_merged",
+  "tree": "/data/anh/code/LoopWAM-robotwin-eval",
+  "seconds": 61.35454511642456,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}
