@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/adjust_bottle__demo_clean/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 70,
+    "stopped_unix": 1794160637.0976262
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/adjust_bottle__demo_randomized/attempt_01",
+    "error": "Worker exit1",
+    "exit_code": 1,
+    "episodes": 35
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_clean/attempt_01",
+    "error": "Worker exit1",
+    "exit_code": 1,
+    "episodes": 26
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_randomized/attempt_01",
+    "error": "Worker exit1",
+    "exit_code": 1,
+    "episodes": 43
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/hanging_mug__demo_clean/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 50,
+    "stopped_unix": 1794160637.098114
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/hanging_mug__demo_randomized/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 28,
+    "stopped_unix": 1794160637.0983114
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/move_stapler_pad__demo_clean/attempt_01",
+    "error": "Worker exit1",
+    "exit_code": 1,
+    "episodes": 75
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/open_microwave__demo_clean/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 39,
+    "stopped_unix": 1794160637.0985913
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/open_microwave__demo_randomized/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 29,
+    "stopped_unix": 1794160637.0987635
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/press_stapler__demo_randomized/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 81,
+    "stopped_unix": 1794160637.0989237
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/scan_object__demo_clean/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 10,
+    "stopped_unix": 1794160637.0990252
+  },
+  {
+    "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/scan_object__demo_randomized/attempt_01",
+    "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+    "exit_code": -15,
+    "episodes": 0,
+    "stopped_unix": 1794160637.0990949
+  }
+]

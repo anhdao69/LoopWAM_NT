@@ -1,0 +1,24 @@
+{
+  "requested_unix": 1794548534.7575655,
+  "reason": "User requested continued evaluation on the currently empty GPU server",
+  "host": "VMO-ANHDH35-D",
+  "resume_models": [
+    "dense_s12",
+    "v0_1x4"
+  ],
+  "completed_models_preserved": [
+    "v0_4x2",
+    "v0_2x2"
+  ],
+  "gpu_free_mib": 97197,
+  "prior_state_archive": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/resume_history/20261113_124214",
+  "interrupted_partial_episodes_excluded": 28,
+  "resume_behavior": "No completed Dense-S12 cells exist; restart interrupted cells in new attempt directories; preserve original logs and count only complete audited100-episode cells.",
+  "same_seed": 42,
+  "nfe": 10,
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "workers": 4,
+  "expected_episodes_per_model": 2000,
+  "source_hashes_unchanged": true
+}

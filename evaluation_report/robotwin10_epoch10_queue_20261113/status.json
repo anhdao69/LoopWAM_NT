@@ -1,0 +1,50 @@
+{
+  "status": "stopped_by_user",
+  "pid": 642254,
+  "started_unix": 1794548534.794959,
+  "current": "dense_s12",
+  "updated_unix": 1794551517.4651804,
+  "models": [
+    {
+      "id": "v0_4x2",
+      "variant": "v0-video4-action2",
+      "status": "complete",
+      "final": true,
+      "episodes": 2000,
+      "successes": 1648,
+      "completed_cells": 20,
+      "error": null
+    },
+    {
+      "id": "v0_2x2",
+      "variant": "v0-video2-action2",
+      "status": "complete",
+      "final": true,
+      "episodes": 2000,
+      "successes": 1578,
+      "completed_cells": 20,
+      "error": null
+    },
+    {
+      "id": "dense_s12",
+      "variant": "dense-s12",
+      "status": "stopped_by_user",
+      "final": false,
+      "episodes": 638,
+      "successes": 519,
+      "completed_cells": 4,
+      "error": "Traceback (most recent call last):\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 81, in <module>\n    try:main()\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 74, in main\n    if not (B/'results/COMPLETE.json').exists():run('controller',[sys.executable,str(B/'scripts/robotwin_local_queue.py')])\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 30, in run\n    time.sleep(2)\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 49, in stop\n    def stop(*_):raise KeyboardInterrupt('Stopped by user')\nKeyboardInterrupt: Stopped by user\n"
+    },
+    {
+      "id": "v0_1x4",
+      "variant": "v0-video1-action4",
+      "status": "pending",
+      "final": false,
+      "episodes": 0,
+      "successes": 0,
+      "completed_cells": 0,
+      "error": null
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/scripts/campaign.py\", line 106, in main\n    time.sleep(10)\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/scripts/campaign.py\", line 87, in stop\n    def stop(*_): raise KeyboardInterrupt('Stopped by user')\nKeyboardInterrupt: Stopped by user\n"
+}

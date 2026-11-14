@@ -1,0 +1,45 @@
+{
+  "checkpoint_sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6",
+  "profiles": [
+    {
+      "name": "smoke_graph_w2",
+      "workers": 2,
+      "backend": "cuda-graph",
+      "passed": true,
+      "episodes": 16,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "press_stapler",
+        "scan_object"
+      ],
+      "episodes_per_cell": 2,
+      "seconds": 391.5831527709961,
+      "peak_gpu_mib": 28821,
+      "peak_added_mib": 28675,
+      "memory_margin_mib": 20114,
+      "successes": 16
+    }
+  ],
+  "selected": {
+    "name": "smoke_graph_w2",
+    "workers": 2,
+    "backend": "cuda-graph",
+    "passed": true,
+    "episodes": 16,
+    "tasks": [
+      "adjust_bottle",
+      "grab_roller",
+      "press_stapler",
+      "scan_object"
+    ],
+    "episodes_per_cell": 2,
+    "seconds": 391.5831527709961,
+    "peak_gpu_mib": 28821,
+    "peak_added_mib": 28675,
+    "memory_margin_mib": 20114,
+    "successes": 16
+  },
+  "finished_unix": 1794570980.6462286,
+  "basis": "Fixed two-worker configuration from prior successful sustained runs; sixteen unscored smoke episodes and at least8000MiB memory headroom. Higher concurrency is disabled after prior long-run resource failures. All smoke episodes excluded."
+}

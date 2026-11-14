@@ -1,0 +1,17 @@
+{
+  "estimated_at_unix": 1794514588.9700813,
+  "basis": "Historical four-worker native RT10 runs; includes allowance for fresh gates and audits. Not derived from smoke success rate.",
+  "hours_per_model": [
+    3,
+    4
+  ],
+  "total_hours": [
+    14,
+    16
+  ],
+  "estimated_finish_ict": [
+    "2026-11-13T17:15:22.292838+07:00",
+    "2026-11-13T19:15:22.292838+07:00"
+  ],
+  "conditions": "No GPU contention, sustained resource failure, or resumed workers; revisit from live scored progress."
+}

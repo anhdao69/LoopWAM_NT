@@ -1,0 +1,15 @@
+{
+  "pid": 1574568,
+  "start_ticks": "67664946",
+  "started_unix": 1794182460.36564,
+  "command": [
+    "bash",
+    "/data14t/anhdh35/loopwam_robotwin10_dense_s12_epoch10_20261109/start_queue.sh"
+  ],
+  "epoch": 10,
+  "variant": "dense-s12",
+  "seed": 42,
+  "workers": 4,
+  "planned_episodes": 2000,
+  "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8"
+}

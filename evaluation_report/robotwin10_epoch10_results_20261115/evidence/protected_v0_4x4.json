@@ -1,0 +1,62 @@
+{
+  "files": {
+    "robotwin10_v0_4x4_epoch10_20261108/download_receipt.json": "cb9425ea90ea9f98b9f0043001cd4988a8f8182ce1ef5a09d344497b04946c08",
+    "robotwin10_v0_4x4_epoch10_20261108/queue_review.json": "33f2bdb17eef382d6e3816c71f9f14987a43c057a12ccbde2564b727e670073b",
+    "robotwin10_v0_4x4_epoch10_20261108/host_clock.json": "bb98c671994e655e9b297efd4b668f08e41e07d241389992041361cc9cadbec6",
+    "robotwin10_v0_4x4_epoch10_20261108/calibration.json": "bd57794dcae55aa818577e35ff6cfe306b1a366b8fd09361dd5c46c107f4015a",
+    "robotwin10_v0_4x4_epoch10_20261108/final_audit.json": "dda078f5eb0ca94ffdc4a4a3ae15f24d5481c99533985189aa7e118b40566b94",
+    "robotwin10_v0_4x4_epoch10_20261108/finalizer_status.json": "c6aa3e9dedef62d6954f2711f9e05392024927941e807d75384bc786bd81bff7",
+    "robotwin10_v0_4x4_epoch10_20261108/graph_gate.json": "cb9bb667d51b8fe40925b54e17efd31385757dab92335794e7774679e45255ba",
+    "robotwin10_v0_4x4_epoch10_20261108/planned_protocol.json": "17b15412b5aeb6824cbd94fc92b8535cc5bfe1d92f815b8f466964948b4dd907",
+    "robotwin10_v0_4x4_epoch10_20261108/queue_status.json": "98eae8ad4e07befc6d46ee637f867c812d7f2e4226af14d48d1de1e2c426cd27",
+    "robotwin10_v0_4x4_epoch10_20261108/hf_manifest.json": "3c5c5e1f89e0b119c06a630920967a089300456ff206a4b8634300990b05cb49",
+    "robotwin10_v0_4x4_epoch10_20261108/launch_verification.json": "de9b2a483274821789f6161a7c05099bd53f5e9a5b53786f84ab248149063e21",
+    "robotwin10_v0_4x4_epoch10_20261108/launch.json": "26d77283db24cc9a843d03c4b7fcf1fe62bfbf0a0b2f9c2cdbf8630687759f8a",
+    "robotwin10_v0_4x4_epoch10_20261108/final_report.md": "3e98efc8fa97b5119dfd50e651316d0376d63c722ee164e89ef1168a169f7146",
+    "robotwin10_v0_4x4_epoch10_20261108/report.md": "966a29226842d72be4f3995607a6cc8b65f8a5adcc0fd3bf1c27d34ea69ea68b",
+    "robotwin10_v0_4x4_epoch10_20261108/setup_report.md": "5e856f641fad8fb44e0393ef4d3da51a2d24eb3407699619ab4632a70b5692a4",
+    "robotwin10_v0_4x4_epoch10_20261108/episodes.csv": "d1eee4b01f3023597311161755f3ba178c9024e9984304d42fb90fad61392ce7",
+    "robotwin10_v0_4x4_epoch10_20261108/protocol_comparison.json": "3f49cebaad140fbc5f03ff1f5a262a1dc65dfe4db3c48dfaaea9219a5fc652bd",
+    "robotwin10_v0_4x4_epoch10_20261108/cpu_validation.json": "1b94f8a6b0eaf8157dd7bf6d46c8ddb25683852e2ff5daa20502a438f2744c92",
+    "robotwin10_v0_4x4_epoch10_20261108/preflight.json": "2c023a58f6b8e118d8b4639c6ba270b5fcb57c0bc58608eaec9eca4b39c132a9",
+    "robotwin10_v0_4x4_epoch10_20261108/runtime_manifest.json": "8933c14e9991af00892f6c0f3314c20b6c9dc99c19e5d359c60995ffd232a049",
+    "robotwin10_v0_4x4_epoch10_20261108/sync_status.json": "57a2b34ca529aa8b5ce11242d6d311ff8d162bf112bf643e8813451e1a81746d",
+    "robotwin10_v0_4x4_epoch10_20261108/tests.log": "1b8e5e78a8e59cfc859aa10689af8eea07c00f3b4db1d962265e9397b3d8b4e4",
+    "robotwin10_v0_4x4_epoch10_20261108/task_results.csv": "a852bef19e084801ee30cbe2b18750f38b3ead1390739f5e8806c1a4a3a51c09",
+    "robotwin10_v0_4x4_epoch10_20261108/failed_attempts.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "robotwin10_v0_4x4_epoch10_20261108/source_check.json": "088644d873642bb2ac546f6fa51b307fe6d789ce799bfc238048bc1e0fcddd6e",
+    "robotwin10_v0_4x4_epoch10_20261108/COMPLETE.json": "6f55ccdca6c1fee5aea35439b1920703f09942d7e879084f1e22e698e2165bc7",
+    "robotwin10_v0_4x4_epoch10_20261108/final_results.json": "2b1d944b4b4ca7ab8bba57f98986a831895b4e8424549d3d745591184bf1e167",
+    "robotwin10_v0_4x4_epoch10_20261108/progress.json": "b5ae15b851776a76058ae448bc09988032f24afe83a5c433f0b7ffc787175ee6"
+  },
+  "catalogue_lines": {
+    "README.md": [
+      "| [H100 RoboTwin-10 retrains](robotwin10_h100_20261106/report.md) | Both complete and audited:4/4 78.65%,4/2 80.80%;seed 42; 2,000 episodes each |",
+      "| [v0 4/4 \u2014 original local](robotwin10_v0_4x4/final_report.md) | Complete: 1577/2000 = **78.85%**; seed 42; saved final audit passed |",
+      "| [v0 4/4 \u2014 rerun server189](robotwin10_v0_4x4_remote189/final_report.md) | Complete: 1564/2000 = **78.20%**; seed 42; saved final audit passed |",
+      "| [v0 4/4 \u2014 rerun server137](robotwin10_v0_4x4_remote137_20261105/final_report.md) | Complete: 1559/2000 = **77.95%**; seed 42; saved final audit passed |",
+      "| [v0 4/4 \u2014 H100 retrain, local evaluation](robotwin10_h100_v0_4x4_20261106/final_report.md) | Complete: 1573/2000 = **78.65%**; seed 42; saved final audit passed |",
+      "| [v0 4/4 \u2014 epoch5, full 50 training](robotwin_v0/report.md) | Complete: 9173/10000 = **91.73%**; seed 42; saved final audit passed |",
+      "| [v0 4/4 \u2014 epoch10, full 50 training](robotwin_v0_epoch10/final_report.md) | Complete: 9187/10000 = **91.87%**; seed 42; saved final audit passed |",
+      "| [Dense-S30 \u2014 seed 43, two tasks only](robotwin10_seed43_two_tasks/dense_s30/final_report.md) | Complete: 274/400 = **68.50%**; seed 43; saved final audit passed |",
+      "| [v0 4/4 \u2014 seed 43, two tasks only](robotwin10_seed43_two_tasks/v0_4x4/final_report.md) | Complete: 217/400 = **54.25%**; seed 43; saved final audit passed |",
+      "| [v0 4/4 \u2014 epoch6, full 50 training](robotwin_v0_epoch06/report.md) | Complete: 8985/10000 = **89.85%**; seed 42; completion records reconciled; no saved final audit |"
+    ],
+    "all_results.md": [
+      "| v0 4/4 \u2014 original local | 77.40% | 80.30% | **78.85%** | 1577/2000 | [report](robotwin10_v0_4x4/final_report.md) |",
+      "| v0 4/4 \u2014 H100 retrain, local evaluation | 79.90% | 77.40% | **78.65%** | 1573/2000 | [report](robotwin10_h100_v0_4x4_20261106/final_report.md) |",
+      "| v0 4/4 \u2014 rerun server189 | 78.40% | 78.00% | **78.20%** | 1564/2000 | [report](robotwin10_v0_4x4_remote189/final_report.md) |",
+      "| v0 4/4 \u2014 rerun server137 | 76.60% | 79.30% | **77.95%** | 1559/2000 | [report](robotwin10_v0_4x4_remote137_20261105/final_report.md) |",
+      "| v0 4/4 | 78.85% | 78.65% | -0.20 pp | -4 |",
+      "| [Dense-S30 \u2014 seed 43, two tasks only](robotwin10_seed43_two_tasks/dense_s30/final_report.md) | 73.50% | 63.50% | 68.50% | 274/400 |",
+      "| [v0 4/4 \u2014 seed 43, two tasks only](robotwin10_seed43_two_tasks/v0_4x4/final_report.md) | 46.00% | 62.50% | 54.25% | 217/400 |",
+      "| LoopWAM full 4/4 | 96.93% | 98.73% | 96.13% | 87.87% | 94.92% | 5695/6000 |",
+      "| LoopWAM Long 4/4 original | \u2014 | \u2014 | \u2014 | 77.73% | 77.73% | 1166/1500 |",
+      "| LoopWAM Long 4/4 repeat | \u2014 | \u2014 | \u2014 | 79.47% | 79.47% | 1192/1500 |",
+      "| CL-0@1 | 689/1506 (45.75%) | 2/400 (0.50%) | 54/400 (13.50%) | 56/800 (7.00%) |",
+      "| CL-A@1 | 693/1506 (46.02%) | 4/400 (1.00%) | 56/400 (14.00%) | 60/800 (7.50%) |",
+      "- The waiting duplicate RoboTwin4/4 queue on server137 was cancelled; the separate later completed rerun is listed by its dated run identity.",
+      "| 23 | all-suites v0 4/4 | 94.92 | H100, branch `elastic` all-models report (all-suites) |"
+    ]
+  }
+}
