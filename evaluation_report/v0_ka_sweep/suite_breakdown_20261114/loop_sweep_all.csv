@@ -1,0 +1,7 @@
+action_loops,video_loop_read_by_each_action_loop,record,spatial_successes,object_successes,goal_successes,long_successes,spatial_sr,object_sr,goal_sr,long_sr,successes,episodes,overall_sr,seed42_sr,seed43_sr,seed44_sr
+1,4,"original queue, 27 Oct 2026 (this folder)",281,377,76,4,18.7333,25.1333,5.0667,0.2667,738,6000,12.3000,18.90,10.30,7.70
+2,3 4,"original queue, 27 Oct 2026 (this folder)",976,1082,819,457,65.0667,72.1333,54.6000,30.4667,3334,6000,55.5667,63.35,54.25,49.10
+3,2 3 4,matched-baseline campaign (matched_baselines/README.md),1433,1389,1394,1152,95.5333,92.6000,92.9333,76.8000,5368,6000,89.4667,92.00,89.35,87.05
+4,1 2 3 4,"final campaign (final/results.json, ""LoopWAM full 4/4""): the trained depth",1454,1481,1442,1318,96.9333,98.7333,96.1333,87.8667,5695,6000,94.9167,95.55,94.95,94.25
+5,1 1 2 3 4,matched-baseline campaign (matched_baselines/README.md),1417,1483,1443,1333,94.4667,98.8667,96.2000,88.8667,5676,6000,94.6000,94.90,94.50,94.40
+6,1 1 1 2 3 4,matched-baseline campaign (matched_baselines/README.md),1322,1454,1406,1170,88.1333,96.9333,93.7333,78.0000,5352,6000,89.2000,87.95,90.80,88.85
