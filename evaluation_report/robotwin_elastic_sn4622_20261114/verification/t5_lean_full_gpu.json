@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Use the left arm to grab the bottle with red screw cap head-up.",
+      "context_bit_equal": true,
+      "mask_bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Grab the bottle with red screw cap on the table and raise it.",
+      "context_bit_equal": true,
+      "mask_bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Use the right arm to grab the bottle the plastic soda bottle",
+      "context_bit_equal": true,
+      "mask_bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Lift the green bottle from the table using the right arm.",
+      "context_bit_equal": true,
+      "mask_bit_equal": true,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "load_seconds": 63.230337619781494,
+  "peak_rss_gib": 11.447265625,
+  "gpu_peak_gib": 10.60898733139038,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+}
