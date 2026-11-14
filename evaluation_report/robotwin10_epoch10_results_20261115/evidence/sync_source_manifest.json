@@ -1,0 +1,1114 @@
+{
+  "evaluation_report/robotwin10_epoch10_results_20261115/reconcile_and_render.py": {
+    "sha256": "b16089054e9d802e20ea4a2ab473efa13471b003f22b261dee885c2126579d9f",
+    "bytes": 18512
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/task_comparison.csv": {
+    "sha256": "a7054a6ffa448310f5dec55e55368f0bda9b134ab3d2624e5772fea5c362b5d0",
+    "bytes": 508
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/summary.csv": {
+    "sha256": "eb9a18469d3d6e54a9e0192810cabeb04d6dc75ff54404f0635c20fafaeb3d46",
+    "bytes": 1634
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/README.md": {
+    "sha256": "5685ab78a5a2470e34d5e972c0916f651568662490e3f06516b0732e14daae97",
+    "bytes": 17269
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/results.json": {
+    "sha256": "b5c7a1d249729cab223e9587817da78cba6f47a7a982096cc877c1e9e1227ba8",
+    "bytes": 55670
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/verify_report.py": {
+    "sha256": "c8f0a3d6170f9199d1394556b21ea43e479b22d0e1daba41f8eece2786dfb513",
+    "bytes": 6445
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/task_results.csv": {
+    "sha256": "0de2cf7cb39086924090dd12cf120984748d347fedf8e6851b6669279a0c0d08",
+    "bytes": 5203
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/README_before_dense12_index.md": {
+    "sha256": "cf510fc227005b381e0b8c6ecd49149cafd758e70b15d470efa04b438aa0df8b",
+    "bytes": 7093
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/reconciliation.json": {
+    "sha256": "e9c826a84bd43968f57929be97eae8f7d75d2b30871cd6e247684df0b01051e9",
+    "bytes": 7875
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/protected_v0_4x4.json": {
+    "sha256": "388c2ea0a412c473c841d67c73ba03a3b81eccec4d31f2647ebcee3f0e24aaeb",
+    "bytes": 6969
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/report_validation.json": {
+    "sha256": "bd312f0d0b51d129ed6679fc4d9f238cb9611469989f54d88225733307a2095d",
+    "bytes": 930
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/README.md": {
+    "sha256": "ad1d00f1ffdae1b47e3e34e0e82856bcebf10c23e58885ef7b322274d82fafd5",
+    "bytes": 6386
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/sha256.json": {
+    "sha256": "05157fa1cbeb5db3ebaee8948a0c010bf3ad53b425c7b1c34bb23deb83b63f53",
+    "bytes": 956
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/all_results.md": {
+    "sha256": "88fc687130c953e1cf71a9eaac528a163ca80ce44eba7423a9db837f6144c5b7",
+    "bytes": 22738
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_dense_s12_epoch10_20261109/final_report.md": {
+    "sha256": "9efefcbb18aca39bffefd96f4959253459669c278429c6ae433ed00fe19976fa",
+    "bytes": 2366
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_v0_4x1_epoch10_20261108/final_report.md": {
+    "sha256": "65f3c1ad003c61fb9b4e8089228b7759e6108933d8fa22feab58bfb157a4eafc",
+    "bytes": 2347
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_epoch10_remote189_20261113/v0_1x4/final_report.md": {
+    "sha256": "98eee9a97b25f75c817ffff5a780e5ff76f39ee74eb1ac9efc3261c0240c9be2",
+    "bytes": 2753
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_epoch10_remote189_20261113/dense_s12/final_report.md": {
+    "sha256": "8bdf5fabdbf95e5bdc35529d0a56c2ef64c5dbdc7338273322fd443a9f7a7c36",
+    "bytes": 2739
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_epoch10_queue_20261113/v0_2x2/final_report.md": {
+    "sha256": "95f4ec92ad1ffbc9563b61542ba5418f8270354e437c700308978d1d0e556029",
+    "bytes": 2357
+  },
+  "evaluation_report/robotwin10_epoch10_results_20261115/evidence/before_update/robotwin10_epoch10_queue_20261113/v0_4x2/final_report.md": {
+    "sha256": "45d64467d5340b33a63a5c49930e15623f212ecc9e163efdc92fd6c5af5adced",
+    "bytes": 2359
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/resume_eta.json": {
+    "sha256": "54e6b4c93c95f3d45bc8ec7d110c0ab22bc0125776ddb0158abf0b8a8e1c5781",
+    "bytes": 477
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/prelaunch_validation.json": {
+    "sha256": "58dcbb2196653095554c6e9bea7fbff9c982e6bd3e537a3418977993c25a0f54",
+    "bytes": 2539
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/queue_review.json": {
+    "sha256": "f0cdaeea42c19e93e65384890bd13511b4b13c175fc749364564c319c8e8d9b4",
+    "bytes": 1040
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/current_execution.json": {
+    "sha256": "854cd5f15c73a47d9c91af488c7ddf289fe29094cf2c8635867ed7445fa18ca6",
+    "bytes": 869
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/stop_request.json": {
+    "sha256": "bcc159bf9c7a74480da46e8433cf51638fe037058c552392c39d78687e740915",
+    "bytes": 426
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/campaign_source_manifest.json": {
+    "sha256": "96094deebd65689cf15d6e120a08d03134eb17951ca45428f22e0f1df6b60b86",
+    "bytes": 751
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/initial_eta.json": {
+    "sha256": "289a749d47cce0464ebff9cd79ad96b757348f77fb6fe25b46646822c164a85e",
+    "bytes": 497
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/resume_request.json": {
+    "sha256": "ab55ceb62cd9f2b41779e132f9efbdc687e1ff516dabb5cf41964cb0a646c15b",
+    "bytes": 821
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/launch_verification.json": {
+    "sha256": "39d08e7ccaac5a7718d73444c2b64adb284021d105ede1e2363211f08f6afdc1",
+    "bytes": 460
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/first_model_gpu_validation.json": {
+    "sha256": "b96cbd4984312fd3f51a95fc37955e9bb85740e12cf142f35beee530422937d9",
+    "bytes": 373
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/second_stop_verified.json": {
+    "sha256": "a22ccdbe0b235edcbddfbc98adca4be2e99f729c85a1adc04ad1c35a2e1e2d43",
+    "bytes": 387
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/setup_report.md": {
+    "sha256": "5424880b5f8b8b1c7a49b3a9359c748b0040ec6f0d6bc8a29c4a8c1af1b1715a",
+    "bytes": 8038
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/stop_verified.json": {
+    "sha256": "424a2e4342dcad98931a7c29f569f996b69da2ac5f15c78233de8cfa50b4f377",
+    "bytes": 774
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/resume_report.md": {
+    "sha256": "f80d38910a22d3f3bea0007d877250dca17435173d1ad49507b8ec581eb47aef",
+    "bytes": 889
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/resume_verified.json": {
+    "sha256": "756999494061cdad9040de58820b0dda81e10889a83f4749cf83f32e0ce411f6",
+    "bytes": 1012
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/stop_report.md": {
+    "sha256": "357b0f9ba3f2bfa0acfc21ff79c733a2fe963cdc7eab29beed2630ee62b5f119",
+    "bytes": 510
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/progress.md": {
+    "sha256": "355b6c042cd6a7b79b50d9be88246727cd005f632edc098dfc4ec5bf0c95e64f",
+    "bytes": 871
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/campaign.json": {
+    "sha256": "c4a1e69d1a30780d605ff21f8f0d6dd2026637a1fe6d462c1a072109d60df11b",
+    "bytes": 2438
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/migration.json": {
+    "sha256": "8564fe4fc12fe06bb1cf7d0416b4936da2ea790a914db0f4240bca42eac3085d",
+    "bytes": 1591
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/launch_receipt.json": {
+    "sha256": "a80982bf7eeac8d247b8aef827ceb9d6382873768b41437b7dd75f4ece41ec22",
+    "bytes": 278
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/status.json": {
+    "sha256": "6599d0d875beb2f9a5618bf1cce17053d13ae05296f89a742a145bed6fe85483",
+    "bytes": 2244
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/download_receipt.json": {
+    "sha256": "aecd4453c820d7139941b1a8cdb4b2572438294909717821ccae614b8f607aef",
+    "bytes": 3678
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/calibration.json": {
+    "sha256": "76698cd2582f7e25ebdc7f10c79dd770d25e0c512853827c061587c2920321f8",
+    "bytes": 1266
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/final_audit.json": {
+    "sha256": "cfe3c66a7a49a3d7713caeafe28e6f048706e3e6c01fcdd3eabd6bdd70672e80",
+    "bytes": 449
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/finalizer_status.json": {
+    "sha256": "a1bdf00bce39d3576d702f33cc47424a0a40f4080dc6f9cd6212ba6335d78abd",
+    "bytes": 387
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/graph_gate.json": {
+    "sha256": "43a01bff176c1ed87504288b9b7f6de4cae910ede50ef45a0b43edbb6d54eae4",
+    "bytes": 2005
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/planned_protocol.json": {
+    "sha256": "229346fa8626b75ffb082eb4099a8d59f10b4697c90eae5ac9b6036ec0cff4ea",
+    "bytes": 1151
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/queue_status.json": {
+    "sha256": "f7133728c8a1f5bc17c06200e1e72c55c122fcd9ca06dab884e968888ae579af",
+    "bytes": 116
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/hf_manifest.json": {
+    "sha256": "dec382ae59131695b83e3b24381abeb104ed035a519da406c37652475edbcfff",
+    "bytes": 2735
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/launch.json": {
+    "sha256": "3b5bf7f66b1010fb231e711fd443e992a54cdabd7cb6220ad2c2f92116c1621a",
+    "bytes": 1477
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/final_report.md": {
+    "sha256": "d681657c43e583a1151e3bc5f5bb66e67372bae2feafebe198ed7a9f43cc315c",
+    "bytes": 2753
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/report.md": {
+    "sha256": "503d7d8902aacca890134bc8d5b37342f99a2cde992bf9c887027af2d9db8394",
+    "bytes": 2124
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/setup_report.md": {
+    "sha256": "fad786db6bc8223e8e276dbaa8a8de61a4414087aae558205152123a6b4e9277",
+    "bytes": 6794
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/episodes.csv": {
+    "sha256": "f32b092969da3adbbc9748d1397a54304d2ed322e37a89a78c34b57134823a34",
+    "bytes": 845484
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/protocol_comparison.json": {
+    "sha256": "3f49cebaad140fbc5f03ff1f5a262a1dc65dfe4db3c48dfaaea9219a5fc652bd",
+    "bytes": 2942
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/ownership_regression.log": {
+    "sha256": "149e983c325e1215d8fe411fd58fb9c0fa38bc5dfa119c4a6a92d44ee61e3e10",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/cpu_validation.json": {
+    "sha256": "e9ae761a66933a1651208922cf88f2e75ce20a84a3468727d17f8f864f09d8a6",
+    "bytes": 2363
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/preflight.json": {
+    "sha256": "168c353a61cd0980b893ea1e37efb125c1db07e5662466f473a4df6a2ca70666",
+    "bytes": 275
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/controller_tests.log": {
+    "sha256": "1698cf53738fece3fc128f68a2005bf90098cb09ffc528d80a18fe683159d622",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/runtime_manifest.json": {
+    "sha256": "74ae8cea809397fc0915fccaac52fa3cae9be6f66d032f3bb1d5576054e4974c",
+    "bytes": 5262889
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/tests.log": {
+    "sha256": "78a9bc282881ea01123822403c0aa9b7e05b438ef4560d4f0854eb6ba7552fbc",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/task_results.csv": {
+    "sha256": "633127d6259046efed0ada8b35726e9d78d9237aeb837575ce4dcb43dcf17ac3",
+    "bytes": 1428
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/failed_attempts.json": {
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/source_check.json": {
+    "sha256": "c9301ac94b828c7d8e76fb70a8434247f8b9c2d449cb9015cd43197fb805ce60",
+    "bytes": 2943
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/COMPLETE.json": {
+    "sha256": "5bdc37de4e88bb2281e5e0036f7f3412fb398cb333a9fb5ac0baade441e987cb",
+    "bytes": 1243867
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/final_results.json": {
+    "sha256": "f7343989963585c7eea8112eff73dcfc7c703cb441f849737245f9254ceb539a",
+    "bytes": 4800
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_2x2/progress.json": {
+    "sha256": "b6937647939a6d1e0ba421bdb783c493423980ace565912cdc687681e60dd768",
+    "bytes": 4781
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/download_receipt.json": {
+    "sha256": "3008d59d4f55b680734403346c902114af7006bcefb02de52386fc40301b733c",
+    "bytes": 3679
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/planned_protocol.json": {
+    "sha256": "92521e389c16a6ec6c6ead1553c62507fbabb23f5a557e9e9e9eb9f68b9df71d",
+    "bytes": 1151
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/hf_manifest.json": {
+    "sha256": "f07e11bbebc3f2a4e5d04e5bd9d24e1914beae7de06f3baccd13a1c1c0f826c1",
+    "bytes": 2735
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/setup_report.md": {
+    "sha256": "39539e92bf1f3889550682124b3d251d355171aebfd765a80151236eb1f2644e",
+    "bytes": 6794
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/ownership_regression.log": {
+    "sha256": "149e983c325e1215d8fe411fd58fb9c0fa38bc5dfa119c4a6a92d44ee61e3e10",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/cpu_validation.json": {
+    "sha256": "06001734c6c0082e9740e6a83e4a6b2cc23358c0f7d53f9a94b4a5972afa6ca1",
+    "bytes": 2364
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/controller_tests.log": {
+    "sha256": "1698cf53738fece3fc128f68a2005bf90098cb09ffc528d80a18fe683159d622",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/runtime_manifest.json": {
+    "sha256": "617e42a898933b818dbc5ecabc405b4ba9cd6f07f6a99be103f2215cd8b47035",
+    "bytes": 5262890
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/tests.log": {
+    "sha256": "f5cb844857776e082817cbcc10029a816ecd93f697e1826d8307e14b1f77f0f3",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_1x4/source_check.json": {
+    "sha256": "4ca0838de6ae3dffd563d0db149a8fc53237c006c378b43c114033be760bfa03",
+    "bytes": 2943
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/download_receipt.json": {
+    "sha256": "6613352f57979374a2e0eb20b43d80a1dc1e3e67c106eecd5c48db67528e0240",
+    "bytes": 3679
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/calibration.json": {
+    "sha256": "27a4971c14c3eadabcb30002dfb1d121ba75606ba2a693f0623b8c035bff256a",
+    "bytes": 1268
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/final_audit.json": {
+    "sha256": "393e46aa0024562eb48425aae29acd2ff5683215b7dc9fb561aa750236690c43",
+    "bytes": 449
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/finalizer_status.json": {
+    "sha256": "bc5c43014142adb57b5b18628682c2afbfb59da11ea3649b9f74529c5ce89368",
+    "bytes": 387
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/graph_gate.json": {
+    "sha256": "a9e26fa348794f714c1cc5e70776434a3007509ada9417784356704ed6b36302",
+    "bytes": 2004
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/planned_protocol.json": {
+    "sha256": "0172d860109b5c478e78cc83238049198f9d134456498d14c7a4ca7a80326bcb",
+    "bytes": 1151
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/queue_status.json": {
+    "sha256": "3497a60d01170ce56f3f5054084c0a9f866b8443b8c80dc46e642eb88df83f2e",
+    "bytes": 117
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/hf_manifest.json": {
+    "sha256": "b9d7240463af54186f58b618c9c8e9a06f186079d853206ce4c96f8c90087f99",
+    "bytes": 2736
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/launch.json": {
+    "sha256": "a641dd2fb37e213830ddb070a9223645b59b4985c4f5ae56198386a5c345bd5c",
+    "bytes": 1477
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/final_report.md": {
+    "sha256": "8e18cf8b05d2f94ffc3c91fa17b39f78e74da8e298307b1a631e76c4f78af13e",
+    "bytes": 2755
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/report.md": {
+    "sha256": "fdb2878737f9e879c9b02fb3798e9baa13c2631c75dc7de93cf5f1daa30a76e7",
+    "bytes": 2126
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/setup_report.md": {
+    "sha256": "6646c44559c7a39eed670213ce8a4610cec208bd9e61302b823e72d7e9677c67",
+    "bytes": 6794
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/episodes.csv": {
+    "sha256": "1433239c9ed132b86293878a4e8e81eecedac5d7ad7ec1b7939d5d61922bdca4",
+    "bytes": 844328
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/protocol_comparison.json": {
+    "sha256": "3f49cebaad140fbc5f03ff1f5a262a1dc65dfe4db3c48dfaaea9219a5fc652bd",
+    "bytes": 2942
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/ownership_regression.log": {
+    "sha256": "fa9cd0e25dcc1e230610463c80c04cc48c6c326debe3521403b94a8e7f25f4ae",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/cpu_validation.json": {
+    "sha256": "e5666c7e6e43127e72789af247140be9cc9c0ba093979c9700282cd45d97a72b",
+    "bytes": 2363
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/preflight.json": {
+    "sha256": "3d457eaf9a789802a3dc05373dc5f14cf2192272ef8ea62f721a3f78e30eb0de",
+    "bytes": 275
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/controller_tests.log": {
+    "sha256": "1698cf53738fece3fc128f68a2005bf90098cb09ffc528d80a18fe683159d622",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/runtime_manifest.json": {
+    "sha256": "1874ae334e2056d43a7964a76f6605f88ddbff3f44780adb16962b32744001bc",
+    "bytes": 5262890
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/tests.log": {
+    "sha256": "78a9bc282881ea01123822403c0aa9b7e05b438ef4560d4f0854eb6ba7552fbc",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/task_results.csv": {
+    "sha256": "4ab42299aa825935ca3227d73235651be520cd0fa322843620154bf2bb3ccd86",
+    "bytes": 1430
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/failed_attempts.json": {
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/source_check.json": {
+    "sha256": "cbc859cb21a810dccc552892731645e8257c0f35a3dfa80519f009c0ee3c73b4",
+    "bytes": 2943
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/COMPLETE.json": {
+    "sha256": "270e79fe7ce626de345353af63ca4234ce2a8e713d869df414100d450a075492",
+    "bytes": 1242718
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/final_results.json": {
+    "sha256": "266e8bc770b96079d486d002516c71c3c2f188c867f93de5b57441b2f7d9c2af",
+    "bytes": 4802
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/v0_4x2/progress.json": {
+    "sha256": "61c963203a3c803706353818da0a0d33bb4df92082bde07946ec6d183769bd28",
+    "bytes": 4782
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/download_receipt.json": {
+    "sha256": "f36a213c02ab55f4680e0abdebd4060396534ba12223722d9aa8a14803d46c9c",
+    "bytes": 3621
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/calibration.json": {
+    "sha256": "f89539b396d0883154a6982ac038926e0907f88d28d748e8f8f252cf75f3c5eb",
+    "bytes": 1266
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/graph_gate.json": {
+    "sha256": "e934cca4d15b09bc01f12198dcf370d52b7d60a8fbccbdc99804ac8ea12ee251",
+    "bytes": 2029
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/planned_protocol.json": {
+    "sha256": "f96ae5764e8573e9a78f127d9c159e045fa993bea5a76511c1c041b4e3b373d4",
+    "bytes": 1143
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/queue_status.json": {
+    "sha256": "873c03b6777c38dad9e52508c8442340e9c8a5c52465cc1cb987742c3cfd9655",
+    "bytes": 924
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/hf_manifest.json": {
+    "sha256": "941429c43110d03ad89d4c6808fc7e532bdec843cd0f57bb895f8330f8e19aa1",
+    "bytes": 2638
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/launch.json": {
+    "sha256": "8c550391bcdcdce06079a50438f528bd56d68cd800796bd95987d5f34e7dab90",
+    "bytes": 1922
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/report.md": {
+    "sha256": "24fa7e0260c50ccae597aacc6ac5e52ee295783b5f7df7ca714899c59d7fb2aa",
+    "bytes": 2012
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/setup_report.md": {
+    "sha256": "d1cecdf5385dd96d3d69fd2b59f45796142cf90e547533dc75bb0a46dd36c021",
+    "bytes": 6783
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/ownership_regression.log": {
+    "sha256": "149e983c325e1215d8fe411fd58fb9c0fa38bc5dfa119c4a6a92d44ee61e3e10",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/cpu_validation.json": {
+    "sha256": "293f9a1a63a74875e181e710000c1a4f4117eec5aac3fe2a87a8443d3aa2d5e9",
+    "bytes": 2346
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/preflight.json": {
+    "sha256": "1074c87c9eb1b6dca1696933b6ee045f6dd7f08c13449158f9bc650f968a3f5f",
+    "bytes": 267
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/controller_tests.log": {
+    "sha256": "1698cf53738fece3fc128f68a2005bf90098cb09ffc528d80a18fe683159d622",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/runtime_manifest.json": {
+    "sha256": "e9b76898f215bb534dca68e2686b744e87a9c4d6eee1354277b40cc28eb78e51",
+    "bytes": 5268782
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/tests.log": {
+    "sha256": "980276795c5c6144506e3422da9f149b6f80ab6785c8be66f74bd4b5cf4411d8",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/source_check.json": {
+    "sha256": "db5848a02f3d295f6d531c75482ef1e65412b4e2c2b684cdc860f50579f0da74",
+    "bytes": 2943
+  },
+  "evaluation_report/robotwin10_epoch10_queue_20261113/dense_s12/progress.json": {
+    "sha256": "abe50c128af0c00ded7da0be7980c69c91e8e4493af912c146a8b14ebe5f306e",
+    "bytes": 5167
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/queue_review.json": {
+    "sha256": "34d89f0fb243fe188016179ab4882e2c2eecc367ff3ee4943f5fa599216d4a2b",
+    "bytes": 948
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/stop_request.json": {
+    "sha256": "806204521fc95a3fa98e28db5b7cfca14d62737f0652e23a84a3d0c9dd91866e",
+    "bytes": 441
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/campaign_source_manifest.json": {
+    "sha256": "b8d2586d480ff7b6af15f7e7db37c6168ae802cd87b5de1a61becd9af17c873a",
+    "bytes": 592
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/resume_scoring_verified_20261114.json": {
+    "sha256": "eda8d2623c4df7addb43da115c031d2f733340a6d22aefe00ca823c26b1231e1",
+    "bytes": 7404
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/resume_receipt.json": {
+    "sha256": "4ad6b7c00d32adf24cca19e252b0e8c4a9a000da58b0d807f6a6f0b815b1f66f",
+    "bytes": 806
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/clock_offset.json": {
+    "sha256": "068d60194f3bf5b619da8d7c3a509c97cf44ca9d10d1f9fe66d46a3f7901a8c8",
+    "bytes": 329
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/launch_verification.json": {
+    "sha256": "d4467626c5d31c370a22e705f625743e746d1da2d7666ff329d86e6f403fa747",
+    "bytes": 716
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/setup_report.md": {
+    "sha256": "5189e4a0a43186f839b655ea9629721148a4d77f7e1af190adaaa0265cdeb966",
+    "bytes": 6952
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/stop_verified.json": {
+    "sha256": "dc446b27759ad503a0bfe0f7450b5e6d05b59dd37393836c85bc6d1df60c5c26",
+    "bytes": 921
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/completion_verified_20261114.json": {
+    "sha256": "4751e7009182045db3ae49944a4339c8f2ea29876497c46ecfedfd050bf4b67e",
+    "bytes": 692
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/combined_progress.json": {
+    "sha256": "854cd5f15c73a47d9c91af488c7ddf289fe29094cf2c8635867ed7445fa18ca6",
+    "bytes": 869
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/clock_offset_resume_20261114.json": {
+    "sha256": "eb6934580d407f26d30efa9bd21dcaf4787948bf58ec44bd33c3ea3e20562fa4",
+    "bytes": 143
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/resume_20261114.md": {
+    "sha256": "321e0bfd15a5dfd0a4553ba517002748301e8cf776c6a8ed29f51562a59d5b21",
+    "bytes": 3923
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/migration_complete.json": {
+    "sha256": "391f364e7caef02e65cd7d4a6f3a487d4d957eee6ee68a6e56a0e9bd5a221f22",
+    "bytes": 441
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/progress.md": {
+    "sha256": "d62a6b62337c12eea0004f017d6e31441cada234b6fa2e0cc14545d128d2d80f",
+    "bytes": 527
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/migration.json": {
+    "sha256": "509bc4a6fbac5878d9c91e91d0732f12ce300a6c423e9f70a36599a50b385061",
+    "bytes": 1592
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/migration_eta.json": {
+    "sha256": "f0d50b6c2218f2d14681359917d980ed2b11fb7727ad6ff54103d949de35756c",
+    "bytes": 588
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/launch_receipt.json": {
+    "sha256": "afa1c1ef573a6f23f28b8950066169a6eeb436ad40e99bccb51c7bfed371e55b",
+    "bytes": 206
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/status.json": {
+    "sha256": "02c645460c84af0f8388ef07a91a050d912994a8c4b31d98bcb2edefa75f0451",
+    "bytes": 627
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/download_receipt.json": {
+    "sha256": "0b7fb2deed1f8b4a501ff0312d2c8a16f3a6c4f8ea2c6382e87a830cefb7dc63",
+    "bytes": 3657
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/calibration.json": {
+    "sha256": "4230e1317d5c5f6eb00e3098f0c5041ec52b0aecdbfcb2ce717e419888a17018",
+    "bytes": 1264
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/final_audit.json": {
+    "sha256": "466875fcb4bf191a744edc7b6eb6125d4809068e6227b093c776e024ac8bc3ce",
+    "bytes": 594
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/finalizer_status.json": {
+    "sha256": "bb8c2ea2b9e9c19a4a4753e9de0041d29d5c04a5248aae1ea60ea66b6206d8b1",
+    "bytes": 388
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/gpu_admission.json": {
+    "sha256": "cbf10da41fb9abdb6a295e84445260ad4a80d41abba1298e938362e5f6b4d4e7",
+    "bytes": 157
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/source_snapshot.json": {
+    "sha256": "3c0f7fb061a40755aeb1067ad82b07e33d69dbb1d3d1fd9734e2fc769d51a52c",
+    "bytes": 514328
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/graph_gate.json": {
+    "sha256": "48de438ed227d2590bac9fa734a0208278299cc93fb5fa8fe62fa90baff122f9",
+    "bytes": 1987
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/run_config.json": {
+    "sha256": "6824ae70d499dd6e8d476bcf3979bbdb2460a413ab12c64c00b3f0f044047e9f",
+    "bytes": 500
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/planned_protocol.json": {
+    "sha256": "92521e389c16a6ec6c6ead1553c62507fbabb23f5a557e9e9e9eb9f68b9df71d",
+    "bytes": 1151
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/queue_status.json": {
+    "sha256": "52e6a09cb47dd85fa59231037b7b9feb1196c0afdd6f94902a0adbeb699b65c1",
+    "bytes": 116
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/hf_manifest.json": {
+    "sha256": "f07e11bbebc3f2a4e5d04e5bd9d24e1914beae7de06f3baccd13a1c1c0f826c1",
+    "bytes": 2735
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/launch.json": {
+    "sha256": "1e2c22557a29e53a898e8eb783fe205b33133a194b726b3a76dadfb5c5ef1684",
+    "bytes": 1449
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/final_report.md": {
+    "sha256": "b0801a2215c106508c2d67b384bdcab058f5fb622bed41e16b7fbdfebf6f8fab",
+    "bytes": 3149
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/report.md": {
+    "sha256": "37913ba5e39e4d91453d56d3f008c25786791cc2ff090e55cddb1b58a3fd0cb9",
+    "bytes": 2137
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/setup_report.md": {
+    "sha256": "273ec2057146bfd8ee8be7cefca9b97f3188b02a9ebff230d4802bbad7b945da",
+    "bytes": 6775
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/episodes.csv": {
+    "sha256": "f01c8689912aaf34492adae6a40c08e49e164f935e51f8830341b712e7f56722",
+    "bytes": 840319
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/protocol_comparison.json": {
+    "sha256": "5d31779f1420a00c407de68835d107c806d997a2c396708a5f0011a4ad2807c7",
+    "bytes": 2961
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/cpu_validation.json": {
+    "sha256": "6c571c4e6718816e5e770ea3fd1d45f69b2469c49217a49158755525fe5a026f",
+    "bytes": 2363
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/preflight.json": {
+    "sha256": "f07baa7a3c230c406661a18d851621cc704d8b63fb2061627db91e2e56c83e62",
+    "bytes": 275
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/controller_tests.log": {
+    "sha256": "68d188c6babc66ada54b28504d11803b3b45bcc546caecc22ae6cb37c5e4a020",
+    "bytes": 196
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/runtime_manifest.json": {
+    "sha256": "a1a4c870718efad5069cbac21a5213cf61b69808851fa3839ba1a712a40037fa",
+    "bytes": 6833120
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/tests.log": {
+    "sha256": "7ad5db6dcb4037b36d39a6265ae12aceee1db3682a1975489b934ae1ce9e6e01",
+    "bytes": 100
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/task_results.csv": {
+    "sha256": "f3cf880ed263673d6f23c803165c67a7f27791e2c8fa6bc6f41b339617c9eb53",
+    "bytes": 1428
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/failed_attempts.json": {
+    "sha256": "9aea7ed182a48354ad314ba5eff7dadbcb671d805e0157783dc9754e16c85837",
+    "bytes": 507
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/source_check.json": {
+    "sha256": "cfc66937b0b40d4884f9c0a039ed61f60ff28428b4f5ef1645dca727fb9d84d1",
+    "bytes": 2979
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/COMPLETE.json": {
+    "sha256": "b14279d39a6bac9e7f4b192bdff14b1dbbbdbf8d2a4247213c0dd9d5120c6462",
+    "bytes": 1238658
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/final_results.json": {
+    "sha256": "3c8ba0dbd420b0931eff3df23b0bc626b150c10b89d8a56e3e703fba843b48a2",
+    "bytes": 4801
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/v0_1x4/progress.json": {
+    "sha256": "47f3cf262fb6dba30671595d41b46da6ffec11d0f120c704003933d9f2c0dbd4",
+    "bytes": 4753
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/download_receipt.json": {
+    "sha256": "0245c999aa579cf41f89c51af474adc629de06d594e89c4c878a85b4ba7f55fb",
+    "bytes": 3599
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/calibration.json": {
+    "sha256": "93d8f0a1e756a75ac681e569664d155f1049b555d7a006fdc8b179ca21368a1f",
+    "bytes": 1264
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/final_audit.json": {
+    "sha256": "f879caac676cdb152fec79ef90eaaa685ee8be9b84023957048189e89a83eb2f",
+    "bytes": 597
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/finalizer_status.json": {
+    "sha256": "07151ad438ea2e9f6b6660bb55b2beffb46f70512697337e22d7ae9ebe1a7d13",
+    "bytes": 388
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/gpu_admission.json": {
+    "sha256": "a394aa1d703ebeb0409354e403517b1c6334e154a48a0347dee563e52fa99632",
+    "bytes": 157
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/source_snapshot.json": {
+    "sha256": "f48a0fe19cf581b49cd11b4d0cac678d70a8f26624f58299b272e6c86ebef1b0",
+    "bytes": 520100
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/graph_gate.json": {
+    "sha256": "80e3066cea1942b492c26d8b84c2282609fd4515b18804be40f9f76ac4860ffb",
+    "bytes": 2011
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/run_config.json": {
+    "sha256": "c797569a6c5fd85c255792253adbd0d28a81bb16072cca32ba9b18878ee54e75",
+    "bytes": 502
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/planned_protocol.json": {
+    "sha256": "f96ae5764e8573e9a78f127d9c159e045fa993bea5a76511c1c041b4e3b373d4",
+    "bytes": 1143
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/queue_status.json": {
+    "sha256": "36c6a5b2869aa424204d08faa4791193157d1afed2ca8d0dc130de17e13614e8",
+    "bytes": 115
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/hf_manifest.json": {
+    "sha256": "941429c43110d03ad89d4c6808fc7e532bdec843cd0f57bb895f8330f8e19aa1",
+    "bytes": 2638
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/launch.json": {
+    "sha256": "1ac4bed70259612170bc60762b6d827140bb7b722bb7148f684701b213711099",
+    "bytes": 1458
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/carry_receipt.json": {
+    "sha256": "76983a930518e2a18c5ce7a4c16478aeeba7d7e14a9c7a95b5949668eebbdbb5",
+    "bytes": 2615
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/final_report.md": {
+    "sha256": "2e7725b2292deab8cc38b0fe76d02c0e007559bc7953462a6fcbe100e256cbaf",
+    "bytes": 3135
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/report.md": {
+    "sha256": "63a76961e01339ba73b961bdae4e23e27c9c48db4f0d1b98060ed6b0d1d91b4f",
+    "bytes": 2121
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/setup_report.md": {
+    "sha256": "e821e76896062b57fce1956d4f7b11efb48ed65d27825f32b072f976cb23cf6d",
+    "bytes": 6767
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/episodes.csv": {
+    "sha256": "19d369f1b3cfd60ddc87526604dfe157aea850a9554217a6ff1217d2e175e22d",
+    "bytes": 846732
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/protocol_comparison.json": {
+    "sha256": "5d31779f1420a00c407de68835d107c806d997a2c396708a5f0011a4ad2807c7",
+    "bytes": 2961
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/cpu_validation.json": {
+    "sha256": "69718f6a5983aada30e22e8852b1216034b1f28e8d392bb42251040f7660dc12",
+    "bytes": 2347
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/preflight.json": {
+    "sha256": "48583267db44d08ed00c3e20016202d443ecce1183140fe2472004d501fbd4b9",
+    "bytes": 267
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/controller_tests.log": {
+    "sha256": "cebf47924ff2caeed13a444e478646e556a9cbc4708485fd428c06e7b2038a90",
+    "bytes": 196
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/runtime_manifest.json": {
+    "sha256": "270b0d6aed692da476026b6ed9297fd6c67ee59d38eb88eb84b2a85a5b855d06",
+    "bytes": 6840843
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/tests.log": {
+    "sha256": "7ad5db6dcb4037b36d39a6265ae12aceee1db3682a1975489b934ae1ce9e6e01",
+    "bytes": 100
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/task_results.csv": {
+    "sha256": "098c5b06ecba666c132a55107bcba97936f6cbecd5d9c1ca4ad0824c866044e3",
+    "bytes": 1426
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/failed_attempts.json": {
+    "sha256": "4f4ff6b2c66083bf2fd77738fa2f83fb826ef7de36e27ec6592b00dee98e2593",
+    "bytes": 3073
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/source_check.json": {
+    "sha256": "ecc50b9e2f6cb9b7214525cfd4bb83b560066aeb7428f456804b690b26dac53b",
+    "bytes": 2979
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/COMPLETE.json": {
+    "sha256": "ace884fb346f8ef172dc12ca4fa34a430f238949a374576d3c43db0577d288f3",
+    "bytes": 1245151
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/final_results.json": {
+    "sha256": "3d9f267fa4e1f19c64cdac3996860abad527663babe780402790cfe2226ba9b9",
+    "bytes": 4799
+  },
+  "evaluation_report/robotwin10_epoch10_remote189_20261113/dense_s12/progress.json": {
+    "sha256": "b0cbf0d7aea4b9ed73eca73a6817df355ae58304557c6b0525a094ab2164ce58",
+    "bytes": 4761
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/download_receipt.json": {
+    "sha256": "efd7ca81db7e51cb3efb0893ecfe3a98117736d518db26cb498a2c3ced1d060d",
+    "bytes": 4987
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/queue_review.json": {
+    "sha256": "f16c16383efe3b42da191f59bf82e175b28f500e3168f36ed4339b24b08efa5a",
+    "bytes": 1487
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/calibration.json": {
+    "sha256": "c0631518b0241769cdacc821a5742d128eea6ee4fc6462008c0ce6485d07ccbe",
+    "bytes": 1984
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/final_audit.json": {
+    "sha256": "a6bffe27104516686facef74e19d6fe86c044293a12abc7ba4f614216e9e5f86",
+    "bytes": 452
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/finalizer_status.json": {
+    "sha256": "f03c52035214d069dc03ae24fe9648cc0c52f9c3108c4383eb899d6f03e0d447",
+    "bytes": 388
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/graph_gate.json": {
+    "sha256": "71e3f21d32d27c05d3a47ca891b8ef52224e8b7169ba78ffcda31ad778b81fac",
+    "bytes": 1917
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/planned_protocol.json": {
+    "sha256": "097bc10f304aae69d5e8997a3c40f4d965acef4aced6ba371bd0f31cb11d3b7b",
+    "bytes": 1152
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/queue_status.json": {
+    "sha256": "cebac51fc3f72ff3e032c16495d2374c10ec8d6e1366feba71b287770523af5c",
+    "bytes": 117
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/hf_manifest.json": {
+    "sha256": "b9625b8d53e51db0366124410eb4fe5911d9970e93a164ace80b99d8d83535c7",
+    "bytes": 2176
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/launch_verification.json": {
+    "sha256": "0c9e4b6c6bb3268820979184c1264775ca9bf6865a8dded3dabfe40d677d54f2",
+    "bytes": 2890
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/launch.json": {
+    "sha256": "9d95dd4ad44d5098c5950000627ae37f7d0786d7c4d452c178920747957d1c50",
+    "bytes": 1375
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/final_report.md": {
+    "sha256": "a5e5802c701c974c95abd50c42184b508bc387479ae471d5db5a97c234a8d393",
+    "bytes": 2740
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/report.md": {
+    "sha256": "91ee596ccc7138283bfb9f2f2b66490c9396afd988584ee758dc2a263d4ec16f",
+    "bytes": 2111
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/setup_report.md": {
+    "sha256": "1502740251eb9dc92f959245b1adb9c96ed1999b334f5737868bc18f8a73d65b",
+    "bytes": 8104
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/episodes.csv": {
+    "sha256": "26f0ee9ab7515111529d1ba8528bc54d25288bc8640a2848bdf9289f3461d083",
+    "bytes": 823791
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/protocol_comparison.json": {
+    "sha256": "3f49cebaad140fbc5f03ff1f5a262a1dc65dfe4db3c48dfaaea9219a5fc652bd",
+    "bytes": 2942
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/resource_recovery.json": {
+    "sha256": "4fdce884e3d815b2c2630e2357d846338452e6019ef0030f53e34cf8d0dcc0ce",
+    "bytes": 16693
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/cpu_validation.json": {
+    "sha256": "9b95f8da17d59665c5afa6e15d5755968d2be2c26c0b0f964fea5f6b421120c6",
+    "bytes": 2364
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/preflight.json": {
+    "sha256": "884638306dc72ecae84e359d0e1eeb6ff75b14fcdaa576833ef25e996bade3d1",
+    "bytes": 275
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/runtime_manifest.json": {
+    "sha256": "d5df4c1e7d44a91bd7c8226e27b6c8ffaec2fcbebecb5f8d9a301b69be6b6762",
+    "bytes": 4559889
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/resource_recovery_validated_cells.json": {
+    "sha256": "f5307f1f4222bc14ae5999e4d530d4fed0df4d9b39574412013d780149dfb3a2",
+    "bytes": 407
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/tests.log": {
+    "sha256": "980276795c5c6144506e3422da9f149b6f80ab6785c8be66f74bd4b5cf4411d8",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/task_results.csv": {
+    "sha256": "f5ce1657b5088c7df1823d5f8f1e312108018bd3633e641214ab510df4cac633",
+    "bytes": 1423
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/resource_recovery_launch_verified.json": {
+    "sha256": "13fdccc2b48ee5e3b2b84a62b986cf9aff3badc04a5e5ce007474332d9a84a11",
+    "bytes": 744
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/failed_attempts.json": {
+    "sha256": "2f65e9b0fac3a18dea7566e969cfaeb4df12bbdb28d538d6ca777383b637e1d1",
+    "bytes": 3387
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/source_check.json": {
+    "sha256": "734a69c685eab5ab0f910f58ad99d06bfa41a3d79bcdc4f2bd81117e2548098d",
+    "bytes": 2909
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/resource_recovery.md": {
+    "sha256": "ee79786abce9a131efe84bac7e802873dcfb5e4932722b32b1c6d0cbb00ccec3",
+    "bytes": 3028
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/COMPLETE.json": {
+    "sha256": "35b899a6fbd9cf152d2bf3ba314f07da577067e78f9ff41eb318d9e2ce62f1b1",
+    "bytes": 1221954
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/final_results.json": {
+    "sha256": "ccd10e323eca1d76d6eeaf150d19e0c99c490898ccebc97084fc5dff8008841a",
+    "bytes": 4796
+  },
+  "evaluation_report/robotwin10_v0_4x1_epoch10_20261108/progress.json": {
+    "sha256": "7faba491cefc93178fbde87be382bad843c30d7ed6aa88713a70f00f4b6b0b61",
+    "bytes": 4676
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/spec.md": {
+    "sha256": "818fec72418d9439c68f03c942a3b55929bd5fe9a0e63f86899b204d4d14f8df",
+    "bytes": 778
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/prior_checks.json": {
+    "sha256": "774a5ff251b56daa5b637415354396b02d9670544d6fba4d7336d82eceed2232",
+    "bytes": 770
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/download_receipt.json": {
+    "sha256": "b0900d13bcf69609be146600fbf8e45f80e46ca14db94c1716bf14d362b85fbe",
+    "bytes": 4923
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/calibration.json": {
+    "sha256": "8acd128d126b22727d0e5a89b4a68d9f475cb95fbaa571f6a138983606471603",
+    "bytes": 1267
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/final_audit.json": {
+    "sha256": "9517f5ee81fffde6a832c99cac1065aa564067a4085a07eb0616bef36c71389a",
+    "bytes": 449
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/finalizer_status.json": {
+    "sha256": "a5c4562d0b95867253fd4c7cdb9d4d3e39bb43989c6ad84768fcc9f087c512a0",
+    "bytes": 388
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/graph_gate.json": {
+    "sha256": "80aef2793f26f1dd0fd1ddd7721d8a250998923a90073f59769866dab02e4f99",
+    "bytes": 1942
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launch_review_tests.log": {
+    "sha256": "1698cf53738fece3fc128f68a2005bf90098cb09ffc528d80a18fe683159d622",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/renderer_guard_tests.log": {
+    "sha256": "a6707d4eff38012da33ddc34bc6dc076a3b17151cfc9aef223c8790cbe64c3da",
+    "bytes": 100
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/review_gate.json": {
+    "sha256": "e6e727ac905d8130deca25a4017af82c8f7e5bc95428ecb9da6cf51cf6deb929",
+    "bytes": 260
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/planned_protocol.json": {
+    "sha256": "deb4963f8b9f01fb14e555de6710b22527f0873da65fad52b8a0350070ac5c64",
+    "bytes": 1177
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/queue_status.json": {
+    "sha256": "f61db503939622f93111f1bab3562dc3488c9141388241c359b33100901f4a72",
+    "bytes": 116
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/hf_manifest.json": {
+    "sha256": "03854a1cae682f76e1f35ed25b73fc34a09c915a1f6db97bf75c1334f35f10e1",
+    "bytes": 2386
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launch_verification.json": {
+    "sha256": "e6f83418626fada867bdff34aeccf307c3ec7eaf321802fdf9b1f18741047f01",
+    "bytes": 983
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launch.json": {
+    "sha256": "c618b91067a7aaa494c9288bc6f5d4b3435e6a4d5edab83011cff698684d6777",
+    "bytes": 1379
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/plan.md": {
+    "sha256": "77ea8db5ba3744d3cb692c403c32b0904758f73d7aebdb73687fb157704d1aab",
+    "bytes": 2166
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/README.md": {
+    "sha256": "d5c464553fe21af67a79dbee4e53744b4d06c1d4776fcc9760efde7814488ad8",
+    "bytes": 720
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/final_report.md": {
+    "sha256": "49a1098934e68db18e8e5182ac78dcf103d40fe97d626a656d237d59be86c7a4",
+    "bytes": 2759
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/report.md": {
+    "sha256": "dd490d2050b2e30e7e996e58ecc263ee3cc3198d4ec0d17978c408b0dfcc6ccf",
+    "bytes": 2108
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/setup_report.md": {
+    "sha256": "ebbe2bb66e4a1055b17e7d59652b3af7290f8380b7047f5a9b114a15686f1da6",
+    "bytes": 7817
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/episodes.csv": {
+    "sha256": "9ae77aa4f385cf6768e0548bc84309f2bc6f79fd28bb4ab26d205db1e17fafbd",
+    "bytes": 828508
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/protocol_comparison.json": {
+    "sha256": "3f49cebaad140fbc5f03ff1f5a262a1dc65dfe4db3c48dfaaea9219a5fc652bd",
+    "bytes": 2942
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/eta_snapshot.json": {
+    "sha256": "6082040a8d0b59c878b86aa54a2d1555a8f0cc2463be9052cf747074a1bbfb00",
+    "bytes": 1583
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_tests.log": {
+    "sha256": "d5be81bbe49b412357ba177be7fae47b32ba70b563d2a01ec6ee15df362cc215",
+    "bytes": 98
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/download_relay_receipt.json": {
+    "sha256": "66f0af9a3f45dd781d948ffd487c36d057f093181f5324866b0cb96d0727dd6e",
+    "bytes": 3612
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/queue_launch.json": {
+    "sha256": "e02999037a48801ac42248d66e994e9fa88dc0ab9004a45d24e151cb048b53ae",
+    "bytes": 391
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/cpu_validation.json": {
+    "sha256": "eeeaa21c2bb38991f02f0ff3debe5acbd429d3c1d85e67e969bc8662135fdbd6",
+    "bytes": 2347
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/preflight.json": {
+    "sha256": "1074c87c9eb1b6dca1696933b6ee045f6dd7f08c13449158f9bc650f968a3f5f",
+    "bytes": 267
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/runtime_manifest.json": {
+    "sha256": "633ad0c8d8388b9f36b9f331f756ae6b468acc77561c1d1d27c2192d1740142a",
+    "bytes": 4743923
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/tests.log": {
+    "sha256": "e0933307a952c10242855dadb7a89048fc8c20b7a8beeacfc0c0792f4af97c4f",
+    "bytes": 613
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/task_results.csv": {
+    "sha256": "9ac950a16f5acb38c7a3487de7e0efa2232575c81d50bf96c91ad841e71842af",
+    "bytes": 1431
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/review.md": {
+    "sha256": "e0200e4d95fbff67ef39f16cbe97ea8c2c3e4c843bf374b5bd3f2beb5df47121",
+    "bytes": 964
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/failed_attempts.json": {
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/source_check.json": {
+    "sha256": "cabf40a98b442aac94f24515406ff7ce5200c45c02974cef0222e8fde53176a2",
+    "bytes": 2943
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/COMPLETE.json": {
+    "sha256": "ddef79f042a37a0f144f242d2d2370161587fdcb26cfe62a731b180cbbc255fc",
+    "bytes": 1226747
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/final_results.json": {
+    "sha256": "63233872ea28a004163f9842471f5bf30e934d95db145f2e91e58734de3347ec",
+    "bytes": 4804
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/progress.json": {
+    "sha256": "fb9cc8a0b177eef86dabad76941179cf93c2a04ae749e0b4532efb6098267ee2",
+    "bytes": 4682
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/start_queue.sh": {
+    "sha256": "dfcafdeefdcad45a321e786f4d40d226b8ff4ad1ebbffff9360347c69a8f6398",
+    "bytes": 337
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/finalize_results.py": {
+    "sha256": "1c1e9110c3ac5241d2d6212d5ebe714ec9ee865f721ef0596155aa8e2308dd5a",
+    "bytes": 9231
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/queue_pipeline.py": {
+    "sha256": "b889e8f65a24708b717101cd9dadb4bfa4743ad111e5af784dab9baf911e676e",
+    "bytes": 6240
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/calibrate.py": {
+    "sha256": "d02648b5a6ad526e67f95417d6694c5372aad16d6c46473beb1fc3e4db60e6f3",
+    "bytes": 3657
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/robotwin_local_queue.py": {
+    "sha256": "a7bf03405c00f28cdb808ef1568ab08cfcb10d26aaa02d77014a8b212e076cff",
+    "bytes": 3733
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/verify_runtime.py": {
+    "sha256": "0b9a27e8ac14d8cdfecdb9e03e8f1351741a373aa4f9dd09aa7657ea2736b4af",
+    "bytes": 4216
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/cpu_validate.py": {
+    "sha256": "e839308110f1f63c939683d94883f049d69f8ec19d6933029913287f33f7b90a",
+    "bytes": 1820
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/graph_gate.py": {
+    "sha256": "a422b9ea629dd60c236986220e6f95f4293afa2233e91a5078dd2d6672ffbb37",
+    "bytes": 2013
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/test_calibration.py": {
+    "sha256": "594a2aaf879d908c4bcc61221571c076515e30e35539950ed1d2d424119058eb",
+    "bytes": 2573
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/test_source_binding.py": {
+    "sha256": "db63e7ebc45234aecf923281891f7906be15745d66488f284c40a4166b8f2d69",
+    "bytes": 1278
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/test_queue_cleanup.py": {
+    "sha256": "b6b839d8387dacabb629d9cebf2c732e8fe89b3052afe53e290919c7ea58db9c",
+    "bytes": 1857
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/test_renderer_guard.py": {
+    "sha256": "c4bd91f61a84d619455899acb08f3d255f7cba4945bc01ca2fe43adf157edde5",
+    "bytes": 1008
+  },
+  "evaluation_report/robotwin10_dense_s12_epoch10_20261109/launcher_source/scripts/robotwin_local_report.py": {
+    "sha256": "a253687244175c0afa90cf03d5672dfd03b3bbb470c6e848a797a28b9f6e14bc",
+    "bytes": 3220
+  },
+  "evaluation_report/all_results.md": {
+    "sha256": "c5da1fd4d7bb47884b1ef15e3c875549f0960dc09fe349fa30c9811ca4ef40c1",
+    "bytes": 26272
+  },
+  "evaluation_report/README.md": {
+    "sha256": "c607d62f048e6e2f1a58c5a0961ea51794aa4277bc2bb50b9b0164a5990954b6",
+    "bytes": 7592
+  }
+}
