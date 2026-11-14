@@ -1,0 +1,12 @@
+{
+  "verified_unix_local": 1794554430.1491668,
+  "local_evaluation_workers_remaining": 0,
+  "original_completed_results_unchanged": true,
+  "mirror_live": true,
+  "remote_scoring_confirmed": true,
+  "remote_campaign_pid": 35152,
+  "remote_evaluator_pid": 40974,
+  "new_remote_scored_episodes_observed": 5,
+  "next_model": "v0_1x4",
+  "report_directory": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_epoch10_remote189_20261113"
+}

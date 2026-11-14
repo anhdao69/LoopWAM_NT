@@ -1,0 +1,121 @@
+{
+  "tasks": {
+    "current": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "baseline": [
+      "adjust_bottle",
+      "grab_roller",
+      "hanging_mug",
+      "move_stapler_pad",
+      "open_microwave",
+      "press_stapler",
+      "scan_object",
+      "stack_blocks_two",
+      "stamp_seal",
+      "turn_switch"
+    ],
+    "equal": true
+  },
+  "settings": {
+    "current": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "baseline": [
+      "demo_clean",
+      "demo_randomized"
+    ],
+    "equal": true
+  },
+  "episodes": {
+    "current": 100,
+    "baseline": 100,
+    "equal": true
+  },
+  "seed": {
+    "current": 42,
+    "baseline": 42,
+    "equal": true
+  },
+  "instruction_type": {
+    "current": "unseen",
+    "baseline": "unseen",
+    "equal": true
+  },
+  "num_inference_steps": {
+    "current": 10,
+    "baseline": 10,
+    "equal": true
+  },
+  "action_horizon": {
+    "current": 32,
+    "baseline": 32,
+    "equal": true
+  },
+  "replan_steps": {
+    "current": 24,
+    "baseline": 24,
+    "equal": true
+  },
+  "noise_seed": {
+    "current": "fixed seed for every query, FastWAM default",
+    "baseline": "fixed seed for every query, FastWAM default",
+    "equal": true
+  },
+  "image_preprocessing": {
+    "current": "released_fastwam_pil_uint8_bf16",
+    "baseline": "released_fastwam_pil_uint8_bf16",
+    "equal": true
+  },
+  "instruction_rng": {
+    "current": "released_fastwam_no_explicit_python_seed",
+    "baseline": "released_fastwam_no_explicit_python_seed",
+    "equal": true
+  },
+  "cuda_graph": {
+    "current": "1",
+    "baseline": "1",
+    "equal": true
+  },
+  "compile_action_infer": {
+    "current": false,
+    "baseline": false,
+    "equal": true
+  },
+  "renderer_shader": {
+    "current": "rt",
+    "baseline": "rt",
+    "equal": true
+  },
+  "harness_sha256": {
+    "current": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+    "baseline": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+    "equal": true
+  },
+  "policy_sha256": {
+    "current": "64d32d2b25a362a151e84377a4929367c543b6f23b43fc60010aae51d742475e",
+    "baseline": "64d32d2b25a362a151e84377a4929367c543b6f23b43fc60010aae51d742475e",
+    "equal": true
+  },
+  "vae_sha256": {
+    "current": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "baseline": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "equal": true
+  },
+  "normalization_json_equal": true,
+  "normalization_encoding": {
+    "current_raw_sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "baseline_raw_sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+    "note": "Different JSON encoding, identical parsed values and canonical hash"
+  }
+}

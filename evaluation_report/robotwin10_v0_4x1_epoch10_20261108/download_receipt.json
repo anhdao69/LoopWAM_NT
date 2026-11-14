@@ -1,0 +1,84 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "539a5a26d01054262220bd33236b0d3a03a91890",
+  "files": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/README.md",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/README.md",
+      "sha256": "a6cca3caf6a2b94b1ddc287148d1c0a2e20db7f3712fda7164bda27b86f5070c",
+      "size": 3268,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/README.md"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/SHA256SUMS",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/SHA256SUMS",
+      "sha256": "ac5cf36ef8ef8c46df700e572120987b757eef5c47974d585297c79e3ea75540",
+      "size": 848,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/SHA256SUMS"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/checkpoint_provenance.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/checkpoint_provenance.json",
+      "sha256": "f9c77590b6da0ce209648577771d8c5303c3c852c91777b54d7c8a946c6e834c",
+      "size": 762,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/checkpoint_provenance.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/config.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/config.json",
+      "sha256": "f1004ea56edb82a25472c04dd3fc89ff10a4e6592213d621708b46ac0c6cf99f",
+      "size": 3858,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/config.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/data_provenance.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/data_provenance.json",
+      "sha256": "5a1dce0a31014e99145cf3366179b76cea18c4d274754ee35da22127c3ad7a7a",
+      "size": 1707,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/data_provenance.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/dataset_stats.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/dataset_stats.json",
+      "sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+      "size": 88716,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/dataset_stats.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/training_metrics.jsonl.gz",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/training_metrics.jsonl.gz",
+      "sha256": "c6b75c4f52d3dae146a7e6f8d8e618136ee5d37cc8494aa2110de15949da60fa",
+      "size": 3192943,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/training_metrics.jsonl.gz"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/training_state.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/training_state.json",
+      "sha256": "5ab054404af450700e25d3f07a87a729b16107c14f9832ea50407c45372892cb",
+      "size": 1953,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/training_state.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/training_summary.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/training_summary.json",
+      "sha256": "b574bd6a0d07eb1cb8a184d2074fb4a5712a2a8a1951ace530607992d3f2303b",
+      "size": 1223,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/training_summary.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/training_timing.json",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/training_timing.json",
+      "sha256": "b126a50ada8029da4cb2f477b4f045c8c9a1cd1d11539088c46418dc8c865cbb",
+      "size": 792,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/training_timing.json"
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/policy.pt",
+      "remote": "robotwin-10/v0-video4-action1/epoch_10/policy.pt",
+      "sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+      "size": 2338752101,
+      "relay_path": "/media/vmo-perception/disk_2/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108_download/checkpoint/policy.pt"
+    }
+  ],
+  "finished_unix": 1794156923.068306
+}

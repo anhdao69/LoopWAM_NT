@@ -1,0 +1,41 @@
+{
+  "verified_unix": 1794548692.6124957,
+  "resumed": true,
+  "campaign_pid": 642254,
+  "evaluator_pid": 642323,
+  "current": "dense_s12",
+  "next": "v0_1x4",
+  "completed_4x2_2x2_audits_preserved": true,
+  "new_attempts": [
+    {
+      "cell": "adjust_bottle__demo_clean",
+      "attempt": "attempt_02",
+      "episodes": 2,
+      "successes": 2
+    },
+    {
+      "cell": "adjust_bottle__demo_randomized",
+      "attempt": "attempt_02",
+      "episodes": 2,
+      "successes": 2
+    },
+    {
+      "cell": "grab_roller__demo_clean",
+      "attempt": "attempt_02",
+      "episodes": 6,
+      "successes": 6
+    },
+    {
+      "cell": "grab_roller__demo_randomized",
+      "attempt": "attempt_02",
+      "episodes": 4,
+      "successes": 4
+    }
+  ],
+  "new_logged_episodes": 14,
+  "new_logged_successes": 14,
+  "protocol_unchanged": true,
+  "fresh_graph_gate_passed": true,
+  "failed_cells": [],
+  "note": "Partial progress is provisional; prior28interruptedepisodes remain excluded. No new final SR claimed."
+}

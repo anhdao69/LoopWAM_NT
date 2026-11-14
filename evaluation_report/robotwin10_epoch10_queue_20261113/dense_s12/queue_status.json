@@ -1,0 +1,6 @@
+{
+  "stage": "stopped_by_user",
+  "updated_unix": 1794551517.4429612,
+  "queue_pid": 642255,
+  "error": "Traceback (most recent call last):\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 81, in <module>\n    try:main()\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 74, in main\n    if not (B/'results/COMPLETE.json').exists():run('controller',[sys.executable,str(B/'scripts/robotwin_local_queue.py')])\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 30, in run\n    time.sleep(2)\n  File \"/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/runs/dense_s12/scripts/queue_pipeline.py\", line 49, in stop\n    def stop(*_):raise KeyboardInterrupt('Stopped by user')\nKeyboardInterrupt: Stopped by user\n"
+}
