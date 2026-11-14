@@ -1,0 +1,22 @@
+{
+  "deterministic": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "finite": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "peak_gib": 3.706878662109375,
+  "phase": "v0_campaign",
+  "tree": "/data/anh/code/LoopWAM-robotwin-campaign-9cdceaa",
+  "seconds": 38.49755597114563,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}

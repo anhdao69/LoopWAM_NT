@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Use the left arm to grab the bottle with red screw cap head-up.",
+      "deterministic": true,
+      "tokens": 34,
+      "finite": true,
+      "padding_zero": true,
+      "abs_mean": 0.014488930813968182
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Grab the bottle with red screw cap on the table and raise it.",
+      "deterministic": true,
+      "tokens": 32,
+      "finite": true,
+      "padding_zero": true,
+      "abs_mean": 0.013365589082241058
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Use the right arm to grab the bottle the plastic soda bottle",
+      "deterministic": true,
+      "tokens": 30,
+      "finite": true,
+      "padding_zero": true,
+      "abs_mean": 0.013448505662381649
+    },
+    {
+      "prompt": "A video recorded from a robot's point of view executing the following instruction: Lift the green bottle from the table using the right arm.",
+      "deterministic": true,
+      "tokens": 30,
+      "finite": true,
+      "padding_zero": true,
+      "abs_mean": 0.012984624132514
+    }
+  ],
+  "peak_gib": 0.38588476181030273,
+  "phase": "contexts",
+  "tree": "/data/anh/code/LoopWAM-robotwin-eval",
+  "seconds": 130.89359045028687,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}

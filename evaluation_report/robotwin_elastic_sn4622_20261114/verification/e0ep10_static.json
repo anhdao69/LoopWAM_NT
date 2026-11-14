@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "checks": {
+    "export_sha256_matches_release": true,
+    "teacher_sha256_matches_release": true,
+    "format": true,
+    "metadata_equal_teacher": true,
+    "frozen_mot_equal_fp32_teacher": true,
+    "proprio_equal_teacher": true,
+    "frozen_all_fp32": true,
+    "mot_action_equals_student": true,
+    "student_keys_equal_teacher_action": true,
+    "student_fp32": true,
+    "student_trained": true,
+    "student_finite": true,
+    "step_condition_present": true,
+    "transport_config": true,
+    "step_and_update": true,
+    "epoch_end": true,
+    "parent_step": true,
+    "parent_training_state_equals_teacher": true,
+    "contract_teacher_sha256": true,
+    "contract_vae_sha256": true,
+    "contract_normalization": true,
+    "merged_lora_false": true
+  },
+  "frozen": "339 tensors bit-equal",
+  "proprio": "2 tensors bit-equal",
+  "student_tensors_changed": "338/338",
+  "hashes": {
+    "export": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+    "teacher": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea",
+    "vae": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "stats": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095"
+  },
+  "canonical_stats_sha256": "38ed9c8d466356fb8f4688da470b14a036dbc51e0fc5484cc5959b507adbcd48",
+  "kind": "T0",
+  "schedules": [
+    "flat_k1_n2",
+    "flat_k1_n5",
+    "flat_k1_n10",
+    "flat_k2_n2",
+    "flat_k2_n5",
+    "flat_k2_n10",
+    "flat_k4_n2",
+    "flat_k4_n5",
+    "flat_k4_n10"
+  ],
+  "step": 237310,
+  "epoch": 5,
+  "parent": {
+    "name": "LoopWAM-v0-full-RoboTwin epoch 10",
+    "repository": "anhdao69/LoopWAM_NT",
+    "file": "robotwin/v0-video4-action4/epoch_10/policy.pt",
+    "format": "loopwam-s-robot-v1",
+    "step": 474620,
+    "sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea"
+  },
+  "trainable_parameters": null,
+  "started": 1794421408.401407,
+  "finished": 1794421424.3357918
+}
