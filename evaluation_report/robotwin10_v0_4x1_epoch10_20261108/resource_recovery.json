@@ -1,0 +1,531 @@
+{
+  "reason": "Eight-worker long-run GPU exhaustion after short calibration; reduce to four workers under the same inference protocol",
+  "observed_unix": 1794160507.4048798,
+  "supervisor": {
+    "pid": 1174420,
+    "start_ticks": "65130964",
+    "command": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/env/bin/python /data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/scripts/queue_pipeline.py "
+  },
+  "before_progress": {
+    "updated_unix": 1794160502.1183884,
+    "episodes": 506,
+    "successes": 390,
+    "planned": 2000,
+    "completed_cells": 2,
+    "running_cells": 8,
+    "failed": [],
+    "finished": false,
+    "cells": [
+      {
+        "task": "adjust_bottle",
+        "setting": "demo_clean",
+        "status": "running",
+        "episodes": 70,
+        "successes": 70
+      },
+      {
+        "task": "adjust_bottle",
+        "setting": "demo_randomized",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "grab_roller",
+        "setting": "demo_clean",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "grab_roller",
+        "setting": "demo_randomized",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "hanging_mug",
+        "setting": "demo_clean",
+        "status": "running",
+        "episodes": 50,
+        "successes": 26
+      },
+      {
+        "task": "hanging_mug",
+        "setting": "demo_randomized",
+        "status": "running",
+        "episodes": 28,
+        "successes": 11
+      },
+      {
+        "task": "move_stapler_pad",
+        "setting": "demo_clean",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "move_stapler_pad",
+        "setting": "demo_randomized",
+        "status": "complete",
+        "episodes": 100,
+        "successes": 73
+      },
+      {
+        "task": "open_microwave",
+        "setting": "demo_clean",
+        "status": "running",
+        "episodes": 39,
+        "successes": 30
+      },
+      {
+        "task": "open_microwave",
+        "setting": "demo_randomized",
+        "status": "running",
+        "episodes": 29,
+        "successes": 19
+      },
+      {
+        "task": "press_stapler",
+        "setting": "demo_clean",
+        "status": "complete",
+        "episodes": 100,
+        "successes": 83
+      },
+      {
+        "task": "press_stapler",
+        "setting": "demo_randomized",
+        "status": "running",
+        "episodes": 81,
+        "successes": 71
+      },
+      {
+        "task": "scan_object",
+        "setting": "demo_clean",
+        "status": "running",
+        "episodes": 9,
+        "successes": 7
+      },
+      {
+        "task": "scan_object",
+        "setting": "demo_randomized",
+        "status": "running",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "stack_blocks_two",
+        "setting": "demo_clean",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "stack_blocks_two",
+        "setting": "demo_randomized",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "stamp_seal",
+        "setting": "demo_clean",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "stamp_seal",
+        "setting": "demo_randomized",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "turn_switch",
+        "setting": "demo_clean",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      },
+      {
+        "task": "turn_switch",
+        "setting": "demo_randomized",
+        "status": "pending",
+        "episodes": 0,
+        "successes": 0
+      }
+    ],
+    "launch": {
+      "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "status": "running",
+      "started_unix": 1794157629.4085567,
+      "workers": 8,
+      "backend": "cuda-graph",
+      "planned_episodes": 2000,
+      "command": [
+        "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/env/bin/python",
+        "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+        "--checkpoint",
+        "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/policy.pt",
+        "--output-dir",
+        "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results",
+        "--robotwin-root",
+        "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+        "--data-dir",
+        "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint",
+        "--gpus",
+        "0",
+        "--per-gpu",
+        "8",
+        "--episodes",
+        "100",
+        "--seed",
+        "42",
+        "--expected-step",
+        "90890",
+        "--tasks",
+        "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+        "--max-attempts",
+        "3",
+        "--no-progress-timeout",
+        "1800"
+      ],
+      "pid": 1180838,
+      "start_ticks": "65181850",
+      "variant": "v0-video4-action1",
+      "epoch": 10,
+      "expected_step": 90890,
+      "hf_revision": "539a5a26d01054262220bd33236b0d3a03a91890"
+    }
+  },
+  "completed_cell_precheck": [
+    {
+      "cell": "move_stapler_pad/demo_randomized",
+      "successes": 73,
+      "episodes": 100,
+      "resource_errors": [],
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/move_stapler_pad__demo_randomized/attempt_01"
+    },
+    {
+      "cell": "press_stapler/demo_clean",
+      "successes": 83,
+      "episodes": 100,
+      "resource_errors": [],
+      "directory": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/press_stapler__demo_clean/attempt_01"
+    }
+  ],
+  "failed_attempts": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/move_stapler_pad__demo_clean/attempt_01/failure.json",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 75
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_clean/attempt_01/failure.json",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 26
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_randomized/attempt_01/failure.json",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 43
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/adjust_bottle__demo_randomized/attempt_01/failure.json",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 35
+    }
+  ],
+  "old_launch": {
+    "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+    "status": "running",
+    "started_unix": 1794157629.4085567,
+    "workers": 8,
+    "backend": "cuda-graph",
+    "planned_episodes": 2000,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/env/bin/python",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/policy.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results",
+      "--robotwin-root",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "8",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "90890",
+      "--tasks",
+      "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "pid": 1180838,
+    "start_ticks": "65181850",
+    "variant": "v0-video4-action1",
+    "epoch": 10,
+    "expected_step": 90890,
+    "hf_revision": "539a5a26d01054262220bd33236b0d3a03a91890"
+  },
+  "old_calibration": {
+    "checkpoint_sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+    "profiles": [
+      {
+        "name": "smoke_graph_w4",
+        "workers": 4,
+        "backend": "cuda-graph",
+        "passed": true,
+        "episodes": 16,
+        "tasks": [
+          "adjust_bottle",
+          "grab_roller",
+          "press_stapler",
+          "scan_object"
+        ],
+        "episodes_per_cell": 2,
+        "seconds": 238.04006123542786,
+        "peak_gpu_mib": 50641,
+        "peak_added_mib": 50589,
+        "memory_margin_mib": 47246,
+        "successes": 16
+      },
+      {
+        "name": "smoke_graph_w8",
+        "workers": 8,
+        "backend": "cuda-graph",
+        "passed": true,
+        "episodes": 16,
+        "tasks": [
+          "adjust_bottle",
+          "grab_roller",
+          "press_stapler",
+          "scan_object"
+        ],
+        "episodes_per_cell": 2,
+        "seconds": 193.70705366134644,
+        "peak_gpu_mib": 72518,
+        "peak_added_mib": 72466,
+        "memory_margin_mib": 25369,
+        "successes": 16
+      }
+    ],
+    "selected": {
+      "name": "smoke_graph_w8",
+      "workers": 8,
+      "backend": "cuda-graph",
+      "passed": true,
+      "episodes": 16,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "press_stapler",
+        "scan_object"
+      ],
+      "episodes_per_cell": 2,
+      "seconds": 193.70705366134644,
+      "peak_gpu_mib": 72518,
+      "peak_added_mib": 72466,
+      "memory_margin_mib": 25369,
+      "successes": 16
+    },
+    "finished_unix": 1794157614.4331555,
+    "basis": "Fastest 4/8-worker same-checkpoint16-episode profile with at least10000MiB total-memory margin. Same tasks and protocol; short trial and unseeded instructions limit precise speed extrapolation. All calibration episodes excluded."
+  },
+  "recovered_workers": 4,
+  "protocol_unchanged": true,
+  "all_old_workers_exited": true,
+  "verified_cells": {
+    "passed": true,
+    "checked_unix": 1794160595.1915941,
+    "cells": [
+      {
+        "cell": "move_stapler_pad/demo_randomized",
+        "successes": 73,
+        "episodes": 100,
+        "verified": true
+      },
+      {
+        "cell": "press_stapler/demo_clean",
+        "successes": 83,
+        "episodes": 100,
+        "verified": true
+      }
+    ],
+    "successes": 156,
+    "episodes": 200,
+    "partial_attempts_excluded": true
+  },
+  "excluded_attempts": [
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/adjust_bottle__demo_clean/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 70,
+      "stopped_unix": 1794160637.0976262
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/adjust_bottle__demo_randomized/attempt_01",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 35
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_clean/attempt_01",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 26
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/grab_roller__demo_randomized/attempt_01",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 43
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/hanging_mug__demo_clean/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 50,
+      "stopped_unix": 1794160637.098114
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/hanging_mug__demo_randomized/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 28,
+      "stopped_unix": 1794160637.0983114
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/move_stapler_pad__demo_clean/attempt_01",
+      "error": "Worker exit1",
+      "exit_code": 1,
+      "episodes": 75
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/open_microwave__demo_clean/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 39,
+      "stopped_unix": 1794160637.0985913
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/open_microwave__demo_randomized/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 29,
+      "stopped_unix": 1794160637.0987635
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/press_stapler__demo_randomized/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 81,
+      "stopped_unix": 1794160637.0989237
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/scan_object__demo_clean/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 10,
+      "stopped_unix": 1794160637.0990252
+    },
+    {
+      "path": "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results/scan_object__demo_randomized/attempt_01",
+      "error": "Interrupted by assistant to recover from eight-worker long-run GPU exhaustion; excluded from SR",
+      "exit_code": -15,
+      "episodes": 0,
+      "stopped_unix": 1794160637.0990949
+    }
+  ],
+  "first_segment_finished_unix": 1794160511.1264582,
+  "first_segment_elapsed_seconds": 2881.717901468277,
+  "resumed_launch": {
+    "code_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+    "status": "running",
+    "started_unix": 1794160676.5303233,
+    "workers": 4,
+    "backend": "cuda-graph",
+    "planned_episodes": 2000,
+    "command": [
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/env/bin/python",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/scripts/evaluate_loopwam_robotwin.py",
+      "--checkpoint",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint/policy.pt",
+      "--output-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/results",
+      "--robotwin-root",
+      "/storage/anhdh35/LoopWAM-robotwin10-dense-eval/third_party/RoboTwin",
+      "--data-dir",
+      "/data14t/anhdh35/loopwam_robotwin10_v0_4x1_epoch10_20261108/checkpoint",
+      "--gpus",
+      "0",
+      "--per-gpu",
+      "4",
+      "--episodes",
+      "100",
+      "--seed",
+      "42",
+      "--expected-step",
+      "90890",
+      "--tasks",
+      "adjust_bottle,grab_roller,hanging_mug,move_stapler_pad,open_microwave,press_stapler,scan_object,stack_blocks_two,stamp_seal,turn_switch",
+      "--max-attempts",
+      "3",
+      "--no-progress-timeout",
+      "1800"
+    ],
+    "pid": 1275736,
+    "start_ticks": "65486563",
+    "variant": "v0-video4-action1",
+    "epoch": 10,
+    "expected_step": 90890,
+    "hf_revision": "539a5a26d01054262220bd33236b0d3a03a91890"
+  },
+  "recovery_launch_verified": {
+    "passed": true,
+    "verified_unix": 1794160834.1292784,
+    "evaluator_pid": 1275736,
+    "workers": 4,
+    "checkpoint_sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+    "manifest_sha256": "635a54bc23872700f3dea4b3250324d0823e2856f71bf98f31f8a6219ebcf51e",
+    "active_attempts": [
+      {
+        "cell": "adjust_bottle__demo_clean",
+        "queries": 23,
+        "resource_error": false
+      },
+      {
+        "cell": "adjust_bottle__demo_randomized",
+        "queries": 20,
+        "resource_error": false
+      },
+      {
+        "cell": "grab_roller__demo_clean",
+        "queries": 40,
+        "resource_error": false
+      },
+      {
+        "cell": "grab_roller__demo_randomized",
+        "queries": 36,
+        "resource_error": false
+      }
+    ]
+  }
+}

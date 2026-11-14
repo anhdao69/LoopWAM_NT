@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checked_unix": 1794160595.1915941,
+  "cells": [
+    {
+      "cell": "move_stapler_pad/demo_randomized",
+      "successes": 73,
+      "episodes": 100,
+      "verified": true
+    },
+    {
+      "cell": "press_stapler/demo_clean",
+      "successes": 83,
+      "episodes": 100,
+      "verified": true
+    }
+  ],
+  "successes": 156,
+  "episodes": 200,
+  "partial_attempts_excluded": true
+}

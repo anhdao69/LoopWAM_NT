@@ -1,0 +1,9 @@
+{
+  "reviewer": "dense_s12_epoch10_review",
+  "important_findings_resolved": true,
+  "runtime_refreeze_passed": true,
+  "launcher_tests_passed": 8,
+  "native_tests_passed": 38,
+  "operational_graph_smoke_required": true,
+  "verified_unix": 1794182460.3646982
+}
