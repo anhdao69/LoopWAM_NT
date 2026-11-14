@@ -1,0 +1,28 @@
+{
+  "verified_unix_remote": 1794554155.5296638,
+  "host": "aLinh /10.148.183.189",
+  "campaign_pid": 35152,
+  "evaluator_pid": 40974,
+  "queue_order": [
+    "dense_s12",
+    "v0_1x4"
+  ],
+  "current": "dense_s12",
+  "workers": 2,
+  "graph_bit_exact": true,
+  "smoke_episodes": 16,
+  "smoke_successes": 14,
+  "smoke_excluded": true,
+  "peak_gpu_mib": 29362,
+  "memory_margin_mib": 19573,
+  "imported_complete_episodes": 400,
+  "scored_episodes_observed": 405,
+  "scored_successes_observed": 399,
+  "new_remote_scored_episodes_observed": 5,
+  "running_cells": 2,
+  "errors": [],
+  "fixed_protocol_verified": true,
+  "active_bindings_verified": true,
+  "own_process_count": 7,
+  "final_results_not_yet_complete": true
+}

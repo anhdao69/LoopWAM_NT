@@ -1,0 +1,69 @@
+{
+  "repo": "anhdao69/LoopWAM_NT",
+  "revision": "539a5a26d01054262220bd33236b0d3a03a91890",
+  "files": [
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/README.md",
+      "oid": "30f646e54334c7dd3feb4eadd4451ed75832625b",
+      "size": 3268
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/SHA256SUMS",
+      "oid": "e4e4f0e045a3365e40a67fe906e0cfe25350b540",
+      "size": 848
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/checkpoint_provenance.json",
+      "oid": "ad811d157387b7610bd03fb47dfea51d2d75e3ef",
+      "size": 762
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/config.json",
+      "oid": "7438fedde34c6946c6dc1ee2a45882ef9004fa87",
+      "size": 3858
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/data_provenance.json",
+      "oid": "fa258c13a59334afa7e55e33f953ed6ced6720f3",
+      "size": 1707
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/dataset_stats.json",
+      "oid": "39755675cabd2cf2b835a88f7c8f5af174079555",
+      "size": 88716
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/policy.pt",
+      "oid": "7d99b259ed1196d0a7a531eec7ea578265f6a17f",
+      "size": 2338752101,
+      "lfs": {
+        "oid": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+        "size": 2338752101
+      }
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/training_metrics.jsonl.gz",
+      "oid": "4bd3bc63276c2283d25e1cb0a3c77e2666d0823f",
+      "size": 3192943,
+      "lfs": {
+        "oid": "c6b75c4f52d3dae146a7e6f8d8e618136ee5d37cc8494aa2110de15949da60fa",
+        "size": 3192943
+      }
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/training_state.json",
+      "oid": "a79b2474b1ea7b3424506293df19a5f6c430b354",
+      "size": 1953
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/training_summary.json",
+      "oid": "df4c48dcbe6e00ea9765d817e754d79250616088",
+      "size": 1223
+    },
+    {
+      "path": "robotwin-10/v0-video4-action1/epoch_10/training_timing.json",
+      "oid": "71c88361aa787823159e31e5031ade7f13afe32f",
+      "size": 792
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "audited_unix": 1794606641.965094,
+  "verified_pairs": 20,
+  "verified_videos": 2000,
+  "renderer_logs_clean": true,
+  "verified_source_files": 782,
+  "verified_runtime_files": 30167,
+  "checkpoint_sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6",
+  "complete_sha256": "b14279d39a6bac9e7f4b192bdff14b1dbbbdbf8d2a4247213c0dd9d5120c6462",
+  "failed_attempts": 2,
+  "excluded_partial_episodes": 112,
+  "imported_complete_episodes": 0,
+  "imported_source_host": "VMO-ANHDH35-D",
+  "new_execution_host": "aLinh / 10.148.183.189",
+  "workers": 2
+}
