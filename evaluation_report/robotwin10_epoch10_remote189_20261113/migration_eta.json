@@ -1,0 +1,15 @@
+{
+  "estimated_unix_local": 1794553515.8331504,
+  "host": "aLinh RTXPRO5000 48GB, two workers",
+  "local_equivalent_start_unix": 1794553326.9500191,
+  "remaining_wall_hours_estimate": [
+    10,
+    12
+  ],
+  "estimated_finish_ict": [
+    "2026-11-14T00:02:06.950019+07:00",
+    "2026-11-14T02:02:06.950019+07:00"
+  ],
+  "basis": "Prior native RT10 two-worker run on aLinh took5.24hours for2000episodes; currentDense has400verifiedepisodes reused, thenfull2000for1/4. Allow variant/task latency, fresh gates and audits. No contention/retries assumed.",
+  "supersedes_local_gpu_eta": true
+}

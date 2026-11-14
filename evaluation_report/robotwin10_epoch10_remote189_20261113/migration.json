@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "host": "aLinh",
+  "ssh_host": "vm-perception-ws@10.148.183.189",
+  "control_socket": "/tmp/loopwam-server189-20261104/control",
+  "remote_bulk": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113",
+  "remaining_order": [],
+  "local_bulk": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113",
+  "local_gpu_evaluation_stopped": true,
+  "local_mirror_root": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_epoch10_remote189_20261113",
+  "local_evidence": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/migration_alinh_20261113",
+  "completed_local_models": [
+    "v0_4x2",
+    "v0_2x2"
+  ],
+  "dense_imported_episodes": 400,
+  "remote_new_episodes": 3600,
+  "mirror": {
+    "pid": 850047,
+    "start_ticks": "108841402",
+    "started_unix": 1794594224.926663,
+    "log": "/data14t/anhdh35/loopwam_robotwin10_epoch10_queue_20261113/migration_alinh_20261113/mirror.log"
+  },
+  "updated_unix": 1794635833.1202092,
+  "remote_campaign_pid": 471623,
+  "remote_evaluator_pid": null,
+  "verified_new_remote_scored_episodes": 1,
+  "stopped_model": null,
+  "automatic_queue_stopped": false,
+  "resume_date": "2026-11-14",
+  "resumable_complete_episodes": 800,
+  "remaining_episodes_to_score": 0,
+  "verified_resume_unix_local": 1794594951.9827173,
+  "resume_evidence": "/storage/anhdh35/LoopWAM_NT/evaluation_report/robotwin10_epoch10_remote189_20261113/resume_scoring_verified_20261114.json",
+  "completed_remote_models": [
+    "dense_s12",
+    "v0_1x4"
+  ],
+  "finished_unix_remote": 1794606643.749876,
+  "final_audits_passed": true
+}
