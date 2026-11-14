@@ -1,0 +1,139 @@
+{
+ "host": "sn4622128794",
+ "model": "E1 (RT50-ep5-E1)",
+ "group": "e1_epoch1",
+ "schedule": "flat_k4_n5",
+ "label": "[4]x5",
+ "depths": [
+  4,
+  4,
+  4,
+  4,
+  4
+ ],
+ "nfe": 5,
+ "checkpoint": {
+  "hf_repo": "anhdao69/LoopWAM_NT",
+  "hf_path": "robotwin/Elastic/E1/epoch_01.pt",
+  "hf_revision": "a03864919c3932c2af686d137cdab75328e41da7",
+  "size": 2340331629,
+  "kind": "T1",
+  "epoch": 1,
+  "step": 47462,
+  "sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb"
+ },
+ "teacher": {
+  "hf_path": "robotwin/v0-video4-action4/policy.pt",
+  "epoch": 5,
+  "step": 237310,
+  "sha256": "38975220e9441303878d2dfb9956d57e6416c6a906c99c43d9bca015b092fc51"
+ },
+ "reference_report": "../../../robotwin_v0",
+ "protocol": {
+  "seed": 42,
+  "episodes": 100,
+  "instruction_type": "unseen",
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "noise_seed": "fixed seed for every query, FastWAM default",
+  "image_preprocessing": "released_fastwam_pil_uint8_bf16",
+  "instruction_rng": "released_fastwam_no_explicit_python_seed",
+  "t5_loader": "lean",
+  "cuda_graph": "0",
+  "renderer_shader": "rt"
+ },
+ "totals": {
+  "demo_clean": {
+   "successes": 4559,
+   "episodes": 5000,
+   "sr_percent": 91.18
+  },
+  "demo_randomized": {
+   "successes": 4540,
+   "episodes": 5000,
+   "sr_percent": 90.8
+  },
+  "combined": {
+   "successes": 9099,
+   "episodes": 10000,
+   "sr_percent": 90.99
+  }
+ },
+ "reference_comparison": {
+  "demo_clean": {
+   "successes": 4559,
+   "episodes": 5000,
+   "sr_percent": 91.18,
+   "v0_campaign_sr_percent": 91.6,
+   "cells_with_identical_seeds": 10,
+   "cells": 50,
+   "paired_episodes": 4638,
+   "paired_e1_sr_percent": 92.07,
+   "paired_v0_sr_percent": 92.58
+  },
+  "demo_randomized": {
+   "successes": 4540,
+   "episodes": 5000,
+   "sr_percent": 90.8,
+   "v0_campaign_sr_percent": 91.86,
+   "cells_with_identical_seeds": 8,
+   "cells": 50,
+   "paired_episodes": 4617,
+   "paired_e1_sr_percent": 91.88,
+   "paired_v0_sr_percent": 92.9
+  },
+  "combined": {
+   "successes": 9099,
+   "episodes": 10000,
+   "sr_percent": 90.99,
+   "v0_campaign_sr_percent": 91.73,
+   "cells_with_identical_seeds": 18,
+   "cells": 100,
+   "paired_episodes": 9255,
+   "paired_e1_sr_percent": 91.97,
+   "paired_v0_sr_percent": 92.74
+  }
+ },
+ "cells": 100,
+ "cells_accepted_after_a_rejected_attempt": 4,
+ "rejected_attempts": [
+  {
+   "cell": "beat_block_hammer/demo_clean",
+   "attempt": "attempt_01",
+   "failure": "no failure.json (interrupted run)"
+  },
+  {
+   "cell": "beat_block_hammer/demo_randomized",
+   "attempt": "attempt_01",
+   "failure": "no failure.json (interrupted run)"
+  },
+  {
+   "cell": "click_alarmclock/demo_randomized",
+   "attempt": "attempt_01",
+   "failure": "no failure.json (interrupted run)"
+  },
+  {
+   "cell": "press_stapler/demo_clean",
+   "attempt": "attempt_01",
+   "failure": "no failure.json (interrupted run)"
+  }
+ ],
+ "policy_queries": 107404,
+ "accepted_cell_seconds_sum": 230817.4,
+ "launches_utc": [
+  "2026-11-07 22:22:30 UTC",
+  "2026-11-11 18:08:30 UTC"
+ ],
+ "first_attempt_started_utc": "2026-11-08 21:58:29 UTC",
+ "completed_utc": "2026-11-11 18:44:56 UTC",
+ "harness_sha256": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+ "policy_sha256": "841756d32ba6b7ae6b2d68fc533765e530e4c6cd4b52f6ae6733c8e47bb60105",
+ "stats_sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "runtime_files_rechecked": 789,
+ "videos_checked_present": 10000,
+ "videos_rehashed": 100,
+ "source_dir": "sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n5",
+ "complete_json_sha256": "080a97daefea6b477f16f49b0e843ba420b254da65fc748fa21c1d7182856573",
+ "audit_json_sha256": "59fe227219fc6bbfef96d3143a503629f92edf5f97a3f4dacf297eab1f4657fc"
+}

@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "schedule": "flat_k1_n2",
+  "depths": [
+    1,
+    1
+  ],
+  "t5_loader": "lean",
+  "checkpoint_sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb",
+  "episodes": 8,
+  "e1_successes": 8,
+  "v0_campaign_successes_same_seeds": 8,
+  "cells": [
+    {
+      "cell": "adjust_bottle/demo_clean",
+      "seeds": [
+        4300001,
+        4300003
+      ],
+      "campaign_seeds": [
+        4300001,
+        4300003
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "queries": [
+        5,
+        5
+      ],
+      "videos_verified": true,
+      "seconds": 153.42255902290344
+    },
+    {
+      "cell": "adjust_bottle/demo_randomized",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "queries": [
+        5,
+        5
+      ],
+      "videos_verified": true,
+      "seconds": 199.56586027145386
+    },
+    {
+      "cell": "click_bell/demo_clean",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "queries": [
+        3,
+        3
+      ],
+      "videos_verified": true,
+      "seconds": 109.44870471954346
+    },
+    {
+      "cell": "click_bell/demo_randomized",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "queries": [
+        3,
+        3
+      ],
+      "videos_verified": true,
+      "seconds": 51.3884437084198
+    }
+  ]
+}
