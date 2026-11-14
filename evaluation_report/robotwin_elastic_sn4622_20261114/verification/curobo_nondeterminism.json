@@ -1,0 +1,61 @@
+{
+  "created": "2026-11-07T22:47:36Z",
+  "cell": "put_object_cabinet/demo_clean",
+  "candidate_start": 4300000,
+  "runs": {
+    "v0 campaign (campaign host, 8 then 4 workers on one GPU)": {
+      "seeds": [
+        4300002,
+        4300004,
+        4300005,
+        4300009,
+        4300010,
+        4300013,
+        4300020,
+        4300026
+      ]
+    },
+    "E1 flat_k1_n2 evaluation worker (this host, attempt_01)": {
+      "seeds": [
+        4300003,
+        4300009,
+        4300010,
+        4300017,
+        4300024,
+        4300042,
+        4300043,
+        4300044
+      ]
+    },
+    "expert-only replay 1 (this host, unmodified harness, CuRobo timing logged)": {
+      "seeds": [
+        4300002,
+        4300004,
+        4300007,
+        4300009
+      ],
+      "calls": 137,
+      "stopped_by_10s_timeout": 3,
+      "max_seconds": 11.986,
+      "median_single_seconds": 0.305
+    },
+    "expert-only replay 2 (this host, diagnostic: CuRobo 10 s plan timeout removed)": {
+      "seeds": [
+        4300009,
+        4300010,
+        4300018,
+        4300024
+      ],
+      "calls": 487,
+      "stopped_by_10s_timeout": 0,
+      "max_seconds": 19.687,
+      "median_single_seconds": 0.292
+    }
+  },
+  "finding": "The harness accepts a candidate scene only if its scripted expert succeeds. For this hard-planning task, four runs of the same code accepted four different seed sequences: the expert outcome depends on which trajectory CuRobo MotionGen finds, and MotionGen keeps its random state across candidates and stops a plan after a 10 s wall-clock timeout (motion_gen.py plan_single/plan_batch), so GPU load and planning history change which candidates pass. Removing the timeout did not restore the campaign sequence, so there is no setting that reproduces it. The unmodified harness is kept; seed agreement with the campaign is reported per cell, not required. A scene itself is fully determined by its seed, and the policy never uses the planner.",
+  "evidence_dirs": [
+    "/data/anh/robotwin_eval/diag/curobo_timing/run1",
+    "/data/anh/robotwin_eval/diag/curobo_timing/run2_no_timeout",
+    "/data/anh/robotwin_eval/diag/curobo_timing/site/sitecustomize.py"
+  ]
+}

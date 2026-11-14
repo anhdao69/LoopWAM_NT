@@ -1,0 +1,83 @@
+[
+ {
+  "argv": [
+   "/data/anh/code/LoopWAM-robotwin-eval/scripts/evaluate_elastic_robotwin.py",
+   "--checkpoint",
+   "/data/anh/robotwin_eval/checkpoints/E1/epoch_01.pt",
+   "--robotwin-root",
+   "/data/anh/code/LoopWAM-robotwin-eval/third_party/RoboTwin",
+   "--data-dir",
+   "/data/anh/robotwin_eval/checkpoints/E1",
+   "--episodes",
+   "100",
+   "--gpus",
+   "0,1",
+   "--per-gpu",
+   "6",
+   "--expected-kind",
+   "T1",
+   "--t5-loader",
+   "lean",
+   "--t5-gpu",
+   "1",
+   "--max-attempts",
+   "8",
+   "--order",
+   "campaign-longest-first",
+   "--campaign-results",
+   "/data/anh/code/LoopWAM_NT/evaluation_report/robotwin_v0/task_results.csv",
+   "--admit-gpu-mib",
+   "11000",
+   "--gpu-floor-mib",
+   "1500",
+   "--admit-ram-mib",
+   "6000",
+   "--ram-floor-mib",
+   "6000",
+   "--admit-hold",
+   "300",
+   "--schedule",
+   "flat_k1_n2",
+   "--output-dir",
+   "/data/anh/robotwin_eval/results/e1_flat_k1_n2",
+   "--schedule",
+   "flat_k4_n2",
+   "--output-dir",
+   "/data/anh/robotwin_eval/results/e1_flat_k4_n2",
+   "--schedule",
+   "flat_k4_n5",
+   "--output-dir",
+   "/data/anh/robotwin_eval/results/e1_flat_k4_n5"
+  ],
+  "pid": 991106,
+  "started": 1794090150.2205477,
+  "run_index": 1,
+  "runs": [
+   {
+    "schedule": "flat_k1_n2",
+    "output_dir": "/data/anh/robotwin_eval/results/e1_flat_k1_n2"
+   },
+   {
+    "schedule": "flat_k4_n2",
+    "output_dir": "/data/anh/robotwin_eval/results/e1_flat_k4_n2"
+   },
+   {
+    "schedule": "flat_k4_n5",
+    "output_dir": "/data/anh/robotwin_eval/results/e1_flat_k4_n5"
+   }
+  ],
+  "gpus": [
+   "0",
+   "1"
+  ],
+  "per_gpu": 6,
+  "order": "campaign-longest-first",
+  "admit_gpu_mib": 11000,
+  "gpu_floor_mib": 1500,
+  "admit_ram_mib": 6000,
+  "ram_floor_mib": 6000,
+  "admit_hold": 300,
+  "max_attempts": 8,
+  "no_progress_timeout": 1800
+ }
+]

@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "problems": [],
+  "schedule": "flat_k4_n10",
+  "depths": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "nfe": 10,
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "t5_loader": "lean",
+  "cuda_graph": "0",
+  "render_fault_strings": [
+    "OIDN Error",
+    "cannot create buffer",
+    "OutOfMemoryError",
+    "out of memory"
+  ],
+  "totals": {
+    "demo_clean": {
+      "successes": 4,
+      "episodes": 4,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent": 100.0,
+      "cells_with_identical_seeds": 2,
+      "cells": 2,
+      "paired_episodes": 4,
+      "paired_e1_sr_percent": 100.0,
+      "paired_v0_sr_percent": 100.0
+    },
+    "demo_randomized": {
+      "successes": 4,
+      "episodes": 4,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent": 99.5,
+      "cells_with_identical_seeds": 2,
+      "cells": 2,
+      "paired_episodes": 4,
+      "paired_e1_sr_percent": 100.0,
+      "paired_v0_sr_percent": 100.0
+    },
+    "combined": {
+      "successes": 8,
+      "episodes": 8,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent": 99.75,
+      "cells_with_identical_seeds": 4,
+      "cells": 4,
+      "paired_episodes": 8,
+      "paired_e1_sr_percent": 100.0,
+      "paired_v0_sr_percent": 100.0
+    }
+  },
+  "rejected_attempts": [],
+  "cells": [
+    {
+      "cell": "adjust_bottle/demo_clean",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes": 100,
+      "v0_campaign_episodes": 100,
+      "seeds_identical_to_campaign": true,
+      "seeds_in_campaign_set": 2,
+      "paired_e1_successes": 2,
+      "paired_v0_successes": 2,
+      "queries": 10,
+      "seconds": 75.45765399932861,
+      "gpu": "0",
+      "problems": []
+    },
+    {
+      "cell": "adjust_bottle/demo_randomized",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes": 99,
+      "v0_campaign_episodes": 100,
+      "seeds_identical_to_campaign": true,
+      "seeds_in_campaign_set": 2,
+      "paired_e1_successes": 2,
+      "paired_v0_successes": 2,
+      "queries": 10,
+      "seconds": 80.49649572372437,
+      "gpu": "0",
+      "problems": []
+    },
+    {
+      "cell": "click_bell/demo_clean",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes": 100,
+      "v0_campaign_episodes": 100,
+      "seeds_identical_to_campaign": true,
+      "seeds_in_campaign_set": 2,
+      "paired_e1_successes": 2,
+      "paired_v0_successes": 2,
+      "queries": 6,
+      "seconds": 49.88008117675781,
+      "gpu": "1",
+      "problems": []
+    },
+    {
+      "cell": "click_bell/demo_randomized",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes": 100,
+      "v0_campaign_episodes": 100,
+      "seeds_identical_to_campaign": true,
+      "seeds_in_campaign_set": 2,
+      "paired_e1_successes": 2,
+      "paired_v0_successes": 2,
+      "queries": 6,
+      "seconds": 49.85587763786316,
+      "gpu": "1",
+      "problems": []
+    }
+  ]
+}
