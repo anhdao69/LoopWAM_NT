@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "verified_unix": 1794160834.1292784,
+  "evaluator_pid": 1275736,
+  "workers": 4,
+  "checkpoint_sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+  "manifest_sha256": "635a54bc23872700f3dea4b3250324d0823e2856f71bf98f31f8a6219ebcf51e",
+  "active_attempts": [
+    {
+      "cell": "adjust_bottle__demo_clean",
+      "queries": 23,
+      "resource_error": false
+    },
+    {
+      "cell": "adjust_bottle__demo_randomized",
+      "queries": 20,
+      "resource_error": false
+    },
+    {
+      "cell": "grab_roller__demo_clean",
+      "queries": 40,
+      "resource_error": false
+    },
+    {
+      "cell": "grab_roller__demo_randomized",
+      "queries": 36,
+      "resource_error": false
+    }
+  ]
+}

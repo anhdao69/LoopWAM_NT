@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "verified_unix": 1794157785.9739926,
+  "scored_evaluator_pid": 1180838,
+  "checkpoint_sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+  "variant": "v0-video4-action1",
+  "epoch": 10,
+  "workers": 8,
+  "protocol_checks": {
+    "expected_step": true,
+    "tasks": true,
+    "settings": true,
+    "episodes": true,
+    "seed": true,
+    "num_inference_steps": true,
+    "action_horizon": true,
+    "replan_steps": true,
+    "cuda_graph": true,
+    "stats_sha256": true,
+    "vae_sha256": true
+  },
+  "live_workers": [
+    {
+      "cell": "adjust_bottle__demo_clean",
+      "queries": 11,
+      "last_query": {
+        "policy_query": 4,
+        "episode": 1,
+        "seconds": 0.23615168791729957,
+        "action_sha256": "306e33cb91b840c38d1a7d65b91a52009eaf3a69a087a62af786f95fd89fc568"
+      }
+    },
+    {
+      "cell": "adjust_bottle__demo_randomized",
+      "queries": 10,
+      "last_query": {
+        "policy_query": 4,
+        "episode": 1,
+        "seconds": 0.32631453801877797,
+        "action_sha256": "233b1fa7bfe1e0797c7b47ea88744b23fd513988452cd7b0324534fcd29724b2"
+      }
+    },
+    {
+      "cell": "grab_roller__demo_clean",
+      "queries": 22,
+      "last_query": {
+        "policy_query": 1,
+        "episode": 5,
+        "seconds": 0.2046140389284119,
+        "action_sha256": "cd9ad0a6de62708e7bb8223127077950333bb5c2513aa73b542e41b3bc83c967"
+      }
+    },
+    {
+      "cell": "grab_roller__demo_randomized",
+      "queries": 20,
+      "last_query": {
+        "policy_query": 3,
+        "episode": 4,
+        "seconds": 0.3006595770129934,
+        "action_sha256": "c2bccec24adf801fa1768c2e6b10711a45dc7c3e34170eb0862d7b3dde53576b"
+      }
+    },
+    {
+      "cell": "hanging_mug__demo_clean",
+      "queries": 12,
+      "last_query": {
+        "policy_query": 11,
+        "episode": 0,
+        "seconds": 0.1964618149213493,
+        "action_sha256": "c2f269f891e8e2190fa3073a31224020a46f05c7f0586c6337a14e11ac3c27c1"
+      }
+    },
+    {
+      "cell": "hanging_mug__demo_randomized",
+      "queries": 13,
+      "last_query": {
+        "policy_query": 12,
+        "episode": 0,
+        "seconds": 0.22461493394803256,
+        "action_sha256": "1f7143c37f63c1840ff54cb40d38fd422ba51b1cfe974f2c303a3cc1b3c0b0e9"
+      }
+    },
+    {
+      "cell": "move_stapler_pad__demo_clean",
+      "queries": 41,
+      "last_query": {
+        "policy_query": 3,
+        "episode": 4,
+        "seconds": 0.3002864869777113,
+        "action_sha256": "55bd9af66d0eb84b1ce0dac8a0c6df8e4599961e315fb21a8e2b1b66019af618"
+      }
+    },
+    {
+      "cell": "move_stapler_pad__demo_randomized",
+      "queries": 57,
+      "last_query": {
+        "policy_query": 16,
+        "episode": 3,
+        "seconds": 0.1853026079479605,
+        "action_sha256": "4e9541846493ae33e7d8478a27c31b573b4dec8ee8ea0e49dc59f041cdb31844"
+      }
+    }
+  ]
+}

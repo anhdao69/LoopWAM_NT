@@ -1,0 +1,19 @@
+{
+  "verified_unix": 1794514942.0819025,
+  "campaign_pid": 4185067,
+  "evaluator_pid": 4188297,
+  "current": "v0_4x2",
+  "waiting": [
+    "v0_2x2",
+    "dense_s12",
+    "v0_1x4"
+  ],
+  "scored_episodes_observed": 23,
+  "scored_successes_observed": 23,
+  "running_cells": 4,
+  "failed": [],
+  "expected_checkpoint_and_protocol": true,
+  "first_model_gpu_gate_and_smoke_passed": true,
+  "smoke_episodes_excluded": 16,
+  "campaign_source_hashes_unchanged": true
+}

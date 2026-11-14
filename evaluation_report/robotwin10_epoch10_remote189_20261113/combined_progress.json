@@ -1,0 +1,41 @@
+{
+  "updated_local_unix": 1794606850.7219398,
+  "execution_host": "aLinh / 10.148.183.189",
+  "remote_status": "complete",
+  "current": null,
+  "models": [
+    {
+      "model": "4/2",
+      "status": "complete",
+      "episodes": 2000,
+      "successes": 1648,
+      "final": true,
+      "host": "local"
+    },
+    {
+      "model": "2/2",
+      "status": "complete",
+      "episodes": 2000,
+      "successes": 1578,
+      "final": true,
+      "host": "local"
+    },
+    {
+      "model": "Dense-12",
+      "status": "complete",
+      "episodes": 2000,
+      "successes": 1545,
+      "final": true,
+      "host": "aLinh (Dense includes400 imported local episodes)"
+    },
+    {
+      "model": "1/4",
+      "status": "complete",
+      "episodes": 2000,
+      "successes": 1591,
+      "final": true,
+      "host": "aLinh"
+    }
+  ],
+  "local_gpu_evaluation_stopped": true
+}

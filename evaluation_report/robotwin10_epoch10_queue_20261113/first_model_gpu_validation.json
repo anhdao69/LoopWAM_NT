@@ -1,0 +1,12 @@
+{
+  "checkpoint_sha256": "f36997a9de1a147a787960de9f5317964a03c45f54648ef343e63a2578ed2755",
+  "bit_exact": true,
+  "native_query_ms": 123.6807518725982,
+  "graph_query_ms": 87.37475787347648,
+  "latency_reduction_percent": 29.354603242160117,
+  "smoke_episodes": 16,
+  "smoke_excluded": true,
+  "smoke_passed": true,
+  "peak_gpu_mib": 50623,
+  "memory_margin_mib": 47264
+}
