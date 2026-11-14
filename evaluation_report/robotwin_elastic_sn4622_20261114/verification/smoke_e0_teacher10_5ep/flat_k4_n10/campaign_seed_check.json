@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "cells_with_campaign_seeds": 4,
+  "cells_total": 4,
+  "schedule": "flat_k4_n10",
+  "depths": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "t5_loader": "lean",
+  "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e",
+  "episodes": 8,
+  "e1_successes": 8,
+  "v0_campaign_successes_same_seeds": 8,
+  "cells": [
+    {
+      "cell": "adjust_bottle/demo_clean",
+      "seeds": [
+        4300001,
+        4300003
+      ],
+      "campaign_seeds": [
+        4300001,
+        4300003
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "seeds_increasing": true,
+      "queries": [
+        5,
+        5
+      ],
+      "videos_verified": true,
+      "seconds": 75.45765399932861
+    },
+    {
+      "cell": "adjust_bottle/demo_randomized",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "seeds_increasing": true,
+      "queries": [
+        5,
+        5
+      ],
+      "videos_verified": true,
+      "seconds": 80.49649572372437
+    },
+    {
+      "cell": "click_bell/demo_clean",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "seeds_increasing": true,
+      "queries": [
+        3,
+        3
+      ],
+      "videos_verified": true,
+      "seconds": 49.88008117675781
+    },
+    {
+      "cell": "click_bell/demo_randomized",
+      "seeds": [
+        4300000,
+        4300001
+      ],
+      "campaign_seeds": [
+        4300000,
+        4300001
+      ],
+      "seeds_match": true,
+      "e1_success": [
+        true,
+        true
+      ],
+      "v0_campaign_success": [
+        true,
+        true
+      ],
+      "seeds_increasing": true,
+      "queries": [
+        3,
+        3
+      ],
+      "videos_verified": true,
+      "seconds": 49.85587763786316
+    }
+  ]
+}
