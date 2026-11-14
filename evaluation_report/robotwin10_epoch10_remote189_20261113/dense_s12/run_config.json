@@ -1,0 +1,14 @@
+{
+  "id": "dense_s12",
+  "variant": "dense-s12",
+  "version": "dense_s12",
+  "video_loops": 1,
+  "action_loops": 1,
+  "epoch": 10,
+  "expected_step": 90890,
+  "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8",
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "source_repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+  "source_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+  "comparison_reference": "v0 4/1 epoch 10 (previous local run)"
+}

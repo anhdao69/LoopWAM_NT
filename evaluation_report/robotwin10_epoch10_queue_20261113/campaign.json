@@ -1,0 +1,64 @@
+{
+  "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "models": [
+    {
+      "id": "v0_4x2",
+      "variant": "v0-video4-action2",
+      "version": "v0",
+      "video_loops": 4,
+      "action_loops": 2,
+      "epoch": 10,
+      "expected_step": 90890,
+      "checkpoint_sha256": "f36997a9de1a147a787960de9f5317964a03c45f54648ef343e63a2578ed2755",
+      "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+      "source_repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+      "source_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "comparison_reference": "v0 4/1 epoch 10 (previous local run)"
+    },
+    {
+      "id": "v0_2x2",
+      "variant": "v0-video2-action2",
+      "version": "v0",
+      "video_loops": 2,
+      "action_loops": 2,
+      "epoch": 10,
+      "expected_step": 90890,
+      "checkpoint_sha256": "89a87a875e92a9e19ab255609116aca3a86a31f654d93b88a5dd63c630a09786",
+      "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+      "source_repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+      "source_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "comparison_reference": "v0 4/1 epoch 10 (previous local run)"
+    },
+    {
+      "id": "dense_s12",
+      "variant": "dense-s12",
+      "version": "dense_s12",
+      "video_loops": 1,
+      "action_loops": 1,
+      "epoch": 10,
+      "expected_step": 90890,
+      "checkpoint_sha256": "a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8",
+      "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+      "source_repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+      "source_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "comparison_reference": "v0 4/1 epoch 10 (previous local run)"
+    },
+    {
+      "id": "v0_1x4",
+      "variant": "v0-video1-action4",
+      "version": "v0",
+      "video_loops": 1,
+      "action_loops": 4,
+      "epoch": 10,
+      "expected_step": 90890,
+      "checkpoint_sha256": "bd15ddb617cf78014582deb4787890d05c6519e2017a0c0204a9db553ec442d6",
+      "revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+      "source_repo": "/storage/anhdh35/LoopWAM-robotwin10-dense-eval",
+      "source_commit": "7a2181d0ecc8e30d64806e94535b347bc9e1da2e",
+      "comparison_reference": "v0 4/1 epoch 10 (previous local run)"
+    }
+  ],
+  "planned_episodes": 8000,
+  "protocol": "RT10 native matched to 4/4 and 4/1 epoch10",
+  "created_unix": 1794514192.2671535
+}

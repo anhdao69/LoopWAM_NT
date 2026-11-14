@@ -1,0 +1,7 @@
+{
+  "local_midpoint_unix": 1794552369.21132,
+  "remote_unix": 1794552165.753237,
+  "remote_minus_local_seconds": -203.45808291435242,
+  "round_trip_seconds": 0.01960897445678711,
+  "note": "Translate raw remote epoch timestamps to local wall time by subtracting remote_minus_local_seconds; elapsed durations remain host-local."
+}

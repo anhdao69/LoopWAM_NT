@@ -1,0 +1,17 @@
+{
+  "estimated_at_unix": 1794548562.0682583,
+  "resume_started_unix": 1794548534.760182,
+  "remaining_models": [
+    "dense_s12",
+    "v0_1x4"
+  ],
+  "remaining_hours_estimate": [
+    7,
+    8
+  ],
+  "estimated_finish_ict": [
+    "2026-11-13T19:42:14.760182+07:00",
+    "2026-11-13T20:42:14.760182+07:00"
+  ],
+  "basis": "Dense-S12 previous scoring3.26h;1/4 comparable GPU3.53h; allowance for verification, gate, smoke and final audits. No GPU contention or retries assumed."
+}
