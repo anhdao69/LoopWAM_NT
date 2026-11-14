@@ -1,0 +1,107 @@
+path	source	source_sha256	source_size	transform
+e0_teacher10_5ep/flat_k1_n10/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n10/COMPLETE.json	7514b3b7b4f999e76bc519129f3699623812d3d9fe8d45d684cf6b5561d6c028	6042461	gzip (mtime 0)
+e0_teacher10_5ep/flat_k1_n10/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k1_n10/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n10/audit.json	53245bec1ef939881baf0cfe57b632c20f46077724b36c54dc40cad212e0d09c	44735	copy
+e0_teacher10_5ep/flat_k1_n10/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k1_n10/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k1_n10/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n10/manifest.json	72ae2e657580a7cb0a75c7c07d29825e886939d7853114eac2008f9c2e56d6cb	146060	copy
+e0_teacher10_5ep/flat_k1_n10/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n10/campaign_seed_check.json	e473223a3c7c7f8938aad5293f809085001c543d92789a0ba9abd1f41906ba32	770219	gzip (mtime 0)
+e0_teacher10_5ep/flat_k1_n10/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k1_n5/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n5/COMPLETE.json	ec0f133ecb83399d1360c7199936ba80ffe053484ca1a93bf0b4065108a1ed77	6032104	gzip (mtime 0)
+e0_teacher10_5ep/flat_k1_n5/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k1_n5/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n5/audit.json	be5cab571cbda1c43ca0de927d4cabc2395ddaff920042144865e6803dd19d7e	46199	copy
+e0_teacher10_5ep/flat_k1_n5/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k1_n5/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k1_n5/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n5/manifest.json	91b8e522ec0891bd6ce3cfebe583dc4fb0db8edb2ee704fbe1e752729b74c3a5	146023	copy
+e0_teacher10_5ep/flat_k1_n5/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k1_n5/campaign_seed_check.json	14ecd46f5d3b3f50d0794bbee3bd546df91487190bf2f11b1ccfa4ec0a6076dc	770188	gzip (mtime 0)
+e0_teacher10_5ep/flat_k1_n5/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k2_n10/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n10/COMPLETE.json	edd5e5d2bad7f4bf997876354322312d93196501dc48a35c08ca35d5fc0c09c0	6040326	gzip (mtime 0)
+e0_teacher10_5ep/flat_k2_n10/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k2_n10/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n10/audit.json	fa3624cb268c6e014b7aa8f37fda550d102e750b99bafd5deaa9566911d25d52	45069	copy
+e0_teacher10_5ep/flat_k2_n10/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k2_n10/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k2_n10/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n10/manifest.json	f443839ecf7d4c5bc29ac8adffef784ad3a9ca4911d1e6146c41886251f4a225	146060	copy
+e0_teacher10_5ep/flat_k2_n10/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n10/campaign_seed_check.json	1edd6b9d1e87cd5c8150d1f933a73c0d3d5c6bdd479fe053bc7555cba8ca2c36	769981	gzip (mtime 0)
+e0_teacher10_5ep/flat_k2_n10/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k2_n5/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n5/COMPLETE.json	18b94cc6f81128b2f78042d96bfa2fdf75f184f6cef45e79cdd24fe594258332	6031860	gzip (mtime 0)
+e0_teacher10_5ep/flat_k2_n5/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k2_n5/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n5/audit.json	51d410cfe6813f5212b86d88ed17bbd433880e585353dfda5653cc026a343043	44076	copy
+e0_teacher10_5ep/flat_k2_n5/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k2_n5/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k2_n5/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n5/manifest.json	3bfed3439ef7e226f94703843a8c061725df3902eeaa23e2510d2d6853ed4cf6	146023	copy
+e0_teacher10_5ep/flat_k2_n5/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k2_n5/campaign_seed_check.json	514a084dd49edd175e42a33fa8ddaba93f21c4b4f6d6217f61b575caa99f86a9	769915	gzip (mtime 0)
+e0_teacher10_5ep/flat_k2_n5/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k4_n10/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n10/COMPLETE.json	240e9941a5782ca63dfef1a4edfe082a3363c0010738a57b04cce6afa7d73124	6042655	gzip (mtime 0)
+e0_teacher10_5ep/flat_k4_n10/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k4_n10/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n10/audit.json	c4b614ee29d2e01d05ca64863f603de5bc3cd0b548640af81082b1489adcaf13	44342	copy
+e0_teacher10_5ep/flat_k4_n10/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k4_n10/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k4_n10/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n10/manifest.json	4465d1257a29ff6f38f1a429fea2b5842e674a2fe1a6121c1b24e314ad1eb0f4	146060	copy
+e0_teacher10_5ep/flat_k4_n10/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n10/campaign_seed_check.json	eeb4d6231819eb5e53339274aab3b722b0e84b5edbe88bc1b196b5eb72fb017d	769909	gzip (mtime 0)
+e0_teacher10_5ep/flat_k4_n10/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k4_n5/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n5/COMPLETE.json	8533481dd5c3bbd8d5110c7d0f9c5028ba616a6d052c90066cefb952dc33fede	6031271	gzip (mtime 0)
+e0_teacher10_5ep/flat_k4_n5/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e0_teacher10_5ep/flat_k4_n5/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n5/audit.json	c299db1b5bb2f948b32fee23d724561880e924f1d9f3c9600f58502ec808cda9	44114	copy
+e0_teacher10_5ep/flat_k4_n5/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e0_teacher10_5ep/flat_k4_n5/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e0_teacher10_5ep/flat_k4_n5/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n5/manifest.json	239858430903a1c1ceb3c29c936bd48e6174c84305eef4993202185b75a9c887	146023	copy
+e0_teacher10_5ep/flat_k4_n5/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n5/campaign_seed_check.json	e6dade51fa4b3146ef4e4444b1df27a8335286b53ee82cad3356b8e5dcc9eb98	769885	gzip (mtime 0)
+e0_teacher10_5ep/flat_k4_n5/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k1_n2/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k1_n2/COMPLETE.json	bfaa30b27e8fdf7073891305a27a06fb5164b509b2f04081d05072fecb3858b4	5991654	gzip (mtime 0)
+e1_epoch1/flat_k1_n2/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k1_n2/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k1_n2/audit.json	97370442b7fdbfa55408fc9dd96cc7fcde65a4bd6b479f74d3d38da8031fa59a	45387	copy
+e1_epoch1/flat_k1_n2/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e1_epoch1/flat_k1_n2/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e1_epoch1/flat_k1_n2/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k1_n2/manifest.json	7aa2aa8eeb6c69bc9369481cd422ec94729b6abda9bde757369688be32cc9c18	145981	copy
+e1_epoch1/flat_k1_n2/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k1_n2/campaign_seed_check.json	2fdbbd5cebc05d682790bcd8e531ee47f1ebdc1ca919a118455917b601168102	770674	gzip (mtime 0)
+e1_epoch1/flat_k1_n2/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k4_n2/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n2/COMPLETE.json	9de4bf3d38c58e4e03351cffbe995800f1ea661983465047bc1bb6e627e6b6f1	5991913	gzip (mtime 0)
+e1_epoch1/flat_k4_n2/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k4_n2/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n2/audit.json	ed2552e31eca9fd4a67fa874bdd4d2f89d15047d91959208aa640475f0e2a40f	44064	copy
+e1_epoch1/flat_k4_n2/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e1_epoch1/flat_k4_n2/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e1_epoch1/flat_k4_n2/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n2/manifest.json	5ca5cf079a2cdc520083fe091bb96a086bc57118260e2765b70049b62c52d2f9	145981	copy
+e1_epoch1/flat_k4_n2/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n2/campaign_seed_check.json	c9ff47c483f5e1a35668f41d9db1a5e218a551a45b113a0f3b0ead8bb6f65fdc	770055	gzip (mtime 0)
+e1_epoch1/flat_k4_n2/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k4_n5/COMPLETE.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n5/COMPLETE.json	080a97daefea6b477f16f49b0e843ba420b254da65fc748fa21c1d7182856573	5990647	gzip (mtime 0)
+e1_epoch1/flat_k4_n5/episodes.csv	derived			derived from COMPLETE.json (accepted attempts)
+e1_epoch1/flat_k4_n5/final_audit.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n5/audit.json	59fe227219fc6bbfef96d3143a503629f92edf5f97a3f4dacf297eab1f4657fc	44675	copy
+e1_epoch1/flat_k4_n5/final_results.json	derived			derived from COMPLETE.json, audit.json, manifest.json, launch_*.json
+e1_epoch1/flat_k4_n5/launches.json	derived			derived: launch_*.json of the run, sorted by start
+e1_epoch1/flat_k4_n5/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n5/manifest.json	4304ad9d03acae6104f2a2f9c5e41a0d907c6363214abcc2e96aa32e640f4aa7	146002	copy
+e1_epoch1/flat_k4_n5/reference_seed_check.json.gz	sn4622128794:/data/anh/robotwin_eval/results/e1_flat_k4_n5/campaign_seed_check.json	08e7ddc08b45cd5807cb968dd54e4aa3ed14c632c2f17e9e934a8e6a9dd0fa65	769917	gzip (mtime 0)
+e1_epoch1/flat_k4_n5/task_results.csv	derived			derived from COMPLETE.json (accepted attempts)
+setup/code_provenance.json	derived			derived from the checkout and the nine manifest.json files
+setup/evaluation_code.tar.gz	derived			deterministic tar.gz of 809 files from sn4622128794:/data/anh/code/LoopWAM-robotwin-eval
+setup/robotwin_local_setup.md	sn4622128794:/data/anh/code/LoopWAM-robotwin-eval/docs/robotwin_local_e1_setup.md	7950b7b1a5c159774361a1243c6650e964b7f79e359648d64ac43e902f49cffb	17872	copy
+verification/assets_vs_campaign_manifest.json	sn4622128794:/data/anh/robotwin_eval/verification/assets_vs_campaign_manifest.json	82d95d51ef17a9f59d16647ff0b410ce05b6ed79f180b9e32f8db4eb5d80df5a	61	copy
+verification/curobo_nondeterminism.json	sn4622128794:/data/anh/robotwin_eval/verification/curobo_nondeterminism.json	356a9fd2ef6eb4332d0f0999c595febae6fe4983dbe8148bbee76e3b1af4fb5d	2182	copy
+verification/e0ep10_static.json	sn4622128794:/data/anh/robotwin_eval/verification/e0ep10_static.json	339901b1ed84ddc09c1dc55ee8c33b8f5213d4632000b8b3cedd47d788dd6de5	1978	copy
+verification/e1_static.json	sn4622128794:/data/anh/robotwin_eval/verification/e1_static.json	6c1d08554f6706d54d59ff2a165009efaea40dbff4a6bfa7bbba1a575bea2b2d	1968	copy
+verification/gates_e0_teacher10_5ep/contexts.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/contexts.json	94da8bc6a868e9881323aedd2cc8739b2a305790f5653c34d252bef2189b7585	1552	copy
+verification/gates_e0_teacher10_5ep/e1_merged.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/e1_merged.json	f92e8f6ca4823531b00be499a840a0bb9ac2d5e389ce8de2d9fde1a94c25340c	8475	copy
+verification/gates_e0_teacher10_5ep/e1_pure.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/e1_pure.json	b96e51d57959130c85df79a2b0d0e48c802571ea54cfe78bc7ac9fd854ab19d4	3087	copy
+verification/gates_e0_teacher10_5ep/gates.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/gates.json	a40fd7604328236f7db3a12749f40e14894ac92914758c1aef6e986626c45ed8	1516	copy
+verification/gates_e0_teacher10_5ep/v0_campaign.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/v0_campaign.json	0f51a300964bf3d23a3fa70c3df2caed02a578ad28c0bf53be778154d92d4e27	904	copy
+verification/gates_e0_teacher10_5ep/v0_merged.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_e0ep10/v0_merged.json	82231daf8654d846a71461971916b2f0aa1c0ebe57752612e31438cc78dd545b	1612	copy
+verification/gates_e1/contexts.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/contexts.json	d88da1b9e2d6eb60387c369394c16863364e1b2e7653d55a21d5a909e11e10f7	1553	copy
+verification/gates_e1/e1_merged.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/e1_merged.json	4ca38cb8abc3f057ed2fa997a09976109f6cf54ca9b77b58de574cd3a11ad209	6053	copy
+verification/gates_e1/e1_pure.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/e1_pure.json	177f53ebe7a7865ad19c0f2ff87a26f393a4ec3974583b42cf399c8548c75990	2196	copy
+verification/gates_e1/gates.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/gates.json	cbb47c5ca3b3852c27171e8673a2fa04848753757779178bef59ef5456da9279	1031	copy
+verification/gates_e1/v0_campaign.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/v0_campaign.json	0284327c16b6e1e8607aec2cbf73ddedf39dbc428fea863bca3d4f8510159bf5	702	copy
+verification/gates_e1/v0_merged.json	sn4622128794:/data/anh/robotwin_eval/verification/gates_eval3/v0_merged.json	23b89f080b1e12ac008a34b209f4acadb07d91f44f453db7eb1e6d2c1527f901	1612	copy
+verification/renderer_preflight_gpu0.json	sn4622128794:/data/anh/robotwin_eval/verification/renderer_preflight_gpu0.json	6b290479c2e14f20cc21195bd3f29c3a916e01796405afe199f0c3a2261ff1d5	905	copy
+verification/runtime_manifest.json.gz	sn4622128794:/data/anh/robotwin_eval/runtime_manifest.json	ca8a95b8a57d0bbdb7a62bec79e98253a4fa13f7931ef1aaea2fdbe8315bba69	7405374	gzip (mtime 0)
+verification/smoke_e0_teacher10_5ep/flat_k1_n5/audit.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k1_n5/audit.json	009dcdfff7560e8bb1458f13b1d54a36fc8f6ea8165a23f19b9a65a63ed591cf	3001	copy
+verification/smoke_e0_teacher10_5ep/flat_k1_n5/campaign_seed_check.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k1_n5/campaign_seed_check.json	58d841a80ce226d997536dca14da950a545db540ca216e2d8177cffcd83249ca	2294	copy
+verification/smoke_e0_teacher10_5ep/flat_k1_n5/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k1_n5/manifest.json	609bd25229de67d15482d7a406b6c024255c9154f32dcdcbd353804711c59e48	144889	copy
+verification/smoke_e0_teacher10_5ep/flat_k4_n10/audit.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k4_n10/audit.json	9c449716a223889d65c3543dbf13df732311fd5dd7c707a2ef04d93365b4de00	3037	copy
+verification/smoke_e0_teacher10_5ep/flat_k4_n10/campaign_seed_check.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k4_n10/campaign_seed_check.json	3b405903bde4849faaac63995764beecb51136a097fb357a3f377cce2e5c41f6	2329	copy
+verification/smoke_e0_teacher10_5ep/flat_k4_n10/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_e0ep10_20261111/flat_k4_n10/manifest.json	594ebb5dccfcc25089c8ca54784f58c4d8504e5a0a1fe6e3c9a1977d49007a67	144926	copy
+verification/smoke_e1/flat_k1_n2/audit.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k1_n2/audit.json	26cc45b04f52abd93305dc6708fda46a0f8bb724cd22079047f3ec95c4a0cabc	1871	copy
+verification/smoke_e1/flat_k1_n2/campaign_seed_check.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k1_n2/campaign_seed_check.json	8ce74b8354b2d4bdfa34f8f390fe5aeee16daa4e82e8f5fc559eeebf70196d9b	2092	copy
+verification/smoke_e1/flat_k1_n2/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k1_n2/manifest.json	dbdc3afc372c247284c758dfeb2665b197597031089e6d057466cf76cf3c28df	144847	copy
+verification/smoke_e1/flat_k4_n2/audit.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k4_n2/audit.json	ae893d11c2d5f05c36c935d6fc78c6b233d1e107aa58eaaf0cfb761707b051c0	1870	copy
+verification/smoke_e1/flat_k4_n2/campaign_seed_check.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k4_n2/campaign_seed_check.json	5c6df50703452e7c831a4a777d12f5771699e69dd66835f40c6ffb3e43bb9bda	2091	copy
+verification/smoke_e1/flat_k4_n2/manifest.json	sn4622128794:/data/anh/robotwin_eval/results/smoke_queue_20261107/flat_k4_n2/manifest.json	98973cb3f945169bbbed291cab6e912b434735dadfec90d6be935769667e22fb	144847	copy
+verification/t5_lean_full_gpu.json	sn4622128794:/data/anh/robotwin_eval/verification/t5_lean_full_gpu.json	215c5db17d5026e0f390e0ad6e72a1da2cfdce27d393eb2ded89d7dad6ecd80c	1272	copy

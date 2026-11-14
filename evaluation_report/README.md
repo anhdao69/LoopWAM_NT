@@ -1,10 +1,11 @@
 # Evaluation reports
 
-Shared snapshot: **2026-11-13** (RoboTwin-50 E0 final comparison added; previous snapshot 2026-11-12). Report contents are synchronized across all GitHub branches. Each report retains its own run date and completion status.
+Shared snapshot: **2026-11-14** (RoboTwin-50 elastic evaluations on sn4622128794 added; previous snapshot 2026-11-13). Report contents are synchronized across all GitHub branches. Each report retains its own run date and completion status.
 
 ## Start here
 
-- Latest RoboTwin-50 E0 comparison: [five-epoch student distilled from the epoch-10 teacher](robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md). All three schedules complete: `[1,1]` **89.28%**, `[2,2]` **90.60%**, `[4,4]` **91.49%**, each over 10,000 scored episodes at NFE 2. Historical epoch-1 E0 results are kept separately.
+- Added in the 2026-11-14 sync: [RoboTwin-50 elastic students on sn4622128794](robotwin_elastic_sn4622_20261114/README.md) (complete; nine evaluations of 10,000 episodes, all audited). The same E0-epoch10-teacher-5ep checkpoint at NFE 5 and 10: `[1]×5` 89.43%, `[1]×10` 89.48%, `[2]×5` 90.74%, `[2]×10` 90.68%, `[4]×5` **91.29%**, `[4]×10` 91.23% (v0 epoch-10 teacher 91.87%). With the NFE-2 results below, this covers all nine schedules. Action loops raise success, while NFE 5 versus 10 changes it by at most 0.06 pp. Also E1 epoch 1 (epoch-5 teacher): `[1,1]` 86.36%, `[4,4]` 90.34%, `[4]×5` 90.99% (teacher 91.73%). Not part of the consolidated `all_results` exports.
+- RoboTwin-50 E0 comparison at NFE 2 (2026-11-13 sync): [five-epoch student distilled from the epoch-10 teacher](robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md). All three schedules complete: `[1,1]` **89.28%**, `[2,2]` **90.60%**, `[4,4]` **91.49%**, each over 10,000 scored episodes at NFE 2. Historical epoch-1 E0 results are kept separately.
 - Added in the 2026-11-12 sync: [RoboCasa-GR1 elastic student GR1-E0, final results](robocasa_gr1_elastic_e0_20261112/README.md) (complete): one student distilled from the epoch-9 teacher (52.17%, 626/1200), 5 epochs, 25 official 24-task evaluations. Epoch 5 at 2 / 5 / 10 steps: 4 loops 51.75 / **54.42** / 52.33% (teacher level), 2 loops 49.83 / 51.50 / 50.58%, 1 loop 44.42 / 46.50 / 49.42%. With all nine settings at epochs 4 and 5, `[1,1]` / `[2,2]` / `[4,4]` at epochs 2 and 3, paired statistics against the teacher, the training record, the Hugging Face publication of epoch 5, and an independent check. Not part of the consolidated `all_results` exports.
 - Latest ws reevaluation: [RoboCasa-GR1 epochs 9 and 10](robocasa_gr1_epochs09_10_20261108/README.md), complete: **52.33% (628/1,200)** on local RTX PRO 6000 and **50.00% (600/1,200)** on server189 RTX PRO 5000. Earlier H100 evaluations are retained separately.
 - Consolidated exports: [LIBERO matched](all_results/libero_matched.csv), [RoboTwin](all_results/robotwin_results.csv), [robustness](all_results/robustness_results.csv), and [all results JSON](all_results/results.json).
@@ -52,14 +53,15 @@ Shared snapshot: **2026-11-13** (RoboTwin-50 E0 final comparison added; previous
 | `robotwin_v0_epoch06` | [report.md](robotwin_v0_epoch06/report.md) | Run reports, status, and supporting evidence. |
 | `robotwin_v0_epoch10` | [report.md](robotwin_v0_epoch10/report.md) · [final_results.json](robotwin_v0_epoch10/final_results.json) | Run reports, status, and supporting evidence. |
 | `robotwin_elastic_e0_teacher10_5ep_20261111` | [final_report.md](robotwin_elastic_e0_teacher10_5ep_20261111/final_report.md) · [comparison data](robotwin_elastic_e0_teacher10_5ep_20261111/final_comparison.json) | Final three-schedule comparison, evidence and historical baseline links. |
+| `robotwin_elastic_sn4622_20261114` | [README.md](robotwin_elastic_sn4622_20261114/README.md) · [results.json](robotwin_elastic_sn4622_20261114/results.json) | E0-epoch10-teacher-5ep at `[1]`/`[2]`/`[4]` × NFE 5/10 and E1 epoch 1 at `[1,1]`/`[4,4]`/`[4]×5`. Nine 10,000-episode evaluations on sn4622128794 with per-episode records, audits, gates, code as run, and an independent check. |
 | `robustness` | [report.md](robustness/report.md) · [report.html](robustness/report.html) | LIBERO-Plus and LIBERO-Pro robustness results and provenance. |
 | `v0_ka_sweep` | [report.md](v0_ka_sweep/report.md) · [queue_status.json](v0_ka_sweep/queue_status.json) | v0 action-horizon sweep setup and status. |
 
 ## Evidence and history
 
-Latest E0 report sync: [manifest](sync_manifest_20261113.json) · [inventory](integrity_inventory_20261113.json). Older inventories describe their dated snapshots.
+Latest sync (2026-11-14, RoboTwin-50 elastic on sn4622128794): [manifest](sync_manifest_20261114.json) · [inventory](integrity_inventory_20261114.json). Previous, E0 report sync (2026-11-13): [manifest](sync_manifest_20261113.json) · [inventory](integrity_inventory_20261113.json). Older inventories describe their dated snapshots.
 
-Latest sync (2026-11-12, RoboCasa-GR1 elastic student): [manifest](sync_manifest_20261112.json) · [integrity inventory](integrity_inventory_20261112.json). Previous, ws reevaluation sync: [manifest](sync_manifest_20261108_ws.json) · [integrity inventory](integrity_inventory_20261108_ws.json). Earlier inventories below describe their original snapshots.
+Earlier sync (2026-11-12, RoboCasa-GR1 elastic student): [manifest](sync_manifest_20261112.json) · [integrity inventory](integrity_inventory_20261112.json). Previous, ws reevaluation sync: [manifest](sync_manifest_20261108_ws.json) · [integrity inventory](integrity_inventory_20261108_ws.json). Earlier inventories below describe their original snapshots.
 
 - [Complete file index](FILE_INDEX.md): reports, exports, status files, scripts, logs, and provenance grouped by folder.
 - [Preserved versions](ARCHIVE_INDEX.md): previous or differing copies retained during synchronization and cleanup.
@@ -68,5 +70,6 @@ Latest sync (2026-11-12, RoboCasa-GR1 elastic student): [manifest](sync_manifest
 - [Independent check of the added LIBERO and RoboCasa-GR1 tables](verify_h100_additions_20261106.py): recomputes them from the stored per-episode evidence.
 - [Independent check of the RoboCasa-GR1 epochs 6-10 results](verify_gr1_continuation_20261108.py): recomputes them from the stored per-episode evidence and cross-checks the training, selection and publication records.
 - [Independent check of the RoboCasa-GR1 elastic student results](verify_gr1_elastic_e0_20261112.py): recomputes the 25 evaluations and the paired statistics from the stored per-episode evidence and cross-checks the training, selection and publication records.
+- [Independent check of the sn4622128794 RoboTwin-50 elastic results](verify_robotwin_elastic_sn4622_20261114.py): recomputes the nine evaluations and the same-scene teacher comparisons from the stored per-episode records, and checks the copied evidence and the archived evaluation code against their sources.
 
 Result data and original paths are retained. A draft, cancelled run, or partial queue is not promoted to a completed result by this index. Completion and metrics should be read from the corresponding report.

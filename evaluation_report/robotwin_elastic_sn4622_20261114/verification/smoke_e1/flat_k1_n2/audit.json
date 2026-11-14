@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "problems": [],
+  "schedule": "flat_k1_n2",
+  "depths": [
+    1,
+    1
+  ],
+  "nfe": 2,
+  "checkpoint_sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb",
+  "t5_loader": "lean",
+  "cuda_graph": "0",
+  "render_fault_strings": [
+    "OIDN Error",
+    "cannot create buffer",
+    "OutOfMemoryError",
+    "out of memory"
+  ],
+  "totals": {
+    "demo_clean": {
+      "successes": 4,
+      "episodes": 4,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent_same_seeds": 100.0
+    },
+    "demo_randomized": {
+      "successes": 4,
+      "episodes": 4,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent_same_seeds": 100.0
+    },
+    "combined": {
+      "successes": 8,
+      "episodes": 8,
+      "sr_percent": 100.0,
+      "v0_campaign_sr_percent_same_seeds": 100.0
+    }
+  },
+  "rejected_attempts": [],
+  "cells": [
+    {
+      "cell": "adjust_bottle/demo_clean",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes_same_seeds": 2,
+      "queries": 10,
+      "seconds": 153.42255902290344,
+      "gpu": "1",
+      "problems": []
+    },
+    {
+      "cell": "adjust_bottle/demo_randomized",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes_same_seeds": 2,
+      "queries": 10,
+      "seconds": 199.56586027145386,
+      "gpu": "0",
+      "problems": []
+    },
+    {
+      "cell": "click_bell/demo_clean",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes_same_seeds": 2,
+      "queries": 6,
+      "seconds": 109.44870471954346,
+      "gpu": "0",
+      "problems": []
+    },
+    {
+      "cell": "click_bell/demo_randomized",
+      "attempt": "attempt_01",
+      "successes": 2,
+      "v0_campaign_successes_same_seeds": 2,
+      "queries": 6,
+      "seconds": 51.3884437084198,
+      "gpu": "1",
+      "problems": []
+    }
+  ]
+}
