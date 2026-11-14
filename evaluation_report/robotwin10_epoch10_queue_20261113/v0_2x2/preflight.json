@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "epoch": 10,
+  "step": 90890,
+  "variant": "v0-video2-action2",
+  "video_loops": 2,
+  "action_loops": 2,
+  "planned_episodes": 2000,
+  "seed": 42,
+  "nfe": 10,
+  "graph_bit_exact": true,
+  "smoke_episodes": 16,
+  "smoke_excluded": true,
+  "workers": 4
+}

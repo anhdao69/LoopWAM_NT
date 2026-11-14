@@ -1,0 +1,10 @@
+{
+  "requested_unix_remote": 1794580725.2758317,
+  "reason": "User requested stop current running",
+  "host": "aLinh /10.148.183.189",
+  "model": "v0_1x4",
+  "campaign_pid": 35152,
+  "start_ticks": "1185919",
+  "scope": "Stop evaluation queue and all owned descendants; preserve artifacts; do not advance to pending models",
+  "history_directory": "/media/newdisk/loopwam_robotwin10_epoch10_queue_20261113/stop_history/1794580725238988526"
+}

@@ -1,0 +1,3 @@
+# Dense-S12 epoch10 RoboTwin10 evaluation specification
+
+User: evaluate robotwin-10/dense-s12 on an empty server, epoch10 only. LocalRTXPRO6000 is idle. Pin HF794de7069cf7a05b77808b0b55af0290b5b0bf0f and ONLY robotwin-10/dense-s12/epoch_10; policy SHA256a222704c10688bf42a531a4a4175fe45a1b172c437cf9b9efa435c4b4fae1ac8, update90890. NativeDenseS12:12storedblocks/expert,1video/1actionpass,584567886parameters. Ten canonical tasks,clean+randomized,100acceptedepisodespercell,seed42,NFE10,predict32/execute24,originalrenderer/admission/instructions/normalization. FourCUDAgraphworkers/sharedT5; neverselect8/10workers basedonshortcalibration. All tests,numericalgates,16unscoredsmokeepisodes mustpassbeforerun;full2000episodefinalartifactaudit. Preservepriorresults andotherjobs.
