@@ -14,3 +14,14 @@ The retained Ka1/Ka2 results are complete. Original evaluator source, active run
 [Queue change record](stop_after_ka2.json) · [Live state](queue_status.json) · [Original frozen protocol](protocol.json)
 
 Updated index note (November7): separate later matched-baseline Ka3/5/6 results are listed in [the consolidated report](../all_results.md); removal from this original queue is not a claim that no other campaign evaluated them.
+
+## Per-suite breakdown (added 2026-11-14)
+
+Counted from the saved per-episode records of the two completed runs; nothing was re-evaluated. Seeds, tasks, source files and checks: [suite_breakdown_20261114/README.md](suite_breakdown_20261114/README.md).
+
+| Ka | Spatial | Object | Goal | Long | Overall | Successes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 18.73% | 25.13% | 5.07% | 0.27% | 12.30% | 738/6000 |
+| 2 | 65.07% | 72.13% | 54.60% | 30.47% | 55.57% | 3334/6000 |
+
+The same checkpoint at 3, 4, 5 and 6 action loops comes from other records; the breakdown page [sets all six side by side](suite_breakdown_20261114/README.md#all-action-loop-counts-of-this-checkpoint-in-one-view), each with its source.
