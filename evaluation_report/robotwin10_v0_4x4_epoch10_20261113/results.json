@@ -1,0 +1,586 @@
+{
+ "report": "robotwin10_v0_4x4_epoch10_20261113",
+ "model": "LoopWAM v0-video4-action4 (video/action loops 4/4), RoboTwin-10, epoch 10 (update 90,890)",
+ "checkpoint": {
+  "sha256": "b85ad555fa60f5aab61a35231f26d6ca9c01e32d6111d6893abb815db5b985b8",
+  "step": 90890,
+  "hf_repo": "anhdao69/LoopWAM_NT",
+  "hf_path": "robotwin-10/v0-video4-action4/epoch_10",
+  "hf_revision": "5d3d7a7eae361bc695e6e282596a760cf9025b56",
+  "parent_epoch05_sha256": "bb1563f16bcd102b3f4ad4a1a14377ee49de7e461d862b7bbc5dba497f036127"
+ },
+ "protocol": {
+  "harness": "RoboTwin 2.0 script/eval_policy.py (FastWAM-vendored + ChronoLoop per-seed instruction seeding)",
+  "policy": "experiments/robotwin/loopwam_policy (original LoopMoT, stateless)",
+  "episodes_per_cell": 100,
+  "settings": [
+   "demo_clean",
+   "demo_randomized"
+  ],
+  "seed": 42,
+  "first_scene_seed": 4300000,
+  "expert_check": true,
+  "instruction_type": "unseen",
+  "instruction_pool": 100,
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "num_inference_steps": 10,
+  "cfg": 1,
+  "noise": "fixed seed 42 for every query",
+  "shader": "rt (RoboTwin default)",
+  "eval_video": true,
+  "checkpoint": "per model (see models)",
+  "note": "same harness, seeds and settings as robotwin10_eval (epoch-5 eval, 11-09)"
+ },
+ "evaluation": {
+  "hardware": "NVIDIA H100 80GB HBM3 (Slurm job 1187428, node evc104)",
+  "completed": "2026-11-13 05:27 EST",
+  "cell_hours_sum": 27.24,
+  "attempts_per_cell": [
+   1
+  ],
+  "episodes_logged": 2000
+ },
+ "epoch05_same_harness_evaluation": {
+  "started": "2026-11-04 23:43 EST",
+  "completed": "2026-11-09 11:50 EST",
+  "attempts": 28,
+  "note": "interrupted cells resumed at the next scene seed; no seed is scored twice"
+ },
+ "epoch10_window": {
+  "started": "2026-11-13 02:13 EST",
+  "completed": "2026-11-13 05:27 EST",
+  "attempts": 20
+ },
+ "summary": {
+  "clean": {
+   "epoch10": {
+    "successes": 810,
+    "episodes": 1000,
+    "sr_percent": 81.0,
+    "wilson95": [
+     78.45,
+     83.31
+    ]
+   },
+   "epoch05_same_harness": {
+    "successes": 771,
+    "episodes": 1000,
+    "sr_percent": 77.1,
+    "wilson95": [
+     74.39,
+     79.6
+    ]
+   },
+   "paired": {
+    "shared_seeds": 943,
+    "epoch10_only": 70,
+    "epoch05_only": 38,
+    "difference_pp": 3.39,
+    "mcnemar_p": 0.0026846980412799145
+   },
+   "repo_robotwin10_v0_4x4": {
+    "successes": 774,
+    "episodes": 1000,
+    "sr_percent": 77.4
+   },
+   "repo_robotwin10_v0_4x4_remote189": {
+    "successes": 784,
+    "episodes": 1000,
+    "sr_percent": 78.4
+   },
+   "repo_robotwin10_v0_4x4_remote137_20261105": {
+    "successes": 766,
+    "episodes": 1000,
+    "sr_percent": 76.6
+   }
+  },
+  "randomized": {
+   "epoch10": {
+    "successes": 818,
+    "episodes": 1000,
+    "sr_percent": 81.8,
+    "wilson95": [
+     79.29,
+     84.07
+    ]
+   },
+   "epoch05_same_harness": {
+    "successes": 791,
+    "episodes": 1000,
+    "sr_percent": 79.1,
+    "wilson95": [
+     76.47,
+     81.51
+    ]
+   },
+   "paired": {
+    "shared_seeds": 939,
+    "epoch10_only": 70,
+    "epoch05_only": 45,
+    "difference_pp": 2.66,
+    "mcnemar_p": 0.02479353633964363
+   },
+   "repo_robotwin10_v0_4x4": {
+    "successes": 803,
+    "episodes": 1000,
+    "sr_percent": 80.3
+   },
+   "repo_robotwin10_v0_4x4_remote189": {
+    "successes": 780,
+    "episodes": 1000,
+    "sr_percent": 78.0
+   },
+   "repo_robotwin10_v0_4x4_remote137_20261105": {
+    "successes": 793,
+    "episodes": 1000,
+    "sr_percent": 79.3
+   }
+  },
+  "combined": {
+   "epoch10": {
+    "successes": 1628,
+    "episodes": 2000,
+    "sr_percent": 81.4,
+    "wilson95": [
+     79.64,
+     83.04
+    ]
+   },
+   "epoch05_same_harness": {
+    "successes": 1562,
+    "episodes": 2000,
+    "sr_percent": 78.1,
+    "wilson95": [
+     76.23,
+     79.86
+    ]
+   },
+   "paired": {
+    "shared_seeds": 1882,
+    "epoch10_only": 140,
+    "epoch05_only": 83,
+    "difference_pp": 3.03,
+    "mcnemar_p": 0.0001640523149550963
+   },
+   "repo_robotwin10_v0_4x4": {
+    "successes": 1577,
+    "episodes": 2000,
+    "sr_percent": 78.85
+   },
+   "repo_robotwin10_v0_4x4_remote189": {
+    "successes": 1564,
+    "episodes": 2000,
+    "sr_percent": 78.2
+   },
+   "repo_robotwin10_v0_4x4_remote137_20261105": {
+    "successes": 1559,
+    "episodes": 2000,
+    "sr_percent": 77.95
+   }
+  }
+ },
+ "instruction_agreement_on_shared_seeds": {
+  "same": 1882,
+  "shared": 1882
+ },
+ "repo_references": {
+  "robotwin10_v0_4x4": {
+   "description": "original release, local evaluation",
+   "checkpoint_sha256_matches_epoch05": true
+  },
+  "robotwin10_v0_4x4_remote189": {
+   "description": "rerun on server189",
+   "checkpoint_sha256_matches_epoch05": true
+  },
+  "robotwin10_v0_4x4_remote137_20261105": {
+   "description": "rerun on server137",
+   "checkpoint_sha256_matches_epoch05": true
+  }
+ },
+ "training": {
+  "recipe": "epochs 6-10 continuation of the epoch-5 release (zero-based epochs 5-9): AdamW state continued from update 45,445, LR 3e-5 for backbone and robot I/O, no warmup, cosine to 1% over 45,445 updates, global batch 128 on 4 H100 GPUs",
+  "git_revision": "3de6ecd1c13d9a13aff2c94f2b1697aae8d33cc4",
+  "git_dirty": true,
+  "world_size": 4,
+  "global_batch": 128,
+  "microbatch": 8,
+  "lr_backbone": 3e-05,
+  "lr_robot_io": 3e-05,
+  "updates": [
+   45446,
+   90890
+  ],
+  "windows_seen": 11633510,
+  "training_hours": 17.75,
+  "mean_loss_by_epoch": {
+   "6": 0.04783,
+   "7": 0.04613,
+   "8": 0.04422,
+   "9": 0.04256,
+   "10": 0.0418
+  }
+ },
+ "tasks": [
+  {
+   "task": "adjust_bottle",
+   "setting": "demo_clean",
+   "epoch10_successes": 100,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 100,
+   "epoch05_same_harness_successes": 100,
+   "epoch05_same_harness_sr_percent": 100,
+   "difference_pp": 0,
+   "shared_seeds": 99,
+   "epoch10_only": 0,
+   "epoch05_only": 0,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 100,
+   "repo_robotwin10_v0_4x4_remote189_successes": 100,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 100,
+   "epoch10_cell_hours": 1.067
+  },
+  {
+   "task": "adjust_bottle",
+   "setting": "demo_randomized",
+   "epoch10_successes": 99,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 99,
+   "epoch05_same_harness_successes": 99,
+   "epoch05_same_harness_sr_percent": 99,
+   "difference_pp": 0,
+   "shared_seeds": 100,
+   "epoch10_only": 0,
+   "epoch05_only": 0,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 99,
+   "repo_robotwin10_v0_4x4_remote189_successes": 99,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 99,
+   "epoch10_cell_hours": 1.173
+  },
+  {
+   "task": "grab_roller",
+   "setting": "demo_clean",
+   "epoch10_successes": 100,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 100,
+   "epoch05_same_harness_successes": 100,
+   "epoch05_same_harness_sr_percent": 100,
+   "difference_pp": 0,
+   "shared_seeds": 99,
+   "epoch10_only": 0,
+   "epoch05_only": 0,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 100,
+   "repo_robotwin10_v0_4x4_remote189_successes": 100,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 100,
+   "epoch10_cell_hours": 0.67
+  },
+  {
+   "task": "grab_roller",
+   "setting": "demo_randomized",
+   "epoch10_successes": 100,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 100,
+   "epoch05_same_harness_successes": 100,
+   "epoch05_same_harness_sr_percent": 100,
+   "difference_pp": 0,
+   "shared_seeds": 100,
+   "epoch10_only": 0,
+   "epoch05_only": 0,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 100,
+   "repo_robotwin10_v0_4x4_remote189_successes": 100,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 100,
+   "epoch10_cell_hours": 0.816
+  },
+  {
+   "task": "hanging_mug",
+   "setting": "demo_clean",
+   "epoch10_successes": 55,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 55,
+   "epoch05_same_harness_successes": 45,
+   "epoch05_same_harness_sr_percent": 45,
+   "difference_pp": 10,
+   "shared_seeds": 89,
+   "epoch10_only": 15,
+   "epoch05_only": 8,
+   "mcnemar_p": 0.21004,
+   "repo_robotwin10_v0_4x4_successes": 50,
+   "repo_robotwin10_v0_4x4_remote189_successes": 48,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 48,
+   "epoch10_cell_hours": 2.408
+  },
+  {
+   "task": "hanging_mug",
+   "setting": "demo_randomized",
+   "epoch10_successes": 62,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 62,
+   "epoch05_same_harness_successes": 52,
+   "epoch05_same_harness_sr_percent": 52,
+   "difference_pp": 10,
+   "shared_seeds": 88,
+   "epoch10_only": 21,
+   "epoch05_only": 8,
+   "mcnemar_p": 0.02412,
+   "repo_robotwin10_v0_4x4_successes": 52,
+   "repo_robotwin10_v0_4x4_remote189_successes": 45,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 51,
+   "epoch10_cell_hours": 2.354
+  },
+  {
+   "task": "move_stapler_pad",
+   "setting": "demo_clean",
+   "epoch10_successes": 71,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 71,
+   "epoch05_same_harness_successes": 66,
+   "epoch05_same_harness_sr_percent": 66,
+   "difference_pp": 5,
+   "shared_seeds": 100,
+   "epoch10_only": 17,
+   "epoch05_only": 12,
+   "mcnemar_p": 0.458258,
+   "repo_robotwin10_v0_4x4_successes": 65,
+   "repo_robotwin10_v0_4x4_remote189_successes": 70,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 66,
+   "epoch10_cell_hours": 1.12
+  },
+  {
+   "task": "move_stapler_pad",
+   "setting": "demo_randomized",
+   "epoch10_successes": 74,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 74,
+   "epoch05_same_harness_successes": 67,
+   "epoch05_same_harness_sr_percent": 67,
+   "difference_pp": 7,
+   "shared_seeds": 90,
+   "epoch10_only": 16,
+   "epoch05_only": 9,
+   "mcnemar_p": 0.229523,
+   "repo_robotwin10_v0_4x4_successes": 71,
+   "repo_robotwin10_v0_4x4_remote189_successes": 69,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 70,
+   "epoch10_cell_hours": 1.062
+  },
+  {
+   "task": "open_microwave",
+   "setting": "demo_clean",
+   "epoch10_successes": 38,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 38,
+   "epoch05_same_harness_successes": 28,
+   "epoch05_same_harness_sr_percent": 28,
+   "difference_pp": 10,
+   "shared_seeds": 81,
+   "epoch10_only": 10,
+   "epoch05_only": 5,
+   "mcnemar_p": 0.301758,
+   "repo_robotwin10_v0_4x4_successes": 26,
+   "repo_robotwin10_v0_4x4_remote189_successes": 32,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 24,
+   "epoch10_cell_hours": 3.078
+  },
+  {
+   "task": "open_microwave",
+   "setting": "demo_randomized",
+   "epoch10_successes": 52,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 52,
+   "epoch05_same_harness_successes": 41,
+   "epoch05_same_harness_sr_percent": 41,
+   "difference_pp": 11,
+   "shared_seeds": 80,
+   "epoch10_only": 15,
+   "epoch05_only": 7,
+   "mcnemar_p": 0.133801,
+   "repo_robotwin10_v0_4x4_successes": 37,
+   "repo_robotwin10_v0_4x4_remote189_successes": 35,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 35,
+   "epoch10_cell_hours": 2.81
+  },
+  {
+   "task": "press_stapler",
+   "setting": "demo_clean",
+   "epoch10_successes": 92,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 92,
+   "epoch05_same_harness_successes": 93,
+   "epoch05_same_harness_sr_percent": 93,
+   "difference_pp": -1,
+   "shared_seeds": 100,
+   "epoch10_only": 4,
+   "epoch05_only": 5,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 90,
+   "repo_robotwin10_v0_4x4_remote189_successes": 91,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 90,
+   "epoch10_cell_hours": 0.636
+  },
+  {
+   "task": "press_stapler",
+   "setting": "demo_randomized",
+   "epoch10_successes": 93,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 93,
+   "epoch05_same_harness_successes": 92,
+   "epoch05_same_harness_sr_percent": 92,
+   "difference_pp": 1,
+   "shared_seeds": 100,
+   "epoch10_only": 3,
+   "epoch05_only": 2,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 92,
+   "repo_robotwin10_v0_4x4_remote189_successes": 93,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 91,
+   "epoch10_cell_hours": 0.721
+  },
+  {
+   "task": "scan_object",
+   "setting": "demo_clean",
+   "epoch10_successes": 89,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 89,
+   "epoch05_same_harness_successes": 84,
+   "epoch05_same_harness_sr_percent": 84,
+   "difference_pp": 5,
+   "shared_seeds": 86,
+   "epoch10_only": 7,
+   "epoch05_only": 1,
+   "mcnemar_p": 0.070312,
+   "repo_robotwin10_v0_4x4_successes": 88,
+   "repo_robotwin10_v0_4x4_remote189_successes": 86,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 86,
+   "epoch10_cell_hours": 1.787
+  },
+  {
+   "task": "scan_object",
+   "setting": "demo_randomized",
+   "epoch10_successes": 80,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 80,
+   "epoch05_same_harness_successes": 79,
+   "epoch05_same_harness_sr_percent": 79,
+   "difference_pp": 1,
+   "shared_seeds": 88,
+   "epoch10_only": 5,
+   "epoch05_only": 6,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 87,
+   "repo_robotwin10_v0_4x4_remote189_successes": 79,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 82,
+   "epoch10_cell_hours": 1.405
+  },
+  {
+   "task": "stack_blocks_two",
+   "setting": "demo_clean",
+   "epoch10_successes": 98,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 98,
+   "epoch05_same_harness_successes": 99,
+   "epoch05_same_harness_sr_percent": 99,
+   "difference_pp": -1,
+   "shared_seeds": 99,
+   "epoch10_only": 1,
+   "epoch05_only": 2,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 100,
+   "repo_robotwin10_v0_4x4_remote189_successes": 98,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 99,
+   "epoch10_cell_hours": 1.33
+  },
+  {
+   "task": "stack_blocks_two",
+   "setting": "demo_randomized",
+   "epoch10_successes": 97,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 97,
+   "epoch05_same_harness_successes": 97,
+   "epoch05_same_harness_sr_percent": 97,
+   "difference_pp": 0,
+   "shared_seeds": 99,
+   "epoch10_only": 1,
+   "epoch05_only": 1,
+   "mcnemar_p": 1.0,
+   "repo_robotwin10_v0_4x4_successes": 98,
+   "repo_robotwin10_v0_4x4_remote189_successes": 96,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 94,
+   "epoch10_cell_hours": 1.351
+  },
+  {
+   "task": "stamp_seal",
+   "setting": "demo_clean",
+   "epoch10_successes": 93,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 93,
+   "epoch05_same_harness_successes": 90,
+   "epoch05_same_harness_sr_percent": 90,
+   "difference_pp": 3,
+   "shared_seeds": 97,
+   "epoch10_only": 5,
+   "epoch05_only": 2,
+   "mcnemar_p": 0.453125,
+   "repo_robotwin10_v0_4x4_successes": 92,
+   "repo_robotwin10_v0_4x4_remote189_successes": 94,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 89,
+   "epoch10_cell_hours": 0.952
+  },
+  {
+   "task": "stamp_seal",
+   "setting": "demo_randomized",
+   "epoch10_successes": 86,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 86,
+   "epoch05_same_harness_successes": 92,
+   "epoch05_same_harness_sr_percent": 92,
+   "difference_pp": -6,
+   "shared_seeds": 97,
+   "epoch10_only": 2,
+   "epoch05_only": 8,
+   "mcnemar_p": 0.109375,
+   "repo_robotwin10_v0_4x4_successes": 95,
+   "repo_robotwin10_v0_4x4_remote189_successes": 94,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 96,
+   "epoch10_cell_hours": 0.822
+  },
+  {
+   "task": "turn_switch",
+   "setting": "demo_clean",
+   "epoch10_successes": 74,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 74,
+   "epoch05_same_harness_successes": 66,
+   "epoch05_same_harness_sr_percent": 66,
+   "difference_pp": 8,
+   "shared_seeds": 93,
+   "epoch10_only": 11,
+   "epoch05_only": 3,
+   "mcnemar_p": 0.057373,
+   "repo_robotwin10_v0_4x4_successes": 63,
+   "repo_robotwin10_v0_4x4_remote189_successes": 65,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 64,
+   "epoch10_cell_hours": 0.805
+  },
+  {
+   "task": "turn_switch",
+   "setting": "demo_randomized",
+   "epoch10_successes": 75,
+   "epoch10_episodes": 100,
+   "epoch10_sr_percent": 75,
+   "epoch05_same_harness_successes": 72,
+   "epoch05_same_harness_sr_percent": 72,
+   "difference_pp": 3,
+   "shared_seeds": 97,
+   "epoch10_only": 7,
+   "epoch05_only": 4,
+   "mcnemar_p": 0.548828,
+   "repo_robotwin10_v0_4x4_successes": 72,
+   "repo_robotwin10_v0_4x4_remote189_successes": 70,
+   "repo_robotwin10_v0_4x4_remote137_20261105_successes": 75,
+   "epoch10_cell_hours": 0.875
+  }
+ ]
+}
