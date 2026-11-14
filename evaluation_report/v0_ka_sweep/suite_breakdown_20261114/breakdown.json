@@ -1,0 +1,1200 @@
+{
+  "source": "results/ka1 and results/ka2 of the original v0 action-depth queue (workstation, 27 October 2026): the runs' saved per-episode group files; nothing re-evaluated",
+  "archive_sha256": "d092af2a3875d98d95491761ede27a40d8012c57867b24698a755784d39bf839",
+  "archive_files": 248,
+  "runs": {
+    "1": {
+      "action_loops": 1,
+      "video_loops": 4,
+      "nfe": 10,
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "episodes": 6000,
+      "successes": 738,
+      "success_rate": 12.3,
+      "seed_sample_std": 5.8617,
+      "suites": {
+        "libero_spatial": {
+          "name": "Spatial",
+          "successes": 281,
+          "episodes": 1500,
+          "rate": 18.7333,
+          "seed_sample_std": 3.9311,
+          "seeds": {
+            "42": {
+              "successes": 116,
+              "episodes": 500,
+              "rate": 23.2
+            },
+            "43": {
+              "successes": 86,
+              "episodes": 500,
+              "rate": 17.2
+            },
+            "44": {
+              "successes": 79,
+              "episodes": 500,
+              "rate": 15.8
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+              "successes": 2,
+              "episodes": 150,
+              "rate": 1.3333,
+              "seeds": {
+                "42": 1,
+                "43": 1,
+                "44": 0
+              }
+            },
+            "1": {
+              "description": "pick up the black bowl next to the ramekin and place it on the plate",
+              "successes": 2,
+              "episodes": 150,
+              "rate": 1.3333,
+              "seeds": {
+                "42": 1,
+                "43": 1,
+                "44": 0
+              }
+            },
+            "2": {
+              "description": "pick up the black bowl from table center and place it on the plate",
+              "successes": 13,
+              "episodes": 150,
+              "rate": 8.6667,
+              "seeds": {
+                "42": 5,
+                "43": 4,
+                "44": 4
+              }
+            },
+            "3": {
+              "description": "pick up the black bowl on the cookie box and place it on the plate",
+              "successes": 112,
+              "episodes": 150,
+              "rate": 74.6667,
+              "seeds": {
+                "42": 38,
+                "43": 37,
+                "44": 37
+              }
+            },
+            "4": {
+              "description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+              "successes": 2,
+              "episodes": 150,
+              "rate": 1.3333,
+              "seeds": {
+                "42": 2,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "5": {
+              "description": "pick up the black bowl on the ramekin and place it on the plate",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "6": {
+              "description": "pick up the black bowl next to the cookie box and place it on the plate",
+              "successes": 66,
+              "episodes": 150,
+              "rate": 44.0,
+              "seeds": {
+                "42": 27,
+                "43": 20,
+                "44": 19
+              }
+            },
+            "7": {
+              "description": "pick up the black bowl on the stove and place it on the plate",
+              "successes": 15,
+              "episodes": 150,
+              "rate": 10.0,
+              "seeds": {
+                "42": 15,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "8": {
+              "description": "pick up the black bowl next to the plate and place it on the plate",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "9": {
+              "description": "pick up the black bowl on the wooden cabinet and place it on the plate",
+              "successes": 69,
+              "episodes": 150,
+              "rate": 46.0,
+              "seeds": {
+                "42": 27,
+                "43": 23,
+                "44": 19
+              }
+            }
+          }
+        },
+        "libero_object": {
+          "name": "Object",
+          "successes": 377,
+          "episodes": 1500,
+          "rate": 25.1333,
+          "seed_sample_std": 15.3835,
+          "seeds": {
+            "42": {
+              "successes": 213,
+              "episodes": 500,
+              "rate": 42.6
+            },
+            "43": {
+              "successes": 96,
+              "episodes": 500,
+              "rate": 19.2
+            },
+            "44": {
+              "successes": 68,
+              "episodes": 500,
+              "rate": 13.6
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "pick up the alphabet soup and place it in the basket",
+              "successes": 65,
+              "episodes": 150,
+              "rate": 43.3333,
+              "seeds": {
+                "42": 36,
+                "43": 19,
+                "44": 10
+              }
+            },
+            "1": {
+              "description": "pick up the cream cheese and place it in the basket",
+              "successes": 129,
+              "episodes": 150,
+              "rate": 86.0,
+              "seeds": {
+                "42": 41,
+                "43": 47,
+                "44": 41
+              }
+            },
+            "2": {
+              "description": "pick up the salad dressing and place it in the basket",
+              "successes": 27,
+              "episodes": 150,
+              "rate": 18.0,
+              "seeds": {
+                "42": 15,
+                "43": 8,
+                "44": 4
+              }
+            },
+            "3": {
+              "description": "pick up the bbq sauce and place it in the basket",
+              "successes": 8,
+              "episodes": 150,
+              "rate": 5.3333,
+              "seeds": {
+                "42": 8,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "4": {
+              "description": "pick up the ketchup and place it in the basket",
+              "successes": 18,
+              "episodes": 150,
+              "rate": 12.0,
+              "seeds": {
+                "42": 18,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "5": {
+              "description": "pick up the tomato sauce and place it in the basket",
+              "successes": 14,
+              "episodes": 150,
+              "rate": 9.3333,
+              "seeds": {
+                "42": 10,
+                "43": 3,
+                "44": 1
+              }
+            },
+            "6": {
+              "description": "pick up the butter and place it in the basket",
+              "successes": 32,
+              "episodes": 150,
+              "rate": 21.3333,
+              "seeds": {
+                "42": 21,
+                "43": 8,
+                "44": 3
+              }
+            },
+            "7": {
+              "description": "pick up the milk and place it in the basket",
+              "successes": 28,
+              "episodes": 150,
+              "rate": 18.6667,
+              "seeds": {
+                "42": 26,
+                "43": 2,
+                "44": 0
+              }
+            },
+            "8": {
+              "description": "pick up the chocolate pudding and place it in the basket",
+              "successes": 52,
+              "episodes": 150,
+              "rate": 34.6667,
+              "seeds": {
+                "42": 37,
+                "43": 6,
+                "44": 9
+              }
+            },
+            "9": {
+              "description": "pick up the orange juice and place it in the basket",
+              "successes": 4,
+              "episodes": 150,
+              "rate": 2.6667,
+              "seeds": {
+                "42": 1,
+                "43": 3,
+                "44": 0
+              }
+            }
+          }
+        },
+        "libero_goal": {
+          "name": "Goal",
+          "successes": 76,
+          "episodes": 1500,
+          "rate": 5.0667,
+          "seed_sample_std": 3.807,
+          "seeds": {
+            "42": {
+              "successes": 45,
+              "episodes": 500,
+              "rate": 9.0
+            },
+            "43": {
+              "successes": 24,
+              "episodes": 500,
+              "rate": 4.8
+            },
+            "44": {
+              "successes": 7,
+              "episodes": 500,
+              "rate": 1.4
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "open the middle drawer of the cabinet",
+              "successes": 31,
+              "episodes": 150,
+              "rate": 20.6667,
+              "seeds": {
+                "42": 23,
+                "43": 7,
+                "44": 1
+              }
+            },
+            "1": {
+              "description": "put the bowl on the stove",
+              "successes": 22,
+              "episodes": 150,
+              "rate": 14.6667,
+              "seeds": {
+                "42": 12,
+                "43": 10,
+                "44": 0
+              }
+            },
+            "2": {
+              "description": "put the wine bottle on top of the cabinet",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "3": {
+              "description": "open the top drawer and put the bowl inside",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "4": {
+              "description": "put the bowl on top of the cabinet",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "5": {
+              "description": "push the plate to the front of the stove",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "6": {
+              "description": "put the cream cheese in the bowl",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "7": {
+              "description": "turn on the stove",
+              "successes": 15,
+              "episodes": 150,
+              "rate": 10.0,
+              "seeds": {
+                "42": 7,
+                "43": 4,
+                "44": 4
+              }
+            },
+            "8": {
+              "description": "put the bowl on the plate",
+              "successes": 8,
+              "episodes": 150,
+              "rate": 5.3333,
+              "seeds": {
+                "42": 3,
+                "43": 3,
+                "44": 2
+              }
+            },
+            "9": {
+              "description": "put the wine bottle on the rack",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            }
+          }
+        },
+        "libero_10": {
+          "name": "Long",
+          "successes": 4,
+          "episodes": 1500,
+          "rate": 0.2667,
+          "seed_sample_std": 0.4619,
+          "seeds": {
+            "42": {
+              "successes": 4,
+              "episodes": 500,
+              "rate": 0.8
+            },
+            "43": {
+              "successes": 0,
+              "episodes": 500,
+              "rate": 0.0
+            },
+            "44": {
+              "successes": 0,
+              "episodes": 500,
+              "rate": 0.0
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "put both the alphabet soup and the tomato sauce in the basket",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "1": {
+              "description": "put both the cream cheese box and the butter in the basket",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "2": {
+              "description": "turn on the stove and put the moka pot on it",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "3": {
+              "description": "put the black bowl in the bottom drawer of the cabinet and close it",
+              "successes": 1,
+              "episodes": 150,
+              "rate": 0.6667,
+              "seeds": {
+                "42": 1,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "4": {
+              "description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "5": {
+              "description": "pick up the book and place it in the back compartment of the caddy",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "6": {
+              "description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "7": {
+              "description": "put both the alphabet soup and the cream cheese box in the basket",
+              "successes": 3,
+              "episodes": 150,
+              "rate": 2.0,
+              "seeds": {
+                "42": 3,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "8": {
+              "description": "put both moka pots on the stove",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "9": {
+              "description": "put the yellow and white mug in the microwave and close it",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            }
+          }
+        }
+      },
+      "seeds": {
+        "42": {
+          "successes": 378,
+          "episodes": 2000,
+          "rate": 18.9
+        },
+        "43": {
+          "successes": 206,
+          "episodes": 2000,
+          "rate": 10.3
+        },
+        "44": {
+          "successes": 154,
+          "episodes": 2000,
+          "rate": 7.7
+        }
+      },
+      "same_initial_states_across_seeds": true,
+      "backend": "cuda-graph",
+      "workers": 8,
+      "group_files": 120,
+      "group_files_listing_sha256": "f5d54e407211bbba5be0422e4316bf1036b8a655236163774c66dc6dfda10f69",
+      "run_summary": {
+        "episodes": 6000,
+        "successes": 738,
+        "success_rate": 0.123,
+        "action_loops": 1,
+        "workers": 8,
+        "backend": "cuda-graph",
+        "mode": "scored",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 19353.531748593,
+        "elapsed_seconds": 19360.915558946,
+        "finished_unix": 1793060113.5411143,
+        "signature": "693cfcfe9f9a609e52714c4449d432920c1790dae654dad2eae9605748530fab",
+        "queries": 272041,
+        "recovered_episodes": 0
+      },
+      "issues": [],
+      "passed": true
+    },
+    "2": {
+      "action_loops": 2,
+      "video_loops": 4,
+      "nfe": 10,
+      "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+      "episodes": 6000,
+      "successes": 3334,
+      "success_rate": 55.5667,
+      "seed_sample_std": 7.2157,
+      "suites": {
+        "libero_spatial": {
+          "name": "Spatial",
+          "successes": 976,
+          "episodes": 1500,
+          "rate": 65.0667,
+          "seed_sample_std": 2.6633,
+          "seeds": {
+            "42": {
+              "successes": 340,
+              "episodes": 500,
+              "rate": 68.0
+            },
+            "43": {
+              "successes": 322,
+              "episodes": 500,
+              "rate": 64.4
+            },
+            "44": {
+              "successes": 314,
+              "episodes": 500,
+              "rate": 62.8
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+              "successes": 75,
+              "episodes": 150,
+              "rate": 50.0,
+              "seeds": {
+                "42": 25,
+                "43": 25,
+                "44": 25
+              }
+            },
+            "1": {
+              "description": "pick up the black bowl next to the ramekin and place it on the plate",
+              "successes": 66,
+              "episodes": 150,
+              "rate": 44.0,
+              "seeds": {
+                "42": 16,
+                "43": 23,
+                "44": 27
+              }
+            },
+            "2": {
+              "description": "pick up the black bowl from table center and place it on the plate",
+              "successes": 126,
+              "episodes": 150,
+              "rate": 84.0,
+              "seeds": {
+                "42": 43,
+                "43": 41,
+                "44": 42
+              }
+            },
+            "3": {
+              "description": "pick up the black bowl on the cookie box and place it on the plate",
+              "successes": 129,
+              "episodes": 150,
+              "rate": 86.0,
+              "seeds": {
+                "42": 42,
+                "43": 44,
+                "44": 43
+              }
+            },
+            "4": {
+              "description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+              "successes": 82,
+              "episodes": 150,
+              "rate": 54.6667,
+              "seeds": {
+                "42": 32,
+                "43": 27,
+                "44": 23
+              }
+            },
+            "5": {
+              "description": "pick up the black bowl on the ramekin and place it on the plate",
+              "successes": 66,
+              "episodes": 150,
+              "rate": 44.0,
+              "seeds": {
+                "42": 23,
+                "43": 20,
+                "44": 23
+              }
+            },
+            "6": {
+              "description": "pick up the black bowl next to the cookie box and place it on the plate",
+              "successes": 143,
+              "episodes": 150,
+              "rate": 95.3333,
+              "seeds": {
+                "42": 49,
+                "43": 48,
+                "44": 46
+              }
+            },
+            "7": {
+              "description": "pick up the black bowl on the stove and place it on the plate",
+              "successes": 101,
+              "episodes": 150,
+              "rate": 67.3333,
+              "seeds": {
+                "42": 45,
+                "43": 33,
+                "44": 23
+              }
+            },
+            "8": {
+              "description": "pick up the black bowl next to the plate and place it on the plate",
+              "successes": 99,
+              "episodes": 150,
+              "rate": 66.0,
+              "seeds": {
+                "42": 30,
+                "43": 33,
+                "44": 36
+              }
+            },
+            "9": {
+              "description": "pick up the black bowl on the wooden cabinet and place it on the plate",
+              "successes": 89,
+              "episodes": 150,
+              "rate": 59.3333,
+              "seeds": {
+                "42": 35,
+                "43": 28,
+                "44": 26
+              }
+            }
+          }
+        },
+        "libero_object": {
+          "name": "Object",
+          "successes": 1082,
+          "episodes": 1500,
+          "rate": 72.1333,
+          "seed_sample_std": 10.4083,
+          "seeds": {
+            "42": {
+              "successes": 419,
+              "episodes": 500,
+              "rate": 83.8
+            },
+            "43": {
+              "successes": 344,
+              "episodes": 500,
+              "rate": 68.8
+            },
+            "44": {
+              "successes": 319,
+              "episodes": 500,
+              "rate": 63.8
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "pick up the alphabet soup and place it in the basket",
+              "successes": 98,
+              "episodes": 150,
+              "rate": 65.3333,
+              "seeds": {
+                "42": 46,
+                "43": 28,
+                "44": 24
+              }
+            },
+            "1": {
+              "description": "pick up the cream cheese and place it in the basket",
+              "successes": 147,
+              "episodes": 150,
+              "rate": 98.0,
+              "seeds": {
+                "42": 50,
+                "43": 50,
+                "44": 47
+              }
+            },
+            "2": {
+              "description": "pick up the salad dressing and place it in the basket",
+              "successes": 145,
+              "episodes": 150,
+              "rate": 96.6667,
+              "seeds": {
+                "42": 50,
+                "43": 50,
+                "44": 45
+              }
+            },
+            "3": {
+              "description": "pick up the bbq sauce and place it in the basket",
+              "successes": 107,
+              "episodes": 150,
+              "rate": 71.3333,
+              "seeds": {
+                "42": 42,
+                "43": 36,
+                "44": 29
+              }
+            },
+            "4": {
+              "description": "pick up the ketchup and place it in the basket",
+              "successes": 44,
+              "episodes": 150,
+              "rate": 29.3333,
+              "seeds": {
+                "42": 24,
+                "43": 11,
+                "44": 9
+              }
+            },
+            "5": {
+              "description": "pick up the tomato sauce and place it in the basket",
+              "successes": 74,
+              "episodes": 150,
+              "rate": 49.3333,
+              "seeds": {
+                "42": 27,
+                "43": 22,
+                "44": 25
+              }
+            },
+            "6": {
+              "description": "pick up the butter and place it in the basket",
+              "successes": 114,
+              "episodes": 150,
+              "rate": 76.0,
+              "seeds": {
+                "42": 43,
+                "43": 35,
+                "44": 36
+              }
+            },
+            "7": {
+              "description": "pick up the milk and place it in the basket",
+              "successes": 114,
+              "episodes": 150,
+              "rate": 76.0,
+              "seeds": {
+                "42": 47,
+                "43": 37,
+                "44": 30
+              }
+            },
+            "8": {
+              "description": "pick up the chocolate pudding and place it in the basket",
+              "successes": 138,
+              "episodes": 150,
+              "rate": 92.0,
+              "seeds": {
+                "42": 50,
+                "43": 42,
+                "44": 46
+              }
+            },
+            "9": {
+              "description": "pick up the orange juice and place it in the basket",
+              "successes": 101,
+              "episodes": 150,
+              "rate": 67.3333,
+              "seeds": {
+                "42": 40,
+                "43": 33,
+                "44": 28
+              }
+            }
+          }
+        },
+        "libero_goal": {
+          "name": "Goal",
+          "successes": 819,
+          "episodes": 1500,
+          "rate": 54.6,
+          "seed_sample_std": 6.2193,
+          "seeds": {
+            "42": {
+              "successes": 300,
+              "episodes": 500,
+              "rate": 60.0
+            },
+            "43": {
+              "successes": 280,
+              "episodes": 500,
+              "rate": 56.0
+            },
+            "44": {
+              "successes": 239,
+              "episodes": 500,
+              "rate": 47.8
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "open the middle drawer of the cabinet",
+              "successes": 115,
+              "episodes": 150,
+              "rate": 76.6667,
+              "seeds": {
+                "42": 48,
+                "43": 39,
+                "44": 28
+              }
+            },
+            "1": {
+              "description": "put the bowl on the stove",
+              "successes": 145,
+              "episodes": 150,
+              "rate": 96.6667,
+              "seeds": {
+                "42": 48,
+                "43": 50,
+                "44": 47
+              }
+            },
+            "2": {
+              "description": "put the wine bottle on top of the cabinet",
+              "successes": 67,
+              "episodes": 150,
+              "rate": 44.6667,
+              "seeds": {
+                "42": 13,
+                "43": 22,
+                "44": 32
+              }
+            },
+            "3": {
+              "description": "open the top drawer and put the bowl inside",
+              "successes": 65,
+              "episodes": 150,
+              "rate": 43.3333,
+              "seeds": {
+                "42": 25,
+                "43": 28,
+                "44": 12
+              }
+            },
+            "4": {
+              "description": "put the bowl on top of the cabinet",
+              "successes": 58,
+              "episodes": 150,
+              "rate": 38.6667,
+              "seeds": {
+                "42": 22,
+                "43": 18,
+                "44": 18
+              }
+            },
+            "5": {
+              "description": "push the plate to the front of the stove",
+              "successes": 107,
+              "episodes": 150,
+              "rate": 71.3333,
+              "seeds": {
+                "42": 44,
+                "43": 33,
+                "44": 30
+              }
+            },
+            "6": {
+              "description": "put the cream cheese in the bowl",
+              "successes": 85,
+              "episodes": 150,
+              "rate": 56.6667,
+              "seeds": {
+                "42": 32,
+                "43": 32,
+                "44": 21
+              }
+            },
+            "7": {
+              "description": "turn on the stove",
+              "successes": 40,
+              "episodes": 150,
+              "rate": 26.6667,
+              "seeds": {
+                "42": 18,
+                "43": 14,
+                "44": 8
+              }
+            },
+            "8": {
+              "description": "put the bowl on the plate",
+              "successes": 133,
+              "episodes": 150,
+              "rate": 88.6667,
+              "seeds": {
+                "42": 48,
+                "43": 44,
+                "44": 41
+              }
+            },
+            "9": {
+              "description": "put the wine bottle on the rack",
+              "successes": 4,
+              "episodes": 150,
+              "rate": 2.6667,
+              "seeds": {
+                "42": 2,
+                "43": 0,
+                "44": 2
+              }
+            }
+          }
+        },
+        "libero_10": {
+          "name": "Long",
+          "successes": 457,
+          "episodes": 1500,
+          "rate": 30.4667,
+          "seed_sample_std": 10.0684,
+          "seeds": {
+            "42": {
+              "successes": 208,
+              "episodes": 500,
+              "rate": 41.6
+            },
+            "43": {
+              "successes": 139,
+              "episodes": 500,
+              "rate": 27.8
+            },
+            "44": {
+              "successes": 110,
+              "episodes": 500,
+              "rate": 22.0
+            }
+          },
+          "tasks": {
+            "0": {
+              "description": "put both the alphabet soup and the tomato sauce in the basket",
+              "successes": 50,
+              "episodes": 150,
+              "rate": 33.3333,
+              "seeds": {
+                "42": 21,
+                "43": 17,
+                "44": 12
+              }
+            },
+            "1": {
+              "description": "put both the cream cheese box and the butter in the basket",
+              "successes": 110,
+              "episodes": 150,
+              "rate": 73.3333,
+              "seeds": {
+                "42": 40,
+                "43": 36,
+                "44": 34
+              }
+            },
+            "2": {
+              "description": "turn on the stove and put the moka pot on it",
+              "successes": 24,
+              "episodes": 150,
+              "rate": 16.0,
+              "seeds": {
+                "42": 15,
+                "43": 5,
+                "44": 4
+              }
+            },
+            "3": {
+              "description": "put the black bowl in the bottom drawer of the cabinet and close it",
+              "successes": 52,
+              "episodes": 150,
+              "rate": 34.6667,
+              "seeds": {
+                "42": 27,
+                "43": 18,
+                "44": 7
+              }
+            },
+            "4": {
+              "description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+              "successes": 4,
+              "episodes": 150,
+              "rate": 2.6667,
+              "seeds": {
+                "42": 1,
+                "43": 2,
+                "44": 1
+              }
+            },
+            "5": {
+              "description": "pick up the book and place it in the back compartment of the caddy",
+              "successes": 46,
+              "episodes": 150,
+              "rate": 30.6667,
+              "seeds": {
+                "42": 34,
+                "43": 8,
+                "44": 4
+              }
+            },
+            "6": {
+              "description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+              "successes": 0,
+              "episodes": 150,
+              "rate": 0.0,
+              "seeds": {
+                "42": 0,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "7": {
+              "description": "put both the alphabet soup and the cream cheese box in the basket",
+              "successes": 123,
+              "episodes": 150,
+              "rate": 82.0,
+              "seeds": {
+                "42": 39,
+                "43": 42,
+                "44": 42
+              }
+            },
+            "8": {
+              "description": "put both moka pots on the stove",
+              "successes": 2,
+              "episodes": 150,
+              "rate": 1.3333,
+              "seeds": {
+                "42": 2,
+                "43": 0,
+                "44": 0
+              }
+            },
+            "9": {
+              "description": "put the yellow and white mug in the microwave and close it",
+              "successes": 46,
+              "episodes": 150,
+              "rate": 30.6667,
+              "seeds": {
+                "42": 29,
+                "43": 11,
+                "44": 6
+              }
+            }
+          }
+        }
+      },
+      "seeds": {
+        "42": {
+          "successes": 1267,
+          "episodes": 2000,
+          "rate": 63.35
+        },
+        "43": {
+          "successes": 1085,
+          "episodes": 2000,
+          "rate": 54.25
+        },
+        "44": {
+          "successes": 982,
+          "episodes": 2000,
+          "rate": 49.1
+        }
+      },
+      "same_initial_states_across_seeds": true,
+      "backend": "cuda-graph",
+      "workers": 4,
+      "group_files": 120,
+      "group_files_listing_sha256": "b9631aaf5fe8f366a18e1c18a4654cfff7c413d760bf99ce764ceeb8fd32cbcf",
+      "run_summary": {
+        "episodes": 6000,
+        "successes": 3334,
+        "success_rate": 0.5556666666666666,
+        "action_loops": 2,
+        "workers": 4,
+        "backend": "cuda-graph",
+        "mode": "scored",
+        "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+        "seconds": 21627.65895873698,
+        "elapsed_seconds": 21633.627740935975,
+        "finished_unix": 1793081977.486552,
+        "signature": "607dce7aec61f2ff56caa639dcb168c798c34ff7decad16ce914f3970074010d",
+        "queries": 202317,
+        "recovered_episodes": 0
+      },
+      "issues": [],
+      "passed": true
+    }
+  },
+  "passed": true
+}

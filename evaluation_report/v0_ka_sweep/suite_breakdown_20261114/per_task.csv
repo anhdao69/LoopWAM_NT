@@ -1,0 +1,81 @@
+action_loops,suite,task,description,successes,episodes,sr_percent,seed42,seed43,seed44
+1,libero_spatial,0,pick up the black bowl between the plate and the ramekin and place it on the plate,2,150,1.3333,1,1,0
+1,libero_spatial,1,pick up the black bowl next to the ramekin and place it on the plate,2,150,1.3333,1,1,0
+1,libero_spatial,2,pick up the black bowl from table center and place it on the plate,13,150,8.6667,5,4,4
+1,libero_spatial,3,pick up the black bowl on the cookie box and place it on the plate,112,150,74.6667,38,37,37
+1,libero_spatial,4,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate,2,150,1.3333,2,0,0
+1,libero_spatial,5,pick up the black bowl on the ramekin and place it on the plate,0,150,0.0,0,0,0
+1,libero_spatial,6,pick up the black bowl next to the cookie box and place it on the plate,66,150,44.0,27,20,19
+1,libero_spatial,7,pick up the black bowl on the stove and place it on the plate,15,150,10.0,15,0,0
+1,libero_spatial,8,pick up the black bowl next to the plate and place it on the plate,0,150,0.0,0,0,0
+1,libero_spatial,9,pick up the black bowl on the wooden cabinet and place it on the plate,69,150,46.0,27,23,19
+1,libero_object,0,pick up the alphabet soup and place it in the basket,65,150,43.3333,36,19,10
+1,libero_object,1,pick up the cream cheese and place it in the basket,129,150,86.0,41,47,41
+1,libero_object,2,pick up the salad dressing and place it in the basket,27,150,18.0,15,8,4
+1,libero_object,3,pick up the bbq sauce and place it in the basket,8,150,5.3333,8,0,0
+1,libero_object,4,pick up the ketchup and place it in the basket,18,150,12.0,18,0,0
+1,libero_object,5,pick up the tomato sauce and place it in the basket,14,150,9.3333,10,3,1
+1,libero_object,6,pick up the butter and place it in the basket,32,150,21.3333,21,8,3
+1,libero_object,7,pick up the milk and place it in the basket,28,150,18.6667,26,2,0
+1,libero_object,8,pick up the chocolate pudding and place it in the basket,52,150,34.6667,37,6,9
+1,libero_object,9,pick up the orange juice and place it in the basket,4,150,2.6667,1,3,0
+1,libero_goal,0,open the middle drawer of the cabinet,31,150,20.6667,23,7,1
+1,libero_goal,1,put the bowl on the stove,22,150,14.6667,12,10,0
+1,libero_goal,2,put the wine bottle on top of the cabinet,0,150,0.0,0,0,0
+1,libero_goal,3,open the top drawer and put the bowl inside,0,150,0.0,0,0,0
+1,libero_goal,4,put the bowl on top of the cabinet,0,150,0.0,0,0,0
+1,libero_goal,5,push the plate to the front of the stove,0,150,0.0,0,0,0
+1,libero_goal,6,put the cream cheese in the bowl,0,150,0.0,0,0,0
+1,libero_goal,7,turn on the stove,15,150,10.0,7,4,4
+1,libero_goal,8,put the bowl on the plate,8,150,5.3333,3,3,2
+1,libero_goal,9,put the wine bottle on the rack,0,150,0.0,0,0,0
+1,libero_10,0,put both the alphabet soup and the tomato sauce in the basket,0,150,0.0,0,0,0
+1,libero_10,1,put both the cream cheese box and the butter in the basket,0,150,0.0,0,0,0
+1,libero_10,2,turn on the stove and put the moka pot on it,0,150,0.0,0,0,0
+1,libero_10,3,put the black bowl in the bottom drawer of the cabinet and close it,1,150,0.6667,1,0,0
+1,libero_10,4,put the white mug on the left plate and put the yellow and white mug on the right plate,0,150,0.0,0,0,0
+1,libero_10,5,pick up the book and place it in the back compartment of the caddy,0,150,0.0,0,0,0
+1,libero_10,6,put the white mug on the plate and put the chocolate pudding to the right of the plate,0,150,0.0,0,0,0
+1,libero_10,7,put both the alphabet soup and the cream cheese box in the basket,3,150,2.0,3,0,0
+1,libero_10,8,put both moka pots on the stove,0,150,0.0,0,0,0
+1,libero_10,9,put the yellow and white mug in the microwave and close it,0,150,0.0,0,0,0
+2,libero_spatial,0,pick up the black bowl between the plate and the ramekin and place it on the plate,75,150,50.0,25,25,25
+2,libero_spatial,1,pick up the black bowl next to the ramekin and place it on the plate,66,150,44.0,16,23,27
+2,libero_spatial,2,pick up the black bowl from table center and place it on the plate,126,150,84.0,43,41,42
+2,libero_spatial,3,pick up the black bowl on the cookie box and place it on the plate,129,150,86.0,42,44,43
+2,libero_spatial,4,pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate,82,150,54.6667,32,27,23
+2,libero_spatial,5,pick up the black bowl on the ramekin and place it on the plate,66,150,44.0,23,20,23
+2,libero_spatial,6,pick up the black bowl next to the cookie box and place it on the plate,143,150,95.3333,49,48,46
+2,libero_spatial,7,pick up the black bowl on the stove and place it on the plate,101,150,67.3333,45,33,23
+2,libero_spatial,8,pick up the black bowl next to the plate and place it on the plate,99,150,66.0,30,33,36
+2,libero_spatial,9,pick up the black bowl on the wooden cabinet and place it on the plate,89,150,59.3333,35,28,26
+2,libero_object,0,pick up the alphabet soup and place it in the basket,98,150,65.3333,46,28,24
+2,libero_object,1,pick up the cream cheese and place it in the basket,147,150,98.0,50,50,47
+2,libero_object,2,pick up the salad dressing and place it in the basket,145,150,96.6667,50,50,45
+2,libero_object,3,pick up the bbq sauce and place it in the basket,107,150,71.3333,42,36,29
+2,libero_object,4,pick up the ketchup and place it in the basket,44,150,29.3333,24,11,9
+2,libero_object,5,pick up the tomato sauce and place it in the basket,74,150,49.3333,27,22,25
+2,libero_object,6,pick up the butter and place it in the basket,114,150,76.0,43,35,36
+2,libero_object,7,pick up the milk and place it in the basket,114,150,76.0,47,37,30
+2,libero_object,8,pick up the chocolate pudding and place it in the basket,138,150,92.0,50,42,46
+2,libero_object,9,pick up the orange juice and place it in the basket,101,150,67.3333,40,33,28
+2,libero_goal,0,open the middle drawer of the cabinet,115,150,76.6667,48,39,28
+2,libero_goal,1,put the bowl on the stove,145,150,96.6667,48,50,47
+2,libero_goal,2,put the wine bottle on top of the cabinet,67,150,44.6667,13,22,32
+2,libero_goal,3,open the top drawer and put the bowl inside,65,150,43.3333,25,28,12
+2,libero_goal,4,put the bowl on top of the cabinet,58,150,38.6667,22,18,18
+2,libero_goal,5,push the plate to the front of the stove,107,150,71.3333,44,33,30
+2,libero_goal,6,put the cream cheese in the bowl,85,150,56.6667,32,32,21
+2,libero_goal,7,turn on the stove,40,150,26.6667,18,14,8
+2,libero_goal,8,put the bowl on the plate,133,150,88.6667,48,44,41
+2,libero_goal,9,put the wine bottle on the rack,4,150,2.6667,2,0,2
+2,libero_10,0,put both the alphabet soup and the tomato sauce in the basket,50,150,33.3333,21,17,12
+2,libero_10,1,put both the cream cheese box and the butter in the basket,110,150,73.3333,40,36,34
+2,libero_10,2,turn on the stove and put the moka pot on it,24,150,16.0,15,5,4
+2,libero_10,3,put the black bowl in the bottom drawer of the cabinet and close it,52,150,34.6667,27,18,7
+2,libero_10,4,put the white mug on the left plate and put the yellow and white mug on the right plate,4,150,2.6667,1,2,1
+2,libero_10,5,pick up the book and place it in the back compartment of the caddy,46,150,30.6667,34,8,4
+2,libero_10,6,put the white mug on the plate and put the chocolate pudding to the right of the plate,0,150,0.0,0,0,0
+2,libero_10,7,put both the alphabet soup and the cream cheese box in the basket,123,150,82.0,39,42,42
+2,libero_10,8,put both moka pots on the stove,2,150,1.3333,2,0,0
+2,libero_10,9,put the yellow and white mug in the microwave and close it,46,150,30.6667,29,11,6
