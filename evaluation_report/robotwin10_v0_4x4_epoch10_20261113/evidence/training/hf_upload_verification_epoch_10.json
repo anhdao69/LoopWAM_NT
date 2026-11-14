@@ -1,0 +1,77 @@
+{
+  "variant": "v0-video4-action4",
+  "repo": "anhdao69/LoopWAM_NT",
+  "path": "robotwin-10/v0-video4-action4/epoch_10",
+  "revision": "5d3d7a7eae361bc695e6e282596a760cf9025b56",
+  "policy_sha256": "b85ad555fa60f5aab61a35231f26d6ca9c01e32d6111d6893abb815db5b985b8",
+  "files": {
+    "README.md": {
+      "size": 3260,
+      "lfs_sha256": null,
+      "local_sha256": "ae49a3a2ea2c1ab8ecb5f303ff3440aff4b0bb72acb82e1424fa6ac1461f2e42",
+      "ok": true
+    },
+    "checkpoint_provenance.json": {
+      "size": 762,
+      "lfs_sha256": null,
+      "local_sha256": "201a4590c5bb2654e227759d036592e8417709aee425f6ff2f0456a79a65615c",
+      "ok": true
+    },
+    "config.json": {
+      "size": 3858,
+      "lfs_sha256": null,
+      "local_sha256": "32f80cdc746d41c9dcbfa8f0d85f351dc5a01eadc83f0f127d2a8e0c5f8a91c4",
+      "ok": true
+    },
+    "data_provenance.json": {
+      "size": 1707,
+      "lfs_sha256": null,
+      "local_sha256": "5a1dce0a31014e99145cf3366179b76cea18c4d274754ee35da22127c3ad7a7a",
+      "ok": true
+    },
+    "dataset_stats.json": {
+      "size": 88716,
+      "lfs_sha256": null,
+      "local_sha256": "639e69c81e35568e9a49a60b4ede4f28735594c9ab325ee73931d6360bfd5834",
+      "ok": true
+    },
+    "training_metrics.jsonl.gz": {
+      "size": 3205481,
+      "lfs_sha256": "7f722fc20fabe7beeb79fafd68bad0eed5e3fe364cfce6f6ccd183d96046e6ef",
+      "local_sha256": "7f722fc20fabe7beeb79fafd68bad0eed5e3fe364cfce6f6ccd183d96046e6ef",
+      "ok": true
+    },
+    "training_state.json": {
+      "size": 1954,
+      "lfs_sha256": null,
+      "local_sha256": "c6632f48c93d9608ddd69832a912630e1fd502e8b6c4f6d773ee6b599e1e60e5",
+      "ok": true
+    },
+    "training_summary.json": {
+      "size": 1224,
+      "lfs_sha256": null,
+      "local_sha256": "add2b1f56e119a673a03ff558b057b06faaef8715e4be7a07fdb2d7c9833054f",
+      "ok": true
+    },
+    "training_timing.json": {
+      "size": 791,
+      "lfs_sha256": null,
+      "local_sha256": "fc7baf524ae43fc987b54f74c06c6e907eb8970d782c267d291354294224c5bb",
+      "ok": true
+    },
+    "policy.pt": {
+      "size": 2338752101,
+      "lfs_sha256": "b85ad555fa60f5aab61a35231f26d6ca9c01e32d6111d6893abb815db5b985b8",
+      "local_sha256": "b85ad555fa60f5aab61a35231f26d6ca9c01e32d6111d6893abb815db5b985b8",
+      "ok": true
+    },
+    "SHA256SUMS": {
+      "size": 848,
+      "lfs_sha256": null,
+      "local_sha256": "8ae1b2a017ed0393351bf8da8c03493aaac003fe85ea29d92b274a92a00f35c8",
+      "ok": true
+    }
+  },
+  "published_utc": "2026-11-08T13:32:08.911146+00:00",
+  "host": "evc101"
+}
