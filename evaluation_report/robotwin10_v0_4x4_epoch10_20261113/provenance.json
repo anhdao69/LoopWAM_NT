@@ -1,0 +1,22 @@
+{
+ "epoch10_eval_root": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/robotwin10_elastic_eval/cells/v0-video4-action4-e10",
+ "epoch05_eval_root": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/robotwin10_eval/cells/v0-video4-action4",
+ "harness_root": "/groups/yshang/an221229/code/RoboTwin_eval/RoboTwin",
+ "harness_files_sha256": {
+  "/groups/yshang/an221229/code/RoboTwin_eval/RoboTwin/script/eval_policy.py": "35d9bb7d5e1d9cd09143bf49c286cbf5367579ebab240fba5505ff1c08a95271",
+  "/groups/yshang/an221229/code/RoboTwin_eval/RoboTwin/policy/loopwam_policy/deploy_policy.py": "c0cb657973e9b670e4af8a0e96bf93fabae77aa9c02a5e2182001834a8e92c93",
+  "/groups/yshang/an221229/code/RoboTwin_eval/RoboTwin/policy/loopwam_policy/deploy_policy.yml": "3fdd8ab2846d8b6f6f85560640cbadbcab197fd2e27d7e160ea30fb0f062a8c5",
+  "policy/loopwam_policy -> ": "/lustre/fs1/home/an221229/code/LoopWAM_rt10_eval/experiments/robotwin/loopwam_policy"
+ },
+ "harness_files_last_modified": {
+  "/groups/yshang/an221229/code/RoboTwin_eval/RoboTwin/script/eval_policy.py": "2026-11-04 23:29:57 EST",
+  "/lustre/fs1/home/an221229/code/LoopWAM_rt10_eval/experiments/robotwin/loopwam_policy/deploy_policy.py": "2026-11-04 23:29:07 EST",
+  "/lustre/fs1/home/an221229/code/LoopWAM_rt10_eval/experiments/robotwin/loopwam_policy/deploy_policy.yml": "2026-11-04 23:29:07 EST"
+ },
+ "harness_note": "last modified before the first epoch-5 attempt started (2026-11-04 23:43 EST), so both runs used these files",
+ "policy_code_repo": "/lustre/fs1/home/an221229/code/LoopWAM_rt10_eval",
+ "policy_code_git_revision": "c8db891a773ae1ad8e81e2aa7b3a965d1c4b2a6e",
+ "policy_code_note": "LoopWAM_rt10_eval worktree, detached at c8db891 (branch robotwin10_training_20261101); experiments/ and src/ unmodified; only the untracked queue scripts scripts/robotwin10/eval_agent.py, eval_dispatcher.py, eval_report.py were added",
+ "data_dir": "/groups/yshang/an221229/checkpoints/LoopWAM_NT/robotwin10_work/shared/data",
+ "videos": "one video per accepted epoch-10 episode stays on the cluster; names and SHA-256 are in episodes.csv"
+}
