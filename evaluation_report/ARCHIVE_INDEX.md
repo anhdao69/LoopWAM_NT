@@ -70,3 +70,12 @@ Copies are organized by preservation date and content hash. The date identifies 
 - [preserved_versions/2026-11-14/04ec027808c09ff9/README.md](preserved_versions/2026-11-14/04ec027808c09ff9/README.md)
 - [preserved_versions/2026-11-14/6c1fad6258024cd9/FILE_INDEX.md](preserved_versions/2026-11-14/6c1fad6258024cd9/FILE_INDEX.md)
 - [preserved_versions/2026-11-14/f0293e4ddca59103/ARCHIVE_INDEX.md](preserved_versions/2026-11-14/f0293e4ddca59103/ARCHIVE_INDEX.md)
+
+## v0 action-loop breakdown sync (third sync), 2026-11-14
+
+- [preserved_versions/2026-11-14/11ae59aab60f83e1/README.md](preserved_versions/2026-11-14/11ae59aab60f83e1/README.md)
+- [preserved_versions/2026-11-14/d7ba2b55f48fdb15/FILE_INDEX.md](preserved_versions/2026-11-14/d7ba2b55f48fdb15/FILE_INDEX.md)
+- [preserved_versions/2026-11-14/a8d9e39643340a99/ARCHIVE_INDEX.md](preserved_versions/2026-11-14/a8d9e39643340a99/ARCHIVE_INDEX.md)
+- [preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md](preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md)
+- [preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md](preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md)
+- [preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py](preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py)

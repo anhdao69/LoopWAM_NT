@@ -4848,6 +4848,18 @@ Files are grouped by their original directory. Status files describe the capture
 - [setup_audit.json](v0_ka_sweep/setup_audit.json)
 - [setup_report.md](v0_ka_sweep/setup_report.md)
 - [stop_after_ka2.json](v0_ka_sweep/stop_after_ka2.json)
+- [suite_breakdown_20261114/README.md](v0_ka_sweep/suite_breakdown_20261114/README.md)
+- [suite_breakdown_20261114/analyze_ka12.py](v0_ka_sweep/suite_breakdown_20261114/analyze_ka12.py)
+- [suite_breakdown_20261114/breakdown.json](v0_ka_sweep/suite_breakdown_20261114/breakdown.json)
+- [suite_breakdown_20261114/episodes_ka1.csv](v0_ka_sweep/suite_breakdown_20261114/episodes_ka1.csv)
+- [suite_breakdown_20261114/episodes_ka2.csv](v0_ka_sweep/suite_breakdown_20261114/episodes_ka2.csv)
+- [suite_breakdown_20261114/independent_check.json](v0_ka_sweep/suite_breakdown_20261114/independent_check.json)
+- [suite_breakdown_20261114/loop_sweep_all.csv](v0_ka_sweep/suite_breakdown_20261114/loop_sweep_all.csv)
+- [suite_breakdown_20261114/make_report.py](v0_ka_sweep/suite_breakdown_20261114/make_report.py)
+- [suite_breakdown_20261114/per_task.csv](v0_ka_sweep/suite_breakdown_20261114/per_task.csv)
+- [suite_breakdown_20261114/source/ka12_groups.tar.gz](v0_ka_sweep/suite_breakdown_20261114/source/ka12_groups.tar.gz)
+- [suite_breakdown_20261114/source/workstation_sha256.txt](v0_ka_sweep/suite_breakdown_20261114/source/workstation_sha256.txt)
+- [suite_breakdown_20261114/suite_results.csv](v0_ka_sweep/suite_breakdown_20261114/suite_results.csv)
 
 ## Shared tools and provenance
 
@@ -4882,12 +4894,14 @@ Files are grouped by their original directory. Status files describe the capture
 - [sync_manifest_20261112.json](sync_manifest_20261112.json)
 - [sync_manifest_20261114.json](sync_manifest_20261114.json)
 - [sync_manifest_20261114b.json](sync_manifest_20261114b.json)
+- [sync_manifest_20261114c.json](sync_manifest_20261114c.json)
 - [test_report.py](test_report.py)
 - [verify_gr1_continuation_20261108.py](verify_gr1_continuation_20261108.py)
 - [verify_gr1_elastic_e0_20261112.py](verify_gr1_elastic_e0_20261112.py)
 - [verify_h100_additions_20261106.py](verify_h100_additions_20261106.py)
 - [verify_robotwin10_v0_4x4_epoch10_20261113.py](verify_robotwin10_v0_4x4_epoch10_20261113.py)
 - [verify_robotwin_elastic_sn4622_20261114.py](verify_robotwin_elastic_sn4622_20261114.py)
+- [verify_v0_ka_breakdown_20261114.py](verify_v0_ka_breakdown_20261114.py)
 - [watch_report.py](watch_report.py)
 
 ## robotwin_elastic_e0_teacher10_5ep_20261111
