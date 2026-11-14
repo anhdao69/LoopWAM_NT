@@ -1,0 +1,190 @@
+{
+ "source": "sn4622128794:/data/anh/robotwin_eval/results/{e1_flat_k1_n2,e1_flat_k4_n2,e1_flat_k4_n5,e0ep10_flat_k1_n5,e0ep10_flat_k1_n10,e0ep10_flat_k2_n5,e0ep10_flat_k2_n10,e0ep10_flat_k4_n5,e0ep10_flat_k4_n10}, exported by robotwin_elastic_sn4622_20261114/tools/export_records.py",
+ "snapshot_sha256": "359b9af4a2bc38a9901f32fe094b1497e67cbc92ee754b36d7430b25f65c5f20",
+ "results_json_sha256": "726e1bb3d95342cdefe12eb26f51e6877939e6692488fd281b5086f6db786d2a",
+ "added": [
+  "robotwin_elastic_sn4622_20261114/",
+  "verify_robotwin_elastic_sn4622_20261114.py",
+  "sync_manifest_20261114.json",
+  "integrity_inventory_20261114.json"
+ ],
+ "modified": [
+  "README.md",
+  "FILE_INDEX.md",
+  "ARCHIVE_INDEX.md"
+ ],
+ "branches": [
+  [
+   "KV_concat",
+   "78ac315e2d8b5fe9b15aa30f49fe2923e78d907e"
+  ],
+  [
+   "LoopWAM_NT",
+   "3fbd85086cf74a84f9559dd0ab7b0c5c5ac73998"
+  ],
+  [
+   "chrono",
+   "ee3b7229e109ac5ce0bd5c42c761610fd08ab7b1"
+  ],
+  [
+   "elastic",
+   "cd70d98872e4de3da1f8d2c84c8a818692916409"
+  ],
+  [
+   "elastic_cl0",
+   "9f489b44c47aac026b72c70dc4b7340a104997f5"
+  ],
+  [
+   "elastic_gr1",
+   "b0c3dbe1a9b3540df0dd28cb0da2bd7e78c5ed83"
+  ],
+  [
+   "elastic_robotwin",
+   "135301c3af536f7e29b9ff782d12381ca9d83630"
+  ],
+  [
+   "partition_grid_20261026",
+   "7c0b9bbe6678d5234e8283957afb2ee8b2be775d"
+  ],
+  [
+   "residual_trans",
+   "f720ea15d3b3938f9bd362f79a799fb8139e2880"
+  ],
+  [
+   "robocasa_gr1_continuation_20261106",
+   "0d06bfeda4011af1e936e9935da65bcef1c0a0e4"
+  ],
+  [
+   "robocasa_gr1_v0",
+   "6e6c2ed97763fb4e04414ea7c896b5f4a116b57b"
+  ],
+  [
+   "robotwin10_training_20261101",
+   "271d0bd6807d52f38ab98b624085ad5c8816feb0"
+  ],
+  [
+   "robotwin_eval_continue_20261030",
+   "c2978d5861aa6541af13cc4b675d6f53edf11794"
+  ],
+  [
+   "robotwin_full_v0_20261028",
+   "30864080a83af63ca373a3258151352101c3e5e2"
+  ],
+  [
+   "scratch_init_v0",
+   "d94d76ad24294f0b30912c4694329ea22d4c8465"
+  ],
+  [
+   "v0-init-variants",
+   "d4f31e90e6e947f889b7925a537eabcd6d9ac62f"
+  ]
+ ],
+ "branches_note": "remote heads before this sync; every branch had evaluation_report tree e983236 (identical)",
+ "preserved_versions": [
+  "preserved_versions/2026-11-14/f0eb91b0bc2fafbf/README.md",
+  "preserved_versions/2026-11-14/0bc26df5109c6241/FILE_INDEX.md",
+  "preserved_versions/2026-11-14/f0b5f20ff90c43ea/ARCHIVE_INDEX.md"
+ ],
+ "verification": [
+  {
+   "model": "E1 (RT50-ep5-E1)",
+   "schedule": "flat_k1_n2",
+   "label": "[1,1]",
+   "episodes": 10000,
+   "successes": 8636,
+   "sr_percent": 86.36,
+   "final_audit_passed": true,
+   "complete_json_sha256": "bfaa30b27e8fdf7073891305a27a06fb5164b509b2f04081d05072fecb3858b4",
+   "checkpoint_sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb"
+  },
+  {
+   "model": "E1 (RT50-ep5-E1)",
+   "schedule": "flat_k4_n2",
+   "label": "[4,4]",
+   "episodes": 10000,
+   "successes": 9034,
+   "sr_percent": 90.34,
+   "final_audit_passed": true,
+   "complete_json_sha256": "9de4bf3d38c58e4e03351cffbe995800f1ea661983465047bc1bb6e627e6b6f1",
+   "checkpoint_sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb"
+  },
+  {
+   "model": "E1 (RT50-ep5-E1)",
+   "schedule": "flat_k4_n5",
+   "label": "[4]x5",
+   "episodes": 10000,
+   "successes": 9099,
+   "sr_percent": 90.99,
+   "final_audit_passed": true,
+   "complete_json_sha256": "080a97daefea6b477f16f49b0e843ba420b254da65fc748fa21c1d7182856573",
+   "checkpoint_sha256": "9eba3aade1417b4425be5593c88e81441cf71bb4b6f16a8d81012ad6146e1bcb"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k1_n10",
+   "label": "[1]x10",
+   "episodes": 10000,
+   "successes": 8948,
+   "sr_percent": 89.48,
+   "final_audit_passed": true,
+   "complete_json_sha256": "7514b3b7b4f999e76bc519129f3699623812d3d9fe8d45d684cf6b5561d6c028",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k1_n5",
+   "label": "[1]x5",
+   "episodes": 10000,
+   "successes": 8943,
+   "sr_percent": 89.43,
+   "final_audit_passed": true,
+   "complete_json_sha256": "ec0f133ecb83399d1360c7199936ba80ffe053484ca1a93bf0b4065108a1ed77",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k2_n10",
+   "label": "[2]x10",
+   "episodes": 10000,
+   "successes": 9068,
+   "sr_percent": 90.68,
+   "final_audit_passed": true,
+   "complete_json_sha256": "edd5e5d2bad7f4bf997876354322312d93196501dc48a35c08ca35d5fc0c09c0",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k2_n5",
+   "label": "[2]x5",
+   "episodes": 10000,
+   "successes": 9074,
+   "sr_percent": 90.74,
+   "final_audit_passed": true,
+   "complete_json_sha256": "18b94cc6f81128b2f78042d96bfa2fdf75f184f6cef45e79cdd24fe594258332",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k4_n10",
+   "label": "[4]x10",
+   "episodes": 10000,
+   "successes": 9123,
+   "sr_percent": 91.23,
+   "final_audit_passed": true,
+   "complete_json_sha256": "240e9941a5782ca63dfef1a4edfe082a3363c0010738a57b04cce6afa7d73124",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  },
+  {
+   "model": "E0-epoch10-teacher-5ep",
+   "schedule": "flat_k4_n5",
+   "label": "[4]x5",
+   "episodes": 10000,
+   "successes": 9129,
+   "sr_percent": 91.29,
+   "final_audit_passed": true,
+   "complete_json_sha256": "8533481dd5c3bbd8d5110c7d0f9c5028ba616a6d052c90066cefb952dc33fede",
+   "checkpoint_sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+  }
+ ],
+ "independent_check": "python evaluation_report/verify_robotwin_elastic_sn4622_20261114.py -> ALL CHECKS PASSED"
+}

@@ -1,0 +1,2780 @@
+{
+ "report": "robotwin_elastic_sn4622_20261114",
+ "host": "sn4622128794",
+ "e0_teacher10_5ep": {
+  "flat_k1_n5": {
+   "label": "[1]\u00d75",
+   "nfe": 5,
+   "clean": 4465,
+   "randomized": 4478,
+   "successes": 8943,
+   "episodes": 10000,
+   "sr": 89.43,
+   "clean_sr": 89.3,
+   "randomized_sr": 89.56,
+   "paired_vs_teacher": {
+    "episodes": 9309,
+    "a_successes": 8379,
+    "b_successes": 8621,
+    "a_sr": 90.00966806316468,
+    "b_sr": 92.6093028252229
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "beat_block_hammer": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "blocks_ranking_rgb": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "blocks_ranking_size": {
+     "clean": 96,
+     "randomized": 93,
+     "sr": 94.5
+    },
+    "click_alarmclock": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 87,
+     "randomized": 81,
+     "sr": 84.0
+    },
+    "handover_mic": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "hanging_mug": {
+     "clean": 58,
+     "randomized": 48,
+     "sr": 53.0
+    },
+    "lift_pot": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_can_pot": {
+     "clean": 90,
+     "randomized": 96,
+     "sr": 93.0
+    },
+    "move_pillbottle_pad": {
+     "clean": 91,
+     "randomized": 97,
+     "sr": 94.0
+    },
+    "move_playingcard_away": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_stapler_pad": {
+     "clean": 81,
+     "randomized": 81,
+     "sr": 81.0
+    },
+    "open_laptop": {
+     "clean": 95,
+     "randomized": 93,
+     "sr": 94.0
+    },
+    "open_microwave": {
+     "clean": 17,
+     "randomized": 11,
+     "sr": 14.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 75,
+     "randomized": 82,
+     "sr": 78.5
+    },
+    "pick_dual_bottles": {
+     "clean": 94,
+     "randomized": 98,
+     "sr": 96.0
+    },
+    "place_a2b_left": {
+     "clean": 95,
+     "randomized": 96,
+     "sr": 95.5
+    },
+    "place_a2b_right": {
+     "clean": 91,
+     "randomized": 92,
+     "sr": 91.5
+    },
+    "place_bread_basket": {
+     "clean": 88,
+     "randomized": 96,
+     "sr": 92.0
+    },
+    "place_bread_skillet": {
+     "clean": 91,
+     "randomized": 88,
+     "sr": 89.5
+    },
+    "place_burger_fries": {
+     "clean": 98,
+     "randomized": 95,
+     "sr": 96.5
+    },
+    "place_can_basket": {
+     "clean": 59,
+     "randomized": 46,
+     "sr": 52.5
+    },
+    "place_cans_plasticbox": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "place_container_plate": {
+     "clean": 98,
+     "randomized": 93,
+     "sr": 95.5
+    },
+    "place_dual_shoes": {
+     "clean": 79,
+     "randomized": 82,
+     "sr": 80.5
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "place_mouse_pad": {
+     "clean": 91,
+     "randomized": 91,
+     "sr": 91.0
+    },
+    "place_object_basket": {
+     "clean": 81,
+     "randomized": 81,
+     "sr": 81.0
+    },
+    "place_object_scale": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_object_stand": {
+     "clean": 95,
+     "randomized": 95,
+     "sr": 95.0
+    },
+    "place_phone_stand": {
+     "clean": 97,
+     "randomized": 100,
+     "sr": 98.5
+    },
+    "place_shoe": {
+     "clean": 89,
+     "randomized": 94,
+     "sr": 91.5
+    },
+    "press_stapler": {
+     "clean": 96,
+     "randomized": 99,
+     "sr": 97.5
+    },
+    "put_bottles_dustbin": {
+     "clean": 89,
+     "randomized": 94,
+     "sr": 91.5
+    },
+    "put_object_cabinet": {
+     "clean": 89,
+     "randomized": 92,
+     "sr": 90.5
+    },
+    "rotate_qrcode": {
+     "clean": 85,
+     "randomized": 79,
+     "sr": 82.0
+    },
+    "scan_object": {
+     "clean": 82,
+     "randomized": 82,
+     "sr": 82.0
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 95,
+     "randomized": 94,
+     "sr": 94.5
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 79,
+     "randomized": 83,
+     "sr": 81.0
+    },
+    "stack_bowls_two": {
+     "clean": 92,
+     "randomized": 97,
+     "sr": 94.5
+    },
+    "stamp_seal": {
+     "clean": 84,
+     "randomized": 86,
+     "sr": 85.0
+    },
+    "turn_switch": {
+     "clean": 52,
+     "randomized": 61,
+     "sr": 56.5
+    }
+   }
+  },
+  "flat_k1_n10": {
+   "label": "[1]\u00d710",
+   "nfe": 10,
+   "clean": 4462,
+   "randomized": 4486,
+   "successes": 8948,
+   "episodes": 10000,
+   "sr": 89.48,
+   "clean_sr": 89.24,
+   "randomized_sr": 89.72,
+   "paired_vs_teacher": {
+    "episodes": 9301,
+    "a_successes": 8385,
+    "b_successes": 8622,
+    "a_sr": 90.15159660251585,
+    "b_sr": 92.69970970863348
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 98,
+     "sr": 99.0
+    },
+    "beat_block_hammer": {
+     "clean": 97,
+     "randomized": 93,
+     "sr": 95.0
+    },
+    "blocks_ranking_rgb": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "blocks_ranking_size": {
+     "clean": 96,
+     "randomized": 93,
+     "sr": 94.5
+    },
+    "click_alarmclock": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 87,
+     "randomized": 84,
+     "sr": 85.5
+    },
+    "handover_mic": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "hanging_mug": {
+     "clean": 56,
+     "randomized": 54,
+     "sr": 55.0
+    },
+    "lift_pot": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_can_pot": {
+     "clean": 86,
+     "randomized": 95,
+     "sr": 90.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 91,
+     "randomized": 97,
+     "sr": 94.0
+    },
+    "move_playingcard_away": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_stapler_pad": {
+     "clean": 82,
+     "randomized": 69,
+     "sr": 75.5
+    },
+    "open_laptop": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "open_microwave": {
+     "clean": 11,
+     "randomized": 13,
+     "sr": 12.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 77,
+     "randomized": 85,
+     "sr": 81.0
+    },
+    "pick_dual_bottles": {
+     "clean": 95,
+     "randomized": 97,
+     "sr": 96.0
+    },
+    "place_a2b_left": {
+     "clean": 94,
+     "randomized": 94,
+     "sr": 94.0
+    },
+    "place_a2b_right": {
+     "clean": 92,
+     "randomized": 95,
+     "sr": 93.5
+    },
+    "place_bread_basket": {
+     "clean": 94,
+     "randomized": 92,
+     "sr": 93.0
+    },
+    "place_bread_skillet": {
+     "clean": 89,
+     "randomized": 90,
+     "sr": 89.5
+    },
+    "place_burger_fries": {
+     "clean": 97,
+     "randomized": 96,
+     "sr": 96.5
+    },
+    "place_can_basket": {
+     "clean": 74,
+     "randomized": 52,
+     "sr": 63.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 99,
+     "randomized": 92,
+     "sr": 95.5
+    },
+    "place_container_plate": {
+     "clean": 99,
+     "randomized": 97,
+     "sr": 98.0
+    },
+    "place_dual_shoes": {
+     "clean": 79,
+     "randomized": 83,
+     "sr": 81.0
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 92,
+     "randomized": 98,
+     "sr": 95.0
+    },
+    "place_mouse_pad": {
+     "clean": 91,
+     "randomized": 94,
+     "sr": 92.5
+    },
+    "place_object_basket": {
+     "clean": 77,
+     "randomized": 80,
+     "sr": 78.5
+    },
+    "place_object_scale": {
+     "clean": 100,
+     "randomized": 94,
+     "sr": 97.0
+    },
+    "place_object_stand": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "place_phone_stand": {
+     "clean": 100,
+     "randomized": 98,
+     "sr": 99.0
+    },
+    "place_shoe": {
+     "clean": 90,
+     "randomized": 97,
+     "sr": 93.5
+    },
+    "press_stapler": {
+     "clean": 95,
+     "randomized": 99,
+     "sr": 97.0
+    },
+    "put_bottles_dustbin": {
+     "clean": 91,
+     "randomized": 94,
+     "sr": 92.5
+    },
+    "put_object_cabinet": {
+     "clean": 89,
+     "randomized": 91,
+     "sr": 90.0
+    },
+    "rotate_qrcode": {
+     "clean": 74,
+     "randomized": 74,
+     "sr": 74.0
+    },
+    "scan_object": {
+     "clean": 82,
+     "randomized": 83,
+     "sr": 82.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 93,
+     "randomized": 98,
+     "sr": 95.5
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 82,
+     "randomized": 83,
+     "sr": 82.5
+    },
+    "stack_bowls_two": {
+     "clean": 93,
+     "randomized": 94,
+     "sr": 93.5
+    },
+    "stamp_seal": {
+     "clean": 83,
+     "randomized": 87,
+     "sr": 85.0
+    },
+    "turn_switch": {
+     "clean": 48,
+     "randomized": 68,
+     "sr": 58.0
+    }
+   }
+  },
+  "flat_k2_n5": {
+   "label": "[2]\u00d75",
+   "nfe": 5,
+   "clean": 4528,
+   "randomized": 4546,
+   "successes": 9074,
+   "episodes": 10000,
+   "sr": 90.74,
+   "clean_sr": 90.56,
+   "randomized_sr": 90.92,
+   "paired_vs_teacher": {
+    "episodes": 9312,
+    "a_successes": 8523,
+    "b_successes": 8633,
+    "a_sr": 91.5270618556701,
+    "b_sr": 92.70833333333333
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "beat_block_hammer": {
+     "clean": 97,
+     "randomized": 99,
+     "sr": 98.0
+    },
+    "blocks_ranking_rgb": {
+     "clean": 100,
+     "randomized": 97,
+     "sr": 98.5
+    },
+    "blocks_ranking_size": {
+     "clean": 95,
+     "randomized": 95,
+     "sr": 95.0
+    },
+    "click_alarmclock": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 94,
+     "randomized": 99,
+     "sr": 96.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 90,
+     "randomized": 95,
+     "sr": 92.5
+    },
+    "handover_mic": {
+     "clean": 96,
+     "randomized": 98,
+     "sr": 97.0
+    },
+    "hanging_mug": {
+     "clean": 55,
+     "randomized": 45,
+     "sr": 50.0
+    },
+    "lift_pot": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_can_pot": {
+     "clean": 92,
+     "randomized": 99,
+     "sr": 95.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 99,
+     "randomized": 98,
+     "sr": 98.5
+    },
+    "move_playingcard_away": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_stapler_pad": {
+     "clean": 82,
+     "randomized": 86,
+     "sr": 84.0
+    },
+    "open_laptop": {
+     "clean": 96,
+     "randomized": 98,
+     "sr": 97.0
+    },
+    "open_microwave": {
+     "clean": 16,
+     "randomized": 15,
+     "sr": 15.5
+    },
+    "pick_diverse_bottles": {
+     "clean": 79,
+     "randomized": 83,
+     "sr": 81.0
+    },
+    "pick_dual_bottles": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_a2b_left": {
+     "clean": 97,
+     "randomized": 97,
+     "sr": 97.0
+    },
+    "place_a2b_right": {
+     "clean": 95,
+     "randomized": 98,
+     "sr": 96.5
+    },
+    "place_bread_basket": {
+     "clean": 93,
+     "randomized": 93,
+     "sr": 93.0
+    },
+    "place_bread_skillet": {
+     "clean": 92,
+     "randomized": 93,
+     "sr": 92.5
+    },
+    "place_burger_fries": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "place_can_basket": {
+     "clean": 60,
+     "randomized": 50,
+     "sr": 55.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 99,
+     "randomized": 94,
+     "sr": 96.5
+    },
+    "place_container_plate": {
+     "clean": 97,
+     "randomized": 99,
+     "sr": 98.0
+    },
+    "place_dual_shoes": {
+     "clean": 86,
+     "randomized": 86,
+     "sr": 86.0
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "place_mouse_pad": {
+     "clean": 95,
+     "randomized": 95,
+     "sr": 95.0
+    },
+    "place_object_basket": {
+     "clean": 86,
+     "randomized": 80,
+     "sr": 83.0
+    },
+    "place_object_scale": {
+     "clean": 99,
+     "randomized": 95,
+     "sr": 97.0
+    },
+    "place_object_stand": {
+     "clean": 94,
+     "randomized": 98,
+     "sr": 96.0
+    },
+    "place_phone_stand": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "place_shoe": {
+     "clean": 90,
+     "randomized": 95,
+     "sr": 92.5
+    },
+    "press_stapler": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "put_bottles_dustbin": {
+     "clean": 91,
+     "randomized": 95,
+     "sr": 93.0
+    },
+    "put_object_cabinet": {
+     "clean": 92,
+     "randomized": 91,
+     "sr": 91.5
+    },
+    "rotate_qrcode": {
+     "clean": 78,
+     "randomized": 79,
+     "sr": 78.5
+    },
+    "scan_object": {
+     "clean": 82,
+     "randomized": 77,
+     "sr": 79.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 95,
+     "randomized": 95,
+     "sr": 95.0
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 84,
+     "randomized": 84,
+     "sr": 84.0
+    },
+    "stack_bowls_two": {
+     "clean": 97,
+     "randomized": 95,
+     "sr": 96.0
+    },
+    "stamp_seal": {
+     "clean": 92,
+     "randomized": 95,
+     "sr": 93.5
+    },
+    "turn_switch": {
+     "clean": 59,
+     "randomized": 63,
+     "sr": 61.0
+    }
+   }
+  },
+  "flat_k2_n10": {
+   "label": "[2]\u00d710",
+   "nfe": 10,
+   "clean": 4522,
+   "randomized": 4546,
+   "successes": 9068,
+   "episodes": 10000,
+   "sr": 90.68,
+   "clean_sr": 90.44,
+   "randomized_sr": 90.92,
+   "paired_vs_teacher": {
+    "episodes": 9315,
+    "a_successes": 8531,
+    "b_successes": 8641,
+    "a_sr": 91.58346752549652,
+    "b_sr": 92.76435856146001
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "beat_block_hammer": {
+     "clean": 97,
+     "randomized": 98,
+     "sr": 97.5
+    },
+    "blocks_ranking_rgb": {
+     "clean": 100,
+     "randomized": 96,
+     "sr": 98.0
+    },
+    "blocks_ranking_size": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "click_alarmclock": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 98,
+     "randomized": 97,
+     "sr": 97.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 91,
+     "randomized": 91,
+     "sr": 91.0
+    },
+    "handover_mic": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "hanging_mug": {
+     "clean": 54,
+     "randomized": 49,
+     "sr": 51.5
+    },
+    "lift_pot": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_can_pot": {
+     "clean": 89,
+     "randomized": 97,
+     "sr": 93.0
+    },
+    "move_pillbottle_pad": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "move_playingcard_away": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_stapler_pad": {
+     "clean": 87,
+     "randomized": 79,
+     "sr": 83.0
+    },
+    "open_laptop": {
+     "clean": 97,
+     "randomized": 95,
+     "sr": 96.0
+    },
+    "open_microwave": {
+     "clean": 12,
+     "randomized": 7,
+     "sr": 9.5
+    },
+    "pick_diverse_bottles": {
+     "clean": 82,
+     "randomized": 86,
+     "sr": 84.0
+    },
+    "pick_dual_bottles": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_a2b_left": {
+     "clean": 96,
+     "randomized": 95,
+     "sr": 95.5
+    },
+    "place_a2b_right": {
+     "clean": 94,
+     "randomized": 94,
+     "sr": 94.0
+    },
+    "place_bread_basket": {
+     "clean": 91,
+     "randomized": 93,
+     "sr": 92.0
+    },
+    "place_bread_skillet": {
+     "clean": 85,
+     "randomized": 86,
+     "sr": 85.5
+    },
+    "place_burger_fries": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_can_basket": {
+     "clean": 57,
+     "randomized": 55,
+     "sr": 56.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 99,
+     "randomized": 97,
+     "sr": 98.0
+    },
+    "place_container_plate": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "place_dual_shoes": {
+     "clean": 88,
+     "randomized": 84,
+     "sr": 86.0
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 94,
+     "randomized": 93,
+     "sr": 93.5
+    },
+    "place_mouse_pad": {
+     "clean": 93,
+     "randomized": 96,
+     "sr": 94.5
+    },
+    "place_object_basket": {
+     "clean": 78,
+     "randomized": 84,
+     "sr": 81.0
+    },
+    "place_object_scale": {
+     "clean": 99,
+     "randomized": 96,
+     "sr": 97.5
+    },
+    "place_object_stand": {
+     "clean": 93,
+     "randomized": 97,
+     "sr": 95.0
+    },
+    "place_phone_stand": {
+     "clean": 97,
+     "randomized": 100,
+     "sr": 98.5
+    },
+    "place_shoe": {
+     "clean": 95,
+     "randomized": 92,
+     "sr": 93.5
+    },
+    "press_stapler": {
+     "clean": 95,
+     "randomized": 98,
+     "sr": 96.5
+    },
+    "put_bottles_dustbin": {
+     "clean": 94,
+     "randomized": 96,
+     "sr": 95.0
+    },
+    "put_object_cabinet": {
+     "clean": 93,
+     "randomized": 96,
+     "sr": 94.5
+    },
+    "rotate_qrcode": {
+     "clean": 80,
+     "randomized": 79,
+     "sr": 79.5
+    },
+    "scan_object": {
+     "clean": 82,
+     "randomized": 89,
+     "sr": 85.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "stack_blocks_three": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 77,
+     "randomized": 85,
+     "sr": 81.0
+    },
+    "stack_bowls_two": {
+     "clean": 95,
+     "randomized": 96,
+     "sr": 95.5
+    },
+    "stamp_seal": {
+     "clean": 97,
+     "randomized": 93,
+     "sr": 95.0
+    },
+    "turn_switch": {
+     "clean": 56,
+     "randomized": 68,
+     "sr": 62.0
+    }
+   }
+  },
+  "flat_k4_n5": {
+   "label": "[4]\u00d75",
+   "nfe": 5,
+   "clean": 4556,
+   "randomized": 4573,
+   "successes": 9129,
+   "episodes": 10000,
+   "sr": 91.29,
+   "clean_sr": 91.12,
+   "randomized_sr": 91.46,
+   "paired_vs_teacher": {
+    "episodes": 9304,
+    "a_successes": 8558,
+    "b_successes": 8620,
+    "a_sr": 91.98194325021497,
+    "b_sr": 92.64832330180568
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 98,
+     "sr": 99.0
+    },
+    "beat_block_hammer": {
+     "clean": 99,
+     "randomized": 96,
+     "sr": 97.5
+    },
+    "blocks_ranking_rgb": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "blocks_ranking_size": {
+     "clean": 94,
+     "randomized": 97,
+     "sr": 95.5
+    },
+    "click_alarmclock": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 94,
+     "randomized": 93,
+     "sr": 93.5
+    },
+    "handover_mic": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "hanging_mug": {
+     "clean": 57,
+     "randomized": 51,
+     "sr": 54.0
+    },
+    "lift_pot": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_can_pot": {
+     "clean": 94,
+     "randomized": 100,
+     "sr": 97.0
+    },
+    "move_pillbottle_pad": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "move_playingcard_away": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_stapler_pad": {
+     "clean": 78,
+     "randomized": 77,
+     "sr": 77.5
+    },
+    "open_laptop": {
+     "clean": 95,
+     "randomized": 94,
+     "sr": 94.5
+    },
+    "open_microwave": {
+     "clean": 24,
+     "randomized": 34,
+     "sr": 29.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 85,
+     "randomized": 83,
+     "sr": 84.0
+    },
+    "pick_dual_bottles": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_a2b_left": {
+     "clean": 95,
+     "randomized": 95,
+     "sr": 95.0
+    },
+    "place_a2b_right": {
+     "clean": 95,
+     "randomized": 97,
+     "sr": 96.0
+    },
+    "place_bread_basket": {
+     "clean": 93,
+     "randomized": 92,
+     "sr": 92.5
+    },
+    "place_bread_skillet": {
+     "clean": 93,
+     "randomized": 93,
+     "sr": 93.0
+    },
+    "place_burger_fries": {
+     "clean": 99,
+     "randomized": 94,
+     "sr": 96.5
+    },
+    "place_can_basket": {
+     "clean": 62,
+     "randomized": 58,
+     "sr": 60.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 99,
+     "randomized": 97,
+     "sr": 98.0
+    },
+    "place_container_plate": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "place_dual_shoes": {
+     "clean": 86,
+     "randomized": 91,
+     "sr": 88.5
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 96,
+     "randomized": 96,
+     "sr": 96.0
+    },
+    "place_mouse_pad": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "place_object_basket": {
+     "clean": 83,
+     "randomized": 84,
+     "sr": 83.5
+    },
+    "place_object_scale": {
+     "clean": 97,
+     "randomized": 99,
+     "sr": 98.0
+    },
+    "place_object_stand": {
+     "clean": 93,
+     "randomized": 91,
+     "sr": 92.0
+    },
+    "place_phone_stand": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_shoe": {
+     "clean": 95,
+     "randomized": 98,
+     "sr": 96.5
+    },
+    "press_stapler": {
+     "clean": 97,
+     "randomized": 97,
+     "sr": 97.0
+    },
+    "put_bottles_dustbin": {
+     "clean": 87,
+     "randomized": 85,
+     "sr": 86.0
+    },
+    "put_object_cabinet": {
+     "clean": 88,
+     "randomized": 92,
+     "sr": 90.0
+    },
+    "rotate_qrcode": {
+     "clean": 80,
+     "randomized": 74,
+     "sr": 77.0
+    },
+    "scan_object": {
+     "clean": 81,
+     "randomized": 90,
+     "sr": 85.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 98,
+     "randomized": 97,
+     "sr": 97.5
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 84,
+     "randomized": 85,
+     "sr": 84.5
+    },
+    "stack_bowls_two": {
+     "clean": 94,
+     "randomized": 94,
+     "sr": 94.0
+    },
+    "stamp_seal": {
+     "clean": 95,
+     "randomized": 94,
+     "sr": 94.5
+    },
+    "turn_switch": {
+     "clean": 62,
+     "randomized": 68,
+     "sr": 65.0
+    }
+   }
+  },
+  "flat_k4_n10": {
+   "label": "[4]\u00d710",
+   "nfe": 10,
+   "clean": 4556,
+   "randomized": 4567,
+   "successes": 9123,
+   "episodes": 10000,
+   "sr": 91.23,
+   "clean_sr": 91.12,
+   "randomized_sr": 91.34,
+   "paired_vs_teacher": {
+    "episodes": 9299,
+    "a_successes": 8568,
+    "b_successes": 8626,
+    "a_sr": 92.13893967093236,
+    "b_sr": 92.76266265189805
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "beat_block_hammer": {
+     "clean": 98,
+     "randomized": 95,
+     "sr": 96.5
+    },
+    "blocks_ranking_rgb": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "blocks_ranking_size": {
+     "clean": 98,
+     "randomized": 95,
+     "sr": 96.5
+    },
+    "click_alarmclock": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 93,
+     "randomized": 91,
+     "sr": 92.0
+    },
+    "handover_mic": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "hanging_mug": {
+     "clean": 60,
+     "randomized": 54,
+     "sr": 57.0
+    },
+    "lift_pot": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_can_pot": {
+     "clean": 94,
+     "randomized": 99,
+     "sr": 96.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "move_playingcard_away": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_stapler_pad": {
+     "clean": 83,
+     "randomized": 79,
+     "sr": 81.0
+    },
+    "open_laptop": {
+     "clean": 92,
+     "randomized": 96,
+     "sr": 94.0
+    },
+    "open_microwave": {
+     "clean": 19,
+     "randomized": 38,
+     "sr": 28.5
+    },
+    "pick_diverse_bottles": {
+     "clean": 86,
+     "randomized": 85,
+     "sr": 85.5
+    },
+    "pick_dual_bottles": {
+     "clean": 99,
+     "randomized": 97,
+     "sr": 98.0
+    },
+    "place_a2b_left": {
+     "clean": 95,
+     "randomized": 93,
+     "sr": 94.0
+    },
+    "place_a2b_right": {
+     "clean": 93,
+     "randomized": 96,
+     "sr": 94.5
+    },
+    "place_bread_basket": {
+     "clean": 92,
+     "randomized": 92,
+     "sr": 92.0
+    },
+    "place_bread_skillet": {
+     "clean": 87,
+     "randomized": 87,
+     "sr": 87.0
+    },
+    "place_burger_fries": {
+     "clean": 95,
+     "randomized": 98,
+     "sr": 96.5
+    },
+    "place_can_basket": {
+     "clean": 62,
+     "randomized": 50,
+     "sr": 56.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 99,
+     "randomized": 93,
+     "sr": 96.0
+    },
+    "place_container_plate": {
+     "clean": 98,
+     "randomized": 97,
+     "sr": 97.5
+    },
+    "place_dual_shoes": {
+     "clean": 91,
+     "randomized": 90,
+     "sr": 90.5
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 99,
+     "randomized": 94,
+     "sr": 96.5
+    },
+    "place_mouse_pad": {
+     "clean": 96,
+     "randomized": 94,
+     "sr": 95.0
+    },
+    "place_object_basket": {
+     "clean": 81,
+     "randomized": 78,
+     "sr": 79.5
+    },
+    "place_object_scale": {
+     "clean": 100,
+     "randomized": 97,
+     "sr": 98.5
+    },
+    "place_object_stand": {
+     "clean": 94,
+     "randomized": 94,
+     "sr": 94.0
+    },
+    "place_phone_stand": {
+     "clean": 99,
+     "randomized": 98,
+     "sr": 98.5
+    },
+    "place_shoe": {
+     "clean": 97,
+     "randomized": 97,
+     "sr": 97.0
+    },
+    "press_stapler": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "put_bottles_dustbin": {
+     "clean": 88,
+     "randomized": 91,
+     "sr": 89.5
+    },
+    "put_object_cabinet": {
+     "clean": 89,
+     "randomized": 88,
+     "sr": 88.5
+    },
+    "rotate_qrcode": {
+     "clean": 80,
+     "randomized": 84,
+     "sr": 82.0
+    },
+    "scan_object": {
+     "clean": 82,
+     "randomized": 88,
+     "sr": 85.0
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 99,
+     "randomized": 95,
+     "sr": 97.0
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 77,
+     "randomized": 88,
+     "sr": 82.5
+    },
+    "stack_bowls_two": {
+     "clean": 96,
+     "randomized": 95,
+     "sr": 95.5
+    },
+    "stamp_seal": {
+     "clean": 94,
+     "randomized": 99,
+     "sr": 96.5
+    },
+    "turn_switch": {
+     "clean": 63,
+     "randomized": 66,
+     "sr": 64.5
+    }
+   }
+  }
+ },
+ "e1_epoch1": {
+  "flat_k1_n2": {
+   "label": "[1,1]",
+   "nfe": 2,
+   "clean": 4300,
+   "randomized": 4336,
+   "successes": 8636,
+   "episodes": 10000,
+   "sr": 86.36,
+   "clean_sr": 86.0,
+   "randomized_sr": 86.72,
+   "paired_vs_teacher": {
+    "episodes": 9255,
+    "a_successes": 8057,
+    "b_successes": 8546,
+    "a_sr": 87.05564559697461,
+    "b_sr": 92.33927606699082
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 98,
+     "sr": 99.0
+    },
+    "beat_block_hammer": {
+     "clean": 98,
+     "randomized": 93,
+     "sr": 95.5
+    },
+    "blocks_ranking_rgb": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "blocks_ranking_size": {
+     "clean": 90,
+     "randomized": 90,
+     "sr": 90.0
+    },
+    "click_alarmclock": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 91,
+     "randomized": 92,
+     "sr": 91.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 78,
+     "randomized": 78,
+     "sr": 78.0
+    },
+    "handover_mic": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "hanging_mug": {
+     "clean": 44,
+     "randomized": 44,
+     "sr": 44.0
+    },
+    "lift_pot": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "move_can_pot": {
+     "clean": 85,
+     "randomized": 92,
+     "sr": 88.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 88,
+     "randomized": 92,
+     "sr": 90.0
+    },
+    "move_playingcard_away": {
+     "clean": 97,
+     "randomized": 100,
+     "sr": 98.5
+    },
+    "move_stapler_pad": {
+     "clean": 54,
+     "randomized": 75,
+     "sr": 64.5
+    },
+    "open_laptop": {
+     "clean": 92,
+     "randomized": 94,
+     "sr": 93.0
+    },
+    "open_microwave": {
+     "clean": 30,
+     "randomized": 12,
+     "sr": 21.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 65,
+     "randomized": 71,
+     "sr": 68.0
+    },
+    "pick_dual_bottles": {
+     "clean": 75,
+     "randomized": 75,
+     "sr": 75.0
+    },
+    "place_a2b_left": {
+     "clean": 93,
+     "randomized": 91,
+     "sr": 92.0
+    },
+    "place_a2b_right": {
+     "clean": 91,
+     "randomized": 98,
+     "sr": 94.5
+    },
+    "place_bread_basket": {
+     "clean": 90,
+     "randomized": 92,
+     "sr": 91.0
+    },
+    "place_bread_skillet": {
+     "clean": 90,
+     "randomized": 88,
+     "sr": 89.0
+    },
+    "place_burger_fries": {
+     "clean": 97,
+     "randomized": 96,
+     "sr": 96.5
+    },
+    "place_can_basket": {
+     "clean": 71,
+     "randomized": 65,
+     "sr": 68.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 97,
+     "randomized": 95,
+     "sr": 96.0
+    },
+    "place_container_plate": {
+     "clean": 99,
+     "randomized": 97,
+     "sr": 98.0
+    },
+    "place_dual_shoes": {
+     "clean": 67,
+     "randomized": 60,
+     "sr": 63.5
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 88,
+     "randomized": 87,
+     "sr": 87.5
+    },
+    "place_mouse_pad": {
+     "clean": 85,
+     "randomized": 76,
+     "sr": 80.5
+    },
+    "place_object_basket": {
+     "clean": 75,
+     "randomized": 76,
+     "sr": 75.5
+    },
+    "place_object_scale": {
+     "clean": 97,
+     "randomized": 92,
+     "sr": 94.5
+    },
+    "place_object_stand": {
+     "clean": 93,
+     "randomized": 92,
+     "sr": 92.5
+    },
+    "place_phone_stand": {
+     "clean": 95,
+     "randomized": 96,
+     "sr": 95.5
+    },
+    "place_shoe": {
+     "clean": 88,
+     "randomized": 93,
+     "sr": 90.5
+    },
+    "press_stapler": {
+     "clean": 96,
+     "randomized": 98,
+     "sr": 97.0
+    },
+    "put_bottles_dustbin": {
+     "clean": 88,
+     "randomized": 91,
+     "sr": 89.5
+    },
+    "put_object_cabinet": {
+     "clean": 88,
+     "randomized": 91,
+     "sr": 89.5
+    },
+    "rotate_qrcode": {
+     "clean": 74,
+     "randomized": 85,
+     "sr": 79.5
+    },
+    "scan_object": {
+     "clean": 65,
+     "randomized": 66,
+     "sr": 65.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "stack_blocks_three": {
+     "clean": 89,
+     "randomized": 89,
+     "sr": 89.0
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "stack_bowls_three": {
+     "clean": 67,
+     "randomized": 74,
+     "sr": 70.5
+    },
+    "stack_bowls_two": {
+     "clean": 91,
+     "randomized": 96,
+     "sr": 93.5
+    },
+    "stamp_seal": {
+     "clean": 86,
+     "randomized": 86,
+     "sr": 86.0
+    },
+    "turn_switch": {
+     "clean": 57,
+     "randomized": 65,
+     "sr": 61.0
+    }
+   }
+  },
+  "flat_k4_n2": {
+   "label": "[4,4]",
+   "nfe": 2,
+   "clean": 4505,
+   "randomized": 4529,
+   "successes": 9034,
+   "episodes": 10000,
+   "sr": 90.34,
+   "clean_sr": 90.1,
+   "randomized_sr": 90.58,
+   "paired_vs_teacher": {
+    "episodes": 9241,
+    "a_successes": 8428,
+    "b_successes": 8542,
+    "a_sr": 91.20225083865382,
+    "b_sr": 92.43588356238503
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "beat_block_hammer": {
+     "clean": 99,
+     "randomized": 95,
+     "sr": 97.0
+    },
+    "blocks_ranking_rgb": {
+     "clean": 99,
+     "randomized": 98,
+     "sr": 98.5
+    },
+    "blocks_ranking_size": {
+     "clean": 90,
+     "randomized": 93,
+     "sr": 91.5
+    },
+    "click_alarmclock": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 93,
+     "randomized": 94,
+     "sr": 93.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 89,
+     "randomized": 86,
+     "sr": 87.5
+    },
+    "handover_mic": {
+     "clean": 94,
+     "randomized": 98,
+     "sr": 96.0
+    },
+    "hanging_mug": {
+     "clean": 64,
+     "randomized": 62,
+     "sr": 63.0
+    },
+    "lift_pot": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_can_pot": {
+     "clean": 92,
+     "randomized": 99,
+     "sr": 95.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "move_playingcard_away": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_stapler_pad": {
+     "clean": 79,
+     "randomized": 79,
+     "sr": 79.0
+    },
+    "open_laptop": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "open_microwave": {
+     "clean": 19,
+     "randomized": 27,
+     "sr": 23.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 88,
+     "randomized": 86,
+     "sr": 87.0
+    },
+    "pick_dual_bottles": {
+     "clean": 98,
+     "randomized": 95,
+     "sr": 96.5
+    },
+    "place_a2b_left": {
+     "clean": 92,
+     "randomized": 93,
+     "sr": 92.5
+    },
+    "place_a2b_right": {
+     "clean": 93,
+     "randomized": 95,
+     "sr": 94.0
+    },
+    "place_bread_basket": {
+     "clean": 92,
+     "randomized": 91,
+     "sr": 91.5
+    },
+    "place_bread_skillet": {
+     "clean": 91,
+     "randomized": 87,
+     "sr": 89.0
+    },
+    "place_burger_fries": {
+     "clean": 97,
+     "randomized": 98,
+     "sr": 97.5
+    },
+    "place_can_basket": {
+     "clean": 71,
+     "randomized": 67,
+     "sr": 69.0
+    },
+    "place_cans_plasticbox": {
+     "clean": 100,
+     "randomized": 96,
+     "sr": 98.0
+    },
+    "place_container_plate": {
+     "clean": 96,
+     "randomized": 99,
+     "sr": 97.5
+    },
+    "place_dual_shoes": {
+     "clean": 83,
+     "randomized": 78,
+     "sr": 80.5
+    },
+    "place_empty_cup": {
+     "clean": 99,
+     "randomized": 100,
+     "sr": 99.5
+    },
+    "place_fan": {
+     "clean": 92,
+     "randomized": 90,
+     "sr": 91.0
+    },
+    "place_mouse_pad": {
+     "clean": 88,
+     "randomized": 88,
+     "sr": 88.0
+    },
+    "place_object_basket": {
+     "clean": 80,
+     "randomized": 80,
+     "sr": 80.0
+    },
+    "place_object_scale": {
+     "clean": 99,
+     "randomized": 93,
+     "sr": 96.0
+    },
+    "place_object_stand": {
+     "clean": 91,
+     "randomized": 94,
+     "sr": 92.5
+    },
+    "place_phone_stand": {
+     "clean": 100,
+     "randomized": 98,
+     "sr": 99.0
+    },
+    "place_shoe": {
+     "clean": 97,
+     "randomized": 98,
+     "sr": 97.5
+    },
+    "press_stapler": {
+     "clean": 98,
+     "randomized": 98,
+     "sr": 98.0
+    },
+    "put_bottles_dustbin": {
+     "clean": 88,
+     "randomized": 94,
+     "sr": 91.0
+    },
+    "put_object_cabinet": {
+     "clean": 90,
+     "randomized": 92,
+     "sr": 91.0
+    },
+    "rotate_qrcode": {
+     "clean": 79,
+     "randomized": 80,
+     "sr": 79.5
+    },
+    "scan_object": {
+     "clean": 81,
+     "randomized": 79,
+     "sr": 80.0
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 95,
+     "randomized": 94,
+     "sr": 94.5
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 71,
+     "randomized": 82,
+     "sr": 76.5
+    },
+    "stack_bowls_two": {
+     "clean": 97,
+     "randomized": 96,
+     "sr": 96.5
+    },
+    "stamp_seal": {
+     "clean": 92,
+     "randomized": 92,
+     "sr": 92.0
+    },
+    "turn_switch": {
+     "clean": 56,
+     "randomized": 70,
+     "sr": 63.0
+    }
+   }
+  },
+  "flat_k4_n5": {
+   "label": "[4]\u00d75",
+   "nfe": 5,
+   "clean": 4559,
+   "randomized": 4540,
+   "successes": 9099,
+   "episodes": 10000,
+   "sr": 90.99,
+   "clean_sr": 91.18,
+   "randomized_sr": 90.8,
+   "paired_vs_teacher": {
+    "episodes": 9255,
+    "a_successes": 8512,
+    "b_successes": 8583,
+    "a_sr": 91.97190707725554,
+    "b_sr": 92.73905996758509
+   },
+   "tasks": {
+    "adjust_bottle": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "beat_block_hammer": {
+     "clean": 98,
+     "randomized": 94,
+     "sr": 96.0
+    },
+    "blocks_ranking_rgb": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "blocks_ranking_size": {
+     "clean": 95,
+     "randomized": 97,
+     "sr": 96.0
+    },
+    "click_alarmclock": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "click_bell": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "dump_bin_bigbin": {
+     "clean": 99,
+     "randomized": 98,
+     "sr": 98.5
+    },
+    "grab_roller": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "handover_block": {
+     "clean": 93,
+     "randomized": 91,
+     "sr": 92.0
+    },
+    "handover_mic": {
+     "clean": 98,
+     "randomized": 100,
+     "sr": 99.0
+    },
+    "hanging_mug": {
+     "clean": 56,
+     "randomized": 60,
+     "sr": 58.0
+    },
+    "lift_pot": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_can_pot": {
+     "clean": 93,
+     "randomized": 98,
+     "sr": 95.5
+    },
+    "move_pillbottle_pad": {
+     "clean": 97,
+     "randomized": 98,
+     "sr": 97.5
+    },
+    "move_playingcard_away": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "move_stapler_pad": {
+     "clean": 88,
+     "randomized": 75,
+     "sr": 81.5
+    },
+    "open_laptop": {
+     "clean": 90,
+     "randomized": 93,
+     "sr": 91.5
+    },
+    "open_microwave": {
+     "clean": 28,
+     "randomized": 28,
+     "sr": 28.0
+    },
+    "pick_diverse_bottles": {
+     "clean": 89,
+     "randomized": 87,
+     "sr": 88.0
+    },
+    "pick_dual_bottles": {
+     "clean": 99,
+     "randomized": 98,
+     "sr": 98.5
+    },
+    "place_a2b_left": {
+     "clean": 96,
+     "randomized": 92,
+     "sr": 94.0
+    },
+    "place_a2b_right": {
+     "clean": 93,
+     "randomized": 94,
+     "sr": 93.5
+    },
+    "place_bread_basket": {
+     "clean": 94,
+     "randomized": 94,
+     "sr": 94.0
+    },
+    "place_bread_skillet": {
+     "clean": 95,
+     "randomized": 92,
+     "sr": 93.5
+    },
+    "place_burger_fries": {
+     "clean": 96,
+     "randomized": 100,
+     "sr": 98.0
+    },
+    "place_can_basket": {
+     "clean": 62,
+     "randomized": 37,
+     "sr": 49.5
+    },
+    "place_cans_plasticbox": {
+     "clean": 96,
+     "randomized": 97,
+     "sr": 96.5
+    },
+    "place_container_plate": {
+     "clean": 99,
+     "randomized": 99,
+     "sr": 99.0
+    },
+    "place_dual_shoes": {
+     "clean": 82,
+     "randomized": 78,
+     "sr": 80.0
+    },
+    "place_empty_cup": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "place_fan": {
+     "clean": 97,
+     "randomized": 94,
+     "sr": 95.5
+    },
+    "place_mouse_pad": {
+     "clean": 94,
+     "randomized": 95,
+     "sr": 94.5
+    },
+    "place_object_basket": {
+     "clean": 90,
+     "randomized": 88,
+     "sr": 89.0
+    },
+    "place_object_scale": {
+     "clean": 98,
+     "randomized": 96,
+     "sr": 97.0
+    },
+    "place_object_stand": {
+     "clean": 92,
+     "randomized": 95,
+     "sr": 93.5
+    },
+    "place_phone_stand": {
+     "clean": 98,
+     "randomized": 99,
+     "sr": 98.5
+    },
+    "place_shoe": {
+     "clean": 95,
+     "randomized": 98,
+     "sr": 96.5
+    },
+    "press_stapler": {
+     "clean": 96,
+     "randomized": 99,
+     "sr": 97.5
+    },
+    "put_bottles_dustbin": {
+     "clean": 91,
+     "randomized": 96,
+     "sr": 93.5
+    },
+    "put_object_cabinet": {
+     "clean": 93,
+     "randomized": 91,
+     "sr": 92.0
+    },
+    "rotate_qrcode": {
+     "clean": 85,
+     "randomized": 78,
+     "sr": 81.5
+    },
+    "scan_object": {
+     "clean": 79,
+     "randomized": 80,
+     "sr": 79.5
+    },
+    "shake_bottle": {
+     "clean": 100,
+     "randomized": 99,
+     "sr": 99.5
+    },
+    "shake_bottle_horizontally": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_blocks_three": {
+     "clean": 92,
+     "randomized": 95,
+     "sr": 93.5
+    },
+    "stack_blocks_two": {
+     "clean": 100,
+     "randomized": 100,
+     "sr": 100.0
+    },
+    "stack_bowls_three": {
+     "clean": 78,
+     "randomized": 74,
+     "sr": 76.0
+    },
+    "stack_bowls_two": {
+     "clean": 97,
+     "randomized": 96,
+     "sr": 96.5
+    },
+    "stamp_seal": {
+     "clean": 94,
+     "randomized": 96,
+     "sr": 95.0
+    },
+    "turn_switch": {
+     "clean": 55,
+     "randomized": 72,
+     "sr": 63.5
+    }
+   }
+  }
+ },
+ "teacher_epoch10": {
+  "clean": 4603,
+  "randomized": 4584,
+  "successes": 9187,
+  "episodes": 10000,
+  "sr": 91.87,
+  "clean_sr": 92.06,
+  "randomized_sr": 91.68,
+  "tasks": {
+   "adjust_bottle": {
+    "clean": 100,
+    "randomized": 99,
+    "sr": 99.5
+   },
+   "beat_block_hammer": {
+    "clean": 100,
+    "randomized": 96,
+    "sr": 98.0
+   },
+   "blocks_ranking_rgb": {
+    "clean": 99,
+    "randomized": 99,
+    "sr": 99.0
+   },
+   "blocks_ranking_size": {
+    "clean": 98,
+    "randomized": 96,
+    "sr": 97.0
+   },
+   "click_alarmclock": {
+    "clean": 99,
+    "randomized": 100,
+    "sr": 99.5
+   },
+   "click_bell": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "dump_bin_bigbin": {
+    "clean": 100,
+    "randomized": 98,
+    "sr": 99.0
+   },
+   "grab_roller": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "handover_block": {
+    "clean": 94,
+    "randomized": 95,
+    "sr": 94.5
+   },
+   "handover_mic": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "hanging_mug": {
+    "clean": 57,
+    "randomized": 45,
+    "sr": 51.0
+   },
+   "lift_pot": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "move_can_pot": {
+    "clean": 93,
+    "randomized": 99,
+    "sr": 96.0
+   },
+   "move_pillbottle_pad": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "move_playingcard_away": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "move_stapler_pad": {
+    "clean": 93,
+    "randomized": 85,
+    "sr": 89.0
+   },
+   "open_laptop": {
+    "clean": 92,
+    "randomized": 93,
+    "sr": 92.5
+   },
+   "open_microwave": {
+    "clean": 36,
+    "randomized": 50,
+    "sr": 43.0
+   },
+   "pick_diverse_bottles": {
+    "clean": 86,
+    "randomized": 85,
+    "sr": 85.5
+   },
+   "pick_dual_bottles": {
+    "clean": 100,
+    "randomized": 96,
+    "sr": 98.0
+   },
+   "place_a2b_left": {
+    "clean": 97,
+    "randomized": 94,
+    "sr": 95.5
+   },
+   "place_a2b_right": {
+    "clean": 96,
+    "randomized": 92,
+    "sr": 94.0
+   },
+   "place_bread_basket": {
+    "clean": 93,
+    "randomized": 94,
+    "sr": 93.5
+   },
+   "place_bread_skillet": {
+    "clean": 89,
+    "randomized": 87,
+    "sr": 88.0
+   },
+   "place_burger_fries": {
+    "clean": 97,
+    "randomized": 98,
+    "sr": 97.5
+   },
+   "place_can_basket": {
+    "clean": 61,
+    "randomized": 57,
+    "sr": 59.0
+   },
+   "place_cans_plasticbox": {
+    "clean": 99,
+    "randomized": 96,
+    "sr": 97.5
+   },
+   "place_container_plate": {
+    "clean": 96,
+    "randomized": 97,
+    "sr": 96.5
+   },
+   "place_dual_shoes": {
+    "clean": 91,
+    "randomized": 89,
+    "sr": 90.0
+   },
+   "place_empty_cup": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "place_fan": {
+    "clean": 96,
+    "randomized": 93,
+    "sr": 94.5
+   },
+   "place_mouse_pad": {
+    "clean": 96,
+    "randomized": 95,
+    "sr": 95.5
+   },
+   "place_object_basket": {
+    "clean": 86,
+    "randomized": 82,
+    "sr": 84.0
+   },
+   "place_object_scale": {
+    "clean": 98,
+    "randomized": 97,
+    "sr": 97.5
+   },
+   "place_object_stand": {
+    "clean": 92,
+    "randomized": 97,
+    "sr": 94.5
+   },
+   "place_phone_stand": {
+    "clean": 99,
+    "randomized": 99,
+    "sr": 99.0
+   },
+   "place_shoe": {
+    "clean": 96,
+    "randomized": 98,
+    "sr": 97.0
+   },
+   "press_stapler": {
+    "clean": 97,
+    "randomized": 98,
+    "sr": 97.5
+   },
+   "put_bottles_dustbin": {
+    "clean": 90,
+    "randomized": 89,
+    "sr": 89.5
+   },
+   "put_object_cabinet": {
+    "clean": 91,
+    "randomized": 87,
+    "sr": 89.0
+   },
+   "rotate_qrcode": {
+    "clean": 82,
+    "randomized": 80,
+    "sr": 81.0
+   },
+   "scan_object": {
+    "clean": 85,
+    "randomized": 88,
+    "sr": 86.5
+   },
+   "shake_bottle": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "shake_bottle_horizontally": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "stack_blocks_three": {
+    "clean": 97,
+    "randomized": 96,
+    "sr": 96.5
+   },
+   "stack_blocks_two": {
+    "clean": 100,
+    "randomized": 100,
+    "sr": 100.0
+   },
+   "stack_bowls_three": {
+    "clean": 79,
+    "randomized": 83,
+    "sr": 81.0
+   },
+   "stack_bowls_two": {
+    "clean": 95,
+    "randomized": 96,
+    "sr": 95.5
+   },
+   "stamp_seal": {
+    "clean": 98,
+    "randomized": 96,
+    "sr": 97.0
+   },
+   "turn_switch": {
+    "clean": 60,
+    "randomized": 70,
+    "sr": 65.0
+   }
+  }
+ },
+ "teacher_epoch5": {
+  "clean": 4580,
+  "randomized": 4593,
+  "successes": 9173,
+  "episodes": 10000,
+  "sr": 91.73,
+  "clean_sr": 91.6,
+  "randomized_sr": 91.86
+ },
+ "context_e0_teacher10_5ep_nfe2": {
+  "flat_k1_n2": {
+   "clean": 4476,
+   "randomized": 4452,
+   "successes": 8928,
+   "episodes": 10000,
+   "sr": 89.28,
+   "clean_sr": 89.52,
+   "randomized_sr": 89.04
+  },
+  "flat_k2_n2": {
+   "clean": 4529,
+   "randomized": 4531,
+   "successes": 9060,
+   "episodes": 10000,
+   "sr": 90.6,
+   "clean_sr": 90.58,
+   "randomized_sr": 90.62
+  },
+  "flat_k4_n2": {
+   "clean": 4567,
+   "randomized": 4582,
+   "successes": 9149,
+   "episodes": 10000,
+   "sr": 91.49,
+   "clean_sr": 91.34,
+   "randomized_sr": 91.64
+  }
+ },
+ "context_e0_epoch1": {
+  "flat_k1_n2": {
+   "clean": 4348,
+   "randomized": 4336,
+   "successes": 8684,
+   "episodes": 10000,
+   "sr": 86.84,
+   "clean_sr": 86.96,
+   "randomized_sr": 86.72
+  },
+  "flat_k4_n2": {
+   "clean": 4512,
+   "randomized": 4513,
+   "successes": 9025,
+   "episodes": 10000,
+   "sr": 90.25,
+   "clean_sr": 90.24,
+   "randomized_sr": 90.26
+  },
+  "flat_k4_n5": {
+   "clean": 4563,
+   "randomized": 4533,
+   "successes": 9096,
+   "episodes": 10000,
+   "sr": 90.96,
+   "clean_sr": 91.26,
+   "randomized_sr": 90.66
+  }
+ },
+ "sources": {
+  "reference_e0": "robotwin_v0_epoch10/episodes.csv",
+  "reference_e1": "robotwin_v0/episodes.csv",
+  "e0_nfe2": {
+   "flat_k1_n2": "robotwin_elastic_e0_teacher10_5ep_20261111/local/flat_k1_n2/episodes.csv",
+   "flat_k2_n2": "robotwin_elastic_e0_teacher10_5ep_20261111/remote137/flat_k2_n2/episodes.csv",
+   "flat_k4_n2": "robotwin_elastic_e0_teacher10_5ep_44_20261112/flat_k4_n2/episodes.csv"
+  },
+  "e0_epoch1": {
+   "flat_k1_n2": "robotwin_elastic_e0_20261107/flat_k1_n2/episodes.csv",
+   "flat_k4_n2": "robotwin_elastic_e0_20261107/parallel137_20261108/remote_mirror/flat_k4_n2/episodes.csv",
+   "flat_k4_n5": "robotwin_elastic_e0_20261107/flat_k4_n5/episodes.csv"
+  }
+ }
+}

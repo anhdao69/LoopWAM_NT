@@ -1,0 +1,109 @@
+{
+  "module": "/data/anh/code/LoopWAM-elastic-robotwin-2c78ff6/src/fastwam/models/wan22/transport_inference_robot.py",
+  "rows": {
+    "flat_k1_n5|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n5|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n5|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n5|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n10|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n10|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n10|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k1_n10|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n5|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n5|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n5|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n5|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n10|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n10|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n10|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k2_n10|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n5|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n5|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n5|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n5|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n10|adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n10|adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n10|adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "flat_k4_n10|adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "peak_gib": 3.035168170928955,
+  "phase": "e1_pure",
+  "tree": "/data/anh/code/LoopWAM-elastic-robotwin-2c78ff6",
+  "seconds": 7.947067737579346,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}
