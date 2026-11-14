@@ -1,0 +1,58 @@
+{
+  "merged_equals_campaign": {
+    "adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "merged_denormalized_equals_campaign": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "teacher_rollout_equals_v0_infer_action": {
+    "adjust_bottle__demo_clean/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_clean/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_randomized/ep0": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    },
+    "adjust_bottle__demo_randomized/ep1": {
+      "bit_equal": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "v0_unchanged_after_transport": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "peak_gib": 3.706878662109375,
+  "phase": "v0_merged",
+  "tree": "/data/anh/code/LoopWAM-robotwin-eval",
+  "seconds": 112.6492338180542,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}

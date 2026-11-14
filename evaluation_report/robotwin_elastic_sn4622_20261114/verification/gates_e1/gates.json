@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": {
+    "contexts_deterministic_finite_padded": true,
+    "v0_campaign_deterministic_finite": true,
+    "v0_merged_tree_equals_campaign_tree": true,
+    "teacher_rollout_via_elastic_inputs_equals_v0_infer_action": true,
+    "v0_unchanged_after_transport_wrapper": true,
+    "e1_inputs_equal_v0_inputs": true,
+    "e1_rollouts_finite_deterministic_consistent": true,
+    "e1_cuda_graph_equals_eager": true,
+    "e1_pure_elastic_tree_equals_merged": true
+  },
+  "captures": [
+    "adjust_bottle__demo_clean/ep0",
+    "adjust_bottle__demo_clean/ep1",
+    "adjust_bottle__demo_randomized/ep0",
+    "adjust_bottle__demo_randomized/ep1"
+  ],
+  "schedules": [
+    "flat_k1_n2",
+    "flat_k4_n2",
+    "flat_k4_n5",
+    "flat_k4_n10"
+  ],
+  "graph_schedule": "flat_k4_n10",
+  "peak_gib": {
+    "contexts": 0.38588476181030273,
+    "v0_campaign": 3.706878662109375,
+    "v0_merged": 3.706878662109375,
+    "e1_merged": 3.3959484100341797,
+    "e1_pure": 3.035168170928955
+  },
+  "finished": 1794089408.7653916
+}
