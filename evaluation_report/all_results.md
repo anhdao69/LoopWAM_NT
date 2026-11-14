@@ -139,12 +139,12 @@ Seven CL checkpoints, seed 42 only. Plus follows the released FasterWAM 15% sele
 
 ## Original local v0 action-depth queue
 
-Kv4, NFE 10, seeds42/43/44,6,000 episodes per condition. Ka1/Ka2 completed;Ka3/5/6 were removed from this queue at user request. Separate later matched-baseline Ka3/5/6 results above remain valid records of that campaign. These two histories must not be conflated. [Original queue](v0_ka_sweep/report.md).
+Kv4, NFE 10, seeds42/43/44,6,000 episodes per condition. Ka1/Ka2 completed;Ka3/5/6 were removed from this queue at user request. Separate later matched-baseline Ka3/5/6 results above remain valid records of that campaign. These two histories must not be conflated. [Original queue](v0_ka_sweep/report.md). Per-suite columns added 2026-11-14 from the saved per-episode records of the same two runs (nothing re-evaluated): [breakdown by suite, seed and task](v0_ka_sweep/suite_breakdown_20261114/README.md).
 
-| Ka | Successes | SR |
-| --- | ---: | ---: |
-| 1 | 738/6000 | 12.30% |
-| 2 | 3334/6000 | 55.57% |
+| Ka | Spatial | Object | Goal | Long | Successes | SR |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 18.73% | 25.13% | 5.07% | 0.27% | 738/6000 | 12.30% |
+| 2 | 65.07% | 72.13% | 54.60% | 30.47% | 3334/6000 | 55.57% |
 
 ## Exclusions and missing-result history
 

@@ -1,0 +1,250 @@
+{
+ "report": "v0_ka_sweep/suite_breakdown_20261114",
+ "script": "verify_v0_ka_breakdown_20261114.py",
+ "passed": true,
+ "checks": [
+  {
+   "name": "archive members equal the workstation listing",
+   "ok": true,
+   "detail": "248 files, 248 listed"
+  },
+  {
+   "name": "every archive member has the workstation's sha256",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "breakdown.json names this archive",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "workstation queue_state.json is byte-identical to v0_ka_sweep/queue_status.json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the queue record has exactly the two completed runs",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: 6,000 episode records of this checkpoint at action loops 1, video loops 4, NFE 10",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: grid of 4 suites x 3 seeds x 10 tasks with 50 episodes each",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: each task/seed group covers initial states 0..49 once",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: the three seeds use the same initial states",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: recount equals the run's summary.json",
+   "ok": true,
+   "detail": "738"
+  },
+  {
+   "name": "Ka1: run summary.json equals the summary in the report's queue_status.json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: recount equals all_results/v0_ka_results.csv",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: breakdown.json equals the recount (suites, seeds, tasks)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka1: episodes_ka1.csv equals the 6,000 records",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: 6,000 episode records of this checkpoint at action loops 2, video loops 4, NFE 10",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: grid of 4 suites x 3 seeds x 10 tasks with 50 episodes each",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: each task/seed group covers initial states 0..49 once",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: the three seeds use the same initial states",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: recount equals the run's summary.json",
+   "ok": true,
+   "detail": "3334"
+  },
+  {
+   "name": "Ka2: run summary.json equals the summary in the report's queue_status.json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: recount equals all_results/v0_ka_results.csv",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: breakdown.json equals the recount (suites, seeds, tasks)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka2: episodes_ka2.csv equals the 6,000 records",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "suite_results.csv equals the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "per_task.csv equals the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: 'Result by suite' table equals the recount",
+   "ok": true,
+   "detail": "[['1', '18.73% (281/1500)', '25.13% (377/1500)', '5.07% (76/1500)', '0.27% (4/1500)', '**12.30%** (738/6000)'], ['2', '65.07% (976/1500)', '72.13% (1082/1500)', '54.60% (819/1500)', '30.47% (457/1500)', '**55.57%** (3334/6000)']]"
+  },
+  {
+   "name": "README: 'Result by seed' table equals the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: the seed-order sentence holds in the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: the four task tables equal the recount (40 tasks x 2 runs)",
+   "ok": true,
+   "detail": "40"
+  },
+  {
+   "name": "README: the count of tasks with no success equals the recount",
+   "ok": true,
+   "detail": "[2, 0, 6, 8, 0, 0, 0, 1] vs {1: [2, 0, 6, 8], 2: [0, 0, 0, 1]}"
+  },
+  {
+   "name": "Ka3: matched_baselines/README.md and all_results.md agree on the total",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka5: matched_baselines/README.md and all_results.md agree on the total",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Ka6: matched_baselines/README.md and all_results.md agree on the total",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the video-loop alignment column equals the setup report's rule",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: the six-row table equals each row's own record",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "loop_sweep_all.csv equals each row's own record",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: the two summary lines under the six-row table equal the records",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: the differences from the trained 4 loops equal the records",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "v0_ka_sweep/report.md: added table equals the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "all_results.md: action-depth table equals the recount",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README.md (top level): the new entry's numbers equal the records",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "README: every relative link of the folder page resolves",
+   "ok": true,
+   "detail": "[]"
+  }
+ ],
+ "failures": [],
+ "recount": {
+  "1": {
+   "successes": 738,
+   "episodes": 6000,
+   "suites": {
+    "libero_spatial": 281,
+    "libero_object": 377,
+    "libero_goal": 76,
+    "libero_10": 4
+   },
+   "seeds": {
+    "42": 378,
+    "43": 206,
+    "44": 154
+   }
+  },
+  "2": {
+   "successes": 3334,
+   "episodes": 6000,
+   "suites": {
+    "libero_spatial": 976,
+    "libero_object": 1082,
+    "libero_goal": 819,
+    "libero_10": 457
+   },
+   "seeds": {
+    "42": 1267,
+    "43": 1085,
+    "44": 982
+   }
+  }
+ }
+}
