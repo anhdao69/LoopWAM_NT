@@ -1,0 +1,239 @@
+{
+  "trained_schedules": [
+    "flat_k1_n2",
+    "flat_k1_n5",
+    "flat_k1_n10",
+    "flat_k2_n2",
+    "flat_k2_n5",
+    "flat_k2_n10",
+    "flat_k4_n2",
+    "flat_k4_n5",
+    "flat_k4_n10"
+  ],
+  "kind": "T1",
+  "inputs_equal_v0": {
+    "adjust_bottle__demo_clean/ep0": true,
+    "adjust_bottle__demo_clean/ep1": true,
+    "adjust_bottle__demo_randomized/ep0": true,
+    "adjust_bottle__demo_randomized/ep1": true
+  },
+  "schedules": {
+    "flat_k1_n2": {
+      "depths": [
+        1,
+        1
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6222984194755554
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6336669921875
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.591103732585907
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.631108283996582
+        }
+      }
+    },
+    "flat_k4_n2": {
+      "depths": [
+        4,
+        4
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6204565763473511
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6346532106399536
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.5963515639305115
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6410017013549805
+        }
+      }
+    },
+    "flat_k4_n5": {
+      "depths": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6215354204177856
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6366544365882874
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6039034724235535
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6411052346229553
+        }
+      }
+    },
+    "flat_k4_n10": {
+      "depths": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "trained": true,
+      "rows": {
+        "adjust_bottle__demo_clean/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.621277391910553
+        },
+        "adjust_bottle__demo_clean/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6364940404891968
+        },
+        "adjust_bottle__demo_randomized/ep0": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6031026840209961
+        },
+        "adjust_bottle__demo_randomized/ep1": {
+          "finite": true,
+          "deterministic": true,
+          "query_equals_normalized_infer": true,
+          "abs_mean": 0.6401335000991821
+        }
+      }
+    }
+  },
+  "cuda_graph": {
+    "adjust_bottle__demo_clean/ep0": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_clean/ep1": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_randomized/ep0": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ],
+    "adjust_bottle__demo_randomized/ep1": [
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      },
+      {
+        "graph_equals_eager": {
+          "bit_equal": true,
+          "max_abs_diff": 0.0
+        },
+        "eager_equals_infer": true
+      }
+    ]
+  },
+  "peak_gib": 3.3959484100341797,
+  "phase": "e1_merged",
+  "tree": "/data/anh/code/LoopWAM-robotwin-eval",
+  "seconds": 38.4134566783905,
+  "torch": "2.7.1+cu128",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "tf32_matmul": false,
+  "cudnn_tf32": true
+}

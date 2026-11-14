@@ -1,0 +1,134 @@
+{
+ "host": "sn4622128794",
+ "model": "E0-epoch10-teacher-5ep",
+ "group": "e0_teacher10_5ep",
+ "schedule": "flat_k4_n10",
+ "label": "[4]x10",
+ "depths": [
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4
+ ],
+ "nfe": 10,
+ "checkpoint": {
+  "hf_repo": "anhdao69/LoopWAM_NT",
+  "hf_path": "robotwin/Elastic/E0-epoch10-teacher-5ep/epoch_05.pt",
+  "hf_revision": "b72f355505d98c473fb91e45d10e16d4cc7ce536",
+  "size": 2340331885,
+  "kind": "T0",
+  "epoch": 5,
+  "step": 237310,
+  "sha256": "07d24ff77410e516ac90d24d76d651e2102b09b0458d9d5d86ea18dff39e823e"
+ },
+ "teacher": {
+  "hf_path": "robotwin/v0-video4-action4-epoch10/policy.pt",
+  "epoch": 10,
+  "step": 474620,
+  "sha256": "70cf5af73db5fe582c50c5f9fb68296d5271a9c0fea51509b3cdb5f9696be1ea"
+ },
+ "reference_report": "../../../robotwin_v0_epoch10",
+ "protocol": {
+  "seed": 42,
+  "episodes": 100,
+  "instruction_type": "unseen",
+  "action_horizon": 32,
+  "replan_steps": 24,
+  "noise_seed": "fixed seed for every query, FastWAM default",
+  "image_preprocessing": "released_fastwam_pil_uint8_bf16",
+  "instruction_rng": "released_fastwam_no_explicit_python_seed",
+  "t5_loader": "lean",
+  "cuda_graph": "0",
+  "renderer_shader": "rt"
+ },
+ "totals": {
+  "demo_clean": {
+   "successes": 4556,
+   "episodes": 5000,
+   "sr_percent": 91.12
+  },
+  "demo_randomized": {
+   "successes": 4567,
+   "episodes": 5000,
+   "sr_percent": 91.34
+  },
+  "combined": {
+   "successes": 9123,
+   "episodes": 10000,
+   "sr_percent": 91.23
+  }
+ },
+ "reference_comparison": {
+  "demo_clean": {
+   "successes": 4556,
+   "episodes": 5000,
+   "sr_percent": 91.12,
+   "v0_campaign_sr_percent": 92.06,
+   "cells_with_identical_seeds": 10,
+   "cells": 50,
+   "paired_episodes": 4646,
+   "paired_e1_sr_percent": 92.06,
+   "paired_v0_sr_percent": 93.18
+  },
+  "demo_randomized": {
+   "successes": 4567,
+   "episodes": 5000,
+   "sr_percent": 91.34,
+   "v0_campaign_sr_percent": 91.68,
+   "cells_with_identical_seeds": 9,
+   "cells": 50,
+   "paired_episodes": 4653,
+   "paired_e1_sr_percent": 92.22,
+   "paired_v0_sr_percent": 92.35
+  },
+  "combined": {
+   "successes": 9123,
+   "episodes": 10000,
+   "sr_percent": 91.23,
+   "v0_campaign_sr_percent": 91.87,
+   "cells_with_identical_seeds": 19,
+   "cells": 100,
+   "paired_episodes": 9299,
+   "paired_e1_sr_percent": 92.14,
+   "paired_v0_sr_percent": 92.76
+  }
+ },
+ "cells": 100,
+ "cells_accepted_after_a_rejected_attempt": 1,
+ "rejected_attempts": [
+  {
+   "cell": "scan_object/demo_randomized",
+   "attempt": "attempt_01",
+   "failure": {
+    "error": "Worker exit-9",
+    "exit_code": -9,
+    "episodes": 3
+   }
+  }
+ ],
+ "policy_queries": 106749,
+ "accepted_cell_seconds_sum": 279240.9,
+ "launches_utc": [
+  "2026-11-11 18:48:33 UTC",
+  "2026-11-11 19:20:47 UTC",
+  "2026-11-13 18:30:48 UTC"
+ ],
+ "first_attempt_started_utc": "2026-11-14 05:38:43 UTC",
+ "completed_utc": "2026-11-14 18:36:58 UTC",
+ "harness_sha256": "b214f2478744020dd49af026cf9fc14fcb0441bd0ace34005cd6774bfa367e3d",
+ "policy_sha256": "841756d32ba6b7ae6b2d68fc533765e530e4c6cd4b52f6ae6733c8e47bb60105",
+ "stats_sha256": "7a02c46cfc8c5e746c0afbe41fca73f723eda34cbc083f8ca54f76d8f7468095",
+ "vae_sha256": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+ "runtime_files_rechecked": 789,
+ "videos_checked_present": 10000,
+ "videos_rehashed": 100,
+ "source_dir": "sn4622128794:/data/anh/robotwin_eval/results/e0ep10_flat_k4_n10",
+ "complete_json_sha256": "240e9941a5782ca63dfef1a4edfe082a3363c0010738a57b04cce6afa7d73124",
+ "audit_json_sha256": "c4b614ee29d2e01d05ca64863f603de5bc3cd0b548640af81082b1489adcaf13"
+}
