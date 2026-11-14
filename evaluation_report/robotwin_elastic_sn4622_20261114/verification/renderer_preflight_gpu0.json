@@ -1,0 +1,29 @@
+{
+  "shader": "rt",
+  "samples_per_pixel": 32,
+  "path_depth": 8,
+  "denoiser": "oidn",
+  "shape": [
+    240,
+    320,
+    4
+  ],
+  "finite": true,
+  "std": 0.08737765997648239,
+  "mean": 0.8327528238296509,
+  "render_device": "cuda:0",
+  "render_pci": "0000:01:00.0",
+  "cuda_visible_devices": "0",
+  "cuda_pci": "00000000:01:00.0",
+  "same_gpu": true,
+  "torch_device": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "oidn_loaded": [
+    "/data/anh/robotwin_eval/env/lib/python3.10/site-packages/sapien/oidn_library/libOpenImageDenoise.so.2.3.3",
+    "/data/anh/robotwin_eval/env/lib/python3.10/site-packages/sapien/oidn_library/libOpenImageDenoise_core.so.2.3.3",
+    "/data/anh/robotwin_eval/env/lib/python3.10/site-packages/sapien/oidn_library/libOpenImageDenoise_device_cuda.so.2.3.3"
+  ],
+  "oidn_2_3_3": true,
+  "sapien": "3.0.0b1",
+  "seconds": 0.842841625213623,
+  "passed": true
+}
