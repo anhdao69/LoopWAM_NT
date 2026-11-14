@@ -1,0 +1,270 @@
+{
+ "date": "2026-11-14",
+ "created_utc": "2026-11-14T19:34:18Z",
+ "scope": "Third 2026-11-14 sync. Per-suite, per-seed and per-task breakdown of the two completed runs of the original v0 action-depth queue (v0 4/4 checkpoint at 1 and 2 action loops, LIBERO). User request 2026-11-14: pull the per-suite numbers of the 1- and 2-loop runs, update the report and push; then: pull the latest code from GitHub, update the report with this addition and push.",
+ "source": "workstation VMO-ANHDH35-D: /data14t/anhdh35/loopwam_v0_ka_sweep_20261027/results/{ka1,ka2} (groups/*.json, summary.json, manifest.json, progress.json) and the queue's queue_state.json / queue_state_before_stop_after_ka2.json; copied read-only on 2026-11-14",
+ "source_copy": {
+  "archive": "v0_ka_sweep/suite_breakdown_20261114/source/ka12_groups.tar.gz",
+  "archive_sha256": "d092af2a3875d98d95491761ede27a40d8012c57867b24698a755784d39bf839",
+  "files": 248,
+  "workstation_listing": "v0_ka_sweep/suite_breakdown_20261114/source/workstation_sha256.txt",
+  "workstation_listing_sha256": "7090d955ffd18bad9af6e56143d262d96fcc2d2c75e6f12c5769909a7b17249b",
+  "check": "every copied file re-hashed after transfer: identical to the workstation's sha256sum listing; the workstation's queue_state.json is byte-identical to v0_ka_sweep/queue_status.json already in the report"
+ },
+ "pull": {
+  "remote": "origin",
+  "fetched": "2026-11-14 with --prune, twice: the second 2026-11-14 sync (RoboTwin-10 v0 4/4 epoch 10) arrived on all 16 branches while this addition was being prepared and is the base of this sync",
+  "base_commit": "4279488b102a26e575198c07facb8d809c63d990",
+  "base_evaluation_report_tree": "d95a8f68b2946e2ea9bcd619677438e0e1e2788b"
+ },
+ "added": [
+  "v0_ka_sweep/suite_breakdown_20261114/",
+  "verify_v0_ka_breakdown_20261114.py",
+  "sync_manifest_20261114c.json",
+  "integrity_inventory_20261114c.json",
+  "preserved_versions/2026-11-14/11ae59aab60f83e1/README.md",
+  "preserved_versions/2026-11-14/d7ba2b55f48fdb15/FILE_INDEX.md",
+  "preserved_versions/2026-11-14/a8d9e39643340a99/ARCHIVE_INDEX.md",
+  "preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md",
+  "preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md",
+  "preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py"
+ ],
+ "modified": [
+  "README.md",
+  "FILE_INDEX.md",
+  "ARCHIVE_INDEX.md",
+  "v0_ka_sweep/report.md",
+  "all_results.md",
+  "all_results/build_snapshot.py"
+ ],
+ "modified_note": {
+  "v0_ka_sweep/report.md": "one section appended (per-suite table of the two completed runs and a link); nothing else changed",
+  "all_results.md": "the action-depth table gains the four suite columns and its paragraph one sentence with the link; nothing else changed (the page keeps its 2026-11-07 update stamp; the added sentence carries its own date)",
+  "all_results/build_snapshot.py": "the action-depth section reads the breakdown and writes the same table, so a later rebuild keeps the columns; the generator was not re-run",
+  "README.md": "snapshot line, one new entry under 'Start here', the v0_ka_sweep row, the latest-sync line and one independent-check entry",
+  "FILE_INDEX.md": "the new folder's 12 files inside the v0_ka_sweep group and the two new shared files; every previous line kept",
+  "ARCHIVE_INDEX.md": "one new section listing the six versions preserved by this sync; every previous line kept"
+ },
+ "preserved_versions": [
+  {
+   "file": "README.md",
+   "sha256": "11ae59aab60f83e1e32d4164ddd71e19ea1bd79c57ee281f0301866b24bbae58",
+   "bytes": 16132,
+   "preserved": "preserved_versions/2026-11-14/11ae59aab60f83e1/README.md"
+  },
+  {
+   "file": "FILE_INDEX.md",
+   "sha256": "d7ba2b55f48fdb15a0a5a76c3604d4185c1bc3da86d3f13a3195190bb7328cc4",
+   "bytes": 863704,
+   "preserved": "preserved_versions/2026-11-14/d7ba2b55f48fdb15/FILE_INDEX.md"
+  },
+  {
+   "file": "ARCHIVE_INDEX.md",
+   "sha256": "a8d9e39643340a99e0471265acb827b630b1f0e9f5701df1e0bec28f7e062eeb",
+   "bytes": 5793,
+   "preserved": "preserved_versions/2026-11-14/a8d9e39643340a99/ARCHIVE_INDEX.md"
+  },
+  {
+   "file": "v0_ka_sweep/report.md",
+   "sha256": "ba621eff95ef9d83c737493c03e07f46d7a15677a1d2814d0af39967a8d9572b",
+   "bytes": 1051,
+   "preserved": "preserved_versions/2026-11-14/ba621eff95ef9d83/v0_ka_sweep/report.md"
+  },
+  {
+   "file": "all_results.md",
+   "sha256": "3b46c5f8ae1a1f565ad119cb6e9c0bcef8cce7d7e951a0508f378807937f73f3",
+   "bytes": 22171,
+   "preserved": "preserved_versions/2026-11-14/3b46c5f8ae1a1f56/all_results.md"
+  },
+  {
+   "file": "all_results/build_snapshot.py",
+   "sha256": "39981ed0b404222ee342dd6cecba70c24775ca316cb82aee6bc83d1c938d3b39",
+   "bytes": 21046,
+   "preserved": "preserved_versions/2026-11-14/39981ed0b404222e/all_results/build_snapshot.py"
+  }
+ ],
+ "results": {
+  "protocol": "standard LIBERO, 4 suites x 10 tasks x 50 initial states x seeds 42/43/44 = 6,000 episodes per run; video loops 4, NFE 10; the released v0 4/4 checkpoint with the number of action loops changed at inference only",
+  "checkpoint_sha256": "1c659a7c2f6970c3ea5972a8fba4abd9db35857c83a67a053c0ee35555fb602b",
+  "runs": [
+   {
+    "action_loops": 1,
+    "successes": 738,
+    "episodes": 6000,
+    "sr_percent": 12.3,
+    "suites": {
+     "libero_spatial": {
+      "successes": 281,
+      "episodes": 1500,
+      "sr_percent": 18.73
+     },
+     "libero_object": {
+      "successes": 377,
+      "episodes": 1500,
+      "sr_percent": 25.13
+     },
+     "libero_goal": {
+      "successes": 76,
+      "episodes": 1500,
+      "sr_percent": 5.07
+     },
+     "libero_10": {
+      "successes": 4,
+      "episodes": 1500,
+      "sr_percent": 0.27
+     }
+    },
+    "seeds": {
+     "42": 18.9,
+     "43": 10.3,
+     "44": 7.7
+    }
+   },
+   {
+    "action_loops": 2,
+    "successes": 3334,
+    "episodes": 6000,
+    "sr_percent": 55.57,
+    "suites": {
+     "libero_spatial": {
+      "successes": 976,
+      "episodes": 1500,
+      "sr_percent": 65.07
+     },
+     "libero_object": {
+      "successes": 1082,
+      "episodes": 1500,
+      "sr_percent": 72.13
+     },
+     "libero_goal": {
+      "successes": 819,
+      "episodes": 1500,
+      "sr_percent": 54.6
+     },
+     "libero_10": {
+      "successes": 457,
+      "episodes": 1500,
+      "sr_percent": 30.47
+     }
+    },
+    "seeds": {
+     "42": 63.35,
+     "43": 54.25,
+     "44": 49.1
+    }
+   }
+  ],
+  "note": "nothing re-evaluated: the totals are the ones already in the report (738/6000 and 3334/6000); the breakdown is counted from the runs' saved per-episode records"
+ },
+ "quoted_other_records": "the folder's page also shows the same checkpoint at 3, 5, 6 action loops (matched_baselines) and 4 (final) side by side; those rows are copied from their own records and no file of those reports is changed",
+ "verification": {
+  "script": "verify_v0_ka_breakdown_20261114.py",
+  "passed": true,
+  "checks": 42,
+  "failures": [],
+  "result": "v0_ka_sweep/suite_breakdown_20261114/independent_check.json",
+  "recount": {
+   "1": {
+    "successes": 738,
+    "episodes": 6000,
+    "suites": {
+     "libero_spatial": 281,
+     "libero_object": 377,
+     "libero_goal": 76,
+     "libero_10": 4
+    },
+    "seeds": {
+     "42": 378,
+     "43": 206,
+     "44": 154
+    }
+   },
+   "2": {
+    "successes": 3334,
+    "episodes": 6000,
+    "suites": {
+     "libero_spatial": 976,
+     "libero_object": 1082,
+     "libero_goal": 819,
+     "libero_10": 457
+    },
+    "seeds": {
+     "42": 1267,
+     "43": 1085,
+     "44": 982
+    }
+   }
+  }
+ },
+ "independent_check": "python evaluation_report/verify_v0_ka_breakdown_20261114.py -> ALL CHECKS PASSED",
+ "not_stored": "rollout videos (2.6 GB and 2.2 GB), per-query logs and the per-episode copies of the same records; they remain on the workstation",
+ "branches": [
+  [
+   "KV_concat",
+   "54ab32745129b93dd70c44b04b4b9f3e9cd3ca5c"
+  ],
+  [
+   "LoopWAM_NT",
+   "4279488b102a26e575198c07facb8d809c63d990"
+  ],
+  [
+   "chrono",
+   "f65b7fee20759b4eb0971c8642547acefd36c7bf"
+  ],
+  [
+   "elastic",
+   "e7ebdaaadbcd8cb1c51a309a030456ecb73525f9"
+  ],
+  [
+   "elastic_cl0",
+   "359f3e7c027d068d72659267790ea6f068325102"
+  ],
+  [
+   "elastic_gr1",
+   "f808023bf8002a37ec088dfe28787bdc224b1497"
+  ],
+  [
+   "elastic_robotwin",
+   "d9f9963d60128e8e628b0b796afbfe93906d4c49"
+  ],
+  [
+   "partition_grid_20261026",
+   "791efb7a7be40938cc4fe22e96efbb28fb89e0b0"
+  ],
+  [
+   "residual_trans",
+   "4f7512d6ee72f5f24ce15f7644ec727cf8c21ec6"
+  ],
+  [
+   "robocasa_gr1_continuation_20261106",
+   "340628ce1013bcdce917ffbbc37f347111e4f39f"
+  ],
+  [
+   "robocasa_gr1_v0",
+   "774b91596621ec39ac07b1d856bba5f64e78e758"
+  ],
+  [
+   "robotwin10_training_20261101",
+   "ba8a3ea7852635b8fe6732dcd48e882890c90d9e"
+  ],
+  [
+   "robotwin_eval_continue_20261030",
+   "4d2d5f9bf1986b9d64817cce342cbc07f12a53ba"
+  ],
+  [
+   "robotwin_full_v0_20261028",
+   "ab8988e30196b6666fe5a2e344e30a4bd9dfe9db"
+  ],
+  [
+   "scratch_init_v0",
+   "2744ace1b27ea6d69282071539e922e92fbb30e1"
+  ],
+  [
+   "v0-init-variants",
+   "b06aa7f62a18dc6f4f34e9652e2805bf9d1fd023"
+  ]
+ ],
+ "branches_note": "remote heads before this sync; every branch had evaluation_report tree d95a8f6 (identical)",
+ "huggingface": "nothing uploaded",
+ "note": "Additions and index/summary edits only: no result file is removed or overwritten. The previous bytes of the six changed shared files are kept under preserved_versions/2026-11-14."
+}
