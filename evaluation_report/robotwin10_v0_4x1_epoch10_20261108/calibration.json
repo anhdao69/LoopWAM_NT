@@ -1,0 +1,70 @@
+{
+  "checkpoint_sha256": "2407441a5f15bc19c5327cf79454d96cc8097b15a194b2ac0c0a50e7b3404af8",
+  "profiles": [
+    {
+      "name": "smoke_graph_w4",
+      "workers": 4,
+      "backend": "cuda-graph",
+      "passed": true,
+      "episodes": 16,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "press_stapler",
+        "scan_object"
+      ],
+      "episodes_per_cell": 2,
+      "seconds": 238.04006123542786,
+      "peak_gpu_mib": 50641,
+      "peak_added_mib": 50589,
+      "memory_margin_mib": 47246,
+      "successes": 16
+    },
+    {
+      "name": "smoke_graph_w8",
+      "workers": 8,
+      "backend": "cuda-graph",
+      "passed": true,
+      "episodes": 16,
+      "tasks": [
+        "adjust_bottle",
+        "grab_roller",
+        "press_stapler",
+        "scan_object"
+      ],
+      "episodes_per_cell": 2,
+      "seconds": 193.70705366134644,
+      "peak_gpu_mib": 72518,
+      "peak_added_mib": 72466,
+      "memory_margin_mib": 25369,
+      "successes": 16
+    }
+  ],
+  "selected": {
+    "name": "smoke_graph_w4",
+    "workers": 4,
+    "backend": "cuda-graph",
+    "passed": true,
+    "episodes": 16,
+    "tasks": [
+      "adjust_bottle",
+      "grab_roller",
+      "press_stapler",
+      "scan_object"
+    ],
+    "episodes_per_cell": 2,
+    "seconds": 238.04006123542786,
+    "peak_gpu_mib": 50641,
+    "peak_added_mib": 50589,
+    "memory_margin_mib": 47246,
+    "successes": 16
+  },
+  "finished_unix": 1794157614.4331555,
+  "basis": "Four workers selected after eight-worker sustained run failed GPU/renderer memory allocation; short-calibration timing does not override sustained reliability.",
+  "sustained_run_correction": {
+    "reason": "Eight workers exhausted GPU memory after 26\u201375 episodes in affected cells despite passing the short two-episode calibration. Use validated four-worker profile, previously stable over full benchmark.",
+    "rejected_workers": 8,
+    "selected_workers": 4,
+    "corrected_unix": 1794160637.099974
+  }
+}

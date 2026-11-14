@@ -1,0 +1,27 @@
+{
+  "observed_unix": 1794184303.4099934,
+  "observed_local": "2026-11-09T07:31:43+07:00",
+  "episodes": 392,
+  "successes": 379,
+  "planned": 2000,
+  "partial_sr_percent": 96.68367346938776,
+  "completed_cells": 2,
+  "running_cells": 4,
+  "failed_cells": [],
+  "log_error_matches": [
+    {
+      "file": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_epoch10_20261109/results/grab_roller__demo_randomized/attempt_01/eval.log",
+      "pattern": "Traceback (most recent call last)"
+    },
+    {
+      "file": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_epoch10_20261109/results/grab_roller__demo_clean/attempt_01/eval.log",
+      "pattern": "Traceback (most recent call last)"
+    }
+  ],
+  "estimate_method": "Four-slot task/setting scheduling using prior Dense-S12 epoch5 sustained four-worker durations; median current/baseline rate adjustment and live remaining fraction for active cells; 180 seconds finalization allowance. Provisional; task difficulty and retries affect duration.",
+  "historical_rate_multiplier": 1.0701653226068715,
+  "estimated_remaining_seconds": 10996.71880454792,
+  "estimated_finish_local": "2026-11-09T10:35+07:00",
+  "basis_baseline": "/data14t/anhdh35/loopwam_robotwin10_dense_s12_20261105/results/summary.json",
+  "log_scan_interpretation": "Traceback matches in the two completed grab_roller logs are caught expert scene-admission target_pose assertions; evaluator advances scene seed and continues before policy scoring. Both cells completed all 100 accepted episodes with exit code 0. No CUDA-OOM/Vulkan/segmentation fault patterns were found."
+}
